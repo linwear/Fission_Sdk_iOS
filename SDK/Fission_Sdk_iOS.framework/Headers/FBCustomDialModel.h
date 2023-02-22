@@ -1,0 +1,43 @@
+//
+//  FBCustomDialModel.h
+//  FissionBluetooth
+//
+//  Created by 裂变智能 on 2021/7/6.
+//
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
+/*
+ 自定义表盘参数｜Custom dial parameters
+*/
+@interface FBCustomDialModel : NSObject
+
+/** 使用的算法类型｜Type of algorithm used
+ 
+ @note  根据 FBAllConfigObject.firmwareConfig.useCompress 来标识使用算法｜According to FBAllConfigObject.firmwareConfig.useCompress to identify the algorithm used
+ */
+@property (nonatomic, assign) FB_ALGORITHMGENERATION algorithm;
+
+/** 表盘分辨率大小｜Dial resolution size */
+@property (nonatomic, assign) CGSize dialSize;
+
+/** 缩略图分辨率大小｜Thumbnail resolution size */
+@property (nonatomic, assign) CGSize thumbnailSize;
+
+/** 表盘背景图片｜Background picture of dial */
+@property (nonatomic, retain) UIImage *dialBackgroundImage;
+
+/** 表盘预览图片（长按手表切换表盘时显示的预览图）｜Dial preview image (the preview image displayed when long press watch to switch dial) */
+@property (nonatomic, retain) UIImage *dialPreviewImage;
+
+/** 表盘时间内容显示位置｜Time content display position of dial */
+@property (nonatomic, assign) FB_CUSTOMDIALTIMEPOSITION dialDisplayPosition;
+
+/** 表盘字体颜色｜Dial font color */
+@property (nonatomic, retain) UIColor *dialFontColor;
+
+@end
+
+NS_ASSUME_NONNULL_END

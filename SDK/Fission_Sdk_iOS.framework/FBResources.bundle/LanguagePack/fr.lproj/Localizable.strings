@@ -1,0 +1,103 @@
+/* 
+  Localizable.strings
+  Fission_Sdk_iOS
+
+  Created by 裂变智能 on 2021/4/1.
+  
+*/
+
+//****************************** 🇫🇷法语 ******************************
+
+/**
+ FBAtCommand
+ */
+"蓝牙未打开或不支持" = "Bluetooth n'est pas allumé ou n'est pas pris en charge";
+"尚未连接到设备" = "Non connecté à l'appareil";
+"设备尚未初始化完成" = "L'appareil n'a pas été initialisé";
+"写指令失败，或缺少连接参数" = "Échec de l'instruction d'écriture ou paramètre de connexion manquant";
+"应答超时" = "Délai de réponse";
+"AT指令异常，无效指令/无效参数" = "At instruction exception, instruction invalide / paramètre invalide";
+"参数错误，UTC时间设置不能为0" = "Erreur de paramètre, le réglage du temps UTC ne peut pas être 0";
+"参数错误，时区设置需大于等于-720，小于等于+720" = "Erreur de paramètre, le réglage du fuseau horaire doit être supérieur ou égal à - 720 et inférieur ou égal à + 720";
+"数据长度错误" = "Erreur de longueur des données";
+"设备初始化失败，初始化超时" = "Échec de l'initialisation du périphérique, délai d'initialisation";
+
+"执行失败，低压无法执行" = "Échec de l'exécution, basse tension impossible à exécuter";
+"指令状态错误" = "Erreur d'état de la commande";
+"常规运动中，请先停止当前运动" = "En mouvement normal, arrêtez d'abord le mouvement actuel";
+"正在通话中，无法执行此指令" = "Impossible d'exécuter cette commande pendant l'appel";
+"手表取消开启运动" = "Mouvement d'annulation de la montre";
+
+/**
+ FBBgCommand
+ */
+"参数错误，开始查询时间不能大于结束查询时间" = "Erreur de paramètre, l'heure de début de la requête ne peut pas être supérieure à l'heure de fin de la requête";
+
+"参数错误，用户Id设置需大于0，小于0xFFFFFFFF（4294967295）" = "Erreur de paramètre, le réglage de l'ID utilisateur doit être supérieur à 0 et inférieur à 0xffffff (4294967295)";
+"参数错误，用户昵称设置长度需小于32字节" = "Erreur de paramètre, la longueur de réglage du surnom de l'utilisateur doit être inférieure à 32 octets";
+"参数错误，用户身高设置需大于100cm，小于250cm" = "Erreur de paramètre, le réglage de la hauteur de l'utilisateur doit être supérieur à 100 cm et inférieur à 250 cm";
+"参数错误，用户体重设置需大于30kg，小于250kg" = "Erreur de paramètre, le poids de l'utilisateur doit être supérieur à 30 kg et inférieur à 250 kg";
+"参数错误，时区设置需大于等于-720，小于等于+720" = "Erreur de paramètre, le réglage du fuseau horaire doit être supérieur ou égal à - 720 et inférieur ou égal à + 720";
+"参数错误，用户年龄设置需大于5岁，小于130岁" = "Erreur de paramètre, l'âge de l'utilisateur doit être supérieur à 5 ans et inférieur à 130 ans";
+"参数错误，用户步幅设置需大于40，小于90" = "Erreur de paramètre, le réglage de l'étape utilisateur doit être supérieur à 40 et inférieur à 90";
+
+"参数错误，序号ID设置需大于等于0，小于等于%d" = "Erreur de paramètre, le réglage de l'id de séquence doit être supérieur ou égal à 0 et inférieur ou égal à %d";
+"参数错误，描述内容设置长度需小于24字节" = "Erreur de paramètre, la longueur de réglage du contenu de la description doit être inférieure à 24 octets";
+"参数错误，日期时间设置不能为空，格式：YYYY-MM-dd HH:mm" = "Erreur de paramètre, le réglage de la date et de l'heure ne peut pas être vide, format: YYYY-MM-dd HH:mm";
+"参数错误，时间设置不能为空，格式：HH:mm" = "Erreur de paramètre, le réglage du temps ne peut pas être vide, format: HH:mm";
+"参数错误，星期未选择" = "Erreur de paramètre, semaine non sélectionnée";
+"参数错误，星期选中标记设置不能为空（星期日、星期一、星期二、星期三、星期四、星期五、星期六）" = "Mauvais paramètre, la coche de la semaine ne peut pas être vide (dimanche, lundi, mardi, mercredi, jeudi, vendredi, samedi)";
+
+"参数错误，起始时间，一天的绝对分钟（大于等于0分钟，小于等于1440分钟）" = "Erreur de paramètre, heure de début, minutes absolues de la journée (0 min ou plus, 1440 min ou moins)";
+"参数错误，结束时间，一天的绝对分钟（大于等于0分钟，小于等于1440分钟）" = "Erreur de paramètre, heure de fin, minutes absolues de la journée (0 min ou plus, 1440 min ou moins)";
+"参数错误，起始时间需小于结束时间" = "Erreur de paramètre, l'heure de début doit être inférieure à l'heure de fin";
+"参数错误，检测时间需大于0" = "Erreur de paramètre, le temps de détection doit être supérieur à 0";
+"参数错误，目标步数需大于0" = "Erreur de paramètre, le nombre d'étapes de destination doit être supérieur à 0";
+
+"参数错误，目标卡路里消耗需大于0" = "Erreur de paramètre, la consommation calorique cible doit être supérieure à 0";
+"参数错误，目标里程数需大于0" = "Erreur de paramètre, le kilométrage cible doit être supérieur à 0";
+"参数错误，目标运动时间需大于0" = "Erreur de paramètre, le temps de mouvement cible doit être supérieur à 0";
+
+"参数错误，天气数据推送至少1天，最多%d天" = "Erreur de paramètre, données météorologiques poussées pendant au moins 1 jour et au plus %d jours";
+"参数错误，序号设置值范围0-%d" = "Erreur de paramètre, plage de réglage du numéro de séquence 0 - %d";
+
+"参数错误，提前提醒天数，范围为1-3天" = "Erreur de paramètre, nombre de jours de rappel à l'avance, plage 1 - 3 jours";
+"参数错误，经期天数，范围为3-15天" = "Mauvais paramètre, jours de période, plage de 3 - 15 jours";
+"参数错误，经期周期天数，范围为17-60天" = "Parameter error, period period days, range 17 - 60 days";
+"参数错误，最后一次经期年月日，年份范围为最近两年（去年，今年），月份范围为1-12，日数范围为1-31" = "Parameter error, last menstrual period mm / JJ / AA, Year Range is the last two years (last year, this year), month Range is 1 - 12, Day Range is 1 - 31";
+"参数错误，提醒时间，小时范围为0-23，分钟范围为0-59" = "Erreur de paramètre, temps de rappel, plage d'heures 0 - 23, plage de minutes 0 - 59";
+
+"参数错误，心率提醒上限值需大于等于30，小于等于200" = "Erreur de paramètre, la valeur supérieure de rappel de fréquence cardiaque doit être supérieure ou égale à 30, inférieure ou égale à 200";
+"参数错误，心率提醒下限值需大于等于30，小于等于200" = "Erreur de paramètre, la valeur inférieure de rappel de fréquence cardiaque doit être supérieure ou égale à 30, inférieure ou égale à 200";
+"参数错误，心率提醒下限值需小于心率提醒上限值" = "Erreur de paramètre, la valeur inférieure de l'alerte de fréquence cardiaque doit être inférieure à la valeur supérieure de l'alerte de fréquence cardiaque";
+"参数错误，心率值连续超标次数不能小于1" = "Erreur de paramètre, le nombre de dépassements consécutifs de la valeur de fréquence cardiaque ne peut être inférieur à 1";
+
+"参数错误，常用联系人最多不能超过50个" = "Erreur de paramètre, pas plus de 50 favoris";
+
+"执行失败" = "Échec de l'exécution";
+"失败，数据校验未通过" = "Échec de la vérification des données";
+"数据无效(格式错误)" = "Données invalides (mauvais format)";
+"通信中(系统忙)" = "Communication (système occupé)";
+"无效指令" = "Instruction invalide";
+"协议版本不符" = "La version du Protocole n'est pas conforme";
+"收到正确的结果" = "Résultat correct reçu";
+"数据错误" = "Erreur de données";
+"接收超时" = "Délai de réception";
+"内存超出" = "Mémoire dépassée";
+"校验和错误" = "Erreur de somme de contrôle";
+"参数错误" = "Erreur de paramètre";
+"数据长度错误" = "Erreur de longueur des données";
+"未知的错误" = "Erreur inconnue";
+
+/**
+ FBBluetoothOTA
+ */
+"参数错误，bin文件错误" = "Erreur de paramètre, erreur de fichier Bin";
+"当前连接的设备OTA升级不可用" = "La mise à niveau en direct du périphérique actuellement connecté n'est pas disponible";
+"OTA升级失败，切换到OTA mode失败" = "La mise à niveau de l'OTA a échoué, le passage au mode OTA a échoué";
+"OTA升级失败，不支持普通升级" = "La mise à niveau en direct a échoué, la mise à niveau normale n'est pas prise en charge";
+"OTA升级失败，不支持静默升级" = "La mise à jour en direct a échoué, la mise à jour silencieuse n'est pas prise en charge";
+"手表电量低于30%" = "La puissance de la montre est inférieure à 30%";
+
+"操作频繁，请稍后重试..." = "Opération fréquente, Veuillez réessayer plus tard...";
+"设备处于禁止OTA状态，请稍后重试..." = "L'appareil est en mode OTA désactivé, Veuillez réessayer plus tard...";
