@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="LWCustomDialColorCollectionCell">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zKJ-i8-sH3">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RIV-Jr-jq3">
+                                <rect key="frame" x="5" y="5" width="40" height="40"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="RIV-Jr-jq3" firstAttribute="top" secondItem="zKJ-i8-sH3" secondAttribute="top" constant="5" id="8Rd-AK-IQS"/>
+                            <constraint firstItem="RIV-Jr-jq3" firstAttribute="leading" secondItem="zKJ-i8-sH3" secondAttribute="leading" constant="5" id="9R1-VZ-Niv"/>
+                            <constraint firstAttribute="trailing" secondItem="RIV-Jr-jq3" secondAttribute="trailing" constant="5" id="Mkx-Of-mQU"/>
+                            <constraint firstAttribute="bottom" secondItem="RIV-Jr-jq3" secondAttribute="bottom" constant="5" id="O7k-RV-5G7"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="zKJ-i8-sH3" secondAttribute="bottom" id="0OV-vI-aAM"/>
+                <constraint firstItem="zKJ-i8-sH3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="IVj-pw-Pd3"/>
+                <constraint firstItem="zKJ-i8-sH3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="eti-s5-KWR"/>
+                <constraint firstAttribute="trailing" secondItem="zKJ-i8-sH3" secondAttribute="trailing" id="txN-Qw-mgT"/>
+            </constraints>
+            <connections>
+                <outlet property="bgView" destination="zKJ-i8-sH3" id="vja-6v-itz"/>
+                <outlet property="colorView" destination="RIV-Jr-jq3" id="d9B-RS-KNi"/>
+            </connections>
+            <point key="canvasLocation" x="82.608695652173921" y="72.991071428571431"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

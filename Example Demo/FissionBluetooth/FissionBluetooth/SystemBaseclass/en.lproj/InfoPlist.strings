@@ -1,0 +1,16 @@
+/* 
+  InfoPlist.strings
+  FissionBluetooth
+
+  Created by 裂变智能 on 2023/1/5.
+  
+*/
+
+"NSBluetoothPeripheralUsageDescription" = "APP needs you to allow access to Bluetooth permissions to connect to devices";
+"NSBluetoothAlwaysUsageDescription" = "APP requires you to allow access to Bluetooth permissions to connect to devices";
+"NSCameraUsageDescription" = "APP needs you to allow access to the camera permission to scan the QR code or take a photo to customize the watch face";
+"NSPhotoLibraryUsageDescription" = "APP requires you to allow access to the photo album permission to select pictures to customize the watch face";
+"NSPhotoLibraryAddUsageDescription" = "APP requires you to allow access to the photo album permission to select pictures to customize the watch face";
+"NSLocationAlwaysAndWhenInUseUsageDescription" = "APP requires you to allow access to location permissions to locate and obtain current weather information";
+"NSLocationWhenInUseUsageDescription" = "APP requires you to allow access to location permissions to locate and obtain current weather information";
+"NSContactsUsageDescription" = "APP requires you to allow access to the address book permission to select contacts to sync to the device";

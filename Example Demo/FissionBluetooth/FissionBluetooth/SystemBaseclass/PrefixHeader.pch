@@ -1,0 +1,143 @@
+//
+//  PrefixHeader.pch
+//  FissionBluetooth
+//
+//  Created by 裂变智能 on 2021/1/5.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+//#ifdef DEBUG
+#define FBLog(format, ...) printf("[%s] %s [第%d行] %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
+
+
+// 判断字符串是否为空
+#define StringIsEmpty(string) ((![string isKindOfClass:[NSString class]])||[string isEqualToString:@""] || (string == nil) || [string isEqualToString:@""] || [string isKindOfClass:[NSNull class]]||[[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0)
+
+// 字符串防空处理
+#define StringHandle(string) (StringIsEmpty(string) ? @"" : string)
+
+#define FONT(I) [UIFont systemFontOfSize:I]
+#define COLOR_RGB(r,g,b,a)   [UIColor colorWithRed: r/255.0 green: g/255.0 blue: b/255.0 alpha: a]
+
+// rgb颜色(十六进制)
+#define COLOR_HEX(HexValue,a) [UIColor colorWithRed:((float)((HexValue & 0xFF0000) >> 16))/255.0 green:((float)((HexValue & 0xFF00) >> 8))/255.0 blue:((float)(HexValue & 0xFF))/255.0 alpha:a]
+//状态栏+导航栏高度
+#define k_SafeAreaBottomMargin (IS_NOTCHED_SCREEN ? 34.0 : 0.0)
+
+// 对 self 弱/强 引用
+#define WeakSelf(obj) __weak typeof(obj) weakSelf = obj
+
+#define IMAGE_NAME(name)   [UIImage imageNamed:name]
+
+// GCD延时处理
+#define GCD_AFTER(second, block) dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)second * NSEC_PER_SEC), dispatch_get_main_queue(), block)
+
+// GCD主队列(主线程执行)
+#define GCD_MAIN_QUEUE(block) dispatch_async(dispatch_get_main_queue(), block)
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import <Foundation/Foundation.h>
+
+/// 自定义功能状态变更通知｜Custom Feature Status Change Notification
+static NSString *const FISSION_SDK_FUNCTIONSTATUSCHANGE = @"FISSION_SDK_FUNCTIONSTATUSCHANGE";
+
+/// 自定义连接绑定通知｜Custom connection binding notification
+static NSString *const FISSION_SDK_CONNECTBINGSTATE = @"FISSION_SDK_CONNECTBINGSTATE";
+typedef NS_ENUM(NSUInteger, CONNECTBINGSTATE) {
+    CONNECTBINGSTATE_DISCONNECT           = 100011,  // 连接断开｜Disconnect
+    CONNECTBINGSTATE_ERROR                = 100012,  // 连接失败｜Connection failed
+    CONNECTBINGSTATE_BINDING              = 100013,  // 连接成功，绑定中｜The connection is successful, binding
+    CONNECTBINGSTATE_BINDING_FAILED       = 100014,  // 绑定失败｜Binding failed
+    CONNECTBINGSTATE_GETDEVICEINFO        = 100015,  // 绑定成功，获取设备信息中｜The binding is successful, and the device information is being obtained
+    CONNECTBINGSTATE_GETDEVICEINFO_FAILED = 100016,  // 获取设备信息失败｜Failed to get device information
+    CONNECTBINGSTATE_COMPLETE             = 100017,  // 设备信息获取成功，完成｜The device information is obtained successfully, complete
+};
+
+/// 拍照｜Take Photo
+static NSString *const FISSION_SDK_WATCHCLICKTAKEPHOTO = @"FISSION_SDK_WATCHCLICKTAKEPHOTO";
+
+#import "FBLogManager.h"
+#import "LWLanguageLocalizble.h"
+#import <QMUIKit/QMUIKit.h>
+#import "LWNetworkingManager.h"
+#import "UIViewController+CWLateralSlide.h"
+#import <Bugly/Bugly.h>
+#import <IQKeyboardManager.h>
+#import <SVProgressHUD/SVProgressHUD.h>
+#import "MJExtension/MJExtension.h"
+#import <SDWebImage/SDWebImage.h>
+#import <Masonry/Masonry.h>
+#import <TZImagePickerController/TZImagePickerController.h>
+#import "SGQRCode.h"
+#import <SDAutoLayout/SDAutoLayout.h>
+#import "BRDatePickerView.h"
+
+#import <Fission_Sdk_iOS/Fission_Sdk_iOS.h> // 裂变SDK
+
+#import "FBBaseNavigationController.h"
+#import "LWBaseViewController.h"
+#import "FBWebViewController.h"
+#import "NSObject+HUD.h"
+#import "LWNetworkingManager.h"
+#import "Tools.h"
+#import "DeviceListModel.h"
+#import "NSObject+Authorized.h"
+
+#pragma mark - 枚举相关
+// 自定义选择的类型
+typedef NS_ENUM(NSUInteger, LWCustomDialSelectMode) {
+    LWCustomDialSelectFontColor,       //字体颜色
+    LWCustomDialSelectFontStyle,       //字体样式
+    LWCustomDialSelectBgImage,         //背景图
+    LWCustomDialSelectPosition,        //时间位置
+    LWCustomDialSelectTimeTopStyle,    //时间上方内容
+    LWCustomDialSelectTimeBottomStyle, //时间下方内容
+    LWCustomDialSelectRestoreDefault,  //恢复默认
+};
+
+// 文字样式 (拓步)
+typedef NS_ENUM(NSUInteger, LWCustomDialStyle) {
+    LWCustomDialStyleNone,
+    LWCustomDialStyleA, // 魔样
+    LWCustomDialStyleB,
+    LWCustomDialStyleC,
+    LWCustomDialStyleD,
+    LWCustomDialStyleE,
+    LWCustomDialStyleF,
+    LWCustomDialStyleG, // 舟海
+    LWCustomDialStyleH, // 优创亿
+};
+
+// 时间位置:上,下,左,右,中间 (拓步)
+typedef NS_ENUM(NSInteger, LWCustomTimeLocationStyle) {
+    LWCustomTimeLocationStyleTop = 0,
+    LWCustomTimeLocationStyleBottom,
+    LWCustomTimeLocationStyleLeft,
+    LWCustomTimeLocationStyleRight,
+    LWCustomTimeLocationStyleCentre,
+};
+
+// 时间上方内容: 日期, 睡眠, 心率, 计步 (魔样)
+typedef NS_ENUM(NSInteger, LWCustomTimeTopStyle)  {
+    LWCustomTimeTopStyleNone,
+    LWCustomTimeTopStyleDate,
+    LWCustomTimeTopStyleSleep,
+    LWCustomTimeTopStyleHeart,
+    LWCustomTimeTopStyleStep,
+};
+
+
+// 时间下方内容: 日期, 睡眠, 心率, 计步 (魔样)
+typedef NS_ENUM(NSInteger, LWCustomTimeBottomStyle) {
+    LWCustomTimeBottomStyleNone,
+    LWCustomTimeBottomStyleDate,
+    LWCustomTimeBottomStyleSleep,
+    LWCustomTimeBottomStyleHeart,
+    LWCustomTimeBottomStyleStep,
+};
+
+#endif /* PrefixHeader_pch */

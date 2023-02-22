@@ -1,0 +1,1723 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1E29CF31781E67E402257E0F /* Pods_FissionBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EE9E81A4ED5C0501FB81F3 /* Pods_FissionBluetooth.framework */; };
+		1EF3A85EB70AB3172F3AF72A /* Pods_FissionBluetooth_FissionBluetoothUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC02F02B45C16A32981171D /* Pods_FissionBluetooth_FissionBluetoothUITests.framework */; };
+		590B97712966682600D31A76 /* FBBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 590B97702966682600D31A76 /* FBBaseNavigationController.m */; };
+		590B977429667AC300D31A76 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 590B977629667AC300D31A76 /* InfoPlist.strings */; };
+		590B977A2966833800D31A76 /* NSObject+Authorized.m in Sources */ = {isa = PBXBuildFile; fileRef = 590B97792966833800D31A76 /* NSObject+Authorized.m */; };
+		590B977D2966A61B00D31A76 /* FBCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 590B977C2966A61B00D31A76 /* FBCameraViewController.m */; };
+		590B97812967B7EF00D31A76 /* FBRadarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 590B97802967B7EF00D31A76 /* FBRadarView.m */; };
+		590B97842967F08F00D31A76 /* FBLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 590B97832967F08F00D31A76 /* FBLogManager.m */; };
+		590B97872967FE1A00D31A76 /* FBLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 590B97862967FE1A00D31A76 /* FBLogViewController.m */; };
+		590B978B29680A6300D31A76 /* FBLogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 590B978929680A6300D31A76 /* FBLogTableViewCell.m */; };
+		590B978C29680A6300D31A76 /* FBLogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 590B978A29680A6300D31A76 /* FBLogTableViewCell.xib */; };
+		590B978F2968117100D31A76 /* FBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 590B978E2968117100D31A76 /* FBWebViewController.m */; };
+		5923587F293EDED300E5379C /* LWPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5923580F293EDED300E5379C /* LWPersonModel.m */; };
+		59235880293EDED300E5379C /* DialListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235810293EDED300E5379C /* DialListModel.m */; };
+		59235881293EDED300E5379C /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235811293EDED300E5379C /* Tools.m */; };
+		59235883293EDED300E5379C /* LWCustomDialModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235813293EDED300E5379C /* LWCustomDialModel.m */; };
+		59235884293EDED300E5379C /* NSObject+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235818293EDED300E5379C /* NSObject+HUD.m */; };
+		59235885293EDED300E5379C /* ClockDialListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5923581D293EDED300E5379C /* ClockDialListViewController.m */; };
+		59235886293EDED300E5379C /* ClockInforViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5923581E293EDED300E5379C /* ClockInforViewController.xib */; };
+		59235887293EDED300E5379C /* MotionPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5923581F293EDED300E5379C /* MotionPushViewController.m */; };
+		59235888293EDED300E5379C /* SportTargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235821293EDED300E5379C /* SportTargetViewController.m */; };
+		59235889293EDED300E5379C /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235826293EDED300E5379C /* ListViewController.m */; };
+		5923588A293EDED300E5379C /* ClockDialListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59235828293EDED300E5379C /* ClockDialListViewController.xib */; };
+		5923588B293EDED300E5379C /* ChipFlashSpatialVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5923582B293EDED300E5379C /* ChipFlashSpatialVC.m */; };
+		5923588C293EDED300E5379C /* BinFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5923582C293EDED300E5379C /* BinFileViewController.m */; };
+		5923588D293EDED300E5379C /* HeartRateReminderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5923582E293EDED300E5379C /* HeartRateReminderVC.m */; };
+		5923588E293EDED300E5379C /* LWCustomDialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5923582F293EDED300E5379C /* LWCustomDialViewController.m */; };
+		59235890293EDED300E5379C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235831293EDED300E5379C /* ViewController.m */; };
+		59235891293EDED300E5379C /* HeartRateReminderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59235832293EDED300E5379C /* HeartRateReminderVC.xib */; };
+		59235893293EDED300E5379C /* WaterClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235834293EDED300E5379C /* WaterClockViewController.m */; };
+		59235894293EDED300E5379C /* FemaleCircadianCycleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235835293EDED300E5379C /* FemaleCircadianCycleVC.m */; };
+		59235895293EDED300E5379C /* WaterClockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59235836293EDED300E5379C /* WaterClockViewController.xib */; };
+		59235896293EDED300E5379C /* HeartRateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59235839293EDED300E5379C /* HeartRateViewController.xib */; };
+		59235897293EDED300E5379C /* MessagePushSwitchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5923583A293EDED300E5379C /* MessagePushSwitchVC.xib */; };
+		59235898293EDED300E5379C /* MessagePushSwitchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5923583B293EDED300E5379C /* MessagePushSwitchVC.m */; };
+		59235899293EDED300E5379C /* SedentaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5923583E293EDED300E5379C /* SedentaryViewController.m */; };
+		5923589A293EDED300E5379C /* NotDisturbViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5923583F293EDED300E5379C /* NotDisturbViewController.xib */; };
+		5923589B293EDED300E5379C /* ClockInforListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59235841293EDED300E5379C /* ClockInforListVC.xib */; };
+		5923589C293EDED300E5379C /* HrCheckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59235842293EDED300E5379C /* HrCheckViewController.xib */; };
+		5923589D293EDED300E5379C /* BrightScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59235843293EDED300E5379C /* BrightScreenViewController.xib */; };
+		5923589E293EDED300E5379C /* ChipFlashSpatialVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59235844293EDED300E5379C /* ChipFlashSpatialVC.xib */; };
+		5923589F293EDED300E5379C /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235845293EDED300E5379C /* QRViewController.m */; };
+		592358A0293EDED300E5379C /* BrightScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235846293EDED300E5379C /* BrightScreenViewController.m */; };
+		592358A1293EDED300E5379C /* ClockInforListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235847293EDED300E5379C /* ClockInforListVC.m */; };
+		592358A2293EDED300E5379C /* UserInforViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235849293EDED300E5379C /* UserInforViewController.m */; };
+		592358A3293EDED300E5379C /* ClockInforViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5923584A293EDED300E5379C /* ClockInforViewController.m */; };
+		592358A5293EDED300E5379C /* HrCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5923584C293EDED300E5379C /* HrCheckViewController.m */; };
+		592358A6293EDED300E5379C /* SportTargetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5923584E293EDED300E5379C /* SportTargetViewController.xib */; };
+		592358A7293EDED300E5379C /* HeartRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235850293EDED300E5379C /* HeartRateViewController.m */; };
+		592358A8293EDED300E5379C /* NotDisturbViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235852293EDED300E5379C /* NotDisturbViewController.m */; };
+		592358A9293EDED300E5379C /* FemaleCircadianCycleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59235856293EDED300E5379C /* FemaleCircadianCycleVC.xib */; };
+		592358AA293EDED300E5379C /* WeatherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235859293EDED300E5379C /* WeatherCell.m */; };
+		592358AB293EDED300E5379C /* LWCustomDialColorCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5923585A293EDED300E5379C /* LWCustomDialColorCollectionCell.xib */; };
+		592358AC293EDED300E5379C /* LWCustomDialPickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5923585C293EDED300E5379C /* LWCustomDialPickerViewCell.xib */; };
+		592358AD293EDED300E5379C /* ClockListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5923585E293EDED300E5379C /* ClockListTableViewCell.m */; };
+		592358AE293EDED300E5379C /* ClockListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5923585F293EDED300E5379C /* ClockListTableViewCell.xib */; };
+		592358AF293EDED300E5379C /* LWPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235860293EDED300E5379C /* LWPersonCell.m */; };
+		592358B0293EDED300E5379C /* LWCustomDialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235861293EDED300E5379C /* LWCustomDialCell.m */; };
+		592358B1293EDED300E5379C /* LWCustomDialColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235862293EDED300E5379C /* LWCustomDialColorCell.m */; };
+		592358B2293EDED300E5379C /* CollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59235863293EDED300E5379C /* CollCell.xib */; };
+		592358B3293EDED300E5379C /* FemaleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59235864293EDED300E5379C /* FemaleCell.xib */; };
+		592358B4293EDED300E5379C /* WeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59235865293EDED300E5379C /* WeatherCell.xib */; };
+		592358B5293EDED300E5379C /* LWCustomDialColorCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235867293EDED300E5379C /* LWCustomDialColorCollectionCell.m */; };
+		592358B6293EDED300E5379C /* FemaleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235868293EDED300E5379C /* FemaleCell.m */; };
+		592358B7293EDED300E5379C /* PushSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5923586A293EDED300E5379C /* PushSwitchCell.xib */; };
+		592358B8293EDED300E5379C /* LWCustomDialPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5923586B293EDED300E5379C /* LWCustomDialPickerView.xib */; };
+		592358B9293EDED300E5379C /* LWCustomDialHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5923586C293EDED300E5379C /* LWCustomDialHeaderView.m */; };
+		592358BA293EDED300E5379C /* LWCustomDialColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5923586D293EDED300E5379C /* LWCustomDialColorCell.xib */; };
+		592358BB293EDED300E5379C /* LWWaveProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 5923586F293EDED300E5379C /* LWWaveProgress.m */; };
+		592358BC293EDED300E5379C /* PushSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235870293EDED300E5379C /* PushSwitchCell.m */; };
+		592358BD293EDED300E5379C /* LWCustomDialTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235871293EDED300E5379C /* LWCustomDialTableView.m */; };
+		592358BE293EDED300E5379C /* LWCustomDialPickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235873293EDED300E5379C /* LWCustomDialPickerViewCell.m */; };
+		592358BF293EDED300E5379C /* CollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59235878293EDED300E5379C /* CollCell.m */; };
+		592358C0293EDED300E5379C /* LWPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5923587B293EDED300E5379C /* LWPersonCell.xib */; };
+		592358C1293EDED300E5379C /* LWCustomDialPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5923587C293EDED300E5379C /* LWCustomDialPickerView.m */; };
+		592358C2293EE30500E5379C /* Fission_Sdk_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59235807293ED8D000E5379C /* Fission_Sdk_iOS.framework */; };
+		592358C3293EE30500E5379C /* Fission_Sdk_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59235807293ED8D000E5379C /* Fission_Sdk_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		592358C4293EE30900E5379C /* RTKLEFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59235808293ED8D000E5379C /* RTKLEFoundation.framework */; };
+		592358C5293EE30900E5379C /* RTKLEFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59235808293ED8D000E5379C /* RTKLEFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		592358C6293EE30B00E5379C /* RTKOTASDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59235809293ED8D000E5379C /* RTKOTASDK.framework */; };
+		592358C7293EE30B00E5379C /* RTKOTASDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59235809293ED8D000E5379C /* RTKOTASDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		592358CA293EF6FE00E5379C /* LWNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358C8293EF6FE00E5379C /* LWNetworkingManager.m */; };
+		592358CD293F121B00E5379C /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358CC293F121B00E5379C /* LeftViewController.m */; };
+		592358D1293F26C100E5379C /* QMUIConfigurationTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358D0293F26C100E5379C /* QMUIConfigurationTemplate.m */; };
+		592358D4293F2ACB00E5379C /* LWLanguageLocalizble.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358D3293F2ACB00E5379C /* LWLanguageLocalizble.m */; };
+		592358D9293F2C8C00E5379C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 592358DB293F2C8C00E5379C /* Localizable.strings */; };
+		592358DF293F4E3000E5379C /* LWDeviceListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358DD293F4E3000E5379C /* LWDeviceListCell.m */; };
+		592358E229402AFE00E5379C /* DeviceListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358E129402AFE00E5379C /* DeviceListModel.m */; };
+		592358E52940B04100E5379C /* LWBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358E42940B04100E5379C /* LWBaseViewController.m */; };
+		592358E929418AE200E5379C /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358E629418AE200E5379C /* WeatherViewController.m */; };
+		592358EA29418AE200E5379C /* WeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592358E729418AE200E5379C /* WeatherViewController.xib */; };
+		592358ED2941B4B000E5379C /* LWContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358EB2941B4B000E5379C /* LWContactViewController.m */; };
+		592358F02941B52D00E5379C /* LWPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358EF2941B52D00E5379C /* LWPersonViewController.m */; };
+		592358F32941BB7800E5379C /* LWContactSearchBarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358F22941BB7800E5379C /* LWContactSearchBarHeaderView.m */; };
+		592A9FE525A4173A00CC515E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 592A9FE425A4173A00CC515E /* AppDelegate.m */; };
+		592A9FEE25A4173A00CC515E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 592A9FEC25A4173A00CC515E /* Main.storyboard */; };
+		592A9FF025A4173B00CC515E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 592A9FEF25A4173B00CC515E /* Assets.xcassets */; };
+		592A9FF325A4173B00CC515E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 592A9FF125A4173B00CC515E /* LaunchScreen.storyboard */; };
+		592A9FF625A4173B00CC515E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 592A9FF525A4173B00CC515E /* main.m */; };
+		592AA00025A4173C00CC515E /* FissionBluetoothTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 592A9FFF25A4173C00CC515E /* FissionBluetoothTests.m */; };
+		592AA00B25A4173C00CC515E /* FissionBluetoothUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 592AA00A25A4173C00CC515E /* FissionBluetoothUITests.m */; };
+		593FBF67298A36DE00986F13 /* MotionPushCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 593FBF65298A36DE00986F13 /* MotionPushCollectionViewCell.m */; };
+		593FBF68298A36DE00986F13 /* MotionPushCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593FBF66298A36DE00986F13 /* MotionPushCollectionViewCell.xib */; };
+		59C6CC4B25ADA95F007C2521 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C6CC4A25ADA95F007C2521 /* AudioToolbox.framework */; };
+		59E7BE68268C13C400B8001A /* ic_dial_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE50268C13C400B8001A /* ic_dial_button@2x.png */; };
+		59E7BE69268C13C400B8001A /* examples_img_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE51268C13C400B8001A /* examples_img_03.png */; };
+		59E7BE6A268C13C400B8001A /* ic_dial_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE52268C13C400B8001A /* ic_dial_button@3x.png */; };
+		59E7BE6B268C13C400B8001A /* dial_style2_black.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE53268C13C400B8001A /* dial_style2_black.jpg */; };
+		59E7BE6C268C13C400B8001A /* ic_dial_button_d@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE54268C13C400B8001A /* ic_dial_button_d@2x.png */; };
+		59E7BE6D268C13C400B8001A /* dial_style5_black.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE55268C13C400B8001A /* dial_style5_black.jpg */; };
+		59E7BE6E268C13C400B8001A /* srpText_hr.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE56268C13C400B8001A /* srpText_hr.png */; };
+		59E7BE6F268C13C400B8001A /* srpText_date.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE57268C13C400B8001A /* srpText_date.png */; };
+		59E7BE70268C13C400B8001A /* ic_dial_button_d@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE58268C13C400B8001A /* ic_dial_button_d@3x.png */; };
+		59E7BE71268C13C400B8001A /* dial_style1_white.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE59268C13C400B8001A /* dial_style1_white.jpg */; };
+		59E7BE72268C13C400B8001A /* dial_style3_yellow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE5A268C13C400B8001A /* dial_style3_yellow.jpg */; };
+		59E7BE73268C13C400B8001A /* srpText_steps.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE5B268C13C400B8001A /* srpText_steps.png */; };
+		59E7BE74268C13C400B8001A /* srpText_sleep.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE5C268C13C400B8001A /* srpText_sleep.png */; };
+		59E7BE75268C13C400B8001A /* srpText_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE5D268C13C400B8001A /* srpText_time.png */; };
+		59E7BE76268C13C400B8001A /* dial_style4_green.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE5E268C13C400B8001A /* dial_style4_green.jpg */; };
+		59E7BE77268C13C400B8001A /* hotnoon_front_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE5F268C13C400B8001A /* hotnoon_front_image.jpg */; };
+		59E7BE78268C13C400B8001A /* zhouhai_font_1001_TEXT.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE60268C13C400B8001A /* zhouhai_font_1001_TEXT.png */; };
+		59E7BE79268C13C400B8001A /* pic_custom75x75px@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE62268C13C400B8001A /* pic_custom75x75px@3x.png */; };
+		59E7BE7A268C13C400B8001A /* pic_dial_circular@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE63268C13C400B8001A /* pic_dial_circular@3x.png */; };
+		59E7BE7B268C13C400B8001A /* pic_dial_rectangle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE64268C13C400B8001A /* pic_dial_rectangle@3x.png */; };
+		59E7BE7C268C13C400B8001A /* pic_custom126x154px@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE65268C13C400B8001A /* pic_custom126x154px@3x.png */; };
+		59E7BE7D268C13C400B8001A /* pic_custom240x240px@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE66268C13C400B8001A /* pic_custom240x240px@3x.png */; };
+		59E7BEA4268C7B8A00B8001A /* pic_custom360x360.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BEA3268C7B8A00B8001A /* pic_custom360x360.png */; };
+		59E7BEB8268EAE4A00B8001A /* rgbA.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BEB7268EAE4A00B8001A /* rgbA.png */; };
+		59E7BED92695980B00B8001A /* rgb.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BED82695980B00B8001A /* rgb.bmp */; };
+		59E7BF9E2696893700B8001A /* 缩略图.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF6D2696893700B8001A /* 缩略图.bmp */; };
+		59E7BF9F2696893700B8001A /* 日期8.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF6F2696893700B8001A /* 日期8.bmp */; };
+		59E7BFA02696893700B8001A /* 日期9.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF702696893700B8001A /* 日期9.bmp */; };
+		59E7BFA12696893700B8001A /* 日期7.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF712696893700B8001A /* 日期7.bmp */; };
+		59E7BFA22696893700B8001A /* 日期6.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF722696893700B8001A /* 日期6.bmp */; };
+		59E7BFA32696893700B8001A /* 日期4.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF732696893700B8001A /* 日期4.bmp */; };
+		59E7BFA42696893700B8001A /* 日期5.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF742696893700B8001A /* 日期5.bmp */; };
+		59E7BFA52696893700B8001A /* 日期1.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF752696893700B8001A /* 日期1.bmp */; };
+		59E7BFA62696893700B8001A /* 日期0.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF762696893700B8001A /* 日期0.bmp */; };
+		59E7BFA72696893700B8001A /* 日期2.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF772696893700B8001A /* 日期2.bmp */; };
+		59E7BFA82696893700B8001A /* 日期3.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF782696893700B8001A /* 日期3.bmp */; };
+		59E7BFA92696893700B8001A /* 日期11.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF792696893700B8001A /* 日期11.bmp */; };
+		59E7BFAA2696893700B8001A /* 日期10.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF7A2696893700B8001A /* 日期10.bmp */; };
+		59E7BFAB2696893700B8001A /* 日期12.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF7B2696893700B8001A /* 日期12.bmp */; };
+		59E7BFAC2696893700B8001A /* 日期13.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF7C2696893700B8001A /* 日期13.bmp */; };
+		59E7BFAD2696893700B8001A /* 效果图 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF7D2696893700B8001A /* 效果图 (2).png */; };
+		59E7BFAE2696893700B8001A /* 电量10.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF7F2696893700B8001A /* 电量10.bmp */; };
+		59E7BFAF2696893700B8001A /* 电量4.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF802696893700B8001A /* 电量4.bmp */; };
+		59E7BFB02696893700B8001A /* 电量5.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF812696893700B8001A /* 电量5.bmp */; };
+		59E7BFB12696893700B8001A /* 电量7.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF822696893700B8001A /* 电量7.bmp */; };
+		59E7BFB22696893700B8001A /* 电量6.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF832696893700B8001A /* 电量6.bmp */; };
+		59E7BFB32696893700B8001A /* 电量2.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF842696893700B8001A /* 电量2.bmp */; };
+		59E7BFB42696893700B8001A /* 电量3.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF852696893700B8001A /* 电量3.bmp */; };
+		59E7BFB52696893700B8001A /* 电量1.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF862696893700B8001A /* 电量1.bmp */; };
+		59E7BFB62696893700B8001A /* 电量0.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF872696893700B8001A /* 电量0.bmp */; };
+		59E7BFB72696893700B8001A /* 电量8.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF882696893700B8001A /* 电量8.bmp */; };
+		59E7BFB82696893700B8001A /* 电量9.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF892696893700B8001A /* 电量9.bmp */; };
+		59E7BFB92696893700B8001A /* 背景.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF8A2696893700B8001A /* 背景.bmp */; };
+		59E7BFBA2696893700B8001A /* 标注.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF8B2696893700B8001A /* 标注.png */; };
+		59E7BFBB2696893700B8001A /* 2.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF8D2696893700B8001A /* 2.bmp */; };
+		59E7BFBC2696893700B8001A /* 1.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF8E2696893700B8001A /* 1.bmp */; };
+		59F62AE32969679600A0603C /* FBAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F62AE22969679600A0603C /* FBAboutViewController.m */; };
+		59F62AE6296BAADE00A0603C /* FBAboutHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F62AE5296BAADE00A0603C /* FBAboutHeadView.m */; };
+		59F84BA2269D3CF1001E4D65 /* 时分1.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B94269D3CF1001E4D65 /* 时分1.bmp */; };
+		59F84BA3269D3CF1001E4D65 /* 时分6.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B95269D3CF1001E4D65 /* 时分6.bmp */; };
+		59F84BA4269D3CF1001E4D65 /* 时分9.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B96269D3CF1001E4D65 /* 时分9.bmp */; };
+		59F84BA5269D3CF1001E4D65 /* 时分2.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B97269D3CF1001E4D65 /* 时分2.bmp */; };
+		59F84BA6269D3CF1001E4D65 /* 时分0.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B98269D3CF1001E4D65 /* 时分0.bmp */; };
+		59F84BA7269D3CF1001E4D65 /* 时分11.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B99269D3CF1001E4D65 /* 时分11.bmp */; };
+		59F84BA8269D3CF1001E4D65 /* 时分10.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B9A269D3CF1001E4D65 /* 时分10.bmp */; };
+		59F84BA9269D3CF1001E4D65 /* 时分4.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B9B269D3CF1001E4D65 /* 时分4.bmp */; };
+		59F84BAA269D3CF1001E4D65 /* 时分12.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B9C269D3CF1001E4D65 /* 时分12.bmp */; };
+		59F84BAB269D3CF1001E4D65 /* 时分13.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B9D269D3CF1001E4D65 /* 时分13.bmp */; };
+		59F84BAC269D3CF1001E4D65 /* 时分8.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B9E269D3CF1001E4D65 /* 时分8.bmp */; };
+		59F84BAD269D3CF1001E4D65 /* 时分3.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B9F269D3CF1001E4D65 /* 时分3.bmp */; };
+		59F84BAE269D3CF1001E4D65 /* 时分7.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84BA0269D3CF1001E4D65 /* 时分7.bmp */; };
+		59F84BAF269D3CF1001E4D65 /* 时分5.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84BA1269D3CF1001E4D65 /* 时分5.bmp */; };
+		D97F5ABDB9669A8AA9FF900E /* Pods_FissionBluetoothTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F904E21A1EB542FFEDA725CF /* Pods_FissionBluetoothTests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		592A9FFC25A4173C00CC515E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 592A9FD825A4173A00CC515E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 592A9FDF25A4173A00CC515E;
+			remoteInfo = FissionBluetooth;
+		};
+		592AA00725A4173C00CC515E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 592A9FD825A4173A00CC515E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 592A9FDF25A4173A00CC515E;
+			remoteInfo = FissionBluetooth;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5990E52B260202280015293B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				592358C5293EE30900E5379C /* RTKLEFoundation.framework in Embed Frameworks */,
+				592358C7293EE30B00E5379C /* RTKOTASDK.framework in Embed Frameworks */,
+				592358C3293EE30500E5379C /* Fission_Sdk_iOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		18EE9E81A4ED5C0501FB81F3 /* Pods_FissionBluetooth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FissionBluetooth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CAADF886303D331C1B5C7CD /* Pods-FissionBluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetooth.release.xcconfig"; path = "Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth.release.xcconfig"; sourceTree = "<group>"; };
+		590B976F2966682600D31A76 /* FBBaseNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBBaseNavigationController.h; sourceTree = "<group>"; };
+		590B97702966682600D31A76 /* FBBaseNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBBaseNavigationController.m; sourceTree = "<group>"; };
+		590B977529667AC300D31A76 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		590B977729667AC500D31A76 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		590B97782966833800D31A76 /* NSObject+Authorized.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Authorized.h"; sourceTree = "<group>"; };
+		590B97792966833800D31A76 /* NSObject+Authorized.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Authorized.m"; sourceTree = "<group>"; };
+		590B977B2966A61B00D31A76 /* FBCameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBCameraViewController.h; sourceTree = "<group>"; };
+		590B977C2966A61B00D31A76 /* FBCameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBCameraViewController.m; sourceTree = "<group>"; };
+		590B977F2967B7EF00D31A76 /* FBRadarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBRadarView.h; sourceTree = "<group>"; };
+		590B97802967B7EF00D31A76 /* FBRadarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBRadarView.m; sourceTree = "<group>"; };
+		590B97822967F08F00D31A76 /* FBLogManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBLogManager.h; sourceTree = "<group>"; };
+		590B97832967F08F00D31A76 /* FBLogManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBLogManager.m; sourceTree = "<group>"; };
+		590B97852967FE1A00D31A76 /* FBLogViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBLogViewController.h; sourceTree = "<group>"; };
+		590B97862967FE1A00D31A76 /* FBLogViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBLogViewController.m; sourceTree = "<group>"; };
+		590B978829680A6300D31A76 /* FBLogTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBLogTableViewCell.h; sourceTree = "<group>"; };
+		590B978929680A6300D31A76 /* FBLogTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBLogTableViewCell.m; sourceTree = "<group>"; };
+		590B978A29680A6300D31A76 /* FBLogTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FBLogTableViewCell.xib; sourceTree = "<group>"; };
+		590B978D2968117100D31A76 /* FBWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBWebViewController.h; sourceTree = "<group>"; };
+		590B978E2968117100D31A76 /* FBWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBWebViewController.m; sourceTree = "<group>"; };
+		59235807293ED8D000E5379C /* Fission_Sdk_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fission_Sdk_iOS.framework; sourceTree = "<group>"; };
+		59235808293ED8D000E5379C /* RTKLEFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RTKLEFoundation.framework; sourceTree = "<group>"; };
+		59235809293ED8D000E5379C /* RTKOTASDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RTKOTASDK.framework; sourceTree = "<group>"; };
+		5923580F293EDED300E5379C /* LWPersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersonModel.m; sourceTree = "<group>"; };
+		59235810293EDED300E5379C /* DialListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialListModel.m; sourceTree = "<group>"; };
+		59235811293EDED300E5379C /* Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tools.m; sourceTree = "<group>"; };
+		59235813293EDED300E5379C /* LWCustomDialModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCustomDialModel.m; sourceTree = "<group>"; };
+		59235814293EDED300E5379C /* NSObject+HUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HUD.h"; sourceTree = "<group>"; };
+		59235815293EDED300E5379C /* DialListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialListModel.h; sourceTree = "<group>"; };
+		59235816293EDED300E5379C /* LWPersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersonModel.h; sourceTree = "<group>"; };
+		59235817293EDED300E5379C /* Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tools.h; sourceTree = "<group>"; };
+		59235818293EDED300E5379C /* NSObject+HUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HUD.m"; sourceTree = "<group>"; };
+		59235819293EDED300E5379C /* LWCustomDialModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCustomDialModel.h; sourceTree = "<group>"; };
+		5923581C293EDED300E5379C /* SedentaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SedentaryViewController.h; sourceTree = "<group>"; };
+		5923581D293EDED300E5379C /* ClockDialListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockDialListViewController.m; sourceTree = "<group>"; };
+		5923581E293EDED300E5379C /* ClockInforViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClockInforViewController.xib; sourceTree = "<group>"; };
+		5923581F293EDED300E5379C /* MotionPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotionPushViewController.m; sourceTree = "<group>"; };
+		59235820293EDED300E5379C /* MessagePushSwitchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagePushSwitchVC.h; sourceTree = "<group>"; };
+		59235821293EDED300E5379C /* SportTargetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SportTargetViewController.m; sourceTree = "<group>"; };
+		59235822293EDED300E5379C /* HrCheckViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HrCheckViewController.h; sourceTree = "<group>"; };
+		59235824293EDED300E5379C /* ClockInforViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockInforViewController.h; sourceTree = "<group>"; };
+		59235825293EDED300E5379C /* UserInforViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInforViewController.h; sourceTree = "<group>"; };
+		59235826293EDED300E5379C /* ListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		59235827293EDED300E5379C /* ClockInforListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockInforListVC.h; sourceTree = "<group>"; };
+		59235828293EDED300E5379C /* ClockDialListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClockDialListViewController.xib; sourceTree = "<group>"; };
+		59235829293EDED300E5379C /* BrightScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrightScreenViewController.h; sourceTree = "<group>"; };
+		5923582A293EDED300E5379C /* QRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRViewController.h; sourceTree = "<group>"; };
+		5923582B293EDED300E5379C /* ChipFlashSpatialVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChipFlashSpatialVC.m; sourceTree = "<group>"; };
+		5923582C293EDED300E5379C /* BinFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BinFileViewController.m; sourceTree = "<group>"; };
+		5923582D293EDED300E5379C /* HeartRateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeartRateViewController.h; sourceTree = "<group>"; };
+		5923582E293EDED300E5379C /* HeartRateReminderVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeartRateReminderVC.m; sourceTree = "<group>"; };
+		5923582F293EDED300E5379C /* LWCustomDialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCustomDialViewController.m; sourceTree = "<group>"; };
+		59235831293EDED300E5379C /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		59235832293EDED300E5379C /* HeartRateReminderVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeartRateReminderVC.xib; sourceTree = "<group>"; };
+		59235834293EDED300E5379C /* WaterClockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterClockViewController.m; sourceTree = "<group>"; };
+		59235835293EDED300E5379C /* FemaleCircadianCycleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FemaleCircadianCycleVC.m; sourceTree = "<group>"; };
+		59235836293EDED300E5379C /* WaterClockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaterClockViewController.xib; sourceTree = "<group>"; };
+		59235837293EDED300E5379C /* NotDisturbViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotDisturbViewController.h; sourceTree = "<group>"; };
+		59235838293EDED300E5379C /* SportTargetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SportTargetViewController.h; sourceTree = "<group>"; };
+		59235839293EDED300E5379C /* HeartRateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeartRateViewController.xib; sourceTree = "<group>"; };
+		5923583A293EDED300E5379C /* MessagePushSwitchVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessagePushSwitchVC.xib; sourceTree = "<group>"; };
+		5923583B293EDED300E5379C /* MessagePushSwitchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagePushSwitchVC.m; sourceTree = "<group>"; };
+		5923583C293EDED300E5379C /* MotionPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotionPushViewController.h; sourceTree = "<group>"; };
+		5923583D293EDED300E5379C /* ClockDialListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockDialListViewController.h; sourceTree = "<group>"; };
+		5923583E293EDED300E5379C /* SedentaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SedentaryViewController.m; sourceTree = "<group>"; };
+		5923583F293EDED300E5379C /* NotDisturbViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotDisturbViewController.xib; sourceTree = "<group>"; };
+		59235840293EDED300E5379C /* ChipFlashSpatialVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChipFlashSpatialVC.h; sourceTree = "<group>"; };
+		59235841293EDED300E5379C /* ClockInforListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClockInforListVC.xib; sourceTree = "<group>"; };
+		59235842293EDED300E5379C /* HrCheckViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HrCheckViewController.xib; sourceTree = "<group>"; };
+		59235843293EDED300E5379C /* BrightScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrightScreenViewController.xib; sourceTree = "<group>"; };
+		59235844293EDED300E5379C /* ChipFlashSpatialVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChipFlashSpatialVC.xib; sourceTree = "<group>"; };
+		59235845293EDED300E5379C /* QRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRViewController.m; sourceTree = "<group>"; };
+		59235846293EDED300E5379C /* BrightScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrightScreenViewController.m; sourceTree = "<group>"; };
+		59235847293EDED300E5379C /* ClockInforListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockInforListVC.m; sourceTree = "<group>"; };
+		59235848293EDED300E5379C /* ListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		59235849293EDED300E5379C /* UserInforViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInforViewController.m; sourceTree = "<group>"; };
+		5923584A293EDED300E5379C /* ClockInforViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockInforViewController.m; sourceTree = "<group>"; };
+		5923584C293EDED300E5379C /* HrCheckViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HrCheckViewController.m; sourceTree = "<group>"; };
+		5923584D293EDED300E5379C /* LWCustomDialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCustomDialViewController.h; sourceTree = "<group>"; };
+		5923584E293EDED300E5379C /* SportTargetViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SportTargetViewController.xib; sourceTree = "<group>"; };
+		5923584F293EDED300E5379C /* HeartRateReminderVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeartRateReminderVC.h; sourceTree = "<group>"; };
+		59235850293EDED300E5379C /* HeartRateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeartRateViewController.m; sourceTree = "<group>"; };
+		59235851293EDED300E5379C /* BinFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinFileViewController.h; sourceTree = "<group>"; };
+		59235852293EDED300E5379C /* NotDisturbViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotDisturbViewController.m; sourceTree = "<group>"; };
+		59235853293EDED300E5379C /* FemaleCircadianCycleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FemaleCircadianCycleVC.h; sourceTree = "<group>"; };
+		59235854293EDED300E5379C /* WaterClockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterClockViewController.h; sourceTree = "<group>"; };
+		59235856293EDED300E5379C /* FemaleCircadianCycleVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FemaleCircadianCycleVC.xib; sourceTree = "<group>"; };
+		59235857293EDED300E5379C /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		59235859293EDED300E5379C /* WeatherCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherCell.m; sourceTree = "<group>"; };
+		5923585A293EDED300E5379C /* LWCustomDialColorCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWCustomDialColorCollectionCell.xib; sourceTree = "<group>"; };
+		5923585B293EDED300E5379C /* LWCustomDialTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCustomDialTableView.h; sourceTree = "<group>"; };
+		5923585C293EDED300E5379C /* LWCustomDialPickerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWCustomDialPickerViewCell.xib; sourceTree = "<group>"; };
+		5923585D293EDED300E5379C /* PushSwitchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushSwitchCell.h; sourceTree = "<group>"; };
+		5923585E293EDED300E5379C /* ClockListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockListTableViewCell.m; sourceTree = "<group>"; };
+		5923585F293EDED300E5379C /* ClockListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClockListTableViewCell.xib; sourceTree = "<group>"; };
+		59235860293EDED300E5379C /* LWPersonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersonCell.m; sourceTree = "<group>"; };
+		59235861293EDED300E5379C /* LWCustomDialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCustomDialCell.m; sourceTree = "<group>"; };
+		59235862293EDED300E5379C /* LWCustomDialColorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCustomDialColorCell.m; sourceTree = "<group>"; };
+		59235863293EDED300E5379C /* CollCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollCell.xib; sourceTree = "<group>"; };
+		59235864293EDED300E5379C /* FemaleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FemaleCell.xib; sourceTree = "<group>"; };
+		59235865293EDED300E5379C /* WeatherCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherCell.xib; sourceTree = "<group>"; };
+		59235866293EDED300E5379C /* LWCustomDialPickerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCustomDialPickerViewCell.h; sourceTree = "<group>"; };
+		59235867293EDED300E5379C /* LWCustomDialColorCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCustomDialColorCollectionCell.m; sourceTree = "<group>"; };
+		59235868293EDED300E5379C /* FemaleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FemaleCell.m; sourceTree = "<group>"; };
+		59235869293EDED300E5379C /* CollCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollCell.h; sourceTree = "<group>"; };
+		5923586A293EDED300E5379C /* PushSwitchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PushSwitchCell.xib; sourceTree = "<group>"; };
+		5923586B293EDED300E5379C /* LWCustomDialPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWCustomDialPickerView.xib; sourceTree = "<group>"; };
+		5923586C293EDED300E5379C /* LWCustomDialHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCustomDialHeaderView.m; sourceTree = "<group>"; };
+		5923586D293EDED300E5379C /* LWCustomDialColorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWCustomDialColorCell.xib; sourceTree = "<group>"; };
+		5923586E293EDED300E5379C /* LWCustomDialPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCustomDialPickerView.h; sourceTree = "<group>"; };
+		5923586F293EDED300E5379C /* LWWaveProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWWaveProgress.m; sourceTree = "<group>"; };
+		59235870293EDED300E5379C /* PushSwitchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushSwitchCell.m; sourceTree = "<group>"; };
+		59235871293EDED300E5379C /* LWCustomDialTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCustomDialTableView.m; sourceTree = "<group>"; };
+		59235872293EDED300E5379C /* WeatherCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherCell.h; sourceTree = "<group>"; };
+		59235873293EDED300E5379C /* LWCustomDialPickerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCustomDialPickerViewCell.m; sourceTree = "<group>"; };
+		59235874293EDED300E5379C /* LWCustomDialColorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCustomDialColorCell.h; sourceTree = "<group>"; };
+		59235875293EDED300E5379C /* LWCustomDialCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCustomDialCell.h; sourceTree = "<group>"; };
+		59235876293EDED300E5379C /* LWPersonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersonCell.h; sourceTree = "<group>"; };
+		59235877293EDED300E5379C /* ClockListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockListTableViewCell.h; sourceTree = "<group>"; };
+		59235878293EDED300E5379C /* CollCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollCell.m; sourceTree = "<group>"; };
+		59235879293EDED300E5379C /* FemaleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FemaleCell.h; sourceTree = "<group>"; };
+		5923587A293EDED300E5379C /* LWCustomDialColorCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCustomDialColorCollectionCell.h; sourceTree = "<group>"; };
+		5923587B293EDED300E5379C /* LWPersonCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWPersonCell.xib; sourceTree = "<group>"; };
+		5923587C293EDED300E5379C /* LWCustomDialPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWCustomDialPickerView.m; sourceTree = "<group>"; };
+		5923587D293EDED300E5379C /* LWWaveProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWWaveProgress.h; sourceTree = "<group>"; };
+		5923587E293EDED300E5379C /* LWCustomDialHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWCustomDialHeaderView.h; sourceTree = "<group>"; };
+		592358C8293EF6FE00E5379C /* LWNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWNetworkingManager.m; sourceTree = "<group>"; };
+		592358C9293EF6FE00E5379C /* LWNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWNetworkingManager.h; sourceTree = "<group>"; };
+		592358CB293F121B00E5379C /* LeftViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftViewController.h; sourceTree = "<group>"; };
+		592358CC293F121B00E5379C /* LeftViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftViewController.m; sourceTree = "<group>"; };
+		592358CF293F26C100E5379C /* QMUIConfigurationTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplate.h; sourceTree = "<group>"; };
+		592358D0293F26C100E5379C /* QMUIConfigurationTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplate.m; sourceTree = "<group>"; };
+		592358D2293F2ACB00E5379C /* LWLanguageLocalizble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWLanguageLocalizble.h; sourceTree = "<group>"; };
+		592358D3293F2ACB00E5379C /* LWLanguageLocalizble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWLanguageLocalizble.m; sourceTree = "<group>"; };
+		592358D5293F2C5A00E5379C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		592358D6293F2C5A00E5379C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		592358DA293F2C8C00E5379C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		592358DC293F2C9100E5379C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		592358DD293F4E3000E5379C /* LWDeviceListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWDeviceListCell.m; sourceTree = "<group>"; };
+		592358DE293F4E3000E5379C /* LWDeviceListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWDeviceListCell.h; sourceTree = "<group>"; };
+		592358E029402AFE00E5379C /* DeviceListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceListModel.h; sourceTree = "<group>"; };
+		592358E129402AFE00E5379C /* DeviceListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceListModel.m; sourceTree = "<group>"; };
+		592358E32940B04100E5379C /* LWBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWBaseViewController.h; sourceTree = "<group>"; };
+		592358E42940B04100E5379C /* LWBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWBaseViewController.m; sourceTree = "<group>"; };
+		592358E629418AE200E5379C /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
+		592358E729418AE200E5379C /* WeatherViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherViewController.xib; sourceTree = "<group>"; };
+		592358E829418AE200E5379C /* WeatherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherViewController.h; sourceTree = "<group>"; };
+		592358EB2941B4B000E5379C /* LWContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWContactViewController.m; sourceTree = "<group>"; };
+		592358EC2941B4B000E5379C /* LWContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWContactViewController.h; sourceTree = "<group>"; };
+		592358EE2941B52D00E5379C /* LWPersonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWPersonViewController.h; sourceTree = "<group>"; };
+		592358EF2941B52D00E5379C /* LWPersonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWPersonViewController.m; sourceTree = "<group>"; };
+		592358F12941BB7800E5379C /* LWContactSearchBarHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWContactSearchBarHeaderView.h; sourceTree = "<group>"; };
+		592358F22941BB7800E5379C /* LWContactSearchBarHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWContactSearchBarHeaderView.m; sourceTree = "<group>"; };
+		592A9FE025A4173A00CC515E /* FissionBluetooth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FissionBluetooth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		592A9FE325A4173A00CC515E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		592A9FE425A4173A00CC515E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		592A9FED25A4173A00CC515E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		592A9FEF25A4173B00CC515E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		592A9FF225A4173B00CC515E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		592A9FF425A4173B00CC515E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		592A9FF525A4173B00CC515E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		592A9FFB25A4173C00CC515E /* FissionBluetoothTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FissionBluetoothTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		592A9FFF25A4173C00CC515E /* FissionBluetoothTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FissionBluetoothTests.m; sourceTree = "<group>"; };
+		592AA00125A4173C00CC515E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		592AA00625A4173C00CC515E /* FissionBluetoothUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FissionBluetoothUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		592AA00A25A4173C00CC515E /* FissionBluetoothUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FissionBluetoothUITests.m; sourceTree = "<group>"; };
+		592AA00C25A4173C00CC515E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		593399584BF981F494D22BCE /* Pods-FissionBluetoothTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetoothTests.debug.xcconfig"; path = "Target Support Files/Pods-FissionBluetoothTests/Pods-FissionBluetoothTests.debug.xcconfig"; sourceTree = "<group>"; };
+		593FBF64298A36DE00986F13 /* MotionPushCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotionPushCollectionViewCell.h; sourceTree = "<group>"; };
+		593FBF65298A36DE00986F13 /* MotionPushCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotionPushCollectionViewCell.m; sourceTree = "<group>"; };
+		593FBF66298A36DE00986F13 /* MotionPushCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotionPushCollectionViewCell.xib; sourceTree = "<group>"; };
+		59B66DB625A4376D0068B89A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		59C6CC4A25ADA95F007C2521 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		59CA6D8F25B7C4BD00093622 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		59E7BE50268C13C400B8001A /* ic_dial_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_dial_button@2x.png"; sourceTree = "<group>"; };
+		59E7BE51268C13C400B8001A /* examples_img_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = examples_img_03.png; sourceTree = "<group>"; };
+		59E7BE52268C13C400B8001A /* ic_dial_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_dial_button@3x.png"; sourceTree = "<group>"; };
+		59E7BE53268C13C400B8001A /* dial_style2_black.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dial_style2_black.jpg; sourceTree = "<group>"; };
+		59E7BE54268C13C400B8001A /* ic_dial_button_d@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_dial_button_d@2x.png"; sourceTree = "<group>"; };
+		59E7BE55268C13C400B8001A /* dial_style5_black.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dial_style5_black.jpg; sourceTree = "<group>"; };
+		59E7BE56268C13C400B8001A /* srpText_hr.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = srpText_hr.png; sourceTree = "<group>"; };
+		59E7BE57268C13C400B8001A /* srpText_date.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = srpText_date.png; sourceTree = "<group>"; };
+		59E7BE58268C13C400B8001A /* ic_dial_button_d@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_dial_button_d@3x.png"; sourceTree = "<group>"; };
+		59E7BE59268C13C400B8001A /* dial_style1_white.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dial_style1_white.jpg; sourceTree = "<group>"; };
+		59E7BE5A268C13C400B8001A /* dial_style3_yellow.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dial_style3_yellow.jpg; sourceTree = "<group>"; };
+		59E7BE5B268C13C400B8001A /* srpText_steps.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = srpText_steps.png; sourceTree = "<group>"; };
+		59E7BE5C268C13C400B8001A /* srpText_sleep.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = srpText_sleep.png; sourceTree = "<group>"; };
+		59E7BE5D268C13C400B8001A /* srpText_time.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = srpText_time.png; sourceTree = "<group>"; };
+		59E7BE5E268C13C400B8001A /* dial_style4_green.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dial_style4_green.jpg; sourceTree = "<group>"; };
+		59E7BE5F268C13C400B8001A /* hotnoon_front_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = hotnoon_front_image.jpg; sourceTree = "<group>"; };
+		59E7BE60268C13C400B8001A /* zhouhai_font_1001_TEXT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zhouhai_font_1001_TEXT.png; sourceTree = "<group>"; };
+		59E7BE62268C13C400B8001A /* pic_custom75x75px@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pic_custom75x75px@3x.png"; sourceTree = "<group>"; };
+		59E7BE63268C13C400B8001A /* pic_dial_circular@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pic_dial_circular@3x.png"; sourceTree = "<group>"; };
+		59E7BE64268C13C400B8001A /* pic_dial_rectangle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pic_dial_rectangle@3x.png"; sourceTree = "<group>"; };
+		59E7BE65268C13C400B8001A /* pic_custom126x154px@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pic_custom126x154px@3x.png"; sourceTree = "<group>"; };
+		59E7BE66268C13C400B8001A /* pic_custom240x240px@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pic_custom240x240px@3x.png"; sourceTree = "<group>"; };
+		59E7BEA3268C7B8A00B8001A /* pic_custom360x360.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pic_custom360x360.png; sourceTree = "<group>"; };
+		59E7BEB7268EAE4A00B8001A /* rgbA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rgbA.png; sourceTree = "<group>"; };
+		59E7BED82695980B00B8001A /* rgb.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = rgb.bmp; sourceTree = "<group>"; };
+		59E7BF6D2696893700B8001A /* 缩略图.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "缩略图.bmp"; sourceTree = "<group>"; };
+		59E7BF6F2696893700B8001A /* 日期8.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "日期8.bmp"; sourceTree = "<group>"; };
+		59E7BF702696893700B8001A /* 日期9.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "日期9.bmp"; sourceTree = "<group>"; };
+		59E7BF712696893700B8001A /* 日期7.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "日期7.bmp"; sourceTree = "<group>"; };
+		59E7BF722696893700B8001A /* 日期6.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "日期6.bmp"; sourceTree = "<group>"; };
+		59E7BF732696893700B8001A /* 日期4.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "日期4.bmp"; sourceTree = "<group>"; };
+		59E7BF742696893700B8001A /* 日期5.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "日期5.bmp"; sourceTree = "<group>"; };
+		59E7BF752696893700B8001A /* 日期1.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "日期1.bmp"; sourceTree = "<group>"; };
+		59E7BF762696893700B8001A /* 日期0.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "日期0.bmp"; sourceTree = "<group>"; };
+		59E7BF772696893700B8001A /* 日期2.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "日期2.bmp"; sourceTree = "<group>"; };
+		59E7BF782696893700B8001A /* 日期3.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "日期3.bmp"; sourceTree = "<group>"; };
+		59E7BF792696893700B8001A /* 日期11.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "日期11.bmp"; sourceTree = "<group>"; };
+		59E7BF7A2696893700B8001A /* 日期10.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "日期10.bmp"; sourceTree = "<group>"; };
+		59E7BF7B2696893700B8001A /* 日期12.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "日期12.bmp"; sourceTree = "<group>"; };
+		59E7BF7C2696893700B8001A /* 日期13.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "日期13.bmp"; sourceTree = "<group>"; };
+		59E7BF7D2696893700B8001A /* 效果图 (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "效果图 (2).png"; sourceTree = "<group>"; };
+		59E7BF7F2696893700B8001A /* 电量10.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "电量10.bmp"; sourceTree = "<group>"; };
+		59E7BF802696893700B8001A /* 电量4.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "电量4.bmp"; sourceTree = "<group>"; };
+		59E7BF812696893700B8001A /* 电量5.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "电量5.bmp"; sourceTree = "<group>"; };
+		59E7BF822696893700B8001A /* 电量7.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "电量7.bmp"; sourceTree = "<group>"; };
+		59E7BF832696893700B8001A /* 电量6.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "电量6.bmp"; sourceTree = "<group>"; };
+		59E7BF842696893700B8001A /* 电量2.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "电量2.bmp"; sourceTree = "<group>"; };
+		59E7BF852696893700B8001A /* 电量3.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "电量3.bmp"; sourceTree = "<group>"; };
+		59E7BF862696893700B8001A /* 电量1.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "电量1.bmp"; sourceTree = "<group>"; };
+		59E7BF872696893700B8001A /* 电量0.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "电量0.bmp"; sourceTree = "<group>"; };
+		59E7BF882696893700B8001A /* 电量8.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "电量8.bmp"; sourceTree = "<group>"; };
+		59E7BF892696893700B8001A /* 电量9.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "电量9.bmp"; sourceTree = "<group>"; };
+		59E7BF8A2696893700B8001A /* 背景.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "背景.bmp"; sourceTree = "<group>"; };
+		59E7BF8B2696893700B8001A /* 标注.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "标注.png"; sourceTree = "<group>"; };
+		59E7BF8D2696893700B8001A /* 2.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = 2.bmp; sourceTree = "<group>"; };
+		59E7BF8E2696893700B8001A /* 1.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = 1.bmp; sourceTree = "<group>"; };
+		59F62AE12969679600A0603C /* FBAboutViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBAboutViewController.h; sourceTree = "<group>"; };
+		59F62AE22969679600A0603C /* FBAboutViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBAboutViewController.m; sourceTree = "<group>"; };
+		59F62AE4296BAADE00A0603C /* FBAboutHeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBAboutHeadView.h; sourceTree = "<group>"; };
+		59F62AE5296BAADE00A0603C /* FBAboutHeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBAboutHeadView.m; sourceTree = "<group>"; };
+		59F84B94269D3CF1001E4D65 /* 时分1.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分1.bmp"; sourceTree = "<group>"; };
+		59F84B95269D3CF1001E4D65 /* 时分6.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分6.bmp"; sourceTree = "<group>"; };
+		59F84B96269D3CF1001E4D65 /* 时分9.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分9.bmp"; sourceTree = "<group>"; };
+		59F84B97269D3CF1001E4D65 /* 时分2.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分2.bmp"; sourceTree = "<group>"; };
+		59F84B98269D3CF1001E4D65 /* 时分0.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分0.bmp"; sourceTree = "<group>"; };
+		59F84B99269D3CF1001E4D65 /* 时分11.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分11.bmp"; sourceTree = "<group>"; };
+		59F84B9A269D3CF1001E4D65 /* 时分10.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分10.bmp"; sourceTree = "<group>"; };
+		59F84B9B269D3CF1001E4D65 /* 时分4.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分4.bmp"; sourceTree = "<group>"; };
+		59F84B9C269D3CF1001E4D65 /* 时分12.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分12.bmp"; sourceTree = "<group>"; };
+		59F84B9D269D3CF1001E4D65 /* 时分13.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分13.bmp"; sourceTree = "<group>"; };
+		59F84B9E269D3CF1001E4D65 /* 时分8.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分8.bmp"; sourceTree = "<group>"; };
+		59F84B9F269D3CF1001E4D65 /* 时分3.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分3.bmp"; sourceTree = "<group>"; };
+		59F84BA0269D3CF1001E4D65 /* 时分7.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分7.bmp"; sourceTree = "<group>"; };
+		59F84BA1269D3CF1001E4D65 /* 时分5.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分5.bmp"; sourceTree = "<group>"; };
+		73C300FB567263FC20125FEE /* Pods-FissionBluetoothTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetoothTests.release.xcconfig"; path = "Target Support Files/Pods-FissionBluetoothTests/Pods-FissionBluetoothTests.release.xcconfig"; sourceTree = "<group>"; };
+		7CC02F02B45C16A32981171D /* Pods_FissionBluetooth_FissionBluetoothUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FissionBluetooth_FissionBluetoothUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A63387D526BF805F11A16F9 /* Pods-FissionBluetooth-FissionBluetoothUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetooth-FissionBluetoothUITests.release.xcconfig"; path = "Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E948B1D4C7D2967D8B7AFF14 /* Pods-FissionBluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetooth.debug.xcconfig"; path = "Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth.debug.xcconfig"; sourceTree = "<group>"; };
+		F904E21A1EB542FFEDA725CF /* Pods_FissionBluetoothTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FissionBluetoothTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE0F92F69642F6E6D10CB7AB /* Pods-FissionBluetooth-FissionBluetoothUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetooth-FissionBluetoothUITests.debug.xcconfig"; path = "Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		592A9FDD25A4173A00CC515E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E29CF31781E67E402257E0F /* Pods_FissionBluetooth.framework in Frameworks */,
+				592358C4293EE30900E5379C /* RTKLEFoundation.framework in Frameworks */,
+				592358C2293EE30500E5379C /* Fission_Sdk_iOS.framework in Frameworks */,
+				592358C6293EE30B00E5379C /* RTKOTASDK.framework in Frameworks */,
+				59C6CC4B25ADA95F007C2521 /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		592A9FF825A4173C00CC515E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D97F5ABDB9669A8AA9FF900E /* Pods_FissionBluetoothTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		592AA00325A4173C00CC515E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1EF3A85EB70AB3172F3AF72A /* Pods_FissionBluetooth_FissionBluetoothUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F7260CFD7131112B53695AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59CA6D8F25B7C4BD00093622 /* CoreTelephony.framework */,
+				59C6CC4A25ADA95F007C2521 /* AudioToolbox.framework */,
+				18EE9E81A4ED5C0501FB81F3 /* Pods_FissionBluetooth.framework */,
+				7CC02F02B45C16A32981171D /* Pods_FissionBluetooth_FissionBluetoothUITests.framework */,
+				F904E21A1EB542FFEDA725CF /* Pods_FissionBluetoothTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		59235806293ED8D000E5379C /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				59235807293ED8D000E5379C /* Fission_Sdk_iOS.framework */,
+				59235808293ED8D000E5379C /* RTKLEFoundation.framework */,
+				59235809293ED8D000E5379C /* RTKOTASDK.framework */,
+			);
+			path = SDK;
+			sourceTree = "<group>";
+		};
+		5923580D293EDED300E5379C /* MVC */ = {
+			isa = PBXGroup;
+			children = (
+				5923580E293EDED300E5379C /* M */,
+				5923581B293EDED300E5379C /* C */,
+				59235858293EDED300E5379C /* V */,
+			);
+			path = MVC;
+			sourceTree = "<group>";
+		};
+		5923580E293EDED300E5379C /* M */ = {
+			isa = PBXGroup;
+			children = (
+				592358D2293F2ACB00E5379C /* LWLanguageLocalizble.h */,
+				592358D3293F2ACB00E5379C /* LWLanguageLocalizble.m */,
+				592358C9293EF6FE00E5379C /* LWNetworkingManager.h */,
+				592358C8293EF6FE00E5379C /* LWNetworkingManager.m */,
+				59235817293EDED300E5379C /* Tools.h */,
+				59235811293EDED300E5379C /* Tools.m */,
+				59235819293EDED300E5379C /* LWCustomDialModel.h */,
+				59235813293EDED300E5379C /* LWCustomDialModel.m */,
+				59235814293EDED300E5379C /* NSObject+HUD.h */,
+				59235818293EDED300E5379C /* NSObject+HUD.m */,
+				59235815293EDED300E5379C /* DialListModel.h */,
+				59235810293EDED300E5379C /* DialListModel.m */,
+				59235816293EDED300E5379C /* LWPersonModel.h */,
+				5923580F293EDED300E5379C /* LWPersonModel.m */,
+				592358E029402AFE00E5379C /* DeviceListModel.h */,
+				592358E129402AFE00E5379C /* DeviceListModel.m */,
+				590B97782966833800D31A76 /* NSObject+Authorized.h */,
+				590B97792966833800D31A76 /* NSObject+Authorized.m */,
+				590B97822967F08F00D31A76 /* FBLogManager.h */,
+				590B97832967F08F00D31A76 /* FBLogManager.m */,
+			);
+			path = M;
+			sourceTree = "<group>";
+		};
+		5923581B293EDED300E5379C /* C */ = {
+			isa = PBXGroup;
+			children = (
+				59235857293EDED300E5379C /* ViewController.h */,
+				59235831293EDED300E5379C /* ViewController.m */,
+				592358CB293F121B00E5379C /* LeftViewController.h */,
+				592358CC293F121B00E5379C /* LeftViewController.m */,
+				59235848293EDED300E5379C /* ListViewController.h */,
+				59235826293EDED300E5379C /* ListViewController.m */,
+				590B97852967FE1A00D31A76 /* FBLogViewController.h */,
+				590B97862967FE1A00D31A76 /* FBLogViewController.m */,
+				59F62AE12969679600A0603C /* FBAboutViewController.h */,
+				59F62AE22969679600A0603C /* FBAboutViewController.m */,
+				59235851293EDED300E5379C /* BinFileViewController.h */,
+				5923582C293EDED300E5379C /* BinFileViewController.m */,
+				59235829293EDED300E5379C /* BrightScreenViewController.h */,
+				59235846293EDED300E5379C /* BrightScreenViewController.m */,
+				59235843293EDED300E5379C /* BrightScreenViewController.xib */,
+				59235840293EDED300E5379C /* ChipFlashSpatialVC.h */,
+				5923582B293EDED300E5379C /* ChipFlashSpatialVC.m */,
+				59235844293EDED300E5379C /* ChipFlashSpatialVC.xib */,
+				5923583D293EDED300E5379C /* ClockDialListViewController.h */,
+				5923581D293EDED300E5379C /* ClockDialListViewController.m */,
+				59235828293EDED300E5379C /* ClockDialListViewController.xib */,
+				59235827293EDED300E5379C /* ClockInforListVC.h */,
+				59235847293EDED300E5379C /* ClockInforListVC.m */,
+				59235841293EDED300E5379C /* ClockInforListVC.xib */,
+				59235824293EDED300E5379C /* ClockInforViewController.h */,
+				5923584A293EDED300E5379C /* ClockInforViewController.m */,
+				5923581E293EDED300E5379C /* ClockInforViewController.xib */,
+				59235853293EDED300E5379C /* FemaleCircadianCycleVC.h */,
+				59235835293EDED300E5379C /* FemaleCircadianCycleVC.m */,
+				59235856293EDED300E5379C /* FemaleCircadianCycleVC.xib */,
+				5923584F293EDED300E5379C /* HeartRateReminderVC.h */,
+				5923582E293EDED300E5379C /* HeartRateReminderVC.m */,
+				59235832293EDED300E5379C /* HeartRateReminderVC.xib */,
+				5923582D293EDED300E5379C /* HeartRateViewController.h */,
+				59235850293EDED300E5379C /* HeartRateViewController.m */,
+				59235839293EDED300E5379C /* HeartRateViewController.xib */,
+				59235822293EDED300E5379C /* HrCheckViewController.h */,
+				5923584C293EDED300E5379C /* HrCheckViewController.m */,
+				59235842293EDED300E5379C /* HrCheckViewController.xib */,
+				5923584D293EDED300E5379C /* LWCustomDialViewController.h */,
+				5923582F293EDED300E5379C /* LWCustomDialViewController.m */,
+				59235820293EDED300E5379C /* MessagePushSwitchVC.h */,
+				5923583B293EDED300E5379C /* MessagePushSwitchVC.m */,
+				5923583A293EDED300E5379C /* MessagePushSwitchVC.xib */,
+				5923583C293EDED300E5379C /* MotionPushViewController.h */,
+				5923581F293EDED300E5379C /* MotionPushViewController.m */,
+				59235837293EDED300E5379C /* NotDisturbViewController.h */,
+				59235852293EDED300E5379C /* NotDisturbViewController.m */,
+				5923583F293EDED300E5379C /* NotDisturbViewController.xib */,
+				5923582A293EDED300E5379C /* QRViewController.h */,
+				59235845293EDED300E5379C /* QRViewController.m */,
+				5923581C293EDED300E5379C /* SedentaryViewController.h */,
+				5923583E293EDED300E5379C /* SedentaryViewController.m */,
+				59235838293EDED300E5379C /* SportTargetViewController.h */,
+				59235821293EDED300E5379C /* SportTargetViewController.m */,
+				5923584E293EDED300E5379C /* SportTargetViewController.xib */,
+				59235825293EDED300E5379C /* UserInforViewController.h */,
+				59235849293EDED300E5379C /* UserInforViewController.m */,
+				59235854293EDED300E5379C /* WaterClockViewController.h */,
+				59235834293EDED300E5379C /* WaterClockViewController.m */,
+				59235836293EDED300E5379C /* WaterClockViewController.xib */,
+				592358E829418AE200E5379C /* WeatherViewController.h */,
+				592358E629418AE200E5379C /* WeatherViewController.m */,
+				592358E729418AE200E5379C /* WeatherViewController.xib */,
+				592358EE2941B52D00E5379C /* LWPersonViewController.h */,
+				592358EF2941B52D00E5379C /* LWPersonViewController.m */,
+				592358EC2941B4B000E5379C /* LWContactViewController.h */,
+				592358EB2941B4B000E5379C /* LWContactViewController.m */,
+				590B977B2966A61B00D31A76 /* FBCameraViewController.h */,
+				590B977C2966A61B00D31A76 /* FBCameraViewController.m */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		59235858293EDED300E5379C /* V */ = {
+			isa = PBXGroup;
+			children = (
+				592358DE293F4E3000E5379C /* LWDeviceListCell.h */,
+				592358DD293F4E3000E5379C /* LWDeviceListCell.m */,
+				59235877293EDED300E5379C /* ClockListTableViewCell.h */,
+				5923585E293EDED300E5379C /* ClockListTableViewCell.m */,
+				5923585F293EDED300E5379C /* ClockListTableViewCell.xib */,
+				59235869293EDED300E5379C /* CollCell.h */,
+				59235878293EDED300E5379C /* CollCell.m */,
+				59235863293EDED300E5379C /* CollCell.xib */,
+				59235879293EDED300E5379C /* FemaleCell.h */,
+				59235868293EDED300E5379C /* FemaleCell.m */,
+				59235864293EDED300E5379C /* FemaleCell.xib */,
+				59235875293EDED300E5379C /* LWCustomDialCell.h */,
+				59235861293EDED300E5379C /* LWCustomDialCell.m */,
+				59235874293EDED300E5379C /* LWCustomDialColorCell.h */,
+				59235862293EDED300E5379C /* LWCustomDialColorCell.m */,
+				5923586D293EDED300E5379C /* LWCustomDialColorCell.xib */,
+				5923587A293EDED300E5379C /* LWCustomDialColorCollectionCell.h */,
+				59235867293EDED300E5379C /* LWCustomDialColorCollectionCell.m */,
+				5923585A293EDED300E5379C /* LWCustomDialColorCollectionCell.xib */,
+				5923587E293EDED300E5379C /* LWCustomDialHeaderView.h */,
+				5923586C293EDED300E5379C /* LWCustomDialHeaderView.m */,
+				5923586E293EDED300E5379C /* LWCustomDialPickerView.h */,
+				5923587C293EDED300E5379C /* LWCustomDialPickerView.m */,
+				5923586B293EDED300E5379C /* LWCustomDialPickerView.xib */,
+				59235866293EDED300E5379C /* LWCustomDialPickerViewCell.h */,
+				59235873293EDED300E5379C /* LWCustomDialPickerViewCell.m */,
+				5923585C293EDED300E5379C /* LWCustomDialPickerViewCell.xib */,
+				5923585B293EDED300E5379C /* LWCustomDialTableView.h */,
+				59235871293EDED300E5379C /* LWCustomDialTableView.m */,
+				59235876293EDED300E5379C /* LWPersonCell.h */,
+				59235860293EDED300E5379C /* LWPersonCell.m */,
+				5923587B293EDED300E5379C /* LWPersonCell.xib */,
+				5923587D293EDED300E5379C /* LWWaveProgress.h */,
+				5923586F293EDED300E5379C /* LWWaveProgress.m */,
+				5923585D293EDED300E5379C /* PushSwitchCell.h */,
+				59235870293EDED300E5379C /* PushSwitchCell.m */,
+				5923586A293EDED300E5379C /* PushSwitchCell.xib */,
+				59235872293EDED300E5379C /* WeatherCell.h */,
+				59235859293EDED300E5379C /* WeatherCell.m */,
+				59235865293EDED300E5379C /* WeatherCell.xib */,
+				592358F12941BB7800E5379C /* LWContactSearchBarHeaderView.h */,
+				592358F22941BB7800E5379C /* LWContactSearchBarHeaderView.m */,
+				590B977F2967B7EF00D31A76 /* FBRadarView.h */,
+				590B97802967B7EF00D31A76 /* FBRadarView.m */,
+				590B978829680A6300D31A76 /* FBLogTableViewCell.h */,
+				590B978929680A6300D31A76 /* FBLogTableViewCell.m */,
+				590B978A29680A6300D31A76 /* FBLogTableViewCell.xib */,
+				59F62AE4296BAADE00A0603C /* FBAboutHeadView.h */,
+				59F62AE5296BAADE00A0603C /* FBAboutHeadView.m */,
+				593FBF64298A36DE00986F13 /* MotionPushCollectionViewCell.h */,
+				593FBF65298A36DE00986F13 /* MotionPushCollectionViewCell.m */,
+				593FBF66298A36DE00986F13 /* MotionPushCollectionViewCell.xib */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		592358CE293F26C100E5379C /* QMUIConfigurationTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				592358CF293F26C100E5379C /* QMUIConfigurationTemplate.h */,
+				592358D0293F26C100E5379C /* QMUIConfigurationTemplate.m */,
+				592358E32940B04100E5379C /* LWBaseViewController.h */,
+				592358E42940B04100E5379C /* LWBaseViewController.m */,
+				590B976F2966682600D31A76 /* FBBaseNavigationController.h */,
+				590B97702966682600D31A76 /* FBBaseNavigationController.m */,
+				590B978D2968117100D31A76 /* FBWebViewController.h */,
+				590B978E2968117100D31A76 /* FBWebViewController.m */,
+			);
+			name = QMUIConfigurationTemplate;
+			path = Pods/QMUIKit/QMUIConfigurationTemplate;
+			sourceTree = SOURCE_ROOT;
+		};
+		592A9FD725A4173A00CC515E = {
+			isa = PBXGroup;
+			children = (
+				592A9FE225A4173A00CC515E /* FissionBluetooth */,
+				592A9FFE25A4173C00CC515E /* FissionBluetoothTests */,
+				592AA00925A4173C00CC515E /* FissionBluetoothUITests */,
+				592A9FE125A4173A00CC515E /* Products */,
+				749A57D9A5AE00850B0B5BD3 /* Pods */,
+				2F7260CFD7131112B53695AC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		592A9FE125A4173A00CC515E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				592A9FE025A4173A00CC515E /* FissionBluetooth.app */,
+				592A9FFB25A4173C00CC515E /* FissionBluetoothTests.xctest */,
+				592AA00625A4173C00CC515E /* FissionBluetoothUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		592A9FE225A4173A00CC515E /* FissionBluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				59B66DB525A436FB0068B89A /* SystemBaseclass */,
+				5923580D293EDED300E5379C /* MVC */,
+				592A9FE325A4173A00CC515E /* AppDelegate.h */,
+				592A9FE425A4173A00CC515E /* AppDelegate.m */,
+				592A9FF425A4173B00CC515E /* Info.plist */,
+				592A9FF525A4173B00CC515E /* main.m */,
+				592A9FEC25A4173A00CC515E /* Main.storyboard */,
+				592A9FF125A4173B00CC515E /* LaunchScreen.storyboard */,
+				592A9FEF25A4173B00CC515E /* Assets.xcassets */,
+				59E7BE4E268C13C400B8001A /* Resources */,
+			);
+			path = FissionBluetooth;
+			sourceTree = "<group>";
+		};
+		592A9FFE25A4173C00CC515E /* FissionBluetoothTests */ = {
+			isa = PBXGroup;
+			children = (
+				592A9FFF25A4173C00CC515E /* FissionBluetoothTests.m */,
+				592AA00125A4173C00CC515E /* Info.plist */,
+			);
+			path = FissionBluetoothTests;
+			sourceTree = "<group>";
+		};
+		592AA00925A4173C00CC515E /* FissionBluetoothUITests */ = {
+			isa = PBXGroup;
+			children = (
+				592AA00A25A4173C00CC515E /* FissionBluetoothUITests.m */,
+				592AA00C25A4173C00CC515E /* Info.plist */,
+			);
+			path = FissionBluetoothUITests;
+			sourceTree = "<group>";
+		};
+		59B66DB525A436FB0068B89A /* SystemBaseclass */ = {
+			isa = PBXGroup;
+			children = (
+				59B66DB625A4376D0068B89A /* PrefixHeader.pch */,
+				592358CE293F26C100E5379C /* QMUIConfigurationTemplate */,
+				59235806293ED8D000E5379C /* SDK */,
+				592358DB293F2C8C00E5379C /* Localizable.strings */,
+				590B977629667AC300D31A76 /* InfoPlist.strings */,
+			);
+			path = SystemBaseclass;
+			sourceTree = "<group>";
+		};
+		59E7BE4E268C13C400B8001A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				59E7BE4F268C13C400B8001A /* Plate */,
+				59E7BE61268C13C400B8001A /* dial */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		59E7BE4F268C13C400B8001A /* Plate */ = {
+			isa = PBXGroup;
+			children = (
+				59E7BF6C2696893700B8001A /* 7 */,
+				59E7BE50268C13C400B8001A /* ic_dial_button@2x.png */,
+				59E7BE51268C13C400B8001A /* examples_img_03.png */,
+				59E7BE52268C13C400B8001A /* ic_dial_button@3x.png */,
+				59E7BE53268C13C400B8001A /* dial_style2_black.jpg */,
+				59E7BE54268C13C400B8001A /* ic_dial_button_d@2x.png */,
+				59E7BE55268C13C400B8001A /* dial_style5_black.jpg */,
+				59E7BE56268C13C400B8001A /* srpText_hr.png */,
+				59E7BE57268C13C400B8001A /* srpText_date.png */,
+				59E7BE58268C13C400B8001A /* ic_dial_button_d@3x.png */,
+				59E7BE59268C13C400B8001A /* dial_style1_white.jpg */,
+				59E7BE5A268C13C400B8001A /* dial_style3_yellow.jpg */,
+				59E7BE5B268C13C400B8001A /* srpText_steps.png */,
+				59E7BE5C268C13C400B8001A /* srpText_sleep.png */,
+				59E7BE5D268C13C400B8001A /* srpText_time.png */,
+				59E7BE5E268C13C400B8001A /* dial_style4_green.jpg */,
+				59E7BE5F268C13C400B8001A /* hotnoon_front_image.jpg */,
+				59E7BE60268C13C400B8001A /* zhouhai_font_1001_TEXT.png */,
+			);
+			path = Plate;
+			sourceTree = "<group>";
+		};
+		59E7BE61268C13C400B8001A /* dial */ = {
+			isa = PBXGroup;
+			children = (
+				59E7BED82695980B00B8001A /* rgb.bmp */,
+				59E7BEB7268EAE4A00B8001A /* rgbA.png */,
+				59E7BE62268C13C400B8001A /* pic_custom75x75px@3x.png */,
+				59E7BEA3268C7B8A00B8001A /* pic_custom360x360.png */,
+				59E7BE63268C13C400B8001A /* pic_dial_circular@3x.png */,
+				59E7BE64268C13C400B8001A /* pic_dial_rectangle@3x.png */,
+				59E7BE65268C13C400B8001A /* pic_custom126x154px@3x.png */,
+				59E7BE66268C13C400B8001A /* pic_custom240x240px@3x.png */,
+			);
+			path = dial;
+			sourceTree = "<group>";
+		};
+		59E7BF6C2696893700B8001A /* 7 */ = {
+			isa = PBXGroup;
+			children = (
+				59E7BF6D2696893700B8001A /* 缩略图.bmp */,
+				59E7BF6E2696893700B8001A /* 日期-步数-心率 */,
+				59E7BF7D2696893700B8001A /* 效果图 (2).png */,
+				59E7BF7E2696893700B8001A /* 电量 */,
+				59E7BF8A2696893700B8001A /* 背景.bmp */,
+				59E7BF8B2696893700B8001A /* 标注.png */,
+				59E7BF8C2696893700B8001A /* 上午-下午 */,
+				59E7BF8F2696893700B8001A /* 时-分 */,
+			);
+			path = 7;
+			sourceTree = "<group>";
+		};
+		59E7BF6E2696893700B8001A /* 日期-步数-心率 */ = {
+			isa = PBXGroup;
+			children = (
+				59E7BF6F2696893700B8001A /* 日期8.bmp */,
+				59E7BF702696893700B8001A /* 日期9.bmp */,
+				59E7BF712696893700B8001A /* 日期7.bmp */,
+				59E7BF722696893700B8001A /* 日期6.bmp */,
+				59E7BF732696893700B8001A /* 日期4.bmp */,
+				59E7BF742696893700B8001A /* 日期5.bmp */,
+				59E7BF752696893700B8001A /* 日期1.bmp */,
+				59E7BF762696893700B8001A /* 日期0.bmp */,
+				59E7BF772696893700B8001A /* 日期2.bmp */,
+				59E7BF782696893700B8001A /* 日期3.bmp */,
+				59E7BF792696893700B8001A /* 日期11.bmp */,
+				59E7BF7A2696893700B8001A /* 日期10.bmp */,
+				59E7BF7B2696893700B8001A /* 日期12.bmp */,
+				59E7BF7C2696893700B8001A /* 日期13.bmp */,
+			);
+			path = "日期-步数-心率";
+			sourceTree = "<group>";
+		};
+		59E7BF7E2696893700B8001A /* 电量 */ = {
+			isa = PBXGroup;
+			children = (
+				59E7BF7F2696893700B8001A /* 电量10.bmp */,
+				59E7BF802696893700B8001A /* 电量4.bmp */,
+				59E7BF812696893700B8001A /* 电量5.bmp */,
+				59E7BF822696893700B8001A /* 电量7.bmp */,
+				59E7BF832696893700B8001A /* 电量6.bmp */,
+				59E7BF842696893700B8001A /* 电量2.bmp */,
+				59E7BF852696893700B8001A /* 电量3.bmp */,
+				59E7BF862696893700B8001A /* 电量1.bmp */,
+				59E7BF872696893700B8001A /* 电量0.bmp */,
+				59E7BF882696893700B8001A /* 电量8.bmp */,
+				59E7BF892696893700B8001A /* 电量9.bmp */,
+			);
+			path = "电量";
+			sourceTree = "<group>";
+		};
+		59E7BF8C2696893700B8001A /* 上午-下午 */ = {
+			isa = PBXGroup;
+			children = (
+				59E7BF8D2696893700B8001A /* 2.bmp */,
+				59E7BF8E2696893700B8001A /* 1.bmp */,
+			);
+			path = "上午-下午";
+			sourceTree = "<group>";
+		};
+		59E7BF8F2696893700B8001A /* 时-分 */ = {
+			isa = PBXGroup;
+			children = (
+				59F84B98269D3CF1001E4D65 /* 时分0.bmp */,
+				59F84B94269D3CF1001E4D65 /* 时分1.bmp */,
+				59F84B97269D3CF1001E4D65 /* 时分2.bmp */,
+				59F84B9F269D3CF1001E4D65 /* 时分3.bmp */,
+				59F84B9B269D3CF1001E4D65 /* 时分4.bmp */,
+				59F84BA1269D3CF1001E4D65 /* 时分5.bmp */,
+				59F84B95269D3CF1001E4D65 /* 时分6.bmp */,
+				59F84BA0269D3CF1001E4D65 /* 时分7.bmp */,
+				59F84B9E269D3CF1001E4D65 /* 时分8.bmp */,
+				59F84B96269D3CF1001E4D65 /* 时分9.bmp */,
+				59F84B9A269D3CF1001E4D65 /* 时分10.bmp */,
+				59F84B99269D3CF1001E4D65 /* 时分11.bmp */,
+				59F84B9C269D3CF1001E4D65 /* 时分12.bmp */,
+				59F84B9D269D3CF1001E4D65 /* 时分13.bmp */,
+			);
+			path = "时-分";
+			sourceTree = "<group>";
+		};
+		749A57D9A5AE00850B0B5BD3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E948B1D4C7D2967D8B7AFF14 /* Pods-FissionBluetooth.debug.xcconfig */,
+				3CAADF886303D331C1B5C7CD /* Pods-FissionBluetooth.release.xcconfig */,
+				FE0F92F69642F6E6D10CB7AB /* Pods-FissionBluetooth-FissionBluetoothUITests.debug.xcconfig */,
+				8A63387D526BF805F11A16F9 /* Pods-FissionBluetooth-FissionBluetoothUITests.release.xcconfig */,
+				593399584BF981F494D22BCE /* Pods-FissionBluetoothTests.debug.xcconfig */,
+				73C300FB567263FC20125FEE /* Pods-FissionBluetoothTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		592A9FDF25A4173A00CC515E /* FissionBluetooth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 592AA00F25A4173C00CC515E /* Build configuration list for PBXNativeTarget "FissionBluetooth" */;
+			buildPhases = (
+				081CEFA10F37C2726BD37072 /* [CP] Check Pods Manifest.lock */,
+				592A9FDC25A4173A00CC515E /* Sources */,
+				592A9FDD25A4173A00CC515E /* Frameworks */,
+				592A9FDE25A4173A00CC515E /* Resources */,
+				729F39FE9B9344AFF80A9A7E /* [CP] Embed Pods Frameworks */,
+				5990E52B260202280015293B /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FissionBluetooth;
+			productName = FissionBluetooth;
+			productReference = 592A9FE025A4173A00CC515E /* FissionBluetooth.app */;
+			productType = "com.apple.product-type.application";
+		};
+		592A9FFA25A4173C00CC515E /* FissionBluetoothTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 592AA01225A4173C00CC515E /* Build configuration list for PBXNativeTarget "FissionBluetoothTests" */;
+			buildPhases = (
+				89A6B39CCED87B1878EABAE9 /* [CP] Check Pods Manifest.lock */,
+				592A9FF725A4173C00CC515E /* Sources */,
+				592A9FF825A4173C00CC515E /* Frameworks */,
+				592A9FF925A4173C00CC515E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				592A9FFD25A4173C00CC515E /* PBXTargetDependency */,
+			);
+			name = FissionBluetoothTests;
+			productName = FissionBluetoothTests;
+			productReference = 592A9FFB25A4173C00CC515E /* FissionBluetoothTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		592AA00525A4173C00CC515E /* FissionBluetoothUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 592AA01525A4173C00CC515E /* Build configuration list for PBXNativeTarget "FissionBluetoothUITests" */;
+			buildPhases = (
+				828C1DC392DE11A00427D693 /* [CP] Check Pods Manifest.lock */,
+				592AA00225A4173C00CC515E /* Sources */,
+				592AA00325A4173C00CC515E /* Frameworks */,
+				592AA00425A4173C00CC515E /* Resources */,
+				CA57C85CC692C62E779E8E91 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				592AA00825A4173C00CC515E /* PBXTargetDependency */,
+			);
+			name = FissionBluetoothUITests;
+			productName = FissionBluetoothUITests;
+			productReference = 592AA00625A4173C00CC515E /* FissionBluetoothUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		592A9FD825A4173A00CC515E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					592A9FDF25A4173A00CC515E = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					592A9FFA25A4173C00CC515E = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 592A9FDF25A4173A00CC515E;
+					};
+					592AA00525A4173C00CC515E = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 592A9FDF25A4173A00CC515E;
+					};
+				};
+			};
+			buildConfigurationList = 592A9FDB25A4173A00CC515E /* Build configuration list for PBXProject "FissionBluetooth" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = 592A9FD725A4173A00CC515E;
+			productRefGroup = 592A9FE125A4173A00CC515E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				592A9FDF25A4173A00CC515E /* FissionBluetooth */,
+				592A9FFA25A4173C00CC515E /* FissionBluetoothTests */,
+				592AA00525A4173C00CC515E /* FissionBluetoothUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		592A9FDE25A4173A00CC515E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59F84BA5269D3CF1001E4D65 /* 时分2.bmp in Resources */,
+				59E7BFA82696893700B8001A /* 日期3.bmp in Resources */,
+				59E7BEA4268C7B8A00B8001A /* pic_custom360x360.png in Resources */,
+				592A9FF325A4173B00CC515E /* LaunchScreen.storyboard in Resources */,
+				59E7BFA72696893700B8001A /* 日期2.bmp in Resources */,
+				59E7BFB52696893700B8001A /* 电量1.bmp in Resources */,
+				59E7BE68268C13C400B8001A /* ic_dial_button@2x.png in Resources */,
+				59E7BE77268C13C400B8001A /* hotnoon_front_image.jpg in Resources */,
+				59E7BFAA2696893700B8001A /* 日期10.bmp in Resources */,
+				59E7BFAB2696893700B8001A /* 日期12.bmp in Resources */,
+				59E7BE74268C13C400B8001A /* srpText_sleep.png in Resources */,
+				59E7BFB12696893700B8001A /* 电量7.bmp in Resources */,
+				59F84BAB269D3CF1001E4D65 /* 时分13.bmp in Resources */,
+				59F84BA8269D3CF1001E4D65 /* 时分10.bmp in Resources */,
+				59E7BFB72696893700B8001A /* 电量8.bmp in Resources */,
+				59235895293EDED300E5379C /* WaterClockViewController.xib in Resources */,
+				59F84BAC269D3CF1001E4D65 /* 时分8.bmp in Resources */,
+				59F84BA7269D3CF1001E4D65 /* 时分11.bmp in Resources */,
+				59E7BE79268C13C400B8001A /* pic_custom75x75px@3x.png in Resources */,
+				59E7BE73268C13C400B8001A /* srpText_steps.png in Resources */,
+				59E7BFA42696893700B8001A /* 日期5.bmp in Resources */,
+				59E7BFA02696893700B8001A /* 日期9.bmp in Resources */,
+				59E7BE7C268C13C400B8001A /* pic_custom126x154px@3x.png in Resources */,
+				592358B8293EDED300E5379C /* LWCustomDialPickerView.xib in Resources */,
+				59F84BAD269D3CF1001E4D65 /* 时分3.bmp in Resources */,
+				59E7BFB42696893700B8001A /* 电量3.bmp in Resources */,
+				59E7BFB92696893700B8001A /* 背景.bmp in Resources */,
+				592358AC293EDED300E5379C /* LWCustomDialPickerViewCell.xib in Resources */,
+				592358C0293EDED300E5379C /* LWPersonCell.xib in Resources */,
+				5923589B293EDED300E5379C /* ClockInforListVC.xib in Resources */,
+				59F84BA3269D3CF1001E4D65 /* 时分6.bmp in Resources */,
+				59F84BAE269D3CF1001E4D65 /* 时分7.bmp in Resources */,
+				59E7BFB22696893700B8001A /* 电量6.bmp in Resources */,
+				592358B2293EDED300E5379C /* CollCell.xib in Resources */,
+				592358BA293EDED300E5379C /* LWCustomDialColorCell.xib in Resources */,
+				59E7BE7A268C13C400B8001A /* pic_dial_circular@3x.png in Resources */,
+				59E7BFA92696893700B8001A /* 日期11.bmp in Resources */,
+				59235886293EDED300E5379C /* ClockInforViewController.xib in Resources */,
+				592A9FF025A4173B00CC515E /* Assets.xcassets in Resources */,
+				59E7BF9F2696893700B8001A /* 日期8.bmp in Resources */,
+				59E7BFAC2696893700B8001A /* 日期13.bmp in Resources */,
+				59E7BE6F268C13C400B8001A /* srpText_date.png in Resources */,
+				59E7BFAE2696893700B8001A /* 电量10.bmp in Resources */,
+				59F84BA4269D3CF1001E4D65 /* 时分9.bmp in Resources */,
+				59E7BFBB2696893700B8001A /* 2.bmp in Resources */,
+				59E7BFAD2696893700B8001A /* 效果图 (2).png in Resources */,
+				59235897293EDED300E5379C /* MessagePushSwitchVC.xib in Resources */,
+				59E7BE6A268C13C400B8001A /* ic_dial_button@3x.png in Resources */,
+				590B978C29680A6300D31A76 /* FBLogTableViewCell.xib in Resources */,
+				59F84BA2269D3CF1001E4D65 /* 时分1.bmp in Resources */,
+				5923589C293EDED300E5379C /* HrCheckViewController.xib in Resources */,
+				592A9FEE25A4173A00CC515E /* Main.storyboard in Resources */,
+				59E7BFBC2696893700B8001A /* 1.bmp in Resources */,
+				59E7BFA12696893700B8001A /* 日期7.bmp in Resources */,
+				59E7BE6E268C13C400B8001A /* srpText_hr.png in Resources */,
+				592358A9293EDED300E5379C /* FemaleCircadianCycleVC.xib in Resources */,
+				592358B7293EDED300E5379C /* PushSwitchCell.xib in Resources */,
+				59E7BFB32696893700B8001A /* 电量2.bmp in Resources */,
+				59E7BEB8268EAE4A00B8001A /* rgbA.png in Resources */,
+				592358D9293F2C8C00E5379C /* Localizable.strings in Resources */,
+				59235896293EDED300E5379C /* HeartRateViewController.xib in Resources */,
+				59E7BE72268C13C400B8001A /* dial_style3_yellow.jpg in Resources */,
+				592358AB293EDED300E5379C /* LWCustomDialColorCollectionCell.xib in Resources */,
+				5923589D293EDED300E5379C /* BrightScreenViewController.xib in Resources */,
+				59E7BFAF2696893700B8001A /* 电量4.bmp in Resources */,
+				59E7BE6C268C13C400B8001A /* ic_dial_button_d@2x.png in Resources */,
+				59E7BE75268C13C400B8001A /* srpText_time.png in Resources */,
+				59E7BE78268C13C400B8001A /* zhouhai_font_1001_TEXT.png in Resources */,
+				59E7BFA62696893700B8001A /* 日期0.bmp in Resources */,
+				59E7BFB02696893700B8001A /* 电量5.bmp in Resources */,
+				59F84BAF269D3CF1001E4D65 /* 时分5.bmp in Resources */,
+				59E7BE7B268C13C400B8001A /* pic_dial_rectangle@3x.png in Resources */,
+				5923588A293EDED300E5379C /* ClockDialListViewController.xib in Resources */,
+				592358B4293EDED300E5379C /* WeatherCell.xib in Resources */,
+				5923589A293EDED300E5379C /* NotDisturbViewController.xib in Resources */,
+				59E7BFA22696893700B8001A /* 日期6.bmp in Resources */,
+				59235891293EDED300E5379C /* HeartRateReminderVC.xib in Resources */,
+				5923589E293EDED300E5379C /* ChipFlashSpatialVC.xib in Resources */,
+				59E7BFBA2696893700B8001A /* 标注.png in Resources */,
+				592358B3293EDED300E5379C /* FemaleCell.xib in Resources */,
+				59E7BE7D268C13C400B8001A /* pic_custom240x240px@3x.png in Resources */,
+				59F84BA6269D3CF1001E4D65 /* 时分0.bmp in Resources */,
+				592358AE293EDED300E5379C /* ClockListTableViewCell.xib in Resources */,
+				59E7BE69268C13C400B8001A /* examples_img_03.png in Resources */,
+				592358EA29418AE200E5379C /* WeatherViewController.xib in Resources */,
+				59F84BAA269D3CF1001E4D65 /* 时分12.bmp in Resources */,
+				59F84BA9269D3CF1001E4D65 /* 时分4.bmp in Resources */,
+				59E7BF9E2696893700B8001A /* 缩略图.bmp in Resources */,
+				59E7BE6B268C13C400B8001A /* dial_style2_black.jpg in Resources */,
+				592358A6293EDED300E5379C /* SportTargetViewController.xib in Resources */,
+				59E7BE76268C13C400B8001A /* dial_style4_green.jpg in Resources */,
+				59E7BE70268C13C400B8001A /* ic_dial_button_d@3x.png in Resources */,
+				59E7BFB82696893700B8001A /* 电量9.bmp in Resources */,
+				59E7BE71268C13C400B8001A /* dial_style1_white.jpg in Resources */,
+				59E7BFB62696893700B8001A /* 电量0.bmp in Resources */,
+				59E7BE6D268C13C400B8001A /* dial_style5_black.jpg in Resources */,
+				59E7BFA52696893700B8001A /* 日期1.bmp in Resources */,
+				59E7BFA32696893700B8001A /* 日期4.bmp in Resources */,
+				590B977429667AC300D31A76 /* InfoPlist.strings in Resources */,
+				593FBF68298A36DE00986F13 /* MotionPushCollectionViewCell.xib in Resources */,
+				59E7BED92695980B00B8001A /* rgb.bmp in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		592A9FF925A4173C00CC515E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		592AA00425A4173C00CC515E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		081CEFA10F37C2726BD37072 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FissionBluetooth-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		729F39FE9B9344AFF80A9A7E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		828C1DC392DE11A00427D693 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FissionBluetooth-FissionBluetoothUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89A6B39CCED87B1878EABAE9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FissionBluetoothTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA57C85CC692C62E779E8E91 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		592A9FDC25A4173A00CC515E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				590B978B29680A6300D31A76 /* FBLogTableViewCell.m in Sources */,
+				592358A3293EDED300E5379C /* ClockInforViewController.m in Sources */,
+				592358A5293EDED300E5379C /* HrCheckViewController.m in Sources */,
+				590B97812967B7EF00D31A76 /* FBRadarView.m in Sources */,
+				592358ED2941B4B000E5379C /* LWContactViewController.m in Sources */,
+				59235881293EDED300E5379C /* Tools.m in Sources */,
+				592358B1293EDED300E5379C /* LWCustomDialColorCell.m in Sources */,
+				592358E929418AE200E5379C /* WeatherViewController.m in Sources */,
+				592358AF293EDED300E5379C /* LWPersonCell.m in Sources */,
+				590B97842967F08F00D31A76 /* FBLogManager.m in Sources */,
+				59F62AE32969679600A0603C /* FBAboutViewController.m in Sources */,
+				59235883293EDED300E5379C /* LWCustomDialModel.m in Sources */,
+				59235899293EDED300E5379C /* SedentaryViewController.m in Sources */,
+				59235889293EDED300E5379C /* ListViewController.m in Sources */,
+				592358CA293EF6FE00E5379C /* LWNetworkingManager.m in Sources */,
+				59235898293EDED300E5379C /* MessagePushSwitchVC.m in Sources */,
+				59235888293EDED300E5379C /* SportTargetViewController.m in Sources */,
+				592358CD293F121B00E5379C /* LeftViewController.m in Sources */,
+				59235894293EDED300E5379C /* FemaleCircadianCycleVC.m in Sources */,
+				592358A2293EDED300E5379C /* UserInforViewController.m in Sources */,
+				592358C1293EDED300E5379C /* LWCustomDialPickerView.m in Sources */,
+				592358DF293F4E3000E5379C /* LWDeviceListCell.m in Sources */,
+				59235880293EDED300E5379C /* DialListModel.m in Sources */,
+				590B977D2966A61B00D31A76 /* FBCameraViewController.m in Sources */,
+				5923588E293EDED300E5379C /* LWCustomDialViewController.m in Sources */,
+				592358BE293EDED300E5379C /* LWCustomDialPickerViewCell.m in Sources */,
+				592358B5293EDED300E5379C /* LWCustomDialColorCollectionCell.m in Sources */,
+				592358A8293EDED300E5379C /* NotDisturbViewController.m in Sources */,
+				592A9FE525A4173A00CC515E /* AppDelegate.m in Sources */,
+				592358BC293EDED300E5379C /* PushSwitchCell.m in Sources */,
+				592358A1293EDED300E5379C /* ClockInforListVC.m in Sources */,
+				59235893293EDED300E5379C /* WaterClockViewController.m in Sources */,
+				592358F32941BB7800E5379C /* LWContactSearchBarHeaderView.m in Sources */,
+				592358BF293EDED300E5379C /* CollCell.m in Sources */,
+				5923589F293EDED300E5379C /* QRViewController.m in Sources */,
+				592358AD293EDED300E5379C /* ClockListTableViewCell.m in Sources */,
+				592358D1293F26C100E5379C /* QMUIConfigurationTemplate.m in Sources */,
+				590B97712966682600D31A76 /* FBBaseNavigationController.m in Sources */,
+				592358BD293EDED300E5379C /* LWCustomDialTableView.m in Sources */,
+				592358F02941B52D00E5379C /* LWPersonViewController.m in Sources */,
+				592358A7293EDED300E5379C /* HeartRateViewController.m in Sources */,
+				592358B9293EDED300E5379C /* LWCustomDialHeaderView.m in Sources */,
+				59235890293EDED300E5379C /* ViewController.m in Sources */,
+				592358A0293EDED300E5379C /* BrightScreenViewController.m in Sources */,
+				590B977A2966833800D31A76 /* NSObject+Authorized.m in Sources */,
+				5923587F293EDED300E5379C /* LWPersonModel.m in Sources */,
+				592358E52940B04100E5379C /* LWBaseViewController.m in Sources */,
+				592358E229402AFE00E5379C /* DeviceListModel.m in Sources */,
+				59F62AE6296BAADE00A0603C /* FBAboutHeadView.m in Sources */,
+				592358B0293EDED300E5379C /* LWCustomDialCell.m in Sources */,
+				59235884293EDED300E5379C /* NSObject+HUD.m in Sources */,
+				5923588D293EDED300E5379C /* HeartRateReminderVC.m in Sources */,
+				590B978F2968117100D31A76 /* FBWebViewController.m in Sources */,
+				5923588C293EDED300E5379C /* BinFileViewController.m in Sources */,
+				593FBF67298A36DE00986F13 /* MotionPushCollectionViewCell.m in Sources */,
+				590B97872967FE1A00D31A76 /* FBLogViewController.m in Sources */,
+				592358BB293EDED300E5379C /* LWWaveProgress.m in Sources */,
+				592358D4293F2ACB00E5379C /* LWLanguageLocalizble.m in Sources */,
+				592358B6293EDED300E5379C /* FemaleCell.m in Sources */,
+				592358AA293EDED300E5379C /* WeatherCell.m in Sources */,
+				59235885293EDED300E5379C /* ClockDialListViewController.m in Sources */,
+				592A9FF625A4173B00CC515E /* main.m in Sources */,
+				5923588B293EDED300E5379C /* ChipFlashSpatialVC.m in Sources */,
+				59235887293EDED300E5379C /* MotionPushViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		592A9FF725A4173C00CC515E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				592AA00025A4173C00CC515E /* FissionBluetoothTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		592AA00225A4173C00CC515E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				592AA00B25A4173C00CC515E /* FissionBluetoothUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		592A9FFD25A4173C00CC515E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 592A9FDF25A4173A00CC515E /* FissionBluetooth */;
+			targetProxy = 592A9FFC25A4173C00CC515E /* PBXContainerItemProxy */;
+		};
+		592AA00825A4173C00CC515E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 592A9FDF25A4173A00CC515E /* FissionBluetooth */;
+			targetProxy = 592AA00725A4173C00CC515E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		590B977629667AC300D31A76 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				590B977529667AC300D31A76 /* en */,
+				590B977729667AC500D31A76 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		592358DB293F2C8C00E5379C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				592358DA293F2C8C00E5379C /* en */,
+				592358DC293F2C9100E5379C /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		592A9FEC25A4173A00CC515E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				592A9FED25A4173A00CC515E /* Base */,
+				592358D5293F2C5A00E5379C /* zh-Hans */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		592A9FF125A4173B00CC515E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				592A9FF225A4173B00CC515E /* Base */,
+				592358D6293F2C5A00E5379C /* zh-Hans */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		592AA00D25A4173C00CC515E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		592AA00E25A4173C00CC515E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		592AA01025A4173C00CC515E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E948B1D4C7D2967D8B7AFF14 /* Pods-FissionBluetooth.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PL4B74TGHZ;
+				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = "EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64=arm64 arm64e armv7 armv7s armv6 armv8EXCLUDED_ARCHS=$(inherited)$(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT))";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass",
+					"$(PROJECT_DIR)/FissionBluetooth/OTA_SDK",
+					"$(PROJECT_DIR)/FissionBluetooth/RTKOTASDK",
+					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass/RTKOTASDK",
+					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass/FissionSDK",
+					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass/SDK",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FissionBluetooth/SystemBaseclass/PrefixHeader.pch";
+				INFOPLIST_FILE = FissionBluetooth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FissionBluetooth.Demo.Test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		592AA01125A4173C00CC515E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3CAADF886303D331C1B5C7CD /* Pods-FissionBluetooth.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PL4B74TGHZ;
+				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = "EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64=arm64 arm64e armv7 armv7s armv6 armv8EXCLUDED_ARCHS=$(inherited)$(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT))";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass",
+					"$(PROJECT_DIR)/FissionBluetooth/OTA_SDK",
+					"$(PROJECT_DIR)/FissionBluetooth/RTKOTASDK",
+					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass/RTKOTASDK",
+					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass/FissionSDK",
+					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass/SDK",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FissionBluetooth/SystemBaseclass/PrefixHeader.pch";
+				INFOPLIST_FILE = FissionBluetooth/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FissionBluetooth.Demo.Test;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		592AA01325A4173C00CC515E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 593399584BF981F494D22BCE /* Pods-FissionBluetoothTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 475GG98Q7C;
+				INFOPLIST_FILE = FissionBluetoothTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.FissionBluetooth.Demo.FissionBluetoothTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FissionBluetooth.app/FissionBluetooth";
+			};
+			name = Debug;
+		};
+		592AA01425A4173C00CC515E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 73C300FB567263FC20125FEE /* Pods-FissionBluetoothTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 475GG98Q7C;
+				INFOPLIST_FILE = FissionBluetoothTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.FissionBluetooth.Demo.FissionBluetoothTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FissionBluetooth.app/FissionBluetooth";
+			};
+			name = Release;
+		};
+		592AA01625A4173C00CC515E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE0F92F69642F6E6D10CB7AB /* Pods-FissionBluetooth-FissionBluetoothUITests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 475GG98Q7C;
+				INFOPLIST_FILE = FissionBluetoothUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.FissionBluetooth.Demo.FissionBluetoothUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FissionBluetooth;
+			};
+			name = Debug;
+		};
+		592AA01725A4173C00CC515E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8A63387D526BF805F11A16F9 /* Pods-FissionBluetooth-FissionBluetoothUITests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 475GG98Q7C;
+				INFOPLIST_FILE = FissionBluetoothUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.FissionBluetooth.Demo.FissionBluetoothUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FissionBluetooth;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		592A9FDB25A4173A00CC515E /* Build configuration list for PBXProject "FissionBluetooth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				592AA00D25A4173C00CC515E /* Debug */,
+				592AA00E25A4173C00CC515E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		592AA00F25A4173C00CC515E /* Build configuration list for PBXNativeTarget "FissionBluetooth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				592AA01025A4173C00CC515E /* Debug */,
+				592AA01125A4173C00CC515E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		592AA01225A4173C00CC515E /* Build configuration list for PBXNativeTarget "FissionBluetoothTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				592AA01325A4173C00CC515E /* Debug */,
+				592AA01425A4173C00CC515E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		592AA01525A4173C00CC515E /* Build configuration list for PBXNativeTarget "FissionBluetoothUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				592AA01625A4173C00CC515E /* Debug */,
+				592AA01725A4173C00CC515E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 592A9FD825A4173A00CC515E /* Project object */;
+}

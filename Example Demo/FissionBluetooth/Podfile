@@ -1,0 +1,36 @@
+source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
+
+# Uncomment the next line to define a global platform for your project
+platform :ios, '10.0'
+
+target 'FissionBluetooth' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for FissionBluetooth
+
+  target 'FissionBluetoothTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'FissionBluetoothUITests' do
+    # Pods for testing
+  end
+
+  pod 'QMUIKit'
+  pod 'AFNetworking'
+  pod 'MJExtension'
+  pod 'Bugly'
+  pod 'IQKeyboardManager'
+  pod 'SVProgressHUD'
+  pod 'BRPickerView'
+  pod 'SDWebImage'
+  pod 'Masonry'
+  pod 'TZImagePickerController'
+  pod 'SDAutoLayout'
+  pod 'CocoaLumberjack'
+  pod 'SGQRCode'
+  pod 'CWLateralSlide'
+
+end

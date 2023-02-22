@@ -1,0 +1,6 @@
+framework module CWLateralSlide {
+  umbrella header "CWLateralSlide-umbrella.h"
+
+  export *
+  module * { export * }
+}

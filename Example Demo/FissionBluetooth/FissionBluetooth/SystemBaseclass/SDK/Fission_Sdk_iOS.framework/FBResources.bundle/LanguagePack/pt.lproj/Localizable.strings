@@ -1,0 +1,103 @@
+/* 
+  Localizable.strings
+  Fission_Sdk_iOS
+
+  Created by 裂变智能 on 2021/4/1.
+  
+*/
+
+//****************************** 🇵🇹葡萄牙语 ******************************
+
+/**
+ FBAtCommand
+ */
+"蓝牙未打开或不支持" = "Bluetooth não está ligado ou não é suportado";
+"尚未连接到设备" = "Ainda não ligado Ao dispositivo";
+"设备尚未初始化完成" = "O dispositivo não FOI inicializado";
+"写指令失败，或缺少连接参数" = "A instrução de Escrita falhou, Ou OS parâmetros de conexão estão faltando";
+"应答超时" = "Intervalo de resposta";
+"AT指令异常，无效指令/无效参数" = "Exceptuando a instrução, o parâmetro inválido / inválido";
+"参数错误，UTC时间设置不能为0" = "Erro de parâmetro, tempo UTC não Pode ser configurado para 0";
+"参数错误，时区设置需大于等于-720，小于等于+720" = "Erro de parâmetro, configuração de fuso horário deve ser maior ou igual a - 720 e menor ou igual a + 720";
+"数据长度错误" = "Erro de comprimento DOS dados";
+"设备初始化失败，初始化超时" = "Falha na inicialização do dispositivo, tempo de inicialização";
+
+"执行失败，低压无法执行" = "A execução falhou, não foi possível executar";
+"指令状态错误" = "Erro do estado da instrução";
+"常规运动中，请先停止当前运动" = "Em movimento normal, por favor pare o movimento atual primeiro";
+"正在通话中，无法执行此指令" = "Este comando não pode ser executado enquanto uma chamada está em andamento";
+"手表取消开启运动" = "Ver cancelar movimento aberto";
+
+/**
+ FBBgCommand
+ */
+"参数错误，开始查询时间不能大于结束查询时间" = "Erro de parâmetro, tempo de consulta inicial não Pode ser maior do que tempo de consulta final";
+
+"参数错误，用户Id设置需大于0，小于0xFFFFFFFF（4294967295）" = "Erro de parâmetro, a configuração do ID do utilizador deve ser superior a 0 e inferior a 0xFFFF (4294967295)";
+"参数错误，用户昵称设置长度需小于32字节" = "Erro do parâmetro, a configuração do apelido do utilizador deve ser inferior a 32 bytes";
+"参数错误，用户身高设置需大于100cm，小于250cm" = "A Altura é inferior a 100cm, o utilizador Precisa de configurar o parâmetro incorrectamente";
+"参数错误，用户体重设置需大于30kg，小于250kg" = "O parâmetro está errado. O Peso do utilizador deve ser superior a 30kg e inferior a 250kg";
+"参数错误，时区设置需大于等于-720，小于等于+720" = "Erro de parâmetro, configuração de fuso horário deve ser maior ou igual a - 720 e menor ou igual a + 720";
+"参数错误，用户年龄设置需大于5岁，小于130岁" = "O parâmetro está errado. A idade do utilizador deve ter Mais de Cinco Anos e Menos de 130 Anos de idade";
+"参数错误，用户步幅设置需大于40，小于90" = "Erro do parâmetro, a configuração do Passo do utilizador deve ser maior do que o 40 e Menos do que o 90";
+
+"参数错误，序号ID设置需大于等于0，小于等于%d" = "Erro de parâmetro, configuração de identificação do número de série deve ser superior ou igual a 0 e inferior ou igual a %d";
+"参数错误，描述内容设置长度需小于24字节" = "Erro de parâmetro, comprimento de definição do conteúdo Da descrição deve ser inferior a 24 bytes";
+"参数错误，日期时间设置不能为空，格式：YYYY-MM-dd HH:mm" = "Erro de parâmetro, Hora de data não Pode ESTAR vazia, formato: YYYY-MM-dd HH:mm";
+"参数错误，时间设置不能为空，格式：HH:mm" = "Erro do parâmetro, a configuração do tempo não Pode ESTAR vazia, formato: HH:mm";
+"参数错误，星期未选择" = "Erro do parâmetro, Semana não selecionada";
+"参数错误，星期选中标记设置不能为空（星期日、星期一、星期二、星期三、星期四、星期五、星期六）" = "Erro de parâmetro, verificação semanal não Pode ESTAR vazia (domingo, segunda, terça, quarta, quinta, sexta, sábado)";
+
+"参数错误，起始时间，一天的绝对分钟（大于等于0分钟，小于等于1440分钟）" = "Erro do parâmetro, Hora de início, minutos absolutos de um dia (superior ou igual a 0 minutos, inferior ou igual a 1440 minutos)";
+"参数错误，结束时间，一天的绝对分钟（大于等于0分钟，小于等于1440分钟）" = "Erro do parâmetro, tempo final, minutos absolutos de um dia (superior ou igual a 0 minutos, inferior ou igual a 1440 minutos)";
+"参数错误，起始时间需小于结束时间" = "Erro de parâmetro, tempo de início deve ser inferior Ao tempo final";
+"参数错误，检测时间需大于0" = "Erro de parâmetro, tempo de detecção deve ser superior a 0";
+"参数错误，目标步数需大于0" = "Erro de parâmetro, OS passos-alvo devem ser superiores a 0";
+
+"参数错误，目标卡路里消耗需大于0" = "Erro de parâmetro, consumo de calorias-alvo deve ser superior a 0";
+"参数错误，目标里程数需大于0" = "Erro de parâmetro, quilometragem-alvo deve ser superior a 0";
+"参数错误，目标运动时间需大于0" = "Erro de parâmetro, tempo de movimento-alvo deve ser superior a 0";
+
+"参数错误，天气数据推送至少1天，最多%d天" = "Erro do parâmetro, dados meteorológicos enviados por pelo menos 1 dia, até %d dias";
+"参数错误，序号设置值范围0-%d" = "Erro de parâmetro, intervalo de valor de série 0-%d";
+
+"参数错误，提前提醒天数，范围为1-3天" = "Erro do parâmetro, DIAS de lembrete com antecedência, intervalo 1-3 DIAS";
+"参数错误，经期天数，范围为3-15天" = "Erro do parâmetro, DIAS do período menstrual, intervalo 3-15 DIAS";
+"参数错误，经期周期天数，范围为17-60天" = "Erro do parâmetro, DIAS do Ciclo menstrual, intervalo 17-60";
+"参数错误，最后一次经期年月日，年份范围为最近两年（去年，今年），月份范围为1-12，日数范围为1-31" = "O parâmetro está errado. O último período menstrual é mês, ano, mês e dias. O intervalo do ano é OS últimos dois Anos (ano passado, este ano). O intervalo do mês é 1-12 e o intervalo de Dias é 1-31";
+"参数错误，提醒时间，小时范围为0-23，分钟范围为0-59" = "Erro de parâmetro, tempo de lembrete, intervalo de Horas é 0-23, intervalo de minutos é 0-59";
+
+"参数错误，心率提醒上限值需大于等于30，小于等于200" = "Erro do parâmetro, o limite superior do lembrete da frequência cardíaca deve ser maior ou igual a 30 e menor ou igual a 200";
+"参数错误，心率提醒下限值需大于等于30，小于等于200" = "Erro do parâmetro, o limite inferior do lembrete da frequência cardíaca deve ser maior ou igual a 30 e menor ou igual a 200";
+"参数错误，心率提醒下限值需小于心率提醒上限值" = "Erro de parâmetro. O limite inferior do lembrete de frequência cardíaca deve ser inferior Ao limite superior Da memória de frequência cardíaca";
+"参数错误，心率值连续超标次数不能小于1" = "Erro do parâmetro. O número de excedências consecutivas do valor Da taxa cardíaca não Pode ser inferior a 1";
+
+"参数错误，常用联系人最多不能超过50个" = "Erro do parâmetro, não mais do que 50 contatos comuns";
+
+"执行失败" = "A execução falhou.";
+"失败，数据校验未通过" = "Falha, verificação de dados falhou";
+"数据无效(格式错误)" = "Dados inválidos (erro de formato)";
+"通信中(系统忙)" = "Comunicação (sistema ocupado)";
+"无效指令" = "Instrução inválida";
+"协议版本不符" = "Versão do Protocolo não corresponde";
+"收到正确的结果" = "Obter OS resultados certos";
+"数据错误" = "Erro de dados";
+"接收超时" = "Tempo de recepção";
+"内存超出" = "Sem memória";
+"校验和错误" = "Erro de soma de verificação";
+"参数错误" = "Erro do parâmetro";
+"数据长度错误" = "Erro de comprimento DOS dados";
+"未知的错误" = "Erro Desconhecido";
+
+/**
+ FBBluetoothOTA
+ */
+"参数错误，bin文件错误" = "Erro do parâmetro, erro do ficheiro'bin'";
+"当前连接的设备OTA升级不可用" = "A atualização OTA do dispositivo Conectado atualmente não está disponível";
+"OTA升级失败，切换到OTA mode失败" = "A atualização do OTA falhou, o switch para o modo OTA falhou";
+"OTA升级失败，不支持普通升级" = "A actualização Da OTA falhou. A actualização normal não é suportada";
+"OTA升级失败，不支持静默升级" = "A atualização Da OTA falhou, a atualização Silenciosa não é suportada";
+"手表电量低于30%" = "Ver potência abaixo de 30%";
+
+"操作频繁，请稍后重试..." = "Operações frequentes, tente novamente mais tarde";
+"设备处于禁止OTA状态，请稍后重试..." = "O dispositivo está em estado proibido OTA, tente novamente mais tarde";

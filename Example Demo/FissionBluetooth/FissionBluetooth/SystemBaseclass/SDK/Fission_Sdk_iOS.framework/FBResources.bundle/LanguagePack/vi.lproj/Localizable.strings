@@ -1,0 +1,103 @@
+/* 
+  Localizable.strings
+  Fission_Sdk_iOS
+
+  Created by 裂变智能 on 2021/4/1.
+  
+*/
+
+//****************************** 🇻🇳越南语 ******************************
+
+/**
+ FBAtCommand
+ */
+"蓝牙未打开或不支持" = "Bluetooth không có dùng hay không có hỗ trợ";
+"尚未连接到设备" = "Chưa kết nối tới thiết bị";
+"设备尚未初始化完成" = "Thiết bị chưa được khởi tạo";
+"写指令失败，或缺少连接参数" = "Sách ghi bị lỗi, hoặc không có thông số kết nối";
+"应答超时" = "Khoảng thời gian đáp";
+"AT指令异常，无效指令/无效参数" = "Trừ hướng sử dụng, tham số không hợp lệ";
+"参数错误，UTC时间设置不能为0" = "lỗi tham số, thời gian UTC không thể đặt thành 0";
+"参数错误，时区设置需大于等于-720，小于等于+720" = "Các lỗi tham số, thiết lập múi giờ phải lớn hơn hoặc bằng - 720, hơn hoặc bằng với +720";
+"数据长度错误" = "Lỗi về chiều dài dữ liệu";
+"设备初始化失败，初始化超时" = "Thiết lập thất bại, giờ khởi tạo";
+
+"执行失败，低压无法执行" = "Lỗi thực hiện, không thể thực hiện";
+"指令状态错误" = "Lỗi trạng thái huấn luyện";
+"常规运动中，请先停止当前运动" = "Chuyển động bình thường, hãy dừng chuyển động hiện tại trước";
+"正在通话中，无法执行此指令" = "Đang gọi và không thể thực hiện lệnh này";
+"手表取消开启运动" = "Đồng hồ hủy chuyển động";
+
+/**
+ FBBgCommand
+ */
+"参数错误，开始查询时间不能大于结束查询时间" = "lỗi tham số, thời gian bắt đầu yêu cầu không thể lớn hơn thời gian kết thúc yêu cầu";
+
+"参数错误，用户Id设置需大于0，小于0xFFFFFFFF（4294967295）" = "Có lỗi tham số, thiết lập nhận diện người dùng phải lớn hơn 0 và ít hơn cả 0xFFFFFFFFFFFFFFFFFFF (4949967295)";
+"参数错误，用户昵称设置长度需小于32字节" = "lỗi của Tham số, độ dài của thiết lập biệt danh người dùng nên thấp hơn 32 byte";
+"参数错误，用户身高设置需大于100cm，小于250cm" = "Chiều cao thấp hơn 100cm, người dùng cần phải đặt không đúng tham số";
+"参数错误，用户体重设置需大于30kg，小于250kg" = "Số điện thoại này không đúng, s ức nặng của người dùng phải hơn 30kg và ít hơn 250kg";
+"参数错误，时区设置需大于等于-720，小于等于+720" = "Các lỗi tham số, thiết lập múi giờ phải lớn hơn hoặc bằng - 720, hơn hoặc bằng với +720";
+"参数错误，用户年龄设置需大于5岁，小于130岁" = "Tham s ố này là sai. Tuổi của người dùng nên dài hơn năm năm và ít hơn cả 130 tuổi";
+"参数错误，用户步幅设置需大于40，小于90" = "Các lỗi tham số, thiết lập bước của người dùng phải lớn hơn 40 và ít hơn 90";
+
+"参数错误，序号ID设置需大于等于0，小于等于%d" = "Các lỗi tham số, thiết lập số tự động phải lớn hơn hoặc bằng 0 và ít hơn hoặc bằng %d";
+"参数错误，描述内容设置长度需小于24字节" = "Lỗ hổng tham số, độ dài của mục tiêu phải thấp hơn 24 byte";
+"参数错误，日期时间设置不能为空，格式：YYYY-MM-dd HH:mm" = "Lỗi tham số, thiết lập thời gian ngày không thể rỗng, định dạng: YYYY-MM-dd HH:mm";
+"参数错误，时间设置不能为空，格式：HH:mm" = "Lỗi tham số, thiết lập thời gian không thể rỗng, định dạng: HHM:mm";
+"参数错误，星期未选择" = "lỗi tham số, tuần chưa chọn";
+"参数错误，星期选中标记设置不能为空（星期日、星期一、星期二、星期三、星期四、星期五、星期六）" = "Lỗi Tham số, điểm đánh dấu tuần không thể trống (Chủ nhật, Thứ Hai, Thứ Ba, Thứ Tư, Thứ Năm, Thứ Sáu, Thứ Bảy)";
+
+"参数错误，起始时间，一天的绝对分钟（大于等于0分钟，小于等于1440分钟）" = "Lỗi tham số, giờ khởi chạy, phút tuyệt đối của một ngày (lớn hơn hoặc bằng 0 phút, ít hơn hoặc bằng 1440 phút)";
+"参数错误，结束时间，一天的绝对分钟（大于等于0分钟，小于等于1440分钟）" = "Có lỗi tham số, giờ kết thúc, phút tuyệt đối của một ngày (lớn hơn hoặc bằng 0 phút, ít hơn hoặc bằng 1440 phút)";
+"参数错误，起始时间需小于结束时间" = "Lỗi tham số, giờ khởi chạy nên ít hơn thời gian kết thúc";
+"参数错误，检测时间需大于0" = "Lỗi Tham số, giờ phát hiện phải lớn hơn 0";
+"参数错误，目标步数需大于0" = "Lỗ tham số, các bước đích phải lớn hơn 0";
+
+"参数错误，目标卡路里消耗需大于0" = "Lỗ tham số, mức năng lượng đích phải lớn hơn 0";
+"参数错误，目标里程数需大于0" = "Lỗ hỏng Tham số, số dặm đích phải lớn hơn 0";
+"参数错误，目标运动时间需大于0" = "Lỗ tham số, thời gian vận chuyển đích phải lớn hơn 0";
+
+"参数错误，天气数据推送至少1天，最多%d天" = "Tham số lỗi, dữ liệu thời tiết được đẩy ít nhất một ngày, lên đến %d ngày";
+"参数错误，序号设置值范围0-%d" = "lỗi của Tham số, dãy số thiết lập giá trị 0-%d";
+
+"参数错误，提前提醒天数，范围为1-3天" = "Lỗi Tham số, ngày nhắc trước, khoảng 1-3 ngày";
+"参数错误，经期天数，范围为3-15天" = "Lỗi tham số, ngày kinh nguyệt, khoảng cách 3-15 ngày";
+"参数错误，经期周期天数，范围为17-60天" = "Lỗi Tham số, ngày chu kỳ, khoảng cách 17-60 days";
+"参数错误，最后一次经期年月日，年份范围为最近两年（去年，今年），月份范围为1-12，日数范围为1-31" = "tham số này là sai. Khoảng thời gian cuối cùng là tháng, năm, tháng và ngày. Khoảng cách năm là hai năm cuối (năm ngoái, năm nay). Khoảng cách tháng là 1-12 và khoảng ngày là 1-31";
+"参数错误，提醒时间，小时范围为0-23，分钟范围为0-59" = "Có trục trặc Tham số, giờ nhắc, giờ là 0-23, giờ phút là 0-59.";
+
+"参数错误，心率提醒上限值需大于等于30，小于等于200" = "Tham số sai, nhịp tim nhắc nhở giới hạn trên cần lớn hơn bằng 30, nhỏ hơn bằng 200";
+"参数错误，心率提醒下限值需大于等于30，小于等于200" = "Tham số sai, nhịp tim nhắc nhở giới hạn dưới cần lớn hơn bằng 30, nhỏ hơn bằng 200";
+"参数错误，心率提醒下限值需小于心率提醒上限值" = "Có lẽ là lỗi giới hạn thấp trong việc nhắc nhở nhịp tim phải thấp hơn mức giới hạn trên của việc nhắc nhở nhịp tim";
+"参数错误，心率值连续超标次数不能小于1" = "Lỗi Tham số. Số lần vượt qua nhịp tim liên tiếp không thể ít hơn 1";
+
+"参数错误，常用联系人最多不能超过50个" = "Lỗi Tham số, số liên lạc chung không thể vượt qua 50";
+
+"执行失败" = "Lỗi thực hiện";
+"失败，数据校验未通过" = "Lỗi, lỗi kiểm tra dữ liệu";
+"数据无效(格式错误)" = "dữ liệu không đúng";
+"通信中(系统忙)" = "Liên lạc (hệ thống bận)";
+"无效指令" = "Chương trình sai";
+"协议版本不符" = "Phiên bản giao thức không khớp";
+"收到正确的结果" = "Lấy đúng kết quả";
+"数据错误" = "lỗi dữ liệu";
+"接收超时" = "Thời gian thu";
+"内存超出" = "Hết bộ nhớ";
+"校验和错误" = "Kiểm tra lỗi tổng";
+"参数错误" = "Lỗi Tham số";
+"数据长度错误" = "Lỗi về chiều dài dữ liệu";
+"未知的错误" = "lỗi chưa biết";
+
+/**
+ FBBluetoothOTA
+ */
+"参数错误，bin文件错误" = "Lỗi tham số, lỗi tập tin thùng";
+"当前连接的设备OTA升级不可用" = "Việc nâng cấp OTA của thiết bị được kết nối hiện thời không sẵn sàng";
+"OTA升级失败，切换到OTA mode失败" = "lỗi sửa đổi OTA, chuyển sang chế độ OTA thất bại";
+"OTA升级失败，不支持普通升级" = "Nâng cấp OTA thất bại. Nâng cấp chuẩn không được hỗ trợ";
+"OTA升级失败，不支持静默升级" = "lỗi sửa lỗi OTA, nâng cấp im lặng không hỗ trợ";
+"手表电量低于30%" = "Xem năng lượng dưới 30%";
+
+"操作频繁，请稍后重试..." = "Tần số hoạt động, hãy thử lại sau";
+"设备处于禁止OTA状态，请稍后重试..." = "Thiết bị ở trạng thái cấm OTA, hãy thử lại sau.";
