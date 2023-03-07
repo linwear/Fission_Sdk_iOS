@@ -85,7 +85,7 @@
         [httpManager.manager.requestSerializer setValue: @"99" forHTTPHeaderField:@"Ota-Version"];
     }
     
-//    LWLog(@"------请求头信息 Begin ------\n\nX-Token --- %@\nUuid --- %@\nApp-Type --- %@\nApp-Version --- %@\nPhone-Model --- %@\nPhone-Version --- %@\nAccept-Language --- %@\nSdk-Type --- %@\nBluetooth-Name --- %@\nBluetooth-Adapter --- %@\nBluetooth-Address --- %@\n------请求头信息 End------\n\n",token, userid, appType, LWDeviceInfo.getReleaseVersion, LWDeviceInfo.getDeviceModel, LWDeviceInfo.getSystemVersion, LWDeviceInfo.getDeviceCurrentLanguage, sdkType, bluetoothName, bluetoothAdapter, bluetoothAddress);
+//    FBLog(@"------请求头信息 Begin ------\n\nX-Token --- %@\nUuid --- %@\nApp-Type --- %@\nApp-Version --- %@\nPhone-Model --- %@\nPhone-Version --- %@\nAccept-Language --- %@\nSdk-Type --- %@\nBluetooth-Name --- %@\nBluetooth-Adapter --- %@\nBluetooth-Address --- %@\n------请求头信息 End------\n\n",token, userid, appType, LWDeviceInfo.getReleaseVersion, LWDeviceInfo.getDeviceModel, LWDeviceInfo.getSystemVersion, LWDeviceInfo.getDeviceCurrentLanguage, sdkType, bluetoothName, bluetoothAdapter, bluetoothAddress);
     return httpManager;
 }
 
@@ -101,7 +101,7 @@
     switch (method) {
         case GET: {
             
-//            LWLog(@"------GET请求------\n请求地址:%@\n请求参数:%@", URLString, params);
+//            FBLog(@"------GET请求------\n请求地址:%@\n请求参数:%@", URLString, params);
 
             [httpManager.manager GET:URLString parameters:params headers:nil progress:^(NSProgress * _Nonnull downloadProgress) {
                 
@@ -136,7 +136,7 @@
             
         case POST: {
             
-//            LWLog(@"------POST请求------\n请求地址:%@\n请求参数:%@", URLString, params);
+//            FBLog(@"------POST请求------\n请求地址:%@\n请求参数:%@", URLString, params);
             
             [httpManager.manager POST:URLString parameters:params headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
                 
@@ -171,7 +171,7 @@
             
         case DELETE: {
             
-//            LWLog(@"------DELETE请求------\n请求地址:%@\n请求参数:%@", URLString, params);
+//            FBLog(@"------DELETE请求------\n请求地址:%@\n请求参数:%@", URLString, params);
 
             [httpManager.manager DELETE:URLString parameters:params headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 [weakSelf isTokenExpireWithTask:task];
@@ -198,7 +198,7 @@
             
         case PUT: {
             
-//            LWLog(@"------PUT请求------\n请求地址:%@\n请求参数:%@", URLString, params);
+//            FBLog(@"------PUT请求------\n请求地址:%@\n请求参数:%@", URLString, params);
         
             [httpManager.manager PUT:URLString parameters:params headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 [weakSelf isTokenExpireWithTask:task];
@@ -237,7 +237,7 @@
     
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
          
-//        LWLog(@"下载进度：%.0f", downloadProgress.fractionCompleted);
+//        FBLog(@"下载进度：%.0f", downloadProgress.fractionCompleted);
         
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         
@@ -299,7 +299,7 @@
                 4. 上传文件的[mimeType]
                 */
                 [formData appendPartWithFileData:imageData name:@"file" fileName:fileName mimeType: @"image/png"];
-//                LWLog(@"\n------POST请求------\n请求地址:%@\n请求参数:%@", URLString, imageData);
+//                FBLog(@"\n------POST请求------\n请求地址:%@\n请求参数:%@", URLString, imageData);
             }
         }
         
@@ -311,7 +311,7 @@
             
             NSString *fileName = [NSString stringWithFormat:@"%@ForiosLog%.f.txt", NSBundle.mainBundle.infoDictionary[@"CFBundleName"], NSDate.date.timeIntervalSince1970];
             [formData appendPartWithFileData:resData name:@"file" fileName:fileName mimeType: @"text/plain"];
-//            LWLog(@"\n------POST请求------\n请求地址:%@\n请求参数:%@", URLString, resData);
+//            FBLog(@"\n------POST请求------\n请求地址:%@\n请求参数:%@", URLString, resData);
         }
         
         NSString *logZipPath = params[@"zip"];
@@ -502,7 +502,7 @@
             
         case POST: {
             
-//            LWLog(@"------POST请求------\n请求地址:%@\n请求参数:%@", URLString, params);
+//            FBLog(@"------POST请求------\n请求地址:%@\n请求参数:%@", URLString, params);
             
             [httpManager.manager POST:URLString parameters:params headers:nil progress:^(NSProgress * _Nonnull uploadProgress) {
                 
@@ -537,7 +537,7 @@
             
         case DELETE: {
             
-//            LWLog(@"------DELETE请求------\n请求地址:%@\n请求参数:%@", URLString, params);
+//            FBLog(@"------DELETE请求------\n请求地址:%@\n请求参数:%@", URLString, params);
 
             [httpManager.manager DELETE:URLString parameters:params headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 [weakSelf isTokenExpireWithTask:task];
@@ -564,7 +564,7 @@
             
         case PUT: {
             
-//            LWLog(@"------PUT请求------\n请求地址:%@\n请求参数:%@", URLString, params);
+//            FBLog(@"------PUT请求------\n请求地址:%@\n请求参数:%@", URLString, params);
         
             [httpManager.manager PUT:URLString parameters:params headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 [weakSelf isTokenExpireWithTask:task];

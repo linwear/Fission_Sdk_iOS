@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark 以下值，通用，必传｜The following values, general, must be passed
 /**
- 序号ID（0，1，2，3，4）最多5个闹钟｜Serial number ID (0, 1, 2, 3, 4) up to 5 alarm clocks
+ 序号ID（0，1，2，3 ...）｜Sequence ID (0, 1, 2, 3...)
 */
 @property (nonatomic, assign) NSInteger clockID;
 
@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL remindLater;
 
 /**
- 描述，长度小于等于23个字节｜Description, the length of description is less than or equal to 23 bytes
+ 描述、备注（长度小于等于23个字节，超出最大长度，自动截取）｜Description, remarks (length is less than or equal to 23 bytes, if the maximum length is exceeded, it will be automatically intercepted)
 */
 @property (nonatomic, copy) NSString *clockDescribe;
 

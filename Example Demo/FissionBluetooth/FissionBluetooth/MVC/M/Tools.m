@@ -56,4 +56,63 @@
     [UIApplication.sharedApplication setIdleTimerDisabled:always];
 }
 
+/// 图片颜色转换
++ (UIImage *)maskWithImage:(UIImage *)maskImage withColor:(UIColor *)color {
+    if (!color) {
+        return maskImage;
+    }
+    
+    CGRect imageRect = CGRectMake(0.0f, 0.0f, maskImage.size.width, maskImage.size.height);
+    UIImage *newImage = nil;
+
+    UIGraphicsBeginImageContextWithOptions(imageRect.size, NO, maskImage.scale);
+    {
+        CGContextRef context = UIGraphicsGetCurrentContext();
+
+        CGContextScaleCTM(context, 1.0f, -1.0f);
+        CGContextTranslateCTM(context, 0.0f, -(imageRect.size.height));
+
+        CGContextClipToMask(context, imageRect, maskImage.CGImage);
+        CGContextSetFillColorWithColor(context, color.CGColor);
+        CGContextFillRect(context, imageRect);
+
+        newImage = UIGraphicsGetImageFromCurrentImageContext();
+    }
+    UIGraphicsEndImageContext();
+    
+    return newImage;
+}
+
+/// 富文本，NSArray数组个数要一致
++ (void)setUILabel:(UILabel *)label setDataArr:(NSArray<NSString *> *)setString setColorArr:(NSArray<UIColor *> *)color setFontArr:(NSArray<UIFont *> *)font {
+    
+    if (!label.text.length || (setString.count != color.count) || (setString.count != font.count)) return;
+    
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:label.text];
+    
+    for (int k = 0; k < setString.count; k++) {
+        NSRange range = [label.text rangeOfString:setString[k]];
+        
+        if (range.location != NSNotFound) {
+            [attributedString addAttribute:NSForegroundColorAttributeName value:color[k] range:range]; // 设置字体颜色
+            [attributedString addAttribute:NSFontAttributeName value:font[k] range:range]; // 设置字体样式
+        }
+    }
+    label.attributedText = attributedString;
+}
+
+/// 时分秒
++ (NSString *)HMS:(NSInteger)duration {
+        
+    NSInteger h = duration/3600;
+
+    NSInteger m = (duration - h*3600)/60;
+    
+    NSInteger s = duration - h*3600 - m*60;
+    
+    NSString *hms = [NSString stringWithFormat:@"%02zd:%02zd:%02zd", h, m, s];
+    
+    return hms;
+}
+
 @end

@@ -129,9 +129,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)tryLastConnection;
 
 
-// 🆕
 /**
- 获取所有配置信息｜Get all configuration information
+ 🆕获取所有配置信息｜Get all configuration information
  
  @note 递交密钥绑定成功后，需发送必要指令 fbGetHardwareInformationDataWithBlock: ，成功后有值｜After submitting the key binding successfully, you need to send the necessary instruction fbGetHardwareInformationDataWithBlock:, and there is a value after success
  @see  使用方法示例：FBAllConfigObject.firmwareConfig｜Usage example: FBAllConfigObject.firmwareConfig;

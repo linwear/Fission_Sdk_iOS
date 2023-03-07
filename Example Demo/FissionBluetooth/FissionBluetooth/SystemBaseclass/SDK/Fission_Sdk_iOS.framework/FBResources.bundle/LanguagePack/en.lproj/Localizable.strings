@@ -18,7 +18,7 @@
 "应答超时" = "Response timeout";
 "AT指令异常，无效指令/无效参数" = "At instruction exception, invalid instruction / invalid parameter";
 "参数错误，UTC时间设置不能为0" = "Parameter error, UTC time setting cannot be 0";
-"参数错误，时区设置需大于等于-720，小于等于+720" = "Parameter error, time zone setting must be greater than or equal to - 720, less than or equal to + 720";
+"参数错误，时区设置需大于等于-1440，小于等于+1440" = "Parameter error, time zone setting must be greater than or equal to -1440, less than or equal to +1440";
 "数据长度错误" = "Data length error";
 "设备初始化失败，初始化超时" = "Device initialization failed, initialization timeout";
 
@@ -27,6 +27,7 @@
 "常规运动中，请先停止当前运动" = "In normal motion, please stop the current motion first";
 "正在通话中，无法执行此指令" = "This command cannot be executed while a call is in progress";
 "手表取消开启运动" = "The watch cancels the movement";
+"本地无此运动信息" = "There is no local sports information";
 
 /**
  FBBgCommand
@@ -37,7 +38,6 @@
 "参数错误，用户昵称设置长度需小于32字节" = "Parameter error, user nickname setting length should be less than 32 bytes";
 "参数错误，用户身高设置需大于100cm，小于250cm" = "Parameter error, user height setting should be greater than 100cm and less than 250cm";
 "参数错误，用户体重设置需大于30kg，小于250kg" = "Parameter error, user's weight should be greater than 30kg and less than 250kg";
-"参数错误，时区设置需大于等于-720，小于等于+720" = "Parameter error, time zone setting must be greater than or equal to - 720, less than or equal to + 720";
 "参数错误，用户年龄设置需大于5岁，小于130岁" = "Parameter error, user's age should be more than 5 years old and less than 130 years old";
 "参数错误，用户步幅设置需大于40，小于90" = "Parameter error, user stride setting should be greater than 40 and less than 90";
 

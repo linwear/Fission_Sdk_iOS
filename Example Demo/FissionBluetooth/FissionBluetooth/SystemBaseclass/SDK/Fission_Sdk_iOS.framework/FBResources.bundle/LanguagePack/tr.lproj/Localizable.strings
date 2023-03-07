@@ -18,7 +18,7 @@
 "应答超时" = "Cevap zamanı aşımı";
 "AT指令异常，无效指令/无效参数" = "talimatı istisnasında, geçersiz talimatı / geçersiz parametre";
 "参数错误，UTC时间设置不能为0" = "Parametre hatası, UTC zamanı 0'ya ayarlanabilir";
-"参数错误，时区设置需大于等于-720，小于等于+720" = "Parametre hatası, zaman bölgesi ayarlaması - 720'den daha büyük ya da eşit olmalı ve + 720'den daha az ya da eşit olmalı";
+"参数错误，时区设置需大于等于-1440，小于等于+1440" = "Parametre hatası, zaman bölgesi ayarlaması -1440'den daha büyük ya da eşit olmalı ve +1440'den daha az ya da eşit olmalı";
 "数据长度错误" = "Veri uzunluğu hatası";
 "设备初始化失败，初始化超时" = "Aygıt başlatılması başarısız oldu, başlatma zamanı aştı";
 
@@ -27,6 +27,7 @@
 "常规运动中，请先停止当前运动" = "Normal harekette, lütfen önce şu anda hareketi durdurun";
 "正在通话中，无法执行此指令" = "Bu komut bir arama ilerliyorduğunda çalışılamaz.";
 "手表取消开启运动" = "Açık hareketi iptal et";
+"本地无此运动信息" = "Yerel spor bilgisi yok";
 
 /**
  FBBgCommand
@@ -37,7 +38,6 @@
 "参数错误，用户昵称设置长度需小于32字节" = "Parametre hatası, kullanıcı isim ayarlama uzunluğu 32 bytes'dan az olmalı";
 "参数错误，用户身高设置需大于100cm，小于250cm" = "Parametre hatası, kullanıcı yükseklik ayarları 100cm'den daha büyük ve 250cm'den daha az olmalı";
 "参数错误，用户体重设置需大于30kg，小于250kg" = "Parametre hatası, kullanıcının ağırlık ayarlaması 30kg ve 250kg'den daha az olmalı";
-"参数错误，时区设置需大于等于-720，小于等于+720" = "Parametre hatası, zaman bölgesi ayarlaması - 720'den daha büyük ya da eşit olmalı ve + 720'den daha az ya da eşit olmalı";
 "参数错误，用户年龄设置需大于5岁，小于130岁" = "Parametre hatası, kullanıcı yaşı ayarlaması 5 yaşından daha büyük ve 130 yaşından daha az olmalı";
 "参数错误，用户步幅设置需大于40，小于90" = "Parametr hatası, kullanıcı kategori ayarları 40'dan ve 90'dan daha az olmalı";
 

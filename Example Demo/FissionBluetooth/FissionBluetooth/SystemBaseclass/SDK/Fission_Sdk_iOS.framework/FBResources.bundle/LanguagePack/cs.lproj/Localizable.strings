@@ -18,7 +18,7 @@
 "应答超时" = "Lhůta reakce";
 "AT指令异常，无效指令/无效参数" = "Při vyjímkě z pokynu neplatný parametr / neplatný parametr";
 "参数错误，UTC时间设置不能为0" = "Chyba parametru, čas UTC nelze nastavit na 0";
-"参数错误，时区设置需大于等于-720，小于等于+720" = "Chyba parametru, nastavení časových zón musí být větší nebo stejné než --720, menší než nebo rovnající se + 720";
+"参数错误，时区设置需大于等于-1440，小于等于+1440" = "Chyba parametru, nastavení časových zón musí být větší nebo stejné než -1440, menší než nebo rovnající se +1440";
 "数据长度错误" = "Chyba délky dat";
 "设备初始化失败，初始化超时" = "Inicializace zařízení selhala, timeout inicializace";
 
@@ -27,6 +27,7 @@
 "常规运动中，请先停止当前运动" = "V normálním pohybu, prosím, nejprve zastavte aktuální pohyb";
 "正在通话中，无法执行此指令" = "Tento příkaz nelze spustit během probíhajícího volání";
 "手表取消开启运动" = "Hodinky ruší otevřený pohyb";
+"本地无此运动信息" = "Žádné informace o místních sportech";
 
 /**
  FBBgCommand
@@ -37,7 +38,6 @@
 "参数错误，用户昵称设置长度需小于32字节" = "Chyba parametru, délka nastavení uživatelské přezdívky by měla být menší než 32 byte";
 "参数错误，用户身高设置需大于100cm，小于250cm" = "Parametr je chybný. Výška uživatele by měla být větší než 100cm a menší než 250cm";
 "参数错误，用户体重设置需大于30kg，小于250kg" = "Parametr je chybný. Hmotnost uživatele by měla být větší než 30kg a menší než 250kg";
-"参数错误，时区设置需大于等于-720，小于等于+720" = "Chyba parametru, nastavení časových zón musí být větší nebo stejné než --720, menší než nebo rovnající se + 720";
 "参数错误，用户年龄设置需大于5岁，小于130岁" = "Parametr je chybný. věk uživatele by měl být více než pět let starý a méně než 130 let starý";
 "参数错误，用户步幅设置需大于40，小于90" = "Parametr chyba, nastavení kroku uživatele by mělo být větší než 40 a méně než 90";
 

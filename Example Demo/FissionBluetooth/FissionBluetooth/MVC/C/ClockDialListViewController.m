@@ -12,11 +12,20 @@
 #import "DialListModel.h"
 
 @interface ClockDialListViewController () <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
+@property (nonatomic, assign) NSInteger plateClassify;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray *arrayData;
 @end
 
 @implementation ClockDialListViewController
+
+- (instancetype)initWithPlateClassify:(NSInteger)plateClassify {
+    if (self = [super init]) {
+        
+        self.plateClassify = plateClassify;
+    }
+    return self;
+}
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -44,15 +53,17 @@
     layout.minimumInteritemSpacing = 5;
     layout.itemSize = CGSizeMake(w, w+45);
     
-    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, NavigationContentTop, SCREEN_WIDTH, SCREEN_HEIGHT-NavigationContentTop) collectionViewLayout:layout];
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
     collectionView.delegate = self;
     collectionView.dataSource = self;
     [collectionView registerNib:[UINib nibWithNibName:@"MotionPushCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"MotionPushCollectionViewCell"];
     [self.view addSubview:collectionView];
+    collectionView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
     self.collectionView = collectionView;
-      
+    
+    
     NSDictionary *param = @{@"adaptNum" : StringHandle(FBAllConfigObject.firmwareConfig.fitNumber),
-                            @"classifyType" : @(1), // 1表示最新的表盘分类 暂定
+                            @"classifyType" : @(self.plateClassify), // 1表示最新的表盘分类 暂定
                             @"page" : @(1),
                             @"pageSize" : @(1000)
     };
@@ -72,14 +83,6 @@
     } failure:^(NSError * _Nonnull error, id  _Nullable responseObject) {
         [NSObject showHUDText:error.domain];
     }];
-    
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Custom⌚️" style:UIBarButtonItemStylePlain target:self action:@selector(customWatchFcae)];
-    [self.navigationItem setRightBarButtonItem:item];
-}
-
-- (void)customWatchFcae {
-    LWCustomDialViewController *vc = [LWCustomDialViewController new];
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -104,8 +107,35 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
     DialListModel *model = self.arrayData[indexPath.row];
-    [self downloadOTA:model.plateZip];
+    
+    FBLog(@"请确认是否同步表盘?");
+    NSString *message = LWLocalizbleString(@"Please confirm whether the watch face is synchronized");
+
+    WeakSelf(self);
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
+    NSMutableAttributedString *attributedMessage = [[NSMutableAttributedString alloc] initWithString:message attributes: @{NSFontAttributeName: [NSObject themePingFangSCMediumFont:14], NSForegroundColorAttributeName: [UIColor blackColor]}];
+    [alert setValue:attributedMessage forKey:@"attributedMessage"];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [cancel setValue:[UIColor purpleColor] forKey:@"_titleTextColor"];
+    [alert addAction:cancel];
+    
+    UIAlertAction *sure = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+
+        [weakSelf downloadOTA:model.plateZip];
+    }];
+    [sure setValue:[UIColor purpleColor] forKey:@"_titleTextColor"];
+    [alert addAction:sure];
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+#pragma mark - JXCategoryListContentViewDelegate
+- (UIView *)listView {
+    return self.view;
 }
 
 /*

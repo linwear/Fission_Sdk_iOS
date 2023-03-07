@@ -18,7 +18,7 @@
 "应答超时" = "Waktu habis jawaban";
 "AT指令异常，无效指令/无效参数" = "Pada pengecualian instruksi, instruksi tidak valid / parameter tidak valid";
 "参数错误，UTC时间设置不能为0" = "Galat parameter, waktu UTC tidak dapat ditetapkan ke 0";
-"参数错误，时区设置需大于等于-720，小于等于+720" = "Kesalahan parameter, pengaturan zona waktu harus lebih besar dari atau sama dengan - 720 dan kurang dari atau sama dengan + 720";
+"参数错误，时区设置需大于等于-1440，小于等于+1440" = "Kesalahan parameter, pengaturan zona waktu harus lebih besar dari atau sama dengan -1440 dan kurang dari atau sama dengan +1440";
 "数据长度错误" = "Galat panjang data";
 "设备初始化失败，初始化超时" = "Inisialisasi perangkat gagal, masa tamat inisialisasi";
 
@@ -27,6 +27,7 @@
 "常规运动中，请先停止当前运动" = "Dalam gerakan normal, tolong hentikan gerakan saat ini dulu";
 "正在通话中，无法执行此指令" = "Perintah ini tidak dapat dieksekusi saat panggilan sedang berlangsung";
 "手表取消开启运动" = "Lihat batalkan gerakan terbuka";
+"本地无此运动信息" = "Tidak ada informasi olahraga lokal";
 
 /**
  FBBgCommand
@@ -37,7 +38,6 @@
 "参数错误，用户昵称设置长度需小于32字节" = "Galat parameter, panjang pengaturan nama pengguna seharusnya kurang dari 32 byte";
 "参数错误，用户身高设置需大于100cm，小于250cm" = "Galat parameter. Pengaturan tinggi pengguna seharusnya lebih besar dari 100cm dan kurang dari 250cm";
 "参数错误，用户体重设置需大于30kg，小于250kg" = "Parameter error, pengaturan berat badan pengguna perlu lebih besar dari 30kg dan kurang dari 250kg";
-"参数错误，时区设置需大于等于-720，小于等于+720" = "Kesalahan parameter, pengaturan zona waktu harus lebih besar dari atau sama dengan - 720 dan kurang dari atau sama dengan + 720";
 "参数错误，用户年龄设置需大于5岁，小于130岁" = "Kesalahan parameter, pengaturan usia pengguna harus lebih dari 5 tahun dan kurang dari 130 tahun";
 "参数错误，用户步幅设置需大于40，小于90" = "Galat parameter, pengaturan langkah pengguna seharusnya lebih dari 40 dan kurang dari 90";
 

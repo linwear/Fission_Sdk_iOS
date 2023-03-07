@@ -18,7 +18,7 @@
 "应答超时" = "Perioadă de răspuns";
 "AT指令异常，无效指令/无效参数" = "La excepția instrucțiunii, instrucțiune nevalidă / parametru nevalid";
 "参数错误，UTC时间设置不能为0" = "Eroare parametru, setarea UTC ora nu poate fi 0";
-"参数错误，时区设置需大于等于-720，小于等于+720" = "Eroare de parametru, setarea fusului orar trebuie să fie mai mare sau egală cu -720 și mai mică sau egală cu +720";
+"参数错误，时区设置需大于等于-1440，小于等于+1440" = "Eroare de parametru, setarea fusului orar trebuie să fie mai mare sau egală cu -1440 și mai mică sau egală cu +1440";
 "数据长度错误" = "Eroare de lungime a datelor";
 "设备初始化失败，初始化超时" = "Inițializarea dispozitivului a eșuat, inițializarea a fost expirată";
 
@@ -27,6 +27,7 @@
 "常规运动中，请先停止当前运动" = "În mișcare normală, vă rugăm să opriți mișcarea curentă mai întâi";
 "正在通话中，无法执行此指令" = "Această comandă nu poate fi executată în timp ce un apel este în curs de desfășurare";
 "手表取消开启运动" = "Privește anularea mișcării deschise";
+"本地无此运动信息" = "Nu există informații sportive locale";
 
 /**
  FBBgCommand
@@ -37,7 +38,6 @@
 "参数错误，用户昵称设置长度需小于32字节" = "Eroare parametrică, lungimea setarii poreclei utilizatorului ar trebui să fie mai mică de 32 octeți";
 "参数错误，用户身高设置需大于100cm，小于250cm" = "Eroare de parametru, setarea înălțimii utilizatorului ar trebui să fie mai mare de 100cm și mai mică de 250cm";
 "参数错误，用户体重设置需大于30kg，小于250kg" = "Eroare de parametru, setarea greutății utilizatorului ar trebui să fie mai mare de 30kg și mai mică de 250kg";
-"参数错误，时区设置需大于等于-720，小于等于+720" = "Eroare de parametru, setarea fusului orar trebuie să fie mai mare sau egală cu -720 și mai mică sau egală cu +720";
 "参数错误，用户年龄设置需大于5岁，小于130岁" = "Eroare de parametru, vârsta utilizatorului trebuie setată să fie mai mare de 5 ani și mai mică de 130 de ani";
 "参数错误，用户步幅设置需大于40，小于90" = "Eroare parametrică, setarea pasului utilizatorului ar trebui să fie mai mare de 40 și mai mică de 90";
 

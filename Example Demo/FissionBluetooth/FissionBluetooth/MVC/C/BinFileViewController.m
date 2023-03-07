@@ -77,7 +77,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BinFileViewControllerCell"];
     
-    cell.textLabel.font = [UIFont systemFontOfSize:14];
+    cell.textLabel.font = FONT(14);
     cell.textLabel.textColor = [UIColor blackColor];
     cell.textLabel.textAlignment = NSTextAlignmentLeft;
     cell.textLabel.numberOfLines = 2;

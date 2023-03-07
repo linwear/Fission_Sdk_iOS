@@ -162,3 +162,15 @@
 "Please allow %@ to access the camera in \"Settings-Privacy-Camera\" of the iPhone" = "Please allow %@ to access the camera in \"Settings-Privacy-Camera\" of the iPhone";
 "Camera" = "Camera";
 "Fail" = "Fail";
+
+"Synchronize" = "Synchronize";
+"Watch Movement" = "Watch Movement";
+"Press and hold the module and drag to adjust the display order" = "Press and hold the module and drag to adjust the display order";
+"Add Movement" = "Add Movement";
+"Please confirm whether to push sports" = "Please confirm whether to push sports";
+"Please confirm whether the watch face is synchronized" = "Please confirm whether the watch face is synchronized";
+"Mac Address" = "Mac Address";
+"Outdoor Running" = "Outdoor Running";
+"Continue" = "Continue";
+"Pause" = "Pause";
+"End" = "End";

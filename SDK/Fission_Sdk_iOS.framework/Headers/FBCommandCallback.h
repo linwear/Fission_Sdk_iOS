@@ -20,15 +20,9 @@ typedef void (^FBOnCentralManagerDidUpdateStateBlock)(CBCentralManager *central,
 
 /**
  *@brief 扫描到蓝牙设备的回调｜Callback of scanning to Bluetooth device
- *@param isPair                                  设备是否已配对｜Whether the device is paired
- *@param device_Name                       设备名称｜Device name
- *@param mac_Address                       设备Mac地址｜Device MAC address
- *@param adapt_Number                     设备适配号｜Device adaptation number
- *@param peripheral                          蓝牙设备对象｜Bluetooth device object
- *@param advertisementData          蓝牙设备广播信息｜Bluetooth device broadcast information
- *@param RSSI                                       蓝牙设备广播信号｜Bluetooth device broadcast signal
+ *@param peripheralModel            外围设备信息｜外围设备信息
  */
-typedef void (^FBDiscoverPeripheralsBlock)(BOOL isPair, NSString *device_Name, NSString *mac_Address, NSString *adapt_Number, CBPeripheral *peripheral, NSDictionary *advertisementData, NSNumber *RSSI);
+typedef void (^FBDiscoverPeripheralsBlock)(FBPeripheralModel *peripheralModel);
 
 /**
  *@brief 设备连接成功/失败的回调｜Callback of device connection success / failure

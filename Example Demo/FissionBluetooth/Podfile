@@ -32,5 +32,8 @@ target 'FissionBluetooth' do
   pod 'CocoaLumberjack'
   pod 'SGQRCode'
   pod 'CWLateralSlide'
+  pod 'JXCategoryView'
+  pod 'HJViewStyle'
+  pod 'SSZipArchive'
 
 end

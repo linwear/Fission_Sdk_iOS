@@ -191,7 +191,7 @@
     }  else if (model.selectStyle==LWCustomDialStyleH) {
         styleImage = IMAGE_NAME(@"hotnoon_front_image.jpg");
     }
-    self.styleImageView.image = [self maskWithImage:styleImage withColor:model.selectColor?model.selectColor:nil];
+    self.styleImageView.image = [Tools maskWithImage:styleImage withColor:model.selectColor?model.selectColor:nil];
     
     
     UIImage *T_B_Image = nil;
@@ -211,7 +211,7 @@
     else if (model.selectTimeTopStyle==LWCustomTimeTopStyleStep) {
         T_B_Image = IMAGE_NAME(@"srpText_steps");
     }
-    self.topImage.image = [self maskWithImage:T_B_Image withColor:model.selectColor?model.selectColor:nil];
+    self.topImage.image = [Tools maskWithImage:T_B_Image withColor:model.selectColor?model.selectColor:nil];
     
     
     //时间下方内容
@@ -316,31 +316,5 @@
     // Drawing code
 }
 */
-
-- (UIImage *)maskWithImage:(UIImage *)maskImage withColor:(UIColor *)color {
-    if (!color) {
-        return maskImage;
-    }
-    
-    CGRect imageRect = CGRectMake(0.0f, 0.0f, maskImage.size.width, maskImage.size.height);
-    UIImage *newImage = nil;
-
-    UIGraphicsBeginImageContextWithOptions(imageRect.size, NO, maskImage.scale);
-    {
-        CGContextRef context = UIGraphicsGetCurrentContext();
-
-        CGContextScaleCTM(context, 1.0f, -1.0f);
-        CGContextTranslateCTM(context, 0.0f, -(imageRect.size.height));
-
-        CGContextClipToMask(context, imageRect, maskImage.CGImage);
-        CGContextSetFillColorWithColor(context, color.CGColor);
-        CGContextFillRect(context, imageRect);
-
-        newImage = UIGraphicsGetImageFromCurrentImageContext();
-    }
-    UIGraphicsEndImageContext();
-    
-    return newImage;
-}
 
 @end

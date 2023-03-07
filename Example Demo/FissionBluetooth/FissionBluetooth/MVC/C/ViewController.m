@@ -22,12 +22,15 @@
 #import "MessagePushSwitchVC.h"
 #import "ClockInforListVC.h"
 #import "BinFileViewController.h"
-#import "ClockDialListViewController.h"
+#import "FBClockDialCategoryViewController.h"
 #import "FemaleCircadianCycleVC.h"
 #import "HeartRateReminderVC.h"
 #import "MotionPushViewController.h"
 #import "LWPersonViewController.h"
 #import "FBCameraViewController.h"
+
+#import "LWStartCountdownView.h"
+#import "FBSportsConnectViewController.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
@@ -220,8 +223,9 @@
     self.tableView.tableFooterView = footView;
     
     self.versionLab = [[UILabel alloc] initWithFrame:CGRectMake(0,SCREEN_HEIGHT-40, SCREEN_WIDTH,40)];
-    self.versionLab.font = [UIFont systemFontOfSize:14];
+    self.versionLab.font = FONT(14);
     self.versionLab.textColor = [UIColor blueColor];
+    self.versionLab.numberOfLines = 0;
     self.versionLab.textAlignment = NSTextAlignmentCenter;
     [self.view bringSubviewToFront:self.versionLab];
     [self.view addSubview:self.versionLab];
@@ -418,7 +422,7 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 60)];
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0,SCREEN_WIDTH-20, 60)];
     label.backgroundColor = [UIColor whiteColor];
-    label.font = [UIFont systemFontOfSize:14];
+    label.font = FONT(14);
     label.textColor = [UIColor redColor];
     [view addSubview:label];
     
@@ -429,7 +433,7 @@
     [clickBtn setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
     [clickBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     clickBtn.layer.borderWidth = 0.5;
-    clickBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    clickBtn.titleLabel.font = FONT(14);
     clickBtn.layer.borderColor = [UIColor blackColor].CGColor;
     clickBtn.layer.cornerRadius = 10;
     clickBtn.tag = 100 + section;
@@ -866,7 +870,7 @@
         }
         
         if ([rowStr isEqualToString:LWLocalizbleString(@"Request to bind the device")]) {
-            [FBAtCommand.sharedInstance fbBindDeviceRequestWithBlock:^(NSInteger responseObject, NSError * _Nullable error) {
+            [FBAtCommand.sharedInstance fbBindDeviceRequest:nil withBlock:^(NSInteger responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
                 } else {
@@ -922,11 +926,28 @@
             model.MotionMode = FBOutdoor_running;
             model.MotionState = FB_SettingStartMotion;
             model.totalTime = 0;
+            
             [FBAtCommand.sharedInstance fbSynchronizationGPS_MotionWithModel:model withBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
                 } else {
                     weakSelf.receTextView.text = LWLocalizbleString(@"Success");
+                    
+                    GCD_MAIN_QUEUE(^{
+                        
+                        [LWStartCountdownView.initialization showWithBlock:^{
+                            
+                            GCD_MAIN_QUEUE(^{
+                            
+                                FBSportsConnectViewController *vc = [[FBSportsConnectViewController alloc] initWithModel:model];
+                                FBBaseNavigationController *naviBar = [[FBBaseNavigationController alloc] initWithRootViewController:vc];
+                                if(@available(iOS 13.0,*)){
+                                    naviBar.modalPresentationStyle = UIModalPresentationFullScreen;
+                                }
+                                [weakSelf.navigationController presentViewController:naviBar animated:YES completion:nil];
+                            });
+                        }];
+                    });
                 }
             }];
             
@@ -1630,7 +1651,7 @@
         }
         
         if ([rowStr isEqualToString:LWLocalizbleString(@"Dial Face OTA")]){
-            ClockDialListViewController *vc = [ClockDialListViewController new];
+            FBClockDialCategoryViewController *vc = [FBClockDialCategoryViewController new];
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -1745,15 +1766,21 @@
         self.versionLab.text = @"";
     }
     else {
+        
+        FBFirmwareVersionObject *object = FBAllConfigObject.firmwareConfig;
+        
         if (FBBluetoothManager.sharedInstance.IsTheDeviceReady) {
             self.titleView.selected = YES;
-            [self.titleView setTitle:FBAllConfigObject.firmwareConfig.deviceName forState:UIControlStateSelected];
+            [self.titleView setTitle:object.deviceName forState:UIControlStateSelected];
         } else {
             self.titleView.selected = NO;
-            [self.titleView setTitle:FBAllConfigObject.firmwareConfig.deviceName forState:UIControlStateNormal];
+            [self.titleView setTitle:object.deviceName forState:UIControlStateNormal];
         }
         
-        self.versionLab.text = [NSString stringWithFormat:@"%@:%@ %@:%@", LWLocalizbleString(@"Firmware Version"), FBAllConfigObject.firmwareConfig.firmwareVersion, LWLocalizbleString(@"Project Number"), FBAllConfigObject.firmwareConfig.fitNumber];
+        self.versionLab.text = [NSString stringWithFormat:@"%@:%@ %@:%@\n%@ %@",
+                                LWLocalizbleString(@"Firmware Version"), object.firmwareVersion,
+                                LWLocalizbleString(@"Project Number"), object.fitNumber,
+                                LWLocalizbleString(@"Mac Address"), object.mac];
     }
     
     self.navigationItem.titleView = self.titleView;

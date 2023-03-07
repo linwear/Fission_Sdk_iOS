@@ -53,6 +53,10 @@
         UITableView.appearance.estimatedSectionHeaderHeight = 0;
     }
     
+    if (@available(iOS 15.0, *)) {
+        UITableView.appearance.sectionHeaderTopPadding = 0;
+    }
+    
     [self MoreSettings];
     
     return YES;
@@ -83,19 +87,17 @@
     }];
     
     // Scan to device callback method
-    [FBBluetoothManager.sharedInstance fbDiscoverPeripheralsWithBlock:^(BOOL isPair, NSString * _Nonnull device_Name, NSString * _Nonnull mac_Address, NSString * _Nonnull adapt_Number, CBPeripheral * _Nonnull peripheral, NSDictionary * _Nonnull advertisementData, NSNumber * _Nonnull RSSI) {
-        
+    [FBBluetoothManager.sharedInstance fbDiscoverPeripheralsWithBlock:^(FBPeripheralModel * _Nonnull peripheralModel) {
         DeviceListModel *model = DeviceListModel.new;
-        model.isPair = isPair;
-        model.device_Name = device_Name;
-        model.mac_Address = mac_Address;
-        model.adapt_Number = adapt_Number;
-        model.peripheral = peripheral;
-        model.advertisementData = advertisementData;
-        model.RSSI = RSSI;
+        model.isPair = peripheralModel.isPair;
+        model.device_Name = peripheralModel.device_Name;
+        model.mac_Address = peripheralModel.mac_Address;
+        model.adapt_Number = peripheralModel.adapt_Number;
+        model.peripheral = peripheralModel.peripheral;
+        model.advertisementData = peripheralModel.advertisementData;
+        model.RSSI = peripheralModel.RSSI;
         
         [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:model];
-        
     }];
        
     // Device disconnection callback method
@@ -194,8 +196,8 @@
         [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_BINDING)];
         
         // 绑定设备请求｜Bind device request
-        [FBAtCommand.sharedInstance fbBindDeviceRequestWithBlock:^(NSInteger responseObject, NSError * _Nullable error) {
-            
+        [FBAtCommand.sharedInstance fbBindDeviceRequest:nil withBlock:^(NSInteger responseObject, NSError * _Nullable error) {
+                            
             if (error) {
                 [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_BINDING_FAILED)];
                 [NSObject showHUDText:error.domain];

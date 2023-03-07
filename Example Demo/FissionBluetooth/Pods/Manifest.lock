@@ -31,7 +31,9 @@ PODS:
     - CocoaLumberjack/Core (= 3.7.2)
   - CocoaLumberjack/Core (3.7.2)
   - CWLateralSlide (1.6.5)
+  - HJViewStyle (1.2.9)
   - IQKeyboardManager (6.5.6)
+  - JXCategoryView (1.6.1)
   - Masonry (1.1.0)
   - MJExtension (3.4.1)
   - QMUIKit (4.3.0):
@@ -350,6 +352,7 @@ PODS:
     - SDWebImage/Core (= 5.10.4)
   - SDWebImage/Core (5.10.4)
   - SGQRCode (3.5.1)
+  - SSZipArchive (2.4.3)
   - SVProgressHUD (2.2.5)
   - TZImagePickerController (3.6.0)
 
@@ -359,13 +362,16 @@ DEPENDENCIES:
   - Bugly
   - CocoaLumberjack
   - CWLateralSlide
+  - HJViewStyle
   - IQKeyboardManager
+  - JXCategoryView
   - Masonry
   - MJExtension
   - QMUIKit
   - SDAutoLayout
   - SDWebImage
   - SGQRCode
+  - SSZipArchive
   - SVProgressHUD
   - TZImagePickerController
 
@@ -376,13 +382,16 @@ SPEC REPOS:
     - Bugly
     - CocoaLumberjack
     - CWLateralSlide
+    - HJViewStyle
     - IQKeyboardManager
+    - JXCategoryView
     - Masonry
     - MJExtension
     - QMUIKit
     - SDAutoLayout
     - SDWebImage
     - SGQRCode
+    - SSZipArchive
     - SVProgressHUD
     - TZImagePickerController
 
@@ -392,16 +401,19 @@ SPEC CHECKSUMS:
   Bugly: fd066c75c4a0eca1440f9b6a84bd37d51bfc85ac
   CocoaLumberjack: b7e05132ff94f6ae4dfa9d5bce9141893a21d9da
   CWLateralSlide: 8939c8dea91a24e40d0793553118cb57cd67f64b
+  HJViewStyle: 0fac31e22a1254acd9a097b0919187ad99a8e949
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
+  JXCategoryView: 7b1ee69ede4843c581688afe84d0f047723262f2
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
   QMUIKit: 67888be9aa0ee0b12b8a219fcea2eec900afd841
   SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SGQRCode: 65d6170ddcf3feecc6e2f3601aac78ad93e56589
+  SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TZImagePickerController: a37d7eec87c54436e896a67947033ad2178d498b
 
-PODFILE CHECKSUM: eb05754b2f947837ef95b993e3ac871f0a1591ba
+PODFILE CHECKSUM: 8ada54157d631ab45ad4cdc9b1e515f1c1e007c1
 
 COCOAPODS: 1.11.3

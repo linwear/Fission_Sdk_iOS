@@ -47,8 +47,8 @@ typedef enum {
     FB_GPS_MOTION_STATE_COMMANDSTATUSERROR   = 200013, //指令状态错误｜Command status error
     FB_GPS_MOTION_STATE_INREGULARMOTIONERROR = 200014, //常规运动中，请先停止当前运动｜In normal motion, please stop the current motion first
     FB_GPS_MOTION_STATE_INCALLERROR          = 200015, //正在通话中，无法执行此指令｜This command cannot be executed during a call
-    FB_GPS_MOTION_STATE_CONFIRMS             = 200016, //手表确认开启运动｜The watch confirms to start the exercise
     FB_GPS_MOTION_STATE_CANCELS              = 200017, //手表取消开启运动｜The watch cancels the movement
+    FB_GPS_MOTION_STATE_NONE                 = 200019, //本地无此运动信息｜There is no local sports information
 }FB_RET_CMD;
 
 #pragma mark - 电池电量等级｜Battery level
@@ -231,7 +231,7 @@ typedef enum {
     FBRope_skipping         = 25,  //跳绳｜Rope skipping
     FBAerobic_exercise      = 26,  //有氧运动｜Aerobic exercise
     FBAerobic_dancing       = 27,  //健身舞｜Aerobic dancing
-    FBTaiji_boxing          = 28,  //太极拳｜Taiji boxing
+    FBTaiji_boxing          = 28,  //太极｜Tai Chi
     FBAuto_runing           = 29,  //自动识别跑步运动｜Automatically recognize running
     FBAuto_walking          = 30,  //自动识别健走运动｜Automatic recognition of walking movement
     
@@ -339,7 +339,6 @@ typedef enum {
     FBLONGJUMP              = 123, //跳远｜Long jump
     FBSHOOTING              = 124, //射击｜Shooting
     FBMARATHON              = 125, //马拉松｜Marathon
-    
     FBVO2MAXTEST            = 126, //最大摄氧量测试｜VO2max test
     FBKITE_FLYING           = 127, //放风筝｜Kite Flying
     FBBILLIARDS             = 128, //台球｜Billiards
@@ -351,10 +350,10 @@ typedef enum {
     FBSPINNING              = 133, //旋转｜Spinning
     FBBMX                   = 134, //BMX｜BMX
     FBATV                   = 135, //ATV｜ATV
-    
     FBDUMBBELL              = 136, //哑铃｜Dumbbell
     FBBEACHFOOTBALL         = 137, //沙滩足球｜Beach Football
     FBKAYAKING              = 138, //皮划艇｜Kayaking
+    FBSAVATE                = 139, //法国式拳击｜Savate
     
     FBOther_reservation     = 255, //其他预留｜Other reservation
 }FB_MOTIONMODE;
@@ -470,6 +469,9 @@ typedef enum {
     FB_OTANotification_UIPictureResources = 4,    //升级UI图片资源｜Upgrade UI image resources
     FB_OTANotification_2_3_4AtTheSameTime = 5,    //同时升级2,3,4｜Upgrade 2, 3, 4 at the same time
     FB_OTANotification_Motion             = 6,    //推送运动模式｜Push motion mode
+    FB_OTANotification_UI                 = 7,    //增量升级UI图片｜Incrementally upgrade UI images
+    FB_OTANotification_Multi_Dial         = 8,    //多表盘压缩数据包｜Multi-dial compressed data package
+    FB_OTANotification_Multi_Sport        = 9,    //多运动类型压缩数据包｜Multi-sport type compressed data package
     FB_OTANotification_DynamicClockDial   = 10,   //+n，升级动态表盘n｜+n. Upgrade dynamic dial n
     FB_OTANotification_CustomClockDial    = 20,   //+n，升级自定义表盘n｜+n. Upgrade custom dial n
     FB_OTANotification_Busy               = 254,  //设备处于禁止OTA状态，稍后再试｜The device is in OTA prohibited state, please try again later

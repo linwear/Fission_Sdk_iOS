@@ -18,7 +18,7 @@
 "应答超时" = "Antwoord time-out";
 "AT指令异常，无效指令/无效参数" = "Bij instructie uitzondering, ongeldig instructie /ongeldig parameter";
 "参数错误，UTC时间设置不能为0" = "Parameter fout, UTC tijd kan niet worden ingesteld op 0";
-"参数错误，时区设置需大于等于-720，小于等于+720" = "Parameter fout, tijdzone instelling moet groter of gelijk zijn aan --720 en minder dan of gelijk aan + 720";
+"参数错误，时区设置需大于等于-1440，小于等于+1440" = "Parameter fout, tijdzone instelling moet groter of gelijk zijn aan -1440 en minder dan of gelijk aan +1440";
 "数据长度错误" = "Fout in gegevenslengte";
 "设备初始化失败，初始化超时" = "Initialisatie van het apparaat mislukt, initialisatie time-out";
 
@@ -27,6 +27,7 @@
 "常规运动中，请先停止当前运动" = "In normale beweging, stop de huidige beweging eerst";
 "正在通话中，无法执行此指令" = "Dit commando kan niet worden uitgevoerd tijdens een oproep";
 "手表取消开启运动" = "Open uurwerk annuleren";
+"本地无此运动信息" = "Geen lokale sportinformatie";
 
 /**
  FBBgCommand
@@ -37,7 +38,6 @@
 "参数错误，用户昵称设置长度需小于32字节" = "Parameter fout, gebruikersbijnaam instellengte moet kleiner zijn dan 32 bytes";
 "参数错误，用户身高设置需大于100cm，小于250cm" = "Parameter fout. De hoogte van de gebruiker moet groter zijn dan 100cm en minder dan 250cm";
 "参数错误，用户体重设置需大于30kg，小于250kg" = "Parameter fout, de gewichtsinstelling van de gebruiker moet groter zijn dan 30kg en minder dan 250kg";
-"参数错误，时区设置需大于等于-720，小于等于+720" = "Parameter fout, tijdzone instelling moet groter of gelijk zijn aan --720 en minder dan of gelijk aan + 720";
 "参数错误，用户年龄设置需大于5岁，小于130岁" = "Parameter fout, gebruikersleeftijd instelling moet groter zijn dan vijf jaar oud en minder dan 130 jaar oud";
 "参数错误，用户步幅设置需大于40，小于90" = "Parameter fout, gebruikersstappen instelling moet groter zijn dan 40 en minder dan 90";
 

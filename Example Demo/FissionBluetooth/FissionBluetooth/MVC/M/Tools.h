@@ -28,6 +28,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设置是否 常亮 不锁屏...
 + (void)idleTimerDisabled:(BOOL)always;
 
+/// 图片颜色转换
++ (UIImage *)maskWithImage:(UIImage *)maskImage withColor:(UIColor *)color;
+
+/// 富文本，NSArray数组个数要一致
++ (void)setUILabel:(UILabel *)label setDataArr:(NSArray<NSString *> *)setString setColorArr:(NSArray<UIColor *> *)color setFontArr:(NSArray<UIFont *> *)font;
+
+/// 时分秒
++ (NSString *)HMS:(NSInteger)duration;
+
 @end
 
 NS_ASSUME_NONNULL_END

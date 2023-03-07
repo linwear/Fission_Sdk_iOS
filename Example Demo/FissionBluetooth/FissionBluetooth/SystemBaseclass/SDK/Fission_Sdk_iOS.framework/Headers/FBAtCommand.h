@@ -373,10 +373,11 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 绑定设备请求｜Bind device request
 /**
  绑定设备请求｜Bind device request
+ @param macAddress            手表Mac地址，可不传，为nil时SDK内部处理，建议传nil｜The Mac address of the watch can not be passed. If it is nil, it will be processed internally by the SDK. It is recommended to pass nil
  
  @note 🔑设备绑定结果: 0拒绝绑定，1同意绑定，2已被绑定，3确认超时，4递交秘钥错误，5递交秘钥正确，6无需绑定｜🔑 Device binding result: 0 refuses to bind, 1 agrees to bind, 2 has been bound, 3 confirmation timeout, 4 submits the secret key incorrectly, 5 submits the secret key correctly, 6 does not need to bind
 */
-- (void)fbBindDeviceRequestWithBlock:(FBGet_AT_ResultCallBackBlock _Nonnull)fbBlock;
+- (void)fbBindDeviceRequest:(NSString * _Nullable)macAddress withBlock:(FBGet_AT_ResultCallBackBlock _Nonnull)fbBlock;
 
 
 #pragma mark - 解绑设备请求｜Unbind device request

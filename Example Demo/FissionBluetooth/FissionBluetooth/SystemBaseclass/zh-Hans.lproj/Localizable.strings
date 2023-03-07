@@ -162,3 +162,15 @@
 "Please allow %@ to access the camera in \"Settings-Privacy-Camera\" of the iPhone" = "请在 iPhone 的\"设置-隐私-相机\"中允许 %@ 访问相机";
 "Camera" = "相机";
 "Fail" = "失败";
+
+"Synchronize" = "同步";
+"Watch Movement" = "手表运动";
+"Press and hold the module and drag to adjust the display order" = "按住模块拖动，即可调整显示顺序";
+"Add Movement" = "添加运动";
+"Please confirm whether to push sports" = "请确认是否推送运动";
+"Please confirm whether the watch face is synchronized" = "请确认是否同步表盘";
+"Mac Address" = "Mac地址";
+"Outdoor Running" = "户外跑步";
+"Continue" = "继续";
+"Pause" = "暂停";
+"End" = "结束";

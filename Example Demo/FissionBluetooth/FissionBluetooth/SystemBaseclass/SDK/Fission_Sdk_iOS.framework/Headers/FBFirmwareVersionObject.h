@@ -289,6 +289,20 @@ NS_ASSUME_NONNULL_BEGIN
 */
 @property (nonatomic, assign) BOOL supportMentalStress;
 
+/**
+ 🌟是否支持一次性推送多种运动模式｜Does it support multiple sports modes at one time🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportMultipleSports;
+
+/**
+ 🌟支持一次性推送多种运动模式的个数，0不支持｜Support one-time push of the number of multiple sports modes, 0 does not support🌟
+ 
+ @note  与上述参数 supportMultipleSports 配合使用｜Used in conjunction with the above parameter supportMultipleSports
+*/
+@property (nonatomic, assign) NSInteger supportMultipleSportsCount;
+
 @end
 
 NS_ASSUME_NONNULL_END

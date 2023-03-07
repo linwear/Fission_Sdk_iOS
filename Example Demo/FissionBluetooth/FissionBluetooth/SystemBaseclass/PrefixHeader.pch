@@ -75,6 +75,9 @@ static NSString *const FISSION_SDK_WATCHCLICKTAKEPHOTO = @"FISSION_SDK_WATCHCLIC
 #import "SGQRCode.h"
 #import <SDAutoLayout/SDAutoLayout.h>
 #import "BRDatePickerView.h"
+#import <JXCategoryView/JXCategoryView.h>
+#import <HJViewStyle/UIView+HJViewStyle.h>
+#import <SSZipArchive/SSZipArchive.h>
 
 #import <Fission_Sdk_iOS/Fission_Sdk_iOS.h> // 裂变SDK
 

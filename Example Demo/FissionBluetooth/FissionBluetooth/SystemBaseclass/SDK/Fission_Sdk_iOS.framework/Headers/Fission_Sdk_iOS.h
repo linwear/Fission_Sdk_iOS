@@ -12,6 +12,21 @@
 //  框架功能｜Framework Function: iOS framework for Fission smart watch, which is responsible for the communication with the watch.
 //                              Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装。
 //  修改记录｜Modification Record:
+//     pcjbird    2023-03-01  Version:3.0.9 Build:202303011000
+//                            1.FBFirmwareVersionObject 新增配置:
+//                              是否支持一次性推送多种运动模式
+//                              支持一次性推送多种运动模式的个数，0不支持
+//                            2.新增一次性推送多种运动模式协议
+//                            3.FB_OTANOTIFICATION 新增OTA通知类型:
+//                              FB_OTANotification_Multi_Sport(9)
+//                            4.FBCustomDataTools 新增「多个运动类型Bin文件压缩合并成一个Bin文件」，配合「一次性推送多种运动模式」使用
+//                            5.修正部分地区使用冬/夏令时，时区无法设置导致时间错误问题
+//                            6.绑定设备请求可传入Mac地址，但是建议传nil，SDK内部会为你管理绑定密钥
+//                            7.GPS运动控制增加错误码 FB_GPS_MOTION_STATE_NONE 本地无此运动信息
+//                            8.优化搜索设备，使用数据模型 FBPeripheralModel
+//                            9.FB_MOTIONMODE 新增运动类型:
+//                              法国式拳击(139)
+//
 //     pcjbird    2023-02-11  Version:3.0.8 Build:202302111000
 //                            1.绑定请求超时时长由30s延长至60s
 //                            2.新增获取设备log数据协议
@@ -113,6 +128,7 @@ FOUNDATION_EXPORT const unsigned char Fission_Sdk_iOSVersionString[];
 /** 枚举相关｜Enumerate related */
 #import <Fission_Sdk_iOS/FBMacro.h>
 /** 数据模型相关类｜Data model related classes */
+#import <Fission_Sdk_iOS/FBPeripheralModel.h>
 #import <Fission_Sdk_iOS/FBBatteryInfoModel.h>
 #import <Fission_Sdk_iOS/FBDeviceVersionModel.h>
 #import <Fission_Sdk_iOS/FBWatchFunctionChangeNoticeModel.h>

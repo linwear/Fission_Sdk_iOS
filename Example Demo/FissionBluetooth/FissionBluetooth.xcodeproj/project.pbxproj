@@ -108,6 +108,20 @@
 		592A9FF625A4173B00CC515E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 592A9FF525A4173B00CC515E /* main.m */; };
 		592AA00025A4173C00CC515E /* FissionBluetoothTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 592A9FFF25A4173C00CC515E /* FissionBluetoothTests.m */; };
 		592AA00B25A4173C00CC515E /* FissionBluetoothUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 592AA00A25A4173C00CC515E /* FissionBluetoothUITests.m */; };
+		593AA45F29B58FCC00B2DD49 /* FBClockDialCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA45E29B58FCC00B2DD49 /* FBClockDialCategoryViewController.m */; };
+		593AA46929B5DDE200B2DD49 /* LWMotionPushCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA46029B5DDE200B2DD49 /* LWMotionPushCell.m */; };
+		593AA46A29B5DDE200B2DD49 /* LWMotionPushCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593AA46229B5DDE200B2DD49 /* LWMotionPushCell.xib */; };
+		593AA46B29B5DDE200B2DD49 /* LWMotionPushSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA46329B5DDE200B2DD49 /* LWMotionPushSelectCell.m */; };
+		593AA46C29B5DDE200B2DD49 /* LWMotionPushCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA46629B5DDE200B2DD49 /* LWMotionPushCollectionView.m */; };
+		593AA46D29B5DDE200B2DD49 /* LWMotionPushDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA46829B5DDE200B2DD49 /* LWMotionPushDataCell.m */; };
+		593AA47229B5DE7000B2DD49 /* LWMotionPushClassifyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA46F29B5DE7000B2DD49 /* LWMotionPushClassifyModel.m */; };
+		593AA47329B5DE7000B2DD49 /* LWMotionPushDownloadObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA47129B5DE7000B2DD49 /* LWMotionPushDownloadObject.m */; };
+		593AA47629B7157F00B2DD49 /* LWStartCountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA47529B7157F00B2DD49 /* LWStartCountdownView.m */; };
+		593AA47929B71CB300B2DD49 /* FBSportsConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA47829B71CB300B2DD49 /* FBSportsConnectViewController.m */; };
+		593AA47C29B720E600B2DD49 /* LWMotionDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA47B29B720E600B2DD49 /* LWMotionDataView.m */; };
+		593AA47F29B732C400B2DD49 /* dispatch_source_timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA47E29B732C400B2DD49 /* dispatch_source_timer.m */; };
+		593AA48229B7346100B2DD49 /* LWSportsConnectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA48129B7346100B2DD49 /* LWSportsConnectModel.m */; };
+		593AA48529B73FCB00B2DD49 /* XYButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA48429B73FCB00B2DD49 /* XYButton.m */; };
 		593FBF67298A36DE00986F13 /* MotionPushCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 593FBF65298A36DE00986F13 /* MotionPushCollectionViewCell.m */; };
 		593FBF68298A36DE00986F13 /* MotionPushCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593FBF66298A36DE00986F13 /* MotionPushCollectionViewCell.xib */; };
 		59C6CC4B25ADA95F007C2521 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C6CC4A25ADA95F007C2521 /* AudioToolbox.framework */; };
@@ -389,6 +403,33 @@
 		592AA00A25A4173C00CC515E /* FissionBluetoothUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FissionBluetoothUITests.m; sourceTree = "<group>"; };
 		592AA00C25A4173C00CC515E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		593399584BF981F494D22BCE /* Pods-FissionBluetoothTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetoothTests.debug.xcconfig"; path = "Target Support Files/Pods-FissionBluetoothTests/Pods-FissionBluetoothTests.debug.xcconfig"; sourceTree = "<group>"; };
+		593AA45D29B58FCC00B2DD49 /* FBClockDialCategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBClockDialCategoryViewController.h; sourceTree = "<group>"; };
+		593AA45E29B58FCC00B2DD49 /* FBClockDialCategoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBClockDialCategoryViewController.m; sourceTree = "<group>"; };
+		593AA46029B5DDE200B2DD49 /* LWMotionPushCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWMotionPushCell.m; sourceTree = "<group>"; };
+		593AA46129B5DDE200B2DD49 /* LWMotionPushSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWMotionPushSelectCell.h; sourceTree = "<group>"; };
+		593AA46229B5DDE200B2DD49 /* LWMotionPushCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LWMotionPushCell.xib; sourceTree = "<group>"; };
+		593AA46329B5DDE200B2DD49 /* LWMotionPushSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWMotionPushSelectCell.m; sourceTree = "<group>"; };
+		593AA46429B5DDE200B2DD49 /* LWMotionPushCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWMotionPushCollectionView.h; sourceTree = "<group>"; };
+		593AA46529B5DDE200B2DD49 /* LWMotionPushCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWMotionPushCell.h; sourceTree = "<group>"; };
+		593AA46629B5DDE200B2DD49 /* LWMotionPushCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWMotionPushCollectionView.m; sourceTree = "<group>"; };
+		593AA46729B5DDE200B2DD49 /* LWMotionPushDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWMotionPushDataCell.h; sourceTree = "<group>"; };
+		593AA46829B5DDE200B2DD49 /* LWMotionPushDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWMotionPushDataCell.m; sourceTree = "<group>"; };
+		593AA46E29B5DE6F00B2DD49 /* LWMotionPushDownloadObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWMotionPushDownloadObject.h; sourceTree = "<group>"; };
+		593AA46F29B5DE7000B2DD49 /* LWMotionPushClassifyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWMotionPushClassifyModel.m; sourceTree = "<group>"; };
+		593AA47029B5DE7000B2DD49 /* LWMotionPushClassifyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWMotionPushClassifyModel.h; sourceTree = "<group>"; };
+		593AA47129B5DE7000B2DD49 /* LWMotionPushDownloadObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWMotionPushDownloadObject.m; sourceTree = "<group>"; };
+		593AA47429B7157F00B2DD49 /* LWStartCountdownView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWStartCountdownView.h; sourceTree = "<group>"; };
+		593AA47529B7157F00B2DD49 /* LWStartCountdownView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWStartCountdownView.m; sourceTree = "<group>"; };
+		593AA47729B71CB300B2DD49 /* FBSportsConnectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBSportsConnectViewController.h; sourceTree = "<group>"; };
+		593AA47829B71CB300B2DD49 /* FBSportsConnectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBSportsConnectViewController.m; sourceTree = "<group>"; };
+		593AA47A29B720E600B2DD49 /* LWMotionDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWMotionDataView.h; sourceTree = "<group>"; };
+		593AA47B29B720E600B2DD49 /* LWMotionDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWMotionDataView.m; sourceTree = "<group>"; };
+		593AA47D29B732C400B2DD49 /* dispatch_source_timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dispatch_source_timer.h; sourceTree = "<group>"; };
+		593AA47E29B732C400B2DD49 /* dispatch_source_timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dispatch_source_timer.m; sourceTree = "<group>"; };
+		593AA48029B7346100B2DD49 /* LWSportsConnectModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWSportsConnectModel.h; sourceTree = "<group>"; };
+		593AA48129B7346100B2DD49 /* LWSportsConnectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWSportsConnectModel.m; sourceTree = "<group>"; };
+		593AA48329B73FCB00B2DD49 /* XYButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYButton.h; sourceTree = "<group>"; };
+		593AA48429B73FCB00B2DD49 /* XYButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYButton.m; sourceTree = "<group>"; };
 		593FBF64298A36DE00986F13 /* MotionPushCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotionPushCollectionViewCell.h; sourceTree = "<group>"; };
 		593FBF65298A36DE00986F13 /* MotionPushCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotionPushCollectionViewCell.m; sourceTree = "<group>"; };
 		593FBF66298A36DE00986F13 /* MotionPushCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotionPushCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -564,6 +605,16 @@
 				590B97792966833800D31A76 /* NSObject+Authorized.m */,
 				590B97822967F08F00D31A76 /* FBLogManager.h */,
 				590B97832967F08F00D31A76 /* FBLogManager.m */,
+				593AA47029B5DE7000B2DD49 /* LWMotionPushClassifyModel.h */,
+				593AA46F29B5DE7000B2DD49 /* LWMotionPushClassifyModel.m */,
+				593AA46E29B5DE6F00B2DD49 /* LWMotionPushDownloadObject.h */,
+				593AA47129B5DE7000B2DD49 /* LWMotionPushDownloadObject.m */,
+				593AA47D29B732C400B2DD49 /* dispatch_source_timer.h */,
+				593AA47E29B732C400B2DD49 /* dispatch_source_timer.m */,
+				593AA48029B7346100B2DD49 /* LWSportsConnectModel.h */,
+				593AA48129B7346100B2DD49 /* LWSportsConnectModel.m */,
+				593AA48329B73FCB00B2DD49 /* XYButton.h */,
+				593AA48429B73FCB00B2DD49 /* XYButton.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -589,9 +640,13 @@
 				59235840293EDED300E5379C /* ChipFlashSpatialVC.h */,
 				5923582B293EDED300E5379C /* ChipFlashSpatialVC.m */,
 				59235844293EDED300E5379C /* ChipFlashSpatialVC.xib */,
+				593AA45D29B58FCC00B2DD49 /* FBClockDialCategoryViewController.h */,
+				593AA45E29B58FCC00B2DD49 /* FBClockDialCategoryViewController.m */,
 				5923583D293EDED300E5379C /* ClockDialListViewController.h */,
 				5923581D293EDED300E5379C /* ClockDialListViewController.m */,
 				59235828293EDED300E5379C /* ClockDialListViewController.xib */,
+				5923584D293EDED300E5379C /* LWCustomDialViewController.h */,
+				5923582F293EDED300E5379C /* LWCustomDialViewController.m */,
 				59235827293EDED300E5379C /* ClockInforListVC.h */,
 				59235847293EDED300E5379C /* ClockInforListVC.m */,
 				59235841293EDED300E5379C /* ClockInforListVC.xib */,
@@ -610,8 +665,6 @@
 				59235822293EDED300E5379C /* HrCheckViewController.h */,
 				5923584C293EDED300E5379C /* HrCheckViewController.m */,
 				59235842293EDED300E5379C /* HrCheckViewController.xib */,
-				5923584D293EDED300E5379C /* LWCustomDialViewController.h */,
-				5923582F293EDED300E5379C /* LWCustomDialViewController.m */,
 				59235820293EDED300E5379C /* MessagePushSwitchVC.h */,
 				5923583B293EDED300E5379C /* MessagePushSwitchVC.m */,
 				5923583A293EDED300E5379C /* MessagePushSwitchVC.xib */,
@@ -641,6 +694,8 @@
 				592358EB2941B4B000E5379C /* LWContactViewController.m */,
 				590B977B2966A61B00D31A76 /* FBCameraViewController.h */,
 				590B977C2966A61B00D31A76 /* FBCameraViewController.m */,
+				593AA47729B71CB300B2DD49 /* FBSportsConnectViewController.h */,
+				593AA47829B71CB300B2DD49 /* FBSportsConnectViewController.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -700,6 +755,19 @@
 				593FBF64298A36DE00986F13 /* MotionPushCollectionViewCell.h */,
 				593FBF65298A36DE00986F13 /* MotionPushCollectionViewCell.m */,
 				593FBF66298A36DE00986F13 /* MotionPushCollectionViewCell.xib */,
+				593AA46529B5DDE200B2DD49 /* LWMotionPushCell.h */,
+				593AA46029B5DDE200B2DD49 /* LWMotionPushCell.m */,
+				593AA46229B5DDE200B2DD49 /* LWMotionPushCell.xib */,
+				593AA46429B5DDE200B2DD49 /* LWMotionPushCollectionView.h */,
+				593AA46629B5DDE200B2DD49 /* LWMotionPushCollectionView.m */,
+				593AA46729B5DDE200B2DD49 /* LWMotionPushDataCell.h */,
+				593AA46829B5DDE200B2DD49 /* LWMotionPushDataCell.m */,
+				593AA46129B5DDE200B2DD49 /* LWMotionPushSelectCell.h */,
+				593AA46329B5DDE200B2DD49 /* LWMotionPushSelectCell.m */,
+				593AA47429B7157F00B2DD49 /* LWStartCountdownView.h */,
+				593AA47529B7157F00B2DD49 /* LWStartCountdownView.m */,
+				593AA47A29B720E600B2DD49 /* LWMotionDataView.h */,
+				593AA47B29B720E600B2DD49 /* LWMotionDataView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1142,6 +1210,7 @@
 				59E7BE6D268C13C400B8001A /* dial_style5_black.jpg in Resources */,
 				59E7BFA52696893700B8001A /* 日期1.bmp in Resources */,
 				59E7BFA32696893700B8001A /* 日期4.bmp in Resources */,
+				593AA46A29B5DDE200B2DD49 /* LWMotionPushCell.xib in Resources */,
 				590B977429667AC300D31A76 /* InfoPlist.strings in Resources */,
 				593FBF68298A36DE00986F13 /* MotionPushCollectionViewCell.xib in Resources */,
 				59E7BED92695980B00B8001A /* rgb.bmp in Resources */,
@@ -1281,6 +1350,8 @@
 				592358B1293EDED300E5379C /* LWCustomDialColorCell.m in Sources */,
 				592358E929418AE200E5379C /* WeatherViewController.m in Sources */,
 				592358AF293EDED300E5379C /* LWPersonCell.m in Sources */,
+				593AA47F29B732C400B2DD49 /* dispatch_source_timer.m in Sources */,
+				593AA45F29B58FCC00B2DD49 /* FBClockDialCategoryViewController.m in Sources */,
 				590B97842967F08F00D31A76 /* FBLogManager.m in Sources */,
 				59F62AE32969679600A0603C /* FBAboutViewController.m in Sources */,
 				59235883293EDED300E5379C /* LWCustomDialModel.m in Sources */,
@@ -1301,6 +1372,7 @@
 				592358B5293EDED300E5379C /* LWCustomDialColorCollectionCell.m in Sources */,
 				592358A8293EDED300E5379C /* NotDisturbViewController.m in Sources */,
 				592A9FE525A4173A00CC515E /* AppDelegate.m in Sources */,
+				593AA46929B5DDE200B2DD49 /* LWMotionPushCell.m in Sources */,
 				592358BC293EDED300E5379C /* PushSwitchCell.m in Sources */,
 				592358A1293EDED300E5379C /* ClockInforListVC.m in Sources */,
 				59235893293EDED300E5379C /* WaterClockViewController.m in Sources */,
@@ -1308,14 +1380,23 @@
 				592358BF293EDED300E5379C /* CollCell.m in Sources */,
 				5923589F293EDED300E5379C /* QRViewController.m in Sources */,
 				592358AD293EDED300E5379C /* ClockListTableViewCell.m in Sources */,
+				593AA47929B71CB300B2DD49 /* FBSportsConnectViewController.m in Sources */,
 				592358D1293F26C100E5379C /* QMUIConfigurationTemplate.m in Sources */,
 				590B97712966682600D31A76 /* FBBaseNavigationController.m in Sources */,
+				593AA48529B73FCB00B2DD49 /* XYButton.m in Sources */,
+				593AA47329B5DE7000B2DD49 /* LWMotionPushDownloadObject.m in Sources */,
 				592358BD293EDED300E5379C /* LWCustomDialTableView.m in Sources */,
 				592358F02941B52D00E5379C /* LWPersonViewController.m in Sources */,
+				593AA46B29B5DDE200B2DD49 /* LWMotionPushSelectCell.m in Sources */,
 				592358A7293EDED300E5379C /* HeartRateViewController.m in Sources */,
 				592358B9293EDED300E5379C /* LWCustomDialHeaderView.m in Sources */,
+				593AA47629B7157F00B2DD49 /* LWStartCountdownView.m in Sources */,
 				59235890293EDED300E5379C /* ViewController.m in Sources */,
+				593AA47229B5DE7000B2DD49 /* LWMotionPushClassifyModel.m in Sources */,
 				592358A0293EDED300E5379C /* BrightScreenViewController.m in Sources */,
+				593AA47C29B720E600B2DD49 /* LWMotionDataView.m in Sources */,
+				593AA46C29B5DDE200B2DD49 /* LWMotionPushCollectionView.m in Sources */,
+				593AA46D29B5DDE200B2DD49 /* LWMotionPushDataCell.m in Sources */,
 				590B977A2966833800D31A76 /* NSObject+Authorized.m in Sources */,
 				5923587F293EDED300E5379C /* LWPersonModel.m in Sources */,
 				592358E52940B04100E5379C /* LWBaseViewController.m in Sources */,
@@ -1327,6 +1408,7 @@
 				590B978F2968117100D31A76 /* FBWebViewController.m in Sources */,
 				5923588C293EDED300E5379C /* BinFileViewController.m in Sources */,
 				593FBF67298A36DE00986F13 /* MotionPushCollectionViewCell.m in Sources */,
+				593AA48229B7346100B2DD49 /* LWSportsConnectModel.m in Sources */,
 				590B97872967FE1A00D31A76 /* FBLogViewController.m in Sources */,
 				592358BB293EDED300E5379C /* LWWaveProgress.m in Sources */,
 				592358D4293F2ACB00E5379C /* LWLanguageLocalizble.m in Sources */,

@@ -34,7 +34,7 @@
     ima.image = IMAGE_NAME(@"pic_home");
     self.tableView.backgroundView = ima;
     
-    //fission闹钟开关通知
+    //自定义功能状态变更通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveAlarmClockSwitchSynchronization:) name:FISSION_SDK_FUNCTIONSTATUSCHANGE object:nil]; //fission
 }
 

@@ -18,7 +18,7 @@
 "应答超时" = "Intervalo de resposta";
 "AT指令异常，无效指令/无效参数" = "Exceptuando a instrução, o parâmetro inválido / inválido";
 "参数错误，UTC时间设置不能为0" = "Erro de parâmetro, tempo UTC não Pode ser configurado para 0";
-"参数错误，时区设置需大于等于-720，小于等于+720" = "Erro de parâmetro, configuração de fuso horário deve ser maior ou igual a - 720 e menor ou igual a + 720";
+"参数错误，时区设置需大于等于-1440，小于等于+1440" = "Erro de parâmetro, configuração de fuso horário deve ser maior ou igual a -1440 e menor ou igual a +1440";
 "数据长度错误" = "Erro de comprimento DOS dados";
 "设备初始化失败，初始化超时" = "Falha na inicialização do dispositivo, tempo de inicialização";
 
@@ -27,6 +27,7 @@
 "常规运动中，请先停止当前运动" = "Em movimento normal, por favor pare o movimento atual primeiro";
 "正在通话中，无法执行此指令" = "Este comando não pode ser executado enquanto uma chamada está em andamento";
 "手表取消开启运动" = "Ver cancelar movimento aberto";
+"本地无此运动信息" = "Sem informação desportiva local";
 
 /**
  FBBgCommand
@@ -37,7 +38,6 @@
 "参数错误，用户昵称设置长度需小于32字节" = "Erro do parâmetro, a configuração do apelido do utilizador deve ser inferior a 32 bytes";
 "参数错误，用户身高设置需大于100cm，小于250cm" = "A Altura é inferior a 100cm, o utilizador Precisa de configurar o parâmetro incorrectamente";
 "参数错误，用户体重设置需大于30kg，小于250kg" = "O parâmetro está errado. O Peso do utilizador deve ser superior a 30kg e inferior a 250kg";
-"参数错误，时区设置需大于等于-720，小于等于+720" = "Erro de parâmetro, configuração de fuso horário deve ser maior ou igual a - 720 e menor ou igual a + 720";
 "参数错误，用户年龄设置需大于5岁，小于130岁" = "O parâmetro está errado. A idade do utilizador deve ter Mais de Cinco Anos e Menos de 130 Anos de idade";
 "参数错误，用户步幅设置需大于40，小于90" = "Erro do parâmetro, a configuração do Passo do utilizador deve ser maior do que o 40 e Menos do que o 90";
 

@@ -18,7 +18,7 @@
 "应答超时" = "Svarstid";
 "AT指令异常，无效指令/无效参数" = "Vid undantag för instruktion, ogiltig instruktion / ogiltig parameter";
 "参数错误，UTC时间设置不能为0" = "Parameterfel, UTC-tidsinställning kan inte vara 0";
-"参数错误，时区设置需大于等于-720，小于等于+720" = "Parameterfel, tidszonsinställningen måste vara större än eller lika med -720 och mindre än eller lika med +720";
+"参数错误，时区设置需大于等于-1440，小于等于+1440" = "Parameterfel, tidszonsinställningen måste vara större än eller lika med -1440 och mindre än eller lika med +1440";
 "数据长度错误" = "Fel i datalängd";
 "设备初始化失败，初始化超时" = "Enhetens initialisering misslyckades, initialisering tidsinställd";
 
@@ -27,6 +27,7 @@
 "常规运动中，请先停止当前运动" = "Vid normal rörelse, vänligen stoppa den aktuella rörelsen först";
 "正在通话中，无法执行此指令" = "Det här kommandot kan inte köras medan ett samtal pågår";
 "手表取消开启运动" = "Titta på avbryt öppen rörelse";
+"本地无此运动信息" = "Ingen lokal idrottsinformation";
 
 /**
  FBBgCommand
@@ -37,7 +38,6 @@
 "参数错误，用户昵称设置长度需小于32字节" = "Parameterfel, användarens smeknamnsinställningslängd bör vara mindre än 32 byte";
 "参数错误，用户身高设置需大于100cm，小于250cm" = "Parameterfel, användarens höjdinställning bör vara större än 100cm och mindre än 250cm";
 "参数错误，用户体重设置需大于30kg，小于250kg" = "Parameterfel, användarens viktinställning bör vara större än 30 kg och mindre än 250 kg";
-"参数错误，时区设置需大于等于-720，小于等于+720" = "Parameterfel, tidszonsinställningen måste vara större än eller lika med -720 och mindre än eller lika med +720";
 "参数错误，用户年龄设置需大于5岁，小于130岁" = "Parameterfel, användarens ålder måste ställas in till att vara större än 5 år gammal och mindre än 130 år gammal";
 "参数错误，用户步幅设置需大于40，小于90" = "Parameterfel, användarsteginställning bör vara större än 40 och mindre än 90";
 

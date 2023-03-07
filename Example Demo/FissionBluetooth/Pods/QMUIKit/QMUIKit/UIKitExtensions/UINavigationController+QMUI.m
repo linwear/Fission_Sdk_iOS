@@ -203,7 +203,7 @@ QMUISynthesizeIdStrongProperty(qmui_interactiveGestureDelegator, setQmui_interac
             return ^(UINavigationController *selfObject, UIViewController *viewController, BOOL animated) {
                 
                 if (selfObject.presentedViewController) {
-                    QMUILogWarn(NSStringFromClass(originClass), @"push 的时候 UINavigationController 存在一个盖在上面的 presentedViewController，可能导致一些 UINavigationControllerDelegate 不会被调用");
+//                    QMUILogWarn(NSStringFromClass(originClass), @"push 的时候 UINavigationController 存在一个盖在上面的 presentedViewController，可能导致一些 UINavigationControllerDelegate 不会被调用");
                 }
                 
                 if ([selfObject.viewControllers containsObject:viewController]) {

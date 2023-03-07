@@ -9,7 +9,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ClockDialListViewController : LWBaseViewController
+@interface ClockDialListViewController : LWBaseViewController <JXCategoryListContentViewDelegate>
+
+- (instancetype)initWithPlateClassify:(NSInteger)plateClassify;
 
 @end
 

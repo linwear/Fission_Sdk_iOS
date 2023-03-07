@@ -18,7 +18,7 @@
 "应答超时" = "Khoảng thời gian đáp";
 "AT指令异常，无效指令/无效参数" = "Trừ hướng sử dụng, tham số không hợp lệ";
 "参数错误，UTC时间设置不能为0" = "lỗi tham số, thời gian UTC không thể đặt thành 0";
-"参数错误，时区设置需大于等于-720，小于等于+720" = "Các lỗi tham số, thiết lập múi giờ phải lớn hơn hoặc bằng - 720, hơn hoặc bằng với +720";
+"参数错误，时区设置需大于等于-1440，小于等于+1440" = "Các lỗi tham số, thiết lập múi giờ phải lớn hơn hoặc bằng -1440, hơn hoặc bằng với +1440";
 "数据长度错误" = "Lỗi về chiều dài dữ liệu";
 "设备初始化失败，初始化超时" = "Thiết lập thất bại, giờ khởi tạo";
 
@@ -27,6 +27,7 @@
 "常规运动中，请先停止当前运动" = "Chuyển động bình thường, hãy dừng chuyển động hiện tại trước";
 "正在通话中，无法执行此指令" = "Đang gọi và không thể thực hiện lệnh này";
 "手表取消开启运动" = "Đồng hồ hủy chuyển động";
+"本地无此运动信息" = "Không có thông tin về môn thể thao này tại địa phương";
 
 /**
  FBBgCommand
@@ -37,7 +38,6 @@
 "参数错误，用户昵称设置长度需小于32字节" = "lỗi của Tham số, độ dài của thiết lập biệt danh người dùng nên thấp hơn 32 byte";
 "参数错误，用户身高设置需大于100cm，小于250cm" = "Chiều cao thấp hơn 100cm, người dùng cần phải đặt không đúng tham số";
 "参数错误，用户体重设置需大于30kg，小于250kg" = "Số điện thoại này không đúng, s ức nặng của người dùng phải hơn 30kg và ít hơn 250kg";
-"参数错误，时区设置需大于等于-720，小于等于+720" = "Các lỗi tham số, thiết lập múi giờ phải lớn hơn hoặc bằng - 720, hơn hoặc bằng với +720";
 "参数错误，用户年龄设置需大于5岁，小于130岁" = "Tham s ố này là sai. Tuổi của người dùng nên dài hơn năm năm và ít hơn cả 130 tuổi";
 "参数错误，用户步幅设置需大于40，小于90" = "Các lỗi tham số, thiết lập bước của người dùng phải lớn hơn 40 và ít hơn 90";
 

@@ -230,25 +230,25 @@ static NSString *const idty = @"LWCustomDialCell";
 //    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
 //    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"上", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 //        [self.headerView selectedCustomDiaStyle:LWCustomDialStyleA timeLocation:LWCustomTimeLocationStyleTop bgImageView:self.bkImageView handler:^(UIImage * _Nullable bkImage, UIImage * _Nullable preView, LWCustomTimeLocationStyle locationStyle) {
-//            LWLog(@"%@ - %@ - %ld", bkImage, preView, locationStyle);
+//            FBLog(@"%@ - %@ - %ld", bkImage, preView, locationStyle);
 //        }];
 //    }]];
 //
 //    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"下", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 //        [self.headerView selectedCustomDiaStyle:LWCustomDialStyleA timeLocation:LWCustomTimeLocationStyleBottom bgImageView:self.bkImageView handler:^(UIImage * _Nullable bkImage, UIImage * _Nullable preView, LWCustomTimeLocationStyle locationStyle) {
-//            LWLog(@"%@ - %@ - %ld", bkImage, preView, locationStyle);
+//            FBLog(@"%@ - %@ - %ld", bkImage, preView, locationStyle);
 //        }];
 //    }]];
 //
 //    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"左", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 //        [self.headerView selectedCustomDiaStyle:LWCustomDialStyleA timeLocation:LWCustomTimeLocationStyleLeft bgImageView:self.bkImageView handler:^(UIImage * _Nullable bkImage, UIImage * _Nullable preView, LWCustomTimeLocationStyle locationStyle) {
-//            LWLog(@"%@ - %@ - %ld", bkImage, preView, locationStyle);
+//            FBLog(@"%@ - %@ - %ld", bkImage, preView, locationStyle);
 //        }];
 //    }]];
 //
 //    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"右", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 //        [self.headerView selectedCustomDiaStyle:LWCustomDialStyleA timeLocation:LWCustomTimeLocationStyleRight bgImageView:self.bkImageView handler:^(UIImage * _Nullable bkImage, UIImage * _Nullable preView, LWCustomTimeLocationStyle locationStyle) {
-//            LWLog(@"%@ - %@ - %ld", bkImage, preView, locationStyle);
+//            FBLog(@"%@ - %@ - %ld", bkImage, preView, locationStyle);
 //        }];
 //    }]];
 //
