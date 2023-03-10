@@ -120,14 +120,14 @@
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }];
-    [cancel setValue:[UIColor purpleColor] forKey:@"_titleTextColor"];
+    [cancel setValue:GreenColor forKey:@"_titleTextColor"];
     [alert addAction:cancel];
     
     UIAlertAction *sure = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
 
         [weakSelf downloadOTA:model.plateZip];
     }];
-    [sure setValue:[UIColor purpleColor] forKey:@"_titleTextColor"];
+    [sure setValue:GreenColor forKey:@"_titleTextColor"];
     [alert addAction:sure];
     
     [self presentViewController:alert animated:YES completion:nil];
@@ -149,7 +149,7 @@
 */
 // 下载OTA包
 - (void)downloadOTA:(NSString *)url {
-    [SVProgressHUD showWithStatus:@"Loading..."];
+    [SVProgressHUD showWithStatus:LWLocalizbleString(@"Loading...")];
     WeakSelf(self);
     [LWNetworkingManager requestDownloadURL:url success:^(NSDictionary *result) {
         
@@ -159,12 +159,12 @@
         
         FBBluetoothOTA.sharedInstance.isCheckPower = NO;
         
-        [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:FB_OTANotification_ClockDial withBlock:^(FB_RET_CMD status, float progress, FBOTADoneModel * _Nonnull responseObject, NSError * _Nonnull error) {
+        [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:FB_OTANotification_ClockDial withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
             if (error) {
                 [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
             }
             else if (status==FB_INDATATRANSMISSION) {
-                [SVProgressHUD showProgress:progress status:[NSString stringWithFormat:@"Loading %.f%%",progress*100]];
+                [SVProgressHUD showProgress:progress.totalPackageProgress/100.0 status:[NSString stringWithFormat:@"%@ %ld%%", LWLocalizbleString(@"Synchronize"), progress.totalPackageProgress]];
             }
             else if (status==FB_DATATRANSMISSIONDONE) {
                 [SVProgressHUD dismiss];

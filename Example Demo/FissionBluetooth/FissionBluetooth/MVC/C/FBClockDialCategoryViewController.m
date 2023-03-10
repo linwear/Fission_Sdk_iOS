@@ -68,7 +68,7 @@
     
     NSDictionary *param = @{@"adaptNum" : StringHandle(FBAllConfigObject.firmwareConfig.fitNumber)};
     
-    [SVProgressHUD showWithStatus:@"Loading..."];
+    [SVProgressHUD showWithStatus:LWLocalizbleString(@"Loading...")];
     WeakSelf(self);
     [LWNetworkingManager requestURL:@"api/v2/plate/classifyTotal" httpMethod:POST params:param success:^(NSDictionary *result) {
         [SVProgressHUD dismiss];

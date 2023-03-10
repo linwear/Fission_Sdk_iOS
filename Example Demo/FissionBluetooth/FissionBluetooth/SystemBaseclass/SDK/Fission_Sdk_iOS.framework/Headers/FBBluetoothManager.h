@@ -39,8 +39,15 @@ NS_ASSUME_NONNULL_BEGIN
 /** 连接设备初始化超时时间（单位秒），至少15，默认15｜The initialization timeout of the connected device (in seconds), at least 15, the default is 15 */
 @property (nonatomic, assign) uint8_t readyTimedOut;
 
-/** at指令、大数据指令响应超时（单位秒），至少10，默认10｜At instruction and big data instruction response timeout (in seconds), at least 10, default 10  */
+/** at指令、bg指令响应超时（单位秒），至少10，默认10｜at command, bg command response timeout (in seconds), at least 10, default 10 */
 @property (nonatomic, assign) uint8_t sendTimerOut;
+
+/**
+ 调试模式（默认YES，即输出日志记录）｜debug mode (default YES, i.e. output logging)
+ 
+ @note 如需接收日志信息请实现监听方法 [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(logOutput:) name:FBLOGNOTIFICATIONOFOUTPUT object:nil]｜If you need to receive log information, please implement the monitoring method [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(logOutput:) name:FBLOGNOTIFICATIONOFOUTPUT object:nil]
+ */
+@property (nonatomic, assign) BOOL debugging;
 
 
 

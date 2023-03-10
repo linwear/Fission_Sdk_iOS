@@ -7,6 +7,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class FBProgressModel;
+
 NS_ASSUME_NONNULL_BEGIN
 
 /*

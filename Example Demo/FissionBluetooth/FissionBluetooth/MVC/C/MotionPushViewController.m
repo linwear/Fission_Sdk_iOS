@@ -74,7 +74,7 @@
         
 
     QMUIButton *mainButton = [QMUIButton buttonWithType:UIButtonTypeCustom];
-    [mainButton setBackgroundColor:COLOR_HEX(0x4469FF, 1)];
+    [mainButton setBackgroundColor:BlueColor];
     [mainButton setTitleColor:UIColorWhite forState:UIControlStateNormal];
     [mainButton setTitle:LWLocalizbleString(@"Synchronize") forState:UIControlStateNormal];
     mainButton.titleLabel.font = [NSObject themePingFangSCMediumFont:18];
@@ -119,14 +119,14 @@
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }];
-    [cancel setValue:[UIColor purpleColor] forKey:@"_titleTextColor"];
+    [cancel setValue:GreenColor forKey:@"_titleTextColor"];
     [alert addAction:cancel];
     
     UIAlertAction *sure = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
 
         [weakSelf downloadProcessingWithArray:array];
     }];
-    [sure setValue:[UIColor purpleColor] forKey:@"_titleTextColor"];
+    [sure setValue:GreenColor forKey:@"_titleTextColor"];
     [alert addAction:sure];
     
     [self presentViewController:alert animated:YES completion:nil];
@@ -134,7 +134,7 @@
 
 - (void)NetworkRequest {
     
-    [SVProgressHUD showWithStatus:@"Loading..."];
+    [SVProgressHUD showWithStatus:LWLocalizbleString(@"Loading...")];
     
     WeakSelf(self);
     [LWNetworkingManager requestURL:@"api/v2/sportPush/classify/list" httpMethod:GET params:@{} success:^(NSDictionary *result) {
@@ -467,7 +467,7 @@
 #pragma mark - 下载OTA包
 - (void)downloadProcessingWithArray:(NSArray <LWMotionPushModel *> *)array {
     
-    [SVProgressHUD showWithStatus:@"Loading..."];
+    [SVProgressHUD showWithStatus:LWLocalizbleString(@"Loading...")];
     if (self.isTwoGroups && array.count>=2) { // 支持多个且已选择2及以上
         
         FBLog(@"正在下载多个运动推送包...");
@@ -530,13 +530,13 @@
     
     FBBluetoothOTA.sharedInstance.isCheckPower = NO;
     
-    [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFileData withOTAType:OTANOTIFICATION withBlock:^(FB_RET_CMD status, float progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
+    [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFileData withOTAType:OTANOTIFICATION withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
         if (error) {
             [SVProgressHUD dismiss];
             [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
         }
         else if (status==FB_INDATATRANSMISSION) {
-            [SVProgressHUD showProgress:progress status:[NSString stringWithFormat:@"Loading %.f%%",progress*100]];
+            [SVProgressHUD showProgress:progress.totalPackageProgress/100.0 status:[NSString stringWithFormat:@"%@ %ld%%", LWLocalizbleString(@"Synchronize"), progress.totalPackageProgress]];
         }
         else if (status==FB_DATATRANSMISSIONDONE) {
             [SVProgressHUD dismiss];

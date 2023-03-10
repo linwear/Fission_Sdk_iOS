@@ -22,7 +22,11 @@
 #define COLOR_RGB(r,g,b,a)   [UIColor colorWithRed: r/255.0 green: g/255.0 blue: b/255.0 alpha: a]
 
 // rgb颜色(十六进制)
-#define COLOR_HEX(HexValue,a) [UIColor colorWithRed:((float)((HexValue & 0xFF0000) >> 16))/255.0 green:((float)((HexValue & 0xFF00) >> 8))/255.0 blue:((float)(HexValue & 0xFF))/255.0 alpha:a]
+#define COLOR_HEX(HexValue, a) [UIColor colorWithRed:((float)((HexValue & 0xFF0000) >> 16))/255.0 green:((float)((HexValue & 0xFF00) >> 8))/255.0 blue:((float)(HexValue & 0xFF))/255.0 alpha:a]
+
+#define BlueColor COLOR_HEX(0x4469FF, 1)
+#define GreenColor COLOR_HEX(0x228B22, 1)
+
 //状态栏+导航栏高度
 #define k_SafeAreaBottomMargin (IS_NOTCHED_SCREEN ? 34.0 : 0.0)
 

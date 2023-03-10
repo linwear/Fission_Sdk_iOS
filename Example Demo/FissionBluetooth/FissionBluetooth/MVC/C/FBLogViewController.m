@@ -86,7 +86,7 @@
         NSString *path = self.pathsArray[indexPath.row];
         NSURL *url = [NSURL fileURLWithPath:path];
         
-        [SVProgressHUD showWithStatus:@"Loading..."];
+        [SVProgressHUD showWithStatus:LWLocalizbleString(@"Loading...")];
         
         self.documentController = [UIDocumentInteractionController interactionControllerWithURL:url];
         self.documentController.delegate = self;

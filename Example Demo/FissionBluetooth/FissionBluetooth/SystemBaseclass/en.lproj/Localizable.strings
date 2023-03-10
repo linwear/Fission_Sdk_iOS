@@ -174,3 +174,7 @@
 "Continue" = "Continue";
 "Pause" = "Pause";
 "End" = "End";
+"Loading..." = "Loading...";
+"OK" = "OK";
+"From Server" = "From Server";
+"From Local Folder" = "From Local Folder";

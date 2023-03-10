@@ -122,6 +122,8 @@
 		593AA47F29B732C400B2DD49 /* dispatch_source_timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA47E29B732C400B2DD49 /* dispatch_source_timer.m */; };
 		593AA48229B7346100B2DD49 /* LWSportsConnectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA48129B7346100B2DD49 /* LWSportsConnectModel.m */; };
 		593AA48529B73FCB00B2DD49 /* XYButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA48429B73FCB00B2DD49 /* XYButton.m */; };
+		593AA48F29BAC87000B2DD49 /* AppDelegate+FissionSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA48E29BAC87000B2DD49 /* AppDelegate+FissionSDK.m */; };
+		593AA49629BB16C100B2DD49 /* BinFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA49529BB16C100B2DD49 /* BinFileTableViewCell.m */; };
 		593FBF67298A36DE00986F13 /* MotionPushCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 593FBF65298A36DE00986F13 /* MotionPushCollectionViewCell.m */; };
 		593FBF68298A36DE00986F13 /* MotionPushCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593FBF66298A36DE00986F13 /* MotionPushCollectionViewCell.xib */; };
 		59C6CC4B25ADA95F007C2521 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C6CC4A25ADA95F007C2521 /* AudioToolbox.framework */; };
@@ -430,6 +432,10 @@
 		593AA48129B7346100B2DD49 /* LWSportsConnectModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWSportsConnectModel.m; sourceTree = "<group>"; };
 		593AA48329B73FCB00B2DD49 /* XYButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYButton.h; sourceTree = "<group>"; };
 		593AA48429B73FCB00B2DD49 /* XYButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYButton.m; sourceTree = "<group>"; };
+		593AA48D29BAC87000B2DD49 /* AppDelegate+FissionSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+FissionSDK.h"; sourceTree = "<group>"; };
+		593AA48E29BAC87000B2DD49 /* AppDelegate+FissionSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+FissionSDK.m"; sourceTree = "<group>"; };
+		593AA49429BB16C100B2DD49 /* BinFileTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinFileTableViewCell.h; sourceTree = "<group>"; };
+		593AA49529BB16C100B2DD49 /* BinFileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BinFileTableViewCell.m; sourceTree = "<group>"; };
 		593FBF64298A36DE00986F13 /* MotionPushCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotionPushCollectionViewCell.h; sourceTree = "<group>"; };
 		593FBF65298A36DE00986F13 /* MotionPushCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotionPushCollectionViewCell.m; sourceTree = "<group>"; };
 		593FBF66298A36DE00986F13 /* MotionPushCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotionPushCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -768,6 +774,8 @@
 				593AA47529B7157F00B2DD49 /* LWStartCountdownView.m */,
 				593AA47A29B720E600B2DD49 /* LWMotionDataView.h */,
 				593AA47B29B720E600B2DD49 /* LWMotionDataView.m */,
+				593AA49429BB16C100B2DD49 /* BinFileTableViewCell.h */,
+				593AA49529BB16C100B2DD49 /* BinFileTableViewCell.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -817,6 +825,8 @@
 				5923580D293EDED300E5379C /* MVC */,
 				592A9FE325A4173A00CC515E /* AppDelegate.h */,
 				592A9FE425A4173A00CC515E /* AppDelegate.m */,
+				593AA48D29BAC87000B2DD49 /* AppDelegate+FissionSDK.h */,
+				593AA48E29BAC87000B2DD49 /* AppDelegate+FissionSDK.m */,
 				592A9FF425A4173B00CC515E /* Info.plist */,
 				592A9FF525A4173B00CC515E /* main.m */,
 				592A9FEC25A4173A00CC515E /* Main.storyboard */,
@@ -1352,6 +1362,7 @@
 				592358AF293EDED300E5379C /* LWPersonCell.m in Sources */,
 				593AA47F29B732C400B2DD49 /* dispatch_source_timer.m in Sources */,
 				593AA45F29B58FCC00B2DD49 /* FBClockDialCategoryViewController.m in Sources */,
+				593AA48F29BAC87000B2DD49 /* AppDelegate+FissionSDK.m in Sources */,
 				590B97842967F08F00D31A76 /* FBLogManager.m in Sources */,
 				59F62AE32969679600A0603C /* FBAboutViewController.m in Sources */,
 				59235883293EDED300E5379C /* LWCustomDialModel.m in Sources */,
@@ -1408,6 +1419,7 @@
 				590B978F2968117100D31A76 /* FBWebViewController.m in Sources */,
 				5923588C293EDED300E5379C /* BinFileViewController.m in Sources */,
 				593FBF67298A36DE00986F13 /* MotionPushCollectionViewCell.m in Sources */,
+				593AA49629BB16C100B2DD49 /* BinFileTableViewCell.m in Sources */,
 				593AA48229B7346100B2DD49 /* LWSportsConnectModel.m in Sources */,
 				590B97872967FE1A00D31A76 /* FBLogViewController.m in Sources */,
 				592358BB293EDED300E5379C /* LWWaveProgress.m in Sources */,

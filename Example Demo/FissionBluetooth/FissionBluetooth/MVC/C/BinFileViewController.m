@@ -6,6 +6,7 @@
 //
 
 #import "BinFileViewController.h"
+#import "BinFileTableViewCell.h"
 
 @interface BinFileViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -40,8 +41,7 @@
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,NavigationContentTop,SCREEN_WIDTH, SCREEN_HEIGHT-NavigationContentTop)];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    self.tableView.rowHeight = 64;
-    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"BinFileViewControllerCell"];
+    [self.tableView registerClass:BinFileTableViewCell.class forCellReuseIdentifier:@"BinFileTableViewCell"];
     [self.view addSubview:self.tableView];
     
     self.arrayData = [NSMutableArray array];
@@ -62,7 +62,7 @@
         if ([result[@"code"] integerValue] == 200) {
             NSString *otaUrl = result[@"data"][@"otaUrl"];
             if (otaUrl.length) {
-                [weakSelf.arrayData addObject:otaUrl];
+                [weakSelf.arrayData addObject:[NSString stringWithFormat:@"https://%@", otaUrl]];
                 [weakSelf.tableView reloadData];
             }
         }
@@ -70,20 +70,25 @@
         [NSObject showHUDText:error.domain];
     }];
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.arrayData.count;
 }
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    return [self cellHeightForIndexPath:indexPath cellContentViewWidth:SCREEN_WIDTH tableView:tableView];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BinFileViewControllerCell"];
+    BinFileTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BinFileTableViewCell"];
     
-    cell.textLabel.font = FONT(14);
-    cell.textLabel.textColor = [UIColor blackColor];
-    cell.textLabel.textAlignment = NSTextAlignmentLeft;
-    cell.textLabel.numberOfLines = 2;
-    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
-    if (self.arrayData.count > indexPath.row) {
-        cell.textLabel.text = self.arrayData[indexPath.row];
+    if (indexPath.row < self.arrayData.count) {
+        
+        NSString *path = self.arrayData[indexPath.row];
+        
+        [cell reloadTitle:path];
     }
     return cell;
 }
@@ -91,16 +96,19 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     WeakSelf(self);
     NSString *fileNamePaths = self.arrayData[indexPath.row];
-    if ([fileNamePaths hasPrefix:@"api"]) {
-        [self downloadOTA:[NSString stringWithFormat:@"https://%@",fileNamePaths]];
-        return;
+    if ([fileNamePaths containsString:@"https://"]) {
+        
+        [self downloadOTA:fileNamePaths]; // 下载
+        
+    } else {
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true);
+        NSString *fileName = [NSString stringWithFormat:@"%@/firmwares/%@", paths[0], fileNamePaths];
+        NSData *binFile = [NSData dataWithContentsOfFile:fileName];
+        
+        [SVProgressHUD showWithStatus:LWLocalizbleString(@"Loading...")];
+        [weakSelf binFileData:binFile];
     }
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true);
-    NSString *fileName = [NSString stringWithFormat:@"%@/firmwares/%@", paths[0], fileNamePaths];
-    NSData *binFile = [NSData dataWithContentsOfFile:fileName];
-    
-    [SVProgressHUD showWithStatus:@"Loading..."];
-    [weakSelf binFileData:binFile];
 }
 - (void)showTitle:(NSString *)title forMessage:(NSString *)message{
     UIAlertController *alt = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
@@ -116,12 +124,12 @@
     
     FBBluetoothOTA.sharedInstance.isCheckPower = NO;
     
-    [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:FB_OTANotification_Firmware withBlock:^(FB_RET_CMD status, float progress, FBOTADoneModel * _Nonnull responseObject, NSError * _Nonnull error) {
+    [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:FB_OTANotification_Firmware withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
         if (error) {
             [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
         }
         else if (status==FB_INDATATRANSMISSION) {
-            [SVProgressHUD showProgress:progress status:[NSString stringWithFormat:@"Loading %.f%%",progress*100]];
+            [SVProgressHUD showProgress:progress.totalPackageProgress/100.0 status:[NSString stringWithFormat:@"%@ %ld%% (%ld%% %ld/%ld)", LWLocalizbleString(@"Synchronize"), progress.totalPackageProgress, progress.currentPackageProgress, progress.currentPackage, progress.totalPackage]];
         }
         else if (status==FB_DATATRANSMISSIONDONE) {
             [SVProgressHUD dismiss];
@@ -141,7 +149,7 @@
 */
 // 下载OTA包
 - (void)downloadOTA:(NSString *)url {
-    [SVProgressHUD showWithStatus:@"Loading..."];
+    [SVProgressHUD showWithStatus:LWLocalizbleString(@"Loading...")];
     WeakSelf(self);
     [LWNetworkingManager requestDownloadURL:url success:^(NSDictionary *result) {
         
@@ -151,8 +159,8 @@
             [weakSelf binFileData:binFile];
         }
     } failure:^(NSError * _Nonnull error, id  _Nullable responseObject) {
-        [SVProgressHUD showWithStatus:@"Loading..."];
-        [NSObject showHUDText:error.domain];
+        [SVProgressHUD dismiss];
+        [NSObject showHUDText:error.localizedDescription];
     }];
 }
 

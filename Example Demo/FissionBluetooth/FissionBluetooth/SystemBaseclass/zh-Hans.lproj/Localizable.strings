@@ -174,3 +174,7 @@
 "Continue" = "继续";
 "Pause" = "暂停";
 "End" = "结束";
+"Loading..." = "正在加载";
+"OK" = "确定";
+"From Server" = "来自服务器";
+"From Local Folder" = "来自本地文件夹";

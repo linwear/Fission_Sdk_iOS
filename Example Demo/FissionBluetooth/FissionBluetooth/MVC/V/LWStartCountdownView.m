@@ -47,7 +47,7 @@
 - (UIView *)imageBGView {
     if (!_imageBGView) {
         _imageBGView = [[UIView alloc] initWithFrame:CGRectZero];
-        _imageBGView.backgroundColor = COLOR_HEX(0x4469FF, 0.16);
+        _imageBGView.backgroundColor = UIColorTestGreen;
     }
     return _imageBGView;
 }
@@ -102,7 +102,7 @@
     self.imageBGView.frame = CGRectMake((SCREEN_WIDTH-SCREEN_WIDTH*0.5)/2, (SCREEN_HEIGHT-SCREEN_WIDTH*0.5)/2, SCREEN_WIDTH*0.5, SCREEN_WIDTH*0.5);
     self.imageBGView.cornerRadius = (SCREEN_WIDTH*0.5)/2;
 
-    self.imageView.image = [Tools maskWithImage:UIImageMake(imageArray[self.timerOut-1]) withColor:COLOR_HEX(0x4469FF, 1)];;
+    self.imageView.image = [Tools maskWithImage:UIImageMake(imageArray[self.timerOut-1]) withColor:BlueColor];;
     self.imageView.frame = CGRectMake((SCREEN_WIDTH-90)/2, (SCREEN_HEIGHT-90)/2, 90, 90);
 
     [UIView animateWithDuration:0.3f animations:^{

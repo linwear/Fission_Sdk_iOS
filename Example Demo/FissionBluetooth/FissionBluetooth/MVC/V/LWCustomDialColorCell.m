@@ -52,7 +52,7 @@
     UIColor *color6 = COLOR_HEX(0x9244FF, 1);
     UIColor *color7 = COLOR_HEX(0x44ECFF, 1);
     UIColor *color8 = COLOR_HEX(0x333333, 1);
-    UIColor *color9 = COLOR_HEX(0x4469FF, 1);
+    UIColor *color9 = BlueColor;
     
     self.arrayData = @[color1,color2,color3,color4,color5,color6,color7,color8,color9];
 }

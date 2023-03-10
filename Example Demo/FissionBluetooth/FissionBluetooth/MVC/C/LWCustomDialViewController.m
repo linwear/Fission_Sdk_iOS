@@ -60,7 +60,7 @@ const CGFloat CustomDiaButtonMargin = 24.0;
     
     // 设置表盘按钮
     UIButton *setPlateBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    setPlateBtn.backgroundColor = COLOR_HEX(0x4469FF, 1);
+    setPlateBtn.backgroundColor = BlueColor;
     setPlateBtn.layer.cornerRadius = 24;
     setPlateBtn.titleLabel.font = [NSObject themePingFangSCMediumFont:18];
     [setPlateBtn setTitle:NSLocalizedString(@"Synchronize", nil) forState:UIControlStateNormal];
@@ -133,9 +133,9 @@ const CGFloat CustomDiaButtonMargin = 24.0;
             UIAlertAction *sure = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
                 [weakSelf InitializeCustomDialModel];
             }];
-            [cancel setValue:[UIColor purpleColor] forKey:@"_titleTextColor"];
+            [cancel setValue:GreenColor forKey:@"_titleTextColor"];
             [alert addAction:cancel];
-            [sure setValue:[UIColor purpleColor] forKey:@"_titleTextColor"];
+            [sure setValue:GreenColor forKey:@"_titleTextColor"];
             [alert addAction:sure];
             
             [weakSelf presentViewController:alert animated:YES completion:nil];
@@ -212,7 +212,7 @@ const CGFloat CustomDiaButtonMargin = 24.0;
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }];
-    [cancel setValue:[UIColor purpleColor] forKey:@"_titleTextColor"];
+    [cancel setValue:GreenColor forKey:@"_titleTextColor"];
     [alert addAction:cancel];
     
     UIAlertAction *sure = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
@@ -250,19 +250,19 @@ const CGFloat CustomDiaButtonMargin = 24.0;
 //
 //        [binFile writeToFile:FileName atomically:YES];//将NSData类型对象data写入文件，文件名为FileName
         
-        [SVProgressHUD showWithStatus:@"Ready to sync watch faces"];
+        [SVProgressHUD showWithStatus:LWLocalizbleString(@"Loading...")];
         
         FBBluetoothOTA.sharedInstance.isCheckPower = NO;
                 
-        [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:FB_OTANotification_CustomClockDial withBlock:^(FB_RET_CMD status, float progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
+        [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:FB_OTANotification_CustomClockDial withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
             [SVProgressHUD dismiss];
             if (error) {
                 [[LWWaveProgress sharedInstance] dismiss];
                 [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
             }
             else if (status==FB_INDATATRANSMISSION) {
-                NSString *title = [NSString stringWithFormat:NSLocalizedString(@"Synchronize %d%%", nil), (int)(progress*100)];
-                [[LWWaveProgress sharedInstance] showWithFrame:self.butRect withTitle:title withProgress:progress withWaveColor:COLOR_HEX(0x4469FF, 1)];
+                NSString *title = [NSString stringWithFormat:@"%@ %ld%%", LWLocalizbleString(@"Synchronize"), progress.totalPackageProgress];
+                [[LWWaveProgress sharedInstance] showWithFrame:self.butRect withTitle:title withProgress:progress.totalPackageProgress/100.0 withWaveColor:BlueColor];
             }
             else if (status==FB_DATATRANSMISSIONDONE) {
                 [[LWWaveProgress sharedInstance] dismiss];
@@ -275,7 +275,7 @@ const CGFloat CustomDiaButtonMargin = 24.0;
             }
         }];
     }];
-    [sure setValue:[UIColor purpleColor] forKey:@"_titleTextColor"];
+    [sure setValue:GreenColor forKey:@"_titleTextColor"];
     [alert addAction:sure];
     
     [self presentViewController:alert animated:YES completion:nil];

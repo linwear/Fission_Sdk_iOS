@@ -8,6 +8,9 @@
 #ifndef FBMacro_h
 #define FBMacro_h
 
+/** FBLog 日志输出通知名称｜FBLog log output notification name */
+static NSString *const FBLOGNOTIFICATIONOFOUTPUT = @"FBLOGNOTIFICATIONOFOUTPUT";
+
 #pragma mark - 错误码｜Error code
 /*
  * 错误码｜Error code

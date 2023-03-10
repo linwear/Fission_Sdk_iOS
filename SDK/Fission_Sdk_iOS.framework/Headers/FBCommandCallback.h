@@ -411,11 +411,11 @@ typedef void (^FBGetAbnormalHeartRateReminderBlock)(FB_RET_CMD status, float pro
 /**
  *@brief OTA同步数据 调用结果回调｜OTA synchronous data call result callback
  *@param status                               状态码｜Status code
- *@param progress                          当前进度0～1｜Current progress 0 ~ 1
+ *@param progress                          当前进度信息｜current progress information
  *@param responseObject             OTA完成信息｜OTA completion information
  *@param error                                 错误信息｜Error message
  */
-typedef void (^FBSetOtaUpgradeManagerBlock)(FB_RET_CMD status, float progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error);
+typedef void (^FBSetOtaUpgradeManagerBlock)(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error);
 
 /**
  *@brief GPS运动互联数据交互 调用结果回调｜GPS motion interconnection data interaction call result callback
