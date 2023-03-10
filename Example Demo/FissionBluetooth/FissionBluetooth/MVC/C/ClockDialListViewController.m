@@ -118,12 +118,12 @@
     NSMutableAttributedString *attributedMessage = [[NSMutableAttributedString alloc] initWithString:message attributes: @{NSFontAttributeName: [NSObject themePingFangSCMediumFont:14], NSForegroundColorAttributeName: [UIColor blackColor]}];
     [alert setValue:attributedMessage forKey:@"attributedMessage"];
     
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }];
     [cancel setValue:GreenColor forKey:@"_titleTextColor"];
     [alert addAction:cancel];
     
-    UIAlertAction *sure = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", nil) style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *sure = [UIAlertAction actionWithTitle:LWLocalizbleString(@"OK") style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
 
         [weakSelf downloadOTA:model.plateZip];
     }];
@@ -177,11 +177,12 @@
         [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
     }];
 }
+
 - (void)showTitle:(NSString *)title forMessage:(NSString *)message{
     UIAlertController *alt = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *act = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        
+    UIAlertAction *act = [UIAlertAction actionWithTitle:LWLocalizbleString(@"OK") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }];
+    [act setValue:GreenColor forKey:@"_titleTextColor"];
     [alt addAction:act];
     [self presentViewController:alt animated:YES completion:nil];
 }

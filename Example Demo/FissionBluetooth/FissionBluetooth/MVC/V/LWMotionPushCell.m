@@ -15,7 +15,7 @@
     // Initialization code
     
     self.cellTitle.textColor = UIColorBlack;
-    self.cellTitle.font = [UIFont systemFontOfSize:12];
+    self.cellTitle.font = FONT(12);
 }
 
 @end

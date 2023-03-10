@@ -217,7 +217,7 @@ static NSString *const idty = @"LWCustomDialCell";
 
     }]];
 
-    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [alertVC addAction:[UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
 
     }]];
 
@@ -265,7 +265,7 @@ static NSString *const idty = @"LWCustomDialCell";
     if ([PHPhotoLibrary authorizationStatus] == 2) { // 已被拒绝，没有相册权限
 
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Can't access album", nil) message:[NSString stringWithFormat:NSLocalizedString(@"Please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone", nil), @"🧍‍♀️"] preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:nil];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Set", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             //进入系统设置页面，APP本身的权限管理页面
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
@@ -332,7 +332,7 @@ static NSString *const idty = @"LWCustomDialCell";
     if (authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied) {
         // 无相机权限 做一个友好的提示
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Can't use camera", nil) message:[NSString stringWithFormat:NSLocalizedString(@"Please allow %@ to access the camera in \"Settings-Privacy-Camera\" of the iPhone", nil), @"🧍‍♀️"] preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:nil];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Set", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             //进入系统设置页面，APP本身的权限管理页面
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
@@ -354,7 +354,7 @@ static NSString *const idty = @"LWCustomDialCell";
     } else if ([PHPhotoLibrary authorizationStatus] == 2) { // 已被拒绝，没有相册权限，将无法保存拍的照片
 
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Can't access album", nil) message:[NSString stringWithFormat:NSLocalizedString(@"The photo after taking the photo needs to be added to the album, please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone", nil), @"🧍‍♀️"] preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", nil) style:UIAlertActionStyleCancel handler:nil];
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:nil];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Set", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             //进入系统设置页面，APP本身的权限管理页面
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];

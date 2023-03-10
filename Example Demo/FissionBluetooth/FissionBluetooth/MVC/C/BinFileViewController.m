@@ -62,7 +62,12 @@
         if ([result[@"code"] integerValue] == 200) {
             NSString *otaUrl = result[@"data"][@"otaUrl"];
             if (otaUrl.length) {
-                [weakSelf.arrayData addObject:[NSString stringWithFormat:@"https://%@", otaUrl]];
+                
+                if (![otaUrl containsString:@"https://"]) {
+                    otaUrl = [NSString stringWithFormat:@"https://%@", otaUrl];
+                }
+                
+                [weakSelf.arrayData addObject:otaUrl];
                 [weakSelf.tableView reloadData];
             }
         }
@@ -110,11 +115,12 @@
         [weakSelf binFileData:binFile];
     }
 }
+
 - (void)showTitle:(NSString *)title forMessage:(NSString *)message{
     UIAlertController *alt = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *act = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        
+    UIAlertAction *act = [UIAlertAction actionWithTitle:LWLocalizbleString(@"OK") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
     }];
+    [act setValue:GreenColor forKey:@"_titleTextColor"];
     [alt addAction:act];
     [self presentViewController:alt animated:YES completion:nil];
 }
