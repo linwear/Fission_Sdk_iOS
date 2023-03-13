@@ -178,3 +178,10 @@
 "OK" = "OK";
 "From Server" = "From Server";
 "From Local Folder" = "From Local Folder";
+"⚠️ You can also import the local bin file to test the OTA function of the firmware, the specific tutorial poke~👉" = "⚠️ You can also import the local bin file to test the OTA function of the firmware, the specific tutorial poke~👉";
+"Tutorial" = "Tutorial";
+"1. Open the website https://www.i4.cn/ on the computer, download and install [i4]" = "1. Open the website https://www.i4.cn/ on the computer, download and install [i4]";
+"2. Use a data cable to connect your iPhone to the computer\n①. Click [My Devices]\n②. Click [Application Management]\n③. Click FissionBluetooth APP [Browse] to open the file management" = "2. Use a data cable to connect your iPhone to the computer\n①. Click [My Devices]\n②. Click [Application Management]\n③. Click FissionBluetooth APP [Browse] to open the file management";
+"3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [firmwares]" = "3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [firmwares]";
+"4. There are two ways to import files:\n①. Click [Import] - [Select File] and select the bin file you want to import locally\n②. Drag the bin file you want to import locally to this list" = "4. There are two ways to import files:\n①. Click [Import] - [Select File] and select the bin file you want to import locally\n②. Drag the bin file you want to import locally to this list";
+"5. After the import is successful, refresh the APP page, you can see the file you just imported, click to select it for OTA" = "5. After the import is successful, refresh the APP page, you can see the file you just imported, click to select it for OTA";

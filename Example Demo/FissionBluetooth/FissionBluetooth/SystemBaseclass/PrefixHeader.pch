@@ -93,6 +93,7 @@ static NSString *const FISSION_SDK_WATCHCLICKTAKEPHOTO = @"FISSION_SDK_WATCHCLIC
 #import "Tools.h"
 #import "DeviceListModel.h"
 #import "NSObject+Authorized.h"
+#import "UIAlertObject.h"
 
 #pragma mark - 枚举相关
 // 自定义选择的类型

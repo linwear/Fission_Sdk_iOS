@@ -110,27 +110,16 @@
     
     DialListModel *model = self.arrayData[indexPath.row];
     
+    WeakSelf(self);
     FBLog(@"请确认是否同步表盘?");
     NSString *message = LWLocalizbleString(@"Please confirm whether the watch face is synchronized");
-
-    WeakSelf(self);
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
-    NSMutableAttributedString *attributedMessage = [[NSMutableAttributedString alloc] initWithString:message attributes: @{NSFontAttributeName: [NSObject themePingFangSCMediumFont:14], NSForegroundColorAttributeName: [UIColor blackColor]}];
-    [alert setValue:attributedMessage forKey:@"attributedMessage"];
     
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Tip") message:message cancel:LWLocalizbleString(@"Cancel") sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
+        
+        if (clickType == AlertClickType_Sure) {
+            [weakSelf downloadOTA:model.plateZip];
+        }
     }];
-    [cancel setValue:GreenColor forKey:@"_titleTextColor"];
-    [alert addAction:cancel];
-    
-    UIAlertAction *sure = [UIAlertAction actionWithTitle:LWLocalizbleString(@"OK") style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-
-        [weakSelf downloadOTA:model.plateZip];
-    }];
-    [sure setValue:GreenColor forKey:@"_titleTextColor"];
-    [alert addAction:sure];
-    
-    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - JXCategoryListContentViewDelegate
@@ -179,12 +168,10 @@
 }
 
 - (void)showTitle:(NSString *)title forMessage:(NSString *)message{
-    UIAlertController *alt = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *act = [UIAlertAction actionWithTitle:LWLocalizbleString(@"OK") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    
+    [UIAlertObject presentAlertTitle:title message:message cancel:nil sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
+        
     }];
-    [act setValue:GreenColor forKey:@"_titleTextColor"];
-    [alt addAction:act];
-    [self presentViewController:alt animated:YES completion:nil];
 }
 
 @end

@@ -15,12 +15,15 @@
 
 @property (nonatomic, assign) BOOL isStop;
 
+@property (nonatomic, assign) BOOL scrollDown;
+
 @end
 
 @implementation FBAboutHeadView
 
 - (instancetype)initWithFrame:(CGRect)frame withImage:(UIImage *)image {
     if (self = [super initWithFrame:frame]) {
+        self.scrollDown = YES;
         [self UI:image];
     }
     return self;
@@ -56,17 +59,21 @@
     lab.text = [NSString stringWithFormat:@"SDK Version %@\nSDK Build %@", FBBluetoothManager.sdkVersion, FBBluetoothManager.sdkBuild];
     [self addSubview:lab];
     lab.sd_layout.leftEqualToView(self).rightEqualToView(self).topSpaceToView(appIcon, 10).autoHeightRatio(0);
-    
-    [self StartAnimation:YES];
 }
 
-- (void)StartAnimation:(BOOL)scrollDown {
+- (void)StartAnimation {
     
     [UIView setAnimationsEnabled:YES];
-
+    
+    if (self.scrollDown) {
+        [self.scrollView setContentOffset:CGPointMake(0, 0)];
+    } else {
+        [self.scrollView setContentOffset:CGPointMake(0, self.scrollView.contentSize.height-self.height)];
+    }
+    
     WeakSelf(self);
-    [UIView animateWithDuration:20.0f animations:^{
-        if (scrollDown) {
+    [UIView animateWithDuration:12.0f animations:^{
+        if (weakSelf.scrollDown) {
             [weakSelf.scrollView setContentOffset:CGPointMake(0, weakSelf.scrollView.contentSize.height-weakSelf.height)];
         } else {
             [weakSelf.scrollView setContentOffset:CGPointMake(0, 0)];
@@ -74,7 +81,8 @@
     } completion:^(BOOL finished) {
         
         if (finished) {
-            [weakSelf StartAnimation:!scrollDown];
+            weakSelf.scrollDown = !weakSelf.scrollDown;
+            [weakSelf StartAnimation];
         }
     }];
 }

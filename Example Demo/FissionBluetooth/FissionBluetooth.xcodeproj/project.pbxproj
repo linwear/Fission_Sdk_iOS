@@ -124,9 +124,11 @@
 		593AA48529B73FCB00B2DD49 /* XYButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA48429B73FCB00B2DD49 /* XYButton.m */; };
 		593AA48F29BAC87000B2DD49 /* AppDelegate+FissionSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA48E29BAC87000B2DD49 /* AppDelegate+FissionSDK.m */; };
 		593AA49629BB16C100B2DD49 /* BinFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA49529BB16C100B2DD49 /* BinFileTableViewCell.m */; };
+		593AA49929BB3E5D00B2DD49 /* FBTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA49829BB3E5D00B2DD49 /* FBTutorialViewController.m */; };
 		593FBF67298A36DE00986F13 /* MotionPushCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 593FBF65298A36DE00986F13 /* MotionPushCollectionViewCell.m */; };
 		593FBF68298A36DE00986F13 /* MotionPushCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593FBF66298A36DE00986F13 /* MotionPushCollectionViewCell.xib */; };
 		59C6CC4B25ADA95F007C2521 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C6CC4A25ADA95F007C2521 /* AudioToolbox.framework */; };
+		59C909A229BC8602007AA373 /* UIAlertObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C909A129BC8602007AA373 /* UIAlertObject.m */; };
 		59E7BE68268C13C400B8001A /* ic_dial_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE50268C13C400B8001A /* ic_dial_button@2x.png */; };
 		59E7BE69268C13C400B8001A /* examples_img_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE51268C13C400B8001A /* examples_img_03.png */; };
 		59E7BE6A268C13C400B8001A /* ic_dial_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE52268C13C400B8001A /* ic_dial_button@3x.png */; };
@@ -436,11 +438,15 @@
 		593AA48E29BAC87000B2DD49 /* AppDelegate+FissionSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+FissionSDK.m"; sourceTree = "<group>"; };
 		593AA49429BB16C100B2DD49 /* BinFileTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BinFileTableViewCell.h; sourceTree = "<group>"; };
 		593AA49529BB16C100B2DD49 /* BinFileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BinFileTableViewCell.m; sourceTree = "<group>"; };
+		593AA49729BB3E5D00B2DD49 /* FBTutorialViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBTutorialViewController.h; sourceTree = "<group>"; };
+		593AA49829BB3E5D00B2DD49 /* FBTutorialViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBTutorialViewController.m; sourceTree = "<group>"; };
 		593FBF64298A36DE00986F13 /* MotionPushCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotionPushCollectionViewCell.h; sourceTree = "<group>"; };
 		593FBF65298A36DE00986F13 /* MotionPushCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotionPushCollectionViewCell.m; sourceTree = "<group>"; };
 		593FBF66298A36DE00986F13 /* MotionPushCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotionPushCollectionViewCell.xib; sourceTree = "<group>"; };
 		59B66DB625A4376D0068B89A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		59C6CC4A25ADA95F007C2521 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		59C909A029BC8602007AA373 /* UIAlertObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIAlertObject.h; sourceTree = "<group>"; };
+		59C909A129BC8602007AA373 /* UIAlertObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIAlertObject.m; sourceTree = "<group>"; };
 		59CA6D8F25B7C4BD00093622 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		59E7BE50268C13C400B8001A /* ic_dial_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_dial_button@2x.png"; sourceTree = "<group>"; };
 		59E7BE51268C13C400B8001A /* examples_img_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = examples_img_03.png; sourceTree = "<group>"; };
@@ -621,6 +627,8 @@
 				593AA48129B7346100B2DD49 /* LWSportsConnectModel.m */,
 				593AA48329B73FCB00B2DD49 /* XYButton.h */,
 				593AA48429B73FCB00B2DD49 /* XYButton.m */,
+				59C909A029BC8602007AA373 /* UIAlertObject.h */,
+				59C909A129BC8602007AA373 /* UIAlertObject.m */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -702,6 +710,8 @@
 				590B977C2966A61B00D31A76 /* FBCameraViewController.m */,
 				593AA47729B71CB300B2DD49 /* FBSportsConnectViewController.h */,
 				593AA47829B71CB300B2DD49 /* FBSportsConnectViewController.m */,
+				593AA49729BB3E5D00B2DD49 /* FBTutorialViewController.h */,
+				593AA49829BB3E5D00B2DD49 /* FBTutorialViewController.m */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -821,12 +831,12 @@
 		592A9FE225A4173A00CC515E /* FissionBluetooth */ = {
 			isa = PBXGroup;
 			children = (
-				59B66DB525A436FB0068B89A /* SystemBaseclass */,
-				5923580D293EDED300E5379C /* MVC */,
 				592A9FE325A4173A00CC515E /* AppDelegate.h */,
 				592A9FE425A4173A00CC515E /* AppDelegate.m */,
 				593AA48D29BAC87000B2DD49 /* AppDelegate+FissionSDK.h */,
 				593AA48E29BAC87000B2DD49 /* AppDelegate+FissionSDK.m */,
+				59B66DB525A436FB0068B89A /* SystemBaseclass */,
+				5923580D293EDED300E5379C /* MVC */,
 				592A9FF425A4173B00CC515E /* Info.plist */,
 				592A9FF525A4173B00CC515E /* main.m */,
 				592A9FEC25A4173A00CC515E /* Main.storyboard */,
@@ -1353,6 +1363,7 @@
 			files = (
 				590B978B29680A6300D31A76 /* FBLogTableViewCell.m in Sources */,
 				592358A3293EDED300E5379C /* ClockInforViewController.m in Sources */,
+				59C909A229BC8602007AA373 /* UIAlertObject.m in Sources */,
 				592358A5293EDED300E5379C /* HrCheckViewController.m in Sources */,
 				590B97812967B7EF00D31A76 /* FBRadarView.m in Sources */,
 				592358ED2941B4B000E5379C /* LWContactViewController.m in Sources */,
@@ -1367,6 +1378,7 @@
 				59F62AE32969679600A0603C /* FBAboutViewController.m in Sources */,
 				59235883293EDED300E5379C /* LWCustomDialModel.m in Sources */,
 				59235899293EDED300E5379C /* SedentaryViewController.m in Sources */,
+				593AA49929BB3E5D00B2DD49 /* FBTutorialViewController.m in Sources */,
 				59235889293EDED300E5379C /* ListViewController.m in Sources */,
 				592358CA293EF6FE00E5379C /* LWNetworkingManager.m in Sources */,
 				59235898293EDED300E5379C /* MessagePushSwitchVC.m in Sources */,
@@ -1626,6 +1638,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "";
 				DEVELOPMENT_TEAM = PL4B74TGHZ;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64=arm64 arm64e armv7 armv7s armv6 armv8EXCLUDED_ARCHS=$(inherited)$(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT))";
@@ -1663,6 +1676,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "";
 				DEVELOPMENT_TEAM = PL4B74TGHZ;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64=arm64 arm64e armv7 armv7s armv6 armv8EXCLUDED_ARCHS=$(inherited)$(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT))";

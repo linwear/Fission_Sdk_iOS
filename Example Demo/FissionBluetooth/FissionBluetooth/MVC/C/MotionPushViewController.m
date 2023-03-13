@@ -113,23 +113,12 @@
     NSString *message = LWLocalizbleString(@"Please confirm whether to push sports");
 
     WeakSelf(self);
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
-    NSMutableAttributedString *attributedMessage = [[NSMutableAttributedString alloc] initWithString:message attributes: @{NSFontAttributeName: [NSObject themePingFangSCMediumFont:14], NSForegroundColorAttributeName: [UIColor blackColor]}];
-    [alert setValue:attributedMessage forKey:@"attributedMessage"];
-    
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Tip") message:message cancel:LWLocalizbleString(@"Cancel") sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
+        
+        if (clickType == AlertClickType_Sure) {
+            [weakSelf downloadProcessingWithArray:array];
+        }
     }];
-    [cancel setValue:GreenColor forKey:@"_titleTextColor"];
-    [alert addAction:cancel];
-    
-    UIAlertAction *sure = [UIAlertAction actionWithTitle:LWLocalizbleString(@"OK") style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-
-        [weakSelf downloadProcessingWithArray:array];
-    }];
-    [sure setValue:GreenColor forKey:@"_titleTextColor"];
-    [alert addAction:sure];
-    
-    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)NetworkRequest {
@@ -540,13 +529,11 @@
         }
         else if (status==FB_DATATRANSMISSIONDONE) {
             [SVProgressHUD dismiss];
-            NSString *str = [NSString stringWithFormat:@"%@", responseObject.mj_keyValues];
-            UIAlertController *alt = [UIAlertController alertControllerWithTitle:LWLocalizbleString(@"Success") message:str preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *act = [UIAlertAction actionWithTitle:LWLocalizbleString(@"OK") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            
+            NSString *message = [NSString stringWithFormat:@"%@", responseObject.mj_keyValues];
+            [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Success") message:message cancel:nil sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
+                
             }];
-            [act setValue:GreenColor forKey:@"_titleTextColor"];
-            [alt addAction:act];
-            [weakSelf presentViewController:alt animated:YES completion:nil];
         }
     }];
 }

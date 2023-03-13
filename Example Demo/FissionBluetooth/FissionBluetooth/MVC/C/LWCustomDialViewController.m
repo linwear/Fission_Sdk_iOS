@@ -124,21 +124,12 @@ const CGFloat CustomDiaButtonMargin = 24.0;
         } else if (mode==LWCustomDialSelectRestoreDefault) { // 恢复默认设置
             NSString *message = NSLocalizedString(@"Please confirm whether to restore the default settings?", nil);
             
-            UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
-            NSMutableAttributedString *attributedMessage = [[NSMutableAttributedString alloc] initWithString:message attributes: @{NSFontAttributeName: [NSObject themePingFangSCMediumFont:14], NSForegroundColorAttributeName: [UIColor blackColor]}];
-            [alert setValue:attributedMessage forKey:@"attributedMessage"];
-            
-            UIAlertAction *cancel = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Tip") message:message cancel:LWLocalizbleString(@"Cancel") sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
+                
+                if (clickType == AlertClickType_Sure) {
+                    [weakSelf InitializeCustomDialModel];
+                }
             }];
-            UIAlertAction *sure = [UIAlertAction actionWithTitle:LWLocalizbleString(@"OK") style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-                [weakSelf InitializeCustomDialModel];
-            }];
-            [cancel setValue:GreenColor forKey:@"_titleTextColor"];
-            [alert addAction:cancel];
-            [sure setValue:GreenColor forKey:@"_titleTextColor"];
-            [alert addAction:sure];
-            
-            [weakSelf presentViewController:alert animated:YES completion:nil];
         }
         [weakSelf.tableView reloadData];
     };
@@ -206,80 +197,72 @@ const CGFloat CustomDiaButtonMargin = 24.0;
     WeakSelf(self);
     NSString *message = NSLocalizedString(@"Please confirm whether the watch face is synchronized", nil);
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:nil message:message preferredStyle:UIAlertControllerStyleAlert];
-    NSMutableAttributedString *attributedMessage = [[NSMutableAttributedString alloc] initWithString:message attributes: @{NSFontAttributeName: [NSObject themePingFangSCMediumFont:14], NSForegroundColorAttributeName: [UIColor blackColor]}];
-    [alert setValue:attributedMessage forKey:@"attributedMessage"];
-    
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-    }];
-    [cancel setValue:GreenColor forKey:@"_titleTextColor"];
-    [alert addAction:cancel];
-    
-    UIAlertAction *sure = [UIAlertAction actionWithTitle:LWLocalizbleString(@"OK") style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
-
-        NSInteger watchDisplayWide = FBAllConfigObject.firmwareConfig.watchDisplayWide;
-        NSInteger watchDisplayHigh = FBAllConfigObject.firmwareConfig.watchDisplayHigh;
-        CGSize dialSize = CGSizeMake(watchDisplayWide, watchDisplayHigh);
+    [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Tip") message:message cancel:LWLocalizbleString(@"Cancel") sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
         
-        NSInteger dialThumbnailDisplayWide = FBAllConfigObject.firmwareConfig.dialThumbnailDisplayWide;
-        NSInteger dialThumbnailDisplayHigh = FBAllConfigObject.firmwareConfig.dialThumbnailDisplayHigh;
-        CGSize thumbnailSize = CGSizeMake(dialThumbnailDisplayWide, dialThumbnailDisplayHigh);
-        
-        FB_ALGORITHMGENERATION algorithm;
-        if (FBAllConfigObject.firmwareConfig.useCompress) {
-            algorithm = FB_CompressAlgorithm;
-        } else {
-            algorithm = FB_OrdinaryAlgorithm;
+        if (clickType == AlertClickType_Sure) {
+            [weakSelf Synchronize];
         }
-        
-        FBCustomDialModel *model = [FBCustomDialModel new];
-        model.dialSize = dialSize;
-        model.thumbnailSize = thumbnailSize;
-        model.dialFontColor = weakSelf.dialmodel.selectColor;
-        model.dialBackgroundImage = weakSelf.dialmodel.selectImage;
-        model.dialPreviewImage = weakSelf.dialmodel.resolvePreviewImage;
-        model.dialDisplayPosition = (FB_CUSTOMDIALTIMEPOSITION)weakSelf.dialmodel.selectPosition;
-        
-        model.algorithm = algorithm;
+    }];
+}
 
-        NSData *binFile = [[FBCustomDataTools sharedInstance] fbGenerateCustomDialBinFileDataWithDialModel:model];
-        
+- (void)Synchronize {
+    
+    NSInteger watchDisplayWide = FBAllConfigObject.firmwareConfig.watchDisplayWide;
+    NSInteger watchDisplayHigh = FBAllConfigObject.firmwareConfig.watchDisplayHigh;
+    CGSize dialSize = CGSizeMake(watchDisplayWide, watchDisplayHigh);
+    
+    NSInteger dialThumbnailDisplayWide = FBAllConfigObject.firmwareConfig.dialThumbnailDisplayWide;
+    NSInteger dialThumbnailDisplayHigh = FBAllConfigObject.firmwareConfig.dialThumbnailDisplayHigh;
+    CGSize thumbnailSize = CGSizeMake(dialThumbnailDisplayWide, dialThumbnailDisplayHigh);
+    
+    FB_ALGORITHMGENERATION algorithm;
+    if (FBAllConfigObject.firmwareConfig.useCompress) {
+        algorithm = FB_CompressAlgorithm;
+    } else {
+        algorithm = FB_OrdinaryAlgorithm;
+    }
+    
+    FBCustomDialModel *model = [FBCustomDialModel new];
+    model.dialSize = dialSize;
+    model.thumbnailSize = thumbnailSize;
+    model.dialFontColor = self.dialmodel.selectColor;
+    model.dialBackgroundImage = self.dialmodel.selectImage;
+    model.dialPreviewImage = self.dialmodel.resolvePreviewImage;
+    model.dialDisplayPosition = (FB_CUSTOMDIALTIMEPOSITION)self.dialmodel.selectPosition;
+    
+    model.algorithm = algorithm;
+
+    NSData *binFile = [[FBCustomDataTools sharedInstance] fbGenerateCustomDialBinFileDataWithDialModel:model];
+    
 //        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true);
 //        NSString *s = [NSString stringWithFormat:@"%@/customDial", paths[0]];
 //        NSString *FileName=[s stringByAppendingPathComponent:[NSString stringWithFormat:@"CustomDialBin-%f", NSDate.date.timeIntervalSince1970]];//fileName就是保存文件的文件名
 //
 //        [binFile writeToFile:FileName atomically:YES];//将NSData类型对象data写入文件，文件名为FileName
-        
-        [SVProgressHUD showWithStatus:LWLocalizbleString(@"Loading...")];
-        
-        FBBluetoothOTA.sharedInstance.isCheckPower = NO;
-                
-        [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:FB_OTANotification_CustomClockDial withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
-            [SVProgressHUD dismiss];
-            if (error) {
-                [[LWWaveProgress sharedInstance] dismiss];
-                [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
-            }
-            else if (status==FB_INDATATRANSMISSION) {
-                NSString *title = [NSString stringWithFormat:@"%@ %ld%%", LWLocalizbleString(@"Synchronize"), progress.totalPackageProgress];
-                [[LWWaveProgress sharedInstance] showWithFrame:self.butRect withTitle:title withProgress:progress.totalPackageProgress/100.0 withWaveColor:BlueColor];
-            }
-            else if (status==FB_DATATRANSMISSIONDONE) {
-                [[LWWaveProgress sharedInstance] dismiss];
-                NSString *str = [NSString stringWithFormat:@"%@",responseObject.mj_keyValues];
-                UIAlertController *alt = [UIAlertController alertControllerWithTitle:LWLocalizbleString(@"Success") message:str preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *act = [UIAlertAction actionWithTitle:LWLocalizbleString(@"OK") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                }];
-                [alt addAction:act];
-                [weakSelf presentViewController:alt animated:YES completion:nil];
-            }
-        }];
-    }];
-    [sure setValue:GreenColor forKey:@"_titleTextColor"];
-    [sure setValue:GreenColor forKey:@"_titleTextColor"];
-    [alert addAction:sure];
     
-    [self presentViewController:alert animated:YES completion:nil];
+    [SVProgressHUD showWithStatus:LWLocalizbleString(@"Loading...")];
+    
+    FBBluetoothOTA.sharedInstance.isCheckPower = NO;
+            
+    [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:FB_OTANotification_CustomClockDial withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
+        [SVProgressHUD dismiss];
+        if (error) {
+            [[LWWaveProgress sharedInstance] dismiss];
+            [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+        }
+        else if (status==FB_INDATATRANSMISSION) {
+            NSString *title = [NSString stringWithFormat:@"%@ %ld%%", LWLocalizbleString(@"Synchronize"), progress.totalPackageProgress];
+            [[LWWaveProgress sharedInstance] showWithFrame:self.butRect withTitle:title withProgress:progress.totalPackageProgress/100.0 withWaveColor:BlueColor];
+        }
+        else if (status==FB_DATATRANSMISSIONDONE) {
+            [[LWWaveProgress sharedInstance] dismiss];
+            NSString *message = [NSString stringWithFormat:@"%@",responseObject.mj_keyValues];
+            
+            [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Success") message:message cancel:nil sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
+                
+            }];
+        }
+    }];
 }
 
 /*

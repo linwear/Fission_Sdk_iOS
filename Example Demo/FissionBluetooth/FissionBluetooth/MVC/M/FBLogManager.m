@@ -71,9 +71,14 @@ DDLogLevel ddLogLevel = DDLogLevelVerbose;
 
 //重写方法(log文件名生成规则)
 - (NSString *)newLogFileName {
-    
-    NSString *dateString = [NSDate br_stringFromDate:NSDate.date dateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    NSString *logFileName = [NSString stringWithFormat:@"%@@%@.log", Tools.appName, dateString];
+    NSString *language = [NSLocale preferredLanguages].firstObject;
+    NSString *dateString = nil;
+    if ([language containsString:@"zh"]) {
+        dateString = [NSDate br_stringFromDate:NSDate.date dateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    } else {
+        dateString = [NSDate br_stringFromDate:NSDate.date dateFormat:@"dd MMMM yyyy HH:mm:ss"];
+    }
+    NSString *logFileName = [NSString stringWithFormat:@"%@.log", dateString];
 
     return logFileName;
 }

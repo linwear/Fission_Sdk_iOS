@@ -7,6 +7,7 @@
 
 #import "BinFileViewController.h"
 #import "BinFileTableViewCell.h"
+#import "FBTutorialViewController.h"
 
 @interface BinFileViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -42,6 +43,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerClass:BinFileTableViewCell.class forCellReuseIdentifier:@"BinFileTableViewCell"];
+    [self.tableView registerClass:UITableViewHeaderFooterView.class forHeaderFooterViewReuseIdentifier:@"UITableViewHeaderFooterView"];
     [self.view addSubview:self.tableView];
     
     self.arrayData = [NSMutableArray array];
@@ -76,8 +78,39 @@
     }];
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.arrayData.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 60;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UITableViewHeaderFooterView *sectionView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"UITableViewHeaderFooterView"];
+    sectionView.contentView.backgroundColor = COLOR_HEX(0xFAFAD2, 1);
+    
+    NSMutableArray *class = NSMutableArray.array;
+    for (UIView *subview in sectionView.subviews) {
+        [class addObject:NSStringFromClass(subview.class)];
+    }
+    
+    if (![class containsObject:NSStringFromClass(QMUIButton.class)]) {
+        QMUIButton *sectionButton = [QMUIButton buttonWithType:UIButtonTypeCustom];
+        [sectionButton setTitleColor:UIColorBlack forState:UIControlStateNormal];
+        [sectionButton setTitle:LWLocalizbleString(@"⚠️ You can also import the local bin file to test the OTA function of the firmware, the specific tutorial poke~👉") forState:UIControlStateNormal];
+        sectionButton.titleLabel.font = FONT(13);
+        sectionButton.titleLabel.numberOfLines = 0;
+        [sectionView addSubview:sectionButton];
+        [sectionButton addTarget:self action:@selector(sectionButtonClick) forControlEvents:UIControlEventTouchUpInside];
+        sectionButton.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 12, 0, 12));
+    }
+    
+    return sectionView;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -117,12 +150,10 @@
 }
 
 - (void)showTitle:(NSString *)title forMessage:(NSString *)message{
-    UIAlertController *alt = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *act = [UIAlertAction actionWithTitle:LWLocalizbleString(@"OK") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    
+    [UIAlertObject presentAlertTitle:title message:message cancel:nil sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
+        
     }];
-    [act setValue:GreenColor forKey:@"_titleTextColor"];
-    [alt addAction:act];
-    [self presentViewController:alt animated:YES completion:nil];
 }
 
 - (void)binFileData:(NSData *)binFile{
@@ -168,6 +199,12 @@
         [SVProgressHUD dismiss];
         [NSObject showHUDText:error.localizedDescription];
     }];
+}
+
+// 组头点击 - 教程
+- (void)sectionButtonClick {
+    FBTutorialViewController *vc = FBTutorialViewController.new;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

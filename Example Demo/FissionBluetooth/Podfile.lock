@@ -396,7 +396,7 @@ SPEC REPOS:
     - TZImagePickerController
 
 SPEC CHECKSUMS:
-  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   BRPickerView: 9cc11880ac79c4872d081ccb88f306224c1501d7
   Bugly: fd066c75c4a0eca1440f9b6a84bd37d51bfc85ac
   CocoaLumberjack: b7e05132ff94f6ae4dfa9d5bce9141893a21d9da

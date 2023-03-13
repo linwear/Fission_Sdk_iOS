@@ -22,20 +22,15 @@
 }
 
 
-+ (void)showAlertController:(NSString *)string {
++ (void)showAlertController:(NSString *)message {
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:LWLocalizbleString(@"Tip") message:string preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:nil];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Set") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        //进入系统设置页面，APP本身的权限管理页面
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+    [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Tip") message:message cancel:LWLocalizbleString(@"Cancel") sure:LWLocalizbleString(@"Set") block:^(AlertClickType clickType) {
+        
+        if (clickType == AlertClickType_Sure) {
+            //进入系统设置页面，APP本身的权限管理页面
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+        }
     }];
-    [alert addAction:cancelAction];
-    [alert addAction:okAction];
-    
-    GCD_MAIN_QUEUE(^{
-        [QMUIHelper.visibleViewController presentViewController:alert animated:YES completion:nil];
-    });
 }
 
 @end
