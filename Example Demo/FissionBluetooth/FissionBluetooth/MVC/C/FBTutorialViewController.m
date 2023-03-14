@@ -7,9 +7,11 @@
 
 #import "FBTutorialViewController.h"
 
-@interface FBTutorialViewController ()
+@interface FBTutorialViewController () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
+
+@property (nonatomic, strong) CHIPageControlFresno *pageControl;
 
 @end
 
@@ -42,9 +44,11 @@
     
     NSArray *items = @[model_1, model_2, model_3, model_4, model_5];
 
+    // scrollView
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, NavigationContentTop, SCREEN_WIDTH, SCREEN_HEIGHT-NavigationContentTop)];
     scrollView.backgroundColor = UIColorBlack;
     scrollView.pagingEnabled = YES;
+    scrollView.delegate = self;
     scrollView.contentSize = CGSizeMake(scrollView.width * items.count, scrollView.height);
     [self.view addSubview:scrollView];
     
@@ -66,6 +70,16 @@
             [Tools setUILabel:titleLab setDataArr:@[@"https://www.i4.cn/"] setColorArr:@[UIColorRed] setFontArr:@[FONT(15)]];
         }
     }
+    
+    // page
+    CHIPageControlFresno *pageControl = [[CHIPageControlFresno alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-30-20, SCREEN_WIDTH, 30)];
+    pageControl.numberOfPages = items.count;
+    pageControl.radius = 6;
+    pageControl.borderWidth = 1;
+    pageControl.currentPageTintColor = BlueColor;
+    pageControl.tintColor = GreenColor;
+    [self.view addSubview:pageControl];
+    self.pageControl = pageControl;
 }
 
 /*
@@ -77,6 +91,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    double progress = scrollView.contentOffset.x/scrollView.width;
+    [self.pageControl setProgress:progress];
+}
 
 @end
 

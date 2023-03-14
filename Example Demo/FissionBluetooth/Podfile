@@ -35,5 +35,6 @@ target 'FissionBluetooth' do
   pod 'JXCategoryView'
   pod 'HJViewStyle'
   pod 'SSZipArchive'
+  pod 'CHIPageControl/Fresno'
 
 end
