@@ -259,6 +259,17 @@
     return headerView;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    if (section == self.sectionAry.count-1) {
+        return 30;
+    }
+    return 0;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    return UIView.new;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.isTwoGroups && indexPath.section == 0) {
         
@@ -498,19 +509,18 @@
 }
 
 - (void)binFileData:(id)binFile {
-    WeakSelf(self);
     
     NSData *binFileData;
     FB_OTANOTIFICATION OTANOTIFICATION = FB_OTANotification_Multi_Sport; // 多运动｜Multi-sport
     
     if ([binFile isKindOfClass:NSArray.class]) // 手表支持多运动，需要合并bin文件｜The watch supports multi-sports, and the bin file needs to be merged
     {
-        binFileData = [FBCustomDataTools.sharedInstance fbGenerateCustomMultipleMotionBinFileDataWithItems:binFile];
+        binFileData = [FBCustomDataTools.sharedInstance fbGenerateCustomMultipleMotionBinFileDataWithItems:binFile isBuilt_in:OTANOTIFICATION];
     }
     else
     {
         if (self.isTwoGroups) { // 手表支持多运动，需要合并bin文件｜The watch supports multi-sports, and the bin file needs to be merged
-            binFileData = [FBCustomDataTools.sharedInstance fbGenerateCustomMultipleMotionBinFileDataWithItems:@[binFileData]];
+            binFileData = [FBCustomDataTools.sharedInstance fbGenerateCustomMultipleMotionBinFileDataWithItems:@[binFile] isBuilt_in:OTANOTIFICATION];
         } else {
             binFileData = binFile;
             OTANOTIFICATION = FB_OTANotification_Motion; // 单运动｜Single-sport

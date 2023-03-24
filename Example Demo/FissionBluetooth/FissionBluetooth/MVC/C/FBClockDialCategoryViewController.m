@@ -25,7 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"Custom⌚️" style:UIBarButtonItemStylePlain target:self action:@selector(customWatchFcae)];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:LWLocalizbleString(@"Custom⌚️") style:UIBarButtonItemStylePlain target:self action:@selector(customWatchFcae)];
     [self.navigationItem setRightBarButtonItem:item];
     
     self.arrayData = NSMutableArray.array;

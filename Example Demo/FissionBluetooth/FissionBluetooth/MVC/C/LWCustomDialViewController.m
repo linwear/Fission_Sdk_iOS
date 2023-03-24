@@ -51,7 +51,7 @@ const CGFloat CustomDiaButtonMargin = 24.0;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = NSLocalizedString(@"Custom Watch Face", nil);
+    self.navigationItem.title = LWLocalizbleString(@"Custom Watch Face");
         
     self.headerView = [[LWCustomDialHeaderView alloc] initWithFrame:CGRectMake(0, NavigationContentTop, SCREEN_WIDTH, CustomDiaHeaderViewHeight)];
     [self.view addSubview:self.headerView];
@@ -63,7 +63,7 @@ const CGFloat CustomDiaButtonMargin = 24.0;
     setPlateBtn.backgroundColor = BlueColor;
     setPlateBtn.layer.cornerRadius = 24;
     setPlateBtn.titleLabel.font = [NSObject themePingFangSCMediumFont:18];
-    [setPlateBtn setTitle:NSLocalizedString(@"Synchronize", nil) forState:UIControlStateNormal];
+    [setPlateBtn setTitle:LWLocalizbleString(@"Synchronize") forState:UIControlStateNormal];
     [setPlateBtn addTarget:self action:@selector(createCustomDial) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:setPlateBtn];
     [setPlateBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -122,7 +122,7 @@ const CGFloat CustomDiaButtonMargin = 24.0;
             }];
             
         } else if (mode==LWCustomDialSelectRestoreDefault) { // 恢复默认设置
-            NSString *message = NSLocalizedString(@"Please confirm whether to restore the default settings?", nil);
+            NSString *message = LWLocalizbleString(@"Please confirm whether to restore the default settings?");
             
             [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Tip") message:message cancel:LWLocalizbleString(@"Cancel") sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
                 
@@ -151,38 +151,38 @@ const CGFloat CustomDiaButtonMargin = 24.0;
     
     NSArray *array = nil;
 //    array = @[
-//        @{NSLocalizedString(@"文字颜色替换", nil) : @[]},
-//        @{NSLocalizedString(@"文字样式", nil) : @[@{NSLocalizedString(@"样式A", nil):@(LWCustomDialStyleA)},
-//                                              @{NSLocalizedString(@"样式B", nil):@(LWCustomDialStyleB)},
-//                                              @{NSLocalizedString(@"样式C", nil):@(LWCustomDialStyleC)},
-//                                              @{NSLocalizedString(@"样式D", nil):@(LWCustomDialStyleD)},
-//                                              @{NSLocalizedString(@"样式E", nil):@(LWCustomDialStyleE)},
-//                                              @{NSLocalizedString(@"样式F", nil):@(LWCustomDialStyleF)}]},
-//        @{NSLocalizedString(@"背景图片", nil) : @[]},
-//        @{NSLocalizedString(@"时间位置", nil) : @[@{NSLocalizedString(@"上", nil):@(LWCustomTimeLocationStyleTop)},
-//                                              @{NSLocalizedString(@"下", nil):@(LWCustomTimeLocationStyleBottom)},
-//                                              @{NSLocalizedString(@"左", nil):@(LWCustomTimeLocationStyleLeft)},
-//                                              @{NSLocalizedString(@"右", nil):@(LWCustomTimeLocationStyleRight)},
-//                                              @{NSLocalizedString(@"中间", nil):@(LWCustomTimeLocationStyleCentre)}]},
-//        @{NSLocalizedString(@"时间上方内容", nil) : @[@{NSLocalizedString(@"日期", nil):@(LWCustomTimeTopStyleDate)},
-//                                                @{NSLocalizedString(@"睡眠", nil):@(LWCustomTimeTopStyleSleep)},
-//                                                @{NSLocalizedString(@"心率", nil):@(LWCustomTimeTopStyleHeart)},
-//                                                @{NSLocalizedString(@"计步", nil):@(LWCustomTimeTopStyleStep)}]},
-//        @{NSLocalizedString(@"时间下方内容", nil) : @[@{NSLocalizedString(@"日期", nil):@(LWCustomTimeTopStyleDate)},
-//                                                @{NSLocalizedString(@"睡眠", nil):@(LWCustomTimeTopStyleSleep)},
-//                                                @{NSLocalizedString(@"心率", nil):@(LWCustomTimeTopStyleHeart)},
-//                                                @{NSLocalizedString(@"计步", nil):@(LWCustomTimeTopStyleStep)}]},
-//        @{NSLocalizedString(@"恢复默认设置", nil) : @[]},
+//        @{LWLocalizbleString(@"文字颜色替换", nil) : @[]},
+//        @{LWLocalizbleString(@"文字样式", nil) : @[@{LWLocalizbleString(@"样式A", nil):@(LWCustomDialStyleA)},
+//                                              @{LWLocalizbleString(@"样式B", nil):@(LWCustomDialStyleB)},
+//                                              @{LWLocalizbleString(@"样式C", nil):@(LWCustomDialStyleC)},
+//                                              @{LWLocalizbleString(@"样式D", nil):@(LWCustomDialStyleD)},
+//                                              @{LWLocalizbleString(@"样式E", nil):@(LWCustomDialStyleE)},
+//                                              @{LWLocalizbleString(@"样式F", nil):@(LWCustomDialStyleF)}]},
+//        @{LWLocalizbleString(@"背景图片", nil) : @[]},
+//        @{LWLocalizbleString(@"时间位置", nil) : @[@{LWLocalizbleString(@"上", nil):@(LWCustomTimeLocationStyleTop)},
+//                                              @{LWLocalizbleString(@"下", nil):@(LWCustomTimeLocationStyleBottom)},
+//                                              @{LWLocalizbleString(@"左", nil):@(LWCustomTimeLocationStyleLeft)},
+//                                              @{LWLocalizbleString(@"右", nil):@(LWCustomTimeLocationStyleRight)},
+//                                              @{LWLocalizbleString(@"中间", nil):@(LWCustomTimeLocationStyleCentre)}]},
+//        @{LWLocalizbleString(@"时间上方内容", nil) : @[@{LWLocalizbleString(@"日期", nil):@(LWCustomTimeTopStyleDate)},
+//                                                @{LWLocalizbleString(@"睡眠", nil):@(LWCustomTimeTopStyleSleep)},
+//                                                @{LWLocalizbleString(@"心率", nil):@(LWCustomTimeTopStyleHeart)},
+//                                                @{LWLocalizbleString(@"计步", nil):@(LWCustomTimeTopStyleStep)}]},
+//        @{LWLocalizbleString(@"时间下方内容", nil) : @[@{LWLocalizbleString(@"日期", nil):@(LWCustomTimeTopStyleDate)},
+//                                                @{LWLocalizbleString(@"睡眠", nil):@(LWCustomTimeTopStyleSleep)},
+//                                                @{LWLocalizbleString(@"心率", nil):@(LWCustomTimeTopStyleHeart)},
+//                                                @{LWLocalizbleString(@"计步", nil):@(LWCustomTimeTopStyleStep)}]},
+//        @{LWLocalizbleString(@"恢复默认设置", nil) : @[]},
 //    ];
     array = @[
-        @{NSLocalizedString(@"Text Color Replacement", nil) : @[]},
-        @{NSLocalizedString(@"Background Picture", nil) : @[]},
-        @{NSLocalizedString(@"Time Position", nil) : @[@{NSLocalizedString(@"Top", nil):@(LWCustomTimeLocationStyleTop)},
-                                              @{NSLocalizedString(@"Bottom", nil):@(LWCustomTimeLocationStyleBottom)},
-                                              @{NSLocalizedString(@"Left", nil):@(LWCustomTimeLocationStyleLeft)},
-                                              @{NSLocalizedString(@"Right", nil):@(LWCustomTimeLocationStyleRight)},
-                                              @{NSLocalizedString(@"Mid", nil):@(LWCustomTimeLocationStyleCentre)}]},
-        @{NSLocalizedString(@"Restore Default Settings", nil) : @[]},
+        @{LWLocalizbleString(@"Text Color Replacement") : @[]},
+        @{LWLocalizbleString(@"Background Picture") : @[]},
+        @{LWLocalizbleString(@"Time Position") : @[@{LWLocalizbleString(@"Top"):@(LWCustomTimeLocationStyleTop)},
+                                              @{LWLocalizbleString(@"Bottom"):@(LWCustomTimeLocationStyleBottom)},
+                                              @{LWLocalizbleString(@"Left"):@(LWCustomTimeLocationStyleLeft)},
+                                              @{LWLocalizbleString(@"Right"):@(LWCustomTimeLocationStyleRight)},
+                                              @{LWLocalizbleString(@"Mid"):@(LWCustomTimeLocationStyleCentre)}]},
+        @{LWLocalizbleString(@"Restore Default Settings") : @[]},
     ];
     WeakSelf(self);
     [self.headerView selectedCustomDialModel:self.dialmodel handler:^(UIImage * _Nullable preImage) {
@@ -195,7 +195,7 @@ const CGFloat CustomDiaButtonMargin = 24.0;
 #pragma mark - 生成自定义表盘
 - (void)createCustomDial {
     WeakSelf(self);
-    NSString *message = NSLocalizedString(@"Please confirm whether the watch face is synchronized", nil);
+    NSString *message = LWLocalizbleString(@"Please confirm whether the watch face is synchronized");
     
     [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Tip") message:message cancel:LWLocalizbleString(@"Cancel") sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
         

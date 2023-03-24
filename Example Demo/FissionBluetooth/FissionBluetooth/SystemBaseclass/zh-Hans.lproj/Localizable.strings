@@ -121,6 +121,7 @@
 "Obtain the hourly activity statistics report" = "获取每小时活动统计报告";
 "Get sleep statistics report" = "获取睡眠统计报告";
 "Get sleep status record" = "获取睡眠状态记录";
+"Get a list of device motion types" = "获取设备运动类型列表";
 "Get list of exercise records" = "获取运动记录列表";
 "Get Sports Statistics Report" = "获取运动统计报告";
 "Get heart rate records" = "获取心率记录";
@@ -154,6 +155,25 @@
 "Firmware OTA" = "固件OTA";
 "Dial Face OTA" = "表盘OTA";
 "Sports Type OTA" = "运动类型OTA";
+
+"Custom⌚️" = "自定义⌚️";
+"Custom Watch Face" = "自定义表盘";
+"Please confirm whether to restore the default settings?" = "请确认是否恢复默认设置？";
+"Text Color Replacement" = "文字颜色替换";
+"Background Picture" = "背景图片";
+"Time Position" = "时间位置";
+"Top" = "顶部";
+"Bottom" = "底部";
+"Left" = "左";
+"Right" = "右";
+"Mid" = "中间";
+"Restore Default Settings" = "恢复默认设置";
+"Select from album" = "从相册选择";
+"Camera" = "相机📷";
+"Can't access album" = "无法访问相册";
+"Please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone" = "请允许 %@ 访问 iPhone 的\"设置-隐私-相册\"中的相册";
+"Can't use camera" = "无法使用相机";
+"The photo after taking the photo needs to be added to the album, please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone" = "拍照后的照片需要添加到相册，请在iPhone的“设置-隐私-相册”中允许%@访问相册";
 
 "Firmware Version" = "固件版本号";
 "Project Number" = "适配号";

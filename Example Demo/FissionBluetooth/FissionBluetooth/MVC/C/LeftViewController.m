@@ -23,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = UIColorClear;
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH*0.75, SCREEN_HEIGHT) style:UITableViewStylePlain];
     tableView.backgroundColor = UIColorClear;
@@ -96,25 +97,22 @@
     else if ([dict.allValues.firstObject isEqualToString:LWLocalizbleString(@"Disconnect")]) {
         
         WeakSelf(self);
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:LWLocalizbleString(@"Tip") message:LWLocalizbleString(@"Confirm whether to unbind the device and disconnect?") preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:nil];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Disconnect") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Tip") message:LWLocalizbleString(@"Confirm whether to unbind the device and disconnect?") cancel:LWLocalizbleString(@"Cancel") sure:LWLocalizbleString(@"Disconnect") block:^(AlertClickType clickType) {
             
-            [FBAtCommand.sharedInstance fbUnbindDeviceRequestWithBlock:^(NSError * _Nullable error) {
-                if (error) {
-                    // error...
-                }
-                
-                [FBBluetoothManager.sharedInstance disconnectPeripheral];
-                
-                GCD_MAIN_QUEUE(^{
-                    [weakSelf loadData];
-                });
-            }];
+            if (clickType == AlertClickType_Sure) {
+                [FBAtCommand.sharedInstance fbUnbindDeviceRequestWithBlock:^(NSError * _Nullable error) {
+                    if (error) {
+                        // error...
+                    }
+                    
+                    [FBBluetoothManager.sharedInstance disconnectPeripheral];
+                    
+                    GCD_MAIN_QUEUE(^{
+                        [weakSelf loadData];
+                    });
+                }];
+            }
         }];
-        [alert addAction:cancelAction];
-        [alert addAction:okAction];
-        [self presentViewController:alert animated:YES completion:nil];
     }
     else if ([dict.allValues.firstObject isEqualToString:LWLocalizbleString(@"Log File")]) {
         FBLogViewController *vc = FBLogViewController.new;

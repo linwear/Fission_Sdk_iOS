@@ -121,6 +121,7 @@
 "Obtain the hourly activity statistics report" = "Obtain the hourly activity statistics report";
 "Get sleep statistics report" = "Get sleep statistics report";
 "Get sleep status record" = "Get sleep status record";
+"Get a list of device motion types" = "Get a list of device motion types";
 "Get list of exercise records" = "Get list of exercise records";
 "Get Sports Statistics Report" = "Get Sports Statistics Report";
 "Get heart rate records" = "Get heart rate records";
@@ -154,6 +155,25 @@
 "Firmware OTA" = "Firmware OTA";
 "Dial Face OTA" = "Dial Face OTA";
 "Sports Type OTA" = "Sports Type OTA";
+
+"Custom⌚️" = "Custom⌚️";
+"Custom Watch Face" = "Custom Watch Face";
+"Please confirm whether to restore the default settings?" = "Please confirm whether to restore the default settings?";
+"Text Color Replacement" = "Text Color Replacement";
+"Background Picture" = "Background Picture";
+"Time Position" = "Time Position";
+"Top" = "Top";
+"Bottom" = "Bottom";
+"Left" = "Left";
+"Right" = "Right";
+"Mid" = "Mid";
+"Restore Default Settings" = "Restore Default Settings";
+"Select from album" = "Select from album";
+"Camera" = "Camera📷";
+"Can't access album" = "Can't access album";
+"Please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone" = "Please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone";
+"Can't use camera" = "Can't use camera";
+"The photo after taking the photo needs to be added to the album, please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone" = "The photo after taking the photo needs to be added to the album, please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone";
 
 "Firmware Version" = "Firmware Version";
 "Project Number" = "Project Number";

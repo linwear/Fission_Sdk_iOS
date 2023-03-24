@@ -6,6 +6,8 @@
 //  Copyright © 2022 Realtek. All rights reserved.
 //
 
+#import <TargetConditionals.h>
+#if TARGET_OS_IOS
 #import <UIKit/UIKit.h>
 
 //! Project version number for RTKOTASDK.
@@ -15,6 +17,8 @@ FOUNDATION_EXPORT double RTKOTASDKVersionNumber;
 FOUNDATION_EXPORT const unsigned char RTKOTASDKVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <RTKOTASDK/PublicHeader.h>
+#else
+#endif
 
 #import <RTKOTASDK/RTKOTADeviceInfo.h>
 

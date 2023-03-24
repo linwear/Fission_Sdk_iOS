@@ -20,25 +20,10 @@
 
 @implementation FBAboutViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    [self didBecomeActive];
-}
-
-- (void)didBecomeActive {
-    
-    [self.headView StartAnimation];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = LWLocalizbleString(@"About");
-    
-    //后台进前台通知 UIApplicationDidBecomeActiveNotification
-    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(didBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
-    
     
     UILabel *lab = [[UILabel alloc] qmui_initWithFont:FONT(12) textColor:UIColorGrayLighten];
     lab.textAlignment = NSTextAlignmentCenter;
@@ -55,7 +40,7 @@
     tableView.sd_layout.leftEqualToView(self.view).rightEqualToView(self.view).topSpaceToView(self.view, NavigationContentTop).bottomSpaceToView(lab, 0);
     self.tableView = tableView;
     
-    FBAboutHeadView *headView = [[FBAboutHeadView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.4) withImage:UIImageMake(@"IMG_0737")];
+    FBAboutHeadView *headView = [[FBAboutHeadView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.42) withImage:UIImageMake(@"IMG_0737")];
     self.tableView.tableHeaderView = headView;
     self.headView = headView;
     

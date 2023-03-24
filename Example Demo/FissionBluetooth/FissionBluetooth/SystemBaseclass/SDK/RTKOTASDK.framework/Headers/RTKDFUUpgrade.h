@@ -63,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
  * @param connection The device connection upon which upgrade is performing.
  * @param continuationHandler The block must be called when delegate finishs its work.
  *
- * @discussion A DFU delegate can use this method to do anything need just before Upgrade send image bytes. For example, delegate may perform updating connection parameter for a faster connection.
+ * @discussion A DFU delegate can use this method to perform any necessary actions just before sending image bytes. For example, delegate may perform updating connection parameter for a faster connection.
  */
 - (void)DFUUpgrade:(RTKDFUUpgrade *)task
 isAboutToSendImageBytesTo:(RTKProfileConnection *)connection
@@ -90,7 +90,7 @@ isAboutToSendImageBytesTo:(RTKProfileConnection *)connection
  *
  * @param task The upgrade task reporting this event.
  * @param connection The device connection upon which upgrade is performing.
- * @param image The image that is about to be upgrade.
+ * @param image The image that is about to be upgraded.
  */
 - (void)DFUUpgrade:(RTKDFUUpgrade *)task
         withDevice:(RTKProfileConnection *)connection
@@ -101,7 +101,7 @@ isAboutToSendImageBytesTo:(RTKProfileConnection *)connection
  *
  * @param task The upgrade task reporting this event.
  * @param connection The device connection upon which upgrade is performing.
- * @param image The image that just be sended.
+ * @param image The image that just be sent.
  */
 - (void)DFUUpgrade:(RTKDFUUpgrade *)task
         withDevice:(RTKProfileConnection *)connection
@@ -109,13 +109,13 @@ didCompleteSendImage:(RTKOTAUpgradeBin *)image;
 
 
 /**
- * Tell the delegate that @c RTKDFUUpgrade did activate sended images.
+ * Tell the delegate that @c RTKDFUUpgrade did activate sent images.
  *
  * @param task The upgrade task reporting this event.
  * @param connection The device connection upon which upgrade is performing.
  * @param images Images that just be activated.
  *
- * @discussion Sended image works for next device boot only if be successfully activated .
+ * @discussion Sent image works for next device boot only if be successfully activated .
  */
 - (void)DFUUpgrade:(RTKDFUUpgrade *)task
         withDevice:(RTKProfileConnection *)connection
@@ -123,7 +123,7 @@ didCompleteSendImage:(RTKOTAUpgradeBin *)image;
 
 
 /**
- * Tell the delegate that @c RTKDFUUpgrade did complete upgrade one device and begin upgrade companion device.
+ * Tell the delegate that @c RTKDFUUpgrade did complete upgrade one device and begin to upgrade companion device.
  *
  * @param task The upgrade task reporting this event.
  *
@@ -163,21 +163,21 @@ willUpgradeCompanionDevice:(RTKProfileConnection *)connection
 /**
  * An object that manage device upgrade task.
  *
- * @discussion An (concreate) @c RTKDFUUpgrade object communicate with remote device to upgrade it. The device can be a GATT profile connected device (respresendted as @c CBPeripheral instance), or iAP profile connected device (represented as @c EAAccessory instance). When upgrade a GATT device, you call @c -initWithPeripheral: initializer, and the  @c RTKDFUUpgradeGATT subclass  object is actually returned. @c RTKDFUUpgradeIAP subclass object is actually returned when call @c -initWithAccessory: for upgrade a iAP device.
+ * @discussion An (concreate) @c RTKDFUUpgrade object communicate with remote device to upgrade it. The device can be a GATT profile connected device (respresented as @c CBPeripheral instance), or iAP profile connected device (represented as @c EAAccessory instance). When upgrade a GATT device, you call @c -initWithPeripheral: initializer, and the  @c RTKDFUUpgradeGATT subclass  object is actually returned. @c RTKDFUUpgradeIAP subclass object is actually returned when call @c -initWithAccessory: for upgrading a iAP device.
  *
- * If you have a @c RTKDFUUpgrade object at hand for upgrade, call @c -prepareForUpgrade prior to calling any  @c -upgrade: methods, and wait for @c -DFUUpgradeDidReadyForUpgrade: and @c -DFUUpgrade:couldNotUpgradeWithError: get called on your delegate object. You can call @c -upgrade: methods to start upgrade only after @c -DFUUpgradeDidReadyForUpgrade: get called. In principle, every @c -upgrade: invocation should be preceded by a @c -DFUUpgradeDidReadyForUpgrade: invocation.
+ * If you have a @c RTKDFUUpgrade object at hand for upgrade, call @c -prepareForUpgrade prior to calling any  @c -upgrade: methods, and wait for @c -DFUUpgradeDidReadyForUpgrade: and @c -DFUUpgrade:couldNotUpgradeWithError: get called on your delegate object. You can call @c -upgrade: methods to start upgrading only after @c -DFUUpgradeDidReadyForUpgrade: get called. In principle, every @c -upgrade: invocation should be preceded by a @c -DFUUpgradeDidReadyForUpgrade: invocation.
  *
  * When the delegate @c -DFUUpgradeDidReadyForUpgrade: get called, you can access @c deviceInfo to fetch upgrade related information of the device.
  *
  * If the remote device to be upgraded is a member of RWS bud pair, @c RTKDFUUpgrade will automatically discover and upgrade the companion device if the companion device is online (engaged). You call @c -upgradeWithImages: to upgrade a single device, call @c -upgradeWithImagesForPrimaryBud:imagesForSecondaryBud: to upgrade a RWS pair devices. The @c images or @c primaryImages and @c secondaryImages should be appropriate for device, @c RTKDFUUpgrade may complain of image mismatch, or old images. You can also call @c -upgradeWithBinaryFileAtPath: with a image file path, @c RTKDFUUpgrade will parse and extract available images for upgrade.
  *
- * For device that support bank switch feature, @c RTKDFUUpgrade may select a subset of passed images applicable for next upgrade. You can call APIs of @c RTKOTADeviceInfo object to know this information.
+ * For devices that support bank switch feature, @c RTKDFUUpgrade may select a subset of passed images applicable for next upgrade. You can call APIs of @c RTKOTADeviceInfo object to know this information.
  *
- * @c RTKDFUUpgrade will report upgrade progress and event by call @c RTKDFUUpgradeDelegate methods on your delegate while in upgrading. @c RTKDFUUpgrade conforms to @c NSProgressReporting protocol to return a overall progress object.
+ * @c RTKDFUUpgrade will report upgrade progress and event by calling @c RTKDFUUpgradeDelegate methods on your delegate while in upgrading. @c RTKDFUUpgrade conforms to @c NSProgressReporting protocol to return a overall progress object.
  *
  * Everytime upgrade complete successfully or unsuccessfully, @c RTKDFUUpgrade report by calling your delegate  @c -DFUUpgrade:didFinishUpgradeWithError: . When @c RTKDFUUpgrade object is upgrading in progress, you can call @c -cancelUpgrade to request cancel upgrade, your delegate @c -DFUUpgrade:didFinishUpgradeWithError: get called when canceling complete.
  *
- * You can create multiple @c RTKDFUUpgrade instances for different device, and upgrade them concurrently.
+ * You can create multiple @c RTKDFUUpgrade instances for different devices, and upgrade them concurrently.
  */
 @interface RTKDFUUpgrade : NSObject <NSProgressReporting>
 
@@ -185,7 +185,7 @@ willUpgradeCompanionDevice:(RTKProfileConnection *)connection
  * Initializes @c RTKDFUUpgrade object with a GATT peripheral.
  *
  * @param peripheral The device that is about to be upgraded.
- * @discussion Use this initializer for GATT device (represendted by @c CBPeripheral instance). The returned object is actually of @c RTKDFUUpgradeGATT type.
+ * @discussion Use this initializer for GATT device (represented by @c CBPeripheral instance). The returned object is actually of @c RTKDFUUpgradeGATT type.
  */
 - (instancetype)initWithPeripheral:(CBPeripheral *)peripheral;
 
@@ -193,7 +193,7 @@ willUpgradeCompanionDevice:(RTKProfileConnection *)connection
  * Initialize @c RTKDFUUpgrade object with a iAP device.
  *
  * @param accessory The device that is about to be upgraded.
- * @discussion Use this initializer for iAP device (represendted by @c EAAccessory instance). The returned object is actually of @c RTKDFUUpgradeIAP type.
+ * @discussion Use this initializer for iAP device (represented by @c EAAccessory instance). The returned object is actually of @c RTKDFUUpgradeIAP type.
  */
 - (instancetype)initWithAccessory:(EAAccessory *)accessory;
 
@@ -202,14 +202,14 @@ willUpgradeCompanionDevice:(RTKProfileConnection *)connection
  *
  * @param accessory The device that is about to be upgraded.
  * @param msgTransport A already created message communication object.
- * @discussion Use this initializer for iAP device (represendted by @c EAAccessory instance). The returned object is actually of @c RTKDFUUpgradeIAP type.
+ * @discussion Use this initializer for iAP device (represented by @c EAAccessory instance). The returned object is actually of @c RTKDFUUpgradeIAP type.
  */
 - (instancetype)initWithAccessory:(EAAccessory *)accessory existedMessageTransport:(RTKPacketTransport *)msgTransport;
 
 /**
  * Initialize @c RTKDFUUpgrade object with a general device connection object and profile manager.
  *
- * @param connection The DFU profile connection which associate with device is about to be upgrade. Should be instance of @c RTKDFUConnectionUponGATT or @c RTKDFUConnectionUponiAP .
+ * @param connection The DFU profile connection which associate with device is about to be upgraded. Should be instance of @c RTKDFUConnectionUponGATT or @c RTKDFUConnectionUponiAP .
  * @param manager The manager object which manage the profile connection with remote device.
  * @discussion The returned object type is based on which connection class is used.
  */
@@ -219,7 +219,7 @@ willUpgradeCompanionDevice:(RTKProfileConnection *)connection
 /**
  * Return the profile connection object associated with the device which this @c RTKDFUUpgrade will upgrade.
  *
- * @discussion The returned object may be of @c RTKDFUConnectionUponGATT class or @c RTKDFUConnectionUponiAP class. You can make request manually with device by call methods on this returned instance.
+ * @discussion The returned object may be a @c RTKDFUConnectionUponGATT class or @c RTKDFUConnectionUponiAP class. You can make request manually with device by calling methods on this returned instance.
  *
  * This property return a nil value when the underlying @c CBCentralManager is not available. It's sure to return a non-nil value when the delegate @c -DFUUpgradeDidReadyForUpgrade: get called.
  */
@@ -236,9 +236,9 @@ willUpgradeCompanionDevice:(RTKProfileConnection *)connection
 /**
  * Start preparation process for next upgrade.
  *
- * @discussion While @c RTKDFUUpgrade perform preparation, it may make app connected with remote device if not connected. It calls the @c -DFUUpgradeDidReadyForUpgrade: on delegate if preparation succeed,  or @c -DFUUpgrade:couldNotUpgradeWithError: if preparation fail.
+ * @discussion While @c RTKDFUUpgrade performing preparation, it may make app connected with remote device if not connected. It calls the @c -DFUUpgradeDidReadyForUpgrade: on delegate if the preparation is successful  or @c -DFUUpgrade:couldNotUpgradeWithError: if preparation fails.
  *
- * You should call this method before call any upgrade methods.
+ * You should call this method before calling any upgrade methods.
  */
 - (void)prepareForUpgrade;
 
@@ -256,9 +256,9 @@ willUpgradeCompanionDevice:(RTKProfileConnection *)connection
 
 
 /**
- * Return the image which is being send currently.
+ * Return the image which is being sent currently.
  *
- * @discussion Return nil if no image is being send currently.
+ * @discussion Return nil if no image is being sent currently.
  */
 @property (readonly, weak, nullable) RTKOTAUpgradeBin *upgradingImage;
 
@@ -268,26 +268,26 @@ willUpgradeCompanionDevice:(RTKProfileConnection *)connection
 @property RTKOTAUpgradeMode upgradeMode;
 
 /**
- * Set a new key for encrypt the image bytes.
+ * Set a new key for encrypting the image bytes.
  *
- * @param encryptionKey The  new key used for bytes encryption. Should be of 32 byte in length.
- * @discussion If encyption is supported by the remote device which can be determined by @c RTKOTADeviceInfo.AESEnable , @c RTKDFUUpgrade will encrypt image bytes before send to device. The used key should be equal with device.  A default key is used if not set a new one. You should set this property value only when upgrade is not in progress.
+ * @param encryptionKey The  new key used for bytes encryption. The length should be 32 bytes.
+ * @discussion If encyption is supported by the remote device which can be determined by @c RTKOTADeviceInfo.AESEnable , @c RTKDFUUpgrade will encrypt image bytes before sending to device. The used key should be equal to device.  A default key is used if not set a new one. You should set this property value only when upgrade is not in progress.
  */
 - (void)setEncryptionKey:(NSData * _Nonnull)encryptionKey;
 
 
 /**
- * Set a new retry number when buffer check failure.
+ * Set a new retry number when buffer check fails.
  *
- * @discussion When the device use "Buffer Check" manner to receive image bytes, @c RTKDFUUpgrade will retry sending the same bytes if previous buffer check failed, until the @c retryCountWhenBufferCheckFail reached. You should set this property value only when upgrade is not in progress.
+ * @discussion When the device uses "Buffer Check" manner to receive image bytes, @c RTKDFUUpgrade will retry sending the same bytes if previous buffer check failed, until the @c retryCountWhenBufferCheckFail reached. You should set this property value only when upgrade is not in progress.
  * The default value is 2.
  */
 @property (nonatomic) NSUInteger retryCountWhenBufferCheckFail;
 
 /**
- * A boolean value that control when upgrade completion method get called.
+ * A boolean value that controls when upgrade completion method get called.
  *
- * @discussion Deivce usually reboot once be upgraded successfully or be reset, resulting in a disconnection. This property direct @c RTKDFUUpgrade whether to wait for disconnection when upgrade device successfully or reset, before call @c -DFUUpgrade:didFinishUpgradeWithError: on delegate. You should set this property value only when upgrade is not in progress.
+ * @discussion Deivce usually reboot once, be upgraded successfully or be reset, resulting in a disconnection. This property direct @c RTKDFUUpgrade whether to wait for disconnection when upgrade device successfully or reset, before calling @c -DFUUpgrade:didFinishUpgradeWithError: on delegate. You should set this property value only when upgrade is not in progress.
  * The default value is YES.
  */
 @property BOOL shouldWaitForDisconnectionBeforeReportCompletion;
@@ -303,53 +303,63 @@ willUpgradeCompanionDevice:(RTKProfileConnection *)connection
 /**
  * A boolean value that indicates whether all upgrade images should be newer than current images.
  *
- * @disucssion You should set this property value only when upgrade is not in progress. The default value is NO. （If @c olderImageAllowed is NO, @c usingStrictImageCheckMechanism is NO , it will compares image versions based on image priorities）
+ * @disucssion You should set this property value only when upgrade is not in progress. The default value is NO. （If @c olderImageAllowed is NO, @c usingStrictImageCheckMechanism is NO , it will compare image versions based on image priorities）
  */
 @property BOOL usingStrictImageCheckMechanism;
 
+/**
+ * A boolean value that indicates whether to check the consistency of the feature info containing in the SOC and the upgrade file.
+ *
+ * @disucssion You should set this property value only when upgrade is not in progress. The default value is NO.
+ */
+@property BOOL checkFeatureInfo;
 
 /**
  * Set the minimum battery level for upgrade.
  *
- * @discussion When upgrading, the device should have battery level great than or equal to batteryLevelLimit could be upgraded. The default value is 30. The value @c RTKDFUBatteryLevelInvalid means not checking for battery level.
+ * @discussion When upgrading, the device should have battery level greater than or equal to batteryLevelLimit, then it could be upgraded. The default value is 30. The value @c RTKDFUBatteryLevelInvalid means not checking the battery level.
  */
 @property RTKDFUBatteryLevel batteryLevelLimit;
 
+/**
+ * @discussion when the upgradeMode is RTKOTAUpgradeMode_updateVPData, you should set the active VPID. (AT)
+ */
+@property uint16_t activeVPID;
 
 // MARK: - Upgrade control
 /**
- * A boolean value that indicating whether a upgrade task is in progress.
+ * A boolean value that indicates whether a upgrade task is in progress.
  */
 @property (readonly) BOOL upgradeInProgress;
 
 /**
- * Start upgrage with specified images.
+ * Start the upgrade with the specified images.
  *
- * @param images An array that contain images available for upgrade. The images may contain images applying to Bank 0 and Bank 1 when the device support "Dual Bank".
+ * @param images An array that contains images available for upgrade. The images may contain images applying to Bank 0 and Bank 1 when the device supports "Dual Bank".
  *
- * @discussion You should call @c -prepareForUpgrade and wait for the @c -DFUUpgradeDidReadyForUpgrade called on the delegate, before call this method.
+ * @discussion You should call @c -prepareForUpgrade and wait for the @c -DFUUpgradeDidReadyForUpgrade called on the delegate, before calling this method.
  * This method returns immediately without waiting for tasks to finish. While upgrading, @c RTKDFUUpgrade call @c -DFUUpgrade:withDevice:didSendBytesCount:ofImage: on delegate to report progress and call @c -DFUUpgrade:didFinishUpgradeWithError: on delegate to report completion.
  *
- * For devices that support "Dual Bank" feature, only images applying to the current unused bank will be send to device. Which means, you can containing all images applying to both Bank 0 and Bank 1 in the @c images parameter, the actual available images is selected from all images and be send to device.
+ * For devices that support "Dual Bank" feature, only images applying to the current unused bank will be sent to device. Which means, you can contain all images applying to both Bank 0 and Bank 1 in the @c images parameter, the actual available images will be selected from all images and be sent to device.
  *
- * @c RTKDFUUpgrade will verify applicability of @c images parameter. If the @c images contain any image not match the remote device, or if @c images is old, @c RTKDFUUpgrade will call @c -DFUUpgrade:didFinishUpgradeWithError: with a non-nil error on delegate.
+ * @c RTKDFUUpgrade will verify applicability of @c images parameter. If the @c images contains any images not match the remote device, or if @c images is old, @c RTKDFUUpgrade will call @c -DFUUpgrade:didFinishUpgradeWithError: with a non-nil error on delegate.
  *
  * You should not call this method to upgrade a pair of RWS devices.
  */
 - (void)upgradeWithImages:(NSArray <RTKOTAUpgradeBin*> *)images;
 
 /**
- * Start upgrage with specified images for primary and secondary device.
+ * Start upgrade with specified images for primary and secondary devices.
  *
- * @param imagesForPrimary An array containing images available for upgrade to primary device. The images may contain images applying to Bank 0 and Bank 1 when the device support "Dual Bank".
- * @param imagesForSecondary An array containing images available for upgrade to secondary device. The images may contain images applying to Bank 0 and Bank 1 when the device support "Dual Bank".
+ * @param imagesForPrimary An array containing images available to upgrade to primary device. The images may contain images applying to Bank 0 and Bank 1 when the device supports "Dual Bank".
+ * @param imagesForSecondary An array containing images available to upgrade to secondary device. The images may contain images applying to Bank 0 and Bank 1 when the device supports "Dual Bank".
  *
- * @discussion You should call @c -prepareForUpgrade and wait for the @c -DFUUpgradeDidReadyForUpgrade called on the delegate, before call this method.
+ * @discussion You should call @c -prepareForUpgrade and wait for the @c -DFUUpgradeDidReadyForUpgrade called on the delegate, before calling this method.
  * This method returns immediately without waiting for tasks to finish. While upgrading, @c RTKDFUUpgrade call @c -DFUUpgrade:withDevice:didSendBytesCount:ofImage: on delegate to report progress and call @c -DFUUpgrade:didFinishUpgradeWithError: on delegate to report completion. @c RTKDFUUpgrade will call @c -DFUUpgradeDidFinishFirstDeviceAndPrepareCompanionDevice: on delegate once it complete upgrade first device and call @c -DFUUpgrade:willUpgradeCompanionDevice:deviceInfo: on delegate when it is just about to upgrade the secondary device.
  *
- * For devices that support "Dual Bank" feature, only images applying to the current unused bank will be send to device. Which means, you can containing all images applying to both Bank 0 and Bank 1 in the @c primaryImages and @c secondaryImages parameter, the actual available images is selected from all images and be send to device.
+ * For devices that support "Dual Bank" feature, only images applying to the current unused bank will be sent to device. Which means, you can contain all images applying to both Bank 0 and Bank 1 in the @c primaryImages and @c secondaryImages parameter, the actual available images will be selected from all images and be sent to device.
  *
- * @c RTKDFUUpgrade will verify applicability of @c primaryImages and @c secondaryImages parameter. If the  @c primaryImages and @c secondaryImages contain any image not match the remote device, or if  @c primaryImages and @c secondaryImages is old, @c RTKDFUUpgrade will call @c -DFUUpgrade:didFinishUpgradeWithError: with a non-nil error on delegate.
+ * @c RTKDFUUpgrade will verify applicability of @c primaryImages and @c secondaryImages parameter. If the  @c primaryImages and @c secondaryImages contain any images not match the remote device, or if  @c primaryImages and @c secondaryImages is old, @c RTKDFUUpgrade will call @c -DFUUpgrade:didFinishUpgradeWithError: with a non-nil error on delegate.
  *
  * You should call this method only to upgrade a RWS pair of devices.
  */
@@ -357,13 +367,13 @@ willUpgradeCompanionDevice:(RTKProfileConnection *)connection
 
 
 /**
- * Start upgrage using images extracted from the specifed file.
+ * Start upgrade using images extracted from the specifed file.
  *
  * @param path The path to a file which can read and extract image objects for upgrade.
  *
  * @discussion The file specified by @c path should be a valid MP binary format or MP Pack format. Images extracted from file should be applicable for device, which means, you can pass a file that containing images for single device when upgrade a single device, pass a file that containing primary and secondary images for RWS pair when upgrade a pair of RWS devices.
  *
- * Before call this method, you should call @c -prepareForUpgrade and wait for the @c -DFUUpgradeDidReadyForUpgrade called on the delegate.
+ * Before calling this method, you should call @c -prepareForUpgrade and wait for the @c -DFUUpgradeDidReadyForUpgrade called on the delegate.
  * Just like @c -upgradeWithImages: and @c -upgradeWithImagesForPrimaryBud:imagesForSecondaryBud:, @c RTKDFUUpgrade call methods on delegate to report progress and result.
  */
 - (void)upgradeWithBinaryFileAtPath:(NSString *)path;
@@ -391,7 +401,7 @@ willUpgradeCompanionDevice:(RTKProfileConnection *)connection
 /**
  * A boolean value that represents whether user prefers to upgrade using OTA mode.
  *
- * @discussion When the connected device both support upgrading silently and switching to OTA mode, this value determines which method to be used for upgrade. This value is of no effect when device support either method.
+ * @discussion When the connected device both support upgrading silently and switching to OTA mode, this value determines which method to be used for upgrade. This value will not take effect when the device supports either method.
  *
  * The default value is @c NO.
  */
@@ -401,7 +411,7 @@ willUpgradeCompanionDevice:(RTKProfileConnection *)connection
 
 
 /**
- * A concrete @c RTKDFUUpgrade subclass  which applying for iAP profile connected device.
+ * A concrete @c RTKDFUUpgrade subclass which applying for iAP profile connected device.
  *
  * @discussion This class override @c deviceConnection and return an @c RTKDFUConnectionUponiAP instance.
  */

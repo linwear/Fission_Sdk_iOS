@@ -19,7 +19,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    // 初始化日志记录功能｜Initialize the logging function
     [FBLogManager sharedInstance];
+    
+    // 初始化裂变SDK｜FissionSDK initialization
+    [self FissionSDK_Initialization];
     
     BuglyConfig *config = [BuglyConfig new];
     config.debugMode = YES;
@@ -58,8 +62,6 @@
         UITableView.appearance.sectionHeaderTopPadding = 0;
     }
     
-    // FissionSDK initialization
-    [self FissionSDK_Initialization];
     
     // token
     NSString *string = [[[UIDevice currentDevice] identifierForVendor] UUIDString];

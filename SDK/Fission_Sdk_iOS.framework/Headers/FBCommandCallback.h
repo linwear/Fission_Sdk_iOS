@@ -183,6 +183,15 @@ typedef void (^FBGetSleepStatisticsReportBlock)(FB_RET_CMD status, float progres
 typedef void (^FBGetSleepStateRecordingBlock)(FB_RET_CMD status, float progress, NSArray <FBSleepStatusRecordModel *> * _Nullable responseObject, NSError * _Nullable error);
 
 /**
+ *@brief 获取设备运动类型列表 调用结果回调｜Get the list of device motion types Call the result callback
+ *@param status                               状态码｜Status code
+ *@param progress                          当前进度0～1｜Current progress 0 ~ 1
+ *@param responseObject             设备运动类型列表｜List of Equipment Motion Types
+ *@param error                                 错误信息｜Error message
+ */
+typedef void (^FBGetMotionTypesListBlock)(FB_RET_CMD status, float progress, FBMotionTypesListModel * _Nullable responseObject, NSError * _Nullable error);
+
+/**
  *@brief 获取运动记录列表 调用结果回调｜Get motion record list call result callback
  *@param status                               状态码｜Status code
  *@param progress                          当前进度0～1｜Current progress 0 ~ 1

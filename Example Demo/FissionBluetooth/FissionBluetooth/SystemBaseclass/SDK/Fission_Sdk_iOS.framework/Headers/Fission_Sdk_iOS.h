@@ -12,6 +12,15 @@
 //  框架功能｜Framework Function: iOS framework for Fission smart watch, which is responsible for the communication with the watch.
 //                              Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装。
 //  修改记录｜Modification Record:
+//     pcjbird    2023-03-24  Version:3.1.0 Build:202303241000
+//                            1.FB_OTANOTIFICATION 新增OTA通知类型:
+//                              FB_OTANotification_Multi_Dial_Built_in(200)
+//                              FB_OTANotification_Multi_Sport_Built_in(201)
+//                            2.FBCustomDataTools「多个运动类型Bin文件压缩合并成一个Bin文件」压缩算法API调整
+//                            3.新增"获取设备运动类型列表"协议（FBBgCommand）fbGetListOfDeviceMotionTypesWithBlock:
+//                            4.某些设备重启耗时长，导致SDK认为OTA超时，SDK默认超时时间由30秒改至120秒
+//                            5.原厂OTA SDK更新: RTKOTASDK.framework
+//
 //     pcjbird    2023-03-01  Version:3.0.9 Build:202303011000
 //                            1.FBFirmwareVersionObject 新增配置:
 //                              是否支持一次性推送多种运动模式
@@ -22,7 +31,7 @@
 //                            4.FBCustomDataTools 新增「多个运动类型Bin文件压缩合并成一个Bin文件」，配合「一次性推送多种运动模式」使用
 //                            5.FBBluetoothOTA 新增进度模型 FBProgressModel，兼容一个bin文件包含多个包时的升级进度问题
 //                            6.修正部分地区使用冬/夏令时，时区无法设置导致时间错误问题
-//                            7.绑定设备请求可传入Mac地址，但是建议传nil，SDK内部会为你管理绑定密钥
+//                            7.绑定设备请求可传入Mac地址，但是强烈建议传nil，SDK内部会为你管理绑定密钥
 //                            8.GPS运动控制增加错误码 FB_GPS_MOTION_STATE_NONE 本地无此运动信息
 //                            9.优化搜索设备，使用数据模型 FBPeripheralModel
 //                            10.FB_MOTIONMODE 新增运动类型:
@@ -171,6 +180,7 @@ FOUNDATION_EXPORT const unsigned char Fission_Sdk_iOSVersionString[];
 #import <Fission_Sdk_iOS/FBAllConfigObject.h>
 #import <Fission_Sdk_iOS/FBFavContactModel.h>
 #import <Fission_Sdk_iOS/FBProgressModel.h>
+#import <Fission_Sdk_iOS/FBMotionTypesListModel.h>
 
 /** 蓝牙管理器｜Bluetooth manager */
 #import <Fission_Sdk_iOS/FBCommandCallback.h>

@@ -9,13 +9,9 @@
 
 @interface FBAboutHeadView ()
 
-@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UIImageView *headerImageView;
 
-@property (nonatomic, strong) UIImageView *headImage;
-
-@property (nonatomic, assign) BOOL isStop;
-
-@property (nonatomic, assign) BOOL scrollDown;
+@property (nonatomic, assign) CGRect originalHeaderImageViewFrame;
 
 @end
 
@@ -23,72 +19,29 @@
 
 - (instancetype)initWithFrame:(CGRect)frame withImage:(UIImage *)image {
     if (self = [super initWithFrame:frame]) {
-        self.scrollDown = YES;
-        [self UI:image];
+                
+        UIImageView *headerImageView = [[UIImageView alloc] initWithFrame:frame];
+        headerImageView.clipsToBounds = YES;
+        headerImageView.contentMode = UIViewContentModeScaleAspectFill;
+        headerImageView.image = image;
+        [self addSubview:headerImageView];
+        self.headerImageView = headerImageView;
+        self.originalHeaderImageViewFrame = frame;
+        
+        UIImageView *appIcon = [[UIImageView alloc] initWithImage:Tools.appIcon];
+        appIcon.sd_cornerRadius = @(5);
+        appIcon.layer.borderColor = UIColorWhite.CGColor;
+        appIcon.layer.borderWidth = 1;
+        [self addSubview:appIcon];
+        appIcon.sd_layout.centerXEqualToView(self).centerYEqualToView(self).widthIs(65).heightIs(65);
+        
+        UILabel *lab = [[UILabel alloc] qmui_initWithFont:[NSObject themePingFangSCMediumFont:14] textColor:UIColorWhite];
+        lab.textAlignment = NSTextAlignmentCenter;
+        lab.text = [NSString stringWithFormat:@"SDK Version %@\nSDK Build %@", FBBluetoothManager.sdkVersion, FBBluetoothManager.sdkBuild];
+        [self addSubview:lab];
+        lab.sd_layout.leftEqualToView(self).rightEqualToView(self).topSpaceToView(appIcon, 10).autoHeightRatio(0);
     }
     return self;
-}
-
-- (void)UI:(UIImage *)image {
-    
-    CGFloat coefficient = image.size.width / self.width;
-    CGFloat imageHeight = coefficient * image.size.height;
-    
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-    scrollView.showsHorizontalScrollIndicator = NO;
-    scrollView.showsVerticalScrollIndicator = NO;
-    scrollView.scrollEnabled = NO;
-    scrollView.contentSize = CGSizeMake(self.width, imageHeight);
-    [self addSubview:scrollView];
-    self.scrollView = scrollView;
-    
-    UIImageView *headImage = [[UIImageView alloc] initWithImage:image];
-    headImage.frame = CGRectMake(0, 0, scrollView.contentSize.width, scrollView.contentSize.height);
-    [scrollView addSubview:headImage];
-    self.headImage = headImage;
-    
-    UIImageView *appIcon = [[UIImageView alloc] initWithImage:Tools.appIcon];
-    appIcon.sd_cornerRadius = @(5);
-    appIcon.layer.borderColor = UIColorWhite.CGColor;
-    appIcon.layer.borderWidth = 1;
-    [self addSubview:appIcon];
-    appIcon.sd_layout.centerXEqualToView(self).centerYEqualToView(self).widthIs(65).heightIs(65);
-    
-    UILabel *lab = [[UILabel alloc] qmui_initWithFont:[NSObject themePingFangSCMediumFont:14] textColor:UIColorWhite];
-    lab.textAlignment = NSTextAlignmentCenter;
-    lab.text = [NSString stringWithFormat:@"SDK Version %@\nSDK Build %@", FBBluetoothManager.sdkVersion, FBBluetoothManager.sdkBuild];
-    [self addSubview:lab];
-    lab.sd_layout.leftEqualToView(self).rightEqualToView(self).topSpaceToView(appIcon, 10).autoHeightRatio(0);
-}
-
-- (void)StartAnimation {
-    
-    [UIView setAnimationsEnabled:YES];
-    
-    if (self.scrollDown) {
-        [self.scrollView setContentOffset:CGPointMake(0, 0)];
-    } else {
-        [self.scrollView setContentOffset:CGPointMake(0, self.scrollView.contentSize.height-self.height)];
-    }
-    
-    WeakSelf(self);
-    [UIView animateWithDuration:12.0f animations:^{
-        if (weakSelf.scrollDown) {
-            [weakSelf.scrollView setContentOffset:CGPointMake(0, weakSelf.scrollView.contentSize.height-weakSelf.height)];
-        } else {
-            [weakSelf.scrollView setContentOffset:CGPointMake(0, 0)];
-        }
-    } completion:^(BOOL finished) {
-        
-        if (finished) {
-            weakSelf.scrollDown = !weakSelf.scrollDown;
-            [weakSelf StartAnimation];
-        }
-    }];
-}
-
-- (void)dealloc {
-    [self qmui_removeAllSubviews];
 }
 
 /*
@@ -101,14 +54,17 @@
 
 - (void)scrollViewDidScroll_y:(CGFloat)offset_y {
     
-    if (offset_y < 0) {
-        
-        self.headImage.frame = CGRectMake((offset_y * 4)/2, (offset_y * 4)/2, self.scrollView.contentSize.width - offset_y * 4, self.scrollView.contentSize.height - offset_y * 4);
-        
-    } else {
-        
-        self.headImage.frame = CGRectMake(0, 0, self.scrollView.contentSize.width, self.scrollView.contentSize.height);
+    //防止height小于0
+    if (self.originalHeaderImageViewFrame.size.height - offset_y < 0) {
+        return;
     }
+    //如果不使用约束的话，图片的y值要上移offsetY,同时height也要增加offsetY
+    CGFloat x = offset_y<0 ? (offset_y - self.originalHeaderImageViewFrame.origin.x) / 2 :self.originalHeaderImageViewFrame.origin.x;
+    CGFloat y = self.originalHeaderImageViewFrame.origin.y + offset_y;
+    CGFloat width = offset_y<0 ? self.originalHeaderImageViewFrame.size.width - offset_y :self.originalHeaderImageViewFrame.size.width;
+    CGFloat height = self.originalHeaderImageViewFrame.size.height - offset_y;
+    
+    self.headerImageView.frame = CGRectMake(x, y, width, height);
 }
 
 @end

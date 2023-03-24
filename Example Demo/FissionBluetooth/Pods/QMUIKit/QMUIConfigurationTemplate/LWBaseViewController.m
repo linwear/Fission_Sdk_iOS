@@ -20,6 +20,10 @@
     self.view.backgroundColor = UIColorWhite;
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
+
 /*
 #pragma mark - Navigation
 

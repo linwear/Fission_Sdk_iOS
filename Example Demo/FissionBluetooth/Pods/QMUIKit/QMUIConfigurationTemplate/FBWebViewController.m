@@ -40,7 +40,7 @@
     // 加载提示进度条
     self.progressView = ({
         UIProgressView *progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, NavigationContentTop, SCREEN_WIDTH, 1)];
-        progressView.tintColor = UIColorBlue;
+        progressView.tintColor = UIColor.redColor;
         progressView.trackTintColor = UIColorGray;
         [self.view addSubview:progressView];
         progressView;

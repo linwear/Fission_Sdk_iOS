@@ -72,7 +72,7 @@ typedef NS_ENUM(NSUInteger, RTKDFUPeripheralMode) {
 - (void)updateConnectionParameterWithMinInterval:(NSUInteger)minInterval
                                      maxInterval:(NSUInteger)maxInterval
                                          latency:(NSUInteger)latency
-                             suspervisionTimeout:(NSUInteger)timeout
+                             supervisionTimeout:(NSUInteger)timeout
                                completionHandler:(nullable RTKLECompletionBlock)handler;
 
 /**
@@ -103,8 +103,24 @@ typedef NS_ENUM(NSUInteger, RTKDFUPeripheralMode) {
  */
 - (void)switchToOTAModeWithCompletionHandler:(nullable RTKLECompletionBlock)handler;
 
+
+/**
+ * Report information about the current upgrade image.
+ *
+ * @param imageID The imageID of the current upgrade image.
+ * @param currentNumber Indicates the current upgrade image number.
+ * @param totalNumber Indicates the number of all upgrade images.
+ * @param handler The completion handler to call when the request is complete.
+ */
 - (void)reportImageID:(RTKImageId)imageID currentImageNumber:(uint8_t)currentNumber totalImageNumber:(uint8_t)totalNumber withCompletionHandler:(nullable RTKLECompletionBlock)handler;
 
+/**
+ * Request to check pub key information.
+ *
+ * @param imageNum The count of the images containing pub key information.
+ * @param imagesKey Key information of all images.
+ * @param handler The completion handler to call when the request is complete.
+ */
 - (void)checkImagesKeyOfCount:(uint16_t)imageNum andKeyInfo:(RTKImageKeyInfo_t *)imagesKey withCompletionHandler:(nullable RTKLECompletionBlock)handler;
 
 @end

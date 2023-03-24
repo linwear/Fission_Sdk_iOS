@@ -50,6 +50,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (readonly) uint32_t pubKeyHash;
 
+@property (readonly) uint16_t VPID;
+
+@property (readonly) NSData *imageFeature;
+
 - (instancetype)initWithPureData:(NSData *)data;
 
 /**

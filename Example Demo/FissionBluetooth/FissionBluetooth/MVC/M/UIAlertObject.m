@@ -17,25 +17,25 @@
     messageLabel.textAlignment = NSTextAlignmentLeft;
     
     if (!StringIsEmpty(cancel)) {
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancel style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             
             if (block) {
                 block(AlertClickType_Cancel);
             }
         }];
-        [cancel setValue:UIColorGray forKey:@"_titleTextColor"];
-        [alert addAction:cancel];
+        [cancelAction setValue:COLOR_HEX(0x909090, 1) forKey:@"_titleTextColor"];
+        [alert addAction:cancelAction];
     }
 
     if (!StringIsEmpty(sure)) {
-        UIAlertAction *sure = [UIAlertAction actionWithTitle:LWLocalizbleString(@"OK") style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *sureAction = [UIAlertAction actionWithTitle:sure style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
 
             if (block) {
                 block(AlertClickType_Sure);
             }
         }];
-        [sure setValue:GreenColor forKey:@"_titleTextColor"];
-        [alert addAction:sure];
+        [sureAction setValue:GreenColor forKey:@"_titleTextColor"];
+        [alert addAction:sureAction];
     }
     
     GCD_MAIN_QUEUE(^{

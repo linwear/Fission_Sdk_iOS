@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LeftViewController : UIViewController
+@interface LeftViewController : LWBaseViewController
 
 @end
 

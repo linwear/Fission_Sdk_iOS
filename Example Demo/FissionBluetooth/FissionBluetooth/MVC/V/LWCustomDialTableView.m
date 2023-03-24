@@ -63,7 +63,7 @@ static NSString *const idty = @"LWCustomDialCell";
     
     NSDictionary *dict = self.titles[indexPath.row];
     NSString *title = dict.allKeys.firstObject;
-    if ([title isEqualToString:NSLocalizedString(@"Text Color Replacement", nil)]) {
+    if ([title isEqualToString:LWLocalizbleString(@"Text Color Replacement")]) {
         LWCustomDialColorCell *colorCell = [tableView dequeueReusableCellWithIdentifier:@"LWCustomDialColorCell"];
         colorCell.titleLabel.text = title;
         colorCell.selectColor = self.selectModel.selectColor;
@@ -91,7 +91,7 @@ static NSString *const idty = @"LWCustomDialCell";
     
     NSDictionary *dict = self.titles[indexPath.row];
     NSString *title = dict.allKeys.firstObject;
-    if ([title isEqualToString:NSLocalizedString(@"Text Color Replacement", nil)]) {
+    if ([title isEqualToString:LWLocalizbleString(@"Text Color Replacement")]) {
         return 100;
     } else {
         return 60;
@@ -105,10 +105,10 @@ static NSString *const idty = @"LWCustomDialCell";
     NSString *title = dict.allKeys.firstObject;
     NSArray *array = dict.allValues.firstObject;
     
-    if ([title isEqualToString:NSLocalizedString(@"Text Style", nil)]) {
+    if ([title isEqualToString:LWLocalizbleString(@"Text Style")]) {
         
         NSInteger selectObj = self.selectModel.selectStyle;
-        [[LWCustomDialPickerView sharedInstance] showMode:LWCustomDialSelectFontStyle withTitle:NSLocalizedString(@"Text Style", nil) withArrayData:array withSelectObj:selectObj withBlock:^(LWCustomDialSelectMode mode, NSInteger result) {
+        [[LWCustomDialPickerView sharedInstance] showMode:LWCustomDialSelectFontStyle withTitle:LWLocalizbleString(@"Text Style") withArrayData:array withSelectObj:selectObj withBlock:^(LWCustomDialSelectMode mode, NSInteger result) {
             if (mode==LWCustomDialSelectFontStyle) {
                 LWCustomDialStyle selectStyle = result;
                 if (weakSelf.customDialSelectModeBlock) {
@@ -117,13 +117,13 @@ static NSString *const idty = @"LWCustomDialCell";
             }
         }];
     }
-    else if ([title isEqualToString:NSLocalizedString(@"Background Picture", nil)]) {
+    else if ([title isEqualToString:LWLocalizbleString(@"Background Picture")]) {
         [self handleSelectedPhoto];
     }
-    else if ([title isEqualToString:NSLocalizedString(@"Time Position", nil)]) {
+    else if ([title isEqualToString:LWLocalizbleString(@"Time Position")]) {
         
         NSInteger selectObj = self.selectModel.selectPosition;
-        [[LWCustomDialPickerView sharedInstance] showMode:LWCustomDialSelectPosition withTitle:NSLocalizedString(@"Time Position", nil) withArrayData:array withSelectObj:selectObj withBlock:^(LWCustomDialSelectMode mode, NSInteger result) {
+        [[LWCustomDialPickerView sharedInstance] showMode:LWCustomDialSelectPosition withTitle:LWLocalizbleString(@"Time Position") withArrayData:array withSelectObj:selectObj withBlock:^(LWCustomDialSelectMode mode, NSInteger result) {
             if (mode==LWCustomDialSelectPosition) {
                 LWCustomTimeLocationStyle selectPosition = result;
                 if (weakSelf.customDialSelectModeBlock) {
@@ -132,10 +132,10 @@ static NSString *const idty = @"LWCustomDialCell";
             }
         }];
     }
-    else if ([title isEqualToString:NSLocalizedString(@"More Content", nil)]) {
+    else if ([title isEqualToString:LWLocalizbleString(@"More Content")]) {
         
         NSInteger selectObj = self.selectModel.selectTimeTopStyle;
-        [[LWCustomDialPickerView sharedInstance] showMode:LWCustomDialSelectTimeTopStyle withTitle:NSLocalizedString(@"More Content", nil) withArrayData:array withSelectObj:selectObj withBlock:^(LWCustomDialSelectMode mode, NSInteger result) {
+        [[LWCustomDialPickerView sharedInstance] showMode:LWCustomDialSelectTimeTopStyle withTitle:LWLocalizbleString(@"More Content") withArrayData:array withSelectObj:selectObj withBlock:^(LWCustomDialSelectMode mode, NSInteger result) {
             if (mode==LWCustomDialSelectTimeTopStyle) {
                 LWCustomTimeTopStyle selectTimeTopStyle = result;
                 if (weakSelf.customDialSelectModeBlock) {
@@ -144,10 +144,10 @@ static NSString *const idty = @"LWCustomDialCell";
             }
         }];
     }
-    else if ([title isEqualToString:NSLocalizedString(@"Time Below", nil)]) {
+    else if ([title isEqualToString:LWLocalizbleString(@"Time Below")]) {
         
         NSInteger selectObj = self.selectModel.selectTimeBottomStyle;
-        [[LWCustomDialPickerView sharedInstance] showMode:LWCustomDialSelectTimeBottomStyle withTitle:NSLocalizedString(@"Time Below", nil) withArrayData:array withSelectObj:selectObj withBlock:^(LWCustomDialSelectMode mode, NSInteger result) {
+        [[LWCustomDialPickerView sharedInstance] showMode:LWCustomDialSelectTimeBottomStyle withTitle:LWLocalizbleString(@"Time Below") withArrayData:array withSelectObj:selectObj withBlock:^(LWCustomDialSelectMode mode, NSInteger result) {
             if (mode==LWCustomDialSelectTimeBottomStyle) {
                 LWCustomTimeBottomStyle selectTimeBottomStyle = result;
                 if (weakSelf.customDialSelectModeBlock) {
@@ -156,7 +156,7 @@ static NSString *const idty = @"LWCustomDialCell";
             }
         }];
     }
-    else if ([title isEqualToString:NSLocalizedString(@"Restore Default Settings", nil)]) {
+    else if ([title isEqualToString:LWLocalizbleString(@"Restore Default Settings")]) {
         if (weakSelf.customDialSelectModeBlock) {
             weakSelf.customDialSelectModeBlock(LWCustomDialSelectRestoreDefault, @(YES));
         }
@@ -165,7 +165,7 @@ static NSString *const idty = @"LWCustomDialCell";
 
 - (NSString *)returnContentString:(NSString *)title withArray:(NSArray *)array {
     NSString *content = @"";
-    if ([title isEqualToString:NSLocalizedString(@"Text Style", nil)]) {
+    if ([title isEqualToString:LWLocalizbleString(@"Text Style")]) {
         
         for (NSDictionary *dict in array) {
             if ([dict.allValues.firstObject integerValue] == self.selectModel.selectStyle) {
@@ -173,7 +173,7 @@ static NSString *const idty = @"LWCustomDialCell";
                 break;
             }
         }
-    } else if ([title isEqualToString:NSLocalizedString(@"Time Position", nil)]) {
+    } else if ([title isEqualToString:LWLocalizbleString(@"Time Position")]) {
         
         for (NSDictionary *dict in array) {
             if ([dict.allValues.firstObject integerValue] == self.selectModel.selectPosition) {
@@ -181,7 +181,7 @@ static NSString *const idty = @"LWCustomDialCell";
                 break;
             }
         }
-    } else if ([title isEqualToString:NSLocalizedString(@"More Content", nil)]) {
+    } else if ([title isEqualToString:LWLocalizbleString(@"More Content")]) {
         
         for (NSDictionary *dict in array) {
             if ([dict.allValues.firstObject integerValue] == self.selectModel.selectTimeTopStyle) {
@@ -189,7 +189,7 @@ static NSString *const idty = @"LWCustomDialCell";
                 break;
             }
         }
-    } else if ([title isEqualToString:NSLocalizedString(@"Time Below", nil)]) {
+    } else if ([title isEqualToString:LWLocalizbleString(@"Time Below")]) {
         
         for (NSDictionary *dict in array) {
             if ([dict.allValues.firstObject integerValue] == self.selectModel.selectTimeBottomStyle) {
@@ -205,13 +205,13 @@ static NSString *const idty = @"LWCustomDialCell";
 #pragma mark - SelectedPhoto
 - (void)handleSelectedPhoto {
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Select from album", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alertVC addAction:[UIAlertAction actionWithTitle:LWLocalizbleString(@"Select from album") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 
         // 相册
         [self getPhoto];
     }]];
 
-    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"Photograph", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    [alertVC addAction:[UIAlertAction actionWithTitle:LWLocalizbleString(@"Camera") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         // 拍照
         [self takePhoto];
 
@@ -228,31 +228,31 @@ static NSString *const idty = @"LWCustomDialCell";
 //#pragma mark - TimeLocation
 //- (void)selectTimeLocation {
 //    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-//    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"上", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//    [alertVC addAction:[UIAlertAction actionWithTitle:LWLocalizbleString(@"上", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 //        [self.headerView selectedCustomDiaStyle:LWCustomDialStyleA timeLocation:LWCustomTimeLocationStyleTop bgImageView:self.bkImageView handler:^(UIImage * _Nullable bkImage, UIImage * _Nullable preView, LWCustomTimeLocationStyle locationStyle) {
 //            FBLog(@"%@ - %@ - %ld", bkImage, preView, locationStyle);
 //        }];
 //    }]];
 //
-//    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"下", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//    [alertVC addAction:[UIAlertAction actionWithTitle:LWLocalizbleString(@"下", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 //        [self.headerView selectedCustomDiaStyle:LWCustomDialStyleA timeLocation:LWCustomTimeLocationStyleBottom bgImageView:self.bkImageView handler:^(UIImage * _Nullable bkImage, UIImage * _Nullable preView, LWCustomTimeLocationStyle locationStyle) {
 //            FBLog(@"%@ - %@ - %ld", bkImage, preView, locationStyle);
 //        }];
 //    }]];
 //
-//    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"左", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//    [alertVC addAction:[UIAlertAction actionWithTitle:LWLocalizbleString(@"左", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 //        [self.headerView selectedCustomDiaStyle:LWCustomDialStyleA timeLocation:LWCustomTimeLocationStyleLeft bgImageView:self.bkImageView handler:^(UIImage * _Nullable bkImage, UIImage * _Nullable preView, LWCustomTimeLocationStyle locationStyle) {
 //            FBLog(@"%@ - %@ - %ld", bkImage, preView, locationStyle);
 //        }];
 //    }]];
 //
-//    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"右", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//    [alertVC addAction:[UIAlertAction actionWithTitle:LWLocalizbleString(@"右", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
 //        [self.headerView selectedCustomDiaStyle:LWCustomDialStyleA timeLocation:LWCustomTimeLocationStyleRight bgImageView:self.bkImageView handler:^(UIImage * _Nullable bkImage, UIImage * _Nullable preView, LWCustomTimeLocationStyle locationStyle) {
 //            FBLog(@"%@ - %@ - %ld", bkImage, preView, locationStyle);
 //        }];
 //    }]];
 //
-//    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"取消", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+//    [alertVC addAction:[UIAlertAction actionWithTitle:LWLocalizbleString(@"取消", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
 //
 //    }]];
 //
@@ -264,9 +264,9 @@ static NSString *const idty = @"LWCustomDialCell";
 - (void)getPhoto {
     if ([PHPhotoLibrary authorizationStatus] == 2) { // 已被拒绝，没有相册权限
 
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Can't access album", nil) message:[NSString stringWithFormat:NSLocalizedString(@"Please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone", nil), @"🧍‍♀️"] preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:LWLocalizbleString(@"Can't access album") message:[NSString stringWithFormat:LWLocalizbleString(@"Please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone"), Tools.appName] preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:nil];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Set", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Set") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             //进入系统设置页面，APP本身的权限管理页面
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
         }];
@@ -331,9 +331,9 @@ static NSString *const idty = @"LWCustomDialCell";
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     if (authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied) {
         // 无相机权限 做一个友好的提示
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Can't use camera", nil) message:[NSString stringWithFormat:NSLocalizedString(@"Please allow %@ to access the camera in \"Settings-Privacy-Camera\" of the iPhone", nil), @"🧍‍♀️"] preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:LWLocalizbleString(@"Can't use camera") message:[NSString stringWithFormat:LWLocalizbleString(@"Please allow %@ to access the camera in \"Settings-Privacy-Camera\" of the iPhone"), Tools.appName] preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:nil];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Set", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Set") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             //进入系统设置页面，APP本身的权限管理页面
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
         }];
@@ -353,9 +353,9 @@ static NSString *const idty = @"LWCustomDialCell";
         // 拍照之前还需要检查相册权限
     } else if ([PHPhotoLibrary authorizationStatus] == 2) { // 已被拒绝，没有相册权限，将无法保存拍的照片
 
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Can't access album", nil) message:[NSString stringWithFormat:NSLocalizedString(@"The photo after taking the photo needs to be added to the album, please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone", nil), @"🧍‍♀️"] preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:LWLocalizbleString(@"Can't access album") message:[NSString stringWithFormat:LWLocalizbleString(@"The photo after taking the photo needs to be added to the album, please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone"), Tools.appName] preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:nil];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Set", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Set") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             //进入系统设置页面，APP本身的权限管理页面
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
         }];

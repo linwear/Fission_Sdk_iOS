@@ -174,7 +174,7 @@ willUpgradeCompanionDevice:(RTKProfileConnection *)connection
 ```
 ### Update Connection parameter
 
-If you want to change LE ACL Connection Parameter, probably because you want a faster thoughput. You should call ``-updateConnectionParameterWithMinInterval:maxInterval:latency:suspervisionTimeout:completionHandler`` on an `RTKDFUConnectionUponGATT` object at the right time.
+If you want to change LE ACL Connection Parameter, probably because you want a faster thoughput. You should call ``-updateConnectionParameterWithMinInterval:maxInterval:latency:supervisionTimeout:completionHandler`` on an `RTKDFUConnectionUponGATT` object at the right time.
 
 ```objective-c
 - (void)DFUUpgrade:(RTKDFUUpgrade *)task
@@ -183,7 +183,7 @@ withContinuationHandler:(void(^)(void))continuationHandler {
     if ([connection isKindOfClass:RTKDFUConnectionUponGATT.class]) {
         RTKDFUConnectionUponGATT *dfuConnection = (RTKDFUConnectionUponGATT*)connection;
         
-        [dfuConnection updateConnectionParameterWithMinInterval:12 maxInterval:24 latency:10 suspervisionTimeout:100 completionHandler:^(BOOL success, NSError * _Nullable error) {
+        [dfuConnection updateConnectionParameterWithMinInterval:12 maxInterval:24 latency:10 supervisionTimeout:100 completionHandler:^(BOOL success, NSError * _Nullable error) {
             continuationHandler();
         }];
     } else {

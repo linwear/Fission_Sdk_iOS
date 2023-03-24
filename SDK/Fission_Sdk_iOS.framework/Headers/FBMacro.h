@@ -465,20 +465,23 @@ typedef enum{
  * OTA类型通知｜OTA type notification
  */
 typedef enum {
-    FB_OTANotification_Firmware           = 0,    //升级固件｜Update Firmware
-    FB_OTANotification_ClockDial          = 1,    //升级默认动态表盘｜Upgrade default dynamic dial
-    FB_OTANotification_SmallFont          = 2,    //升级小字库｜Upgrade small font
-    FB_OTANotification_BigFont            = 3,    //升级大字库｜Upgrade big font
-    FB_OTANotification_UIPictureResources = 4,    //升级UI图片资源｜Upgrade UI image resources
-    FB_OTANotification_2_3_4AtTheSameTime = 5,    //同时升级2,3,4｜Upgrade 2, 3, 4 at the same time
-    FB_OTANotification_Motion             = 6,    //推送运动模式｜Push motion mode
-    FB_OTANotification_UI                 = 7,    //增量升级UI图片｜Incrementally upgrade UI images
-    FB_OTANotification_Multi_Dial         = 8,    //多表盘压缩数据包｜Multi-dial compressed data package
-    FB_OTANotification_Multi_Sport        = 9,    //多运动类型压缩数据包｜Multi-sport type compressed data package
-    FB_OTANotification_DynamicClockDial   = 10,   //+n，升级动态表盘n｜+n. Upgrade dynamic dial n
-    FB_OTANotification_CustomClockDial    = 20,   //+n，升级自定义表盘n｜+n. Upgrade custom dial n
-    FB_OTANotification_Busy               = 254,  //设备处于禁止OTA状态，稍后再试｜The device is in OTA prohibited state, please try again later
-    FB_OTANotification_Cancel             = 255,  //放弃当前升级｜Discard current upgrade
+    FB_OTANotification_Firmware                 = 0,    //升级固件｜Update Firmware
+    FB_OTANotification_ClockDial                = 1,    //升级默认动态表盘｜Upgrade default dynamic dial
+    FB_OTANotification_SmallFont                = 2,    //升级小字库｜Upgrade small font
+    FB_OTANotification_BigFont                  = 3,    //升级大字库｜Upgrade big font
+    FB_OTANotification_UIPictureResources       = 4,    //升级UI图片资源｜Upgrade UI image resources
+    FB_OTANotification_2_3_4AtTheSameTime       = 5,    //同时升级2,3,4｜Upgrade 2, 3, 4 at the same time
+    FB_OTANotification_Motion                   = 6,    //推送运动模式｜Push motion mode
+    FB_OTANotification_UI                       = 7,    //增量升级UI图片｜Incrementally upgrade UI images
+    FB_OTANotification_Multi_Dial               = 8,    //多表盘压缩数据包｜Multi-dial compressed data package
+    FB_OTANotification_Multi_Sport              = 9,    //多运动类型压缩数据包｜Multi-sport type compressed data package
+    FB_OTANotification_DynamicClockDial         = 10,   //+n，升级动态表盘n｜+n. Upgrade dynamic dial n
+    FB_OTANotification_CustomClockDial          = 20,   //+n，升级自定义表盘n｜+n. Upgrade custom dial n
+    
+    FB_OTANotification_Multi_Dial_Built_in      = 200,  //厂线推送内置表盘压缩数据包｜The factory line pushes the built-in dial compressed data package
+    FB_OTANotification_Multi_Sport_Built_in     = 201,  //厂线推送内置多运动类型压缩数据包｜The factory line pushes the built-in multi-sport type compressed data package
+    FB_OTANotification_Busy                     = 254,  //设备处于禁止OTA状态，稍后再试｜The device is in OTA prohibited state, please try again later
+    FB_OTANotification_Cancel                   = 255,  //放弃当前升级｜Discard current upgrade
 }FB_OTANOTIFICATION;
 
 #pragma mark - 获取多个记录报告｜Get multiple record reports

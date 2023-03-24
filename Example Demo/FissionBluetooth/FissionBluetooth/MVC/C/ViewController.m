@@ -143,7 +143,7 @@
     
     LeftViewController *vc = LeftViewController.new;
 
-    CWLateralSlideConfiguration *conf = [CWLateralSlideConfiguration configurationWithDistance:0 maskAlpha:0.4 scaleY:0.8 direction:CWDrawerTransitionFromLeft backImage:[UIImage imageNamed:@"nightSky"]];
+    CWLateralSlideConfiguration *conf = [CWLateralSlideConfiguration configurationWithDistance:0 maskAlpha:0.4 scaleY:0.8 direction:CWDrawerTransitionFromLeft backImage:UIImageMake(@"nightSky")];
 
     [self cw_showDrawerViewController:vc animationType:CWDrawerAnimationTypeDefault configuration:conf];
 }
@@ -354,6 +354,7 @@
                                  LWLocalizbleString(@"Obtain the hourly activity statistics report"),
                                  LWLocalizbleString(@"Get sleep statistics report"),
                                  LWLocalizbleString(@"Get sleep status record"),
+                                 LWLocalizbleString(@"Get a list of device motion types"),
                                  LWLocalizbleString(@"Get list of exercise records"),
                                  LWLocalizbleString(@"Get Sports Statistics Report"),
                                  LWLocalizbleString(@"Get heart rate records"),
@@ -420,8 +421,9 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 60)];
+    view.backgroundColor = UIColorWhite;
+    
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0,SCREEN_WIDTH-20, 60)];
-    label.backgroundColor = [UIColor whiteColor];
     label.font = FONT(14);
     label.textColor = [UIColor redColor];
     [view addSubview:label];
@@ -474,10 +476,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ViewControllerCell"];
-    
     NSInteger section = indexPath.section;
     NSInteger row = indexPath.row;
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ViewControllerCell"];
+    cell.backgroundColor = row%2==0 ? COLOR_HEX(0xF0F0F0, 1) : UIColorWhite;
     
     NSDictionary *dict = self.funDatas[section];
     NSArray *funArr = dict[@"funcArr"];
@@ -1205,6 +1208,21 @@
             }];
         }
         
+        if ([rowStr isEqualToString:LWLocalizbleString(@"Get a list of device motion types")]) {
+            [FBBgCommand.sharedInstance fbGetListOfDeviceMotionTypesWithBlock:^(FB_RET_CMD status, float progress, FBMotionTypesListModel * _Nullable responseObject, NSError * _Nullable error) {
+                if (error) {
+                    [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+                }
+                else if (status==FB_INDATATRANSMISSION) {
+                    weakSelf.receTextView.text = [NSString stringWithFormat:@"Receiving Progress: %.f%%", progress*100];
+                }
+                else if (status==FB_DATATRANSMISSIONDONE) {
+                    
+                    weakSelf.receTextView.text = [NSString stringWithFormat:@"%@", responseObject.mj_keyValues];
+                }
+            }];
+        }
+        
         if ([rowStr isEqualToString:LWLocalizbleString(@"Get list of exercise records")]) {
             [FBBgCommand.sharedInstance fbGetMotionRecordListDataStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBSportRecordModel *> * _Nonnull responseObject, NSError * _Nonnull error) {
                 if (error) {
@@ -1669,7 +1687,7 @@
     if (!_titleView) {
         _titleView = [QMUIButton buttonWithType:UIButtonTypeCustom];
         _titleView.frame = CGRectMake(0, 0, SCREEN_WIDTH-120, 44);
-        [_titleView setTitleColor:UIColorBlack forState:UIControlStateNormal];
+        [_titleView setTitleColor:self.navigationController.navigationBar.tintColor forState:UIControlStateNormal];
         [_titleView setImage:IMAGE_NAME(@"ic_device_disconnect") forState:UIControlStateNormal];
         [_titleView setImage:IMAGE_NAME(@"ic_device_connect") forState:UIControlStateSelected];
         _titleView.spacingBetweenImageAndTitle = 5;
@@ -1684,7 +1702,7 @@
         _batteryView.frame = CGRectMake(0, 0, 60, 44);
         _batteryView.enabled = NO;
         _batteryView.titleLabel.font = FONT(13);
-        [_batteryView setTitleColor:UIColorBlack forState:UIControlStateNormal];
+        [_batteryView setTitleColor:self.navigationController.navigationBar.tintColor forState:UIControlStateNormal];
         [_batteryView setImage:IMAGE_NAME(@"ic_device_power12") forState:UIControlStateSelected];
         _batteryView.spacingBetweenImageAndTitle = 3;
     }

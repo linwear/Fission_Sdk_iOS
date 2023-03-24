@@ -13,8 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithFrame:(CGRect)frame withImage:(UIImage *)image;
 
-- (void)StartAnimation;
-
 - (void)scrollViewDidScroll_y:(CGFloat)offset_y;
 
 @end
