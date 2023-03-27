@@ -16,7 +16,7 @@
 //                            1.FB_OTANOTIFICATION 新增OTA通知类型:
 //                              FB_OTANotification_Multi_Dial_Built_in(200)
 //                              FB_OTANotification_Multi_Sport_Built_in(201)
-//                            2.FBCustomDataTools「多个运动类型Bin文件压缩合并成一个Bin文件」压缩算法API调整
+//                            2.FBCustomDataTools「多个运动类型Bin文件压缩合并成一个Bin文件」压缩算法API调整（2048或4096）
 //                            3.新增"获取设备运动类型列表"协议（FBBgCommand）fbGetListOfDeviceMotionTypesWithBlock:
 //                            4.某些设备重启耗时长，导致SDK认为OTA超时，SDK默认超时时间由30秒改至120秒
 //                            5.原厂OTA SDK更新: RTKOTASDK.framework

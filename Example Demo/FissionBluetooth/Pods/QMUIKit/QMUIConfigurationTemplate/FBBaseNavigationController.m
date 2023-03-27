@@ -20,20 +20,27 @@
     NSDictionary *titleTextAttributes = @{NSFontAttributeName:[NSObject themePingFangSCMediumFont:18], NSForegroundColorAttributeName:UIColorWhite};
     
     self.navigationBar.tintColor = UIColorWhite;
+    
+    self.navigationBar.translucent = YES;
         
     if (@available(iOS 13.0, *)) {
         
-        UINavigationBarAppearance *standardAppearance = UINavigationBarAppearance.new;
-        standardAppearance.backgroundColor = BlueColor;
-        standardAppearance.titleTextAttributes = titleTextAttributes;
-        self.navigationBar.standardAppearance = standardAppearance;
-        self.navigationBar.scrollEdgeAppearance = standardAppearance;
+        UINavigationBarAppearance *appearance = UINavigationBarAppearance.new;
+        appearance.backgroundColor = BlueColor;
+        appearance.shadowColor = UIColorClear;
+        appearance.titleTextAttributes = titleTextAttributes;
+        self.navigationBar.standardAppearance = appearance;
+        self.navigationBar.scrollEdgeAppearance = appearance;
         
     } else {
-        
+        self.navigationBar.shadowImage = UIImage.new;
         self.navigationBar.titleTextAttributes = titleTextAttributes;
         self.navigationBar.barTintColor = BlueColor;
     }
+}
+
+- (void)navigationBarAlpha:(CGFloat)alpha {
+    self.navigationBar.subviews.firstObject.alpha = alpha;
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {

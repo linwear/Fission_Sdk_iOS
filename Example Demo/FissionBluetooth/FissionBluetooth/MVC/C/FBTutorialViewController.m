@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) CHIPageControlFresno *pageControl;
 
+@property (nonatomic, assign) NSInteger currentPage;
+
 @end
 
 @implementation FBTutorialViewController
@@ -51,20 +53,33 @@
     scrollView.delegate = self;
     scrollView.contentSize = CGSizeMake(scrollView.width * items.count, scrollView.height);
     [self.view addSubview:scrollView];
+    self.scrollView = scrollView;
+    
+    self.currentPage = 0;
     
     for (int k = 0; k < items.count; k++) {
         FBTutorialItemModel *model = items[k];
         
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(k*scrollView.width, 0, scrollView.width, scrollView.height)];
+        UIScrollView *scroll = [[UIScrollView alloc] initWithFrame:CGRectMake(k*scrollView.width, 0, scrollView.width, scrollView.height)];
+        scroll.backgroundColor = UIColorClear;
+        scroll.delegate = self;
+        scroll.contentSize = CGSizeMake(scrollView.width, scrollView.height);
+        scroll.minimumZoomScale = 1.0;
+        scroll.maximumZoomScale = 2.0;
+        [scrollView addSubview:scroll];
+        
+        
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:scroll.bounds];
         imageView.image = UIImageMake(model.imageName);
         imageView.contentMode = UIViewContentModeScaleAspectFit;
-        [scrollView addSubview:imageView];
+        [scroll addSubview:imageView];
+        
         
         QMUILabel *titleLab = [[QMUILabel alloc] qmui_initWithFont:FONT(15) textColor:UIColorWhite];
         titleLab.numberOfLines = 0;
         titleLab.text = model.title;
-        [imageView addSubview:titleLab];
-        titleLab.sd_layout.leftSpaceToView(imageView, 10).rightSpaceToView(imageView, 10).topSpaceToView(imageView, 5).autoHeightRatio(0);
+        [scroll addSubview:titleLab];
+        titleLab.sd_layout.leftSpaceToView(scroll, 10).rightSpaceToView(scroll, 10).topSpaceToView(scroll, 5).autoHeightRatio(0);
         
         if ([model.title containsString:@"https://www.i4.cn/"]) {
             [Tools setUILabel:titleLab setDataArr:@[@"https://www.i4.cn/"] setColorArr:@[UIColorRed] setFontArr:@[FONT(15)]];
@@ -95,8 +110,65 @@
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     
-    double progress = scrollView.contentOffset.x/scrollView.width;
-    [self.pageControl setProgress:progress];
+    if (scrollView == self.scrollView) {
+        double progress = scrollView.contentOffset.x/scrollView.width;
+        [self.pageControl setProgress:progress];
+    }
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    
+    if (scrollView == self.scrollView) {
+        NSInteger currentPage = scrollView.contentOffset.x/scrollView.width;
+        
+        if (currentPage != self.currentPage) {
+            self.currentPage = currentPage;
+            
+            for (id view in scrollView.subviews) {
+                
+                if ([view isKindOfClass:UIScrollView.class]) {
+                    UIScrollView *scroll = (UIScrollView *)view;
+                    if (scroll.zoomScale != 1.0) {
+                        [scroll setZoomScale:1.0];
+                    }
+                }
+            }
+        }
+    }
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
+
+    if (scrollView != self.scrollView) {
+        for (id view in scrollView.subviews){
+            
+            if ([view isKindOfClass:UIImageView.class]) {
+                UIImageView *imageView = (UIImageView *)view;
+                return imageView;
+                break;
+            }
+        }
+    }
+    
+    return nil;
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    
+    if (scrollView != self.scrollView) {
+        for (id view in scrollView.subviews){
+            
+            if ([view isKindOfClass:UIImageView.class]) {
+                UIImageView *imageView = (UIImageView *)view;
+                CGFloat offsetX = MAX((scrollView.bounds.size.width - scrollView.contentInset.left - scrollView.contentInset.right - scrollView.contentSize.width) * 0.5, 0.0);
+                CGFloat offsetY = MAX((scrollView.bounds.size.height - scrollView.contentInset.top - scrollView.contentInset.bottom - scrollView.contentSize.height) * 0.5, 0.0);
+                
+                imageView.center = CGPointMake(scrollView.contentSize.width * 0.5 + offsetX,
+                                               scrollView.contentSize.height * 0.5 + offsetY);
+                break;
+            }
+        }
+    }
 }
 
 @end

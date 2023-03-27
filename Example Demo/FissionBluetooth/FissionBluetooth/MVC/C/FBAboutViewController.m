@@ -20,6 +20,21 @@
 
 @implementation FBAboutViewController
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
+    FBBaseNavigationController *navigation = (FBBaseNavigationController *)self.navigationController;
+    [navigation navigationBarAlpha:0.0];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    FBBaseNavigationController *navigation = (FBBaseNavigationController *)self.navigationController;
+    [navigation navigationBarAlpha:1.0];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -37,7 +52,7 @@
     tableView.rowHeight = 64;
     [tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"FBAboutTableViewCell"];
     [self.view addSubview:tableView];
-    tableView.sd_layout.leftEqualToView(self.view).rightEqualToView(self.view).topSpaceToView(self.view, NavigationContentTop).bottomSpaceToView(lab, 0);
+    tableView.sd_layout.leftEqualToView(self.view).rightEqualToView(self.view).topEqualToView(self.view).bottomSpaceToView(lab, 0);
     self.tableView = tableView;
     
     FBAboutHeadView *headView = [[FBAboutHeadView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT*0.42) withImage:UIImageMake(@"IMG_0737")];

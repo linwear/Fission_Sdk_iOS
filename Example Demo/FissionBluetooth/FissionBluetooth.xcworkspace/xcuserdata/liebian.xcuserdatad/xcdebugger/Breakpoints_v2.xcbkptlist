@@ -64,53 +64,5 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "38CE7A00-8421-467A-8EFA-1837CE321C96"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../FBI/Fission_Sdk_iOS/Fission_Sdk_iOS/FBBuletoothManger/FBBasic/FBCompress/quicklz.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "fast_read(src, bytes)"
-            landmarkType = "9">
-            <Locations>
-               <Location
-                  uuid = "38CE7A00-8421-467A-8EFA-1837CE321C96 - a115897340b41c11"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "qlz_size_decompressed"
-                  moduleName = "Fission_Sdk_iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liebian/Desktop/FBI/Fission_Sdk_iOS/Fission_Sdk_iOS/FBBuletoothManger/FBBasic/FBCompress/quicklz.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "24">
-               </Location>
-               <Location
-                  uuid = "38CE7A00-8421-467A-8EFA-1837CE321C96 - 7172655f37586aea"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "qlz_size_compressed"
-                  moduleName = "Fission_Sdk_iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liebian/Desktop/FBI/Fission_Sdk_iOS/Fission_Sdk_iOS/FBBuletoothManger/FBBasic/FBCompress/quicklz.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "103"
-                  endingLineNumber = "103"
-                  offsetFromSymbolStart = "8">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

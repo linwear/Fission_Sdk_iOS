@@ -480,6 +480,9 @@
     NSInteger row = indexPath.row;
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ViewControllerCell"];
+    UIView *view = UIView.new;
+    view.backgroundColor = UIColorTestGreen;
+    cell.selectedBackgroundView = view;
     cell.backgroundColor = row%2==0 ? COLOR_HEX(0xF0F0F0, 1) : UIColorWhite;
     
     NSDictionary *dict = self.funDatas[section];
