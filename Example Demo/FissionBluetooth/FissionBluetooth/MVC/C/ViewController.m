@@ -43,8 +43,6 @@
 @property(nonatomic,strong) UITableView *tableView;
 @property(nonatomic,strong) NSMutableArray *funDatas;
 
-@property(nonatomic,strong) NSMutableString *mutReceText;
-@property(nonatomic,strong) NSMutableString *logStr;
 @property(nonatomic,strong) UILabel *versionLab;
 
 @property (nonatomic, strong) UILabel *receLab;
@@ -55,24 +53,11 @@
 @property (nonatomic, assign) NSInteger staTime;
 @property (nonatomic, assign) NSInteger endTime;
 
-@property (nonatomic, copy) NSString *logFilePath;
-
-@property (nonatomic, strong) dispatch_queue_t serialQueue;
-
 @property (nonatomic, assign) BOOL switchMode;
 
 @end
 
 @implementation ViewController
-
--(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
-    if (self=[super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        _funDatas = [NSMutableArray array];
-        _mutReceText = [[NSMutableString alloc] init];
-        _logStr = [[NSMutableString alloc] init];
-    }
-    return self;
-}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -86,9 +71,7 @@
     // Do any additional setup after loading the view.
     //    NSData *h = [NSString dataForHexString:@"56312e3037"];
     //    NSString *firmwareVersion = [[NSString alloc] initWithData:h encoding:NSUTF8StringEncoding];
-    
-    self.serialQueue = dispatch_queue_create("com.zyt.queue", DISPATCH_QUEUE_SERIAL);
-    
+        
     //    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true);
     //    NSString *fileName = [NSString stringWithFormat:@"%@/firmwares/%@", paths[0], @"2.bin"];
     //    NSData *binFile = [NSData dataWithContentsOfFile:fileName];
@@ -396,6 +379,7 @@
                              ]
     };
     
+    self.funDatas = NSMutableArray.array;
     [self.funDatas addObject:dict1];
     [self.funDatas addObject:dict2];
     [self.funDatas addObject:dict3];
@@ -1689,6 +1673,7 @@
 - (QMUIButton *)titleView {
     if (!_titleView) {
         _titleView = [QMUIButton buttonWithType:UIButtonTypeCustom];
+        _titleView.titleLabel.font = [NSObject themePingFangSCMediumFont:18];
         _titleView.frame = CGRectMake(0, 0, SCREEN_WIDTH-120, 44);
         [_titleView setTitleColor:self.navigationController.navigationBar.tintColor forState:UIControlStateNormal];
         [_titleView setImage:IMAGE_NAME(@"ic_device_disconnect") forState:UIControlStateNormal];
@@ -1704,7 +1689,7 @@
         _batteryView = [QMUIButton buttonWithType:UIButtonTypeCustom];
         _batteryView.frame = CGRectMake(0, 0, 60, 44);
         _batteryView.enabled = NO;
-        _batteryView.titleLabel.font = FONT(13);
+        _batteryView.titleLabel.font = [NSObject themePingFangSCMediumFont:15];
         [_batteryView setTitleColor:self.navigationController.navigationBar.tintColor forState:UIControlStateNormal];
         [_batteryView setImage:IMAGE_NAME(@"ic_device_power12") forState:UIControlStateSelected];
         _batteryView.spacingBetweenImageAndTitle = 3;
@@ -1783,6 +1768,7 @@
     if (StringIsEmpty(FBAllConfigObject.firmwareConfig.deviceName)) {
         self.titleView.selected = NO;
         [self.titleView setTitle:LWLocalizbleString(@"No Connection") forState:UIControlStateNormal];
+        [self reloadBattery:0 state:BATT_LOW_POWER];
         
         self.versionLab.text = @"";
     }
@@ -1813,6 +1799,7 @@
     self.level = level;
     UIBarButtonItem *rigtItem = [[UIBarButtonItem alloc] initWithCustomView:self.batteryView];
     self.batteryView.selected = (level==BATT_CHARGING);
+    [self.batteryView setTitleColor:(level==BATT_LOW_POWER ? UIColor.redColor : self.navigationController.navigationBar.tintColor) forState:UIControlStateNormal];
     [self.batteryView setTitle:[NSString stringWithFormat:@"%ld%%", battery] forState:UIControlStateNormal];
     [self.navigationItem setRightBarButtonItem:rigtItem animated:YES];
 }

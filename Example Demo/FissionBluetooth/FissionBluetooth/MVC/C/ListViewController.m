@@ -14,7 +14,7 @@
 @interface ListViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong) UITableView *tableView;
-@property(nonatomic,strong) NSMutableArray <DeviceListModel *> *datas;
+@property(nonatomic,strong) NSMutableArray <FBPeripheralModel *> *datas;
 
 @property (nonatomic, assign) BOOL isReload;
 
@@ -81,7 +81,7 @@
                 [weakSelf.radarView animation:NO];
             }
             
-            [weakSelf.datas sortUsingComparator:^NSComparisonResult(DeviceListModel *  _Nonnull obj1, DeviceListModel *  _Nonnull obj2) {
+            [weakSelf.datas sortUsingComparator:^NSComparisonResult(FBPeripheralModel *  _Nonnull obj1, FBPeripheralModel *  _Nonnull obj2) {
                 
                 if (obj1.RSSI.integerValue > obj2.RSSI.integerValue) {
                     return NSOrderedAscending;
@@ -133,7 +133,7 @@
     
     if (indexPath.row < self.datas.count) {
         
-        DeviceListModel *model = self.datas[indexPath.row];
+        FBPeripheralModel *model = self.datas[indexPath.row];
         
         [cell reloadView:model];
     }
@@ -142,7 +142,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    DeviceListModel *model = self.datas[indexPath.row];
+    FBPeripheralModel *model = self.datas[indexPath.row];
     
     [FBBluetoothManager.sharedInstance connectToPeripheral:model.peripheral];
     
@@ -158,15 +158,15 @@
             [self.navigationController popViewControllerAnimated:YES];
         }
     }
-    else if ([obj.object isKindOfClass:DeviceListModel.class]) {
+    else if ([obj.object isKindOfClass:FBPeripheralModel.class]) {
         
-        DeviceListModel *model = obj.object;
+        FBPeripheralModel *model = obj.object;
         
         NSArray *array = [NSArray arrayWithArray:self.datas];
         
         __block BOOL contains = NO;
          
-        [array enumerateObjectsUsingBlock:^(DeviceListModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [array enumerateObjectsUsingBlock:^(FBPeripheralModel * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             if ([obj.mac_Address isEqualToString:model.mac_Address] &&
                 [obj.device_Name isEqualToString:model.device_Name]) {
                 contains = YES;

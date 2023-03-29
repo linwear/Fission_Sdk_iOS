@@ -140,9 +140,9 @@
             [self.navigationController popToRootViewControllerAnimated:YES];
         }
     }
-    else if ([obj.object isKindOfClass:DeviceListModel.class]) {
+    else if ([obj.object isKindOfClass:FBPeripheralModel.class]) {
         
-        DeviceListModel *model = obj.object;
+        FBPeripheralModel *model = obj.object;
         
         if ([self.mac isEqualToString:model.mac_Address]) {
             

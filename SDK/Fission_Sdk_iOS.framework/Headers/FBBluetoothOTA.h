@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (FBBluetoothOTA *)sharedInstance;
 
 
-/** OTA升级响应超时（单位秒），至少120，默认120｜OTA upgrade response timeout (in seconds), at least 120, default 120  */
+/** OTA升级响应超时（单位秒），至少30，默认30，部分OTA可能会多次重启设备，可能需要将此值设置大一些｜OTA upgrade response timeout (in seconds), at least 30, default 30, some OTAs may restart the device multiple times, you may need to set this value larger  */
 @property (nonatomic, assign) uint8_t sendTimerOut;
 
 /** OTA升级是否检查电量，电量应不低于30%，默认YES｜Whether the OTA upgrade checks the power, the power should not be less than 30%, and the default is yes */

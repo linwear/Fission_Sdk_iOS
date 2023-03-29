@@ -148,6 +148,8 @@
         
         FBBluetoothOTA.sharedInstance.isCheckPower = NO;
         
+        FBBluetoothOTA.sharedInstance.sendTimerOut = 30;
+        
         [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:FB_OTANotification_ClockDial withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
             if (error) {
                 [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];

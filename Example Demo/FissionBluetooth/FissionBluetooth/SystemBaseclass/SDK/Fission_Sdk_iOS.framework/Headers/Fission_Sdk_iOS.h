@@ -12,14 +12,19 @@
 //  框架功能｜Framework Function: iOS framework for Fission smart watch, which is responsible for the communication with the watch.
 //                              Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装。
 //  修改记录｜Modification Record:
+//     pcjbird    2023-03-29  Version:3.1.1 Build:202303291000
+//                            1.优化内部压缩算法
+//                            2.修复"获取设备硬件信息"结构体版本错误问题
+//                            2.新增"获取设备绑定状态"协议（FBAtCommand）fbGetBindingStatusRequestWithBlock:
+//                            3.新增"获取当前运动状态"协议（FBAtCommand）fbGetCurrentExerciseStateStatusWithBlock:
+//
 //     pcjbird    2023-03-24  Version:3.1.0 Build:202303241000
 //                            1.FB_OTANOTIFICATION 新增OTA通知类型:
 //                              FB_OTANotification_Multi_Dial_Built_in(200)
 //                              FB_OTANotification_Multi_Sport_Built_in(201)
 //                            2.FBCustomDataTools「多个运动类型Bin文件压缩合并成一个Bin文件」压缩算法API调整（2048或4096）
 //                            3.新增"获取设备运动类型列表"协议（FBBgCommand）fbGetListOfDeviceMotionTypesWithBlock:
-//                            4.某些设备重启耗时长，导致SDK认为OTA超时，SDK默认超时时间由30秒改至120秒
-//                            5.原厂OTA SDK更新: RTKOTASDK.framework
+//                            4.原厂OTA SDK更新: RTKOTASDK.framework
 //
 //     pcjbird    2023-03-01  Version:3.0.9 Build:202303011000
 //                            1.FBFirmwareVersionObject 新增配置:

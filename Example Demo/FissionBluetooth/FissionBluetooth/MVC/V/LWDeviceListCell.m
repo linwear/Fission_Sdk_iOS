@@ -70,7 +70,7 @@
     }];
 }
 
-- (void)reloadView:(DeviceListModel *)model {
+- (void)reloadView:(FBPeripheralModel *)model {
     
     self.nameLabel.text = [NSString stringWithFormat:@"%@ - - %@", model.device_Name, model.RSSI];
     

@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LWDeviceListCell : UITableViewCell
 
-- (void)reloadView:(DeviceListModel *)model;
+- (void)reloadView:(FBPeripheralModel *)model;
 
 @end
 

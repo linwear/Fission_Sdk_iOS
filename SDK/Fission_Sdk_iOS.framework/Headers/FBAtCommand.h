@@ -370,6 +370,15 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)fbVibrationFeedbackSwitchWithMode:(BOOL)mode withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
 
+#pragma mark - 获取设备当前绑定状态｜Get the current binding status of the device
+/**
+ 获取设备当前绑定状态｜Get the current binding status of the device
+ 
+ @note 🔑设备绑定状态，为0: 未绑定，不为0: 已绑定｜🔑Device binding status, 0: unbound, not 0: bound
+*/
+- (void)fbGetBindingStatusRequestWithBlock:(FBGet_AT_ResultCallBackBlock _Nonnull)fbBlock;
+
+
 #pragma mark - 绑定设备请求｜Bind device request
 /**
  绑定设备请求｜Bind device request
@@ -411,6 +420,15 @@ NS_ASSUME_NONNULL_BEGIN
  @param threshold           提示阀值，当指定值大于0则进行提示；当h=0，为关闭此类提示｜Prompt the threshold value, and prompt when the specified value is greater than 0; When h = 0, this prompt is turned off
  */
 - (void)fbSetPromptFunctionWithMode:(FB_PROMPTFUNCTION)mode withThreshold:(NSInteger)threshold withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 获取当前运动状态｜Get the current exercise state
+/**
+ 获取当前运动状态｜Get the current exercise state
+ 
+ @note  运动状态，0:运动停止，1:运动进行中，2:运动暂停中
+ */
+- (void)fbGetCurrentExerciseStateStatusWithBlock:(FBGet_AT_ResultCallBackBlock _Nonnull)fbBlock;
 
 
 #pragma mark - APP端GPS运动指令同步｜App GPS motion command synchronization

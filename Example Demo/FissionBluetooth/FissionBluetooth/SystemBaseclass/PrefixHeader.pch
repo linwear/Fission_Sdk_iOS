@@ -92,7 +92,6 @@ static NSString *const FISSION_SDK_WATCHCLICKTAKEPHOTO = @"FISSION_SDK_WATCHCLIC
 #import "NSObject+HUD.h"
 #import "LWNetworkingManager.h"
 #import "Tools.h"
-#import "DeviceListModel.h"
 #import "NSObject+Authorized.h"
 #import "UIAlertObject.h"
 

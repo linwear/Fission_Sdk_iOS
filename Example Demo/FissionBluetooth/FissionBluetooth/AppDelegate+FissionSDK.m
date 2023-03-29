@@ -22,16 +22,8 @@
     
     // Scan to device callback method
     [FBBluetoothManager.sharedInstance fbDiscoverPeripheralsWithBlock:^(FBPeripheralModel * _Nonnull peripheralModel) {
-        DeviceListModel *model = DeviceListModel.new;
-        model.isPair = peripheralModel.isPair;
-        model.device_Name = peripheralModel.device_Name;
-        model.mac_Address = peripheralModel.mac_Address;
-        model.adapt_Number = peripheralModel.adapt_Number;
-        model.peripheral = peripheralModel.peripheral;
-        model.advertisementData = peripheralModel.advertisementData;
-        model.RSSI = peripheralModel.RSSI;
         
-        [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:model];
+        [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:peripheralModel];
     }];
        
     // Device disconnection callback method

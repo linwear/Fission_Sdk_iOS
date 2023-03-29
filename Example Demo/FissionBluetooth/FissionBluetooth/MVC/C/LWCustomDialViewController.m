@@ -243,6 +243,8 @@ const CGFloat CustomDiaButtonMargin = 24.0;
     [SVProgressHUD showWithStatus:LWLocalizbleString(@"Loading...")];
     
     FBBluetoothOTA.sharedInstance.isCheckPower = NO;
+    
+    FBBluetoothOTA.sharedInstance.sendTimerOut = 30;
             
     [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:FB_OTANotification_CustomClockDial withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
         [SVProgressHUD dismiss];

@@ -529,6 +529,8 @@
     
     FBBluetoothOTA.sharedInstance.isCheckPower = NO;
     
+    FBBluetoothOTA.sharedInstance.sendTimerOut = 30;
+    
     [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFileData withOTAType:OTANOTIFICATION withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
         if (error) {
             [SVProgressHUD dismiss];

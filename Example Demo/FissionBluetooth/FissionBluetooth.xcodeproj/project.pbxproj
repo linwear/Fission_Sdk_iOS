@@ -94,7 +94,6 @@
 		592358D4293F2ACB00E5379C /* LWLanguageLocalizble.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358D3293F2ACB00E5379C /* LWLanguageLocalizble.m */; };
 		592358D9293F2C8C00E5379C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 592358DB293F2C8C00E5379C /* Localizable.strings */; };
 		592358DF293F4E3000E5379C /* LWDeviceListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358DD293F4E3000E5379C /* LWDeviceListCell.m */; };
-		592358E229402AFE00E5379C /* DeviceListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358E129402AFE00E5379C /* DeviceListModel.m */; };
 		592358E52940B04100E5379C /* LWBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358E42940B04100E5379C /* LWBaseViewController.m */; };
 		592358E929418AE200E5379C /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358E629418AE200E5379C /* WeatherViewController.m */; };
 		592358EA29418AE200E5379C /* WeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592358E729418AE200E5379C /* WeatherViewController.xib */; };
@@ -379,8 +378,6 @@
 		592358DC293F2C9100E5379C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		592358DD293F4E3000E5379C /* LWDeviceListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWDeviceListCell.m; sourceTree = "<group>"; };
 		592358DE293F4E3000E5379C /* LWDeviceListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWDeviceListCell.h; sourceTree = "<group>"; };
-		592358E029402AFE00E5379C /* DeviceListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceListModel.h; sourceTree = "<group>"; };
-		592358E129402AFE00E5379C /* DeviceListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceListModel.m; sourceTree = "<group>"; };
 		592358E32940B04100E5379C /* LWBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LWBaseViewController.h; sourceTree = "<group>"; };
 		592358E42940B04100E5379C /* LWBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LWBaseViewController.m; sourceTree = "<group>"; };
 		592358E629418AE200E5379C /* WeatherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherViewController.m; sourceTree = "<group>"; };
@@ -611,8 +608,6 @@
 				59235810293EDED300E5379C /* DialListModel.m */,
 				59235816293EDED300E5379C /* LWPersonModel.h */,
 				5923580F293EDED300E5379C /* LWPersonModel.m */,
-				592358E029402AFE00E5379C /* DeviceListModel.h */,
-				592358E129402AFE00E5379C /* DeviceListModel.m */,
 				590B97782966833800D31A76 /* NSObject+Authorized.h */,
 				590B97792966833800D31A76 /* NSObject+Authorized.m */,
 				590B97822967F08F00D31A76 /* FBLogManager.h */,
@@ -1423,7 +1418,6 @@
 				590B977A2966833800D31A76 /* NSObject+Authorized.m in Sources */,
 				5923587F293EDED300E5379C /* LWPersonModel.m in Sources */,
 				592358E52940B04100E5379C /* LWBaseViewController.m in Sources */,
-				592358E229402AFE00E5379C /* DeviceListModel.m in Sources */,
 				59F62AE6296BAADE00A0603C /* FBAboutHeadView.m in Sources */,
 				592358B0293EDED300E5379C /* LWCustomDialCell.m in Sources */,
 				59235884293EDED300E5379C /* NSObject+HUD.m in Sources */,
