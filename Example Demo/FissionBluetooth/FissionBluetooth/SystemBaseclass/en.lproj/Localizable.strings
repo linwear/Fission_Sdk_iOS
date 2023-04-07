@@ -26,6 +26,8 @@
 "Bind key error" = "Bind key error";
 "The binding key is correct" = "The binding key is correct";
 "No binding required" = "No binding required";
+"Device reset, do you want to rebind?" = "Device reset, do you want to rebind?";
+"Rebind" = "Rebind";
 "QR code scanning" = "QR code scanning";
 "Scan Result" = "Scan Result";
 "Connect" = "Connect";
@@ -205,3 +207,16 @@
 "3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [firmwares]" = "3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [firmwares]";
 "4. There are two ways to import files:\n①. Click [Import] - [Select File] and select the bin file you want to import locally\n②. Drag the bin file you want to import locally to this list" = "4. There are two ways to import files:\n①. Click [Import] - [Select File] and select the bin file you want to import locally\n②. Drag the bin file you want to import locally to this list";
 "5. After the import is successful, refresh the APP page, you can see the file you just imported, click to select it for OTA" = "5. After the import is successful, refresh the APP page, you can see the file you just imported, click to select it for OTA";
+
+"Select All" = "Select All";
+"Delete" = "Delete";
+"The frequently used contacts you set will be automatically synced to the device." = "The frequently used contacts you set will be automatically synced to the device.";
+"Are you sure you want to delete the selected contacts?" = "Are you sure you want to delete the selected contacts?";
+"Please allow %@ to access contact information in iPhone's [Settings-Privacy-Contacts]" = "Please allow %@ to access contact information in iPhone's [Settings-Privacy-Contacts]";
+"Get Contacts" = "Get Contacts";
+"Set contacts" = "Set contacts";
+"Add up to 50 frequently used contacts" = "Add up to 50 frequently used contacts";
+"The length of the selected contact name or number is wrong, please choose again!" = "The length of the selected contact name or number is wrong, please choose again!";
+"The selected contact already exists, please select again!" = "The selected contact already exists, please select again!";
+"Address Book" = "Address Book";
+"Search Contacts" = "Search Contacts";

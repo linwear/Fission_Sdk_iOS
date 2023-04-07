@@ -94,7 +94,6 @@ typedef NS_ENUM(NSInteger, RTKOTAErrorCode) {
     RTKOTAErrorOTAModeEnter,                                ///< Request device to switch to OTA mode fail.
     
     RTKOTAErrorCompanionDiscovery,                          ///< Discover for companion device fail.
-    RTKOTAInvalidCallException,                             ///< Invalid method call.
 };
 
 #endif /* RTKOTAError_h */

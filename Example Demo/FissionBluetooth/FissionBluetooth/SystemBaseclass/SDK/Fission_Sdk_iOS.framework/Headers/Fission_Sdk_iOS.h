@@ -12,6 +12,9 @@
 //  框架功能｜Framework Function: iOS framework for Fission smart watch, which is responsible for the communication with the watch.
 //                              Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装。
 //  修改记录｜Modification Record:
+//     pcjbird    2023-04-03  Version:3.1.2 Build:202304031700
+//                            1.新增图片资源，自定义表盘，不同分辨率使用不同大小的切图
+//
 //     pcjbird    2023-03-29  Version:3.1.1 Build:202303291000
 //                            1.优化内部压缩算法
 //                            2.修复"获取设备硬件信息"结构体版本错误问题

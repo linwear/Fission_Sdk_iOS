@@ -34,8 +34,4 @@
 - ``retryCountWhenBufferCheckFail``
 - ``shouldWaitForDisconnectionBeforeReportCompletion``
 - ``olderImageAllowed``
-- ``usingStrictImageCheckMechanism``
-- ``checkFeatureInfo``
-- ``batteryLevelLimit``
-- ``prefersUpgradeUsingOTAMode``
 - ``-setEncryptionKey:``

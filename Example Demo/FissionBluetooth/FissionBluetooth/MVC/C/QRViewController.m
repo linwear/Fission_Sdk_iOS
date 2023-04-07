@@ -56,47 +56,40 @@
         
         FBLog(@"%@", result);
         
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:LWLocalizbleString(@"Scan Result") message:result preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *act = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Connect") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Scan Result") message:result cancel:LWLocalizbleString(@"Cancel") sure:LWLocalizbleString(@"Connect") block:^(AlertClickType clickType) {
             
-            NSArray *array = [Tools componentsSeparatedBySetCharacters:@"& " withString:result]; // 用&符号和空格 分割
-            NSString *tempStr = nil;
-            for (NSString *arrStr in array) {
-                if ([arrStr containsString:@"MAC="] || [arrStr containsString:@"MAC:"]) {
-                    tempStr = arrStr;
+            if (clickType == AlertClickType_Sure) {
+                NSArray *array = [Tools componentsSeparatedBySetCharacters:@"& " withString:result]; // 用&符号和空格 分割
+                NSString *tempStr = nil;
+                for (NSString *arrStr in array) {
+                    if ([arrStr containsString:@"MAC="] || [arrStr containsString:@"MAC:"]) {
+                        tempStr = arrStr;
+                    }
                 }
-            }
-            
-            NSRange range = [tempStr rangeOfString:@"MAC="]; // Subscript obtained by matching
-            if (range.location == NSNotFound) {
-                // If the above does not match, find the following
-                range = [tempStr rangeOfString:@"MAC:"]; // Subscript obtained by matching
-            }
-            
-            if (StringIsEmpty(tempStr) || range.location == NSNotFound) {
-                // No match
-                NSString *message = LWLocalizbleString(@"This type of QR code is not supported");
                 
-                [NSObject showHUDText:message];
+                NSRange range = [tempStr rangeOfString:@"MAC="]; // Subscript obtained by matching
+                if (range.location == NSNotFound) {
+                    // If the above does not match, find the following
+                    range = [tempStr rangeOfString:@"MAC:"]; // Subscript obtained by matching
+                }
                 
-                return;
+                if (StringIsEmpty(tempStr) || range.location == NSNotFound) {
+                    // No match
+                    NSString *message = LWLocalizbleString(@"This type of QR code is not supported");
+                    
+                    [NSObject showHUDText:message];
+                    
+                    return;
+                }
+                tempStr = [tempStr substringFromIndex:range.location + range.length];//截取范围类的字符串
+                if (![tempStr containsString:@":"]) { // 规范mac地址格式，转大写加:符号
+                    tempStr = [tempStr uppercaseString];
+                    tempStr = [Tools insertColonEveryTwoCharactersWithString:tempStr];
+                }
+                
+                [weakSelf mac:tempStr];
             }
-            tempStr = [tempStr substringFromIndex:range.location + range.length];//截取范围类的字符串
-            if (![tempStr containsString:@":"]) { // 规范mac地址格式，转大写加:符号
-                tempStr = [tempStr uppercaseString];
-                tempStr = [Tools insertColonEveryTwoCharactersWithString:tempStr];
-            }
-            
-            [weakSelf mac:tempStr];
         }];
-        [alert addAction:act];
-        
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        }];
-        [alert addAction:cancel];
-        
-        [weakSelf presentViewController:alert animated:YES completion:nil];
     }];
 }
 
@@ -124,7 +117,7 @@
 
 - (void)mac:(NSString *)mac {
     
-    [SVProgressHUD showWithStatus:LWLocalizbleString(@"Searching for connection")];
+    [NSObject showLoading:LWLocalizbleString(@"Searching for connection")];
     
     self.mac = mac;
     
@@ -149,7 +142,7 @@
             [FBBluetoothManager.sharedInstance cancelScan];
             
             [SVProgressHUD dismiss];
-            [SVProgressHUD showWithStatus:LWLocalizbleString(@"Connecting")];
+            [NSObject showLoading:LWLocalizbleString(@"Connecting")];
             
             [FBBluetoothManager.sharedInstance connectToPeripheral:model.peripheral];
         }

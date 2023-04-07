@@ -26,6 +26,8 @@
 "Bind key error" = "绑定密钥错误";
 "The binding key is correct" = "绑定密钥正确";
 "No binding required" = "无需绑定";
+"Device reset, do you want to rebind?" = "设备重置，是否重新绑定？";
+"Rebind" = "重新绑定";
 "QR code scanning" = "二维码扫描";
 "Scan Result" = "扫描结果";
 "Connect" = "连接";
@@ -205,3 +207,16 @@
 "3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [firmwares]" = "3. FissionBluetooth APP 文件管理\n①. 点击「Documents」\n②. 双击打开「firmwares」";
 "4. There are two ways to import files:\n①. Click [Import] - [Select File] and select the bin file you want to import locally\n②. Drag the bin file you want to import locally to this list" = "4. 导入文件，有两种方式:\n①. 点击「导入」-「选择文件」，选择你本地要导入的bin文件\n②. 将本地要导入的bin文件拖动到此列表";
 "5. After the import is successful, refresh the APP page, you can see the file you just imported, click to select it for OTA" = "5. 导入成功后，刷新APP页面，就可以看到刚刚导入的文件，点击选中进行OTA";
+
+"Select All" = "全选";
+"Delete" = "删除";
+"The frequently used contacts you set will be automatically synced to the device." = "您设置的常用联系人会自动同步到设备上。";
+"Are you sure you want to delete the selected contacts?" = "您确定要删除选定的联系人吗？";
+"Please allow %@ to access contact information in iPhone's [Settings-Privacy-Contacts]" = "请允许 %@ 访问 iPhone 的 [设置-隐私-通讯录] 中的联系人信息";
+"Get Contacts" = "获取联系人";
+"Set contacts" = "设置联系人";
+"Add up to 50 frequently used contacts" = "最多添加50个常用联系人";
+"The length of the selected contact name or number is wrong, please choose again!" = "所选联系人姓名或号码长度错误，请重新选择！";
+"The selected contact already exists, please select again!" = "选择的联系人已存在，请重新选择！";
+"Address Book" = "通讯录";
+"Search Contacts" = "搜索联系人";

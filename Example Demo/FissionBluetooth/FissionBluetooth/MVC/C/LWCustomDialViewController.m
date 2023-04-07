@@ -240,7 +240,7 @@ const CGFloat CustomDiaButtonMargin = 24.0;
 //
 //        [binFile writeToFile:FileName atomically:YES];//将NSData类型对象data写入文件，文件名为FileName
     
-    [SVProgressHUD showWithStatus:LWLocalizbleString(@"Loading...")];
+    [NSObject showLoading:LWLocalizbleString(@"Loading...")];
     
     FBBluetoothOTA.sharedInstance.isCheckPower = NO;
     

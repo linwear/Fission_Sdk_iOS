@@ -32,12 +32,12 @@
 #import "LWStartCountdownView.h"
 #import "FBSportsConnectViewController.h"
 
+#import "FBBatteryView.h"
+
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
 @property (nonatomic, strong) QMUIButton *titleView;
-@property (nonatomic, strong) QMUIButton *batteryView;
-@property (nonatomic, assign) NSInteger battery;
-@property (nonatomic, assign) FB_BATTERYLEVEL level;
+@property (nonatomic, strong) FBBatteryView *batteryView;
 
 @property(nonatomic,strong) UITextView *receTextView;
 @property(nonatomic,strong) UITableView *tableView;
@@ -156,7 +156,10 @@
 -(void)initUI{
     
     UIBarButtonItem *leftItem = [[UIBarButtonItem alloc] initWithImage:IMAGE_NAME(@"personal_myservice_icons") style:UIBarButtonItemStylePlain target:self action:@selector(scaleYAnimationFromLeft)];
-    self.navigationItem.leftBarButtonItem = leftItem;
+    [self.navigationItem setLeftBarButtonItem:leftItem animated:YES];
+    
+    UIBarButtonItem *rigtItem = [[UIBarButtonItem alloc] initWithCustomView:self.batteryView];
+    [self.navigationItem setRightBarButtonItem:rigtItem animated:YES];
     
     CGFloat leftSpace = 5;
     
@@ -179,7 +182,7 @@
     
     self.staTBut = [UIButton buttonWithType:UIButtonTypeCustom];
     self.staTBut.frame = CGRectMake(0, CGRectGetMaxY(self.receTextView.frame), SCREEN_WIDTH/2, 40);
-    self.staTBut.backgroundColor = [UIColor redColor];
+    self.staTBut.backgroundColor = UIColorRed;
     [self.staTBut setTitle:[self getTheCurrentTimeFormat:NO] forState:UIControlStateNormal];
     [self.staTBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.view addSubview:self.staTBut];
@@ -187,7 +190,7 @@
     
     self.endTBut = [UIButton buttonWithType:UIButtonTypeCustom];
     self.endTBut.frame = CGRectMake(CGRectGetMaxX(self.staTBut.frame), CGRectGetMaxY(self.receTextView.frame), SCREEN_WIDTH/2, 40);
-    self.endTBut.backgroundColor = [UIColor blueColor];
+    self.endTBut.backgroundColor = BlueColor;
     [self.endTBut setTitle:[self getTheCurrentTimeFormat:YES] forState:UIControlStateNormal];
     [self.endTBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.view addSubview:self.endTBut];
@@ -408,18 +411,18 @@
     view.backgroundColor = UIColorWhite;
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0,SCREEN_WIDTH-20, 60)];
-    label.font = FONT(14);
-    label.textColor = [UIColor redColor];
+    label.font = [NSObject themePingFangSCMediumFont:17];
+    label.textColor = UIColorRed;
     [view addSubview:label];
     
     UIButton *clickBtn = [[UIButton alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-100,10,80, 40)];
     [clickBtn setTitle:LWLocalizbleString(@"Expand") forState:UIControlStateNormal];
     [clickBtn setTitle:LWLocalizbleString(@"Away") forState:UIControlStateSelected];
-    [clickBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [clickBtn setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
+    [clickBtn setTitleColor:UIColorBlack forState:UIControlStateNormal];
+    [clickBtn setTitleColor:UIColorBlack forState:UIControlStateSelected];
     [clickBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     clickBtn.layer.borderWidth = 0.5;
-    clickBtn.titleLabel.font = FONT(14);
+    clickBtn.titleLabel.font = [NSObject themePingFangSCMediumFont:14];
     clickBtn.layer.borderColor = [UIColor blackColor].CGColor;
     clickBtn.layer.cornerRadius = 10;
     clickBtn.tag = 100 + section;
@@ -1684,15 +1687,9 @@
 }
 
 #pragma mark - batteryView
-- (QMUIButton *)batteryView {
+- (FBBatteryView *)batteryView {
     if (!_batteryView) {
-        _batteryView = [QMUIButton buttonWithType:UIButtonTypeCustom];
-        _batteryView.frame = CGRectMake(0, 0, 60, 44);
-        _batteryView.enabled = NO;
-        _batteryView.titleLabel.font = [NSObject themePingFangSCMediumFont:15];
-        [_batteryView setTitleColor:self.navigationController.navigationBar.tintColor forState:UIControlStateNormal];
-        [_batteryView setImage:IMAGE_NAME(@"ic_device_power12") forState:UIControlStateSelected];
-        _batteryView.spacingBetweenImageAndTitle = 3;
+        _batteryView = [[FBBatteryView alloc] initWithFrame:CGRectMake(0, 0, 60, 44)];
     }
     return _batteryView;
 }
@@ -1711,7 +1708,7 @@
         if (state == CONNECTBINGSTATE_COMPLETE) {
             [FBAtCommand.sharedInstance fbReqBatteryStatusDataWithBlock:^(FBBatteryInfoModel * _Nullable responseObject, NSError * _Nullable error) { // Refresh battery
                 
-                [weakSelf reloadBattery:responseObject.batteryLevel state:responseObject.batteryState];
+                [weakSelf.batteryView reloadBattery:responseObject.batteryLevel state:responseObject.batteryState];
             }];
         }
     }
@@ -1725,11 +1722,11 @@
         self.receTextView.text = [NSString stringWithFormat:@"%@", model.mj_keyValues];
         
         if (functionMode == FS_STATEOFCHARGE_WARN) { // Refresh battery
-            [self reloadBattery:self.battery state:(FB_BATTERYLEVEL)functionChangeValue];
+            [self.batteryView reloadBattery:self.batteryView.battery state:(FB_BATTERYLEVEL)functionChangeValue];
         }
         
         else if (model.functionMode == FS_PERCENTAGE_BATTERY) { // Refresh battery
-            [self reloadBattery:functionChangeValue state:self.level];
+            [self.batteryView reloadBattery:functionChangeValue state:self.batteryView.level];
         }
         
         else if (model.functionMode == FS_TAKEPHOTOS_WARN) { // Camera mode
@@ -1768,7 +1765,7 @@
     if (StringIsEmpty(FBAllConfigObject.firmwareConfig.deviceName)) {
         self.titleView.selected = NO;
         [self.titleView setTitle:LWLocalizbleString(@"No Connection") forState:UIControlStateNormal];
-        [self reloadBattery:0 state:BATT_LOW_POWER];
+        [self.batteryView reloadBattery:-1 state:BATT_NORMAL]; // -1 隐藏电量🔋
         
         self.versionLab.text = @"";
     }
@@ -1782,6 +1779,7 @@
         } else {
             self.titleView.selected = NO;
             [self.titleView setTitle:object.deviceName forState:UIControlStateNormal];
+            [self.batteryView reloadBattery:-1 state:BATT_NORMAL]; // -1 隐藏电量🔋
         }
         
         self.versionLab.text = [NSString stringWithFormat:@"%@:%@ %@:%@\n%@ %@",
@@ -1791,17 +1789,6 @@
     }
     
     self.navigationItem.titleView = self.titleView;
-}
-
-#pragma mark - 电池电量刷新｜Refresh battery
-- (void)reloadBattery:(NSInteger)battery state:(FB_BATTERYLEVEL)level {
-    self.battery = battery;
-    self.level = level;
-    UIBarButtonItem *rigtItem = [[UIBarButtonItem alloc] initWithCustomView:self.batteryView];
-    self.batteryView.selected = (level==BATT_CHARGING);
-    [self.batteryView setTitleColor:(level==BATT_LOW_POWER ? UIColor.redColor : self.navigationController.navigationBar.tintColor) forState:UIControlStateNormal];
-    [self.batteryView setTitle:[NSString stringWithFormat:@"%ld%%", battery] forState:UIControlStateNormal];
-    [self.navigationItem setRightBarButtonItem:rigtItem animated:YES];
 }
 
 @end

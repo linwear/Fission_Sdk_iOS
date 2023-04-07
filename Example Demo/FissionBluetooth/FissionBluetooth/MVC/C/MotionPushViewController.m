@@ -123,7 +123,7 @@
 
 - (void)NetworkRequest {
     
-    [SVProgressHUD showWithStatus:LWLocalizbleString(@"Loading...")];
+    [NSObject showLoading:LWLocalizbleString(@"Loading...")];
     
     WeakSelf(self);
     [LWNetworkingManager requestURL:@"api/v2/sportPush/classify/list" httpMethod:GET params:@{} success:^(NSDictionary *result) {
@@ -467,7 +467,7 @@
 #pragma mark - 下载OTA包
 - (void)downloadProcessingWithArray:(NSArray <LWMotionPushModel *> *)array {
     
-    [SVProgressHUD showWithStatus:LWLocalizbleString(@"Loading...")];
+    [NSObject showLoading:LWLocalizbleString(@"Loading...")];
     if (self.isTwoGroups && array.count>=2) { // 支持多个且已选择2及以上
         
         FBLog(@"正在下载多个运动推送包...");
@@ -537,7 +537,7 @@
             [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
         }
         else if (status==FB_INDATATRANSMISSION) {
-            [SVProgressHUD showProgress:progress.totalPackageProgress/100.0 status:[NSString stringWithFormat:@"%@ %ld%%", LWLocalizbleString(@"Synchronize"), progress.totalPackageProgress]];
+            [NSObject showProgress:progress.totalPackageProgress/100.0 status:[NSString stringWithFormat:@"%@ %ld%%", LWLocalizbleString(@"Synchronize"), progress.totalPackageProgress]];
         }
         else if (status==FB_DATATRANSMISSIONDONE) {
             [SVProgressHUD dismiss];

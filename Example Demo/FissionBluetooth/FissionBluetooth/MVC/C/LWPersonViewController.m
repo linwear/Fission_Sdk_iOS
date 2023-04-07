@@ -153,21 +153,14 @@
                 }
             }
             if (arrDelete.count) {
-                
-                NSString *message = LWLocalizbleString(@"Are you sure you want to delete the selected contacts?");
+                                
                 WeakSelf(self);
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:LWLocalizbleString(@"Tip") message:message preferredStyle:UIAlertControllerStyleAlert];
-                
-                UIAlertAction *act = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Delete") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    [weakSelf setFavContactsList:arr];
+                [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Tip") message:LWLocalizbleString(@"Are you sure you want to delete the selected contacts?") cancel:LWLocalizbleString(@"Cancel") sure:LWLocalizbleString(@"Delete") block:^(AlertClickType clickType) {
+                    
+                    if (clickType == AlertClickType_Sure) {
+                        [weakSelf setFavContactsList:arr];
+                    }
                 }];
-                [alert addAction:act];
-                
-                UIAlertAction *cancel = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-                }];
-                [alert addAction:cancel];
-                
-                [self presentViewController:alert animated:YES completion:nil];
             }
         }
     }
@@ -291,20 +284,15 @@
     }
     else {
         FBLog(@"您未开启通讯录权限,请前往设置中心开启");
+        NSString *message = [NSString stringWithFormat:LWLocalizbleString(@"Please allow %@ to access contact information in iPhone's [Settings-Privacy-Contacts]"), Tools.appName];
         
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:LWLocalizbleString(@"Tip") message:LWLocalizbleString(@"Please allow %@ to access the address book in iPhone's [Settings-Privacy-Contacts]") preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *act = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Set") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            //进入系统设置页面，APP本身的权限管理页面
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+        [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Tip") message:message cancel:LWLocalizbleString(@"Cancel") sure:LWLocalizbleString(@"Set") block:^(AlertClickType clickType) {
+            
+            if (clickType == AlertClickType_Sure) {
+                //进入系统设置页面，APP本身的权限管理页面
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+            }
         }];
-        [alert addAction:act];
-        
-        UIAlertAction *cancel = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        }];
-        [alert addAction:cancel];
-        
-        [self presentViewController:alert animated:YES completion:nil];
     }
 }
 
@@ -320,17 +308,17 @@
 
 #pragma mark - 读取手表联系人
 
-// 获取闹钟列表
+// 获取联系人列表
 - (void)getFavContactsList {
     WeakSelf(self);
-    [SVProgressHUD showWithStatus:@"Get Contacts"];
+    [NSObject showLoading:LWLocalizbleString(@"Get Contacts")];
     
     [FBBgCommand.sharedInstance fbGetFavoriteContactListWithBlock:^(FB_RET_CMD status, float progress, NSArray<FBFavContactModel *> * _Nullable responseObject, NSError * _Nullable error) {
         if (error) {
             [NSObject showHUDText:[NSString stringWithFormat:@"%@", error.localizedDescription]];
         }
         else if (status==FB_INDATATRANSMISSION) {
-            [SVProgressHUD showProgress:progress status:[NSString stringWithFormat:@"%.0f%%", progress*100]];
+            [NSObject showProgress:progress status:[NSString stringWithFormat:@"%.0f%%", progress*100]];
         }
         else if (status==FB_DATATRANSMISSIONDONE) {
             
@@ -356,7 +344,7 @@
 #pragma mark - 设置手表联系人
 - (void)setFavContactsList:(NSArray *)array {
     WeakSelf(self);
-    [SVProgressHUD showWithStatus:@"Set contacts"];
+    [NSObject showLoading:LWLocalizbleString(@"Set contacts")];
     
     NSMutableArray *arr = NSMutableArray.array;
     for (LWPersonModel *model in array) {

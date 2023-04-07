@@ -130,6 +130,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     LWDeviceListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LWDeviceListCell"];
+    UIView *view = UIView.new;
+    view.backgroundColor = UIColorTestGreen;
+    cell.selectedBackgroundView = view;
     
     if (indexPath.row < self.datas.count) {
         
@@ -146,7 +149,7 @@
     
     [FBBluetoothManager.sharedInstance connectToPeripheral:model.peripheral];
     
-    [SVProgressHUD showWithStatus:LWLocalizbleString(@"Connecting")];
+    [NSObject showLoading:LWLocalizbleString(@"Connecting")];
 }
 
 - (void)result:(NSNotification *)obj {

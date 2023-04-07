@@ -138,7 +138,7 @@
 */
 // 下载OTA包
 - (void)downloadOTA:(NSString *)url {
-    [SVProgressHUD showWithStatus:LWLocalizbleString(@"Loading...")];
+    [NSObject showLoading:LWLocalizbleString(@"Loading...")];
     WeakSelf(self);
     [LWNetworkingManager requestDownloadURL:url success:^(NSDictionary *result) {
         
@@ -155,7 +155,7 @@
                 [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
             }
             else if (status==FB_INDATATRANSMISSION) {
-                [SVProgressHUD showProgress:progress.totalPackageProgress/100.0 status:[NSString stringWithFormat:@"%@ %ld%%", LWLocalizbleString(@"Synchronize"), progress.totalPackageProgress]];
+                [NSObject showProgress:progress.totalPackageProgress/100.0 status:[NSString stringWithFormat:@"%@ %ld%%", LWLocalizbleString(@"Synchronize"), progress.totalPackageProgress]];
             }
             else if (status==FB_DATATRANSMISSIONDONE) {
                 [SVProgressHUD dismiss];

@@ -6,18 +6,34 @@
 //
 
 #import "NSObject+HUD.h"
-#import <CommonCrypto/CommonDigest.h>
-#import <CommonCrypto/CommonHMAC.h>
 
 @implementation NSObject (HUD)
+
+/// 文字提示框---透明允许交互
 + (void)showHUDText:(NSString *)text{
     [SVProgressHUD showImage:[UIImage imageNamed:@"?"] status:text];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
 }
-// 苹方中黑字体
+
+/// 加载等待框---渐变不允许交互
++ (void)showLoading:(NSString *)text {
+    [SVProgressHUD showWithStatus:text];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
+}
+
+/// 进度等待框---渐变不允许交互
++ (void)showProgress:(float)progress status:(NSString*)status {
+    [SVProgressHUD showProgress:progress status:status];
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
+}
+
+/// 字体
 + (UIFont *)themePingFangSCMediumFont:(CGFloat)fontSize {
     UIFont *font = [UIFont fontWithName:@"PingFangSC-Medium" size:fontSize];
     return font;
 }
+
+/// 圆角边框
 + (void)setView:(UIView*)view cornerRadius:(CGFloat)radius
             borderWidth:(CGFloat)bWidth
             borderColor:(UIColor *)bColor {
@@ -27,7 +43,7 @@
     view.layer.borderColor = bColor.CGColor;
 }
 
-// 获取屏幕当前显示的 ViewController
+/// 获取屏幕当前显示的 ViewController
 + (UIViewController *)getCurrentVC:(UIView *)view {
     UIResponder *next = view.nextResponder;
     

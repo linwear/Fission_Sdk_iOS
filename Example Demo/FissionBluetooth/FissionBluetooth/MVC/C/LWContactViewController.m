@@ -63,11 +63,11 @@
     
     // 完成
     QMUIButton *doneBut = [QMUIButton buttonWithType:UIButtonTypeCustom];
-    [doneBut setBackgroundColor:UIColor.blackColor];
+    [doneBut setBackgroundColor:BlueColor];
     [doneBut setTitleColor:UIColorWhite forState:UIControlStateNormal];
     [doneBut setTitle:LWLocalizbleString(@"Set") forState:UIControlStateNormal];
-    doneBut.titleLabel.font = FONT(18);
-    doneBut.cornerRadius = 8;
+    doneBut.titleLabel.font = [NSObject themePingFangSCMediumFont:18];
+    doneBut.cornerRadius = 24;
     [self.view addSubview:doneBut];
     [doneBut addTarget:self action:@selector(doneButClick) forControlEvents:UIControlEventTouchUpInside];
     doneBut.sd_layout.leftSpaceToView(self.view, 60).rightSpaceToView(self.view, 60).bottomSpaceToView(self.view, 34).heightIs(48);
@@ -77,7 +77,7 @@
 }
 
 - (void)setNaviRigBar {
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%ld", self.selectedArray.count] style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnClick)];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%ld/50", self.selectedArray.count] style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnClick)];
     self.navigationItem.rightBarButtonItem = rightItem;
 }
 
@@ -219,11 +219,11 @@
     NSString *name = model.name;
     NSString *phoneStr = model.phoneNumber;
     
-//    if (self.selectedArray.count >= 10 && !model.isSelect) {
-//
-//        [SVProgressHUD showWithStatus:LWLocalizbleString(@"Add up to 10 frequently used contacts")];
-//
-//    } else {
+    if (self.selectedArray.count >= 50 && !model.isSelect) {
+
+        [NSObject showLoading:LWLocalizbleString(@"Add up to 50 frequently used contacts")];
+
+    } else {
     
         //name 不能为空
         //phone 不能为空
@@ -262,7 +262,7 @@
         
         // 刷新列表
         [self.tableView reloadData];
-//    }
+    }
 }
 
 - (LWPersonModel *)predicateModel:(NSString *)phoneStr {

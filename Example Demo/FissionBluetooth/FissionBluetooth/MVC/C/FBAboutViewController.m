@@ -60,7 +60,7 @@
     self.headView = headView;
     
     self.dataArray = @[
-        @{@"GitHub" : @"https://github.com/linwear/Fission_Sdk_iOS.git"}
+        @{@"GitHub🔗" : @"https://github.com/linwear/Fission_Sdk_iOS.git"}
     ];
 }
 

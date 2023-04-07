@@ -126,6 +126,7 @@
 		593AA49929BB3E5D00B2DD49 /* FBTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA49829BB3E5D00B2DD49 /* FBTutorialViewController.m */; };
 		593FBF67298A36DE00986F13 /* MotionPushCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 593FBF65298A36DE00986F13 /* MotionPushCollectionViewCell.m */; };
 		593FBF68298A36DE00986F13 /* MotionPushCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593FBF66298A36DE00986F13 /* MotionPushCollectionViewCell.xib */; };
+		595145C929D6DDEF0068442B /* FBBatteryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 595145C829D6DDEF0068442B /* FBBatteryView.m */; };
 		59C6CC4B25ADA95F007C2521 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C6CC4A25ADA95F007C2521 /* AudioToolbox.framework */; };
 		59C909A229BC8602007AA373 /* UIAlertObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C909A129BC8602007AA373 /* UIAlertObject.m */; };
 		59E7BE68268C13C400B8001A /* ic_dial_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE50268C13C400B8001A /* ic_dial_button@2x.png */; };
@@ -440,6 +441,8 @@
 		593FBF64298A36DE00986F13 /* MotionPushCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MotionPushCollectionViewCell.h; sourceTree = "<group>"; };
 		593FBF65298A36DE00986F13 /* MotionPushCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MotionPushCollectionViewCell.m; sourceTree = "<group>"; };
 		593FBF66298A36DE00986F13 /* MotionPushCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotionPushCollectionViewCell.xib; sourceTree = "<group>"; };
+		595145C729D6DDEF0068442B /* FBBatteryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBBatteryView.h; sourceTree = "<group>"; };
+		595145C829D6DDEF0068442B /* FBBatteryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBBatteryView.m; sourceTree = "<group>"; };
 		59B66DB625A4376D0068B89A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		59C6CC4A25ADA95F007C2521 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		59C909A029BC8602007AA373 /* UIAlertObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIAlertObject.h; sourceTree = "<group>"; };
@@ -781,6 +784,8 @@
 				593AA47B29B720E600B2DD49 /* LWMotionDataView.m */,
 				593AA49429BB16C100B2DD49 /* BinFileTableViewCell.h */,
 				593AA49529BB16C100B2DD49 /* BinFileTableViewCell.m */,
+				595145C729D6DDEF0068442B /* FBBatteryView.h */,
+				595145C829D6DDEF0068442B /* FBBatteryView.m */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -1421,6 +1426,7 @@
 				59F62AE6296BAADE00A0603C /* FBAboutHeadView.m in Sources */,
 				592358B0293EDED300E5379C /* LWCustomDialCell.m in Sources */,
 				59235884293EDED300E5379C /* NSObject+HUD.m in Sources */,
+				595145C929D6DDEF0068442B /* FBBatteryView.m in Sources */,
 				5923588D293EDED300E5379C /* HeartRateReminderVC.m in Sources */,
 				590B978F2968117100D31A76 /* FBWebViewController.m in Sources */,
 				5923588C293EDED300E5379C /* BinFileViewController.m in Sources */,
