@@ -29,11 +29,6 @@
 
 @implementation MotionPushViewController
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self NetworkRequest];
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
@@ -98,6 +93,9 @@
     [tableView registerClass:LWMotionPushDataCell.class forCellReuseIdentifier:@"LWMotionPushDataCell"];
     self.tableView = tableView;
     self.tableView.sd_layout.topSpaceToView(self.view, NavigationContentTop).leftEqualToView(self.view).rightEqualToView(self.view).bottomSpaceToView(self.button, 15);
+    
+    // get
+    [self reloadList];
 }
 
 - (void)butClick {
@@ -121,7 +119,7 @@
     }];
 }
 
-- (void)NetworkRequest {
+- (void)NetworkRequest:(NSArray <NSNumber *> *)watchArray {
     
     [NSObject showLoading:LWLocalizbleString(@"Loading...")];
     
@@ -134,6 +132,7 @@
             NSArray *array = result[@"data"][@"list"];
     
             [weakSelf.dataAry removeAllObjects];
+            [weakSelf.selectAry removeAllObjects];
             
             BOOL isShow = YES;  // 默认第一个展开
 
@@ -151,14 +150,28 @@
                 for (NSDictionary *listDict in sportList) {
                     LWMotionPushModel *model = LWMotionPushModel.new;
                     [model mj_setKeyValues:listDict];
+                    
+                    if ([watchArray containsObject:@(model.sportType)]) { // 手表内已存在的推送运动类型
+                        NSInteger index = [watchArray indexOfObject:@(model.sportType)];
+                        model.isShow = YES;
+                        model.index = index;
+                        [weakSelf.selectAry addObject:model];
+                    }
+                    
                     [list addObject:model];
                 }
                 classifyModel.sportList = list;
                 
                 [weakSelf.dataAry addObject:classifyModel];
             }
+            
+            if (weakSelf.selectAry.count > 1) { // 个数大于1，进行排序：与手表顺序一致
+                NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"index" ascending:YES];
+                [weakSelf.selectAry sortUsingDescriptors:@[sortDescriptor]];
+            }
 
             [weakSelf.tableView reloadData];
+            
         } else {
             [NSObject showHUDText:result[@"msg"]];
         }
@@ -177,7 +190,26 @@
 //    NSError *err;
 //    [self.arrayData addObjectsFromArray:[[NSFileManager defaultManager] contentsOfDirectoryAtPath:s error:&err]];
 //    [self.tableView reloadData];
-    [self NetworkRequest];
+    WeakSelf(self);
+    // 获取手表运动类型列表
+    [FBBgCommand.sharedInstance fbGetListOfDeviceMotionTypesWithBlock:^(FB_RET_CMD status, float progress, FBMotionTypesListModel * _Nullable responseObject, NSError * _Nullable error) {
+        if (error) {
+            [NSObject showHUDText:error.localizedDescription];
+            [weakSelf NetworkRequest:@[]];
+        }
+        else if (status == FB_DATATRANSMISSIONDONE) {
+            NSMutableArray <NSNumber *> *array = NSMutableArray.array;
+            if (responseObject.pushCount > 0 && responseObject.pushCount <= responseObject.SportsList.count) {
+                NSRange endRange = NSMakeRange(responseObject.SportsList.count-responseObject.pushCount, responseObject.pushCount);
+                NSArray *subarray = [responseObject.SportsList subarrayWithRange:endRange];
+                
+                for (NSNumber *number in subarray) {
+                    [array addObject:@([Tools convertType:(FB_MOTIONMODE)number.integerValue])];
+                }
+            }
+            [weakSelf NetworkRequest:array];
+        }
+    }];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {

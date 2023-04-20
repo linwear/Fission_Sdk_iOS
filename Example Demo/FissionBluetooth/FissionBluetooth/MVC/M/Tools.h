@@ -37,6 +37,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 时分秒
 + (NSString *)HMS:(NSInteger)duration;
 
+/// 运动类型转换：手表->服务器
++ (LWSportType)convertType:(FB_MOTIONMODE)mode;
+
 @end
 
 NS_ASSUME_NONNULL_END

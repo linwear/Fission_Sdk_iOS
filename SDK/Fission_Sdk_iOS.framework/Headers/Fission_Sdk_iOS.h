@@ -12,6 +12,17 @@
 //  框架功能｜Framework Function: iOS framework for Fission smart watch, which is responsible for the communication with the watch.
 //                              Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装。
 //  修改记录｜Modification Record:
+//     pcjbird    2023-04-12  Version:3.1.3 Build:202304121900
+//                            1.新增"设备确认被找到"协议（FBAtCommand）fbUpDeviceConfirmedFoundDataWithBlock:
+//                            2.新增"获取系统功能开关信息"协议（FBBgCommand）fbGetSystemFunctionSwitchInformationWithBlock:
+//                            3.新增"设置系统功能开关信息"协议（FBBgCommand）fbSetSystemFunctionSwitchInformation: withBlock:
+//                            4.FBFirmwareVersionObject 新增配置:
+//                              是否支持日常心率检测开关控制
+//                              是否支持日常血氧检测开关控制
+//                              是否支持日常血压检测开关控制
+//                              是否支持日常精神压力检测开关控制
+//                            5.新增二进制数据埋点log完整解析(04-18)
+//
 //     pcjbird    2023-04-03  Version:3.1.2 Build:202304031700
 //                            1.新增图片资源，自定义表盘，不同分辨率使用不同大小的切图
 //
@@ -189,6 +200,7 @@ FOUNDATION_EXPORT const unsigned char Fission_Sdk_iOSVersionString[];
 #import <Fission_Sdk_iOS/FBFavContactModel.h>
 #import <Fission_Sdk_iOS/FBProgressModel.h>
 #import <Fission_Sdk_iOS/FBMotionTypesListModel.h>
+#import <Fission_Sdk_iOS/FBSystemFunctionSwitchModel.h>
 
 /** 蓝牙管理器｜Bluetooth manager */
 #import <Fission_Sdk_iOS/FBCommandCallback.h>

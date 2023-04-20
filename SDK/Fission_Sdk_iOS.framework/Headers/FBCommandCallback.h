@@ -101,6 +101,11 @@ typedef void (^FBUpTakePhotoClickBlock)(void);
 typedef void (^FBUpFindPhoneBlock)(void);
 
 /**
+ *@brief 监听设备->设备确认被找到 结果回调｜Monitor device ->Device confirmation found result callback
+ */
+typedef void (^FBDeviceConfirmationFoundBlock)(void);
+
+/**
  *@brief 监听设备->放弃查找手机 结果回调｜Monitor device - > abandon the callback of finding mobile phone results
  */
 typedef void (^FBAbandonFindingPhoneBlock)(void);
@@ -452,6 +457,15 @@ typedef void (^FBGetFavoriteContactListBlock)(FB_RET_CMD status, float progress,
  *@param error                                 错误信息｜Error message
  */
 typedef void (^FBRequestDeviceLogsBlock)(FB_RET_CMD status, float progress, NSString * _Nullable responseObject, NSError * _Nullable error);
+
+/**
+ *@brief 请求获取系统功能开关信息 调用结果回调｜Request to obtain system function switch information Call result callback
+ *@param status                               状态码｜Status code
+ *@param progress                          当前进度0～1｜Current progress 0 ~ 1
+ *@param responseObject             系统功能开关信息｜System function switch information
+ *@param error                                 错误信息｜Error message
+ */
+typedef void (^FBRequestSystemFunctionSwitchInfoBlock)(FB_RET_CMD status, float progress, FBSystemFunctionSwitchModel * _Nullable responseObject, NSError * _Nullable error);
 
 
 /* block回调类｜Block callback class */

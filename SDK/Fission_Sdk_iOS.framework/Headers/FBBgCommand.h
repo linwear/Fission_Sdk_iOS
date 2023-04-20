@@ -503,6 +503,20 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)fbRequestDeviceLogsWithBlock:(FBRequestDeviceLogsBlock _Nonnull)fbBlock;
 
 
+#pragma mark - 获取系统功能开关信息｜Get system function switch information
+/**
+ 获取系统功能开关信息｜Get system function switch information
+*/
+- (void)fbGetSystemFunctionSwitchInformationWithBlock:(FBRequestSystemFunctionSwitchInfoBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 设置系统功能开关信息｜Set system function switch information
+/**
+ 设置系统功能开关信息｜Set system function switch information
+*/
+- (void)fbSetSystemFunctionSwitchInformation:(FBSystemFunctionSwitchModel * _Nonnull)switchModel withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

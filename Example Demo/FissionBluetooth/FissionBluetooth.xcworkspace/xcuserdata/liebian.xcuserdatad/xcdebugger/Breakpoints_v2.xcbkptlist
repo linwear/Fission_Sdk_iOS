@@ -64,5 +64,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "414FC74E-2EA8-4B80-BFCB-A50A286F8234"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/QMUIKit/QMUIKit/UIKitExtensions/UIGestureRecognizer+QMUI.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "+load"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "414FC74E-2EA8-4B80-BFCB-A50A286F8234 - 3385171327e975c2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__33+[UIGestureRecognizer(QMUI) load]_block_invoke_3"
+                  moduleName = "QMUIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liebian/Desktop/Fission_Sdk_iOS/Example%20Demo/FissionBluetooth/Pods/QMUIKit/QMUIKit/UIKitExtensions/UIGestureRecognizer+QMUI.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "148">
+               </Location>
+               <Location
+                  uuid = "414FC74E-2EA8-4B80-BFCB-A50A286F8234 - 3385171327e975a1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__33+[UIGestureRecognizer(QMUI) load]_block_invoke_3"
+                  moduleName = "QMUIKit"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liebian/Desktop/Fission_Sdk_iOS/Example%20Demo/FissionBluetooth/Pods/QMUIKit/QMUIKit/UIKitExtensions/UIGestureRecognizer+QMUI.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "140">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

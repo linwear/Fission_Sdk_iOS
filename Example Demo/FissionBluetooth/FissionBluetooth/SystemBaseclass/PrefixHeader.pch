@@ -86,15 +86,6 @@ static NSString *const FISSION_SDK_WATCHCLICKTAKEPHOTO = @"FISSION_SDK_WATCHCLIC
 
 #import <Fission_Sdk_iOS/Fission_Sdk_iOS.h> // 裂变SDK
 
-#import "FBBaseNavigationController.h"
-#import "LWBaseViewController.h"
-#import "FBWebViewController.h"
-#import "NSObject+HUD.h"
-#import "LWNetworkingManager.h"
-#import "Tools.h"
-#import "NSObject+Authorized.h"
-#import "UIAlertObject.h"
-
 #pragma mark - 枚举相关
 // 自定义选择的类型
 typedef NS_ENUM(NSUInteger, LWCustomDialSelectMode) {
@@ -147,5 +138,169 @@ typedef NS_ENUM(NSInteger, LWCustomTimeBottomStyle) {
     LWCustomTimeBottomStyleHeart,
     LWCustomTimeBottomStyleStep,
 };
+
+//  服务器运动枚举相关
+typedef NS_ENUM(NSUInteger, LWSportType) {
+    LWSportOutdoorRun = 1,      //户外跑步
+    LWSportIndoorWalk,          //室内走路
+    LWSportOutdoorCycle,        //户外骑行
+    LWSportIndoorRun,           //室内跑步
+    LWSportStrengthTraining,    //力量训练
+    
+    LWSportFootball,            //足球
+    LWSportStepTraining,        //踏步
+    LWSportHorseRiding,         //骑马
+    LWSportHockey,              //曲棍球
+    LWSportTableTennis,         //乒乓球
+    
+    LWSportBadminton,           //羽毛球
+    LWSportIndoorCycle,         //室内骑行
+    LWSportEllipticaltrainer,   //椭圆机
+    LWSportYoga,                //瑜伽
+    LWSportCricket,             //板球
+    
+    LWSportTaiChi,              //太极
+    LWSportShuttlecock,         //毽球
+    LWSportBoxing,              //拳击
+    LWSportBasketball,          //篮球
+    LWSportOutdoorWalk,         //户外健走
+    
+    LWSportMountaineering,      //登山
+    LWSportTrailRunning,        //越野跑
+    LWSportSkiing,              //滑雪
+    LWSportFreeTraining,        //自由训练
+    LWSportGymnastics,          //体操
+    
+    LWSportIceHockey,           //冰球
+    LWSportTaekwondo,           //跆拳道
+    LWSportVO2maxTest,          //最大摄氧量测试
+    LWSportRowingMaching,       //划船机
+    LWSportAirWalker,           //漫步机
+    
+    LWSportHiking,              //徒步
+    LWSportTennis,              //网球
+    LWSportDance,               //舞蹈
+    LWSportAthletics,           //田径
+    LWSportWaisttraining,       //腰腹训练
+    
+    LWSportKarate,              //空手道
+    LWSportCooldown,            //整理放松
+    LWSportCrossTraining,       //交叉训练
+    LWSportPilates,             //普拉提
+    LWSportCrossFit,            //交叉配合
+    
+    LWSportFunctionalTraining,  //功能性训练
+    LWSportPhysicalTraining,    //体能训练
+    LWSportJumpRope,            //跳绳
+    LWSportArchery,             //射箭
+    LWSportFlexibility,         //柔韧度
+    
+    LWSportMixedCardio,         //混合有氧
+    LWSportLatinDance,          //拉丁舞
+    LWSportStreetDance,         //街舞
+    LWSportKickboxing,          //自由搏击
+    LWSportBarre,               //芭蕾
+    
+    LWSportAustralianFootball,  //澳式足球
+    LWSportMartialArts,         //武术
+    LWSportStairs,              //爬楼
+    LWSportHandball,            //手球
+    LWSportBaseball,            //棒球
+    
+    LWSportBowling,             //保龄球
+    LWSportRacquetball,         //壁球
+    LWSportCurling,             //冰壶
+    LWSportHunting,             //打猎
+    LWSportSnowboarding,        //单板滑雪
+    
+    LWSportPlay,                //休闲运动
+    LWSportAmericanFootball,    //美式橄榄球
+    LWSportHandCycling,         //手摇车
+    LWSportFishing,             //钓鱼
+    LWSportDiscSports,          //飞盘
+    
+    LWSportRugby,               //橄榄球
+    LWSportGolf,                //高尔夫
+    LWSportFolkDance,           //民族舞
+    LWSportDownhillSkiing,      //高山滑雪
+    LWSportSnowSports,          //雪上运动
+    
+    LWSportVolleyball,          //排球
+    LWSportMind_Body,           //舒缓冥想类运动
+    LWSportCoreTraining,        //核心训练
+    LWSportSkating,             //滑冰
+    LWSportFitnessGaming,       //健身游戏
+    
+    LWSportAerobics,            //健身操
+    LWSportGroupTraining,       //团体操
+    LWSportKendo,               //搏击操
+    LWSportLacrosse,            //长曲棍球
+    LWSportRolling,             //泡沫轴筋膜放松
+    
+    LWSportWrestling,           //摔跤
+    LWSportFencing,             //击剑
+    LWSportSoftball,            //垒球
+    LWSportSingleBar,           //单杠
+    LWSportParallelBars,        //双杠
+    
+    LWSportRollerSkating,       //轮滑
+    LWSportHulaHoop,            //呼啦圈
+    LWSportDarts,               //飞镖
+    LWSportPickleball,          //匹克球
+    LWSportSitup,               //仰卧起坐
+    
+    LWSportHIIT,                //HIIT
+    LWSportswim,                //游泳
+    LWSportTreadmill,           //跑步机
+    LWSportBoating,             //划船
+    LWSportShooting,            //射击
+    
+    LWSportJudo,                //柔道
+    LWSportTrampoline,          //蹦床
+    LWSportSkateboarding,       //滑板
+    LWSportHoverboard,          //平衡车
+    LWSportBlading,             //溜旱冰
+    
+    LWSportParkour,             //跑酷
+    LWSportDiving,              //跳水
+    LWSportSurfing,             //冲浪
+    LWSportSnorkeling,          //浮潜
+    LWSportPull_up,             //引体向上
+    
+    LWSportPush_up,             //俯卧撑
+    LWSportPlanking,            //平板支撑
+    LWSportRockClimbing ,       //攀岩
+    LWSportHightjump,           //跳高
+    LWSportBungeeJumping,       //蹦极
+    
+    LWSportLongjump,            //跳远
+    LWSportMarathon,            //马拉松
+    LWKiteFlying,               //放风筝
+    LWBilliards,                //台球
+    LWCardioCruiser,            //有氧运动
+    
+    LWTugOfWar,                 //拔河比赛
+    LWFreeSparring,             //自由的陪练
+    LWRafting,                  //漂流
+    LWSpinning,                 //旋转
+    LWBMX,                      //BMX
+    
+    LWATV,                      //ATV
+    LWDumbbell,                 //哑铃
+    LWBeachFootball,            //沙滩足球
+    LWKayaking,                 //皮划艇
+    LWSavate,                   //法国式拳击
+    
+    LWSportAll = 0xFFFF         //所有运动
+};
+
+#import "FBBaseNavigationController.h"
+#import "LWBaseViewController.h"
+#import "FBWebViewController.h"
+#import "NSObject+HUD.h"
+#import "LWNetworkingManager.h"
+#import "Tools.h"
+#import "NSObject+Authorized.h"
+#import "UIAlertObject.h"
 
 #endif /* PrefixHeader_pch */

@@ -52,6 +52,8 @@ typedef void(^LWMotionPushSelectBlock)(LWMotionPushClickType clickType, id resul
 
 @property (nonatomic, copy) NSString *binUrl;
 
+@property (nonatomic, assign) NSInteger index; // 读取手表数据后、排序用，无其他用处
+
 @end
 
 

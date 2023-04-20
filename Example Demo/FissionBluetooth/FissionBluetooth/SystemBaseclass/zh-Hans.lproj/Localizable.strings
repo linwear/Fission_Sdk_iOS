@@ -220,3 +220,7 @@
 "The selected contact already exists, please select again!" = "选择的联系人已存在，请重新选择！";
 "Address Book" = "通讯录";
 "Search Contacts" = "搜索联系人";
+
+"☁️Weather Data" = "☁️天气数据";
+"Set Weather details today" = "设置今天的天气详情";
+"Set future weather forecast information" = "设置未来天气预报信息";

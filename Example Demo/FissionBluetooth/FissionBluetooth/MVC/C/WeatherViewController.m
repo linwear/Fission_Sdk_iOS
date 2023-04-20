@@ -28,19 +28,22 @@
     
     self.array = [NSMutableArray array];
     
-    UIBarButtonItem *rigItem = [[UIBarButtonItem alloc] initWithTitle:@"Weather Data" style:UIBarButtonItemStylePlain target:self action:@selector(barButton)];
+    UIBarButtonItem *rigItem = [[UIBarButtonItem alloc] initWithTitle:LWLocalizbleString(@"☁️Weather Data") style:UIBarButtonItemStylePlain target:self action:@selector(barButton)];
     self.navigationItem.rightBarButtonItem = rigItem;
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView registerNib:[UINib nibWithNibName:@"WeatherCell" bundle:nil] forCellReuseIdentifier:@"WeatherCell"];
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.array.count;
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 101;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     WeatherCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WeatherCell"];
     if (indexPath.row<self.array.count) {
@@ -60,21 +63,6 @@
     [self getWeatherAndAirLevel];
 }
 
-- (NSString *)convertDecimalSystemFromBinarySystem:(NSData *)binary
-{
-    NSInteger ll = 0 ;
-    NSInteger  temp = 0 ;
-    for (NSInteger i = 0; i < binary.length; i ++){
-        
-        temp = (NSInteger)[binary subdataWithRange:NSMakeRange(i, 1)];
-        temp = temp * powf(2, binary.length - i - 1);
-        ll += temp;
-    }
-    
-    NSString * result = [NSString stringWithFormat:@"%ld",ll];
-    
-    return result;
-}
 
 - (void)getWeatherAndAirLevel{
     WeakSelf(self);
@@ -106,12 +94,12 @@
     currentModel.tempMin = [current[@"temp_low"] integerValue];
     currentModel.Weather = [self returnWeatherForCode:[current[@"code"] integerValue]];
     
-    // Set Weather details today
+    // Set Weather details today｜设置今天的天气详情
     [FBBgCommand.sharedInstance fbPushTodayWeatherDetailsWithModel:currentModel withBlock:^(NSError * _Nullable error) {
         if (error) {
-            [mutStr appendFormat:@"Set Weather details today ERROR: %@\n\n", error.localizedDescription];
+            [mutStr appendFormat:@"%@ ERROR: %@\n\n", LWLocalizbleString(@"Set Weather details today"), error.localizedDescription];
         } else {
-            [mutStr appendFormat:@"Set Weather details today: %@\n\n", LWLocalizbleString(@"Success")];
+            [mutStr appendFormat:@"%@: %@\n\n", LWLocalizbleString(@"Set Weather details today"), LWLocalizbleString(@"Success")];
         }
         weakSelf.textView.text = mutStr;
     }];
@@ -136,12 +124,12 @@
         }
     }
     
-    // Set future weather forecast information
+    // Set future weather forecast information｜设置未来天气预报信息
     [FBBgCommand.sharedInstance fbPushWeatherMessageWithModel:array support:support_14days_Weather withBlock:^(NSError * _Nullable error) {
         if (error) {
-            [mutStr appendFormat:@"Set future weather forecast information ERROR: %@\n\n", error.localizedDescription];
+            [mutStr appendFormat:@"%@ ERROR: %@\n\n", LWLocalizbleString(@"Set future weather forecast information"), error.localizedDescription];
         } else {
-            [mutStr appendFormat:@"Set future weather forecast information: %@\n\n", LWLocalizbleString(@"Success")];
+            [mutStr appendFormat:@"%@: %@\n\n", LWLocalizbleString(@"Set future weather forecast information"), LWLocalizbleString(@"Success")];
         }
         weakSelf.textView.text = mutStr;
     }];

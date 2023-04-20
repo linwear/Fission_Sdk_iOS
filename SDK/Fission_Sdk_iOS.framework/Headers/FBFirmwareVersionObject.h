@@ -303,6 +303,34 @@ NS_ASSUME_NONNULL_BEGIN
 */
 @property (nonatomic, assign) NSInteger supportMultipleSportsCount;
 
+/**
+ 🌟是否支持日常心率检测开关控制｜Whether to support daily heart rate detection switch control🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportHeartRateControl;
+
+/**
+ 🌟是否支持日常血氧检测开关控制｜Whether to support daily blood oxygen detection switch control🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportBloodOxygenControl;
+
+/**
+ 🌟是否支持日常血压检测开关控制｜Whether to support daily blood pressure detection switch control🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportBloodPressureControl;
+
+/**
+ 🌟是否支持日常精神压力检测开关控制｜Whether to support daily mental stress detection switch control🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportMentalStressControl;
+
 @end
 
 NS_ASSUME_NONNULL_END

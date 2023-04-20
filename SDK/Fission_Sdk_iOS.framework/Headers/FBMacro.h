@@ -615,4 +615,22 @@ typedef enum {
     FB_CompressAlgorithm = 1   //压缩算法｜Compression algorithm
 }FB_ALGORITHMGENERATION;
 
+#pragma mark - 自定义设置开关类型｜Custom setting switch type
+/*
+ * 自定义设置开关类型｜Custom setting switch type
+ */
+typedef enum {
+    FB_SWITCH_None              = 0,            //空｜None
+    FB_SWITCH_HeartRate         = 1<<0,         //定时心率采集开关｜Timing heart rate acquisition switch
+    FB_SWITCH_BloodOxygen       = 1<<1,         //定时血氧采集开关｜Timing blood oxygen collection switch
+    FB_SWITCH_BloodPressure     = 1<<2,         //定时血压采集开关｜Timing blood pressure collection switch
+    FB_SWITCH_MentalPressure    = 1<<3,         //定时精神压力采集开关｜Timing mental pressure acquisition switch
+    FB_SWITCH_CallAudio         = 1<<4,         //通话音频开关｜Call audio switch
+    FB_SWITCH_MultimediaAudio   = 1<<5,         //多媒体音频开关｜Multimedia Audio Switch
+    FB_SWITCH_DND               = 1<<6,         //勿扰开关｜Do not disturb switch
+    FB_SWITCH_TestMode          = 1<<7,         //进入测试模式开关｜Enter test mode switch
+    FB_SWITCH_WristScreen       = 1<<8,         //抬腕亮屏开关｜Wrist up screen switch
+    FB_SWITCH_ALL               = 0xFFFFFFFF,   //所有｜All
+}FB_CUSTOMSETTINGSWITCHTYPE;
+
 #endif /* FBMacro_h */

@@ -162,6 +162,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 监听设备->手机即时拍照回调｜Monitoring device - > instant camera callback of mobile phone
 /**
  监听设备->手机即时拍照回调｜Monitoring device - > instant camera callback of mobile phone
+ 
+ @note 当在设备上点击拍照，会通过此回调通知｜When a photo is clicked on the device, it will be notified through this callback
 */
 - (void)fbUpTakePhotoClickDataWithBlock:(FBUpTakePhotoClickBlock _Nonnull)fbBlock;
 
@@ -171,6 +173,15 @@ NS_ASSUME_NONNULL_BEGIN
  手机查找设备｜Mobile find device
 */
 - (void)fbUpFindDeviceDataWithBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 设备确认被找到｜The device is confirmed to be found
+/**
+ 设备确认被找到｜The device is confirmed to be found
+ 
+ @note 当手机查找到设备，在设备上点击确认时，会通过此回调通知｜When the mobile phone finds the device and clicks confirmation on the device, it will be notified through this callback
+*/
+- (void)fbUpDeviceConfirmedFoundDataWithBlock:(FBDeviceConfirmationFoundBlock _Nonnull)fbBlock;
 
 
 #pragma mark - 手机确认被找到｜The mobile phone is confirmed to be found
@@ -185,6 +196,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 监听设备->查找手机回调｜Monitor device - > find mobile callback
 /**
  监听设备->查找手机回调｜Monitor device - > find mobile callback
+ 
+ @note 当在设备上点击查找手机，会通过此回调通知｜When you click to find a mobile phone on the device, you will be notified through this callback
 */
 - (void)fbUpFindPhoneDataWithBlock:(FBUpFindPhoneBlock _Nonnull)fbBlock;
 
@@ -192,6 +205,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 监听设备->放弃查找手机回调｜Monitor device - > give up looking for mobile phone callback
 /**
  监听设备->放弃查找手机回调｜Monitor device - > give up looking for mobile phone callback
+ 
+ @note 当在设备上取消/放弃查找手机，会通过此回调通知｜When the phone is canceled/abandoned on the device, it will be notified through this callback
 */
 - (void)fbAbandonFindingPhoneWithBlock:(FBAbandonFindingPhoneBlock _Nonnull)fbBlock;
 
@@ -199,6 +214,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 监听设备->手机配对成功iOS回调｜Monitoring device - > successful phone pairing IOS callback
 /**
  监听设备->手机配对成功iOS回调｜Monitoring device - > successful phone pairing IOS callback
+ 
+ @note 当在设备与手机系统成功配对，会通过此回调通知｜When the device is successfully paired with the mobile phone system, it will be notified through this callback
 */
 - (void)fbUpPairingCompleteDataWithBlock:(FBUpPairingCompleteBlock _Nonnull)fbBlock;
 
