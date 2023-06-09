@@ -11,6 +11,7 @@
 "Confirm whether to unbind the device and disconnect?" = "确认是否解绑设备并断开连接？";
 "Log File" = "日志文件";
 "About" = "关于";
+"Data Visualization UI" = "数据可视化UI";
 "Device disconnected" = "设备已断开连接";
 "Device Find Phone" = "设备查找手机";
 "Device cancel find phone" = "设备取消查找手机";
@@ -42,7 +43,7 @@
 "Away" = "收起";
 "Success" = "成功";
 "Take Photo" = "拍照";
-"No Data" = "没有数据";
+"No Data" = "暂无数据";
 "Set" = "设置";
 "Get" = "获取";
 "Gender:" = "性别:";
@@ -103,8 +104,13 @@
 "Get resting heart rate for the day" = "获取当天的静息心率";
 "Get the specified prompt function" = "获取指定的提示功能";
 "Set the specified reminder function" = "设置指定的提示功能";
+"Get the current exercise state" = "获取当前运动状态";
 "The app side synchronizes the GPS motion status to the device side" = "app端同步GPS运动状态到设备端";
 "Turn on/off the heart rate monitoring switch" = "打开/关闭心率监测开关";
+"Low Speed Connection/High Speed Connection" = "低速连接/高速连接";
+"Toggle connection speed" = "切换连接速度";
+"Low Speed Connection" = "低速连接";
+"High Speed Connection" = "高速连接";
 "Timing heart rate detection switch setting" = "定时心率检测开关设置";
 "Timed blood oxygen detection switch setting" = "定时血氧检测开关设置";
 "Timed mental stress detection switch setting" = "定时精神压力检测开关设置";
@@ -224,3 +230,260 @@
 "☁️Weather Data" = "☁️天气数据";
 "Set Weather details today" = "设置今天的天气详情";
 "Set future weather forecast information" = "设置未来天气预报信息";
+"Select interface code" = "选择界面代码";
+"Interface Jump Code" = "界面跳转代码";
+
+"Today's Data" = "今日数据";
+"Step" = "步数";
+"Calorie" = "卡路里";
+"Distance" = "距离";
+"Sports Record" = "运动记录";
+"Sleep" = "睡眠";
+"Heart Rate" = "心率";
+"Blood Oxygen" = "血氧";
+"Blood Pressure" = "血压";
+"Mental Stress" = "精神压力";
+"Manual measurement records" = "手动测量记录";
+"No More Data" = "我是有底线的🤔️";
+"Total Steps" = "总步数";
+"Last Heart Rate" = "最近一次心率";
+"Last Blood Oxygen" = "最近一次血氧";
+"Last Blood Pressure" = "最近一次血压";
+"Last Mental Stress" = "最近一次精神压力";
+"Total Sleep Time" = "睡眠总时长";
+"Deep Sleep" = "深睡";
+"Light Sleep" = "浅睡";
+"REM" = "快速眼动";
+"Awake" = "清醒";
+"Nap" = "零星小睡";
+"Nap (Awake)" = "零星小睡（清醒）";
+"Systolic (high pressure)" = "收缩压（高压）";
+"Diastolic (low pressure)" = "舒张压（低压）";
+"High" = "偏高";
+"Medium" = "中等";
+"Normal" = "正常";
+"Relax" = "放松";
+"Distance Unit Setting" = "距离单位设置";
+"Metric" = "公制";
+"Imperial" = "英制";
+
+"Custom Dial" = "自定义表盘";
+/*
+ "长按模块可移动"
+ "背景"
+ "表盘"
+ "组件"
+ "颜色"
+ "数字表盘"
+ "指针表盘"
+ "类型"
+ "指针"
+ "刻度"
+ "手机状态"
+ "电量"
+ "蓝牙"
+ 步数、卡路里、距离、心率、血氧、血压、压力
+ "组件样式"
+ */
+
+"Today's Overview" = "今日概览";
+"Manual Measurement Data" = "手动测量数据";
+"Average Heart Rate" = "平均心率";
+"Maximum Heart Rate" = "最高心率";
+"Minimum Heart Rate" = "最低心率";
+"Average Blood Oxygen" = "平均血氧";
+"Maximum Blood Oxygen" = "最高血氧";
+"Minimum Blood Oxygen" = "最低血氧";
+"Average Blood Pressure" = "平均血压";
+"Highest Blood Pressure" = "最高血压";
+"Minimum Blood Pressure" = "最低血压";
+"Average Stress" = "平均压力";
+"Maximum Stress" = "最高压力";
+"Minimum Stress" = "最低压力";
+"Duration" = "运动用时";
+"Total Steps" = "总步数";
+"Burn Calories" = "消耗热量";
+"Average Pace" = "平均配速";
+"Average Cadence" = "平均步频";
+"Exercise Heart Rate Zone" = "运动心率区间";
+"Warm Up" = "热身";
+"Fat Burning" = "燃脂";
+"Aerobic Endurance" = "有氧耐力";
+"Anaerobic Endurance" = "无氧耐力";
+"Limit" = "极限";
+"Exercise Heart Rate" = "运动心率";
+"Exercise Cadence" = "运动步频";
+"Steps/Minute" = "步/分钟";
+"Cadence" = "步频";
+"Maximum Cadence" = "最大步频";
+"Minimum Cadence" = "最小步频";
+"Exercise Calories" = "运动卡路里";
+"Average Calories" = "平均卡路里";
+"Highest Calories" = "最高卡路里";
+"Total Calories" = "总卡路里";
+"Movement Distance" = "运动距离";
+"Average Distance" = "平均距离";
+"Maximum Distance" = "最大距离";
+"Total Distance" = "总距离";
+"Sport Pace" = "运动配速";
+"Pace" = "配速";
+"Best Pace" = "最佳配速";
+"Minimum Pace" = "最低配速";
+
+
+
+
+
+// 运动 1 - 10
+"Running" = "跑步";
+"Mountaineering" = "登山";
+"Cycling" = "骑行";
+"Football" = "足球";
+"Swimming" = "游泳";
+"Basketball" = "篮球";
+"No designation" = "无指定";
+"Outdoor running" = "户外跑步";
+"Indoor running" = "室内跑步";
+"Fat reduction running" = "减脂跑步";
+// 运动 11 - 20
+"Outdoor walking" = "户外健走";
+"Indoor walking" = "室内健走";
+"Outdoor cycling" = "户外骑行";
+"Indoor cycling" = "室内骑行";
+"Free training" = "自由训练";
+"Fitness training" = "健身训练";
+"Badminton" = "羽毛球";
+"Volleyball" = "排球";
+"Table Tennis" = "乒乓球";
+"Elliptical machine" = "椭圆机";
+// 运动 21 - 30
+"Rowing machine" = "划船机";
+"Yoga" = "瑜伽";
+"Strength training (weightlifting)" = "力量训练（举重）";
+"Cricket" = "板球";
+"Rope skipping" = "跳绳";
+"Aerobic exercise" = "有氧运动";
+"Aerobic dancing" = "健身舞";
+"Tai Chi" = "太极";
+"Automatically recognize running" = "自动识别跑步运动";
+"Automatic recognition of walking movement" = "自动识别健走运动";
+// 运动 31 - 40
+"Indoor walking" = "室内步行";
+"Step training" = "踏步";
+"Ride a horse" = "骑马";
+"Hockey" = "曲棍球";
+"Aerodyne bike" = "室内单车";
+"Shuttlecock" = "毽球";
+"Boxing" = "拳击";
+"Outdoor walk" = "户外走";
+"Cross country running" = "越野跑";
+"Skiing" = "滑雪";
+// 运动 41 - 50
+"Artistic Gymnastics" = "体操";
+"Ice hockey" = "冰球";
+"Taekwondo" = "跆拳道";
+"Aerobic exercise" = "有氧运动";
+"Walking machine" = "漫步机";
+"On foot" = "徒步";
+"Tennis" = "网球";
+"Dance" = "跳舞";
+"Athletics" = "田径";
+"Lumbar abdominal movement" = "腰腹运动";
+// 运动 51 - 60
+"Karate" = "空手道";
+"Organize and relax" = "整理放松";
+"Cross training" = "交叉训练";
+"Pilates" = "普拉提";
+"Cross fit" = "交叉配合";
+"Functional training" = "功能性训练";
+"Physical training" = "体能训练";
+"Archery" = "射箭";
+"Flexibility" = "柔韧度";
+"Mixed aerobic" = "混合有氧";
+// 运动 61 - 70
+"Latin dance" = "拉丁舞";
+"Hip hop" = "街舞";
+"Free fight" = "自由搏击";
+"Ballet" = "芭蕾舞";
+"Australian football" = "澳式足球";
+"Martial arts" = "武术";
+"Climb a building" = "爬楼";
+"Handball" = "手球";
+"Baseball" = "棒球";
+"Bowling" = "保龄球";
+// 运动 71 - 80
+"Squash" = "壁球";
+"Curling" = "冰壶";
+"Go hunting" = "打猎";
+"Snowboarding" = "单板滑雪";
+"Leisure sports" = "休闲运动";
+"American football" = "美式橄榄球";
+"Handcart" = "手摇车";
+"Go fishing" = "钓鱼";
+"Frisbee" = "飞盘";
+"Rugby" = "橄榄球";
+// 运动 81 - 90
+"Golf" = "高尔夫";
+"Folk dance" = "民族舞";
+"Alpine skiing" = "高山滑雪";
+"Snow Sports" = "雪上运动";
+"Soothing meditation exercise" = "舒缓冥想类运动";
+"Core training" = "核心训练";
+"Core training" = "滑冰";
+"Fitness games" = "健身游戏";
+"Aerobics" = "健身操";
+"Group Gymnastics" = "团体操";
+// 运动 91 - 100
+"Kickboxing" = "搏击操";
+"Lacrosse" = "长曲棍球";
+"Foam shaft fascia relax" = "泡沫轴筋膜放松";
+"Wrestling" = "摔跤";
+"Fencing" = "击剑";
+"Softball" = "垒球";
+"Horizontal bar" = "单杠";
+"Parallel bars" = "双杠";
+"Roller-skating" = "轮滑";
+"Hu la hoop" = "呼啦圈";
+// 运动 101 - 110
+"Darts" = "飞镖";
+"Pickleball" = "匹克球";
+"Abdominal curl" = "仰卧起坐";
+"HIIT" = "HIIT";
+"Waist and abdomen training" = "腰腹训练";
+"Treadmill" = "跑步机";
+"Rowing" = "划船";
+"Judo" = "柔道";
+"Trampoline" = "蹦床";
+"Skate" = "滑板";
+// 运动 111 - 120
+"Balance car" = "平衡车";
+"Roller skating" = "溜旱冰";
+"Parkour" = "跑酷";
+"Diving" = "跳水";
+"Surfing" = "冲浪";
+"Snorkeling" = "浮潜";
+"Pull up" = "引体向上";
+"Push up" = "俯卧撑";
+"Plate support" = "平板支撑";
+"Rock Climbing" = "攀岩";
+// 运动 121 - 130
+"High jump" = "跳高";
+"Bungee jumping" = "蹦极";
+"Long jump" = "跳远";
+"Shooting" = "射击";
+"Marathon" = "马拉松";
+"VO2max test" = "最大摄氧量测试";
+"Kite Flying" = "放风筝";
+"Billiards" = "台球";
+"Cardio Cruiser" = "有氧运动巡洋舰";
+"Tug of war" = "拔河比赛";
+// 运动 131 - 139
+"Free Sparring" = "免费的陪练";
+"Rafting" = "漂流";
+"Spinning" = "旋转";
+"BMX" = "BMX";
+"ATV" = "ATV";
+"Dumbbell" = "哑铃";
+"Beach Football" = "沙滩足球";
+"Kayaking" = "皮划艇";
+"Savate" = "法国式拳击";

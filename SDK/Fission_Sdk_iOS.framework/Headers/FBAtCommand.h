@@ -287,9 +287,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 界面跳转测试｜Interface jump test
 /**
  界面跳转测试｜Interface jump test
- @param interfaceCode           XXXX 为指定界面代号(十六进制)｜XXX is the specified interface code (hexadecimal)
+ @param interfaceCode           指定界面代号｜Specify interface code
 */
-- (void)fbUpInterfaceJumpTestData:(NSString * _Nonnull)interfaceCode withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+- (void)fbUpInterfaceJumpTestCode:(NSInteger)interfaceCode withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
 
 #pragma mark - 女性生理状态设定｜Female's physiological state setting
@@ -443,7 +443,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  获取当前运动状态｜Get the current exercise state
  
- @note  运动状态，0:运动停止，1:运动进行中，2:运动暂停中
+ @note  运动状态，0:运动停止，1:运动进行中，2:运动暂停中，3:GPS运动进行中，4:GPS运动暂停中｜Motion status, 0: motion stopped, 1: motion in progress, 2: motion paused, 3: GPS motion in progress, 4: GPS motion paused
  */
 - (void)fbGetCurrentExerciseStateStatusWithBlock:(FBGet_AT_ResultCallBackBlock _Nonnull)fbBlock;
 

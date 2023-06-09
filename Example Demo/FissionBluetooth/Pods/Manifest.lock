@@ -1,4 +1,5 @@
 PODS:
+  - AAChartKit (7.3.0)
   - AFNetworking (4.0.1):
     - AFNetworking/NSURLSession (= 4.0.1)
     - AFNetworking/Reachability (= 4.0.1)
@@ -32,11 +33,13 @@ PODS:
     - CocoaLumberjack/Core (= 3.7.2)
   - CocoaLumberjack/Core (3.7.2)
   - CWLateralSlide (1.6.5)
+  - FSCalendar (2.8.4)
   - HJViewStyle (1.2.9)
   - IQKeyboardManager (6.5.6)
   - JXCategoryView (1.6.1)
   - Masonry (1.1.0)
   - MJExtension (3.4.1)
+  - MJRefresh (3.7.5)
   - QMUIKit (4.3.0):
     - QMUIKit/QMUIComponents (= 4.3.0)
     - QMUIKit/QMUICore (= 4.3.0)
@@ -348,6 +351,9 @@ PODS:
     - QMUIKit/QMUILog
   - QMUIKit/QMUIResources (4.3.0)
   - QMUIKit/QMUIWeakObjectContainer (4.3.0)
+  - Realm (10.36.0):
+    - Realm/Headers (= 10.36.0)
+  - Realm/Headers (10.36.0)
   - SDAutoLayout (2.2.1)
   - SDWebImage (5.10.4):
     - SDWebImage/Core (= 5.10.4)
@@ -356,26 +362,32 @@ PODS:
   - SSZipArchive (2.4.3)
   - SVProgressHUD (2.2.5)
   - TZImagePickerController (3.6.0)
+  - ZLCollectionViewFlowLayout (1.4.8)
 
 DEPENDENCIES:
+  - AAChartKit (from `https://github.com/AAChartModel/AAChartKit.git`)
   - AFNetworking
   - BRPickerView
   - Bugly
   - CHIPageControl/Fresno
   - CocoaLumberjack
   - CWLateralSlide
+  - FSCalendar
   - HJViewStyle
   - IQKeyboardManager
   - JXCategoryView
   - Masonry
   - MJExtension
+  - MJRefresh
   - QMUIKit
+  - Realm
   - SDAutoLayout
   - SDWebImage
   - SGQRCode
   - SSZipArchive
   - SVProgressHUD
   - TZImagePickerController
+  - ZLCollectionViewFlowLayout
 
 SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
@@ -385,39 +397,57 @@ SPEC REPOS:
     - CHIPageControl
     - CocoaLumberjack
     - CWLateralSlide
+    - FSCalendar
     - HJViewStyle
     - IQKeyboardManager
     - JXCategoryView
     - Masonry
     - MJExtension
+    - MJRefresh
     - QMUIKit
+    - Realm
     - SDAutoLayout
     - SDWebImage
     - SGQRCode
     - SSZipArchive
     - SVProgressHUD
     - TZImagePickerController
+    - ZLCollectionViewFlowLayout
+
+EXTERNAL SOURCES:
+  AAChartKit:
+    :git: https://github.com/AAChartModel/AAChartKit.git
+
+CHECKOUT OPTIONS:
+  AAChartKit:
+    :commit: 4eff957ebb4a2b51d814dc4db7dbe11774807096
+    :git: https://github.com/AAChartModel/AAChartKit.git
 
 SPEC CHECKSUMS:
+  AAChartKit: 3c5759bcb4ed2d640d6f99db64f2a92c7ca78b09
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   BRPickerView: 9cc11880ac79c4872d081ccb88f306224c1501d7
   Bugly: fd066c75c4a0eca1440f9b6a84bd37d51bfc85ac
   CHIPageControl: a787bf7205c9b7e7fbfc412be36c5e8636b68f86
   CocoaLumberjack: b7e05132ff94f6ae4dfa9d5bce9141893a21d9da
   CWLateralSlide: 8939c8dea91a24e40d0793553118cb57cd67f64b
+  FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
   HJViewStyle: 0fac31e22a1254acd9a097b0919187ad99a8e949
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
   JXCategoryView: 7b1ee69ede4843c581688afe84d0f047723262f2
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: 21c5f6f8c4d5d8844b7ae8fbae08fed0b501f961
+  MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   QMUIKit: 67888be9aa0ee0b12b8a219fcea2eec900afd841
+  Realm: 3fd136cb4c83a927482a7f1612496d37beed3cf5
   SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
   SDWebImage: c666b97e1fa9c64b4909816a903322018f0a9c84
   SGQRCode: 65d6170ddcf3feecc6e2f3601aac78ad93e56589
   SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TZImagePickerController: a37d7eec87c54436e896a67947033ad2178d498b
+  ZLCollectionViewFlowLayout: 6cd506c05d77cb2ac0772f68155e377d50d39f8a
 
-PODFILE CHECKSUM: 45220c21234100e8d938573a012a0d112db99b55
+PODFILE CHECKSUM: 9f65d9ca91563bd0df7ed12ae6fd543f628f969f
 
 COCOAPODS: 1.11.3

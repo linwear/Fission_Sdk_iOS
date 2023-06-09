@@ -79,33 +79,35 @@ typedef enum {
  * 多语种国际化 和 SDK多语言设置｜Multilingual internationalization and SDK Multilingual Settings
  */
 typedef enum {
-    FB_SDK_zh_Hans = 0,   //中文简体｜Simplified Chinese
-    FB_SDK_en      = 1,   //英文｜English
-    FB_SDK_ja      = 2,   //日语｜Japanese
-    FB_SDK_fr      = 3,   //法语｜French
-    FB_SDK_de      = 4,   //德语｜German
-    FB_SDK_es      = 5,   //西班牙语｜Spanish
-    FB_SDK_it      = 6,   //意大利语｜Italian
-    FB_SDK_pt      = 7,   //葡萄牙语｜Portuguese
-    FB_SDK_ru      = 8,   //俄语｜Russian
-    FB_SDK_cs      = 9,   //捷克语｜Czech
-    FB_SDK_pl      = 10,  //波兰语｜Polish
-    FB_SDK_zh_Hant = 11,  //中文繁体｜Chinese traditional
-    FB_SDK_ar      = 12,  //阿拉伯语｜Arabic
-    FB_SDK_tr      = 13,  //土耳其语｜Turkish
-    FB_SDK_vi      = 14,  //越南语｜Vietnamese
-    FB_SDK_ko      = 15,  //韩语｜Korean
-    FB_SDK_he      = 16,  //希伯来语｜Hebrew
-    FB_SDK_th      = 17,  //泰语｜Thai
-    FB_SDK_id      = 18,  //印尼语｜Indonesian
-    FB_SDK_nl      = 19,  //荷兰语｜Dutch
-    FB_SDK_el      = 20,  //希腊语｜Greek
-    FB_SDK_sv      = 21,  //瑞典语｜Swedish
-    FB_SDK_ro      = 22,  //罗马尼亚语｜Romanian
-    FB_SDK_hi      = 23,  //印地语｜Hindi
-    FB_SDK_bn      = 24,  //孟加拉语｜Bangla
-    FB_SDK_ur      = 25,  //乌尔都语｜Urdu
-    FB_SDK_fa      = 26,  //波斯语｜Persian
+    FB_SDK_zh_Hans  = 0,    //中文简体｜Simplified Chinese
+    FB_SDK_en       = 1,    //英文｜English
+    FB_SDK_ja       = 2,    //日语｜Japanese
+    FB_SDK_fr       = 3,    //法语｜French
+    FB_SDK_de       = 4,    //德语｜German
+    FB_SDK_es       = 5,    //西班牙语｜Spanish
+    FB_SDK_it       = 6,    //意大利语｜Italian
+    FB_SDK_pt       = 7,    //葡萄牙语｜Portuguese
+    FB_SDK_ru       = 8,    //俄语｜Russian
+    FB_SDK_cs       = 9,    //捷克语｜Czech
+    FB_SDK_pl       = 10,   //波兰语｜Polish
+    FB_SDK_zh_Hant  = 11,   //中文繁体｜Chinese traditional
+    FB_SDK_ar       = 12,   //阿拉伯语｜Arabic
+    FB_SDK_tr       = 13,   //土耳其语｜Turkish
+    FB_SDK_vi       = 14,   //越南语｜Vietnamese
+    FB_SDK_ko       = 15,   //韩语｜Korean
+    FB_SDK_he       = 16,   //希伯来语｜Hebrew
+    FB_SDK_th       = 17,   //泰语｜Thai
+    FB_SDK_id       = 18,   //印尼语｜Indonesian
+    FB_SDK_nl       = 19,   //荷兰语｜Dutch
+    FB_SDK_el       = 20,   //希腊语｜Greek
+    FB_SDK_sv       = 21,   //瑞典语｜Swedish
+    FB_SDK_ro       = 22,   //罗马尼亚语｜Romanian
+    FB_SDK_hi       = 23,   //印地语｜Hindi
+    FB_SDK_bn       = 24,   //孟加拉语｜Bangla
+    FB_SDK_ur       = 25,   //乌尔都语｜Urdu
+    FB_SDK_fa       = 26,   //波斯语｜Persian
+    FB_SDK_ne       = 27,   //尼泊尔语｜Nepali
+    FB_SDK_uk       = 28,   //乌克兰语｜Ukrainian
 }FB_LANGUAGES;
 
 #pragma mark - 距离单位 ｜Distance unit
@@ -276,7 +278,7 @@ typedef enum {
     FBKICKBOXING            = 63,  //自由搏击｜Free fight
     FBBARRE                 = 64,  //芭蕾舞｜Ballet
     FBAUSTRALIAN_FOOTBALL   = 65,  //澳式足球｜Australian football
-    FBMARTIAL_ARTS          = 66,  //武术｜Australian football
+    FBMARTIAL_ARTS          = 66,  //武术｜Martial arts
     FBSTAIRS                = 67,  //爬楼｜Climb a building
     FBHANDBALL              = 68,  //手球｜Handball
     FBBASEBALL              = 69,  //棒球｜Baseball
@@ -322,7 +324,7 @@ typedef enum {
     FBWAIST_TRAINING        = 105, //腰腹训练｜Waist and abdomen training
     FBTREADMILL             = 106, //跑步机｜Treadmill
     FBBOATING               = 107, //划船｜Rowing
-    FBJUDO                  = 108, //柔道｜rowing
+    FBJUDO                  = 108, //柔道｜Judo
     FBTRAMPOLINE            = 109, //蹦床｜Trampoline
     FBSKATEBOARDING         = 110, //滑板｜Skate
     
@@ -480,7 +482,10 @@ typedef enum {
     
     FB_OTANotification_Multi_Dial_Built_in      = 200,  //厂线推送内置表盘压缩数据包｜The factory line pushes the built-in dial compressed data package
     FB_OTANotification_Multi_Sport_Built_in     = 201,  //厂线推送内置多运动类型压缩数据包｜The factory line pushes the built-in multi-sport type compressed data package
-    FB_OTANotification_Busy                     = 254,  //设备处于禁止OTA状态，稍后再试｜The device is in OTA prohibited state, please try again later
+    
+    FB_OTANotification_ERROR_Busy_Sport         = 253,  //设备处于运动中，请结束运动后重试｜The device is in motion, please end the motion and try again
+    FB_OTANotification_ERROR_Busy               = 254,  //设备处于禁止OTA状态，稍后再试｜The device is in OTA prohibited state, please try again later
+    
     FB_OTANotification_Cancel                   = 255,  //放弃当前升级｜Discard current upgrade
 }FB_OTANOTIFICATION;
 

@@ -17,20 +17,27 @@
 
 typedef uint16_t RTKImageId;        ///< An integer value that represents image identifier.
 typedef uint32_t RTKImageVersion;   ///< An integer value that represents image version number.
-typedef uint32_t RTKImageKey;
+typedef uint32_t RTKImageKey;       ///< An integer value that represents image key information.
 
 /// Represents an invalid @c RTKImageVersion value.
 #define RTKImageVersionInvalid  0xffffffff
 
 /**
- * Constants that represents upgrade method.
+ * Constants that represent upgrade method.
  */
 typedef enum : uint8_t {
-    RTKOTAUpgradeMode_default =   0x00,       ///< Using normal upgrade method
+    RTKOTAUpgradeMode_default =   0x00,       ///< Use normal upgrade method
     RTKOTAUpgradeMode_OTATempSection,         ///< Use OTA temp section for upgrade
     RTKOTAUpgradeMode_updateVPData,           ///< Upgrade Voice Prompt data
 } RTKOTAUpgradeMode;
 
+typedef NS_OPTIONS(uint32_t, RTKDFUTestFlag) {
+    RTKDFUTestFlag_AES = 1 << 0,
+    RTKDFUTestFlag_Stress = 1 << 1,
+    RTKDFUTestFlag_CopyFail = 1 << 2,
+    RTKDFUTestFlag_SkipFail = 1 << 3,
+    RTKDFUTestFlag_BufferCheckDisable = 1 << 4,
+};
 
 /**
  * Constants that determine which bank a image exist.
@@ -95,20 +102,20 @@ typedef struct __attribute__((packed)) {
  */
 typedef uint8_t RTKDFUBatteryLevel;
 
-/// A constant value describes battery level is not vald.
+/// A constant value describes battery level is not valid.
 extern const RTKDFUBatteryLevel RTKDFUBatteryLevelInvalid;
 
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- * An protocol that defines methods to retrieve informations about upgrade of a device and send images to upgrade a device.
+ * A protocol that defines methods to retrieve informations about upgrade of a device and send images to upgrade a device.
  *
  * @discussion This protocol defines common methods for upgrade, @c RTKDFUConnectionUponGATT and @c RTKDFUConnectionUponiAP class conform to it and implement all those methods. Those methods are expected to be used internal in SDK.
  *
  * All those methods execute asynchronously and receive a block parameter as completion handler to be called when request is complete. The completion handler takes at least two parameters, @c success indicates whether this request is successful or fail, @c error indicates why the request failed.
  *
- * You can pass nil to completion handler if you dont care about completion.
+ * You can pass nil to completion handler if you don't care about completion.
  */
 @protocol RTKDFURoutine <NSObject>
 
@@ -147,12 +154,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param handler The completion handler to call when the request is complete.
  *
+ * @discussion If the device is not RWS device, the secondaryBattery parameter of the completion handler block is RTKDFUBatteryLevelInvalid.
  */
 - (void)getBatteryLevelWithCompletionHandler:(nullable void(^)(BOOL success, NSError *error, RTKDFUBatteryLevel battery, RTKDFUBatteryLevel secondaryBattery))handler;
 
 // TODO: describe the relationship of -getImageVersionsWithCompletionHandler: and -getImageVersionsOfActiveBank:withCompletionHandler:
 /**
- * Request to retrieve image versions installed on the connected device.
+ * Request to retrieve image versions installed on the connected device through characteristics.
  *
  * @param handler The completion handler to call when the request is complete.
  *
@@ -161,7 +169,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getImageVersionsWithCompletionHandler:(nullable void(^)(BOOL success, NSError *error, NSUInteger count, RTKImageVersionInfo_t infos[_Nullable]))handler;
 
 /**
- * Request to retrieve image versions installed on the connected device.
+ * Request to retrieve image versions of active bank or free bank through cmd.
  *
  * @param isActiveBank A boolean value indicates if images is current active.
  * @param handler The completion handler to call when the request is complete.
@@ -170,6 +178,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)getImageVersionsOfActiveBank:(BOOL)isActiveBank withCompletionHandler:(nullable void(^)(BOOL success, NSError *error, NSUInteger count, RTKImageVersionInfo_t infos[_Nullable]))handler;
 
+/**
+ * Request to get each image feature installed on the connected device and check the consistency of the feature containing in the upgrade images.
+ *
+ * @param images The upgrade files.
+ * @param handler The completion handler to call when the request is complete.
+ *
+ * @discussion If the request completes successfully, the isConsistent parameter of the completion handler block indicates the consistency.
+ */
+- (void)checkFeatureInfoConsistencyOfImages:(NSArray <RTKOTAUpgradeBin*> *)images withCompletionHandler:(nullable void(^)(BOOL success, NSError *err, BOOL isConsistent))handler;
 
 #pragma mark - DFU procedure operations
 
@@ -210,8 +227,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Notify device to receive image bytes.
  *
- * @param imageId The image which is about to be send.
- * @param len The size of this image already sended.
+ * @param imageId The image which is about to be sent.
+ * @param len The size of this image already sent.
  * @param handler The completion handler to call when the request is complete.
  */
 - (void)beginReceiveImage:(RTKImageId)imageId withSendedLength:(NSUInteger)len completionHandler:(nullable RTKLECompletionBlock)handler;
@@ -222,25 +239,25 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  * Send a fragment of image bytes to connected device.
  *
- * @param dataSlice The bytes fragment which is about to be send. This data should have length not larger than maximumImageSliceSendSize.
+ * @param dataSlice The bytes fragment which is about to be sent. This data should have length not larger than maximumImageSliceSendSize.
  * @param handler The completion handler to call when the request is complete.
  */
 - (void)sendImageSlice:(NSData *)dataSlice withCompletionHandler:(nullable RTKLECompletionBlock)handler;
 
 
 /**
- * Check the sended data in current buffer.
+ * Check the sent data in current buffer.
  *
- * @param bufferData The bytes in current buffer to be check.
+ * @param bufferData The bytes in current buffer to be checked.
  * @param handler The completion handler to call when the request is complete.
  */
 - (void)checkBufferCRCOf:(NSData *)bufferData withCompletionHandler:(nullable void(^)(BOOL success, NSError *__nullable error, RTKOTAImageBufferCheckResult result))handler;
 
 /**
- * Validate the image just sended.
+ * Validate the image just sent.
  *
  * @param imageId The image which is validated.
- * @param interval The time out interval when wait for this method completion.
+ * @param interval The time out interval when waiting for this method completion.
  * @param handler The completion handler to call when the request is complete.
  */
 - (void)validateImage:(RTKImageId)imageId timeoutInterval:(NSTimeInterval)interval withCompletionHandler:(nullable void(^)(BOOL success, NSError *__nullable error, RTKOTAImageValidateResult result))handler;
@@ -250,13 +267,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @param imageId The image which is validated.
  * @param isLast A boolean value indicates if the last send image is the last one.
- * @param interval The time out interval when wait for this method completion.
+ * @param interval The time out interval when waiting for this method completion.
  * @param handler The completion handler to call when the request is complete.
  */
 - (void)validateImage:(RTKImageId)imageId isLastImage:(BOOL)isLast timeoutInterval:(NSTimeInterval)interval withCompletionHandler:(nullable void(^)(BOOL success, NSError *__nullable error, RTKOTAImageValidateResult result))handler;
 
 /**
- * Activate sended images and make device reboot.
+ * Activate sent images and make device reboot.
  *
  * @param handler The completion handler to call when the request is complete.
  *
@@ -294,6 +311,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)copyExistImageOfId:(RTKImageId)imageId toFreeBankWithCompletionHandler:(nullable void(^)(BOOL success, NSError *err))handler;
 
+/**
+ * Request to enter stress test mode.
+ *
+ * @param handler The completion handler to call when the request is complete.
+ *
+ * @discussion You use this method to upgrade older version images and this method needs the connected device supports test mode([RTKOTADeviceInfo supportTest]).
+ */
+- (void)setModeToStressTestWithCompletionHandler:(nullable RTKLECompletionBlock)handler;
 @end
 
 NS_ASSUME_NONNULL_END

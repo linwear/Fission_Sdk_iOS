@@ -102,3 +102,4 @@ Parameterfout, de bovenste grens van hartslagherinnering zou groter dan of gelij
 
 "操作频繁，请稍后重试..." = "Frequente bewerkingen, probeer het later opnieuw";
 "设备处于禁止OTA状态，请稍后重试..." = "Het apparaat is in OTA verboden staat, probeer het later opnieuw";
+"设备处于运动中，请结束运动后重试..." = "Het apparaat is in beweging, beëindig de beweging en probeer het opnieuw...";

@@ -12,6 +12,18 @@
 //  框架功能｜Framework Function: iOS framework for Fission smart watch, which is responsible for the communication with the watch.
 //                              Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装。
 //  修改记录｜Modification Record:
+//     pcjbird    2023-05-18  Version:3.1.4 Build:202305181600
+//                            1.优化已知问题
+//                            2.新增"自定义表盘支持抗锯齿"处理
+//                            3.FBFirmwareVersionObject 新增配置:
+//                              是否支持系统功能开关的设定和获取大数据指令（0252H / 0352H）
+//                              是否支持零星小睡
+//                              是否支持自定义表盘抗锯齿
+//                            4.新增尼泊尔语
+//                            5.新增乌克兰语
+//                            6.报告/记录 按时间戳由小到大排序
+//                            7.广播信息中设配号兼容
+//
 //     pcjbird    2023-04-12  Version:3.1.3 Build:202304121900
 //                            1.新增"设备确认被找到"协议（FBAtCommand）fbUpDeviceConfirmedFoundDataWithBlock:
 //                            2.新增"获取系统功能开关信息"协议（FBBgCommand）fbGetSystemFunctionSwitchInformationWithBlock:
@@ -21,7 +33,9 @@
 //                              是否支持日常血氧检测开关控制
 //                              是否支持日常血压检测开关控制
 //                              是否支持日常精神压力检测开关控制
-//                            5.新增二进制数据埋点log完整解析(04-18)
+//                            5.新增二进制数据埋点log完整解析
+//                            6.OTA新增错误状态 FB_OTANotification_ERROR_Busy_Sport: 设备处于运动中，请结束运动后重试...
+//                            7.修正"界面跳转测试"协议错误（FBAtCommand）fbUpInterfaceJumpTestCode:
 //
 //     pcjbird    2023-04-03  Version:3.1.2 Build:202304031700
 //                            1.新增图片资源，自定义表盘，不同分辨率使用不同大小的切图

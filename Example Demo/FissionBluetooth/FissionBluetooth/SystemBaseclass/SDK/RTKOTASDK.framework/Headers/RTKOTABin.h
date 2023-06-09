@@ -25,24 +25,24 @@ typedef NS_ENUM(NSUInteger, RTKOTAImageType) {
     RTKOTAImageType_Bee_Config,             ///< Configuration
     
     /* Bee 2 */
-    RTKOTAImageType_Bee2_SOCV_CFG   = 0x01,     ///< SOCV Configuration
-    RTKOTAImageType_Bee2_SystemConfig,          ///< System Configuration
-    RTKOTAImageType_Bee2_OTAHeader,             ///< OTA Header
-    RTKOTAImageType_Bee2_Secure_Boot_Loader,    ///< Secure Boot Loader
-    RTKOTAImageType_Bee2_ROM_PATCH,             ///< ROM Patch
-    RTKOTAImageType_Bee2_APP_IMG,               ///< App
-    RTKOTAImageType_Bee2_APP_DATA1,             ///< App Data 1
-    RTKOTAImageType_Bee2_APP_DATA2,             ///< App Data 2
-    RTKOTAImageType_Bee2_APP_DATA3,             ///< App Data 3
-    RTKOTAImageType_Bee2_APP_DATA4,             ///< App Data 4
-    RTKOTAImageType_Bee2_APP_DATA5,             ///< App Data 5
-    RTKOTAImageType_Bee2_APP_DATA6,             ///< App Data 6
-    RTKOTAImageType_Bee2_APP_DATA7,             ///< App Data 7
-    RTKOTAImageType_Bee2_APP_DATA8,             ///< App Data 8
-    RTKOTAImageType_Bee2_APP_DATA9,             ///< App Data 9
-    RTKOTAImageType_Bee2_APP_DATA10,            ///< App Data 10
+//    RTKOTAImageType_Bee2_SOCV_CFG   = 0x01,     ///< SOCV Configuration
+//    RTKOTAImageType_Bee2_SystemConfig,          ///< System Configuration
+//    RTKOTAImageType_Bee2_OTAHeader,             ///< OTA Header
+//    RTKOTAImageType_Bee2_Secure_Boot_Loader,    ///< Secure Boot Loader
+//    RTKOTAImageType_Bee2_ROM_PATCH,             ///< ROM Patch
+//    RTKOTAImageType_Bee2_APP_IMG,               ///< App
+//    RTKOTAImageType_Bee2_APP_DATA1,             ///< App Data 1
+//    RTKOTAImageType_Bee2_APP_DATA2,             ///< App Data 2
+//    RTKOTAImageType_Bee2_APP_DATA3,             ///< App Data 3
+//    RTKOTAImageType_Bee2_APP_DATA4,             ///< App Data 4
+//    RTKOTAImageType_Bee2_APP_DATA5,             ///< App Data 5
+//    RTKOTAImageType_Bee2_APP_DATA6,             ///< App Data 6
+//    RTKOTAImageType_Bee2_APP_DATA7,             ///< App Data 7
+//    RTKOTAImageType_Bee2_APP_DATA8,             ///< App Data 8
+//    RTKOTAImageType_Bee2_APP_DATA9,             ///< App Data 9
+//    RTKOTAImageType_Bee2_APP_DATA10,            ///< App Data 10
     
-    /* SBee 2 (Bee3) */
+    /* Bee2 SBee 2 (Bee3) Bee3Plus*/
     RTKOTAImageType_SBee2_SOCV_CFG  = 0x01,     ///< SOCV Configuration
     RTKOTAImageType_SBee2_SystemConfig,         ///< System Configuration
     RTKOTAImageType_SBee2_OTAHeader,            ///< OTA Header
@@ -56,9 +56,9 @@ typedef NS_ENUM(NSUInteger, RTKOTAImageType) {
     RTKOTAImageType_SBee2_APP_DATA5,            ///< App Data 5
     RTKOTAImageType_SBee2_APP_DATA6,            ///< App Data 6
     RTKOTAImageType_SBee2_UPPERSTACK,           ///< Upper Stack
-    RTKOTAImageType_SBee2_APP_DATA8,            ///< App Data 8
-    RTKOTAImageType_SBee2_APP_DATA9,            ///< App Data 9
-    RTKOTAImageType_SBee2_APP_DATA10,           ///< App Data 10
+    RTKOTAImageType_SBee2_StackPatch,           ///< StackPatch (Bee3Plus)
+    RTKOTAImageType_SBee2_User_Data1,           ///< User Data 1
+    RTKOTAImageType_SBee2_User_Data2,           ///< User Data 2
     
     /* BBpro (including BBLite, BBpro 2) */
     RTKOTAImageType_BBpro_SOCV_CFG                  = 1,      ///< SOCV Configuration

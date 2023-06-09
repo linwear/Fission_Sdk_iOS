@@ -11,6 +11,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LWBaseViewController : UIViewController
 
+@property (nonatomic, assign) NSInteger pageIndex;
+@property (nonatomic, assign) NSInteger pageSize;
+
+/**
+ 添加下拉刷新功能
+ @param scrollView 该功能需要添加在该滚动视图
+ @param headerViewRefresh 回调函数
+ */
+- (void)addHeaderView:(UIScrollView *)scrollView refresh:(void(^)(void))headerViewRefresh;
+
+/**
+ 添加上提加载下一页功能
+ @param scrollView 该功能需要添加在该滚动视图
+ @param footerViewRefresh 回调函数
+*/
+- (void)addFooterView:(UIScrollView *)scrollView refresh:(void(^)(void))footerViewRefresh;
+
 @end
 
 NS_ASSUME_NONNULL_END

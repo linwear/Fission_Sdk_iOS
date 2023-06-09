@@ -18,14 +18,32 @@
 // 字符串防空处理
 #define StringHandle(string) (StringIsEmpty(string) ? @"" : string)
 
+// 处理nan浮点
+#define IS_NAN(obj) isnan(obj) ? 0.00 : obj
+
 #define FONT(I) [UIFont systemFontOfSize:I]
 #define COLOR_RGB(r,g,b,a)   [UIColor colorWithRed: r/255.0 green: g/255.0 blue: b/255.0 alpha: a]
 
 // rgb颜色(十六进制)
 #define COLOR_HEX(HexValue, a) [UIColor colorWithRed:((float)((HexValue & 0xFF0000) >> 16))/255.0 green:((float)((HexValue & 0xFF00) >> 8))/255.0 blue:((float)(HexValue & 0xFF))/255.0 alpha:a]
 
-#define BlueColor COLOR_HEX(0x4469FF, 1)
-#define GreenColor COLOR_HEX(0x228B22, 1)
+// 颜色转16进制字符串
+#define HEX_STR_COLOR(color) [Tools hexStringForColor:color]
+
+#define BlueColor       COLOR_HEX(0x4469FF, 1) // 主题色
+#define GreenColor      COLOR_HEX(0x228B22, 1) // 辅助色
+#define LineColor       COLOR_HEX(0xE2E2E2, 1) // 灰色线
+
+#define Color_Hr        COLOR_HEX(0xF08080, 0.4) // 心率
+#define Color_Spo2      COLOR_HEX(0xFF69B4, 0.4) // 血氧
+#define Color_Bp_s      COLOR_HEX(0xFFA07A, 0.4) // 血压—收缩压-高
+#define Color_Bp_d      COLOR_HEX(0x1E90FF, 0.4) // 血压-舒张压-低
+#define Color_Stre      COLOR_HEX(0x6495ED, 0.4) // 压力
+#define Color_DeepS     COLOR_HEX(0x191970, 0.4) // 深睡
+#define Color_LightS    COLOR_HEX(0x6A5ACD, 0.4) // 浅睡
+#define Color_REMS      COLOR_HEX(0x8A2BE2, 0.4) // 眼动
+#define Color_AwakeS    COLOR_HEX(0xFFA500, 0.4) // 清醒
+#define Color_NapS      COLOR_HEX(0x008B8B, 0.4) // 小睡
 
 //状态栏+导航栏高度
 #define k_SafeAreaBottomMargin (IS_NOTCHED_SCREEN ? 34.0 : 0.0)
@@ -72,17 +90,22 @@ static NSString *const FISSION_SDK_WATCHCLICKTAKEPHOTO = @"FISSION_SDK_WATCHCLIC
 #import <Bugly/Bugly.h>
 #import <IQKeyboardManager.h>
 #import <SVProgressHUD/SVProgressHUD.h>
-#import "MJExtension/MJExtension.h"
+#import <MJExtension/MJExtension.h>
+#import <MJRefresh/MJRefresh.h>
 #import <SDWebImage/SDWebImage.h>
 #import <Masonry/Masonry.h>
 #import <TZImagePickerController/TZImagePickerController.h>
-#import "SGQRCode.h"
+#import <SGQRCode/SGQRCode.h>
 #import <SDAutoLayout/SDAutoLayout.h>
-#import "BRDatePickerView.h"
+#import <BRPickerView/BRPickerView.h>
 #import <JXCategoryView/JXCategoryView.h>
 #import <HJViewStyle/UIView+HJViewStyle.h>
 #import <SSZipArchive/SSZipArchive.h>
 #import <CHIPageControl/CHIPageControl-Swift.h>
+#import <ZLCollectionViewFlowLayout-umbrella.h>
+#import <AAChartKit/AAChartKit.h>
+#import <Realm/Realm.h>
+#import <FSCalendar/FSCalendar.h>
 
 #import <Fission_Sdk_iOS/Fission_Sdk_iOS.h> // 裂变SDK
 
@@ -294,13 +317,42 @@ typedef NS_ENUM(NSUInteger, LWSportType) {
     LWSportAll = 0xFFFF         //所有运动
 };
 
+typedef NS_ENUM(NSUInteger, FBTestUIDataType) {
+    FBTestUIDataType_TodayData,     // 今日数据
+    FBTestUIDataType_Step,          // 步数
+    FBTestUIDataType_Calorie,       // 卡路里
+    FBTestUIDataType_Distance,      // 距离
+    FBTestUIDataType_HeartRate,     // 心率记录
+    FBTestUIDataType_BloodOxygen,   // 血氧记录
+    FBTestUIDataType_BloodPressure, // 血压记录
+    FBTestUIDataType_Stress,        // 压力记录
+    FBTestUIDataType_Sleep,         // 睡眠记录
+    FBTestUIDataType_Sports,        // 运动记录
+    FBTestUIDataType_ManualMeasure, // 手动测量记录
+};
+
+/// RLMRealm Object Model
+#import "RLMHeartRateModel.h"
+#import "RLMStepModel.h"
+#import "RLMBloodOxygenModel.h"
+#import "RLMBloodPressureModel.h"
+#import "RLMStressModel.h"
+#import "RLMSleepModel.h"
+#import "RLMSportsModel.h"
+#import "RLMManualMeasureModel.h"
+
+/// 基础
 #import "FBBaseNavigationController.h"
 #import "LWBaseViewController.h"
 #import "FBWebViewController.h"
 #import "NSObject+HUD.h"
 #import "LWNetworkingManager.h"
 #import "Tools.h"
+#import "NSDate+Date.h"
 #import "NSObject+Authorized.h"
 #import "UIAlertObject.h"
+#import "FBLoadDataObject.h"
+#import "FBCustomDialObject.h"
+#import "FBCustomDialSelectModel.h"
 
 #endif /* PrefixHeader_pch */

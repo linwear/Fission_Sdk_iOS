@@ -116,7 +116,7 @@ DEPRECATED_MSG_ATTRIBUTE("This class is only used for legacy compatibility. Use 
 // Scan expected peripheral nearby.
 
 /// Used internal.
-@property (readonly) NSPointerArray *scanedPeripherals;
+@property (readonly) NSMapTable *scanedPeripherals;
 
 /**
  *  Indicates whether is currently scanning.

@@ -101,3 +101,4 @@
 
 "操作频繁，请稍后重试..." = "Operația este frecventă, vă rugăm să încercați din nou mai târziu";
 "设备处于禁止OTA状态，请稍后重试..." = "Dispozitivul este în stare interzisă OTA, vă rugăm să încercați din nou mai târziu";
+"设备处于运动中，请结束运动后重试..." = "Dispozitivul este în mișcare, vă rugăm să încheiați mișcarea și să încercați din nou...";

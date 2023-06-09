@@ -101,3 +101,4 @@
 
 "操作频繁，请稍后重试..." = "Sıradan operasyonlar, lütfen sonra tekrar deneyin.";
 "设备处于禁止OTA状态，请稍后重试..." = "Aygıt OTA yasaklanmış durumda. Lütfen sonra tekrar deneyin.";
+"设备处于运动中，请结束运动后重试..." = "Cihaz hareket halinde, lütfen hareketi sonlandırın ve tekrar deneyin...";

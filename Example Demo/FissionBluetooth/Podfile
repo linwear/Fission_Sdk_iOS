@@ -21,6 +21,7 @@ target 'FissionBluetooth' do
   pod 'QMUIKit'
   pod 'AFNetworking'
   pod 'MJExtension'
+  pod 'MJRefresh'
   pod 'Bugly'
   pod 'IQKeyboardManager'
   pod 'SVProgressHUD'
@@ -36,5 +37,9 @@ target 'FissionBluetooth' do
   pod 'HJViewStyle'
   pod 'SSZipArchive'
   pod 'CHIPageControl/Fresno'
+  pod 'ZLCollectionViewFlowLayout'
+  pod 'AAChartKit', :git => 'https://github.com/AAChartModel/AAChartKit.git'
+  pod 'Realm'
+  pod 'FSCalendar'
 
 end

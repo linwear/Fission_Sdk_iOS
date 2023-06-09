@@ -331,6 +331,27 @@ NS_ASSUME_NONNULL_BEGIN
 */
 @property (nonatomic, assign) BOOL supportMentalStressControl;
 
+/**
+ 🌟是否支持系统功能开关的设定和获取大数据指令（0252H / 0352H）｜Whether to support the setting of the system function switch and the command of obtaining big data（0252H / 0352H）🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportSetSystemFunctionSwitch;
+
+/**
+ 🌟是否支持零星小睡｜Whether to support sporadic naps🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportSporadicNaps;
+
+/**
+ 🌟是否支持自定义表盘抗锯齿｜Whether to support custom dial anti-aliasing🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportAntiAliasing;
+
 @end
 
 NS_ASSUME_NONNULL_END

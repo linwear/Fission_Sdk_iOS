@@ -14,12 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 */
 @interface FBCustomDialModel : NSObject
 
-/** 使用的算法类型｜Type of algorithm used
- 
- @note  根据 FBAllConfigObject.firmwareConfig.useCompress 来标识使用算法｜According to FBAllConfigObject.firmwareConfig.useCompress to identify the algorithm used
- */
-@property (nonatomic, assign) FB_ALGORITHMGENERATION algorithm;
-
 /** 表盘分辨率大小｜Dial resolution size */
 @property (nonatomic, assign) CGSize dialSize;
 

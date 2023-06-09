@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="FBCustomDialListImageCell">
+            <rect key="frame" x="0.0" y="0.0" width="113" height="110"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="113" height="110"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oJ3-3W-OL8">
+                        <rect key="frame" x="0.0" y="0.0" width="113" height="110"/>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_dial_selected" translatesAutoresizingMaskIntoConstraints="NO" id="bsb-XM-jXs">
+                        <rect key="frame" x="89" y="0.0" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="2Mv-CM-8Tn"/>
+                            <constraint firstAttribute="height" constant="24" id="y2f-3Y-RMx"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <constraints>
+                <constraint firstItem="bsb-XM-jXs" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="FDz-PG-cxk"/>
+                <constraint firstItem="oJ3-3W-OL8" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ZxR-qi-4vS"/>
+                <constraint firstAttribute="bottom" secondItem="oJ3-3W-OL8" secondAttribute="bottom" id="dc5-O0-93D"/>
+                <constraint firstAttribute="trailing" secondItem="oJ3-3W-OL8" secondAttribute="trailing" id="eVe-t8-8oo"/>
+                <constraint firstAttribute="trailing" secondItem="bsb-XM-jXs" secondAttribute="trailing" id="jxR-ne-IMv"/>
+                <constraint firstItem="oJ3-3W-OL8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="rOl-bb-FGJ"/>
+            </constraints>
+            <size key="customSize" width="113" height="110"/>
+            <connections>
+                <outlet property="backgroundImage" destination="oJ3-3W-OL8" id="ack-PU-yIR"/>
+                <outlet property="markImage" destination="bsb-XM-jXs" id="AXS-Cg-45u"/>
+            </connections>
+            <point key="canvasLocation" x="142.74809160305344" y="40.845070422535215"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="ic_dial_selected" width="26.666666030883789" height="26.666666030883789"/>
+    </resources>
+</document>

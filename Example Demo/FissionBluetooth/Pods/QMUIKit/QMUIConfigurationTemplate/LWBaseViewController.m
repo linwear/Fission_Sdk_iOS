@@ -18,11 +18,43 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = UIColorWhite;
+    
+    self.pageIndex = 1;
+    self.pageSize = 10;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }
+
+#pragma mark - 添加下拉刷新功能
+- (void)addHeaderView:(UIScrollView *)scrollView refresh:(void(^)(void))headerViewRefresh {
+    WeakSelf(self);
+    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        weakSelf.pageIndex = 1;
+        if (headerViewRefresh) {
+            headerViewRefresh();
+        }
+    }];
+    header.stateLabel.textColor = BlueColor;
+    header.lastUpdatedTimeLabel.textColor = BlueColor;
+    scrollView.mj_header = header;
+}
+
+#pragma mark - 添加上提加载下一页功能
+- (void)addFooterView:(UIScrollView *)scrollView refresh:(void(^)(void))footerViewRefresh {
+    WeakSelf(self);
+    MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+        weakSelf.pageIndex ++;
+        if (footerViewRefresh) {
+            footerViewRefresh();
+        }
+    }];
+    footer.stateLabel.textColor = BlueColor;
+    [footer setTitle:LWLocalizbleString(@"No More Data") forState:MJRefreshStateNoMoreData];
+    scrollView.mj_footer = footer;
+}
+
 
 /*
 #pragma mark - Navigation

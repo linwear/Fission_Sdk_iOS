@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  * @discussion In addition, this protocol is also used as a condition when verify conformance of a specific profile.
  */
-@property (class, readonly) NSString *communicationProtocol;
+@property NSString *communicationProtocol;
 
 @end
 

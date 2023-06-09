@@ -101,3 +101,4 @@
 
 "操作频繁，请稍后重试..." = "La operación es frecuente, por favor inténtelo de nuevo más tarde...";
 "设备处于禁止OTA状态，请稍后重试..." = "El dispositivo está desactivado Ota, por favor inténtelo de nuevo más tarde...";
+"设备处于运动中，请结束运动后重试..." = "El dispositivo está en movimiento, finalice el movimiento y vuelva a intentarlo...";

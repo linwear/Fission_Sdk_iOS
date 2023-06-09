@@ -6,7 +6,7 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "MainViewController.h"
 #import "AppDelegate+FissionSDK.h"
 
 @interface AppDelegate ()
@@ -39,9 +39,19 @@
     [SVProgressHUD setMinimumDismissTimeInterval:2.0f];
     [SVProgressHUD setMaximumDismissTimeInterval:3.0f];
     
+    RLMRealmConfiguration *configuration = RLMRealmConfiguration.defaultConfiguration;
+    // 设置新的架构版本。必须大于之前所使用的版本
+    configuration.schemaVersion = 2;
+    // 通知 Realm 为默认的 Realm 数据库使用这个新的配置对象
+    [RLMRealmConfiguration setDefaultConfiguration:configuration];
+    // 现在我们已经通知了 Realm 如何处理架构变化，
+    // 打开文件将会自动执行迁移
+    [RLMRealm defaultRealm];
+    
+    // 初始化窗口
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.backgroundColor = UIColorWhite;
-    FBBaseNavigationController *naviBar = [[FBBaseNavigationController alloc] initWithRootViewController:ViewController.new];
+    FBBaseNavigationController *naviBar = [[FBBaseNavigationController alloc] initWithRootViewController:MainViewController.new];
     self.window.rootViewController = naviBar;
     [self.window makeKeyAndVisible];
     self.window.clipsToBounds = YES;

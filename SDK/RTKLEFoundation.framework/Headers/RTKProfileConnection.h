@@ -53,6 +53,12 @@ typedef enum : NSUInteger {
 - (void)profileConnection:(RTKProfileConnection *)connection deviceDidBeDisconnected:(nullable NSError *)error;
 
 /**
+ * Tells the delegate object that connecting to the device failed.
+ */
+- (void)profileConnection:(RTKProfileConnection *)connection deviceFailedToConnect:(nullable NSError *)error;
+
+
+/**
  * Tells the delegate object that the connection did receive new message.
  */
 - (void)profileConnection:(RTKProfileConnection *)connection didReceiveMessage:(NSData *)msgData;
@@ -176,6 +182,13 @@ typedef enum : NSUInteger {
  * @discussion This is a override pointer for subclass to responds to connection change. Don't call this method directly. If you override this method in subclass, you need to call this method on super class.
  */
 - (void)onDeviceDidDisconnectWithError:(nullable NSError *)error;
+
+/**
+ * Be notified that connecting to the device failed.
+ *
+ * @discussion This is a override pointer for subclass to responds to connection change. Don't call this method directly. If you override this method in subclass, you need to call this method on super class.
+ */
+- (void)onDeviceFailedToConnectWithError:(nullable NSError *)error;
 
 @end
 
