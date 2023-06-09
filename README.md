@@ -22,12 +22,14 @@ Framework Function: iOS framework for Fission smart watch, which is responsible 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 🚀示例演示工程 修改记录｜Example Demo Modification Record:
+
      pcjbird    2023-06-09
                 1.新增【数据可视化UI】模块，便于了解数据同步API的使用，直观查看设备历史数据
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 🚀SDK 修改记录｜SDK Modification Record:
+
      pcjbird    2023-05-18  Version:3.1.4 Build:202305181600
                             1.优化已知问题
                             2.新增"自定义表盘支持抗锯齿"处理
