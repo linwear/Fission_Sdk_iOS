@@ -1,23 +1,21 @@
 # Fission_Sdk_iOS
-SDK For iOS &amp; LinWear &amp; Fission
+##SDK For iOS &amp; LinWear &amp; Fission
 
-ZH:
+####框架名称: Fission_Sdk_iOS.framework
+####Framework Name: Fission_Sdk_iOS.framework
 
-框架名称: Fission_Sdk_iOS.framework
+####框架功能: Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装。
+####Framework Function: iOS framework for Fission smart watch, which is responsible for the communication with the watch.
 
-框架功能: Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装。
-
-⚠️暂不支持CocoaPods导入方式！请下载zip并仔细阅读文档，根据文档指引手动导入集成SDK；参考提供的示例demo，以帮助您更好地理解SDK API的使用。
+####⚠️暂不支持CocoaPods导入方式！请下载zip并仔细阅读文档，根据文档指引手动导入集成SDK；参考提供的示例demo，以帮助您更好地理解SDK API的使用。
+####⚠️The CocoaPods import method is not currently supported! Please download the zip and read the documentation carefully, and manually import the integrated SDK according to the documentation; refer to the provided sample demo to help you better understand the use of the SDK API.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-EN:
+###接入指南｜Access Guide
 
-Framework Name: Fission_Sdk_iOS.framework
-
-Framework Function: iOS framework for Fission smart watch, which is responsible for the communication with the watch.
-
-⚠️The CocoaPods import method is not currently supported! Please download the zip and read the documentation carefully, and manually import the integrated SDK according to the documentation; refer to the provided sample demo to help you better understand the use of the SDK API.
+- [中文文档(Chinese Doc)](Fission_Sdk_iOS/裂变智能穿戴产品SDK及API说明（iOS）.pdf)
+- [英文文档(English Doc)](Fission_Sdk_iOS/Fission smart wearable product SDK and API description (iOS).pdf)
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -28,7 +26,11 @@ Framework Function: iOS framework for Fission smart watch, which is responsible 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-🚀SDK 修改记录｜SDK Modification Record:
+🚀SDK 修改记录｜SDK Modification Record:（Fission_Sdk_iOS.h）
+     pcjbird    2023-07-18  Version:3.1.5 Build:20230718001
+                            1.新增"多项目自定义表盘"功能（FBCustomDataTools）fbGenerateMultiProjectCustomDialBinFileDataWithDialsModel:
+                            2.修复"设置/获取 个人用户信息"协议已知错误问题
+                            3.新增"读取片外 flash 空间数据"协议，用于获取设备意外重启信息，供固件分析问题（FBBgCommand）fbReadOffChipFlashWithAddress: withLength: withBlock:
 
      pcjbird    2023-05-18  Version:3.1.4 Build:202305181600
                             1.优化已知问题
