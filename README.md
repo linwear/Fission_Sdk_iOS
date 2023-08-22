@@ -17,14 +17,15 @@
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-🚀示例演示工程 修改记录｜Example Demo Modification Record:
+### 🚀示例演示工程 修改记录｜Example Demo Modification Record:
 
      pcjbird    2023-06-09
                 1.新增【数据可视化UI】模块，便于了解数据同步API的使用，直观查看设备历史数据
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-🚀SDK 修改记录｜SDK Modification Record:（Fission_Sdk_iOS.h）
+### 🚀SDK 修改记录｜SDK Modification Record:（Fission_Sdk_iOS.h）
+
      pcjbird    2023-07-18  Version:3.1.5 Build:20230718001
                             1.新增"多项目自定义表盘"功能（FBCustomDataTools）fbGenerateMultiProjectCustomDialBinFileDataWithDialsModel:
                             2.修复"设置/获取 个人用户信息"协议已知错误问题
