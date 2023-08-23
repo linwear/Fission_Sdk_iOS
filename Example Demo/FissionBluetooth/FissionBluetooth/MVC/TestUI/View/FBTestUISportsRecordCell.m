@@ -44,9 +44,9 @@
         NSMutableString *string = [NSMutableString stringWithFormat:@"%@", [FBLoadDataObject sportName:sportsModel.MotionMode]];
         
         if ([FBLoadDataObject isCalorie:sportsModel]) { // 卡路里运动
-            [string appendFormat:@"\n%@", [NSString stringWithFormat:@"%@  %ldkcal", [Tools HMS:sportsModel.duration], sportsModel.calorie]];
+            [string appendFormat:@"\n%@", [NSString stringWithFormat:@"%@, %ldkcal", [Tools HMS:sportsModel.duration], sportsModel.calorie]];
         } else { // 步数运动
-            [string appendFormat:@"\n%@", [NSString stringWithFormat:@"%@  %@%ld %ldkcal  %@", [Tools HMS:sportsModel.duration], LWLocalizbleString(@"Step"), sportsModel.step, sportsModel.calorie, [Tools distanceConvert:sportsModel.distance space:NO]]];
+            [string appendFormat:@"\n%@", [NSString stringWithFormat:@"%@, %@%ld, %ldkcal, %@", [Tools HMS:sportsModel.duration], LWLocalizbleString(@"Step"), sportsModel.step, sportsModel.calorie, [Tools distanceConvert:sportsModel.distance space:NO]]];
         }
         
         [string appendFormat:@"\n%@", [NSString stringWithFormat:@"%@", [NSDate timeStamp:sportsModel.begin dateFormat:FBDateFormatYMDHm]]];

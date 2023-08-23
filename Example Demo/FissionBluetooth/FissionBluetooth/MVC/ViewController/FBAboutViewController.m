@@ -23,15 +23,13 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
-    FBBaseNavigationController *navigation = (FBBaseNavigationController *)self.navigationController;
-    [navigation navigationBarAlpha:0.0];
+    [self navigationBarAlpha:0.0];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     
-    FBBaseNavigationController *navigation = (FBBaseNavigationController *)self.navigationController;
-    [navigation navigationBarAlpha:1.0];
+    [self navigationBarAlpha:1.0];
 }
 
 
@@ -40,7 +38,7 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = LWLocalizbleString(@"About");
     
-    UILabel *lab = [[UILabel alloc] qmui_initWithFont:FONT(12) textColor:UIColorGrayLighten];
+    UILabel *lab = [[UILabel alloc] qmui_initWithFont:FONT(13) textColor:UIColorGrayLighten];
     lab.textAlignment = NSTextAlignmentCenter;
     lab.text = [NSString stringWithFormat:@"Fission Bluetooth\n©️2020 - %ld All Rights Reserved.", NSDate.date.br_year];
     [self.view addSubview:lab];
@@ -94,6 +92,7 @@
     if (indexPath.row < self.dataArray.count) {
         NSDictionary *dict = self.dataArray[indexPath.row];
         cell.textLabel.text = dict.allKeys.firstObject;
+        cell.textLabel.font = FONT(17);
     }
 
     return cell;

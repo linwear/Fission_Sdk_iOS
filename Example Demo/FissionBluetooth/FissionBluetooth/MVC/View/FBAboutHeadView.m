@@ -35,7 +35,7 @@
         [self addSubview:appIcon];
         appIcon.sd_layout.centerXEqualToView(self).centerYEqualToView(self).widthIs(65).heightIs(65);
         
-        UILabel *lab = [[UILabel alloc] qmui_initWithFont:[NSObject themePingFangSCMediumFont:14] textColor:UIColorWhite];
+        UILabel *lab = [[UILabel alloc] qmui_initWithFont:[NSObject BahnschriftFont:14] textColor:UIColorWhite];
         lab.textAlignment = NSTextAlignmentCenter;
         lab.text = [NSString stringWithFormat:@"SDK Version %@\nSDK Build %@", FBBluetoothManager.sdkVersion, FBBluetoothManager.sdkBuild];
         [self addSubview:lab];

@@ -31,6 +31,7 @@
 
 #import "LWStartCountdownView.h"
 #import "FBSportsConnectViewController.h"
+#import "FBSystemFunctionSwitchVC.h"
 
 #import "FBBatteryView.h"
 
@@ -137,7 +138,7 @@
     
     [FBBgCommand.sharedInstance fbPushMobileLocationInformationWithLongitude:114.031040 withLatitude:22.324386 withBlock:^(NSError * _Nullable error) {
         if (error) {
-            [NSObject showHUDText:error.domain];
+            [NSObject showHUDText:error.localizedDescription];
         } else {
             weakSelf.receTextView.text = @"lon 114.031040--lat 22.324386";
         }
@@ -184,6 +185,7 @@
     self.staTBut = [UIButton buttonWithType:UIButtonTypeCustom];
     self.staTBut.frame = CGRectMake(0, CGRectGetMaxY(self.receTextView.frame), SCREEN_WIDTH/2, 40);
     self.staTBut.backgroundColor = UIColorRed;
+    self.staTBut.titleLabel.font = [NSObject BahnschriftFont:16];
     [self.staTBut setTitle:[self getTheCurrentTimeFormat:NO] forState:UIControlStateNormal];
     [self.staTBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.view addSubview:self.staTBut];
@@ -192,6 +194,7 @@
     self.endTBut = [UIButton buttonWithType:UIButtonTypeCustom];
     self.endTBut.frame = CGRectMake(CGRectGetMaxX(self.staTBut.frame), CGRectGetMaxY(self.receTextView.frame), SCREEN_WIDTH/2, 40);
     self.endTBut.backgroundColor = BlueColor;
+    self.endTBut.titleLabel.font = [NSObject BahnschriftFont:16];
     [self.endTBut setTitle:[self getTheCurrentTimeFormat:YES] forState:UIControlStateNormal];
     [self.endTBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.view addSubview:self.endTBut];
@@ -373,7 +376,9 @@
                                  LWLocalizbleString(@"Physical Health"),
                                  LWLocalizbleString(@"Abnormal HR reminder"),
                                  LWLocalizbleString(@"Frequent Contacts"),
+                                 LWLocalizbleString(@"Read off-chip flash space data (Used for device abnormal restart analysis)"),
                                  LWLocalizbleString(@"Request Device Logs"),
+                                 LWLocalizbleString(@"Get/Set system function switch information"),
                              ]
     };
     
@@ -415,7 +420,7 @@
     view.backgroundColor = UIColorWhite;
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 0,SCREEN_WIDTH-20, 60)];
-    label.font = [NSObject themePingFangSCMediumFont:17];
+    label.font = [NSObject BahnschriftFont:17];
     label.textColor = UIColorRed;
     [view addSubview:label];
     
@@ -426,7 +431,7 @@
     [clickBtn setTitleColor:UIColorBlack forState:UIControlStateSelected];
     [clickBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     clickBtn.layer.borderWidth = 0.5;
-    clickBtn.titleLabel.font = [NSObject themePingFangSCMediumFont:14];
+    clickBtn.titleLabel.font = [NSObject BahnschriftFont:14];
     clickBtn.layer.borderColor = [UIColor blackColor].CGColor;
     clickBtn.layer.cornerRadius = 10;
     clickBtn.tag = 100 + section;
@@ -519,7 +524,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get device version information")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get device version information")]) {
             [FBAtCommand.sharedInstance fbReqDeviceVersionDataWithBlock:^(FBDeviceVersionModel * _Nullable responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -529,7 +534,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get protocol version information")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get protocol version information")]) {
             [FBAtCommand.sharedInstance fbReqProtocolVersionDataWithBlock:^(NSString * _Nullable responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -539,7 +544,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get UTC time")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get UTC time")]) {
             [FBAtCommand.sharedInstance fbReqUTCTimeDataWithBlock:^(NSInteger responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -549,7 +554,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get the time zone")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get the time zone")]) {
             [FBAtCommand.sharedInstance fbReqTimezoneDataWithBlock:^(NSInteger responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -559,7 +564,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Synchronize UTC time")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Synchronize UTC time")]) {
             [FBAtCommand.sharedInstance fbSynchronizeUTCTimeWithBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -569,7 +574,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Set the time zone")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Set the time zone")]) {
             NSTimeZone *systemZone = [NSTimeZone systemTimeZone];
             NSInteger minute = systemZone.secondsFromGMT/60;
             [FBAtCommand.sharedInstance fbUpTimezoneMinuteData:minute withBlock:^(NSError * _Nullable error) {
@@ -581,7 +586,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Synchronize system time")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Synchronize system time")]) {
             [FBAtCommand.sharedInstance fbAutomaticallySynchronizeSystemTimeWithBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -591,7 +596,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Set the time display mode")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Set the time display mode")]) {
             _switchMode = !_switchMode;
             FB_TIMEDISPLAYMODE mode = _switchMode ? FB_TimeDisplayMode24Hours : FB_TimeDisplayMode12Hours;
             
@@ -604,7 +609,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Language setting")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Language setting")]) {
             [FBAtCommand.sharedInstance fbUpLanguageData:FB_SDK_en withBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -614,7 +619,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Set distance unit")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Set distance unit")]) {
             _switchMode = !_switchMode;
             FB_DISTANCEUNIT unit = _switchMode ? FB_EnglishUnits : FB_MetricUnit;
             
@@ -628,7 +633,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Set the vibration reminder switch")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Set the vibration reminder switch")]) {
             _switchMode = !_switchMode;
             
             [FBAtCommand.sharedInstance fbUpShakeAlterSwitchData:_switchMode withBlock:^(NSError * _Nullable error) {
@@ -640,7 +645,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Set the switch to turn on the screen by raising your wrist")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Set the switch to turn on the screen by raising your wrist")]) {
             _switchMode = !_switchMode;
             
             [FBAtCommand.sharedInstance fbUpWristSwitchData:_switchMode withBlock:^(NSError * _Nullable error) {
@@ -652,7 +657,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Enter/exit camera mode")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Enter/exit camera mode")]) {
             
             if (NSObject.accessCamera) {
                 FBCameraViewController *vc = FBCameraViewController.new;
@@ -660,7 +665,7 @@
             }
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Phone find device")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Phone find device")]) {
             [FBAtCommand.sharedInstance fbUpFindDeviceDataWithBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -670,7 +675,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Reboot the device")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Reboot the device")]) {
             [FBAtCommand.sharedInstance fbUpRebootDeviceDataWithBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -680,7 +685,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Reset")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Reset")]) {
             [FBAtCommand.sharedInstance fbUpResetDeviceDataWithBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -690,7 +695,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Soft shutdown")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Soft shutdown")]) {
             [FBAtCommand.sharedInstance fbUpSoftDownDataWithBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -700,7 +705,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Security confirmation")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Security confirmation")]) {
             [FBAtCommand.sharedInstance fbUpSafetyConfirmDataWithBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -710,7 +715,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Start/Exit Self-Test Mode")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Start/Exit Self-Test Mode")]) {
             _switchMode = !_switchMode;
             
             [FBAtCommand.sharedInstance fbUpSelfTestData:_switchMode withBlock:^(NSError * _Nullable error) {
@@ -722,7 +727,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Clear user information")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Clear user information")]) {
             [FBAtCommand.sharedInstance fbUpClearUserInfoDataWithBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -732,7 +737,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Clear activity data")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Clear activity data")]) {
             [FBAtCommand.sharedInstance fbUpClearSportDataWithBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -742,7 +747,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Set the device to actively disconnect")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Set the device to actively disconnect")]) {
             [FBAtCommand.sharedInstance fbUpDisConnectDataWithBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -752,7 +757,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Interface jump test")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Interface jump test")]) {
             // The correct interface is required
             
             NSMutableArray *arr = NSMutableArray.array;
@@ -784,7 +789,7 @@
             [stringPickerView show];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Women's Physiological Status Setting")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Women's Physiological Status Setting")]) {
             _switchMode = !_switchMode;
             FB_FEMALEPHYSIOLOGICALSTATE Phy = _switchMode ? FB_FPS_Pregnancy : FB_FPS_Menstruation;
             
@@ -797,7 +802,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get unused note reminder/alarm ID")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get unused note reminder/alarm ID")]) {
             [FBAtCommand.sharedInstance fbGetUnusedClockIDWithBlock:^(NSInteger responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -807,7 +812,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Enable/exit sprint mode")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Enable/exit sprint mode")]) {
             _switchMode = !_switchMode;
             FB_SPRINTMODE sprint = _switchMode ? FB_SPRINTMODE_ON : FB_SPRINTMODE_OFF;
             
@@ -820,7 +825,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Enter/Exit production mode")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Enter/Exit production mode")]) {
             _switchMode = !_switchMode;
             
             [FBAtCommand.sharedInstance fbUpProductionTestModeIsOpen:_switchMode withBlock:^(NSError * _Nullable error) {
@@ -832,7 +837,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Set temperature unit")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Set temperature unit")]) {
             _switchMode = !_switchMode;
             FB_TEMPERATUREUNIT units = _switchMode ? FB_Centigrade : FB_FahrenheitDegree;
             
@@ -845,7 +850,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get the duration of the bright screen")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get the duration of the bright screen")]) {
             [FBAtCommand.sharedInstance fbGetTheDurationOfBrightScreenWithBlock:^(NSInteger responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -855,7 +860,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Set the duration of the bright screen")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Set the duration of the bright screen")]) {
             [FBAtCommand.sharedInstance fbSetTheDurationOfBrightScreenWithDuration:20 withBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -865,7 +870,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Switch to the specified watch face")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Switch to the specified watch face")]) {
             [FBAtCommand.sharedInstance fbTogglesTheSpecifiedDialWithIndex:2 withBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -875,7 +880,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Set vibration feedback")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Set vibration feedback")]) {
             _switchMode = !_switchMode;
             
             [FBAtCommand.sharedInstance fbVibrationFeedbackSwitchWithMode:_switchMode withBlock:^(NSError * _Nullable error) {
@@ -887,7 +892,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Request to bind the device")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Request to bind the device")]) {
             [FBAtCommand.sharedInstance fbBindDeviceRequest:nil withBlock:^(NSInteger responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -897,18 +902,21 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Request to unbind the device")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Request to unbind the device")]) {
             [FBAtCommand.sharedInstance fbUnbindDeviceRequestWithBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
                 } else {
                     weakSelf.receTextView.text = LWLocalizbleString(@"Success");
                 }
+                
+                [Tools saveIsFirstBinding:YES];
+                
                 [FBBluetoothManager.sharedInstance disconnectPeripheral];
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get resting heart rate for the day")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get resting heart rate for the day")]) {
             [FBAtCommand.sharedInstance fbGetRestingHeartRateOfTheDayWithBlock:^(NSInteger responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -918,7 +926,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get the specified prompt function")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get the specified prompt function")]) {
             [FBAtCommand.sharedInstance fbGetPromptFunctionWithMode:FB_ExerciseHeartRate withBlock:^(NSInteger responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -928,7 +936,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Set the specified reminder function")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Set the specified reminder function")]) {
             [FBAtCommand.sharedInstance fbSetPromptFunctionWithMode:FB_ExerciseHeartRate withThreshold:70 withBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -938,7 +946,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get the current exercise state")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get the current exercise state")]) {
             [FBAtCommand.sharedInstance fbGetCurrentExerciseStateStatusWithBlock:^(NSInteger responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -948,7 +956,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"The app side synchronizes the GPS motion status to the device side")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"The app side synchronizes the GPS motion status to the device side")]) {
             // This is the movement state of the watch controlled by the app
             FBGPSMotionActionModel *model = FBGPSMotionActionModel.new;
             model.MotionMode = FBOutdoor_running;
@@ -982,7 +990,7 @@
             // The movement state of the watch changes, please use the monitoring method -(void)fbGPS_MotionWatchStatusChangeCallbackWithBlock:
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Turn on/off the heart rate monitoring switch")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Turn on/off the heart rate monitoring switch")]) {
             _switchMode = !_switchMode;
             
             [FBAtCommand.sharedInstance fbUpHeartRateData:_switchMode withBlock:^(NSError * _Nullable error) {
@@ -994,7 +1002,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Low Speed Connection/High Speed Connection")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Low Speed Connection/High Speed Connection")]) {
             
             BRStringPickerView *pickerView = [[BRStringPickerView alloc] initWithPickerMode:BRStringPickerComponentSingle];
             pickerView.title = LWLocalizbleString(@"Toggle connection speed");
@@ -1016,7 +1024,7 @@
             };
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Timing heart rate detection switch setting")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Timing heart rate detection switch setting")]) {
             _switchMode = !_switchMode;
             
             [FBAtCommand.sharedInstance fbTimingHeartRateDetectionSwitchData:_switchMode withBlock:^(NSError * _Nullable error) {
@@ -1028,7 +1036,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Timed blood oxygen detection switch setting")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Timed blood oxygen detection switch setting")]) {
             _switchMode = !_switchMode;
             
             [FBAtCommand.sharedInstance fbTimingBloodOxygenDetectionSwitchData:_switchMode withBlock:^(NSError * _Nullable error) {
@@ -1040,7 +1048,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Timed mental stress detection switch setting")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Timed mental stress detection switch setting")]) {
             _switchMode = !_switchMode;
             
             [FBAtCommand.sharedInstance fbTimingStressDetectionSwitchData:_switchMode withBlock:^(NSError * _Nullable error) {
@@ -1052,7 +1060,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get call audio switch status")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get call audio switch status")]) {
             
             [FBAtCommand.sharedInstance fbGetCallAudioSwitchWithBlock:^(NSInteger responseObject, NSError * _Nullable error) {
                 if (error) {
@@ -1063,7 +1071,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Turn on/off call audio switch")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Turn on/off call audio switch")]) {
             _switchMode = !_switchMode;
             
             [FBAtCommand.sharedInstance fbSetCallAudioSwitchData:_switchMode withBlock:^(NSError * _Nullable error) {
@@ -1075,7 +1083,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get Multimedia Audio Switch status")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get Multimedia Audio Switch status")]) {
             
             [FBAtCommand.sharedInstance fbGetMultimediaAudioSwitchWithBlock:^(NSInteger responseObject, NSError * _Nullable error) {
                 if (error) {
@@ -1086,7 +1094,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Turn on/off Multimedia Audio Switch")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Turn on/off Multimedia Audio Switch")]) {
             _switchMode = !_switchMode;
             
             [FBAtCommand.sharedInstance fbSetMultimediaAudioSwitchData:_switchMode withBlock:^(NSError * _Nullable error) {
@@ -1100,7 +1108,7 @@
     }
     
 #pragma mark - Stream
-    if (section == 1) {
+    else if (section == 1) {
         
         if ([rowStr containsString:LWLocalizbleString(@"Enable(2s)/disable data monitoring flow")]) {
             _switchMode = !_switchMode;
@@ -1119,7 +1127,7 @@
     }
     
 #pragma mark - FBBgCommand
-    if (section == 2) {
+    else if (section == 2) {
         
         if ([rowStr containsString:LWLocalizbleString(@"Get device hardware information")]) {
             [FBBgCommand.sharedInstance fbGetHardwareInformationDataWithBlock:^(FB_RET_CMD status, float progress, FBDeviceInfoModel * _Nonnull responseObject, NSError * _Nonnull error) {
@@ -1135,7 +1143,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Obtain real-time measurement data of the day")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Obtain real-time measurement data of the day")]) {
             [FBBgCommand.sharedInstance fbGetCurrentDayActivityDataWithBlock:^(FB_RET_CMD status, float progress, FBCurrentDataModel * _Nonnull responseObject, NSError * _Nonnull error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1149,7 +1157,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get real-time statistics report of current sleep")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get real-time statistics report of current sleep")]) {
             [FBBgCommand.sharedInstance fbGetCurrentSleepStatisticsReportDataWithBlock:^(FB_RET_CMD status, float progress, NSArray<FBSleepCaculateReportModel *> * _Nullable responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1164,7 +1172,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get the current real-time sleep state record")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get the current real-time sleep state record")]) {
             [FBBgCommand.sharedInstance fbGetCurrentSleepStateRecordingDataWithBlock:^(FB_RET_CMD status, float progress, NSArray<FBSleepStatusRecordModel *> * _Nullable responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1179,7 +1187,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get daily activity statistics report")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get daily activity statistics report")]) {
             [FBBgCommand.sharedInstance fbGetDailyActivityDataStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBDayActivityModel *> * _Nonnull responseObject, NSError * _Nonnull error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1198,7 +1206,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Obtain the hourly activity statistics report")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Obtain the hourly activity statistics report")]) {
             [FBBgCommand.sharedInstance fbGetHourlyActivityDataStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBHourReportModel *> * _Nonnull responseObject, NSError * _Nonnull error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1217,7 +1225,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get sleep statistics report")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get sleep statistics report")]) {
             [FBBgCommand.sharedInstance fbGetSleepStatisticsReportDataStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBSleepCaculateReportModel *> * _Nonnull responseObject, NSError * _Nonnull error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1236,7 +1244,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get sleep status record")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get sleep status record")]) {
             [FBBgCommand.sharedInstance fbGetSleepStateRecordingDataStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBSleepStatusRecordModel *> * _Nonnull responseObject, NSError * _Nonnull error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1256,7 +1264,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get a list of device motion types")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get a list of device motion types")]) {
             [FBBgCommand.sharedInstance fbGetListOfDeviceMotionTypesWithBlock:^(FB_RET_CMD status, float progress, FBMotionTypesListModel * _Nullable responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1271,7 +1279,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get list of exercise records")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get list of exercise records")]) {
             [FBBgCommand.sharedInstance fbGetMotionRecordListDataStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBSportRecordModel *> * _Nonnull responseObject, NSError * _Nonnull error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1290,7 +1298,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get Sports Statistics Report")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get Sports Statistics Report")]) {
             [FBBgCommand.sharedInstance fbGetSportsDataReportDataStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBSportCaculateModel *> * _Nonnull responseObject, NSError * _Nonnull error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1309,7 +1317,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get heart rate records")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get heart rate records")]) {
             [FBBgCommand.sharedInstance fbGetHeartRateRecordDataStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBTypeRecordModel *> * _Nonnull responseObject, NSError * _Nonnull error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1334,7 +1342,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get pedometer records")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get pedometer records")]) {
             [FBBgCommand.sharedInstance fbGetStepCountRecordDataStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBTypeRecordModel *> * _Nonnull responseObject, NSError * _Nonnull error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1359,7 +1367,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get Blood Oxygen Records")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get Blood Oxygen Records")]) {
             [FBBgCommand.sharedInstance fbGetBloodOxygenRecordDataStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBTypeRecordModel *> * _Nonnull responseObject, NSError * _Nonnull error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1384,7 +1392,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get blood pressure records")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get blood pressure records")]) {
             [FBBgCommand.sharedInstance fbGetBloodPressureRecordsDataStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBTypeRecordModel *> * _Nonnull responseObject, NSError * _Nonnull error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1409,7 +1417,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Obtain exercise high-frequency heart rate records (1 time per second)")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Obtain exercise high-frequency heart rate records (1 time per second)")]) {
             [FBBgCommand.sharedInstance fbExerciseHighFrequencyHeartRateRecordsDataStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBTypeRecordModel *> * _Nullable responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1434,7 +1442,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get Stress Records")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get Stress Records")]) {
             [FBBgCommand.sharedInstance fbGetStressRecordsDataStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBTypeRecordModel *> * _Nonnull responseObject, NSError * _Nonnull error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1459,7 +1467,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get exercise details record")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get exercise details record")]) {
             [FBBgCommand.sharedInstance fbGetExerciseDetailsDataStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBTypeRecordModel *> * _Nonnull responseObject, NSError * _Nonnull error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1484,7 +1492,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get sports statistics report + sports details record")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get sports statistics report + sports details record")]) {
             [FBBgCommand.sharedInstance fbGetSportsStatisticsDetailsReportsWithStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBSportsStatisticsDetailsRecordModel *> * _Nullable responseObject, NSError * _Nullable error) {
                 
                 if (error) {
@@ -1510,7 +1518,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Obtain motion location records")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Obtain motion location records")]) {
             [FBBgCommand.sharedInstance fbGetMotionLocationRecordDataStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBTypeRecordModel *> * _Nonnull responseObject, NSError * _Nonnull error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1535,7 +1543,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Acquire manual measurement data records")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Acquire manual measurement data records")]) {
             [FBBgCommand.sharedInstance fbGetManualMeasurementDataStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBManualMeasureDataModel *> * _Nonnull responseObject, NSError * _Nonnull error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1554,7 +1562,7 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Get specified records and reports")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get specified records and reports")]) {
             
             //For example, acquiring heart rate, blood oxygen, and exercise records
             FB_MULTIPLERECORDREPORTS mode = FB_HeartRateRecording | FB_BloodOxygenRecording | FB_SportsRecordList;
@@ -1563,19 +1571,19 @@
             [FBBgCommand.sharedInstance fbGetSpecialRecordsAndReportsDataWithType:mode startTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, FB_MULTIPLERECORDREPORTS recordType, float progress, id  _Nonnull responseObject, NSError * _Nonnull error) {
                 if (mode==recordType) {
                     if (error) {
-                        [mutStr appendFormat:@"ERROR：%@\n\n",error.domain];
+                        [mutStr appendFormat:@"ERROR：%@\n\n",error.localizedDescription];
                         weakSelf.receTextView.text = mutStr;
                     }
                 } else if (recordType==FB_HeartRateRecording) {
                     if (error) {
-                        [mutStr appendFormat:@"FB_HeartRateRecording ERROR：%@\n\n",error.domain];
+                        [mutStr appendFormat:@"FB_HeartRateRecording ERROR：%@\n\n",error.localizedDescription];
                     } else if (status==FB_DATATRANSMISSIONDONE) {
                         
                         [mutStr appendFormat:@"FB_HeartRateRecording：%@\n\n",responseObject];
                     }
                 } else if (recordType==FB_BloodOxygenRecording) {
                     if (error) {
-                        [mutStr appendFormat:@"FB_BloodOxygenRecording ERROR：%@\n\n",error.domain];
+                        [mutStr appendFormat:@"FB_BloodOxygenRecording ERROR：%@\n\n",error.localizedDescription];
                     } else if (status==FB_DATATRANSMISSIONDONE) {
                         
                         [mutStr appendFormat:@"FB_BloodOxygenRecording：%@\n\n",responseObject];
@@ -1583,7 +1591,7 @@
                 } else if (recordType==FB_SportsRecordList) {
                     if (error)
                     {
-                        [mutStr appendFormat:@"FB_SportsRecordList ERROR：%@\n\n",error.domain];
+                        [mutStr appendFormat:@"FB_SportsRecordList ERROR：%@\n\n",error.localizedDescription];
                         weakSelf.receTextView.text = mutStr;
                     }
                     else if (status==FB_DATATRANSMISSIONDONE)
@@ -1596,74 +1604,74 @@
             }];
         }
                 
-        if ([rowStr containsString:LWLocalizbleString(@"User Info")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"User Info")]) {
             UserInforViewController *vc = [UserInforViewController new];
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Reminder/Alarm")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Reminder/Alarm")]) {
             ClockInforListVC *vc = [ClockInforListVC new];
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Message Switch")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Message Switch")]) {
             MessagePushSwitchVC *vc = [MessagePushSwitchVC new];
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Heart Rate Level")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Heart Rate Level")]) {
             HeartRateViewController *vc = [HeartRateViewController new];
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Sedentary Reminder")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Sedentary Reminder")]) {
             SedentaryViewController *vc = [SedentaryViewController new];
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
             
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Drink Water Reminder")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Drink Water Reminder")]) {
             WaterClockViewController *vc = [WaterClockViewController new];
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"DND Reminder")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"DND Reminder")]) {
             NotDisturbViewController *vc = [NotDisturbViewController new];
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Heart Rate Monitor")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Heart Rate Monitor")]) {
             HrCheckViewController *vc = [HrCheckViewController new];
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Raise Wrist")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Raise Wrist")]) {
             BrightScreenViewController *vc = [BrightScreenViewController new];
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Sport Goal")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Sport Goal")]) {
             SportTargetViewController *vc = [SportTargetViewController new];
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Set Weather")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Set Weather")]) {
             WeatherViewController *vc= [WeatherViewController new];
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Push Location Info")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Push Location Info")]) {
             [FBBgCommand.sharedInstance fbPushMobileLocationInformationWithLongitude:114.035544 withLatitude:22.648616 withBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1673,25 +1681,39 @@
             }];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Physical Health")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Physical Health")]) {
             FemaleCircadianCycleVC *vc = [FemaleCircadianCycleVC new];
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Abnormal HR reminder")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Abnormal HR reminder")]) {
             HeartRateReminderVC *vc = [HeartRateReminderVC new];
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Frequent Contacts")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Frequent Contacts")]) {
             LWPersonViewController *vc = [LWPersonViewController new];
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Request Device Logs")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Read off-chip flash space data (Used for device abnormal restart analysis)")]) {
+            [FBBgCommand.sharedInstance fbReadOffChipFlashWithHardfault:YES withBlock:^(FB_RET_CMD status, float progress, NSString * _Nullable responseObject, NSError * _Nullable error) {
+                if (error) {
+                    [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+                }
+                else if (status==FB_INDATATRANSMISSION) {
+                    weakSelf.receTextView.text = [NSString stringWithFormat:@"Receiving Progress: %.f%%", progress*100];
+                }
+                else if (status==FB_DATATRANSMISSIONDONE) {
+                    weakSelf.receTextView.text = responseObject;
+                }
+            }];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Request Device Logs")]) {
             [FBBgCommand.sharedInstance fbRequestDeviceLogsWithBlock:^(FB_RET_CMD status, float progress, NSString * _Nullable responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1705,10 +1727,16 @@
                 }
             }];
         }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Get/Set system function switch information")]) {
+            
+            FBSystemFunctionSwitchVC *vc = FBSystemFunctionSwitchVC.new;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
     
 #pragma mark - OTA
-    if (section == 3) {
+    else if (section == 3) {
         
         if ([rowStr containsString:LWLocalizbleString(@"Firmware OTA")]) {
             BinFileViewController *vc = [BinFileViewController new];
@@ -1716,13 +1744,13 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Dial Face OTA")]){
+        else if ([rowStr containsString:LWLocalizbleString(@"Dial Face OTA")]){
             FBClockDialCategoryViewController *vc = [FBClockDialCategoryViewController new];
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
         }
         
-        if ([rowStr containsString:LWLocalizbleString(@"Sports Type OTA")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Sports Type OTA")]) {
             MotionPushViewController *vc = [MotionPushViewController new];
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
@@ -1734,7 +1762,7 @@
 - (QMUIButton *)titleView {
     if (!_titleView) {
         _titleView = [QMUIButton buttonWithType:UIButtonTypeCustom];
-        _titleView.titleLabel.font = [NSObject themePingFangSCMediumFont:18];
+        _titleView.titleLabel.font = [NSObject BahnschriftFont:18];
         _titleView.frame = CGRectMake(0, 0, SCREEN_WIDTH-120, 44);
         [_titleView setTitleColor:self.navigationController.navigationBar.tintColor forState:UIControlStateNormal];
         [_titleView setImage:IMAGE_NAME(@"ic_device_disconnect") forState:UIControlStateNormal];
@@ -1807,6 +1835,7 @@
         
         else {
             // More...
+            FBLog(@"🏆For more definitions, refer to EM_FUNC_SWITCH｜🏆更多定义，参考EM_FUNC_SWITCH")
         }
     }
     

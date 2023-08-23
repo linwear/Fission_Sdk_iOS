@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 /*
- 类型记录数组详情（具体参考枚举值 FB_RECORDTYPE）｜Type record array details (refer to enumeration value FB_RECORDTYPE for details)
+ 类型记录数组详情（公共类，具体参考枚举值 FB_RECORDTYPE）｜Type record array details (public class, refer to enumeration value FB_RECORDTYPE for details)
 */
 @interface FBRecordDetailsModel : NSObject
 
@@ -78,11 +78,28 @@ NS_ASSUME_NONNULL_BEGIN
 /** 实时心率（次/分钟）｜Real time heart rate (times / min) */
 @property (nonatomic, assign) NSInteger heartRate;
 
+/**
+ 记录格式定义｜Record Format Definition
+*/
+@property (nonatomic, assign) NSInteger recordDefinition;
+
+
+// - - - - - - - - - - 当 recordDefinition == 0 时，以下有值｜When recordDefinition == 0, the following have values - - - - - - - - - -
+
 /** 实时体力，0~100｜Real time physical strength, 0-100 */
 @property (nonatomic, assign) NSInteger stamina;
 
 /** 运动状态。NO 正常，YES 暂停｜Motion state. NO normal, YES pause */
 @property (nonatomic, assign) BOOL isSuspend;
+
+
+// - - - - - - - - - - 当 recordDefinition == 1 时，以下有值｜When recordDefinition == 1, the following have values - - - - - - - - - -
+
+/** 一公里用时（一公里配速，单位秒）｜One kilometer time (one kilometer pace, unit second)*/
+@property (nonatomic, assign) NSInteger KilometerPace;
+
+/** 一英里用时（一英里配速，单位秒）｜Mile time (mile pace, in seconds) */
+@property (nonatomic, assign) NSInteger MilePace;
 
 
 

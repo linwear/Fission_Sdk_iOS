@@ -15,7 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 */
 @interface FBBluetoothManager : NSObject
 
+/** SDK 版本号｜SDK version number */
 + (NSString *)sdkVersion;
+ /** SDK Build版本号｜SDK Build version number */
 + (NSString *)sdkBuild;
 
 /**
@@ -131,7 +133,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)IsTheDeviceReady;
 
 /**
- 尝试重连上次连接｜Try reconnecting the last connection
+ 尝试重连上次连接，一般无需主动调用，SDK内部自动管理｜Try to reconnect to the last connection. Generally, there is no need to actively call it, and it is automatically managed within the SDK
 */
 - (void)tryLastConnection;
 

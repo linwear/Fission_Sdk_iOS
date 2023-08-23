@@ -10,6 +10,7 @@
 #import "LWDeviceListCell.h"
 #import "QRViewController.h"
 #import "FBRadarView.h"
+#import "FBConnectViewController.h"
 
 @interface ListViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -34,8 +35,8 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    // result
-    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(result:) name:FISSION_SDK_CONNECTBINGSTATE object:nil];
+    // 扫描到设备｜Scan to device
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(ScanToDevice:) name:FISSION_SDK_SCANTODEVICENOTICE object:nil];
     
     // Start scanning device
     [self startScan];
@@ -75,7 +76,7 @@
     WeakSelf(self);
     if (!self.isReload) {
         self.isReload = YES;
-        GCD_AFTER(5.0, ^{
+        GCD_AFTER(3.0, ^{
             
             if (weakSelf.datas.count) {
                 [weakSelf.radarView animation:NO];
@@ -147,21 +148,14 @@
     
     FBPeripheralModel *model = self.datas[indexPath.row];
     
-    [FBBluetoothManager.sharedInstance connectToPeripheral:model.peripheral];
-    
-    [NSObject showLoading:LWLocalizbleString(@"Connecting")];
+    FBConnectViewController *vc = FBConnectViewController.new;
+    vc.peripheralModel = model;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)result:(NSNotification *)obj {
+- (void)ScanToDevice:(NSNotification *)obj {
     
-    if ([obj.object isKindOfClass:NSNumber.class]) {
-        
-        CONNECTBINGSTATE state = (CONNECTBINGSTATE)[obj.object integerValue];
-        if (state == CONNECTBINGSTATE_COMPLETE) {
-            [self.navigationController popViewControllerAnimated:YES];
-        }
-    }
-    else if ([obj.object isKindOfClass:FBPeripheralModel.class]) {
+    if ([obj.object isKindOfClass:FBPeripheralModel.class]) {
         
         FBPeripheralModel *model = obj.object;
         

@@ -23,13 +23,22 @@
     return manage;
 }
 
+- (instancetype)init {
+    if (self = [super init]) {
+        _batterySoures = NSMutableArray.array;
+    }
+    return self;
+}
+
 /// 文件解压
 - (void)UnzipFormFilePath:(NSString *)filePath block:(void (^)(NSArray<FBCustomDialListModel *> * _Nullable, NSError * _Nullable))block {
     
-    self.packet_bin = nil;
+    _packet_bin = nil;
+    _info_png = nil;
+    [_batterySoures removeAllObjects];
     
     // 解压后的文件路径
-    NSString *unzipPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:@"FBWatchUIResourceFolder"];
+    NSString *unzipPath = [NSString stringWithFormat:@"%@/%@", NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0], @"FBCustomDialUIResource"];
 
     // 创建解压文件夹
     NSError *pathError = nil;
@@ -38,9 +47,10 @@
     
     NSError *error = nil;
     if ([SSZipArchive unzipFileAtPath:filePath toDestination:unzipPath preserveAttributes:YES overwrite:YES password:nil error:&error delegate:self]) {
-        
+                
         //目的文件路径
-        NSString *zipFilePath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject stringByAppendingPathComponent:@"FBWatchUIResourceFolder"];
+        NSArray *cachesPathArr = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        NSString *zipFilePath = [[cachesPathArr lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"FBCustomDialUIResource"]];
 
         FBLog(@"💁解压成功: %@", zipFilePath);
 
@@ -56,45 +66,59 @@
     }
 }
 
-- (void)AnalysisOfZipFile:(NSString *)zipFilePath block:(void(^)(NSArray * _Nullable list, NSError * _Nullable error))block {
+- (void)AnalysisOfZipFile:(NSString *)zipFilePath block:(void(^)(NSArray<FBCustomDialListModel *> * _Nullable list, NSError * _Nullable error))block {
     
     // 包含所有图片资源数据的 bin
-    NSString *packet_bin = [NSString stringWithFormat:@"%@/packet.bin", zipFilePath];
-    self.packet_bin = [NSData dataWithContentsOfFile:packet_bin];
-    FBLog(@"🌇解析packet.bin长度: %ld", self.packet_bin.length);
+    NSString *packetPath = [NSString stringWithFormat:@"%@/packet.bin", zipFilePath];
+    NSData *packet_bin = [NSData dataWithContentsOfFile:packetPath];
+    _packet_bin = packet_bin;
+    FBLog(@"🌇解析packet.bin长度: %ld", packet_bin.length);
     
     // 包含所有图片资源名称的 json
     NSData *info_png = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@/info_png.json", zipFilePath]];
-    if (info_png) {
+    if (info_png && packet_bin) {
+        
+        FBFirmwareVersionObject *object = FBAllConfigObject.firmwareConfig;
         
         // 数据源 array
         NSMutableArray <FBCustomDialListModel *> *dataSoures = NSMutableArray.array;
         
         // 原数据 dictionary
         NSDictionary *info_png_dict = [NSJSONSerialization JSONObjectWithData:info_png options:NSJSONReadingMutableLeaves error:nil];
+        _info_png = info_png_dict;
         FBLog(@"🌇解析info_png.json成功: %@", info_png_dict);
         
         
 #pragma mark - - - - - - - - - - - - - - - - - - - - - - - - - - - 背景 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         
         // 背景图片
-        NSArray <NSString *> *defaultBgImageList = info_png_dict[@"defaultBgImageList"];
+        NSArray <NSDictionary *> *defaultBgImageList = info_png_dict[@"defaultBgImageList"];
         
-        NSMutableArray <UIImage *> *defaultBgImageList_Array = [NSMutableArray arrayWithObject:UIImageMake(@"ic_share_add")];
-        for (NSString *string in defaultBgImageList) {
-            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, string]];
+        NSMutableArray <FBCustomDialSoures *> *defaultBgImageList_Array = NSMutableArray.array;
+        for (int k = 0; k < defaultBgImageList.count + 1; k++) {
+            UIImage *image = nil;
+            if (k == 0) {
+                image = UIImageMake(@"ic_share_add"); // 首个位置为 + 号
+            } else {
+                image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, defaultBgImageList[k-1][@"Background_Name"]]];
+            }
+            
             if (image) {
-                [defaultBgImageList_Array addObject:image];
+                FBCustomDialSoures *BgImageList_Soures = FBCustomDialSoures.new;
+                BgImageList_Soures.allowRepeatSelection = NO;
+                BgImageList_Soures.itemEvent = FBCustomDialListItemsEvent_BackgroundImage;
+                BgImageList_Soures.image = image;
+                BgImageList_Soures.title = nil;
+                BgImageList_Soures.isSelect = k==1; // 默认选择第一张图
+                BgImageList_Soures.index = k==0 ? -1 : [defaultBgImageList[k-1][@"Background_Type"] integerValue];
+                [defaultBgImageList_Array addObject:BgImageList_Soures];
             }
         }
-        FBCustomDialSoures *BgImageList_Soures = FBCustomDialSoures.new;
-        BgImageList_Soures.itemEvent = FBCustomDialListItemsEvent_BackgroundImage;
-        BgImageList_Soures.soures = defaultBgImageList_Array;
         
         FBCustomDialItems *BgImageList_Item = FBCustomDialItems.new;
         BgImageList_Item.title = nil;
-        BgImageList_Item.itemEvent = FBCustomDialListItemsEvent_BackgroundImage;
-        BgImageList_Item.items = @[BgImageList_Soures];
+        BgImageList_Item.souresType = FBCustomDialListSouresType_Image;
+        BgImageList_Item.items = @[defaultBgImageList_Array];
         
         FBCustomDialListModel *BgImageListModel = FBCustomDialListModel.new;
         BgImageListModel.listType = FBCustomDialListType_Background;
@@ -105,269 +129,402 @@
         
 #pragma mark - - - - - - - - - - - - - - - - - - - - - - - - - - - 表盘 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         
-        FBCustomDialSoures *DialTypeTextList_Soures = FBCustomDialSoures.new;
-        DialTypeTextList_Soures.itemEvent = FBCustomDialListItemsEvent_DialTypeText;
-        DialTypeTextList_Soures.soures = @[LWLocalizbleString(@"数字表盘"), LWLocalizbleString(@"指针表盘")];
-        
-        FBCustomDialItems *DialTypeTextList_Item = FBCustomDialItems.new;
-        DialTypeTextList_Item.title = LWLocalizbleString(@"类型");
-        DialTypeTextList_Item.itemEvent = FBCustomDialListItemsEvent_DialTypeText;
-        DialTypeTextList_Item.items = @[DialTypeTextList_Soures];
-        
-        // 时间日期组件图片
-        NSArray <NSString *> *timeStyleList = info_png_dict[@"timeStyleList"];
-        
-        NSMutableArray <UIImage *> *timeStyleList_Array = NSMutableArray.array;
-        for (NSString *string in timeStyleList) {
-            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, string]];
-            if (image) {
-                [timeStyleList_Array addObject:image];
-            }
+        NSMutableArray <FBCustomDialSoures *> *DialTypeTextList_Array = NSMutableArray.array;
+        NSArray *DialTypeTextList = @[LWLocalizbleString(@"Number"), LWLocalizbleString(@"Pointer"), LWLocalizbleString(@"Scale")];
+        for (int k = 0; k < DialTypeTextList.count; k++) {
+            FBCustomDialSoures *DialTypeTextList_Soures = FBCustomDialSoures.new;
+            DialTypeTextList_Soures.allowRepeatSelection = NO;
+            DialTypeTextList_Soures.itemEvent = FBCustomDialListItemsEvent_DialTypeText;
+            DialTypeTextList_Soures.image = nil;
+            DialTypeTextList_Soures.title = DialTypeTextList[k];
+            DialTypeTextList_Soures.isSelect = k==0; // 默认选择数字
+            DialTypeTextList_Soures.isTitleSelect = k==0;
+            DialTypeTextList_Soures.index = k;
+            [DialTypeTextList_Array addObject:DialTypeTextList_Soures];
         }
         
-        FBCustomDialSoures *DialTypeNumberImage_Soures = FBCustomDialSoures.new;
-        DialTypeNumberImage_Soures.itemEvent = FBCustomDialListItemsEvent_NumberImage;
-        DialTypeNumberImage_Soures.soures = timeStyleList_Array;
+        FBCustomDialItems *DialTypeTextList_Item = FBCustomDialItems.new;
+        DialTypeTextList_Item.title = LWLocalizbleString(@"Type");
+        DialTypeTextList_Item.souresType = FBCustomDialListSouresType_Text;
+        DialTypeTextList_Item.items = @[DialTypeTextList_Array];
         
-        FBCustomDialItems *DialTypeNumberImage_Item = FBCustomDialItems.new;
-        DialTypeNumberImage_Item.title = nil;
-        DialTypeNumberImage_Item.itemEvent = FBCustomDialListItemsEvent_NumberImage;
-        DialTypeNumberImage_Item.items = @[DialTypeNumberImage_Soures];
+        // 时间日期组件图片
+        NSArray <NSDictionary *> *timeStyleList = info_png_dict[@"timeStyleList"];
+        
+        NSMutableArray <FBCustomDialSoures *> *timeStyleList_Array = NSMutableArray.array;
+        for (int k = 0; k < timeStyleList.count; k++) {
+            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, timeStyleList[k][@"TimeStyle_Name"]]];
+            if (image) {
+                FBCustomDialSoures *timeStyleList_Soures = FBCustomDialSoures.new;
+                timeStyleList_Soures.allowRepeatSelection = YES;
+                timeStyleList_Soures.itemEvent = FBCustomDialListItemsEvent_NumberImage;
+                timeStyleList_Soures.title = nil;
+                timeStyleList_Soures.image = image;
+                timeStyleList_Soures.isSelect = k==0;
+                timeStyleList_Soures.index = [timeStyleList[k][@"TimeStyle_Type"] integerValue];
+                [timeStyleList_Array addObject:timeStyleList_Soures];
+            }
+        }
         
         
         // 指针组件图片
-        NSArray <NSString *> *pointerBgList = info_png_dict[@"pointerBgList"];
+        NSArray <NSDictionary *> *pointerBgList = info_png_dict[@"pointerBgList"];
         
-        NSMutableArray <UIImage *> *pointerBgList_Array = NSMutableArray.array;
-        for (NSString *string in pointerBgList) {
-            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, string]];
+        NSMutableArray <FBCustomDialSoures *> *pointerBgList_Array = NSMutableArray.array;
+        for (int k = 0; k < pointerBgList.count; k++) {
+            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, pointerBgList[k][@"PointerSet_Name"]]];
             if (image) {
-                [pointerBgList_Array addObject:image];
+                FBCustomDialSoures *pointerBgList_Soures = FBCustomDialSoures.new;
+                pointerBgList_Soures.allowRepeatSelection = YES;
+                pointerBgList_Soures.itemEvent = FBCustomDialListItemsEvent_PointerImage;
+                pointerBgList_Soures.image = image;
+                pointerBgList_Soures.title = nil;
+                pointerBgList_Soures.isSelect = NO;
+                pointerBgList_Soures.index = [pointerBgList[k][@"PointerSet_Type"] integerValue];
+                [pointerBgList_Array addObject:pointerBgList_Soures];
             }
         }
-        
-        FBCustomDialSoures *pointerBgList_Soures = FBCustomDialSoures.new;
-        pointerBgList_Soures.itemEvent = FBCustomDialListItemsEvent_PointerImage;
-        pointerBgList_Soures.soures = pointerBgList_Array;
-        
-        FBCustomDialItems *pointerBgList_Item = FBCustomDialItems.new;
-        pointerBgList_Item.title = LWLocalizbleString(@"指针");
-        pointerBgList_Item.itemEvent = FBCustomDialListItemsEvent_PointerImage;
-        pointerBgList_Item.items = @[pointerBgList_Soures];
         
         
         // 刻度组件图片
-        NSArray <NSString *> *scaleBgList = info_png_dict[@"scaleBgList"];
+        NSArray <NSDictionary *> *scaleBgList = info_png_dict[@"scaleBgList"];
         
-        NSMutableArray <UIImage *> *scaleBgList_Array = NSMutableArray.array;
-        for (NSString *string in scaleBgList) {
-            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, string]];
+        NSMutableArray <FBCustomDialSoures *> *scaleBgList_Array = NSMutableArray.array;
+        for (int k = 0; k < scaleBgList.count; k++) {
+            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, scaleBgList[k][@"Graduation_Name"]]];
             if (image) {
-                [scaleBgList_Array addObject:image];
+                FBCustomDialSoures *scaleBgList_Soures = FBCustomDialSoures.new;
+                scaleBgList_Soures.allowRepeatSelection = YES;
+                scaleBgList_Soures.itemEvent = FBCustomDialListItemsEvent_ScaleImage;
+                scaleBgList_Soures.image = image;
+                scaleBgList_Soures.title = nil;
+                scaleBgList_Soures.isSelect = NO;
+                scaleBgList_Soures.index = [scaleBgList[k][@"Graduation_Type"] integerValue];
+                [scaleBgList_Array addObject:scaleBgList_Soures];
             }
         }
         
-        FBCustomDialSoures *scaleBgList_Soures = FBCustomDialSoures.new;
-        scaleBgList_Soures.itemEvent = FBCustomDialListItemsEvent_ScaleImage;
-        scaleBgList_Soures.soures = scaleBgList_Array;
         
-        FBCustomDialItems *scaleBgList_Item = FBCustomDialItems.new;
-        scaleBgList_Item.title = LWLocalizbleString(@"刻度");
-        scaleBgList_Item.itemEvent = FBCustomDialListItemsEvent_ScaleImage;
-        scaleBgList_Item.items = @[scaleBgList_Soures];
+        FBCustomDialItems *DialTypeImageList_Item = FBCustomDialItems.new;
+        DialTypeImageList_Item.title = nil;
+        DialTypeImageList_Item.souresType = FBCustomDialListSouresType_Image;
+        DialTypeImageList_Item.items = @[timeStyleList_Array, pointerBgList_Array, scaleBgList_Array];
         
         
         FBCustomDialListModel *DialTypeListModel = FBCustomDialListModel.new;
         DialTypeListModel.listType = FBCustomDialListType_DialType;
-        DialTypeListModel.list = @[DialTypeTextList_Item, DialTypeNumberImage_Item, pointerBgList_Item, scaleBgList_Item];
+        DialTypeListModel.list = @[DialTypeTextList_Item, DialTypeImageList_Item];
         
         [dataSoures addObject:DialTypeListModel];
         
         
 #pragma mark - - - - - - - - - - - - - - - - - - - - - - - - - - - 组件 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         
-        FBCustomDialSoures *StateTypeText_Soures = FBCustomDialSoures.new;
-        StateTypeText_Soures.itemEvent = FBCustomDialListItemsEvent_StateTypeText;
-        StateTypeText_Soures.soures = @[LWLocalizbleString(@"电量"), LWLocalizbleString(@"蓝牙")];
-        
-        FBCustomDialItems *StateTypeText_Item = FBCustomDialItems.new;
-        StateTypeText_Item.title = LWLocalizbleString(@"手机状态");
-        StateTypeText_Item.itemEvent = FBCustomDialListItemsEvent_StateTypeText;
-        StateTypeText_Item.items = @[StateTypeText_Soures];
+        NSMutableArray <NSString *> *StatusTypeText = NSMutableArray.array;
+        NSMutableArray <NSMutableArray <FBCustomDialSoures *> *> *StatusTypeImages = NSMutableArray.array;
         
         // 电池电量组件图片
-        NSArray <NSDictionary *> *batteryList = info_png_dict[@"batteryList"];
+        NSArray <NSDictionary *> *batteryStyleList = info_png_dict[@"batteryStyleList"];
         
-        NSMutableArray <UIImage *> *batteryList_Array = NSMutableArray.array;
-        for (NSDictionary *dict in batteryList) {
-            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, dict[@"battery_Name"]]];
+        NSMutableArray <FBCustomDialSoures *> *batteryStyleList_Array = NSMutableArray.array;
+        for (int k = 0; k < batteryStyleList.count; k++) {
+            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, batteryStyleList[k][@"BatteryStyle_Name"]]];
             if (image) {
-                [batteryList_Array addObject:image];
+                FBCustomDialSoures *batteryStyleList_Soures = FBCustomDialSoures.new;
+                batteryStyleList_Soures.allowRepeatSelection = YES;
+                batteryStyleList_Soures.itemEvent = FBCustomDialListItemsEvent_StateBatteryImage;
+                batteryStyleList_Soures.image = image;
+                batteryStyleList_Soures.title = nil;
+                batteryStyleList_Soures.isSelect = NO;
+                batteryStyleList_Soures.index = [batteryStyleList[k][@"BatteryStyle_Type"] integerValue];
+                [batteryStyleList_Array addObject:batteryStyleList_Soures];
             }
         }
-        FBCustomDialSoures *batteryList_Soures = FBCustomDialSoures.new;
-        batteryList_Soures.itemEvent = FBCustomDialListItemsEvent_StateTypeImage;
-        batteryList_Soures.soures = batteryList_Array;
+        
+        if (batteryStyleList_Array.count) {
+            [StatusTypeText addObject:LWLocalizbleString(@"Battery")];
+            [StatusTypeImages addObject:batteryStyleList_Array];
+        }
+        
+        // 电池电量图标（不带文字，FBCustomDialHeadView用）
+        NSArray <NSDictionary *> *batteryList = info_png_dict[@"batteryList"];
+        for (int k = 0; k < batteryList.count; k++) {
+            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, batteryList[k][@"battery_Name"]]];
+            if (image) {
+                FBCustomDialSoures *batteryList_Soures = FBCustomDialSoures.new;
+                batteryList_Soures.allowRepeatSelection = YES;
+                batteryList_Soures.itemEvent = FBCustomDialListItemsEvent_StateBatteryImage;
+                batteryList_Soures.image = image;
+                batteryList_Soures.title = nil;
+                batteryList_Soures.isSelect = NO;
+                batteryList_Soures.index = [batteryList[k][@"battery_Type"] integerValue];
+                [_batterySoures addObject:batteryList_Soures];
+            }
+        }
         
         // BLE 蓝牙组件图片
         NSArray <NSDictionary *> *BLEIconList = info_png_dict[@"BLEIconList"];
         
-        NSMutableArray <UIImage *> *BLEIconList_Array = NSMutableArray.array;
-        for (NSDictionary *dict in BLEIconList) {
-            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, dict[@"ble_Name"]]];
+        NSMutableArray <FBCustomDialSoures *> *BLEIconList_Array = NSMutableArray.array;
+        for (int k = 0; k < BLEIconList.count; k++) {
+            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, BLEIconList[k][@"ble_Name"]]];
             if (image) {
-                [BLEIconList_Array addObject:image];
+                FBCustomDialSoures *BLEIconList_Soures = FBCustomDialSoures.new;
+                BLEIconList_Soures.allowRepeatSelection = YES;
+                BLEIconList_Soures.itemEvent = FBCustomDialListItemsEvent_StateBluetoothImage_BLE;
+                BLEIconList_Soures.image = image;
+                BLEIconList_Soures.title = nil;
+                BLEIconList_Soures.isSelect = NO;
+                BLEIconList_Soures.index = k;
+                [BLEIconList_Array addObject:BLEIconList_Soures];
             }
         }
-        FBCustomDialSoures *BLEIconList_Soures = FBCustomDialSoures.new;
-        BLEIconList_Soures.itemEvent = FBCustomDialListItemsEvent_StateTypeImage;
-        BLEIconList_Soures.soures = BLEIconList_Array;
         
-        FBCustomDialItems *battery_BLE_Item = FBCustomDialItems.new;
-        battery_BLE_Item.title = nil;
-        battery_BLE_Item.itemEvent = FBCustomDialListItemsEvent_StateTypeImage;
-        battery_BLE_Item.items = @[batteryList_Soures, BLEIconList_Soures];
-        
-//        // BT 蓝牙组件图片
-//        NSArray <NSDictionary *> *BTIconList = info_png_dict[@"BTIconList"];
-//
-//        NSMutableArray <UIImage *> *BTIconList_Array = NSMutableArray.array;
-//        for (NSDictionary *dict in BTIconList) {
-//            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, dict[@"bt_Name"]]];
-//            if (image) {
-//                [BTIconList_Array addObject:image];
-//            }
-//        }
+        if (BLEIconList_Array.count) {
+            [StatusTypeText addObject:LWLocalizbleString(@"Bluetooth connection")];
+            [StatusTypeImages addObject:BLEIconList_Array];
+        }
         
         
-        FBCustomDialSoures *ModuleTypeText_Soures = FBCustomDialSoures.new;
-        ModuleTypeText_Soures.itemEvent = FBCustomDialListItemsEvent_ModuleTypeText;
-        ModuleTypeText_Soures.soures = @[LWLocalizbleString(@"步数"), LWLocalizbleString(@"卡路里"),  LWLocalizbleString(@"距离"),  LWLocalizbleString(@"心率"),  LWLocalizbleString(@"血氧"),  LWLocalizbleString(@"血压"),  LWLocalizbleString(@"压力")];
+        // BT 蓝牙组件图片
+        NSArray <NSDictionary *> *BTIconList = info_png_dict[@"BTIconList"];
+
+        NSMutableArray <FBCustomDialSoures *> *BTIconList_Array = NSMutableArray.array;
+        for (int k = 0; k < BTIconList.count; k++) {
+            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, BTIconList[k][@"bt_Name"]]];
+            if (image) {
+                FBCustomDialSoures *BTIconList_Soures = FBCustomDialSoures.new;
+                BTIconList_Soures.allowRepeatSelection = YES;
+                BTIconList_Soures.itemEvent = FBCustomDialListItemsEvent_StateBluetoothImage_BT;
+                BTIconList_Soures.image = image;
+                BTIconList_Soures.title = nil;
+                BTIconList_Soures.isSelect = NO;
+                BTIconList_Soures.index = k;
+                [BTIconList_Array addObject:BTIconList_Soures];
+            }
+        }
         
-        FBCustomDialItems *ModuleTypeText_Item = FBCustomDialItems.new;
-        ModuleTypeText_Item.title = LWLocalizbleString(@"组件样式");
-        ModuleTypeText_Item.itemEvent = FBCustomDialListItemsEvent_ModuleTypeText;
-        ModuleTypeText_Item.items = @[ModuleTypeText_Soures];
+        if (BTIconList_Array.count && object.supportCalls) {
+            [StatusTypeText addObject:LWLocalizbleString(@"Call Bluetooth")];
+            [StatusTypeImages addObject:BTIconList_Array];
+        }
+        
+        NSMutableArray <FBCustomDialSoures *> *StatesTypeText_Array = NSMutableArray.array;
+        for (int k = 0; k < StatusTypeText.count; k++) {
+            FBCustomDialSoures *StatesTypeText_Soures = FBCustomDialSoures.new;
+            StatesTypeText_Soures.allowRepeatSelection = NO;
+            StatesTypeText_Soures.itemEvent = FBCustomDialListItemsEvent_StateTypeText;
+            StatesTypeText_Soures.image = nil;
+            StatesTypeText_Soures.title = StatusTypeText[k];
+            StatesTypeText_Soures.isSelect = k==0;
+            StatesTypeText_Soures.index = k;
+            [StatesTypeText_Array addObject:StatesTypeText_Soures];
+        }
+
+        FBCustomDialItems *StatesTypeText_Item = FBCustomDialItems.new;
+        StatesTypeText_Item.title = LWLocalizbleString(@"Watch Status");
+        StatesTypeText_Item.souresType = FBCustomDialListSouresType_Text;
+        StatesTypeText_Item.items = @[StatesTypeText_Array];
+        
+        FBCustomDialItems *StatesTypeImage_Item = FBCustomDialItems.new;
+        StatesTypeImage_Item.title = nil;
+        StatesTypeImage_Item.souresType = FBCustomDialListSouresType_Image;
+        StatesTypeImage_Item.items = StatusTypeImages;
+        
+        
+        // 组件集⬇️
+        
+        NSMutableArray <NSString *> *ModuleTypeText = NSMutableArray.array;
+        NSMutableArray <NSMutableArray <FBCustomDialSoures *> *> *ModuleTypeImage_Items = NSMutableArray.array;
         
         // 步数组件图片
         NSArray <NSDictionary *> *stepcountIconList = info_png_dict[@"stepcountIconList"];
         
-        NSMutableArray <UIImage *> *stepcountIconList_Array = NSMutableArray.array;
-        for (NSDictionary *dict in stepcountIconList) {
-            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, dict[@"stepcount_Name"]]];
-            if (image) {
-                [stepcountIconList_Array addObject:image];
-            }
+        NSMutableArray <FBCustomDialSoures *> *stepcountIconList_Array = NSMutableArray.array;
+        for (int k = 0; k < stepcountIconList.count; k++) {
+            FBCustomDialSoures *stepcountIconList_Soures = FBCustomDialSoures.new;
+            stepcountIconList_Soures.allowRepeatSelection = YES;
+            stepcountIconList_Soures.itemEvent = FBCustomDialListItemsEvent_ModuleStepImage;
+            stepcountIconList_Soures.image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, stepcountIconList[k][@"stepcount_Name"]]];
+            stepcountIconList_Soures.title = nil;
+            stepcountIconList_Soures.isSelect = NO;
+            stepcountIconList_Soures.index = k;
+            [stepcountIconList_Array addObject:stepcountIconList_Soures];
         }
-        FBCustomDialSoures *stepcountIconList_Soures = FBCustomDialSoures.new;
-        stepcountIconList_Soures.itemEvent = FBCustomDialListItemsEvent_ModuleTypeImage;
-        stepcountIconList_Soures.soures = stepcountIconList_Array;
+        if (stepcountIconList_Array.count) {
+            [ModuleTypeText addObject:LWLocalizbleString(@"Step")];
+            [ModuleTypeImage_Items addObject:stepcountIconList_Array];
+        }
         
         // 卡路里组件图片
         NSArray <NSDictionary *> *caroliIconList = info_png_dict[@"caroliIconList"];
         
-        NSMutableArray <UIImage *> *caroliIconList_Array = NSMutableArray.array;
-        for (NSDictionary *dict in caroliIconList) {
-            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, dict[@"caroli_Name"]]];
-            if (image) {
-                [caroliIconList_Array addObject:image];
-            }
+        NSMutableArray <FBCustomDialSoures *> *caroliIconList_Array = NSMutableArray.array;
+        for (int k = 0; k < caroliIconList.count; k++) {
+            FBCustomDialSoures *caroliIconList_Soures = FBCustomDialSoures.new;
+            caroliIconList_Soures.allowRepeatSelection = YES;
+            caroliIconList_Soures.itemEvent = FBCustomDialListItemsEvent_ModuleCalorieImage;
+            caroliIconList_Soures.image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, caroliIconList[k][@"caroli_Name"]]];
+            caroliIconList_Soures.title = nil;
+            caroliIconList_Soures.isSelect = NO;
+            caroliIconList_Soures.index = k;
+            [caroliIconList_Array addObject:caroliIconList_Soures];
         }
-        FBCustomDialSoures *caroliIconList_Soures = FBCustomDialSoures.new;
-        caroliIconList_Soures.itemEvent = FBCustomDialListItemsEvent_ModuleTypeImage;
-        caroliIconList_Soures.soures = caroliIconList_Array;
+        if (caroliIconList_Array.count) {
+            [ModuleTypeText addObject:LWLocalizbleString(@"Calorie")];
+            [ModuleTypeImage_Items addObject:caroliIconList_Array];
+        }
         
         // 距离组件图片
         NSArray <NSDictionary *> *distanceIconList = info_png_dict[@"distanceIconList"];
         
-        NSMutableArray <UIImage *> *distanceIconList_Array = NSMutableArray.array;
-        for (NSDictionary *dict in distanceIconList) {
-            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, dict[@"distance_Name"]]];
-            if (image) {
-                [distanceIconList_Array addObject:image];
-            }
+        NSMutableArray <FBCustomDialSoures *> *distanceIconList_Array = NSMutableArray.array;
+        for (int k = 0; k < distanceIconList.count; k++) {
+            FBCustomDialSoures *distanceIconList_Soures = FBCustomDialSoures.new;
+            distanceIconList_Soures.allowRepeatSelection = YES;
+            distanceIconList_Soures.itemEvent = FBCustomDialListItemsEvent_ModuleDistanceImage;
+            distanceIconList_Soures.image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, distanceIconList[k][@"distance_Name"]]];
+            distanceIconList_Soures.title = nil;
+            distanceIconList_Soures.isSelect = NO;
+            distanceIconList_Soures.index = k;
+            [distanceIconList_Array addObject:distanceIconList_Soures];
         }
-        FBCustomDialSoures *distanceIconList_Soures = FBCustomDialSoures.new;
-        distanceIconList_Soures.itemEvent = FBCustomDialListItemsEvent_ModuleTypeImage;
-        distanceIconList_Soures.soures = distanceIconList_Array;
+        if (distanceIconList_Array.count) {
+            [ModuleTypeText addObject:LWLocalizbleString(@"Distance")];
+            [ModuleTypeImage_Items addObject:distanceIconList_Array];
+        }
         
         // 心率组件图片
         NSArray <NSDictionary *> *HeartrateIconList = info_png_dict[@"HeartrateIconList"];
         
-        NSMutableArray <UIImage *> *HeartrateIconList_Array = NSMutableArray.array;
-        for (NSDictionary *dict in HeartrateIconList) {
-            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, dict[@"Heartrate_Name"]]];
-            if (image) {
-                [HeartrateIconList_Array addObject:image];
-            }
+        NSMutableArray <FBCustomDialSoures *> *HeartrateIconList_Array = NSMutableArray.array;
+        for (int k = 0; k < HeartrateIconList.count; k++) {
+            FBCustomDialSoures *HeartrateIconList_Soures = FBCustomDialSoures.new;
+            HeartrateIconList_Soures.allowRepeatSelection = YES;
+            HeartrateIconList_Soures.itemEvent = FBCustomDialListItemsEvent_ModuleHeartRateImage;
+            HeartrateIconList_Soures.image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, HeartrateIconList[k][@"Heartrate_Name"]]];
+            HeartrateIconList_Soures.title = nil;
+            HeartrateIconList_Soures.isSelect = NO;
+            HeartrateIconList_Soures.index = k;
+            [HeartrateIconList_Array addObject:HeartrateIconList_Soures];
         }
-        FBCustomDialSoures *HeartrateIconList_Soures = FBCustomDialSoures.new;
-        HeartrateIconList_Soures.itemEvent = FBCustomDialListItemsEvent_ModuleTypeImage;
-        HeartrateIconList_Soures.soures = HeartrateIconList_Array;
+        if (HeartrateIconList_Array.count) {
+            [ModuleTypeText addObject:LWLocalizbleString(@"Heart Rate")];
+            [ModuleTypeImage_Items addObject:HeartrateIconList_Array];
+        }
         
         // 血氧组件图片
         NSArray <NSDictionary *> *bloodoxygenIconList = info_png_dict[@"bloodoxygenIconList"];
         
-        NSMutableArray <UIImage *> *bloodoxygenIconList_Array = NSMutableArray.array;
-        for (NSDictionary *dict in bloodoxygenIconList) {
-            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, dict[@"bloodoxygen_Name"]]];
-            if (image) {
-                [bloodoxygenIconList_Array addObject:image];
-            }
+        NSMutableArray <FBCustomDialSoures *> *bloodoxygenIconList_Array = NSMutableArray.array;
+        for (int k = 0; k < bloodoxygenIconList.count; k++) {
+            FBCustomDialSoures *bloodoxygenIconList_Soures = FBCustomDialSoures.new;
+            bloodoxygenIconList_Soures.allowRepeatSelection = YES;
+            bloodoxygenIconList_Soures.itemEvent = FBCustomDialListItemsEvent_ModuleBloodOxygenImage;
+            bloodoxygenIconList_Soures.image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, bloodoxygenIconList[k][@"bloodoxygen_Name"]]];
+            bloodoxygenIconList_Soures.title = nil;
+            bloodoxygenIconList_Soures.isSelect = NO;
+            bloodoxygenIconList_Soures.index = k;
+            [bloodoxygenIconList_Array addObject:bloodoxygenIconList_Soures];
         }
-        FBCustomDialSoures *bloodoxygenIconList_Soures = FBCustomDialSoures.new;
-        bloodoxygenIconList_Soures.itemEvent = FBCustomDialListItemsEvent_ModuleTypeImage;
-        bloodoxygenIconList_Soures.soures = bloodoxygenIconList_Array;
+        if (bloodoxygenIconList_Array.count) {
+            [ModuleTypeText addObject:LWLocalizbleString(@"Blood Oxygen")];
+            [ModuleTypeImage_Items addObject:bloodoxygenIconList_Array];
+        }
         
         // 血压组件图片
         NSArray <NSDictionary *> *bloodpressureIconList = info_png_dict[@"bloodpressureIconList"];
         
-        NSMutableArray <UIImage *> *bloodpressureIconList_Array = NSMutableArray.array;
-        for (NSDictionary *dict in bloodpressureIconList) {
-            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, dict[@"bloodpressure_Name"]]];
-            if (image) {
-                [bloodpressureIconList_Array addObject:image];
-            }
+        NSMutableArray <FBCustomDialSoures *> *bloodpressureIconList_Array = NSMutableArray.array;
+        for (int k = 0; k < bloodpressureIconList.count; k++) {
+            FBCustomDialSoures *bloodpressureIconList_Soures = FBCustomDialSoures.new;
+            bloodpressureIconList_Soures.allowRepeatSelection = YES;
+            bloodpressureIconList_Soures.itemEvent = FBCustomDialListItemsEvent_ModuleBloodPressureImage;
+            bloodpressureIconList_Soures.image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, bloodpressureIconList[k][@"bloodpressure_Name"]]];
+            bloodpressureIconList_Soures.title = nil;
+            bloodpressureIconList_Soures.isSelect = NO;
+            bloodpressureIconList_Soures.index = k;
+            [bloodpressureIconList_Array addObject:bloodpressureIconList_Soures];
         }
-        FBCustomDialSoures *bloodpressureIconList_Soures = FBCustomDialSoures.new;
-        bloodpressureIconList_Soures.itemEvent = FBCustomDialListItemsEvent_ModuleTypeImage;
-        bloodpressureIconList_Soures.soures = bloodpressureIconList_Array;
+        if (bloodpressureIconList_Array.count && object.supportBloodPressure) {
+            [ModuleTypeText addObject:LWLocalizbleString(@"Blood Pressure")];
+            [ModuleTypeImage_Items addObject:bloodpressureIconList_Array];
+        }
         
         // 压力组件图片
         NSArray <NSDictionary *> *stressIconList = info_png_dict[@"stressIconList"];
         
-        NSMutableArray <UIImage *> *stressIconList_Array = NSMutableArray.array;
-        for (NSDictionary *dict in stressIconList) {
-            UIImage *image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, dict[@"stress_Name"]]];
-            if (image) {
-                [stressIconList_Array addObject:image];
-            }
+        NSMutableArray <FBCustomDialSoures *> *stressIconList_Array = NSMutableArray.array;
+        for (int k = 0; k < stressIconList.count; k++) {
+            FBCustomDialSoures *stressIconList_Soures = FBCustomDialSoures.new;
+            stressIconList_Soures.allowRepeatSelection = YES;
+            stressIconList_Soures.itemEvent = FBCustomDialListItemsEvent_ModuleStressImage;
+            stressIconList_Soures.image = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", zipFilePath, stressIconList[k][@"stress_Name"]]];
+            stressIconList_Soures.title = nil;
+            stressIconList_Soures.isSelect = NO;
+            stressIconList_Soures.index = k;
+            [stressIconList_Array addObject:stressIconList_Soures];
         }
-        FBCustomDialSoures *stressIconList_Soures = FBCustomDialSoures.new;
-        stressIconList_Soures.itemEvent = FBCustomDialListItemsEvent_ModuleTypeImage;
-        stressIconList_Soures.soures = stressIconList_Array;
+        if (stressIconList_Array.count && object.supportMentalStress) {
+            [ModuleTypeText addObject:LWLocalizbleString(@"Mental Stress")];
+            [ModuleTypeImage_Items addObject:stressIconList_Array];
+        }
+        
+        NSMutableArray <FBCustomDialSoures *> *ModuleTypeText_Array = NSMutableArray.array;
+        for (int k = 0; k < ModuleTypeText.count; k++) {
+            FBCustomDialSoures *ModuleTypeText_Soures = FBCustomDialSoures.new;
+            ModuleTypeText_Soures.allowRepeatSelection = NO;
+            ModuleTypeText_Soures.itemEvent = FBCustomDialListItemsEvent_ModuleTypeText;
+            ModuleTypeText_Soures.image = nil;
+            ModuleTypeText_Soures.title = ModuleTypeText[k];
+            ModuleTypeText_Soures.isSelect = k==0;
+            ModuleTypeText_Soures.index = k;
+            [ModuleTypeText_Array addObject:ModuleTypeText_Soures];
+        }
+        
+        FBCustomDialItems *ModuleTypeText_Item = FBCustomDialItems.new;
+        ModuleTypeText_Item.title = LWLocalizbleString(@"Component Style");
+        ModuleTypeText_Item.souresType = FBCustomDialListSouresType_Text;
+        ModuleTypeText_Item.items = @[ModuleTypeText_Array];
         
         FBCustomDialItems *ModuleTypeImage_Item = FBCustomDialItems.new;
         ModuleTypeImage_Item.title = nil;
-        ModuleTypeImage_Item.itemEvent = FBCustomDialListItemsEvent_ModuleTypeImage;
-        ModuleTypeImage_Item.items = @[stepcountIconList_Soures, caroliIconList_Soures, distanceIconList_Soures, HeartrateIconList_Soures, bloodoxygenIconList_Soures, bloodpressureIconList_Soures, stressIconList_Soures];
-                
-//        // 冒号 : 组件图片
-//        NSArray <NSString *> *colonList = info_png_dict[@"colonList"];
-//
-//        // 百分号 % 组件图片
-//        NSArray <NSString *> *persentList = info_png_dict[@"persentList"];
+        ModuleTypeImage_Item.souresType = FBCustomDialListSouresType_Image;
+        ModuleTypeImage_Item.items = ModuleTypeImage_Items;
         
         FBCustomDialListModel *ModuleListModel = FBCustomDialListModel.new;
         ModuleListModel.listType = FBCustomDialListType_Module;
-        ModuleListModel.list = @[StateTypeText_Item, battery_BLE_Item, ModuleTypeText_Item, ModuleTypeImage_Item];
+        ModuleListModel.list = @[StatesTypeText_Item, StatesTypeImage_Item, ModuleTypeText_Item, ModuleTypeImage_Item];
         
         [dataSoures addObject:ModuleListModel];
         
         
         // 颜色
-        [dataSoures addObject:FBCustomDialListModel.new];
+        NSArray <UIColor *> *colorList = @[COLOR_HEX(0xFFFFFF, 1), COLOR_HEX(0xbce672, 1),  COLOR_HEX(0x00bc12, 1),  COLOR_HEX(0x057748, 1),  COLOR_HEX(0x48c0a3, 1),  COLOR_HEX(0x758a99, 1),  COLOR_HEX(0xe9f1f6, 1), COLOR_HEX(0x75878a, 1), COLOR_HEX(0x3d3b4f, 1), COLOR_HEX(0x161823, 1), COLOR_HEX(0xfff143, 1), COLOR_HEX(0xffa631, 1), COLOR_HEX(0xff7500, 1), COLOR_HEX(0x9b4400, 1), COLOR_HEX(0xff461f, 1), COLOR_HEX(0xf00056, 1), COLOR_HEX(0xf20c00, 1), COLOR_HEX(0x9d2933, 1), COLOR_HEX(0x8d4bbb, 1), COLOR_HEX(0x56004f, 1), COLOR_HEX(0x003371, 1), COLOR_HEX(0x4c8dae, 1), COLOR_HEX(0xb0a4e3, 1), COLOR_HEX(0xe4c6d0, 1), COLOR_HEX(0x44cef6, 1)];
+        NSMutableArray <FBCustomDialSoures *> *colorList_Array = NSMutableArray.array;
+        for (int k = 0; k < colorList.count; k++) {
+            FBCustomDialSoures *colorList_Soures = FBCustomDialSoures.new;
+            colorList_Soures.allowRepeatSelection = NO;
+            colorList_Soures.itemEvent = FBCustomDialListItemsEvent_ModuleTypeText;
+            colorList_Soures.image = nil;
+            colorList_Soures.title = nil;
+            colorList_Soures.color = colorList[k];
+            colorList_Soures.isSelect = k==0;
+            colorList_Soures.index = k;
+            [colorList_Array addObject:colorList_Soures];
+        }
         
+        FBCustomDialItems *colorList_Item = FBCustomDialItems.new;
+        colorList_Item.title = nil;
+        colorList_Item.souresType = FBCustomDialListSouresType_Color;
+        colorList_Item.items = @[colorList_Array];
+        
+        FBCustomDialListModel *colorListModel = FBCustomDialListModel.new;
+        colorListModel.listType = FBCustomDialListType_Colour;
+        colorListModel.list = @[colorList_Item];
+        
+        [dataSoures addObject:colorListModel];
+
         
         if (block) {
             block(dataSoures, nil);

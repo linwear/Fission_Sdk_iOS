@@ -47,7 +47,7 @@
     self.batteryImage = imageView;
     
     
-    QMUILabel *label = [[QMUILabel alloc] qmui_initWithFont:[NSObject themePingFangSCMediumFont:14] textColor:UIColorWhite];
+    QMUILabel *label = [[QMUILabel alloc] qmui_initWithFont:[NSObject BahnschriftFont:14] textColor:UIColorWhite];
     label.frame = CGRectMake(imageView.width+3, imageView.top, self.width-imageView.width-3, imageView.height);
     [self addSubview:label];
     self.batteryLabel = label;

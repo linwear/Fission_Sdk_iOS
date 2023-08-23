@@ -129,6 +129,32 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *audioTimeVersion;
 
 /**
+ 适配号，长整形（部分手表支持）｜Adaptation number
+ */
+@property (nonatomic, assign) NSInteger adaptNumber;
+
+/**
+ Hardfault信息空间地址｜Hardfault information space address
+ */
+@property (nonatomic, assign) NSInteger hardfaultAddress;
+
+/**
+ Hardfault信息空间尺寸｜Hardfault information space size
+ */
+@property (nonatomic, assign) NSInteger hardfaultSize;
+
+/**
+ 系统参数空间地址｜System parameter space address
+ */
+@property (nonatomic, assign) NSInteger systemAddress;
+
+/**
+ 系统参数空间尺寸｜System parameter space size
+ */
+@property (nonatomic, assign) NSInteger systemSize;
+
+
+/**
  🌟是否需要使用时区补偿时间｜Need to use time zone to compensate time🌟
  
  @note  NO：不使用时区（时区需设定为0），时区直接补偿到UTC中，所以记录时间戳实际采用RTC记录（RTC = UTC + 时区偏移秒）、YES：使用时区（时区需要正确设定），所有记录时间戳采用UTC记录｜NO: do not use the time zone (the time zone needs to be set to 0), and the time zone is directly compensated to UTC, so the recording timestamp actually adopts RTC recording (RTC = UTC + time zone offset second). YES: use the time zone (the time zone needs to be set correctly), and all recording timestamps adopt UTC recording
@@ -351,6 +377,27 @@ NS_ASSUME_NONNULL_BEGIN
  @note  NO：不支持、YES：支持｜NO: not support YES: support
 */
 @property (nonatomic, assign) BOOL supportAntiAliasing;
+
+/**
+ 🌟是否支持带适配号验证的OTA通知指令｜Whether to support OTA notification command with adaptation number verification🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportAdaptNumberVerifyOTA;
+
+/**
+ 🌟是否支持hardfault信息和系統参数读取｜Whether to support hardfault information and system parameter reading🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL support_hardfault_system_info;
+
+/**
+ 🌟是否支持表盘CRC校验｜Whether to support dial CRC check🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL support_dial_CRC_check;
 
 @end
 

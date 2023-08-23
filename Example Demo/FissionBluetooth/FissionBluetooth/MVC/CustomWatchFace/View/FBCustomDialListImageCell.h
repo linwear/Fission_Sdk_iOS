@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UIImageView *markImage;
 
+// 上下左右 边距
+@property (nonatomic, assign) CGFloat edgeInsets;
+
 @end
 
 NS_ASSUME_NONNULL_END

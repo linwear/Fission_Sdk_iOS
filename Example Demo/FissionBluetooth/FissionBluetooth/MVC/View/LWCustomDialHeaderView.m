@@ -131,8 +131,8 @@
     }];
     // 自定义表盘
     UILabel *titleLabel = UILabel.new;
-    titleLabel.text = LWLocalizbleString(@"Custom Watch Face");
-    titleLabel.font = [NSObject themePingFangSCMediumFont:16];
+    titleLabel.text = LWLocalizbleString(@"Custom Dial");
+    titleLabel.font = [NSObject BahnschriftFont:16];
     titleLabel.textColor = [UIColor blackColor];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:titleLabel];
@@ -146,7 +146,7 @@
 //    // 显示文件大小 暂时未用到
 //    self.fileSizeLab = UILabel.new;
 //    self.fileSizeLab.text = [NSString stringWithFormat:@"%@ --MB",LWLocalizbleString(@"大小：", nil)];
-//    self.fileSizeLab.font = [self themePingFangSCMediumFont:14];
+//    self.fileSizeLab.font = [self BahnschriftFont:14];
 //    self.fileSizeLab.textColor = LWCustomColor.gray_999999;
 //    self.fileSizeLab.textAlignment = NSTextAlignmentCenter;
 //    [self addSubview:self.fileSizeLab];

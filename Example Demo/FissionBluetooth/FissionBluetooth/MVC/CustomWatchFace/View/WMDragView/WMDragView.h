@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FBTextImageView.h"
 
 
 // 拖曳view的方向
@@ -40,18 +41,11 @@ typedef NS_ENUM(NSInteger, WMDragDirection) {
  */
 @property (nonatomic,assign) WMDragDirection dragDirection;
 
-/**
- contentView内部懒加载的一个UIImageView
- 开发者也可以自定义控件添加到本view中
- 注意：最好不要同时使用内部的imageView和button
- */
-@property (nonatomic,strong) UIImageView *imageView;
-/**
- contentView内部懒加载的一个UIButton
- 开发者也可以自定义控件添加到本view中
- 注意：最好不要同时使用内部的imageView和button
- */
-@property (nonatomic,strong) QMUIButton *button;
+
+/// 显示的内容 (原本使用button，但是image太大显示异常，自己自定义一个view) - - - 吴2023.07.12新增
+@property (nonatomic,strong) FBTextImageView *textImageView;
+
+
 /**
  点击的回调block
  */

@@ -74,7 +74,7 @@
             }
         }
     } failure:^(NSError * _Nonnull error, id  _Nullable responseObject) {
-        [NSObject showHUDText:error.domain];
+        [NSObject showHUDText:error.localizedDescription];
     }];
 }
 
@@ -161,7 +161,7 @@
     
     FBBluetoothOTA.sharedInstance.isCheckPower = NO;
     
-    FBBluetoothOTA.sharedInstance.sendTimerOut = 90;
+    FBBluetoothOTA.sharedInstance.sendTimerOut = 120;
     
     [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:FB_OTANotification_Firmware withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
         if (error) {

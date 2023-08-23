@@ -41,6 +41,10 @@
 	<string>自定义表盘保存图片</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>相册</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>BAHNSCHRIFT.TTF</string>
+	</array>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>

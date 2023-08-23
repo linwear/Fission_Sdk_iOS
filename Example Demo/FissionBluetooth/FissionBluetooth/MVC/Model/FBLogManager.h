@@ -21,9 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (FBLogManager *)sharedInstance;
 
-- (NSArray *)allLogNames;
-
-- (NSArray *)allLogPaths;
+- (NSArray <DDLogFileInfo *> *)allLogFileInfo;
 
 @end
 

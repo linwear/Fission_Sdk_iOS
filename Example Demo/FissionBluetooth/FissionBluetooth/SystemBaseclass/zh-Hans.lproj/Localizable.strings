@@ -27,6 +27,8 @@
 "Bind key error" = "绑定密钥错误";
 "The binding key is correct" = "绑定密钥正确";
 "No binding required" = "无需绑定";
+"The connection is successful, please confirm the binding operation on %@" = "连接成功, 请在 %@ 上进行绑定确认操作";
+"The binding is successful, and the device information is being obtained" = "绑定成功, 正在获取设备信息";
 "Device reset, do you want to rebind?" = "设备重置，是否重新绑定？";
 "Rebind" = "重新绑定";
 "QR code scanning" = "二维码扫描";
@@ -54,6 +56,8 @@
 "Nickname (up to 32Byte):" = "昵称（最多字节）:";
 "Time zone:" = "时区:";
 "User ID:" = "用户 ID:";
+"Male" = "男性";
+"Female" = "女性";
 "Reminder" = "提醒";
 "Alarm Clock" = "闹钟";
 "Ss" = "日";
@@ -158,14 +162,21 @@
 "Physical Health" = "女性健康";
 "Abnormal HR reminder" = "心率异常提醒";
 "Frequent Contacts" = "常用联系人";
+"Read off-chip flash space data (Used for device abnormal restart analysis)" = "读取片外Flash空间数据（用于设备异常重启分析）";
 "Request Device Logs" = "请求设备日志";
+"Get/Set system function switch information" = "获取/设置 系统功能开关信息";
 
 "Firmware OTA" = "固件OTA";
 "Dial Face OTA" = "表盘OTA";
 "Sports Type OTA" = "运动类型OTA";
 
+"This function does not support" = "该功能不支持";
+"System Function Switch" = "系统功能开关";
+"Call Audio" = "通话音频";
+"Media Audio" = "多媒体音频";
+"Test Mode" = "测试模式";
+
 "Custom⌚️" = "自定义⌚️";
-"Custom Watch Face" = "自定义表盘";
 "Please confirm whether to restore the default settings?" = "请确认是否恢复默认设置？";
 "Text Color Replacement" = "文字颜色替换";
 "Background Picture" = "背景图片";
@@ -267,24 +278,26 @@
 "Metric" = "公制";
 "Imperial" = "英制";
 
+
 "Custom Dial" = "自定义表盘";
-/*
- "长按模块可移动"
- "背景"
- "表盘"
- "组件"
- "颜色"
- "数字表盘"
- "指针表盘"
- "类型"
- "指针"
- "刻度"
- "手机状态"
- "电量"
- "蓝牙"
- 步数、卡路里、距离、心率、血氧、血压、压力
- "组件样式"
- */
+"Long press the module to move" = "长按模块可移动";
+"Background" = "背景";
+"Dial" = "表盘";
+"Module" = "组件";
+"Color" = "颜色";
+"Type" = "类型";
+"Number" = "数字";
+"Pointer" = "指针";
+"Scale" = "刻度";
+"Watch Status" = "手表状态";
+"Battery" = "电量";
+"Bluetooth connection" = "蓝牙连接";
+"Call Bluetooth" = "通话蓝牙";
+"Component Style" = "组件样式";
+"Insufficient memory space" = "内存空间不足";
+"At most %d components can be set" = "最多可设置%d个组件";
+"Select at least one watch face type" = "至少选择一种表盘类型";
+ 
 
 "Today's Overview" = "今日概览";
 "Manual Measurement Data" = "手动测量数据";
@@ -325,6 +338,7 @@
 "Average Distance" = "平均距离";
 "Maximum Distance" = "最大距离";
 "Total Distance" = "总距离";
+"Sports real-time pace" = "运动实时配速";
 "Sport Pace" = "运动配速";
 "Pace" = "配速";
 "Best Pace" = "最佳配速";

@@ -24,7 +24,7 @@
     self.model.clockEnableSwitch = self.swi.on;
     [FBBgCommand.sharedInstance fbSetClockInforWithClockModel:self.model withRemoved:NO withBlock:^(NSError * _Nullable error) {
         if (error) {
-            [NSObject showHUDText:error.domain];
+            [NSObject showHUDText:error.localizedDescription];
         } else {
             [NSObject showHUDText:LWLocalizbleString(@"Success")];
         }

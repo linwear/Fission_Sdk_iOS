@@ -9,13 +9,22 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^FBCustomDialListContentViewBlock)(FBCustomDialListItemsEvent listItemsEvent, CGFloat height, UIImage * _Nullable selectImage, NSInteger selectIndex);
+
+typedef void(^FBCustomDialListContentViewBlock)(FBCustomDialListModel *dialList, FBCustomDialSoures *item, NSIndexPath *indexPath);
+
+typedef void(^FBCustomDialListContentHeightUpdateBlock)(FBCustomDialListType listType, CGFloat updateHeight);
+
 
 @interface FBCustomDialListContentView : LWBaseViewController <JXCategoryListContentViewDelegate>
 
-- (instancetype)initWithDialItem:(FBCustomDialListModel *)dialItem selectModel:(FBCustomDialSelectModel *)selectModel block:(FBCustomDialListContentViewBlock)block;
+/// 初始化
+- (instancetype)initWithListContentBlock:(FBCustomDialListContentViewBlock)listContentBlock heightUpdateBlock:(FBCustomDialListContentHeightUpdateBlock)heightUpdateBlock;
 
-- (void)reloadCollectionView:(FBCustomDialSelectModel *)selectModel;
+/// 刷新列表
+- (void)reloadCollectionView:(FBCustomDialListModel *)dialList soures:(NSArray <FBCustomDialSoures *> *)selectSoures;
+
+/// 文字组是否显示小圆点提示
+- (void)textGroupDisplaySmallDotPrompts:(BOOL)isTitleSelect withIndexPath:(NSIndexPath *)indexPath;
 
 @end
 

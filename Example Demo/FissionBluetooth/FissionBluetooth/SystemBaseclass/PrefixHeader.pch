@@ -21,7 +21,8 @@
 // 处理nan浮点
 #define IS_NAN(obj) isnan(obj) ? 0.00 : obj
 
-#define FONT(I) [UIFont systemFontOfSize:I]
+#define FONT(I) [NSObject BahnschriftFont:I]
+#define FONTBOLD(I) [UIFont boldSystemFontOfSize:I]
 #define COLOR_RGB(r,g,b,a)   [UIColor colorWithRed: r/255.0 green: g/255.0 blue: b/255.0 alpha: a]
 
 // rgb颜色(十六进制)
@@ -63,6 +64,9 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #import <Foundation/Foundation.h>
+
+/// 自定义扫描到设备通知｜Customize scan to device notifications
+static NSString *const FISSION_SDK_SCANTODEVICENOTICE = @"FISSION_SDK_SCANTODEVICENOTICE";
 
 /// 自定义功能状态变更通知｜Custom Feature Status Change Notification
 static NSString *const FISSION_SDK_FUNCTIONSTATUSCHANGE = @"FISSION_SDK_FUNCTIONSTATUSCHANGE";
@@ -331,6 +335,17 @@ typedef NS_ENUM(NSUInteger, FBTestUIDataType) {
     FBTestUIDataType_ManualMeasure, // 手动测量记录
 };
 
+typedef enum {
+    FBSportsListType_SportsDetails,         // 运动详情
+    FBSportsListType_SportsHrRange,         // 运动心率区间
+    FBSportsListType_SportsHeartRate,       // 运动心率
+    FBSportsListType_SportsStepFrequency,   // 运动步频
+    FBSportsListType_SportsCalorie,         // 运动卡路里
+    FBSportsListType_SportsDistance,        // 运动距离
+    FBSportsListType_SportsRealTimePace,    // 运动实时配速
+    FBSportsListType_SportsPace,            // 运动配速
+}FBSportsListType;
+
 /// RLMRealm Object Model
 #import "RLMHeartRateModel.h"
 #import "RLMStepModel.h"
@@ -353,6 +368,7 @@ typedef NS_ENUM(NSUInteger, FBTestUIDataType) {
 #import "UIAlertObject.h"
 #import "FBLoadDataObject.h"
 #import "FBCustomDialObject.h"
-#import "FBCustomDialSelectModel.h"
+#import "FBAuthorityObject.h"
+#import "FBTestUIPhoneRingView.h"
 
 #endif /* PrefixHeader_pch */

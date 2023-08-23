@@ -553,6 +553,8 @@ typedef enum {
     FS_TIMING_STRESS_WARN      = 30, //定时精神压力检测开关状态，0关1开｜Timing mental stress detection switch status, 0 off 1 on
     FS_CALLAUDIO_WARN          = 31, //通话音频开关状态，0关1开｜Call audio switch status, 0 off 1 on
     FS_MULTIMEDIAAUDIO_WARN    = 32, //多媒体音频开关状态，0关1开｜Multimedia audio switch status, 0 off 1 on
+    FS_TIMING_BP_WARN          = 33, //定时血压检测开关状态，0关1开｜Timing blood pressure detection switch status, 0 off 1 on
+    FS_DEVICE_EXCEPTION_WARN   = 34, //设备异常信息读取请求｜Device exception information read request
     
     FS_OTHER_EXPAND            = 255  //更多功能待拓展｜More functions to be expanded
 }EM_FUNC_SWITCH;
@@ -577,6 +579,36 @@ typedef enum {
     FB_DialTimePositionStyleRight  = 3,  //右｜Right
     FB_DialTimePositionStyleMiddle = 4,  //中｜Middle
 }FB_CUSTOMDIALTIMEPOSITION;
+
+#pragma mark - 自定义表盘项目｜Custom dial items
+/*
+ * 自定义表盘项目｜Custom dial items
+ */
+typedef enum {
+    FB_CustomDialItems_None,            //无｜None
+    FB_CustomDialItems_Pointer,         //指针｜Pointer
+    FB_CustomDialItems_Time_Style,      //时间样式｜Time Style
+    /* 时间样式｜Time Style
+       Style 1          Style 2         Style 3         Style 4         Style 5
+       0 9 : 3 8        0 9 : 3 8       0 9 : 3 8       0 9 : 3 8       0 9 : 3 8
+        FRI 06          FRI 06/02       2023/06/02      AM FRI 06       02/06/2023
+     */
+    FB_CustomDialItems_Battery,         //电池电量｜Battery
+    /* 电池电量｜Battery
+       Style 0          Style 1         Style 2         Style 3
+       🔋               80%🔋           ⚡️             ⚡️80%
+       80%                              80%
+     */
+    FB_CustomDialItems_BLE,             //BLE蓝牙｜BLE Bluetooth
+    FB_CustomDialItems_BT,              //BT蓝牙｜BT Bluetooth
+    FB_CustomDialItems_Step,            //步数｜Step
+    FB_CustomDialItems_Calorie,         //卡路里｜Calorie
+    FB_CustomDialItems_Distance,        //距离｜Distance
+    FB_CustomDialItems_HeartRate,       //心率｜HeartRate
+    FB_CustomDialItems_BloodOxygen,     //血氧｜BloodOxygen
+    FB_CustomDialItems_BloodPressure,   //血压｜BloodPressure
+    FB_CustomDialItems_Stress,          //精神压力｜Stress
+}FB_CUSTOMDIALITEMS;
 
 #pragma mark - 指定提示功能｜Specify prompt function
 /*

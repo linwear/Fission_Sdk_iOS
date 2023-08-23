@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "FBHUD.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)dismiss;
 
 /// 字体
-+ (UIFont *)themePingFangSCMediumFont:(CGFloat)fontSize;
++ (UIFont *)BahnschriftFont:(CGFloat)fontSize;
 
 /// 圆角边框
 + (void)setView:(UIView*)view

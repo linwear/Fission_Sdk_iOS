@@ -83,6 +83,7 @@
     if (indexPath.row < self.arrayData.count) {
         NSDictionary *dict = self.arrayData[indexPath.row];
         cell.imageView.image = IMAGE_NAME(dict.allKeys.firstObject);
+        cell.textLabel.font = FONT(17);
         cell.textLabel.text = dict.allValues.firstObject;
         cell.textLabel.textColor = [dict.allValues.firstObject isEqualToString:LWLocalizbleString(@"Disconnect")] ? UIColorRed : UIColorWhite;
     }
@@ -112,6 +113,8 @@
                     if (error) {
                         // error...
                     }
+                    
+                    [Tools saveIsFirstBinding:YES];
                     
                     [FBBluetoothManager.sharedInstance disconnectPeripheral];
                     

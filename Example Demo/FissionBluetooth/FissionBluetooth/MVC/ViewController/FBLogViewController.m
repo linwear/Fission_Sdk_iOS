@@ -12,9 +12,7 @@
 
 @property (nonatomic, strong) UITableView *tableView;
 
-@property (nonatomic, strong) NSMutableArray *namesArray;
-
-@property (nonatomic, strong) NSMutableArray *pathsArray;
+@property (nonatomic, strong) NSArray <DDLogFileInfo *> *allLogFileInfo;
 
 @property(nonatomic,strong) UIDocumentInteractionController *documentController;
 
@@ -45,10 +43,7 @@
 }
 
 - (void)reloadList {
-    [self.namesArray removeAllObjects];
-    [self.pathsArray removeAllObjects];
-    self.namesArray = [NSMutableArray arrayWithArray:FBLogManager.sharedInstance.allLogNames];
-    self.pathsArray = [NSMutableArray arrayWithArray:FBLogManager.sharedInstance.allLogPaths];
+    self.allLogFileInfo = FBLogManager.sharedInstance.allLogFileInfo;
     
     [self.tableView reloadData];
 }
@@ -65,33 +60,47 @@
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.namesArray.count;
+    return self.allLogFileInfo.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     FBLogTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FBLogTableViewCell"];
     
-    if (indexPath.row < self.namesArray.count) {
-        cell.titleLab.text = self.namesArray[indexPath.row];
+    if (indexPath.row < self.allLogFileInfo.count) {
+        DDLogFileInfo *logFileInfo = self.allLogFileInfo[indexPath.row];
+        cell.titleLab.text = logFileInfo.fileName;
+        cell.detailLab.text = [self stringForFileSize:logFileInfo.fileSize];
     }
     
     return cell;
 }
 
+- (NSString *)stringForFileSize:(unsigned long long)fileSize {
+    NSString *string = nil;
+    if (fileSize < 1024.0) {
+        string = [NSString stringWithFormat:@"%.2f B", (CGFloat)fileSize];
+    }
+    else if (fileSize < 1024.0*1024.0) {
+        string = [NSString stringWithFormat:@"%.2f KB", (CGFloat)(fileSize/1024.0)];
+    }
+    else {
+        string = [NSString stringWithFormat:@"%.2f MB", (CGFloat)(fileSize/(1024.0*1024.0))];
+    }
+    return string;
+}
+
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row < self.pathsArray.count) {
-        
-        NSString *path = self.pathsArray[indexPath.row];
-        NSURL *url = [NSURL fileURLWithPath:path];
-        
-        [NSObject showLoading:LWLocalizbleString(@"Loading...")];
-        
-        self.documentController = [UIDocumentInteractionController interactionControllerWithURL:url];
-        self.documentController.delegate = self;
-        [self.documentController presentPreviewAnimated:YES];
-    }
+    NSString *filePath = self.allLogFileInfo[indexPath.row].filePath;
+    NSURL *url = [NSURL fileURLWithPath:filePath];
+    
+    [NSObject showLoading:LWLocalizbleString(@"Loading...")];
+    
+    self.documentController = [UIDocumentInteractionController interactionControllerWithURL:url];
+    self.documentController.delegate = self;
+    [self.documentController presentPreviewAnimated:YES];
 }
 
 #pragma mark - UIDocumentInteractionControllerDelegate

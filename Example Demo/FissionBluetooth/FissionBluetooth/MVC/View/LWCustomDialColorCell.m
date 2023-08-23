@@ -27,7 +27,7 @@
     [self.bgView addSubview:colorPickerView];
     
     self.titleLabel.textColor = [UIColor blackColor];
-    self.titleLabel.font = [NSObject themePingFangSCMediumFont:16];
+    self.titleLabel.font = [NSObject BahnschriftFont:16];
     
     self.lineView.backgroundColor = [UIColor lightGrayColor];
 }

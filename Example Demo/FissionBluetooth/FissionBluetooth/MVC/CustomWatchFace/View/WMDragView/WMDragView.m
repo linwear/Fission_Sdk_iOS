@@ -17,47 +17,16 @@ typedef enum {
 }FB_RectifyPoint;
 
 @interface WMDragView ()<UIGestureRecognizerDelegate>
-/**
- 内容view，命名为contentViewForDrag，因为很多其他开源的第三方的库，里面同样有contentView这个属性
- ，这里特意命名为contentViewForDrag以防止冲突
- */
-@property (nonatomic,strong) UIView *contentViewForDrag;
 @property (nonatomic,assign) CGPoint startPoint;
 @property (nonatomic,strong) UIPanGestureRecognizer *panGestureRecognizer;
 @property (nonatomic,assign) CGFloat previousScale;
 @end
 
 @implementation WMDragView
--(UIImageView *)imageView{
-    if (_imageView==nil) {
-        _imageView = [[UIImageView alloc]init];
-        _imageView.userInteractionEnabled = YES;
-        _imageView.clipsToBounds = YES;
-        [self.contentViewForDrag addSubview:_imageView];
-    }
-    return _imageView;
-}
--(UIButton *)button{
-    if (_button==nil) {
-        _button = [QMUIButton buttonWithType:UIButtonTypeCustom];
-        _button.clipsToBounds = YES;
-        _button.userInteractionEnabled = NO;
-        _button.imagePosition = QMUIButtonImagePositionTop;
-        [self.contentViewForDrag addSubview:_button];
-    }
-    return _button;
-}
--(UIView *)contentViewForDrag{
-    if (_contentViewForDrag==nil) {
-        _contentViewForDrag = [[UIView alloc]init];
-        _contentViewForDrag.clipsToBounds = YES;
-    }
-    return _contentViewForDrag;
-}
+
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        [self addSubview:self.contentViewForDrag];
         [self setUp];
     }
     return self;
@@ -78,11 +47,15 @@ typedef enum {
         //没有设置freeRect--活动范围，则设置默认的活动范围为父视图的frame
         self.freeRect = (CGRect){CGPointZero,self.superview.bounds.size};
     }
-    _imageView.frame = (CGRect){CGPointZero,self.bounds.size};
-    _button.frame = (CGRect){CGPointZero,self.bounds.size};
-    self.contentViewForDrag.frame =  (CGRect){CGPointZero,self.bounds.size};
+    _textImageView.frame = (CGRect){CGPointZero,self.bounds.size};
 }
 -(void)setUp{
+    
+    FBTextImageView *textImageView = [[FBTextImageView alloc] initWithFrame:self.bounds];
+    textImageView.clipsToBounds = YES;
+    [self addSubview:textImageView];
+    self.textImageView = textImageView;
+    
     self.dragEnable = YES;//默认可以拖曳
     self.clipsToBounds = YES;
     self.backgroundColor = [UIColor lightGrayColor];

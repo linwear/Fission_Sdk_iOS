@@ -24,7 +24,7 @@
     
     self.titleLabel = UILabel.new;
     self.titleLabel.textColor = [UIColor blackColor];
-    self.titleLabel.font = [NSObject themePingFangSCMediumFont:16];
+    self.titleLabel.font = [NSObject BahnschriftFont:16];
     [self.contentView addSubview:self.titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(20);
@@ -41,7 +41,7 @@
     
     self.contentLabel = UILabel.new;
     self.contentLabel.textColor = [UIColor lightGrayColor];
-    self.contentLabel.font = [NSObject themePingFangSCMediumFont:14];
+    self.contentLabel.font = [NSObject BahnschriftFont:14];
     [self.contentView addSubview:self.contentLabel];
     [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.mas_equalTo(self.contentView.mas_centerY);

@@ -6,16 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "FBAuthorityObject.h"
 #import "FBCustomDialListModel.h"
-
-typedef enum {
-    FBCustomDialType_None = 0,      // 无
-    FBCustomDialType_Number,        // 数字表盘
-    FBCustomDialType_Pointer,       // 指针表盘
-    FBCustomDialType_Number_Pointer // 数字 + 指针
-}FBCustomDialType;
-
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -27,8 +18,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// 文件解压
 - (void)UnzipFormFilePath:(NSString *)filePath block:(void(^)(NSArray<FBCustomDialListModel *> * _Nullable list, NSError * _Nullable error))block;
 
-/* 解析得到的 packet.bin */
-@property (nonatomic, strong, nullable) NSData *packet_bin;
+/* 解析得到的 packet.bin（最后传给SDK）*/
+@property (nonatomic, strong, readonly) NSData *packet_bin;
+
+/* 解析得到的 info_png.bin（最后传给SDK）*/
+@property (nonatomic, strong, readonly) NSDictionary *info_png;
+
+/* 解析得到的 电池电量图标（不带文字，FBCustomDialHeadView用）*/
+@property (nonatomic, strong, readonly) NSMutableArray <FBCustomDialSoures *> *batterySoures;
 
 @end
 

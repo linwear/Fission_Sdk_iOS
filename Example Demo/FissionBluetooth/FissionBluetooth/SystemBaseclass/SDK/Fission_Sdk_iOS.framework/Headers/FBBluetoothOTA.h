@@ -28,6 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** OTA升级是否检查电量，电量应不低于30%，默认YES｜Whether the OTA upgrade checks the power, the power should not be less than 30%, and the default is yes */
 @property (nonatomic, assign) BOOL isCheckPower;
 
+/** 指示升级文件是否重新排序，YES重新排序，NO使用原厂默认排序，默认YES重新排序｜Indicates whether to reorder the upgrade files, YES to reorder, NO to use the original factory default sort, default YES to reorder */
+@property (nonatomic, assign) BOOL hasReorderedFiles;
+
 /**
  OTA升级｜OTA upgrade
  @param binFile                                 bin文件｜Bin file

@@ -535,6 +535,13 @@ x_arr;\
             item.calorie = detailsModel.calories;
             item.pace = detailsModel.pace;
             item.heartRate = detailsModel.heartRate;
+            if (detailsModel.recordDefinition == 0) {
+                // NSInteger stamina;
+                // BOOL isSuspend;
+            } else if (detailsModel.recordDefinition==1) {
+                item.KilometerPace = detailsModel.KilometerPace;
+                item.MilePace = detailsModel.MilePace;
+            }
             
             [model.items addObject:item];
         }
@@ -1372,7 +1379,7 @@ x_arr;\
                                                                         const selectedSeries = this.points[0];
                                                                         const pointIndex = selectedSeries.point.index;
                                                                         const time = x_JS_Array[pointIndex] + "&nbsp";
-                                                                        const data = unit + "&nbsp" + y_JS_Array[pointIndex];
+                                                                        const data = unit + "&nbsp" + y_JS_Array[pointIndex] + "&nbsp" + "%%";
                                                                         
                                                                         const wholeContentStr =  time + data;
                                                                         
@@ -2632,67 +2639,54 @@ x_arr;\
     
     
     // 心率
-    NSInteger lasrHrBegin = 0;
     // 自动数据
     RLMHeartRateModel *lastHr = [[RLMHeartRateModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
-    if (lastHr) {
-        lasrHrBegin = lastHr.begin;
-    }
+    
     // 手动测量数据
     RLMManualMeasureModel *lastHr_M = [FBLoadDataObject QueryManualMeasurementRecordWithDate:nil dataType:FBTestUIDataType_HeartRate deviceName:object.deviceName deviceMAC:object.mac].lastObject;
-    if (lastHr_M) {
-        lasrHrBegin = lasrHrBegin > lastHr_M.begin ? lasrHrBegin : lastHr_M.begin;
-    }
-    historicalModel.hrBegin = lasrHrBegin;
+    
+    NSInteger hrBegin = lastHr.begin > lastHr_M.begin ? lastHr.begin : lastHr_M.begin;
+    historicalModel.hrBegin = hrBegin;
+    historicalModel.hr = hrBegin>0 ? [NSString stringWithFormat:@"%ld bpm", hrBegin==lastHr.begin ? lastHr.heartRate : lastHr_M.hr] : LWLocalizbleString(@"No Data");
     
     
     // 血氧
-    NSInteger lastSpo2Begin = 0;
     // 自动数据
     RLMBloodOxygenModel *lastSpo2 = [[RLMBloodOxygenModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
-    if (lastSpo2) {
-        lastSpo2Begin = lastSpo2.begin;
-    }
+    
     // 手动测量数据
     RLMManualMeasureModel *lastSpo2_M = [FBLoadDataObject QueryManualMeasurementRecordWithDate:nil dataType:FBTestUIDataType_BloodOxygen deviceName:object.deviceName deviceMAC:object.mac].lastObject;
-    if (lastSpo2_M) {
-        lastSpo2Begin = lastSpo2Begin > lastSpo2_M.begin ? lastSpo2Begin : lastSpo2_M.begin;
-    }
-    historicalModel.spo2Begin = lastSpo2Begin;
+    
+    NSInteger spo2Begin = lastSpo2.begin > lastSpo2_M.begin ? lastSpo2.begin : lastSpo2_M.begin;
+    historicalModel.spo2Begin = spo2Begin;
+    historicalModel.spo2 = spo2Begin>0 ? [NSString stringWithFormat:@"%ld%%", spo2Begin==lastSpo2.begin ? lastSpo2.bloodOxygen : lastSpo2_M.Sp02] : LWLocalizbleString(@"No Data");
     
     
     // 血压
-    NSInteger lastBpBegin = 0;
     // 自动数据
     RLMBloodPressureModel *lastBp = [[RLMBloodPressureModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
-    if (lastBp) {
-        lastBpBegin = lastBp.begin;
-    }
+    
     // 手动测量数据
     RLMManualMeasureModel *lastBp_M = [FBLoadDataObject QueryManualMeasurementRecordWithDate:nil dataType:FBTestUIDataType_BloodPressure deviceName:object.deviceName deviceMAC:object.mac].lastObject;
-    if (lastBp_M) {
-        lastBpBegin = lastBpBegin > lastBp_M.begin ? lastBpBegin : lastBp_M.begin;
-    }
-    historicalModel.bpBegin = lastBpBegin;
+    
+    NSInteger bpBegin = lastBp.begin > lastBp_M.begin ? lastBp.begin : lastBp_M.begin;
+    historicalModel.bpBegin = bpBegin;
+    historicalModel.bp = bpBegin>0 ? [NSString stringWithFormat:@"%@ mmHg", bpBegin==lastBp.begin ? [NSString stringWithFormat:@"%ld/%ld", lastBp.systolic, lastBp.diastolic] : [NSString stringWithFormat:@"%ld/%ld", lastBp_M.systolic, lastBp_M.diastolic]] : LWLocalizbleString(@"No Data");
 
     
     // 精神压力
-    NSInteger lastStressBegin = 0;
     // 自动数据
     RLMStressModel *lastStress = [[RLMStressModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
-    if (lastStress) {
-        lastStressBegin = lastStress.begin;
-    }
+    
     // 手动测量数据
     RLMManualMeasureModel *lastStress_M = [FBLoadDataObject QueryManualMeasurementRecordWithDate:nil dataType:FBTestUIDataType_Stress deviceName:object.deviceName deviceMAC:object.mac].lastObject;
-    if (lastStress_M) {
-        lastStressBegin = lastStressBegin > lastStress_M.begin ? lastStressBegin : lastStress_M.begin;
-    }
-    historicalModel.stressBegin = lastStressBegin;
     
+    NSInteger stressBegin =  lastStress.begin > lastStress_M.begin ? lastStress.begin : lastStress_M.begin;
+    historicalModel.stressBegin = stressBegin;
+    historicalModel.stress = stressBegin>0 ? (stressBegin==lastStress.begin ? [NSString stringWithFormat:@"%ld %@", lastStress.stress, [FBLoadDataObject stress:lastStress.stress range:lastStress.StressRange]] : [NSString stringWithFormat:@"%ld %@", lastStress_M.stress, [FBLoadDataObject stress:lastStress_M.stress range:lastStress_M.StressRange]]) : LWLocalizbleString(@"No Data");
     
     // 睡眠
-    NSInteger lastSleepBegin = 0;
+    NSInteger sleepBegin = 0;
     NSString *SQL_Sleep = [NSString stringWithFormat:@"%@ AND SleepState != %d AND SleepState != %d", SQL, RLM_Awake, RLM_Nap_Awake];
     RLMSleepModel *lastSleep = [[RLMSleepModel objectsWhere:SQL_Sleep] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
     if (lastSleep) {
@@ -2702,10 +2696,25 @@ x_arr;\
         if (lastSleep.begin >= (date.Time_24-2.5*3600) && lastSleep.begin < date.Time_24) {
             date = [NSDate dateWithTimeIntervalSince1970:(date.Time_24+2)];
         }
-        lastSleepBegin = date.timeIntervalSince1970;
+        sleepBegin = date.timeIntervalSince1970;
     }
-    historicalModel.sleepBegin = lastSleepBegin;
+    historicalModel.sleepBegin = sleepBegin;
     
+    if (sleepBegin > 0) {
+        
+        NSArray <FBSleepItem *> *array = [FBLoadDataObject QuerySleepCountRecordWithDate:[NSDate dateWithTimeIntervalSince1970:sleepBegin] deviceName:object.deviceName deviceMAC:object.mac];
+                
+        NSInteger totalSleep = 0; // 睡眠总时长
+        for (FBSleepItem *item in array) {
+            if (item.SleepState != RLM_Awake && item.SleepState != RLM_Nap_Awake) {
+                totalSleep += item.duration;
+            }
+        }
+        historicalModel.sleep = [Tools HM: totalSleep * 60];
+        
+    } else {
+        historicalModel.sleep = LWLocalizbleString(@"No Data");
+    }
     
     if (block) {
         block(historicalModel);

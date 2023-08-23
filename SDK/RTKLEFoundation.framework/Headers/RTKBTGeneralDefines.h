@@ -11,22 +11,18 @@
 
 #import <Foundation/Foundation.h>
 
-/**
- * A block type to be called when some task did complete.
- *
- * @param success Indicating if task finish successfully.
- * @param error Contains a error object if task failed.
- *
- * @discussion By convention, when a block of this type get called, the @b success argument with YES set and @b error with nil set indicates that task succeed. If task fail, the @b success argument is set to NO, and @b error argument is probabaly set to a valid error object.
- */
+/// A block type to be called when some task did complete.
+///
+/// - Parameter success: Indicating if task finish successfully.
+/// - Parameter error: Contains a error object if task failed.
+///
+/// By convention, when a block of this type get called, the `success` argument with `YES` set and the `error` with `nil` set indicates that task succeed. If the task fails, the `success` argument is set to `NO`, and the `error` argument is probabaly set to a valid error object.
 typedef void(^RTKLECompletionBlock)(BOOL success, NSError *_Nullable error);
 
 
 #pragma pack(push, 1)
 
-/**
- * A structure used to describe each byte of a BDAddress bytes.
- */
+/// A structure used to describe each byte of a `BDAddress` bytes.
 struct BDAddressByteStruct {
     uint8_t part0;
     uint8_t part1;
@@ -36,9 +32,7 @@ struct BDAddressByteStruct {
     uint8_t part5;
 };
 
-/**
- * A structure describe how a BDAddress byte is stored.
- */
+/// A structure describe how a BDAddress byte is stored.
 typedef union {
     struct {
         uint64_t intValue : 48;

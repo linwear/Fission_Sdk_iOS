@@ -12,6 +12,28 @@
 //  框架功能｜Framework Function: iOS framework for Fission smart watch, which is responsible for the communication with the watch.
 //                              Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装。
 //  修改记录｜Modification Record:
+//     pcjbird    2023-07-18  Version:3.1.5 Build:20230718001
+//                            1.修复"设置/获取 个人用户信息"协议已知错误问题
+//                            2.新增"读取片外 flash 空间数据"协议，用于获取设备意外重启信息，供固件分析问题（FBBgCommand）fbReadOffChipFlashWithAddress: withLength: withBlock:
+//                            3.FBFirmwareVersionObject 新增:
+//                              适配号，长整形（部分手表支持）
+//                              Hardfault信息空间地址
+//                              Hardfault信息空间尺寸
+//                              系统参数空间地址
+//                              系统参数空间尺寸
+//                              是否支持带适配号验证的OTA通知指令
+//                              是否支持hardfault信息和系統参数读取
+//                              是否支持表盘CRC校验
+//                            4.EM_FUNC_SWITCH 新增类型:
+//                              FS_TIMING_BP_WARN(33)
+//                              FS_DEVICE_EXCEPTION_WARN(34)
+//                            5.新增表盘数据校验（UTC或CRC）
+//                            6.原厂OTA SDK更新至v1.4.9版本（RTKOTASDK.framework、RTKLEFoundation.framework）修改多包OTA文件顺序
+//                            7.FBTypeRecordModel 记录生成周期 参数名由原先 createTimes 改为 recordingCycle，避免歧义，并且单位统一为秒；新增参数 记录格式定义（recordDefinition）
+//                            8.FBRecordDetailsModel 运动详情记录新增参数 一公里用时（一公里配速，单位秒）KilometerPace，一英里用时（一英里配速，单位秒）MilePace，仅部分设备支持，具体根据参数 记录格式定义（recordDefinition）而定
+//                            9.自定义表盘抗锯齿切图更新
+//                            10.优化记录/报告排序及其他已知问题
+//
 //     pcjbird    2023-05-18  Version:3.1.4 Build:202305181600
 //                            1.优化已知问题
 //                            2.新增"自定义表盘支持抗锯齿"处理
@@ -184,6 +206,7 @@ FOUNDATION_EXPORT const unsigned char Fission_Sdk_iOSVersionString[];
 #import <Fission_Sdk_iOS/FBSportRecordModel.h>
 #import <Fission_Sdk_iOS/FBSportCaculateModel.h>
 #import <Fission_Sdk_iOS/FBTypeRecordModel.h>
+#import <Fission_Sdk_iOS/FBFemalePhysiologyModel.h>
 #import <Fission_Sdk_iOS/FBUserInforModel.h>
 #import <Fission_Sdk_iOS/FBAlarmClockModel.h>
 #import <Fission_Sdk_iOS/FBLongSitModel.h>
@@ -202,8 +225,8 @@ FOUNDATION_EXPORT const unsigned char Fission_Sdk_iOSVersionString[];
 #import <Fission_Sdk_iOS/FBStreamDataModel.h>
 #import <Fission_Sdk_iOS/FBOTADoneModel.h>
 #import <Fission_Sdk_iOS/FBWeatherDetailsModel.h>
-#import <Fission_Sdk_iOS/FBFemalePhysiologyModel.h>
 #import <Fission_Sdk_iOS/FBCustomDialModel.h>
+#import <Fission_Sdk_iOS/FBMultipleCustomDialsModel.h>
 #import <Fission_Sdk_iOS/FBHrReminderModel.h>
 #import <Fission_Sdk_iOS/FBManualMeasureDataModel.h>
 #import <Fission_Sdk_iOS/FBCustomMotionModel.h>

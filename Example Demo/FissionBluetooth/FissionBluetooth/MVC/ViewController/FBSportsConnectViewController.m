@@ -46,7 +46,7 @@
     self.motionDataView = motionDataView;
     
     //左边按钮
-    _leftBtn = [[XYButton alloc] initWithFrame:CGRectMake(0, 0, 85, 85) backgroundColor:UIColorGreen borderColor:UIColorBlack title:LWLocalizbleString(@"Continue") titleColor:UIColorBlack font:[NSObject themePingFangSCMediumFont:18] tapBlock:^(UIButton *btn) {
+    _leftBtn = [[XYButton alloc] initWithFrame:CGRectMake(0, 0, 85, 85) backgroundColor:UIColorGreen borderColor:UIColorBlack title:LWLocalizbleString(@"Continue") titleColor:UIColorBlack font:[NSObject BahnschriftFont:18] tapBlock:^(UIButton *btn) {
         //点击事件
         [weakSelf continueBtnClick:YES];
         
@@ -57,7 +57,7 @@
     
     
     //右边按钮
-    _rightBtn = [[XYButton alloc] initWithFrame:CGRectMake(0, 0, 85, 85) backgroundColor:UIColorRed borderColor:UIColorBlack title:LWLocalizbleString(@"End") titleColor:UIColorWhite font:[NSObject themePingFangSCMediumFont:18] tapBlock:^(UIButton *btn) {
+    _rightBtn = [[XYButton alloc] initWithFrame:CGRectMake(0, 0, 85, 85) backgroundColor:UIColorRed borderColor:UIColorBlack title:LWLocalizbleString(@"End") titleColor:UIColorWhite font:[NSObject BahnschriftFont:18] tapBlock:^(UIButton *btn) {
         //点击事件
         [weakSelf endBtnClick:YES];
     }];
@@ -67,7 +67,7 @@
     
     
     //暂停按钮
-    _pauseBtn = [[XYButton alloc] initWithFrame:CGRectMake(0, 0, 85, 85) backgroundColor:UIColorYellow borderColor:UIColorBlack title:LWLocalizbleString(@"Pause") titleColor:UIColorBlack font:[NSObject themePingFangSCMediumFont:18] tapBlock:^(UIButton *btn) {
+    _pauseBtn = [[XYButton alloc] initWithFrame:CGRectMake(0, 0, 85, 85) backgroundColor:UIColorYellow borderColor:UIColorBlack title:LWLocalizbleString(@"Pause") titleColor:UIColorBlack font:[NSObject BahnschriftFont:18] tapBlock:^(UIButton *btn) {
         //点击事件
         [weakSelf pauseBtnClick:YES];
     }];
@@ -162,7 +162,7 @@
 
     /** 本次运动平均步频 =步数/时间（单位：步/分钟）｜Average step frequency of this exercise = steps / time (unit: steps / minute) */
     CGFloat avgStepFrequency = self.tempModel.steps / (self.tempModel.realTime/60.0);
-    gpsModel.avgStepFrequency = ceilf(avgStepFrequency);
+    gpsModel.avgStepFrequency = floor(avgStepFrequency);
 
     /** 重复运动的周期数（来回次数，圈数）（单位：圈）｜Number of cycles of repeated motion (number of turns, turns) (unit: turns) */
 //    gpsModel.cyclesNumber;

@@ -91,25 +91,32 @@
 }
 
 - (void)add{
-    WeakSelf(self);
-    int max = FBAllConfigObject.firmwareConfig.supportMoreAlarmClock ? 10 : 5;
     
-    [FBAtCommand.sharedInstance fbGetUnusedClockIDWithBlock:^(NSInteger responseObject, NSError * _Nullable error) {
-        if (error) {
-            [NSObject showHUDText:error.domain];
-        }else{
-            if (responseObject >= max) {
-                [NSObject showHUDText:LWLocalizbleString(@"Up to %d alarms can be set")];
+    if (FBAllConfigObject.firmwareConfig.supportSetAlarmClock) {
+        
+        WeakSelf(self);
+        int max = FBAllConfigObject.firmwareConfig.supportMoreAlarmClock ? 10 : 5;
+        
+        [FBAtCommand.sharedInstance fbGetUnusedClockIDWithBlock:^(NSInteger responseObject, NSError * _Nullable error) {
+            if (error) {
+                [NSObject showHUDText:error.localizedDescription];
             }else{
-                FBAlarmClockModel *model = [FBAlarmClockModel new];
-                model.clockID = responseObject;
-                ClockInforViewController *vc = [ClockInforViewController new];
-                vc.navigationItem.title = self.navigationItem.title;
-                vc.model = model;
-                [weakSelf.navigationController pushViewController:vc animated:YES];
+                if (responseObject >= max) {
+                    [NSObject showHUDText:[NSString stringWithFormat:LWLocalizbleString(@"Up to %d alarms can be set"), max]];
+                }else{
+                    FBAlarmClockModel *model = [FBAlarmClockModel new];
+                    model.clockID = responseObject;
+                    ClockInforViewController *vc = [ClockInforViewController new];
+                    vc.navigationItem.title = self.navigationItem.title;
+                    vc.model = model;
+                    [weakSelf.navigationController pushViewController:vc animated:YES];
+                }
             }
-        }
-    }];
+        }];
+    }
+    else {
+        [NSObject showHUDText:LWLocalizbleString(@"This function does not support")];
+    }
 }
 /*
 #pragma mark - Navigation

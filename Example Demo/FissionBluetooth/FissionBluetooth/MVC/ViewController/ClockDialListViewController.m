@@ -53,7 +53,7 @@
                 [weakSelf.collectionView reloadData];
             }
         } failure:^(NSError * _Nonnull error, id  _Nullable responseObject) {
-            [NSObject showHUDText:error.domain];
+            [NSObject showHUDText:error.localizedDescription];
         }];
     }
 }

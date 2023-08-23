@@ -6,6 +6,7 @@
 //
 
 #import "QRViewController.h"
+#import "FBConnectViewController.h"
 
 @interface QRViewController ()
 
@@ -20,8 +21,8 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    // result
-    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(result:) name:FISSION_SDK_CONNECTBINGSTATE object:nil];
+    // 扫描到设备｜Scan to device
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(ScanToDevice:) name:FISSION_SDK_SCANTODEVICENOTICE object:nil];
     
     // Start scanning device
     [self startScan];
@@ -124,27 +125,20 @@
     [FBBluetoothManager.sharedInstance scanForPeripherals];
 }
 
-- (void)result:(NSNotification *)obj {
+- (void)ScanToDevice:(NSNotification *)obj {
     
-    if ([obj.object isKindOfClass:NSNumber.class]) {
-        
-        CONNECTBINGSTATE state = (CONNECTBINGSTATE)[obj.object integerValue];
-        if (state == CONNECTBINGSTATE_COMPLETE) {
-            [self.navigationController popToRootViewControllerAnimated:YES];
-        }
-    }
-    else if ([obj.object isKindOfClass:FBPeripheralModel.class]) {
+    if ([obj.object isKindOfClass:FBPeripheralModel.class]) {
         
         FBPeripheralModel *model = obj.object;
         
         if ([self.mac isEqualToString:model.mac_Address]) {
             
             [FBBluetoothManager.sharedInstance cancelScan];
-            
             [SVProgressHUD dismiss];
-            [NSObject showLoading:LWLocalizbleString(@"Connecting")];
             
-            [FBBluetoothManager.sharedInstance connectToPeripheral:model.peripheral];
+            FBConnectViewController *vc = FBConnectViewController.new;
+            vc.peripheralModel = model;
+            [self.navigationController pushViewController:vc animated:YES];
         }
     }
 }

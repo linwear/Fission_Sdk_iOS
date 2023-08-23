@@ -72,7 +72,7 @@
     [mainButton setBackgroundColor:BlueColor];
     [mainButton setTitleColor:UIColorWhite forState:UIControlStateNormal];
     [mainButton setTitle:LWLocalizbleString(@"Synchronize") forState:UIControlStateNormal];
-    mainButton.titleLabel.font = [NSObject themePingFangSCMediumFont:18];
+    mainButton.titleLabel.font = [NSObject BahnschriftFont:18];
     mainButton.cornerRadius = 24;
     [mainButton addTarget:self action:@selector(butClick) forControlEvents:UIControlEventTouchUpInside];
     
@@ -260,7 +260,7 @@
     UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)]; // 随便给个高度
     headerView.backgroundColor = COLOR_HEX(0xE6E6FA, 1);
     
-    QMUILabel *titleLabel = [[QMUILabel alloc] qmui_initWithFont:[NSObject themePingFangSCMediumFont:18] textColor:UIColorBlack];
+    QMUILabel *titleLabel = [[QMUILabel alloc] qmui_initWithFont:[NSObject BahnschriftFont:18] textColor:UIColorBlack];
     titleLabel.text = title;
     titleLabel.numberOfLines = 0;
     [headerView addSubview:titleLabel];

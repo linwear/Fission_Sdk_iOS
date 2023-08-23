@@ -39,14 +39,14 @@ DDLogLevel ddLogLevel = DDLogLevelVerbose;
         DDFileLogger *fileLogger = [[DDFileLogger alloc] initWithLogFileManager:fileManager];
         // 每次app启动的时候创建一个新的log文件
         fileLogger.doNotReuseLogFiles = YES;
-        //log文件在24小时内有效，超过时间创建新log文件(默认值是24小时)
+        // log文件在24小时内有效，超过时间创建新log文件(默认值是24小时)
         fileLogger.rollingFrequency = 60*60*24;
-        //log文件的最大20M(默认值1M)
-        fileLogger.maximumFileSize = 1024*1024*20;
-        //最多保存20个log文件(默认值是5)
-        fileLogger.logFileManager.maximumNumberOfLogFiles = 20;
-        //log文件夹最多保存200M(默认值是20M)，设置0可关闭此项
-        fileLogger.logFileManager.logFilesDiskQuota = 200 * 1024 * 1024;
+        // log文件的最大30M(默认值1M)
+        fileLogger.maximumFileSize = 1024*1024*30;
+        // 最多保存30个log文件(默认值是5)，设置0可关闭此项
+        fileLogger.logFileManager.maximumNumberOfLogFiles = 30;
+        // log文件夹最多保存900M(默认值是20M)，设置0可关闭此项
+        fileLogger.logFileManager.logFilesDiskQuota = 900 * 1024 * 1024;
         self.fileLogger = fileLogger;
         
         [DDLog addLogger:self.osLogger];
@@ -55,29 +55,19 @@ DDLogLevel ddLogLevel = DDLogLevelVerbose;
     return self;
 }
 
-- (NSArray *)allLogNames {
-    NSArray *all = self.fileLogger.logFileManager.sortedLogFileNames;
-    return all;
-}
-
-- (NSArray *)allLogPaths {
-    NSArray *all = self.fileLogger.logFileManager.sortedLogFilePaths;
-    return all;
+- (NSArray <DDLogFileInfo *> *)allLogFileInfo {
+    NSArray <DDLogFileInfo *> *allLogFileInfo = self.fileLogger.logFileManager.sortedLogFileInfos;
+    return allLogFileInfo;
 }
 
 @end
 
-@implementation FBFileManager
+@implementation FBFileManager // 默认log的存储路径，在iPhone上，它位于“~/Library/Caches/Logs”中。
 
 //重写方法(log文件名生成规则)
 - (NSString *)newLogFileName {
-    NSString *language = [NSLocale preferredLanguages].firstObject;
-    NSString *dateString = nil;
-    if ([language containsString:@"zh"]) {
-        dateString = [NSDate br_stringFromDate:NSDate.date dateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    } else {
-        dateString = [NSDate br_stringFromDate:NSDate.date dateFormat:@"dd MMMM yyyy HH:mm:ss"];
-    }
+    
+    NSString *dateString = [NSDate br_stringFromDate:NSDate.date dateFormat:@"yyyy-MM-dd_HH_mm_ss" timeZone:nil language:@"zh-Hans-CN"];
     NSString *logFileName = [NSString stringWithFormat:@"%@.log", dateString];
 
     return logFileName;

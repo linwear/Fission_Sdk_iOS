@@ -50,9 +50,7 @@
 
 // 处理事件
 - (void)HandleEvents:(CGPoint)point {
-    
-    FBLog(@"ffffff %.f=%.f, %.f=%.f", point.x, point.y, self.width, self.height);
-    
+        
     if (CGRectContainsPoint(self.trackImage.frame, point)) {
         // 边界内
     } else {

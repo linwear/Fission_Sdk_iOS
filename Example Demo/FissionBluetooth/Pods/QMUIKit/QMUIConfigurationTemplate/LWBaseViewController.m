@@ -23,6 +23,17 @@
     self.pageSize = 10;
 }
 
+/// 导航栏透明度
+- (void)navigationBarAlpha:(CGFloat)alpha {
+    self.navigationController.navigationBar.qmui_backgroundView.alpha = alpha;
+}
+
+/// 拦截系统返回事件，外部可重写此方法
+- (BOOL)shouldPopViewControllerByBackButtonOrPopGesture:(BOOL)byPopGesture {
+    return YES;
+}
+
+/// 状态栏颜色-白
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
 }

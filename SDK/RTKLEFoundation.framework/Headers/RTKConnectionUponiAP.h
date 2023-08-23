@@ -16,33 +16,27 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- * A concrete device connection that communicates with a iAP accessory.
- *
- * @discussion A @c RTKConnectionUponiAP object specify the protocol by @c communicationProtocol property to use for communication with iAP accessory. The protocol should also be set to UISupportedExternalAccessoryProtocols value in your app's Info.plist.
- */
+/// A concrete device connection that communicates with an iAP accessory.
+///
+/// An ``RTKConnectionUponiAP`` object specify the protocol by ``communicationProtocol`` property to use for communication with iAP accessory. The protocol should also be included in `UISupportedExternalAccessoryProtocols` value in your app's *Info.plist*.
 @interface RTKConnectionUponiAP : RTKProfileConnection
 
-/**
- * Returns the iAP accessory this conneciton links.
- *
- * @discussion This property has the same value as @c device property.
- */
+/// Returns the `iAP` accessory this conneciton links.
+///
+/// This property has the same value as ``RTKProfileConnection/device`` property.
 @property (nonatomic, readonly) EAAccessory *accessory;
 
-/**
- * Initializes this connection object with a known iAP accessory.
- *
- * @discussion When this method is called, the accessory does not have to be in connected state. But when be called to activate, this accessory should be connected.
- */
+
+/// Initializes this connection object with a known iAP accessory.
+///
+/// When this method is called, the accessory does not have to be in connected state. But when be called to activate, this accessory should be connected.
 - (instancetype)initWithAccessory:(EAAccessory *)accessory;
 
-/**
- * Returns the protocol to use when communicating with the accessory.
- *
- * @discussion In addition, this protocol is also used as a condition when verify conformance of a specific profile.
- */
-@property NSString *communicationProtocol;
+
+/// Returns the protocol to use when communicating with the accessory.
+///
+/// In addition, this protocol is also used as a condition when verify conformance of a specific profile.
+@property (class) NSString *communicationProtocol;
 
 @end
 

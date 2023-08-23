@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBTestUIItemCell : UICollectionViewCell
 
-- (void)reloadItem:(FBTestUIItemModel *)item;
+- (void)reloadItem:(FBTestUIItemModel *)item historicalModel:(FBLocalHistoricalModel *)historicalModel;
 
 @end
 

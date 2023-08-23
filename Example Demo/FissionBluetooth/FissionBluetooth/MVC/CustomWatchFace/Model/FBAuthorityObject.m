@@ -13,6 +13,8 @@
 
 @property (nonatomic, copy) FBAuthorityObjectBlock block;
 
+@property (nonatomic, strong) UIViewController *superViewController;
+
 @end
 
 @implementation FBAuthorityObject
@@ -26,7 +28,10 @@
     return manager;
 }
 
-- (void)presentViewControllerGetPictures:(FBAuthorityObjectBlock)block {
+- (void)presentViewController:(UIViewController *)superViewController getPictures:(FBAuthorityObjectBlock)block {
+    
+    self.superViewController = superViewController;
+    
     WeakSelf(self);
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alertVC addAction:[UIAlertAction actionWithTitle:LWLocalizbleString(@"Select from album") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -45,7 +50,7 @@
 
     }]];
 
-    [QMUIHelper.visibleViewController presentViewController:alertVC animated:YES completion:nil];
+    [self.superViewController presentViewController:alertVC animated:YES completion:nil];
 }
 
 - (void)accessType:(FBAuthorityType)type block:(FBAuthorityObjectBlock)block {
@@ -70,7 +75,7 @@
         }];
         [alert addAction:cancelAction];
         [alert addAction:okAction];
-        [QMUIHelper.visibleViewController presentViewController:alert animated:YES completion:nil];
+        [self.superViewController presentViewController:alert animated:YES completion:nil];
 
     } else if ([PHPhotoLibrary authorizationStatus] == 0) { // 未请求过相册权限
         [[TZImageManager manager] requestAuthorizationWithCompletion:^{
@@ -121,7 +126,7 @@
         }
     }];
 
-    [QMUIHelper.visibleViewController presentViewController:imagePC animated:YES completion:nil];
+    [self.superViewController presentViewController:imagePC animated:YES completion:nil];
 }
 
 #pragma mark - 访问相机
@@ -137,7 +142,7 @@
         }];
         [alert addAction:cancelAction];
         [alert addAction:okAction];
-        [QMUIHelper.visibleViewController presentViewController:alert animated:YES completion:nil];
+        [self.superViewController presentViewController:alert animated:YES completion:nil];
 
     } else if (authStatus == AVAuthorizationStatusNotDetermined) {
         // fix issue 466, 防止用户首次拍照拒绝授权时相机页黑屏
@@ -159,7 +164,7 @@
         }];
         [alert addAction:cancelAction];
         [alert addAction:okAction];
-        [QMUIHelper.visibleViewController presentViewController:alert animated:YES completion:nil];
+        [self.superViewController presentViewController:alert animated:YES completion:nil];
 
     } else if ([PHPhotoLibrary authorizationStatus] == 0) { // 未请求过相册权限
         [[TZImageManager manager] requestAuthorizationWithCompletion:^{
@@ -177,7 +182,7 @@
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         self.imagePickerVc.sourceType = sourceType;
         self.imagePickerVc.modalPresentationStyle = UIModalPresentationFullScreen;
-        [QMUIHelper.visibleViewController presentViewController:self.imagePickerVc animated:YES completion:nil];
+        [self.superViewController presentViewController:self.imagePickerVc animated:YES completion:nil];
     }
 }
 
@@ -221,7 +226,7 @@
                     imagePicker.cropRect = CGRectMake(left, top, width, widthHeight);;
                 }
 
-                [QMUIHelper.visibleViewController presentViewController:imagePicker animated:YES completion:nil];
+                [weakSelf.superViewController presentViewController:imagePicker animated:YES completion:nil];
             }
         }];
     }
@@ -234,8 +239,8 @@
         _imagePickerVc = [[UIImagePickerController alloc] init];
         _imagePickerVc.delegate = self;
         // set appearance / 改变相册选择页的导航栏外观
-        _imagePickerVc.navigationBar.barTintColor = QMUIHelper.visibleViewController.navigationController.navigationBar.barTintColor;
-        _imagePickerVc.navigationBar.tintColor = QMUIHelper.visibleViewController.navigationController.navigationBar.tintColor;
+        _imagePickerVc.navigationBar.barTintColor = self.superViewController.navigationController.navigationBar.barTintColor;
+        _imagePickerVc.navigationBar.tintColor = self.superViewController.navigationController.navigationBar.tintColor;
         UIBarButtonItem *tzBarItem, *BarItem;
         tzBarItem = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[TZImagePickerController class]]];
         BarItem = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UIImagePickerController class]]];

@@ -36,7 +36,7 @@
     titleLab.sd_layout.leftSpaceToView(self.contentView, 12).topSpaceToView(self.contentView, 12).widthIs(SCREEN_WIDTH-24).autoHeightRatio(0).maxHeightIs(60);
     self.titleLab = titleLab;
     
-    QMUILabel *detailLab = [[QMUILabel alloc] qmui_initWithFont:[NSObject themePingFangSCMediumFont:13] textColor:BlueColor];
+    QMUILabel *detailLab = [[QMUILabel alloc] qmui_initWithFont:[NSObject BahnschriftFont:13] textColor:BlueColor];
     detailLab.numberOfLines = 0;
     [self.contentView addSubview:detailLab];
     detailLab.sd_layout.leftEqualToView(titleLab).rightEqualToView(titleLab).topSpaceToView(titleLab, 8).autoHeightRatio(0).maxHeightIs(60);

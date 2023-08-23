@@ -18,10 +18,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSInteger distance;
 /// 卡路里 (单位: 千卡)
 @property NSInteger calorie;
-/// 配速(s/km)
+/// 实时配速(s/km)
 @property NSInteger pace;
 /// 运动心率(次/min)
 @property NSInteger heartRate;
+
+/// 记录格式定义
+@property NSInteger recordDefinition;
+
+/// 一公里用时 (一公里配速，单位秒)
+@property NSInteger KilometerPace;
+/// 一英里用时 (一英里配速，单位秒)
+@property NSInteger MilePace;
+
 @end
 
 

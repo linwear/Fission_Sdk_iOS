@@ -66,7 +66,7 @@
     [doneBut setBackgroundColor:BlueColor];
     [doneBut setTitleColor:UIColorWhite forState:UIControlStateNormal];
     [doneBut setTitle:LWLocalizbleString(@"Set") forState:UIControlStateNormal];
-    doneBut.titleLabel.font = [NSObject themePingFangSCMediumFont:18];
+    doneBut.titleLabel.font = [NSObject BahnschriftFont:18];
     doneBut.cornerRadius = 24;
     [self.view addSubview:doneBut];
     [doneBut addTarget:self action:@selector(doneButClick) forControlEvents:UIControlEventTouchUpInside];

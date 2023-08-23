@@ -36,13 +36,13 @@ typedef void(^LWCustomDialPickerViewSelectBlock)(LWCustomDialSelectMode mode, NS
     
     [self.cancelBut setBackgroundColor:[UIColor whiteColor]];
      [NSObject setView:self.cancelBut cornerRadius:24 borderWidth:1 borderColor:BlueColor];
-    self.cancelBut.titleLabel.font = [NSObject themePingFangSCMediumFont:18];
+    self.cancelBut.titleLabel.font = [NSObject BahnschriftFont:18];
      [self.cancelBut setTitleColor:BlueColor forState:UIControlStateNormal];
     [self.cancelBut setTitle:LWLocalizbleString(@"Cancel") forState:UIControlStateNormal];
     
     [self.confirmBut setBackgroundColor:BlueColor];
      [NSObject setView:self.confirmBut cornerRadius:24 borderWidth:0 borderColor:UIColorClear];
-    self.confirmBut.titleLabel.font = [NSObject themePingFangSCMediumFont:18];
+    self.confirmBut.titleLabel.font = [NSObject BahnschriftFont:18];
     [self.confirmBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [self.confirmBut setTitle:LWLocalizbleString(@"OK") forState:UIControlStateNormal];
     

@@ -60,6 +60,14 @@
     }
 }
 
+/// 当前手机系统时间格式是否是12小时制
++ (BOOL)is12Hour {
+    NSString *formatStringForHours = [NSDateFormatter dateFormatFromTemplate:@"j" options:0 locale:[NSLocale currentLocale]];
+    NSRange containsA = [formatStringForHours rangeOfString:@"a"];
+    BOOL hasAMPM = containsA.location != NSNotFound;
+    return hasAMPM;
+}
+
 /// 设置是否 常亮 不锁屏...
 + (void)idleTimerDisabled:(BOOL)always {
     // 设置是否 常亮 不锁屏...
@@ -544,6 +552,17 @@
     }
     
     return sportType;
+}
+
+/// 当前绑定状态（是否是第一次绑定）
++ (void)saveIsFirstBinding:(BOOL)isFirst {
+    [NSUserDefaults.standardUserDefaults setBool:isFirst forKey:@"FB_isFirstBinding"];
+}
+
+/// 是否是第一次绑定
++ (BOOL)isFirstBinding {
+    BOOL isFirstBinding = [NSUserDefaults.standardUserDefaults boolForKey:@"FB_isFirstBinding"];
+    return isFirstBinding;
 }
 
 /// 记录当前实时数据流开启状态

@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBTestUISportsChartCell : UITableViewCell
 
-- (void)reloadSportsChartModel:(AAChartModel *)aaChartModel;
+- (void)reloadSportsChartModel:(AAChartModel *)aaChartModel listType:(FBSportsListType)listType;
 
 @end
 

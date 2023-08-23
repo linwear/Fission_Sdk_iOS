@@ -12,6 +12,7 @@
 #import "FBTestUISportsHrRangeCell.h"
 #import "FBTestUISportsChartCell.h"
 #import "FBTestUIOverviewCell.h"
+#import "FBTestUISportsPaceRatioCell.h"
 
 @interface FBTestUISportsViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -26,6 +27,7 @@ static NSString *FBTestUISportsDetailsCellID = @"FBTestUISportsDetailsCell";
 static NSString *FBTestUISportsHrRangeCellID = @"FBTestUISportsHrRangeCell";
 static NSString *FBTestUISportsChartCellID = @"FBTestUISportsChartCell";
 static NSString *FBTestUIOverviewCellID = @"FBTestUIOverviewCell";
+static NSString *FBTestUISportsPaceRatioCellID = @"FBTestUISportsPaceRatioCell";
 
 @implementation FBTestUISportsViewController
 
@@ -60,6 +62,7 @@ static NSString *FBTestUIOverviewCellID = @"FBTestUIOverviewCell";
     [tableView registerNib:[UINib nibWithNibName:FBTestUISportsHrRangeCellID bundle:nil] forCellReuseIdentifier:FBTestUISportsHrRangeCellID];
     [tableView registerNib:[UINib nibWithNibName:FBTestUISportsChartCellID bundle:nil] forCellReuseIdentifier:FBTestUISportsChartCellID];
     [tableView registerNib:[UINib nibWithNibName:FBTestUIOverviewCellID bundle:nil] forCellReuseIdentifier:FBTestUIOverviewCellID];
+    [tableView registerNib:[UINib nibWithNibName:FBTestUISportsPaceRatioCellID bundle:nil] forCellReuseIdentifier:FBTestUISportsPaceRatioCellID];
     
     
     [self loadData:isCalorie];
@@ -112,7 +115,7 @@ static NSString *FBTestUIOverviewCellID = @"FBTestUIOverviewCell";
     
     
     // - - - - - - - - - - - - - - - - - - - - - - - - 心率区间 - - - - - - - - - - - - - - - - - - - - - - - -
-    CGFloat totalMinute = ceilf(self.sportsModel.duration/60.0);
+    CGFloat totalMinute = floor(self.sportsModel.duration/60.0); // 向下取整
     
     FBTestUISportsHrRangeModel *hrModel_1 = FBTestUISportsHrRangeModel.new;
     hrModel_1.title = [NSString stringWithFormat:@"%@\n%ld min", LWLocalizbleString(@"Warm Up"), self.sportsModel.heartRate_level_1];
@@ -175,17 +178,71 @@ static NSString *FBTestUIOverviewCellID = @"FBTestUIOverviewCell";
     sectionModel_6.rowArray = @[chartOverviewModelArray[3].aaChartModel, chartOverviewModelArray[3].overviewArray];
     
     
-    // - - - - - - - - - - - - - - - - - - - - - - - - 运动配速图表 - - - - - - - - - - - - - - - - - - - - - - - -
+    // - - - - - - - - - - - - - - - - - - - - - - - - 运动实时配速图表 - - - - - - - - - - - - - - - - - - - - - - - -
     FBTestUISportsSectionModel *sectionModel_7 = FBTestUISportsSectionModel.new;
-    sectionModel_7.sectionTitle = LWLocalizbleString(@"Sport Pace");
-    sectionModel_7.listType = FBSportsListType_SportsPace;
+    sectionModel_7.sectionTitle = LWLocalizbleString(@"Sports real-time pace");
+    sectionModel_7.listType = FBSportsListType_SportsRealTimePace;
     sectionModel_7.rowArray = @[chartOverviewModelArray[4].aaChartModel, chartOverviewModelArray[4].overviewArray];
+    
+    // - - - - - - - - - - - - - - - - - - - - - - - - 运动配速图表 - - - - - - - - - - - - - - - - - - - - - - - -
+    FBTestUISportsSectionModel *sectionModel_8 = FBTestUISportsSectionModel.new;
+    sectionModel_8.sectionTitle = [NSString stringWithFormat:@"%@ (%@)", LWLocalizbleString(@"Sport Pace"), Tools.distanceUnit];
+    sectionModel_8.listType = FBSportsListType_SportsPace;
+    
+    NSMutableArray *paceArray = NSMutableArray.array;
+    for (RLMSportsItemModel *itemModel in self.sportsModel.items) {
+        if (Tools.isMetric) { // 公制-公里
+            if (itemModel.KilometerPace > 0) {
+                [paceArray addObject:@(itemModel.KilometerPace)];
+            }
+        } else { // 英制-英里
+            if (itemModel.MilePace > 0) {
+                [paceArray addObject:@(itemModel.MilePace)];
+            }
+        }
+    }
+    NSInteger maxPace = [[paceArray valueForKeyPath:@"@max.floatValue"] integerValue]; // 最低
+    NSInteger minPace = [[paceArray valueForKeyPath:@"@min.floatValue"] integerValue]; // 最佳
+    NSMutableArray *paceRatioArray = NSMutableArray.array;
+    for (int index = 0; index < paceArray.count; index++) {
+        NSInteger pace = [paceArray[index] integerValue];
+        FBTestUISportsPaceRatioModel *paceRatioModel = FBTestUISportsPaceRatioModel.new;
+        paceRatioModel.index = index+1;
+        paceRatioModel.pace = pace;
+        paceRatioModel.color = minPace==pace ? GreenColor : maxPace==pace ? COLOR_HEX(0xFF8C00, 1) : BlueColor;
+        paceRatioModel.ratio = maxPace==pace ? 1.0 : (CGFloat)pace/(CGFloat)maxPace;
+        [paceRatioArray addObject:paceRatioModel];
+    }
+    
+    NSInteger distance;
+    NSInteger duration = self.sportsModel.duration - [[paceArray valueForKeyPath:@"@sum.floatValue"] integerValue]; // 时间差
+    if (Tools.isMetric) { // 公制-公里
+        distance = self.sportsModel.distance % 1000;
+    } else { // 英制-英里
+        distance = self.sportsModel.distance % 1609;
+    }
+    
+    if (distance > 0) {
+        FBTestUISportsPaceRatioModel *paceRatioModel = FBTestUISportsPaceRatioModel.new;
+        paceRatioModel.index = (int)paceRatioArray.count+1;
+        paceRatioModel.text = [NSString stringWithFormat:@"< 1 %@, %@ %@", Tools.distanceUnit, LWLocalizbleString(@"Duration"), [Tools averageSpeed:duration unit:NO]];
+        [paceRatioArray addObject:paceRatioModel];
+    }
+    
+    NSArray <FBTestUIOverviewModel *> *paceRatioOverviewArray = @[
+        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Average Pace") value:[Tools averageSpeed:[Tools averageSpeedWithDistance:self.sportsModel.distance duration:self.sportsModel.duration] unit:NO]],
+        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Best Pace") value:[Tools averageSpeed:minPace unit:NO]],
+        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Minimum Pace") value:[Tools averageSpeed:maxPace unit:NO]]
+    ];
+    [paceRatioArray addObject:paceRatioOverviewArray]; // 预览
+    sectionModel_8.rowArray = paceRatioArray;
+    
     
     
     if (isCalorie) {
         self.dataArray = @[sectionModel_1, sectionModel_2, sectionModel_3, sectionModel_5];
     } else {
-        self.dataArray = @[sectionModel_1, sectionModel_2, sectionModel_3, sectionModel_4, sectionModel_5, sectionModel_6, sectionModel_7];
+        self.dataArray = @[sectionModel_1, sectionModel_2, sectionModel_3, sectionModel_4, sectionModel_5, sectionModel_6, sectionModel_7, sectionModel_8];
     }
 }
 
@@ -242,7 +299,7 @@ static NSString *FBTestUIOverviewCellID = @"FBTestUIOverviewCell";
     // 距离图表
     AAChartModel *distanceAAChartModel = [self returnChartModel:distanceArray name:LWLocalizbleString(@"Distance") subtitle:Tools.distanceUnit_metre color:GreenColor max_y:@(distanceMax *2)];
     
-    // 配速图表
+    // 实时配速图表
     AAChartModel *paceAAChartModel = [self returnChartModel:paceArray name:LWLocalizbleString(@"Pace") subtitle:[NSString stringWithFormat:@"s/%@", Tools.distanceUnit] color:COLOR_HEX(0x4682B4, 1) max_y:@(paceMax *2)];
     
     // 心率-概览
@@ -281,7 +338,7 @@ static NSString *FBTestUIOverviewCellID = @"FBTestUIOverviewCell";
         [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Total Distance") value:[NSString stringWithFormat:@"%.2f", [Tools distance_metre_Convert:self.sportsModel.distance]]]
     ];
     
-    // 配速-概览
+    // 实时配速-概览
     FBTestUISportsChartOverviewModel *chartOverviewModel_5 = FBTestUISportsChartOverviewModel.new;
     chartOverviewModel_5.aaChartModel = paceAAChartModel;
     chartOverviewModel_5.overviewArray = @[
@@ -299,10 +356,10 @@ static NSString *FBTestUIOverviewCellID = @"FBTestUIOverviewCell";
         .chartTypeSet(AAChartTypeAreaspline)
         .animationTypeSet(AAChartAnimationBounce)
         .stackingSet(AAChartStackingTypeNormal)
-        .markerRadiusSet(@4)
+        .markerRadiusSet(@2)
         .yAxisMaxSet(max_y)
         .legendEnabledSet(NO)
-        .dataLabelsEnabledSet(YES)
+//        .dataLabelsEnabledSet(YES)
         .yAxisGridLineStyleSet([AALineStyle styleWithColor:AAColor.lightGrayColor dashStyle:AAChartLineDashStyleTypeLongDashDot])
         .subtitleSet(subtitle)
         .subtitleAlignSet(AAChartAlignTypeLeft)
@@ -340,7 +397,8 @@ static NSString *FBTestUIOverviewCellID = @"FBTestUIOverviewCell";
     
     FBTestUISportsSectionModel *sectionModel = self.dataArray[indexPath.section];
     if (sectionModel.listType == FBSportsListType_SportsDetails ||
-        sectionModel.listType == FBSportsListType_SportsHrRange) {
+        sectionModel.listType == FBSportsListType_SportsHrRange ||
+        (sectionModel.listType == FBSportsListType_SportsPace && indexPath.row != sectionModel.rowArray.count-1)) {
         return 60;
     } else {
         if (indexPath.row == 0) {
@@ -369,12 +427,18 @@ static NSString *FBTestUIOverviewCellID = @"FBTestUIOverviewCell";
             cell.hrRangeModel = model;
             return cell;
         }
+        else if (sectionModel.listType == FBSportsListType_SportsPace && indexPath.row != sectionModel.rowArray.count-1) {
+            FBTestUISportsPaceRatioCell *cell = [tableView dequeueReusableCellWithIdentifier:FBTestUISportsPaceRatioCellID];
+            FBTestUISportsPaceRatioModel *model = (FBTestUISportsPaceRatioModel *)sectionModel.rowArray[indexPath.row];
+            cell.paceRatioModel = model;
+            return cell;
+        }
         else {
             
             if (indexPath.row == 0) { // 图表
                 FBTestUISportsChartCell *chartCell = [tableView dequeueReusableCellWithIdentifier:FBTestUISportsChartCellID];
                 AAChartModel *aaChartModel = (AAChartModel *)sectionModel.rowArray.firstObject;
-                [chartCell reloadSportsChartModel:aaChartModel];
+                [chartCell reloadSportsChartModel:aaChartModel listType:sectionModel.listType];
                 return chartCell;
             }
             else { // 概览

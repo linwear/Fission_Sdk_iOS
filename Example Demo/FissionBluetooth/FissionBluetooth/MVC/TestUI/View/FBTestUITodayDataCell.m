@@ -34,7 +34,7 @@ typedef void(^FBTestUITodayDataClickBlock)(FBTestUIDataType dataType);
     
     [_step setImage:UIImageMake(@"icon8-steps") forState:UIControlStateNormal];
     [_step setTitleColor:UIColorBlack forState:UIControlStateNormal];
-    _step.titleLabel.font = [NSObject themePingFangSCMediumFont:17];
+    _step.titleLabel.font = [NSObject BahnschriftFont:17];
     _step.imagePosition = QMUIButtonImagePositionTop;
     _step.spacingBetweenImageAndTitle = 5;
     _step.backgroundColor = UIColorTestRed;
@@ -42,7 +42,7 @@ typedef void(^FBTestUITodayDataClickBlock)(FBTestUIDataType dataType);
 
     [_calorie setImage:UIImageMake(@"icon8-calories") forState:UIControlStateNormal];
     [_calorie setTitleColor:UIColorBlack forState:UIControlStateNormal];
-    _calorie.titleLabel.font = [NSObject themePingFangSCMediumFont:17];
+    _calorie.titleLabel.font = [NSObject BahnschriftFont:17];
     _calorie.imagePosition = QMUIButtonImagePositionTop;
     _calorie.spacingBetweenImageAndTitle = 5;
     _calorie.backgroundColor = UIColorTestGreen;
@@ -50,7 +50,7 @@ typedef void(^FBTestUITodayDataClickBlock)(FBTestUIDataType dataType);
 
     [_distance setImage:UIImageMake(@"icon8-distance") forState:UIControlStateNormal];
     [_distance setTitleColor:UIColorBlack forState:UIControlStateNormal];
-    _distance.titleLabel.font = [NSObject themePingFangSCMediumFont:17];
+    _distance.titleLabel.font = [NSObject BahnschriftFont:17];
     _distance.imagePosition = QMUIButtonImagePositionTop;
     _distance.spacingBetweenImageAndTitle = 5;
     _distance.backgroundColor = UIColorTestBlue;

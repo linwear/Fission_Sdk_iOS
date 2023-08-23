@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FBCustomDialViewController : LWBaseViewController <JXCategoryListContainerViewDelegate>
+@interface FBCustomDialViewController : LWBaseViewController <JXCategoryViewDelegate, JXCategoryListContainerViewDelegate>
 
 @end
 

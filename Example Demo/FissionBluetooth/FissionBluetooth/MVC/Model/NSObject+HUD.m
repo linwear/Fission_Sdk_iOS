@@ -33,8 +33,8 @@
 }
 
 /// 字体
-+ (UIFont *)themePingFangSCMediumFont:(CGFloat)fontSize {
-    UIFont *font = [UIFont fontWithName:@"PingFangSC-Medium" size:fontSize];
++ (UIFont *)BahnschriftFont:(CGFloat)fontSize {
+    UIFont *font = [UIFont fontWithName:@"Bahnschrift" size:fontSize];
     return font;
 }
 

@@ -27,6 +27,8 @@
 "Bind key error" = "Bind key error";
 "The binding key is correct" = "The binding key is correct";
 "No binding required" = "No binding required";
+"The connection is successful, please confirm the binding operation on %@" = "The connection is successful, please confirm the binding operation on %@";
+"The binding is successful, and the device information is being obtained" = "The binding is successful, and the device information is being obtained";
 "Device reset, do you want to rebind?" = "Device reset, do you want to rebind?";
 "Rebind" = "Rebind";
 "QR code scanning" = "QR code scanning";
@@ -54,6 +56,8 @@
 "Nickname (up to 32Byte):" = "Nickname (up to 32Byte):";
 "Time zone:" = "Time zone:";
 "User ID:" = "User ID:";
+"Male" = "Male";
+"Female" = "Female";
 "Reminder" = "Reminder";
 "Alarm Clock" = "Alarm Clock";
 "Ss" = "S";
@@ -158,14 +162,21 @@
 "Physical Health" = "Physical Health";
 "Abnormal HR reminder" = "Abnormal HR reminder";
 "Frequent Contacts" = "Frequent Contacts";
+"Read off-chip flash space data (Used for device abnormal restart analysis)" = "Read off-chip flash space data (Used for device abnormal restart analysis)";
 "Request Device Logs" = "Request Device Logs";
+"Get/Set system function switch information" = "Get/Set system function switch information";
 
 "Firmware OTA" = "Firmware OTA";
 "Dial Face OTA" = "Dial Face OTA";
 "Sports Type OTA" = "Sports Type OTA";
 
+"This function does not support" = "This function does not support";
+"System Function Switch" = "System Function Switch";
+"Call Audio" = "Call Audio";
+"Media Audio" = "Media Audio";
+"Test Mode" = "Test Mode";
+
 "Custom⌚️" = "Custom⌚️";
-"Custom Watch Face" = "Custom Watch Face";
 "Please confirm whether to restore the default settings?" = "Please confirm whether to restore the default settings?";
 "Text Color Replacement" = "Text Color Replacement";
 "Background Picture" = "Background Picture";
@@ -267,7 +278,26 @@
 "Metric" = "Metric";
 "Imperial" = "Imperial";
 
+
 "Custom Dial" = "Custom Dial";
+"Long press the module to move" = "Long press the module to move";
+"Background" = "Background";
+"Dial" = "Dial";
+"Module" = "Module";
+"Color" = "Color";
+"Type" = "Type";
+"Number" = "Number";
+"Pointer" = "Pointer";
+"Scale" = "Scale";
+"Watch Status" = "Watch Status";
+"Battery" = "Battery";
+"Bluetooth connection" = "Bluetooth connection";
+"Call Bluetooth" = "Call Bluetooth";
+"Component Style" = "Component Style";
+"Insufficient memory space" = "Insufficient memory space";
+"At most %d components can be set" = "At most %d components can be set";
+"Select at least one watch face type" = "Select at least one watch face type";
+
 
 "Today's Overview" = "Today's Overview";
 "Manual Measurement Data" = "Manual Measurement Data";
@@ -308,6 +338,7 @@
 "Average Distance" = "Average Distance";
 "Maximum Distance" = "Maximum Distance";
 "Total Distance" = "Total Distance";
+"Sports real-time pace" = "Sports real-time pace";
 "Sport Pace" = "Sport Pace";
 "Pace" = "Pace";
 "Best Pace" = "Best Pace";

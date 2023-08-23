@@ -51,7 +51,7 @@ const CGFloat CustomDiaButtonMargin = 24.0;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.title = LWLocalizbleString(@"Custom Watch Face");
+    self.navigationItem.title = LWLocalizbleString(@"Custom Dial");
         
     self.headerView = [[LWCustomDialHeaderView alloc] initWithFrame:CGRectMake(0, NavigationContentTop, SCREEN_WIDTH, CustomDiaHeaderViewHeight)];
     [self.view addSubview:self.headerView];
@@ -62,7 +62,7 @@ const CGFloat CustomDiaButtonMargin = 24.0;
     UIButton *setPlateBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     setPlateBtn.backgroundColor = BlueColor;
     setPlateBtn.layer.cornerRadius = 24;
-    setPlateBtn.titleLabel.font = [NSObject themePingFangSCMediumFont:18];
+    setPlateBtn.titleLabel.font = [NSObject BahnschriftFont:18];
     [setPlateBtn setTitle:LWLocalizbleString(@"Synchronize") forState:UIControlStateNormal];
     [setPlateBtn addTarget:self action:@selector(createCustomDial) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:setPlateBtn];

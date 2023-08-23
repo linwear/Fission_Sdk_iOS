@@ -87,17 +87,17 @@
     
     self.backgroundColor = UIColorClear;
     
-    _stateTitle = [self text:LWLocalizbleString(@"已暂停") textFont:[NSObject themePingFangSCMediumFont:18] textColor:UIColorBlack];
-    _distance = [self text:@"0.00km" textFont:[NSObject themePingFangSCMediumFont:40] textColor:UIColorBlack];
-    _sportTime = [self text:@"00:00:00" textFont:[NSObject themePingFangSCMediumFont:24] textColor:UIColorBlack];
+    _stateTitle = [self text:LWLocalizbleString(@"已暂停") textFont:[NSObject BahnschriftFont:18] textColor:UIColorBlack];
+    _distance = [self text:@"0.00km" textFont:[NSObject BahnschriftFont:40] textColor:UIColorBlack];
+    _sportTime = [self text:@"00:00:00" textFont:[NSObject BahnschriftFont:24] textColor:UIColorBlack];
     _sportTimeLabel = [self text:LWLocalizbleString(@"Duration") textFont:FONT(15) textColor:UIColorGrayLighten];
-    _calorie = [self text:@"0kcal" textFont:[NSObject themePingFangSCMediumFont:24] textColor:UIColorBlack];
+    _calorie = [self text:@"0kcal" textFont:[NSObject BahnschriftFont:24] textColor:UIColorBlack];
     _calorieLabel = [self text:LWLocalizbleString(@"Calorie") textFont:FONT(15) textColor:UIColorGrayLighten];
-    _avgPace = [self text:@"00'00\"/km" textFont:[NSObject themePingFangSCMediumFont:24] textColor:UIColorBlack];
+    _avgPace = [self text:@"00'00\"/km" textFont:[NSObject BahnschriftFont:24] textColor:UIColorBlack];
     _avgPaceLabel = [self text:LWLocalizbleString(@"Average Pace") textFont:FONT(15) textColor:UIColorGrayLighten];
-    _heartRate = [self text:@"0bpm" textFont:[NSObject themePingFangSCMediumFont:24] textColor:UIColorBlack];
+    _heartRate = [self text:@"0bpm" textFont:[NSObject BahnschriftFont:24] textColor:UIColorBlack];
     _heartRateLabel = [self text:LWLocalizbleString(@"Heart Rate") textFont:FONT(15) textColor:UIColorGrayLighten];
-    _steps = [self text:@"0" textFont:[NSObject themePingFangSCMediumFont:24] textColor:UIColorBlack];
+    _steps = [self text:@"0" textFont:[NSObject BahnschriftFont:24] textColor:UIColorBlack];
     _stepsLabel = [self text:LWLocalizbleString(@"Step") textFont:FONT(15) textColor:UIColorGrayLighten];
     [self addSubview:self.stateTitle];
     self.stateTitle.sd_layout.leftEqualToView(self).topEqualToView(self).rightEqualToView(self).heightIs(30);
@@ -143,13 +143,13 @@
 // 富文本显示处理
 - (void)richTextDisplay {
     // 距离
-    [Tools setUILabel:self.distance setDataArr:@[@"km"] setColorArr:@[UIColorBlack] setFontArr:@[[NSObject themePingFangSCMediumFont:20]]];
+    [Tools setUILabel:self.distance setDataArr:@[@"km"] setColorArr:@[UIColorBlack] setFontArr:@[[NSObject BahnschriftFont:20]]];
     // 卡路里
-    [Tools setUILabel:self.calorie setDataArr:@[@"kcal"] setColorArr:@[UIColorBlack] setFontArr:@[[NSObject themePingFangSCMediumFont:14]]];
+    [Tools setUILabel:self.calorie setDataArr:@[@"kcal"] setColorArr:@[UIColorBlack] setFontArr:@[[NSObject BahnschriftFont:14]]];
     // 平均配速
-    [Tools setUILabel:self.avgPace setDataArr:@[@"/km"] setColorArr:@[UIColorBlack] setFontArr:@[[NSObject themePingFangSCMediumFont:14]]];
+    [Tools setUILabel:self.avgPace setDataArr:@[@"/km"] setColorArr:@[UIColorBlack] setFontArr:@[[NSObject BahnschriftFont:14]]];
     // 心率
-    [Tools setUILabel:self.heartRate setDataArr:@[@"bpm"] setColorArr:@[UIColorBlack] setFontArr:@[[NSObject themePingFangSCMediumFont:14]]];
+    [Tools setUILabel:self.heartRate setDataArr:@[@"bpm"] setColorArr:@[UIColorBlack] setFontArr:@[[NSObject BahnschriftFont:14]]];
 }
 
 

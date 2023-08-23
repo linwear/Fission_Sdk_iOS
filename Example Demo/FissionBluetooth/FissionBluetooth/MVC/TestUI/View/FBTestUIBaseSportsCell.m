@@ -25,13 +25,13 @@
         self.selectedBackgroundView = UIView.new;
         self.selectedBackgroundView.backgroundColor = UIColorTestGreen;
         
-        UILabel *titleLab = [[UILabel alloc] qmui_initWithFont:[NSObject themePingFangSCMediumFont:15] textColor:UIColorBlack];
+        UILabel *titleLab = [[UILabel alloc] qmui_initWithFont:[NSObject BahnschriftFont:15] textColor:UIColorBlack];
         titleLab.numberOfLines = 0;
         [self.contentView addSubview:titleLab];
         titleLab.sd_layout.leftSpaceToView(self.contentView, 20).rightSpaceToView(self.contentView, 20).topSpaceToView(self.contentView, 20).autoHeightRatio(0);
         self.titleLab = titleLab;
         
-        UILabel *detailLab = [[UILabel alloc] qmui_initWithFont:[NSObject themePingFangSCMediumFont:15] textColor:UIColorGray];
+        UILabel *detailLab = [[UILabel alloc] qmui_initWithFont:[NSObject BahnschriftFont:15] textColor:UIColorGray];
         detailLab.numberOfLines = 0;
         [self.contentView addSubview:detailLab];
         detailLab.sd_layout.leftEqualToView(titleLab).rightEqualToView(titleLab).topSpaceToView(titleLab, 10).autoHeightRatio(0);

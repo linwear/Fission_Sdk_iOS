@@ -41,7 +41,11 @@
             <size key="customSize" width="113" height="110"/>
             <connections>
                 <outlet property="backgroundImage" destination="oJ3-3W-OL8" id="ack-PU-yIR"/>
+                <outlet property="bottomConstraint" destination="dc5-O0-93D" id="jkk-WY-MkU"/>
+                <outlet property="leftConstraint" destination="rOl-bb-FGJ" id="ckW-9J-ITF"/>
                 <outlet property="markImage" destination="bsb-XM-jXs" id="AXS-Cg-45u"/>
+                <outlet property="rightConstraint" destination="eVe-t8-8oo" id="mRS-WZ-AnM"/>
+                <outlet property="topConstraint" destination="ZxR-qi-4vS" id="0nT-Mm-cuB"/>
             </connections>
             <point key="canvasLocation" x="142.74809160305344" y="40.845070422535215"/>
         </collectionViewCell>

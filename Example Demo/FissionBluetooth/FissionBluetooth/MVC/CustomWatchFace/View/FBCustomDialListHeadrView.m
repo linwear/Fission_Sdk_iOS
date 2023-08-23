@@ -13,11 +13,11 @@
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = UIColorClear;
         
-        UILabel *textLabel = [[UILabel alloc] qmui_initWithFont:[NSObject themePingFangSCMediumFont:15] textColor:UIColorBlack];
+        UILabel *textLabel = [[UILabel alloc] qmui_initWithFont:[NSObject BahnschriftFont:16] textColor:UIColorBlack];
         textLabel.backgroundColor = UIColorClear;
         [self addSubview:textLabel];
         self.textLabel = textLabel;
-        textLabel.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 30, 0, 30));
+        textLabel.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 10, 0, 10));
     }
     return self;
 }

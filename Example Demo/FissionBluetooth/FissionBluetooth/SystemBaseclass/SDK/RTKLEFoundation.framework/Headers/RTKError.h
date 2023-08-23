@@ -15,8 +15,8 @@ extern NSExceptionName const RTKInvalidCallException;
 
 extern NSErrorDomain const RTKBTErrorDomain;
 
-/* RTKBTErrorDomain Error code */
-typedef enum : NSUInteger {
+/// RTKBTErrorDomain Error code
+typedef NS_ENUM(NSUInteger, RTKErrorCode) {
     // MARK: - deprecated error code begin
     RTKErrorNotAvailable = 100,
     RTKErrorTimeout,        ///< Generic operation timeout, 
@@ -70,7 +70,7 @@ typedef enum : NSUInteger {
     RTKErrorAccessorySessionNotOpen,      ///< Communication session with iAP accessory is not open.
     RTKErrorOperationNotSupport,
     RTKErrorAccessoryDisconnected,          ///< Th accessory is disconnected unexpected.
-} RTKErrorCode;
+} ;
 
 
 

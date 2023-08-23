@@ -7,17 +7,13 @@
 
 #import "FBBaseNavigationController.h"
 
-@interface FBBaseNavigationController ()
-
-@end
-
 @implementation FBBaseNavigationController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSDictionary *titleTextAttributes = @{NSFontAttributeName:[NSObject themePingFangSCMediumFont:18], NSForegroundColorAttributeName:UIColorWhite};
+    NSDictionary *titleTextAttributes = @{NSFontAttributeName:[NSObject BahnschriftFont:18], NSForegroundColorAttributeName:UIColorWhite};
     
     self.navigationBar.tintColor = UIColorWhite;
     
@@ -37,10 +33,6 @@
         self.navigationBar.titleTextAttributes = titleTextAttributes;
         self.navigationBar.barTintColor = BlueColor;
     }
-}
-
-- (void)navigationBarAlpha:(CGFloat)alpha {
-    self.navigationBar.subviews.firstObject.alpha = alpha;
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {

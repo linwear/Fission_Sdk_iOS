@@ -10,19 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- * Represents available facilities to indicate the log message destination.
- */
-typedef enum : NSUInteger {
+/// Represents available facilities to indicate the log message destination.
+typedef NS_ENUM(NSUInteger, RTKLogFacility) {
     RTKLogFacilityDefault, ///< Direct logs to NSLog function.
     RTKLogFacilityCocoaLumberjack  __attribute((availability(ios,unavailable))) __attribute((availability(macos,unavailable))), ///< Direct logs to CocoaLumberjack. Not support
     RTKLogFacilityCustom,  ///< Direct logs to a custom C function which can be set by calling -setLogger: method.
-} RTKLogFacility;
+};
 
 
-/**
- * Log level used by RTKLog facility.
- */
+/// Log level used by `RTKLog` facility.
 typedef NS_ENUM(NSUInteger, RTKLogLevel) {
     RTKLogLevelOff       = 0,   ///< Log will not print.
     RTKLogLevelError,           ///< Error level logs will print.
@@ -33,36 +29,26 @@ typedef NS_ENUM(NSUInteger, RTKLogLevel) {
 };
 
 
-/**
- * RTKLog is a logging facility used by Realtek SDKs to print log messages.
- *
- * @discussion RTKLog provides several public APIs to control the facility log level and logging destination.
- */
+/// `RTKLog` is a logging facility used by Realtek SDKs to print log messages.
+///
+/// `RTKLog` provides several public APIs to control the facility log level and logging destination.
 @interface RTKLog : NSObject
 
-/*!
- * Set the logging direction.
- *
- * @discussion If set to RTKLogFacilityCustom, a custom logger C function should be provided by +setLogger: firstly.
- */
+/// Set the logging direction.
+///
+/// If set to ``RTKLogFacility/RTKLogFacilityCustom``, a custom logger C function should be provided by ``RTKLog/setLogger:`` firstly.
 + (void)setFacility:(RTKLogFacility)facility;
 
-/**
- * Provides a logging function pointer to receive log messages.
- */
+/// Provides a logging function pointer to receive log messages.
 + (void)setLogger:(void(*)(NSString*))logFunc;
 
-/**
- * Set log level of this logging system.
- *
- * @see RTKLogLevel type.
- */
+/// Set log level of this logging system.
 + (void)setLogLevel:(RTKLogLevel)level;
 
 
-/**
- * Log method used internal. Don't use it directly.
- */
+/// Log method used internal.
+///
+/// Don't use it directly.
 + (void)_logWithLevel:(RTKLogLevel)level format:(NSString *)format, ...;
 
 @end

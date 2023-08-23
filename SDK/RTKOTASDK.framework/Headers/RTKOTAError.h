@@ -14,7 +14,7 @@
 /// The domain for OTA errors.
 extern NSErrorDomain const RTKOTAErrorDomain;
 
-/// RTKOTAErrorDomain Error code
+/// Error codes defined within `RTKOTAErrorDomain` domain.
 typedef NS_ENUM(NSInteger, RTKOTAErrorCode) {
     // MARK: - deprecated error code begin
     RTKOTAErrorUnknown,                                     ///< Unknown error

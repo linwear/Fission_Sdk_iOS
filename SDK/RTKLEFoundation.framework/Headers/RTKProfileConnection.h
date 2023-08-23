@@ -18,22 +18,38 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef enum : NSUInteger {
-    RTKProfileConnectionStatusInactive,
-    RTKProfileConnectionStatusActivating,
-    RTKProfileConnectionStatusActive,
-    RTKProfileConnectionStatusDeactivating,
-} RTKProfileConnectionStatus;
+/// Constants that indicate status of an ``RTKProfileConnection``
+typedef NS_ENUM(NSUInteger, RTKProfileConnectionStatus) {
+    RTKProfileConnectionStatusInactive,     ///< The profile connection is inactive.
+    RTKProfileConnectionStatusActivating,   ///< The profile conneciton is activating.
+    RTKProfileConnectionStatusActive,       ///< The profile connection is active.
+    RTKProfileConnectionStatusDeactivating, ///< The profile connection is deactivating.
+};
 
 
 @class RTKProfileConnection;
 
+/// Methods used by an ``RTKProfileConnection`` to request connecting or disconnecting a LE device that the connection object manages.
 @protocol RTKProfileConnectionPerformer <NSObject>
 
+/// Request a performer to initiate connection with the device of the provided connection.
+///
+/// - Parameter connection: The connection object that manages a device which to be connect.
+/// - Parameter interval: The duration before the request times out.
+/// - Parameter handler: A block to be called when connection with the device is established or timeout fires.
+///
+/// If the device is already connected, the handler is called immediately.
 - (void)requestConnectDeviceOf:(RTKProfileConnection *)connection
                    withTimeout:(NSTimeInterval)interval
              completionHandler:(nullable RTKLECompletionBlock)handler;
 
+/// Request a performer to initiate disconnection with the device of the provided connection.
+///
+/// - Parameter connection: The connection object that manages a device which to be connect.
+/// - Parameter interval: The duration before the request times out.
+/// - Parameter handler: A block to be called when connection with the device is dismissed or timeout fires.
+///
+/// If the device is already disconnected, the handler is called immediately.
 - (void)requestDisconnectDeviceOf:(RTKProfileConnection *)connection
                       withTimeout:(NSTimeInterval)interval
                 completionHandler:(nullable RTKLECompletionBlock)handler;
@@ -41,153 +57,127 @@ typedef enum : NSUInteger {
 @end
 
 
-/**
- * A protocol that defines an optional method for receiving notifications when the profile connection open state changes.
- */
+/// Methods for receiving notifications of a profile connection.
 @protocol RTKProfileConnectionDelegate <NSObject>
 @optional
 
-/**
- * Tells the delegate object that the connection state of this connection is changed.
- */
+/// Tells the delegate object that the device the conenction manages is disconnected.
+///
+/// - Parameter connection: The connection which manages a specific device.
+/// - Parameter error: An error object created when the disconnection occurs.
 - (void)profileConnection:(RTKProfileConnection *)connection deviceDidBeDisconnected:(nullable NSError *)error;
 
-/**
- * Tells the delegate object that connecting to the device failed.
- */
+/// Tells the delegate object that the connecting to the device the connection manages fails.
+///
+/// - Parameter connection: The connection which manages a specific device.
+/// - Parameter error: An error object created when the failure occurs.
 - (void)profileConnection:(RTKProfileConnection *)connection deviceFailedToConnect:(nullable NSError *)error;
 
-
-/**
- * Tells the delegate object that the connection did receive new message.
- */
+/// Tells the delegate object that the connection did receive a new message.
+///
+/// - Parameter connection: The connection which manages a specific device.
+/// - Parameter msgData: The new received message data.
 - (void)profileConnection:(RTKProfileConnection *)connection didReceiveMessage:(NSData *)msgData;
 
 @end
 
 
-// Which term is better, Connection or Session or Communication ?
-/**
- * The abstract base class that represents a application profile connection to a remote device which manage communication with it.
- *
- * @discussion A little different from meaning of a CBPeripheral connection, this class instance does not indicate a live connected state with a remote device. It represents a relationship between local app and remote device in the perspective of a application profile, whether the device is now connected to this phone or not.
- * Typically, a RTKProfileConnection subclass object has knowledge of a paricular profile and implements the profile client role. You use RTKProfileConnection (or subclass) objects for communicating with a connected device using particular profile protocol, such as obtaining device state, initiates device actions.
- *
- * The communication may takes place upon GATT profile which you uses @c RTKConnectionUponGATT , or upon iAP profile which you uses @c RTKConnectionUponiAP . Call @c +connectionWithPeripheral: to create a connection object which manages connection with a GATT peripheral. Call @c +connectionWithAccessory: to create a connection object which manages connection with a iAP accessory.
- *
- * You call @c -openWithComletionHandler: to make a connection to be open. A connection object should be open before receives any methods that making a real application communication. The device should be connected before begins open. When open method is called, the connection first verify profile compliance of the connected device.
- *
- * You can call @c -sendMessageData:withCompletionHandler: to send a custom data to remote device if the profile supports.
- *
- *  TODO: override notes
- */
+/// An abstract base class that represents a application profile connection to a remote device which manage communication with it.
+///
+/// In contrast to a `CBPeripheral` connection, the ``RTKProfileConnection`` does not indicate a live connected state with a remote device. It represents a relationship between the local app and a remote device in the perspective of an application profile, no matter whether the device is now connected to this phone or not.
+///
+/// Typically, an ``RTKProfileConnection`` subclass object has knowledge of a paricular profile and implements the profile client role. You use ``RTKProfileConnection`` (or subclass) objects for communicating with a connected device using particular profile protocol, such as obtaining device state, initiates device actions.
+///
+/// The communication may takes place upon `GATT` profile which you uses ``RTKConnectionUponGATT`` , or upon iAP profile which you uses ``RTKConnectionUponiAP`` . Call ``RTKProfileConnection/connectionWithPeripheral:`` to create a connection object which manages connection with a GATT peripheral. Call ``RTKProfileConnection/connectionWithAccessory:`` to create a connection object which manages connection with an iAP accessory.
+///
+/// You call ``RTKProfileConnection/activateWithCompletionHandler:`` to make a connection to be active. A connection object should be active before receives any methods that making a real application communication. The device should be connected before begins activating. When activating method is called, the connection first verify profile compliance of the connected device.
+///
+/// You can call ``RTKProfileConnection/sendMessageData:withCompletionHandler:`` to send a custom data to remote device if the profile supports.
 @interface RTKProfileConnection : NSObject
 
-/**
- * Creates and returns a connection object that links with a specified GATT peripheral.
- *
- * @discussion The peripheral does not need to be now connected. Should be override.
- */
+/// Creates and returns a connection object that links with a specified GATT peripheral.
+///
+/// The peripheral does not need to be now connected. Should be override.
 + (instancetype)connectionWithPeripheral:(CBPeripheral *)peripheral;
 
-/**
- * Creates and returns a connection object that links with a known iAP accessory.
- *
- * @discussion The accessory does not need to be now connected. Should be override.
- */
+/// Creates and returns a connection object that links with a known iAP accessory.
+///
+/// The accessory does not need to be now connected. Should be override.
 + (instancetype)connectionWithAccessory:(EAAccessory *)accessory;
 
 
-/**
- * Returns the name of the linked remote device.
- */
+/// Returns the name of the linked remote device.
 @property (readonly, nullable) NSString *deviceName;
 
-/**
- * Returns the remote device this connection object links.
- *
- * @discussion This property may be of CBPeripheral class or EAAccessory class.
- */
+
+/// Returns the remote device this connection object links.
+///
+/// This property may be of `CBPeripheral` class or `EAAccessory` class.
 @property (readonly) id device;
 
-/**
- * Returns a boolean value that indicates whether a connection is estabilished with remote device.
- */
+
+/// Returns a `boolean` value that indicates whether a connection is estabilished with remote device.
 @property (readonly) BOOL deviceIsConnected;
 
-
+/// An object this `RTKProfileConnection` request to perform connection operations.
 @property (weak, nullable) id<RTKProfileConnectionPerformer> connectionPerformer;
 
-/**
- * The delegate object that listens for change notification of profile connection open state.
- *
- * @discussion Subclass may notifies more events through this property.
- */
+
+/// The delegate object that listens for change notification of profile connection open state.
+///
+/// Subclass may notifies more events through this property.
 @property (weak, nullable, nonatomic) id<RTKProfileConnectionDelegate> delegate;
 
-/**
- * Indicates whether the device connection is ready for interact with.
- *
- * @discussion If you call method to initiates a communication while this property is NO, this call fails. If this method receive a completion handler, the handler is called to report failure.
- *
- * This property is KVO-applicable.
- */
+
+/// Indicates whether the device connection is active for interact with.
+///
+/// This property is `KVO`-applicable.
 @property (readonly) RTKProfileConnectionStatus status;
 
 
 #define RTKDistantInterval 31536000.
 
-/**
- * @discussion The default value is 10 seconds. You should not set this property while this connection is in period of activating.
- */
+/// The duration used for waiting a connection to be completed.
+///
+/// The default value is `10` seconds. You should not set this property while this connection is in period of activating.
 @property NSTimeInterval connectWaitInterval;
 
-/**
- * Open the connection for make further communication.
- *
- * @param handler A nullable block that will be called when open completion successfully or unsuccessfully.
- * @discussion A connection manager calls this method as a substep when activating a profile connection.
- *
- * If the connection is already open, the handler block is called immediately.
- */
+/// Activate the connection for further communication.
+///
+/// - Parameter handler: A nullable block that will be called when open completion successfully or unsuccessfully.
+///
+/// If the connection is already active, the handler block is invoked immediately.
 - (void)activateWithCompletionHandler:(nullable RTKLECompletionBlock)handler;
 
-/**
- * Close this device connection to stop interacting with it.
- *
- * @param handler A nullable block that will be called when close completion successfully or unsuccessfully.
- * @discussion A connection manager may calls this method as a substep when activate a device connection.
- *
- * If a connection is already closed, the handler block is called immediately.
- */
+/// Deactivate the device connection to stop interacting with it.
+///
+/// - Parameter handler: A nullable block that will be called when close completion successfully or unsuccessfully.
+///
+/// If a connection is already inactive, the handler block is invoked immediately.
 - (void)deactivateWithCompletionHandler:(nullable RTKLECompletionBlock)handler;
 
-
-/**
- * Send a custom data to the connected remote device.
- *
- * @param data The data to be send.
- * @param handler The block to be called when message send successfully or unsuccessfully.
- * @discussion The method is available only if a subclass object supports sending custom data, if not, the handler block is called with error code set to @c NotSupport .
- */
+/// Send a custom data to the connected remote device.
+///
+/// - Parameter data: The data to be send.
+/// - Parameter handler: The block to be called when message send successfully or unsuccessfully.
+///
+/// The method is available only if a subclass object supports sending custom data, if not, the handler block is called with error code set to ``RTKErrorCode/RTKErrorOperationNotSupport`` .
 - (void)sendMessageData:(NSData *)data withCompletionHandler:(nullable void(^)(BOOL success, NSError *_Nullable error))handler;
 
 @end
 
+
 @interface RTKProfileConnection (Protect)
 
-/**
- * Be notified that the device is disconnected.
- *
- * @discussion This is a override pointer for subclass to responds to connection change. Don't call this method directly. If you override this method in subclass, you need to call this method on super class.
- */
+/// Be notified that the device is disconnected.
+///
+/// This is a override pointer for subclass to responds to connection change. Don't call this method directly. If you override this method in subclass, you need to call this method on super class.
 - (void)onDeviceDidDisconnectWithError:(nullable NSError *)error;
 
-/**
- * Be notified that connecting to the device failed.
- *
- * @discussion This is a override pointer for subclass to responds to connection change. Don't call this method directly. If you override this method in subclass, you need to call this method on super class.
- */
+
+/// Be notified that connecting to the device failed.
+///
+/// This is a override pointer for subclass to responds to connection change. Don't call this method directly. If you override this method in subclass, you need to call this method on super class.
 - (void)onDeviceFailedToConnectWithError:(nullable NSError *)error;
 
 @end

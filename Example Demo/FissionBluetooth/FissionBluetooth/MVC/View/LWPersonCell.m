@@ -14,10 +14,10 @@
     [super awakeFromNib];
     // Initialization code
     
-    self.name.font = [UIFont systemFontOfSize:16];
+    self.name.font = FONT(16);
     self.name.textColor = UIColor.blackColor;
     
-    self.tel.font = [UIFont systemFontOfSize:12];
+    self.tel.font = FONT(14);
     self.tel.textColor = UIColor.grayColor;
     
     self.choice.hidden = YES;

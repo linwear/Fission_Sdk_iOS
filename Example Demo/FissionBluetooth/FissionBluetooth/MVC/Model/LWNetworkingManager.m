@@ -237,7 +237,7 @@
     
     NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
          
-//        FBLog(@"下载进度：%.0f", downloadProgress.fractionCompleted);
+        FBLog(@"下载进度：%.0f", downloadProgress.fractionCompleted);
         
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         
@@ -248,7 +248,7 @@
 
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         
-        if (response) {
+        if (response && !StringIsEmpty(filePath.path) && !error) {
             if (success) {
                success(@{@"filePath" : StringHandle(filePath.path)});
             }
@@ -258,9 +258,9 @@
                 id body = nil;
                 if (data != nil) {
                     body = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
-                    NSLog(@"------下载文件失败------\n%@", body);
+                    FBLog(@"------下载文件失败------\n%@", body);
                 } else {
-                    NSLog(@"------下载文件失败------\n%@", data);
+                    FBLog(@"------下载文件失败------\n%@", data);
                 }
                 
                 error = [self timeError:error];
@@ -317,7 +317,7 @@
         NSString *logZipPath = params[@"zip"];
         if (logZipPath.length > 0) {
             NSLog(@"上传zip文件(压缩后的多个log文件)");
-            NSString *string = [[NSString alloc] initWithContentsOfFile:logZipPath encoding:NSUTF8StringEncoding error:nil];
+//            NSString *string = [[NSString alloc] initWithContentsOfFile:logZipPath encoding:NSUTF8StringEncoding error:nil];
 //            NSData *resData = [[NSData alloc]initWithData:[string dataUsingEncoding:NSUTF8StringEncoding]];
             NSData *resData = [NSData dataWithContentsOfFile:logZipPath];
             
@@ -354,7 +354,7 @@
         [weakSelf isTokenExpireWithTask:task];
         __strong typeof(self) strongSelf = weakSelf;
         
-        NSHTTPURLResponse *response = error.userInfo[@"com.alamofire.serialization.response.error.data"];
+//        NSHTTPURLResponse *response = error.userInfo[@"com.alamofire.serialization.response.error.data"];
         NSData *data = error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey];
         id body = nil;
         if (data != nil) {
@@ -439,21 +439,6 @@
     NSHTTPURLResponse *re = (NSHTTPURLResponse *)task.response;
     NSLog(@"响应的请求头: %@\n", re.allHeaderFields);
 }
-
-
-/**
- 获取文件的MIMEType
-
- @param url 文件路径
- @return 文件MIMEType
- */
-- (NSString *)MIMEType:(NSURL *)url{
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    NSURLResponse *response = nil;
-    [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
-    return response.MIMEType;
-}
-
 
 
 
@@ -593,7 +578,10 @@
 
 
 + (NSError *)timeError:(NSError *)err {
-    if (err.code == -1202) {
+    if (!err) {
+        NSError *error = [NSError errorWithDomain:err.domain code:err.code userInfo:@{NSLocalizedDescriptionKey:@"未知错误"}];
+        return error;
+    } else if (err.code == -1202) {
         NSError *error = [NSError errorWithDomain:err.domain code:err.code userInfo:@{NSLocalizedDescriptionKey:@"手机时间错误，请更改后重试"}];
         return error;
     } else if (err.code == -1009 || err.code == -1004) {

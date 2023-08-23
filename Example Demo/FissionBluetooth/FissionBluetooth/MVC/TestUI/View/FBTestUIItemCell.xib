@@ -8,6 +8,12 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="BAHNSCHRIFT.TTF">
+            <string>Bahnschrift</string>
+            <string>Bahnschrift_Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -21,34 +27,44 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e14-9c-VEB">
                         <rect key="frame" x="0.0" y="0.0" width="215" height="245"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p6n-xU-Wb4" customClass="SDAnimatedImageView">
-                                <rect key="frame" x="10" y="10" width="50" height="50"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="beH-VW-4cv"/>
-                                    <constraint firstAttribute="width" constant="50" id="mbB-GZ-nlP"/>
-                                </constraints>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sdfsdfasdfasdfsdfasdfasdfas" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5la-1a-b0o">
-                                <rect key="frame" x="70" y="17" width="135" height="36"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <rect key="frame" x="70" y="18" width="135" height="34"/>
+                                <fontDescription key="fontDescription" name="Bahnschrift_Bold" family="Bahnschrift" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-pulse" translatesAutoresizingMaskIntoConstraints="NO" id="BOQ-La-EHw">
-                                <rect key="frame" x="20" y="80" width="175" height="145"/>
+                                <rect key="frame" x="10" y="10" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="9Ow-74-7ZA"/>
+                                    <constraint firstAttribute="height" constant="50" id="nzT-Ra-DYa"/>
+                                </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ID2-Jl-Ell">
+                                <rect key="frame" x="10" y="115.66666666666669" width="195" height="30"/>
+                                <fontDescription key="fontDescription" name="Bahnschrift" family="Bahnschrift" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCu-MT-2Wl">
+                                <rect key="frame" x="10" y="212" width="195" height="13"/>
+                                <fontDescription key="fontDescription" name="Bahnschrift" family="Bahnschrift" pointSize="13"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="5la-1a-b0o" firstAttribute="leading" secondItem="p6n-xU-Wb4" secondAttribute="trailing" constant="10" id="67O-tH-xn8"/>
-                            <constraint firstItem="BOQ-La-EHw" firstAttribute="top" secondItem="p6n-xU-Wb4" secondAttribute="bottom" constant="20" id="8Qw-eP-TTH"/>
-                            <constraint firstAttribute="trailing" secondItem="BOQ-La-EHw" secondAttribute="trailing" constant="20" id="9XZ-jL-p3h"/>
-                            <constraint firstAttribute="bottom" secondItem="BOQ-La-EHw" secondAttribute="bottom" constant="20" id="H0E-bs-RdW"/>
-                            <constraint firstItem="5la-1a-b0o" firstAttribute="centerY" secondItem="p6n-xU-Wb4" secondAttribute="centerY" id="Hj3-gr-BFT"/>
-                            <constraint firstItem="BOQ-La-EHw" firstAttribute="leading" secondItem="e14-9c-VEB" secondAttribute="leading" constant="20" id="bQI-hg-SV5"/>
-                            <constraint firstItem="p6n-xU-Wb4" firstAttribute="leading" secondItem="e14-9c-VEB" secondAttribute="leading" constant="10" id="fEu-SQ-ioI"/>
-                            <constraint firstItem="p6n-xU-Wb4" firstAttribute="top" secondItem="e14-9c-VEB" secondAttribute="top" constant="10" id="n7R-1j-e2u"/>
+                            <constraint firstItem="5la-1a-b0o" firstAttribute="centerY" secondItem="BOQ-La-EHw" secondAttribute="centerY" id="4f3-s2-wJx"/>
+                            <constraint firstItem="5la-1a-b0o" firstAttribute="leading" secondItem="BOQ-La-EHw" secondAttribute="trailing" constant="10" id="IHQ-Ip-LdT"/>
+                            <constraint firstItem="BOQ-La-EHw" firstAttribute="leading" secondItem="e14-9c-VEB" secondAttribute="leading" constant="10" id="LP7-ox-vYh"/>
+                            <constraint firstItem="FCu-MT-2Wl" firstAttribute="leading" secondItem="ID2-Jl-Ell" secondAttribute="leading" id="Mq8-mR-KZl"/>
+                            <constraint firstItem="ID2-Jl-Ell" firstAttribute="leading" secondItem="BOQ-La-EHw" secondAttribute="leading" id="UQx-PY-vW6"/>
+                            <constraint firstItem="ID2-Jl-Ell" firstAttribute="centerY" secondItem="e14-9c-VEB" secondAttribute="centerY" constant="8" id="Zur-V0-EDL"/>
+                            <constraint firstItem="ID2-Jl-Ell" firstAttribute="trailing" secondItem="5la-1a-b0o" secondAttribute="trailing" id="hVA-vE-L2A"/>
+                            <constraint firstItem="FCu-MT-2Wl" firstAttribute="trailing" secondItem="ID2-Jl-Ell" secondAttribute="trailing" id="iAl-4a-F9u"/>
+                            <constraint firstItem="BOQ-La-EHw" firstAttribute="top" secondItem="e14-9c-VEB" secondAttribute="top" constant="10" id="q45-sE-erQ"/>
+                            <constraint firstAttribute="bottom" secondItem="FCu-MT-2Wl" secondAttribute="bottom" constant="20" id="toC-5C-UHJ"/>
                             <constraint firstAttribute="trailing" secondItem="5la-1a-b0o" secondAttribute="trailing" constant="10" id="x5b-v5-Zbt"/>
                         </constraints>
                     </view>
@@ -64,7 +80,8 @@
             <size key="customSize" width="215" height="245"/>
             <connections>
                 <outlet property="BG_COLOR" destination="e14-9c-VEB" id="d9O-Vf-Mq1"/>
-                <outlet property="animatedImageView" destination="p6n-xU-Wb4" id="1Ic-BH-rvH"/>
+                <outlet property="dateLab" destination="FCu-MT-2Wl" id="0DO-b5-DUt"/>
+                <outlet property="detailLab" destination="ID2-Jl-Ell" id="pqz-Wt-EWH"/>
                 <outlet property="iconImg" destination="BOQ-La-EHw" id="CGf-Xg-Azk"/>
                 <outlet property="titleLab" destination="5la-1a-b0o" id="osi-ME-GIZ"/>
             </connections>

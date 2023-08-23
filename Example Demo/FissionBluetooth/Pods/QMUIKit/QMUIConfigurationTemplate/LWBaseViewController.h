@@ -9,7 +9,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LWBaseViewController : UIViewController
+@interface LWBaseViewController : UIViewController <QMUINavigationControllerDelegate>
+
+/// 导航栏透明度
+- (void)navigationBarAlpha:(CGFloat)alpha;
+
+/// 拦截系统返回事件，外部可重写此方法
+- (BOOL)shouldPopViewControllerByBackButtonOrPopGesture:(BOOL)byPopGesture;
 
 @property (nonatomic, assign) NSInteger pageIndex;
 @property (nonatomic, assign) NSInteger pageSize;

@@ -85,7 +85,7 @@
         _titleLabel.backgroundColor = [UIColor clearColor];
         _titleLabel.textAlignment = NSTextAlignmentCenter;
         _titleLabel.textColor = [UIColor whiteColor];
-        _titleLabel.font = [NSObject themePingFangSCMediumFont:18];
+        _titleLabel.font = [NSObject BahnschriftFont:18];
     }
     return _titleLabel;
 }

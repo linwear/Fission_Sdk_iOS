@@ -23,13 +23,13 @@
     // 扫描到设备的回调方法｜Scan to device callback method
     [FBBluetoothManager.sharedInstance fbDiscoverPeripheralsWithBlock:^(FBPeripheralModel * _Nonnull peripheralModel) {
         
-        [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:peripheralModel];
+        [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_SCANTODEVICENOTICE object:peripheralModel];
     }];
        
     // 设备断开连接回调方法｜Device disconnection callback method
     [FBBluetoothManager.sharedInstance fbOnDisconnectAtChannelWithBlock:^(CBCentralManager * _Nonnull central, CBPeripheral * _Nonnull peripheral, NSError * _Nonnull error) {
         
-        [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_DISCONNECT)];
+        [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_DISCONNECT) userInfo:@{@"ERROR":LWLocalizbleString(@"Device disconnected")}];
         [NSObject showHUDText:LWLocalizbleString(@"Device disconnected")];
     }];
     
@@ -47,22 +47,24 @@
     // 蓝牙系统错误回调方法｜Bluetooth system error callback method
     [FBBluetoothManager.sharedInstance fbBluetoothSystemErrorWithBlock:^(id  _Nonnull object1, id  _Nonnull object2, NSError * _Nonnull error) {
         
-        [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_ERROR)];
+        [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_ERROR) userInfo:@{@"ERROR":error.localizedDescription}];
         [NSObject showHUDText:error.localizedDescription];
     }];
     
     // 设备->查找手机｜Monitor device - > find mobile callback
     [FBAtCommand.sharedInstance fbUpFindPhoneDataWithBlock:^{
         
+        [FBTestUIPhoneRingView.sharedInstance phoneRing];
+        
         [NSObject showHUDText:LWLocalizbleString(@"Device Find Phone")];
-        AudioServicesPlaySystemSound(1007);
     }];
     
     // 设备->放弃查找手机｜Monitor device - > give up looking for mobile phone callback
     [FBAtCommand.sharedInstance fbAbandonFindingPhoneWithBlock:^{
         
+        [FBTestUIPhoneRingView.sharedInstance dismiss];
+        
         [NSObject showHUDText:LWLocalizbleString(@"Device cancel find phone")];
-        AudioServicesPlaySystemSound(1001);
     }];
     
     // 设备->手机即时拍照｜Monitoring device - > instant camera callback of mobile phone
@@ -115,7 +117,7 @@
     WeakSelf(self);
     if (error) {
         
-        [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_ERROR)];
+        [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_ERROR) userInfo:@{@"ERROR":error.localizedDescription}];
         [NSObject showHUDText:error.localizedDescription];
         
     } else {
@@ -146,9 +148,12 @@
             [FBAtCommand.sharedInstance fbGetBindingStatusRequestWithBlock:^(NSInteger responseObject, NSError * _Nullable error) {
                 if (error) {
                     
-                    [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_BINDING_FAILED)];
-                    [NSObject showHUDText:error.domain];
-                    [FBBluetoothManager.sharedInstance disconnectPeripheral];
+                    [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_BINDING_FAILED) userInfo:@{@"ERROR":error.localizedDescription}];
+                    [NSObject showHUDText:error.localizedDescription];
+                    
+                    if (Tools.isFirstBinding) { // 根据自身业务处理｜Handle according to own business
+                        [FBBluetoothManager.sharedInstance disconnectPeripheral];
+                    }
                     
                 } else {
                     
@@ -162,8 +167,12 @@
                                  
                             if (clickType == AlertClickType_Cancel) // 选择了【取消】｜Selected【Cancel】
                             {
-                                [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_BINDING_FAILED)];
+                                [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_BINDING_FAILED) userInfo:@{@"ERROR":LWLocalizbleString(@"Refuse to bind")}];
+                                
+                                [Tools saveIsFirstBinding:YES];
+                                
                                 [FBBluetoothManager.sharedInstance disconnectPeripheral];
+                                
                                 [NSObject showHUDText:LWLocalizbleString(@"Refuse to bind")];
                             }
                             else if (clickType == AlertClickType_Sure) // 选择了【重新绑定】｜Select [Rebind]
@@ -188,9 +197,12 @@
     [FBAtCommand.sharedInstance fbBindDeviceRequest:nil withBlock:^(NSInteger responseObject, NSError * _Nullable error) {
                         
         if (error) {
-            [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_BINDING_FAILED)];
-            [NSObject showHUDText:error.domain];
-            [FBBluetoothManager.sharedInstance disconnectPeripheral];
+            [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_BINDING_FAILED) userInfo:@{@"ERROR":error.localizedDescription}];
+            [NSObject showHUDText:error.localizedDescription];
+            
+            if (Tools.isFirstBinding) { // 根据自身业务处理｜Handle according to own business
+                [FBBluetoothManager.sharedInstance disconnectPeripheral];
+            }
             
         } else {
             /**
@@ -201,7 +213,7 @@
             // 0拒绝绑定｜0 refuses to bind
             if (responseObject==0) {
                 
-                [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_BINDING_FAILED)];
+                [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_BINDING_FAILED) userInfo:@{@"ERROR":LWLocalizbleString(@"Refuse to bind")}];
                 [NSObject showHUDText:LWLocalizbleString(@"Refuse to bind")];
             }
             // 1同意绑定｜1 agrees to bind
@@ -213,19 +225,19 @@
             // 2已被绑定｜2 has been bound
             else if (responseObject == 2) {
                 
-                [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_BINDING_FAILED)];
+                [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_BINDING_FAILED) userInfo:@{@"ERROR":LWLocalizbleString(@"Has been bound")}];
                 [NSObject showHUDText:LWLocalizbleString(@"Has been bound")];
             }
             // 3确认超时｜3 confirmation timeout
             else if (responseObject == 3) {
                 
-                [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_BINDING_FAILED)];
+                [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_BINDING_FAILED) userInfo:@{@"ERROR":LWLocalizbleString(@"Binding confirmation timed out")}];
                 [NSObject showHUDText:LWLocalizbleString(@"Binding confirmation timed out")];
             }
             // 4递交秘钥错误｜4 submits the secret key incorrectly
             else if (responseObject == 4) {
                 
-                [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_BINDING_FAILED)];
+                [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_BINDING_FAILED) userInfo:@{@"ERROR":LWLocalizbleString(@"Bind key error")}];
                 [NSObject showHUDText:LWLocalizbleString(@"Bind key error")];
                 
             }
@@ -244,12 +256,19 @@
             
             
             if (responseObject == 1 || responseObject == 5 || responseObject == 6) {
+                
+                [Tools saveIsFirstBinding:NO];
+                
                 // 获取设备硬件信息｜Get device hardware information
                 [FBBgCommand.sharedInstance fbGetHardwareInformationDataWithBlock:^(FB_RET_CMD status, float progress, FBDeviceInfoModel * _Nullable responseObject, NSError * _Nullable error) {
                     
                     if (error) {
-                        [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_GETDEVICEINFO_FAILED)];
-                        [NSObject showHUDText:error.domain];
+                        [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_GETDEVICEINFO_FAILED) userInfo:@{@"ERROR":error.localizedDescription}];
+                        [NSObject showHUDText:error.localizedDescription];
+                        
+                        if (Tools.isFirstBinding) { // 根据自身业务处理｜Handle according to own business
+                            [FBBluetoothManager.sharedInstance disconnectPeripheral];
+                        }
                     }
                     else if (status == FB_INDATATRANSMISSION) {
                         // Request progress...
@@ -268,7 +287,10 @@
                     }
                 }];
             } else {
-                [FBBluetoothManager.sharedInstance disconnectPeripheral];
+                
+                if (Tools.isFirstBinding) { // 根据自身业务处理｜Handle according to own business
+                    [FBBluetoothManager.sharedInstance disconnectPeripheral];
+                }
             }
         }
     }];

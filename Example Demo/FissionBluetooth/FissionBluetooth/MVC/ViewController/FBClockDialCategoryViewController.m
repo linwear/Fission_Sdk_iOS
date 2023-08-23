@@ -58,7 +58,7 @@
     categoryView.titleColor = UIColorBlack;
     categoryView.titleSelectedColor = UIColorBlue;
     categoryView.titleFont = FONT(16);
-    categoryView.titleSelectedFont = [NSObject themePingFangSCMediumFont:16];
+    categoryView.titleSelectedFont = [NSObject BahnschriftFont:16];
     categoryView.titleColorGradientEnabled = YES;
     categoryView.cellSpacing = 10;
     categoryView.averageCellSpacingEnabled = NO;

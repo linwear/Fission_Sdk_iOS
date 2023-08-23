@@ -35,7 +35,7 @@
     self.backgroundColor = UIColorWhite;
     
     self.nameLabel = UILabel.new;
-    self.nameLabel.font = FONT(14);
+    self.nameLabel.font = FONT(16);
     self.nameLabel.textColor = UIColorBlack;
     [self.contentView addSubview:self.nameLabel];
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -44,7 +44,7 @@
     }];
     
     self.macLabel = UILabel.new;
-    self.macLabel.font = FONT(12);
+    self.macLabel.font = FONT(15);
     self.macLabel.textColor = UIColorGray;
     [self.contentView addSubview:self.macLabel];
     [self.macLabel mas_makeConstraints:^(MASConstraintMaker *make) {

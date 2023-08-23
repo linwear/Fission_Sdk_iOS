@@ -28,6 +28,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 当前设备语言是中文吗
 + (BOOL)isChinese;
 
+/// 当前手机系统时间格式是否是12小时制
++ (BOOL)is12Hour;
+
 /// 设置是否 常亮 不锁屏...
 + (void)idleTimerDisabled:(BOOL)always;
 
@@ -48,6 +51,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 运动类型转换：手表->服务器
 + (LWSportType)convertType:(FB_MOTIONMODE)mode;
+
+/// 当前绑定状态（是否是第一次绑定）
++ (void)saveIsFirstBinding:(BOOL)isFirst;
+
+/// 是否是第一次绑定
++ (BOOL)isFirstBinding;
 
 /// 记录当前实时数据流开启状态
 + (void)saveIsStreamOpen:(BOOL)isOpen;

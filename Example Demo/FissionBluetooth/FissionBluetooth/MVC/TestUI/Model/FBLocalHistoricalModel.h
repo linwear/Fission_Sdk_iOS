@@ -29,18 +29,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 最近一次心率记录｜Last Heart Rate Record
 @property (nonatomic, assign) NSInteger hrBegin;
+@property (nonatomic, copy) NSString *hr;
 
 /// 最近一次血氧记录｜Last blood oxygen record
 @property (nonatomic, assign) NSInteger spo2Begin;
+@property (nonatomic, copy) NSString *spo2;
 
 /// 最近一次血压记录｜Last blood pressure record
 @property (nonatomic, assign) NSInteger bpBegin;
+@property (nonatomic, copy) NSString *bp;
 
 /// 最近一次压力记录｜Last Stress Record
 @property (nonatomic, assign) NSInteger stressBegin;
+@property (nonatomic, copy) NSString *stress;
 
 /// 最近一次睡眠记录｜Last Sleep Record
 @property (nonatomic, assign) NSInteger sleepBegin;
+@property (nonatomic, copy) NSString *sleep;
 
 @end
 

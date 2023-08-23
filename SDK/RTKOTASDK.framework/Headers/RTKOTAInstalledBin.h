@@ -12,33 +12,28 @@
 #import <RTKOTASDK/RTKOTABin.h>
 #endif
 
-/*!
- * Represents which bank image reside.
- */
+/// Values that indicate which bank an image resides.
 typedef NS_ENUM(NSUInteger, RTKOTABinBankInfo) {
     RTKOTABinBankInfo_Unknown,
-    RTKOTABinBankInfo_Bank0,        ///< Binary reside at Bank 0
-    RTKOTABinBankInfo_Bank1,        ///< Binary reside at Bank 1
-    RTKOTABinBankInfo_Standalone,   ///< Binary reside at Single Bank(Not a dual bank enviroment)
+    /// Binary reside at *Bank 0*
+    RTKOTABinBankInfo_Bank0,
+    /// Binary reside at *Bank 1*
+    RTKOTABinBankInfo_Bank1,
+    /// Binary reside at *Single Bank* (Not a dual bank enviroment)
+    RTKOTABinBankInfo_Standalone,
 };
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- * A concrete RTKOTABin class represents a binary installed in a device.
- */
+/// A concrete `RTKOTABin` class represents a binary installed in a device.
 @interface RTKOTAInstalledBin : RTKOTABin
 
-/**
- * Indicates which bank this image is installed in, or should be upgraded in.
- */
+/// Indicates which bank this image is installed in, or should be upgraded in.
 @property (readonly) RTKOTABinBankInfo bankState;
 
-/**
- * The maximum length of thie image section in SOC.
- *
- * @discussion When 0 is returned, section size is undefined.
- */
+/// The maximum length of thie image section in SOC.
+///
+/// When `0` is returned, the section size is undefined
 @property (readonly) NSUInteger sectionSize;
 
 @end

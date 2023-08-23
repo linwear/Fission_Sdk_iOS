@@ -13,8 +13,15 @@
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     
-    UILabel *messageLabel = [alert.view valueForKeyPath:@"_messageLabel"];
-    messageLabel.textAlignment = NSTextAlignmentLeft;
+    NSMutableAttributedString *attributedTitle = [[NSMutableAttributedString alloc] initWithString:title];
+    [attributedTitle addAttributes:@{NSForegroundColorAttributeName:BlueColor} range:NSMakeRange(0, title.length)];
+    [attributedTitle addAttributes:@{NSFontAttributeName:[NSObject BahnschriftFont:17]} range:NSMakeRange(0, title.length)];
+    [alert setValue:attributedTitle forKey:@"attributedTitle"];
+    
+    NSMutableAttributedString *attributedMessage = [[NSMutableAttributedString alloc] initWithString:message];
+    [attributedMessage addAttributes:@{NSForegroundColorAttributeName:UIColorRed} range:NSMakeRange(0, message.length)];
+    [attributedMessage addAttributes:@{NSFontAttributeName:[NSObject BahnschriftFont:15]} range:NSMakeRange(0, message.length)];
+    [alert setValue:attributedMessage forKey:@"attributedMessage"];
     
     if (!StringIsEmpty(cancel)) {
         UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:cancel style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {

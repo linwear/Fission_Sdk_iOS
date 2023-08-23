@@ -11,9 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBBaseNavigationController : UINavigationController
 
-// 导航栏透明
-- (void)navigationBarAlpha:(CGFloat)alpha;
-
 @end
 
 NS_ASSUME_NONNULL_END

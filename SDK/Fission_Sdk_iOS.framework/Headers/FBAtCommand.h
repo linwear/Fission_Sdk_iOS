@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  同步UTC时间｜Synchronize UTC Time
 */
-- (void)fbSynchronizeUTCTimeWithBlock:(FBResultCallBackBlock _Nonnull)fbBlock API_DEPRECATED("Use fbAutomaticallySynchronizeSystemTimeWithBlock: instead", macos(2.0, 2.0), ios(2.0, 2.0), tvos(2.0, 2.0), watchos(2.0, 2.0));
+- (void)fbSynchronizeUTCTimeWithBlock:(FBResultCallBackBlock _Nonnull)fbBlock API_DEPRECATED("It is recommended to use fbAutomaticallySynchronizeSystemTimeWithBlock: instead", macos(2.0, 2.0), ios(2.0, 2.0), tvos(2.0, 2.0), watchos(2.0, 2.0));
 
 
 #pragma mark - 设置时区｜Set Time Zone
@@ -65,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
  设置时区｜Set Time Zone
  @param timeZoneMinute          时区偏移时间（单位分钟）｜Time zone offset time (unit: minute)
 */
-- (void)fbUpTimezoneMinuteData:(NSInteger)timeZoneMinute withBlock:(FBResultCallBackBlock _Nonnull)fbBlock API_DEPRECATED("Use fbAutomaticallySynchronizeSystemTimeWithBlock: instead", macos(2.0, 2.0), ios(2.0, 2.0), tvos(2.0, 2.0), watchos(2.0, 2.0));
+- (void)fbUpTimezoneMinuteData:(NSInteger)timeZoneMinute withBlock:(FBResultCallBackBlock _Nonnull)fbBlock API_DEPRECATED("It is recommended to use fbAutomaticallySynchronizeSystemTimeWithBlock: instead", macos(2.0, 2.0), ios(2.0, 2.0), tvos(2.0, 2.0), watchos(2.0, 2.0));
 
 
 #pragma mark - 自动同步系统时间（同步UTC时间 + 设置时区）｜Automatically synchronize system time (Synchronize UTC Time + Set Time Zone)
