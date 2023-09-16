@@ -12,14 +12,14 @@
 
 ### 📃接入指南｜Access Guide
 
-- [中文文档(Chinese Doc)](iOS版FissionSDK用户指南.pdf)
-- [英文文档(English Doc)](FissionSDK_UserGuide_for_iOS.pdf)
+- [中文文档(Chinese Document)](iOS版FissionSDK用户指南.pdf)
+- [英文文档(English Document)](FissionSDK_UserGuide_for_iOS.pdf)
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 ### 🚀示例演示工程 修改记录｜Example Demo Modification Record:
 
-#### ⚠️演示项目中使用到数据库'Realm'，运行demo前，请先cd到项目，再执行pod install｜The database 'Realm' is used in the demo project. Before running the demo, please cd to the project first, and then execute pod install
+#### [⚠️演示项目中使用到数据库'Realm'，运行demo前，请先cd到项目，再执行pod install｜The database 'Realm' is used in the demo project. Before running the demo, please cd to the project first, and then execute pod install](#NOTE)
 
      pcjbird    2023-06-09
                 1.新增【数据可视化UI】模块，便于了解数据同步API的使用，直观查看设备历史数据
