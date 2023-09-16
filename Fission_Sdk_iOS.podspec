@@ -16,8 +16,8 @@ Pod::Spec.new do |spec|
   spec.requires_arc     = true
   spec.frameworks = 'Foundation', 'CoreBluetooth'
   spec.vendored_frameworks = 'SDK/Fission_Sdk_iOS.xcframework'
-  spec.dependency 'SDK/RTKOTASDK.xcframework'
-  spec.dependency 'SDK/RTKLEFoundation.xcframework'
+  spec.dependency 'RTKOTASDK'
+  spec.dependency 'RTKLEFoundation'
 
   spec.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
 
