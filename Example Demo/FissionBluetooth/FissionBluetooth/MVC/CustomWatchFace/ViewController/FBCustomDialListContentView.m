@@ -23,6 +23,8 @@
 
 @property (nonatomic, copy) FBCustomDialListContentHeightUpdateBlock heightUpdateBlock;
 
+@property (nonatomic, copy) FBCustomDialListContentDynamicSelectionBlock dynamicSelectionBlock;
+
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, assign) CGFloat itemHeight;
 
@@ -36,10 +38,11 @@ static NSString *FBCustomDialListColorCellID = @"FBCustomDialListColorCell";
 @implementation FBCustomDialListContentView
 
 /// 初始化
-- (instancetype)initWithListContentBlock:(FBCustomDialListContentViewBlock)listContentBlock heightUpdateBlock:(FBCustomDialListContentHeightUpdateBlock)heightUpdateBlock {
+- (instancetype)initWithListContentBlock:(FBCustomDialListContentViewBlock)listContentBlock heightUpdateBlock:(FBCustomDialListContentHeightUpdateBlock)heightUpdateBlock dynamicSelectionBlock:(FBCustomDialListContentDynamicSelectionBlock)dynamicSelectionBlock {
     if (self = [super init]) {
         self.listContentBlock = listContentBlock;
         self.heightUpdateBlock = heightUpdateBlock;
+        self.dynamicSelectionBlock = dynamicSelectionBlock;
     }
     return self;
 }
@@ -266,10 +269,11 @@ static NSString *FBCustomDialListColorCellID = @"FBCustomDialListColorCell";
     FBCustomDialItems *list = self.dialList.list[indexPath.section];
     NSArray <FBCustomDialSoures *> *dialSoures = [self dialSouresOfList:list withIndexPath:indexPath];
     FBCustomDialSoures *item = dialSoures[indexPath.row];
+    FBCustomDialDynamicSelection dynamicSelection = FBCustomDialDynamicSelection_None; // 控件 加减数 显示
     
     if (self.dialList.listType == FBCustomDialListType_Background && indexPath.row == 0) { // "+" 相册、相机
         
-        [FBAuthorityObject.sharedInstance presentViewController:self getPictures:^(UIImage * _Nonnull image) {
+        [FBAuthorityObject.sharedInstance presentRequestImageWithBlock:^(UIImage * _Nonnull image) {
             
             [weakSelf dialSouresOfArray:dialSoures withSelectedIndex:indexPath.row]; // 将要选中
             
@@ -303,6 +307,7 @@ static NSString *FBCustomDialListColorCellID = @"FBCustomDialListColorCell";
                 if (soures.count > 1) {
                     isTitleSelect  = NO;
                     item.isSelect = NO;
+                    dynamicSelection = FBCustomDialDynamicSelection_CutSuccess;
                 } else {
                     [NSObject showHUDText:LWLocalizbleString(@"Select at least one watch face type")];
                     return;
@@ -310,6 +315,7 @@ static NSString *FBCustomDialListColorCellID = @"FBCustomDialListColorCell";
             } else {
                 isTitleSelect  = NO;
                 item.isSelect = NO;
+                dynamicSelection = FBCustomDialDynamicSelection_CutSuccess;
             }
         }
         else {
@@ -318,10 +324,15 @@ static NSString *FBCustomDialListColorCellID = @"FBCustomDialListColorCell";
                 
                 /* 由于表盘内存空间有限，自定义内容最多不能超过16个控件，不同样式所占用的控件个数都有所不同。添加自定义内容前需要检查表盘空间是否足够｜Due to the limited memory space of the dial, the customized content cannot exceed 16 controls at most, and the number of controls occupied by different styles is different. Before adding custom content, you need to check whether there is enough space on the dial */
                 if ([weakSelf checkForOverflowWithItem:item]) {
+                    dynamicSelection = FBCustomDialDynamicSelection_AddFailure;
+                    if (self.dynamicSelectionBlock) {
+                        self.dynamicSelectionBlock(dynamicSelection, item);
+                    }
                     [NSObject showHUDText:LWLocalizbleString(@"Insufficient memory space")];
                     return;
                 } else {
                     isTitleSelect  = YES;
+                    dynamicSelection = FBCustomDialDynamicSelection_AddSuccess;
                     [self dialSouresOfArray:dialSoures withSelectedIndex:indexPath.row]; // 将要选中
                 }
         
@@ -339,11 +350,20 @@ static NSString *FBCustomDialListColorCellID = @"FBCustomDialListColorCell";
         
         /* 由于表盘内存空间有限，自定义内容最多不能超过16个控件，不同样式所占用的控件个数都有所不同。添加自定义内容前需要检查表盘空间是否足够｜Due to the limited memory space of the dial, the customized content cannot exceed 16 controls at most, and the number of controls occupied by different styles is different. Before adding custom content, you need to check whether there is enough space on the dial */
         if ([weakSelf checkForOverflowWithItem:item]) {
+            dynamicSelection = FBCustomDialDynamicSelection_AddFailure;
+            if (self.dynamicSelectionBlock) {
+                self.dynamicSelectionBlock(dynamicSelection, item);
+            }
             [NSObject showHUDText:LWLocalizbleString(@"Insufficient memory space")];
             return;
         } else {
+            dynamicSelection = FBCustomDialDynamicSelection_AddSuccess;
             [self dialSouresOfArray:dialSoures withSelectedIndex:indexPath.row]; // 将要选中
         }
+    }
+    
+    if (self.dynamicSelectionBlock) {
+        self.dynamicSelectionBlock(dynamicSelection, item);
     }
     
     if (self.listContentBlock) {
@@ -442,95 +462,100 @@ static NSString *FBCustomDialListColorCellID = @"FBCustomDialListColorCell";
 // 由于表盘内存空间有限，自定义内容最多不能超过16个控件
 - (BOOL)checkForOverflowWithItem:(FBCustomDialSoures *)item {
     
-//    if (item.itemEvent <= FBCustomDialListItemsEvent_DialTypeText ||
-//        (item.itemEvent >= FBCustomDialListItemsEvent_ScaleImage && item.itemEvent <= FBCustomDialListItemsEvent_StateTypeText) ||
-//        (item.itemEvent == FBCustomDialListItemsEvent_ModuleTypeText) ||
-//        (item.itemEvent >= FBCustomDialListItemsEvent_Color)) {
-//
-//        return NO;
-//    }
-//    else {
-//
-//        NSMutableArray <FBCustomDialSoures *> *selectSoures = [NSMutableArray arrayWithArray:self.selectSoures];
-//
-//        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(FBCustomDialSoures * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-//            return (evaluatedObject.itemEvent == item.itemEvent);
-//        }];
-//
-//        // 该组是否已选择过
-//        FBCustomDialSoures *soures = [selectSoures filteredArrayUsingPredicate:predicate].firstObject; // 当前组已选中的个数
-//        if (soures) { // 已存在
-//            if (item.isSelect) { // 当前已是选中，将要取消
-//                [selectSoures removeObject:soures];
-//            } else { // 当前未被选择，将要选中（替换）
-//                NSUInteger index = [selectSoures indexOfObject:soures];
-//                [selectSoures replaceObjectAtIndex:index withObject:item];
-//            }
-//        } else {
-//            // 新增
-//            [selectSoures addObject:item];
-//        }
-//
-//
-//        // 转换
-//        NSMutableArray <FBCustomDialItem *> *selectItem = NSMutableArray.array;
-//
-//        for (FBCustomDialSoures *soures in selectSoures) {
-//
-//            FBCustomDialItem *item = FBCustomDialItem.new;
-//            item.index = soures.index;
-//
-//            FB_CUSTOMDIALITEMS type = FB_CustomDialItems_None;
-//
-//            if (soures.itemEvent == FBCustomDialListItemsEvent_NumberImage) {
-//                type = FB_CustomDialItems_Time_Style;
-//            }
-//            else if (soures.itemEvent == FBCustomDialListItemsEvent_PointerImage) {
-//                type = FB_CustomDialItems_Pointer;
-//            }
-//            else if (soures.itemEvent == FBCustomDialListItemsEvent_StateBatteryImage) {
-//                type = FB_CustomDialItems_Battery;
-//            }
-//            else if (soures.itemEvent == FBCustomDialListItemsEvent_StateBluetoothImage_BLE) {
-//                type = FB_CustomDialItems_BLE;
-//            }
-//            else if (soures.itemEvent == FBCustomDialListItemsEvent_StateBluetoothImage_BT) {
-//                type = FB_CustomDialItems_BT;
-//            }
-//            else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleStepImage) {
-//                type = FB_CustomDialItems_Step;
-//            }
-//            else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleCalorieImage) {
-//                type = FB_CustomDialItems_Calorie;
-//            }
-//            else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleDistanceImage) {
-//                type = FB_CustomDialItems_Distance;
-//            }
-//            else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleHeartRateImage) {
-//                type = FB_CustomDialItems_HeartRate;
-//            }
-//            else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleBloodOxygenImage) {
-//                type = FB_CustomDialItems_BloodOxygen;
-//            }
-//            else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleBloodPressureImage) {
-//                type = FB_CustomDialItems_BloodPressure;
-//            }
-//            else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleStressImage) {
-//                type = FB_CustomDialItems_Stress;
-//            }
-//
-//            item.type = type;
-//
-//            if (item.type != FB_CustomDialItems_None) {
-//                [selectItem addObject:item];
-//            }
-//        }
-//
-//        /* 由于表盘内存空间有限，自定义内容最多不能超过16个控件，不同样式所占用的控件个数都有所不同。添加自定义内容前需要检查表盘空间是否足够｜Due to the limited memory space of the dial, the customized content cannot exceed 16 controls at most, and the number of controls occupied by different styles is different. Before adding custom content, you need to check whether there is enough space on the dial */
-//        BOOL overflow = [FBCustomDataTools checkForOverflow:selectItem];
-//
-//        return overflow;
-//    }
+#ifdef FBINTERNAL
+    
+    if (item.itemEvent <= FBCustomDialListItemsEvent_DialTypeText ||
+        (item.itemEvent >= FBCustomDialListItemsEvent_ScaleImage && item.itemEvent <= FBCustomDialListItemsEvent_StateTypeText) ||
+        (item.itemEvent == FBCustomDialListItemsEvent_ModuleTypeText) ||
+        (item.itemEvent >= FBCustomDialListItemsEvent_Color)) {
+
+        return NO;
+    }
+    else {
+
+        NSMutableArray <FBCustomDialSoures *> *selectSoures = [NSMutableArray arrayWithArray:self.selectSoures];
+
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(FBCustomDialSoures * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+            return (evaluatedObject.itemEvent == item.itemEvent);
+        }];
+
+        // 该组是否已选择过
+        FBCustomDialSoures *soures = [selectSoures filteredArrayUsingPredicate:predicate].firstObject; // 当前组已选中的个数
+        if (soures) { // 已存在
+            if (item.isSelect) { // 当前已是选中，将要取消
+                [selectSoures removeObject:soures];
+            } else { // 当前未被选择，将要选中（替换）
+                NSUInteger index = [selectSoures indexOfObject:soures];
+                [selectSoures replaceObjectAtIndex:index withObject:item];
+            }
+        } else {
+            // 新增
+            [selectSoures addObject:item];
+        }
+
+
+        // 转换
+        NSMutableArray <FBCustomDialItem *> *selectItem = NSMutableArray.array;
+
+        for (FBCustomDialSoures *soures in selectSoures) {
+
+            FBCustomDialItem *item = FBCustomDialItem.new;
+            item.index = soures.index;
+
+            FB_CUSTOMDIALITEMS type = FB_CustomDialItems_None;
+
+            if (soures.itemEvent == FBCustomDialListItemsEvent_NumberImage) {
+                type = FB_CustomDialItems_Time_Style;
+            }
+            else if (soures.itemEvent == FBCustomDialListItemsEvent_PointerImage) {
+                type = FB_CustomDialItems_Pointer;
+            }
+            else if (soures.itemEvent == FBCustomDialListItemsEvent_StateBatteryImage) {
+                type = FB_CustomDialItems_Battery;
+            }
+            else if (soures.itemEvent == FBCustomDialListItemsEvent_StateBluetoothImage_BLE) {
+                type = FB_CustomDialItems_BLE;
+            }
+            else if (soures.itemEvent == FBCustomDialListItemsEvent_StateBluetoothImage_BT) {
+                type = FB_CustomDialItems_BT;
+            }
+            else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleStepImage) {
+                type = FB_CustomDialItems_Step;
+            }
+            else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleCalorieImage) {
+                type = FB_CustomDialItems_Calorie;
+            }
+            else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleDistanceImage) {
+                type = FB_CustomDialItems_Distance;
+            }
+            else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleHeartRateImage) {
+                type = FB_CustomDialItems_HeartRate;
+            }
+            else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleBloodOxygenImage) {
+                type = FB_CustomDialItems_BloodOxygen;
+            }
+            else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleBloodPressureImage) {
+                type = FB_CustomDialItems_BloodPressure;
+            }
+            else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleStressImage) {
+                type = FB_CustomDialItems_Stress;
+            }
+
+            item.type = type;
+
+            if (item.type != FB_CustomDialItems_None) {
+                [selectItem addObject:item];
+            }
+        }
+
+        /* 由于表盘内存空间有限，自定义内容最多不能超过16个控件，不同样式所占用的控件个数都有所不同。添加自定义内容前需要检查表盘空间是否足够｜Due to the limited memory space of the dial, the customized content cannot exceed 16 controls at most, and the number of controls occupied by different styles is different. Before adding custom content, you need to check whether there is enough space on the dial */
+        BOOL overflow = [FBCustomDataTools checkForOverflow:selectItem];
+
+        return overflow;
+    }
+    
+#endif
+    
     return NO;
 }
 

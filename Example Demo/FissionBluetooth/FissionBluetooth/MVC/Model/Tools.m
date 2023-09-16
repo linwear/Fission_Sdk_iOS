@@ -545,6 +545,9 @@
         case FBSAVATE:
             sportType = LWSavate;
             break;
+        case FBBEACHVOLLEYBALL:
+            sportType = LWBeachVolleyball;
+            break;
             
         default:
             sportType = LWSportFreeTraining;

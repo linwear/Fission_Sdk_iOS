@@ -3,18 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1E29CF31781E67E402257E0F /* Pods_FissionBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EE9E81A4ED5C0501FB81F3 /* Pods_FissionBluetooth.framework */; };
+		1E5BBB410FDB395C0B24BE48 /* Pods_FissionBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EE9E81A4ED5C0501FB81F3 /* Pods_FissionBluetooth.framework */; };
 		1EF3A85EB70AB3172F3AF72A /* Pods_FissionBluetooth_FissionBluetoothUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC02F02B45C16A32981171D /* Pods_FissionBluetooth_FissionBluetoothUITests.framework */; };
 		590419832A2F058600BD3A0A /* FBTestUIOverviewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 590419822A2F058600BD3A0A /* FBTestUIOverviewModel.m */; };
 		590419862A2F241C00BD3A0A /* FBTestUISportsSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 590419852A2F241C00BD3A0A /* FBTestUISportsSectionHeader.m */; };
 		590419882A2F243300BD3A0A /* FBTestUISportsSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 590419872A2F243300BD3A0A /* FBTestUISportsSectionHeader.xib */; };
 		5904198C2A2F417800BD3A0A /* FBTestUIBaseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5904198A2A2F417800BD3A0A /* FBTestUIBaseListCell.m */; };
 		5904198D2A2F417800BD3A0A /* FBTestUIBaseListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5904198B2A2F417800BD3A0A /* FBTestUIBaseListCell.xib */; };
-		5904198F2A308A4D00BD3A0A /* WatchUIResource.zip in Resources */ = {isa = PBXBuildFile; fileRef = 5904198E2A308A4D00BD3A0A /* WatchUIResource.zip */; };
 		590419922A30A86E00BD3A0A /* FBCustomDialListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 590419912A30A86E00BD3A0A /* FBCustomDialListModel.m */; };
 		590776102A57C3C000D449E9 /* FBSystemFunctionSwitchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5907760E2A57C3C000D449E9 /* FBSystemFunctionSwitchVC.m */; };
 		590776112A57C3C000D449E9 /* FBSystemFunctionSwitchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5907760F2A57C3C000D449E9 /* FBSystemFunctionSwitchVC.xib */; };
@@ -130,8 +130,6 @@
 		592197842A1B514800A4BE45 /* NotDisturbViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5921971A2A1B514700A4BE45 /* NotDisturbViewController.m */; };
 		592197852A1B514800A4BE45 /* FemaleCircadianCycleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5921971E2A1B514700A4BE45 /* FemaleCircadianCycleVC.xib */; };
 		592197882A1B522400A4BE45 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592197872A1B522400A4BE45 /* MainViewController.m */; };
-		592358C2293EE30500E5379C /* Fission_Sdk_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59235807293ED8D000E5379C /* Fission_Sdk_iOS.framework */; };
-		592358C3293EE30500E5379C /* Fission_Sdk_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59235807293ED8D000E5379C /* Fission_Sdk_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		592358D1293F26C100E5379C /* QMUIConfigurationTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358D0293F26C100E5379C /* QMUIConfigurationTemplate.m */; };
 		592358D9293F2C8C00E5379C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 592358DB293F2C8C00E5379C /* Localizable.strings */; };
 		592358E52940B04100E5379C /* LWBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358E42940B04100E5379C /* LWBaseViewController.m */; };
@@ -176,10 +174,6 @@
 		593E41E12A2DE81300B438FE /* FBTestUISportsChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593E41DF2A2DE81300B438FE /* FBTestUISportsChartCell.xib */; };
 		593E41EA2A2DF08D00B438FE /* FBTestUIOverviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E41E82A2DF08D00B438FE /* FBTestUIOverviewCell.m */; };
 		593E41EB2A2DF08D00B438FE /* FBTestUIOverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593E41E92A2DF08D00B438FE /* FBTestUIOverviewCell.xib */; };
-		59400A812A08C71A00C93683 /* RTKLEFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59400A7E2A08C70500C93683 /* RTKLEFoundation.framework */; };
-		59400A822A08C71A00C93683 /* RTKLEFoundation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59400A7E2A08C70500C93683 /* RTKLEFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		59400A832A08C71C00C93683 /* RTKOTASDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59400A7D2A08C70500C93683 /* RTKOTASDK.framework */; };
-		59400A842A08C71C00C93683 /* RTKOTASDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59400A7D2A08C70500C93683 /* RTKOTASDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59400A882A08CBE100C93683 /* FBTestUITodayDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59400A862A08CBE100C93683 /* FBTestUITodayDataCell.m */; };
 		59400A892A08CBE100C93683 /* FBTestUITodayDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59400A872A08CBE100C93683 /* FBTestUITodayDataCell.xib */; };
 		59400A952A08DF6C00C93683 /* FBLoadDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 59400A942A08DF6C00C93683 /* FBLoadDataObject.m */; };
@@ -194,9 +188,281 @@
 		599BF8882A5FA6A400751831 /* FBTextImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 599BF8872A5FA6A400751831 /* FBTextImageView.m */; };
 		59A78BCC2A80C62B000A80DD /* FBTestUISportsPaceRatioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A78BCA2A80C62B000A80DD /* FBTestUISportsPaceRatioCell.m */; };
 		59A78BCD2A80C62B000A80DD /* FBTestUISportsPaceRatioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A78BCB2A80C62B000A80DD /* FBTestUISportsPaceRatioCell.xib */; };
+		59AA4FEF2AB4320E00D3125E /* FBHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 59831BD62A78DD03008BB4C8 /* FBHUD.m */; };
+		59AA4FF02AB4320E00D3125E /* FBAboutHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196AF2A1B514700A4BE45 /* FBAboutHeadView.m */; };
+		59AA4FF12AB4320E00D3125E /* FBLocalHistoricalModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E41D92A2D7B2F00B438FE /* FBLocalHistoricalModel.m */; };
+		59AA4FF22AB4320E00D3125E /* LWCustomDialPickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196982A1B514700A4BE45 /* LWCustomDialPickerViewCell.m */; };
+		59AA4FF32AB4320E00D3125E /* NotDisturbViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5921971A2A1B514700A4BE45 /* NotDisturbViewController.m */; };
+		59AA4FF42AB4320E00D3125E /* RLMManualMeasureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C444BD2A0CDC4400F236B0 /* RLMManualMeasureModel.m */; };
+		59AA4FF52AB4320E00D3125E /* FemaleCircadianCycleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196F52A1B514700A4BE45 /* FemaleCircadianCycleVC.m */; };
+		59AA4FF62AB4320E00D3125E /* FBClockDialCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592197012A1B514700A4BE45 /* FBClockDialCategoryViewController.m */; };
+		59AA4FF72AB4320E00D3125E /* LWContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5921970E2A1B514700A4BE45 /* LWContactViewController.m */; };
+		59AA4FF82AB4320E00D3125E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592197872A1B522400A4BE45 /* MainViewController.m */; };
+		59AA4FF92AB4320E00D3125E /* FBBatteryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196842A1B514700A4BE45 /* FBBatteryView.m */; };
+		59AA4FFA2AB4320E00D3125E /* UserInforViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5921970C2A1B514700A4BE45 /* UserInforViewController.m */; };
+		59AA4FFB2AB4320E00D3125E /* FBTestUISportsPaceRatioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A78BCA2A80C62B000A80DD /* FBTestUISportsPaceRatioCell.m */; };
+		59AA4FFC2AB4320E00D3125E /* FBLogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196EB2A1B514700A4BE45 /* FBLogViewController.m */; };
+		59AA4FFD2AB4320E00D3125E /* LWMotionPushCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196A72A1B514700A4BE45 /* LWMotionPushCell.m */; };
+		59AA4FFE2AB4320E00D3125E /* LWCustomDialHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5921968A2A1B514700A4BE45 /* LWCustomDialHeaderView.m */; };
+		59AA4FFF2AB4320E00D3125E /* FBTutorialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196DE2A1B514700A4BE45 /* FBTutorialViewController.m */; };
+		59AA50002AB4320E00D3125E /* FBCustomDialListHeadrView.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E41AE2A2890E900B438FE /* FBCustomDialListHeadrView.m */; };
+		59AA50012AB4320E00D3125E /* FBColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E414F2A25AA6F00B438FE /* FBColorPickerView.m */; };
+		59AA50022AB4320E00D3125E /* FBTestUISportsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E41CF2A29D31500B438FE /* FBTestUISportsHeaderView.m */; };
+		59AA50032AB4320E00D3125E /* FBTestUIItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 592F5F0F2A050557008C06D7 /* FBTestUIItemModel.m */; };
+		59AA50042AB4320E00D3125E /* WaterClockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196F42A1B514700A4BE45 /* WaterClockViewController.m */; };
+		59AA50052AB4320E00D3125E /* FBTestUISportsRecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59116DDF2A0B4CCD009C242B /* FBTestUISportsRecordCell.m */; };
+		59AA50062AB4320E00D3125E /* XYButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196CE2A1B514700A4BE45 /* XYButton.m */; };
+		59AA50072AB4320E00D3125E /* FBAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592197142A1B514700A4BE45 /* FBAboutViewController.m */; };
+		59AA50082AB4320E00D3125E /* RLMBloodOxygenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C444AE2A0CDBBB00F236B0 /* RLMBloodOxygenModel.m */; };
+		59AA50092AB4320E00D3125E /* WeatherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5921970F2A1B514700A4BE45 /* WeatherViewController.m */; };
+		59AA500A2AB4320E00D3125E /* FemaleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196832A1B514700A4BE45 /* FemaleCell.m */; };
+		59AA500B2AB4320E00D3125E /* FBLogTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5921968D2A1B514700A4BE45 /* FBLogTableViewCell.m */; };
+		59AA500C2AB4320E00D3125E /* LWCustomDialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196792A1B514700A4BE45 /* LWCustomDialCell.m */; };
+		59AA500D2AB4320E00D3125E /* LWDeviceListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196712A1B514700A4BE45 /* LWDeviceListCell.m */; };
+		59AA500E2AB4320E00D3125E /* AppDelegate+FissionSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA48E29BAC87000B2DD49 /* AppDelegate+FissionSDK.m */; };
+		59AA500F2AB4320E00D3125E /* LWCustomDialColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5921967B2A1B514700A4BE45 /* LWCustomDialColorCell.m */; };
+		59AA50102AB4320E00D3125E /* FBCustomDialListTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E41BA2A29928500B438FE /* FBCustomDialListTitleCell.m */; };
+		59AA50112AB4320E00D3125E /* FBLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 59FA408D2A9D95C40035FD1E /* FBLocationManager.m */; };
+		59AA50122AB4320E00D3125E /* LWMotionPushDownloadObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196C22A1B514700A4BE45 /* LWMotionPushDownloadObject.m */; };
+		59AA50132AB4320E00D3125E /* LWCustomDialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196EF2A1B514700A4BE45 /* LWCustomDialViewController.m */; };
+		59AA50142AB4320E00D3125E /* ClockDialListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196D62A1B514700A4BE45 /* ClockDialListViewController.m */; };
+		59AA50152AB4320E00D3125E /* RLMBloodPressureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C444B12A0CDBCC00F236B0 /* RLMBloodPressureModel.m */; };
+		59AA50162AB4320E00D3125E /* LWPersonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196772A1B514700A4BE45 /* LWPersonCell.m */; };
+		59AA50172AB4320E00D3125E /* LWMotionDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5921969A2A1B514700A4BE45 /* LWMotionDataView.m */; };
+		59AA50182AB4320E00D3125E /* HrCheckViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592197112A1B514700A4BE45 /* HrCheckViewController.m */; };
+		59AA50192AB4320E00D3125E /* FBCustomDialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E41592A25AB6800B438FE /* FBCustomDialViewController.m */; };
+		59AA501A2AB4320E00D3125E /* FBAuthorityObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E41B42A28A42600B438FE /* FBAuthorityObject.m */; };
+		59AA501B2AB4320E00D3125E /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592197082A1B514700A4BE45 /* QRViewController.m */; };
+		59AA501C2AB4320E00D3125E /* LWWaveProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196932A1B514700A4BE45 /* LWWaveProgress.m */; };
+		59AA501D2AB4320E00D3125E /* SportTargetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196DC2A1B514700A4BE45 /* SportTargetViewController.m */; };
+		59AA501E2AB4320E00D3125E /* UIAlertObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196C72A1B514700A4BE45 /* UIAlertObject.m */; };
+		59AA501F2AB4320E00D3125E /* FBTestUISportsDetailsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E41CA2A29CD9E00B438FE /* FBTestUISportsDetailsCell.m */; };
+		59AA50202AB4320E00D3125E /* NSObject+HUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196CC2A1B514700A4BE45 /* NSObject+HUD.m */; };
+		59AA50212AB4320E00D3125E /* FBTestUIBaseSportsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C3A47E2A24AB9600C95E19 /* FBTestUIBaseSportsCell.m */; };
+		59AA50222AB4320E00D3125E /* BrightScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592197092A1B514700A4BE45 /* BrightScreenViewController.m */; };
+		59AA50232AB4320E00D3125E /* FBTestUIItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 592F5F0A2A050130008C06D7 /* FBTestUIItemCell.m */; };
+		59AA50242AB4320E00D3125E /* HeartRateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592197182A1B514700A4BE45 /* HeartRateViewController.m */; };
+		59AA50252AB4320E00D3125E /* FBTestUISportsChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E41DE2A2DE81300B438FE /* FBTestUISportsChartCell.m */; };
+		59AA50262AB4320E00D3125E /* PushSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196942A1B514700A4BE45 /* PushSwitchCell.m */; };
+		59AA50272AB4320E00D3125E /* LWCustomDialTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196962A1B514700A4BE45 /* LWCustomDialTableView.m */; };
+		59AA50282AB4320E00D3125E /* ChipFlashSpatialVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196E92A1B514700A4BE45 /* ChipFlashSpatialVC.m */; };
+		59AA50292AB4320E00D3125E /* RLMStepModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59116DEE2A0CC319009C242B /* RLMStepModel.m */; };
+		59AA502A2AB4320E00D3125E /* BinFileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196A12A1B514700A4BE45 /* BinFileTableViewCell.m */; };
+		59AA502B2AB4320E00D3125E /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196E42A1B514700A4BE45 /* ListViewController.m */; };
+		59AA502C2AB4320E00D3125E /* HeartRateReminderVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196ED2A1B514700A4BE45 /* HeartRateReminderVC.m */; };
+		59AA502D2AB4320E00D3125E /* LWCustomDialModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196BD2A1B514700A4BE45 /* LWCustomDialModel.m */; };
+		59AA502E2AB4320E00D3125E /* LWPersonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196F32A1B514700A4BE45 /* LWPersonViewController.m */; };
+		59AA502F2AB4320E00D3125E /* dispatch_source_timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196D22A1B514700A4BE45 /* dispatch_source_timer.m */; };
+		59AA50302AB4320E00D3125E /* FBTestUISportsSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 590419852A2F241C00BD3A0A /* FBTestUISportsSectionHeader.m */; };
+		59AA50312AB4320E00D3125E /* FBCustomDialListColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5920EAC12A3873C2008D1CB0 /* FBCustomDialListColorCell.m */; };
+		59AA50322AB4320E00D3125E /* WeatherCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5921966D2A1B514700A4BE45 /* WeatherCell.m */; };
+		59AA50332AB4320E00D3125E /* MotionPushCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196AA2A1B514700A4BE45 /* MotionPushCollectionViewCell.m */; };
+		59AA50342AB4320E00D3125E /* ClockListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196742A1B514700A4BE45 /* ClockListTableViewCell.m */; };
+		59AA50352AB4320E00D3125E /* FBRadarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196782A1B514700A4BE45 /* FBRadarView.m */; };
+		59AA50362AB4320E00D3125E /* FBConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59B3DA1B2A78F7FF00218990 /* FBConnectViewController.m */; };
+		59AA50372AB4320E00D3125E /* FBTestUIPhoneRingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 596E6D562A557E6600987964 /* FBTestUIPhoneRingView.m */; };
+		59AA50382AB4320E00D3125E /* FBCustomDialObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E41A22A28696B00B438FE /* FBCustomDialObject.m */; };
+		59AA50392AB4320E00D3125E /* Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196B92A1B514700A4BE45 /* Tools.m */; };
+		59AA503A2AB4320E00D3125E /* FBTestUIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E41402A25A9CF00B438FE /* FBTestUIViewController.m */; };
+		59AA503B2AB4320E00D3125E /* ClockInforListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5921970A2A1B514700A4BE45 /* ClockInforListVC.m */; };
+		59AA503C2AB4320E00D3125E /* FBLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196C82A1B514700A4BE45 /* FBLogManager.m */; };
+		59AA503D2AB4320E00D3125E /* LWContactSearchBarHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196A92A1B514700A4BE45 /* LWContactSearchBarHeaderView.m */; };
+		59AA503E2AB4320E00D3125E /* DialListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196B52A1B514700A4BE45 /* DialListModel.m */; };
+		59AA503F2AB4320E00D3125E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 592A9FE425A4173A00CC515E /* AppDelegate.m */; };
+		59AA50402AB4320E00D3125E /* MotionPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196D92A1B514700A4BE45 /* MotionPushViewController.m */; };
+		59AA50412AB4320E00D3125E /* FBCustomDialHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E41642A25DBF000B438FE /* FBCustomDialHeadView.m */; };
+		59AA50422AB4320E00D3125E /* LWStartCountdownView.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196AE2A1B514700A4BE45 /* LWStartCountdownView.m */; };
+		59AA50432AB4320E00D3125E /* BinFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196EA2A1B514700A4BE45 /* BinFileViewController.m */; };
+		59AA50442AB4320E00D3125E /* SedentaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592197002A1B514700A4BE45 /* SedentaryViewController.m */; };
+		59AA50452AB4320E00D3125E /* FBTestUISportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E413D2A25A9CF00B438FE /* FBTestUISportsViewController.m */; };
+		59AA50462AB4320E00D3125E /* NSObject+Authorized.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196CB2A1B514700A4BE45 /* NSObject+Authorized.m */; };
+		59AA50472AB4320E00D3125E /* LWCustomDialColorCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196802A1B514700A4BE45 /* LWCustomDialColorCollectionCell.m */; };
+		59AA50482AB4320E00D3125E /* FBCustomDialListImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E41A92A28781600B438FE /* FBCustomDialListImageCell.m */; };
+		59AA50492AB4320E00D3125E /* MessagePushSwitchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196FC2A1B514700A4BE45 /* MessagePushSwitchVC.m */; };
+		59AA504A2AB4320E00D3125E /* FBTextImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 599BF8872A5FA6A400751831 /* FBTextImageView.m */; };
+		59AA504B2AB4320E00D3125E /* RLMStressModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C444B42A0CDBE600F236B0 /* RLMStressModel.m */; };
+		59AA504C2AB4320E00D3125E /* LWPersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196B42A1B514700A4BE45 /* LWPersonModel.m */; };
+		59AA504D2AB4320E00D3125E /* FBSystemFunctionSwitchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 5907760E2A57C3C000D449E9 /* FBSystemFunctionSwitchVC.m */; };
+		59AA504E2AB4320E00D3125E /* QMUIConfigurationTemplate.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358D0293F26C100E5379C /* QMUIConfigurationTemplate.m */; };
+		59AA504F2AB4320E00D3125E /* LWMotionPushDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196752A1B514700A4BE45 /* LWMotionPushDataCell.m */; };
+		59AA50502AB4320E00D3125E /* FBTestUIBaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E41412A25A9CF00B438FE /* FBTestUIBaseListViewController.m */; };
+		59AA50512AB4320E00D3125E /* FBBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 590B97702966682600D31A76 /* FBBaseNavigationController.m */; };
+		59AA50522AB4320E00D3125E /* FBColorSliderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E414D2A25AA6F00B438FE /* FBColorSliderView.m */; };
+		59AA50532AB4320E00D3125E /* LWLanguageLocalizble.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196D12A1B514700A4BE45 /* LWLanguageLocalizble.m */; };
+		59AA50542AB4320E00D3125E /* FBSportsConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592197122A1B514700A4BE45 /* FBSportsConnectViewController.m */; };
+		59AA50552AB4320E00D3125E /* RLMDeviceListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 595985782A0DD053002AB22F /* RLMDeviceListModel.m */; };
+		59AA50562AB4320E00D3125E /* FBTestUITodayDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59400A862A08CBE100C93683 /* FBTestUITodayDataCell.m */; };
+		59AA50572AB4320E00D3125E /* RLMSleepModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C444B72A0CDBF700F236B0 /* RLMSleepModel.m */; };
+		59AA50582AB4320E00D3125E /* FBTestUIOverviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E41E82A2DF08D00B438FE /* FBTestUIOverviewCell.m */; };
+		59AA50592AB4320E00D3125E /* LWBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592358E42940B04100E5379C /* LWBaseViewController.m */; };
+		59AA505A2AB4320E00D3125E /* NSDate+Date.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196C32A1B514700A4BE45 /* NSDate+Date.m */; };
+		59AA505B2AB4320E00D3125E /* FBCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196FB2A1B514700A4BE45 /* FBCameraViewController.m */; };
+		59AA505C2AB4320E00D3125E /* FBTestUIBaseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5904198A2A2F417800BD3A0A /* FBTestUIBaseListCell.m */; };
+		59AA505D2AB4320E00D3125E /* LWMotionPushCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5921968B2A1B514700A4BE45 /* LWMotionPushCollectionView.m */; };
+		59AA505E2AB4320E00D3125E /* LWMotionPushSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196822A1B514700A4BE45 /* LWMotionPushSelectCell.m */; };
+		59AA505F2AB4320E00D3125E /* FBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 590B978E2968117100D31A76 /* FBWebViewController.m */; };
+		59AA50602AB4320E00D3125E /* CollCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196A02A1B514700A4BE45 /* CollCell.m */; };
+		59AA50612AB4320E00D3125E /* RLMBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5959857B2A0DE518002AB22F /* RLMBaseModel.m */; };
+		59AA50622AB4320E00D3125E /* RLMSportsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C444BA2A0CDC2900F236B0 /* RLMSportsModel.m */; };
+		59AA50632AB4320E00D3125E /* LWCustomDialPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196AB2A1B514700A4BE45 /* LWCustomDialPickerView.m */; };
+		59AA50642AB4320E00D3125E /* FBTestUIBaseChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 595985892A0F1DD8002AB22F /* FBTestUIBaseChartCell.m */; };
+		59AA50652AB4320E00D3125E /* LWSportsConnectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196BA2A1B514700A4BE45 /* LWSportsConnectModel.m */; };
+		59AA50662AB4320E00D3125E /* FBTestUISportsHrRangeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E41D42A29EB7C00B438FE /* FBTestUISportsHrRangeCell.m */; };
+		59AA50672AB4320E00D3125E /* LeftViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196FF2A1B514700A4BE45 /* LeftViewController.m */; };
+		59AA50682AB4320E00D3125E /* LWNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196C42A1B514700A4BE45 /* LWNetworkingManager.m */; };
+		59AA50692AB4320E00D3125E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 592A9FF525A4173B00CC515E /* main.m */; };
+		59AA506A2AB4320E00D3125E /* FBCustomDialListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 590419912A30A86E00BD3A0A /* FBCustomDialListModel.m */; };
+		59AA506B2AB4320E00D3125E /* FBLoadDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 59400A942A08DF6C00C93683 /* FBLoadDataObject.m */; };
+		59AA506C2AB4320E00D3125E /* ClockInforViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5921970D2A1B514700A4BE45 /* ClockInforViewController.m */; };
+		59AA506D2AB4320E00D3125E /* LWMotionPushClassifyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 592196D02A1B514700A4BE45 /* LWMotionPushClassifyModel.m */; };
+		59AA506E2AB4320E00D3125E /* WMDragView.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E41672A26FC8C00B438FE /* WMDragView.m */; };
+		59AA506F2AB4320E00D3125E /* FBSystemFunctionSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 590776132A57E82900D449E9 /* FBSystemFunctionSwitchCell.m */; };
+		59AA50702AB4320E00D3125E /* RLMHeartRateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C444AB2A0CDA3400F236B0 /* RLMHeartRateModel.m */; };
+		59AA50712AB4320E00D3125E /* FBCustomDialListContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E41612A25D4B700B438FE /* FBCustomDialListContentView.m */; };
+		59AA50722AB4320E00D3125E /* FBTestUIOverviewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 590419822A2F058600BD3A0A /* FBTestUIOverviewModel.m */; };
+		59AA50742AB4320E00D3125E /* RTKLEFoundation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA662AB2AB2C004A88F1 /* RTKLEFoundation.xcframework */; };
+		59AA50752AB4320E00D3125E /* RTKOTASDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA652AB2AB2C004A88F1 /* RTKOTASDK.xcframework */; };
+		59AA50772AB4320E00D3125E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C6CC4A25ADA95F007C2521 /* AudioToolbox.framework */; };
+		59AA50782AB4320E00D3125E /* Fission_Sdk_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA612AB2AA8F004A88F1 /* Fission_Sdk_iOS.xcframework */; };
+		59AA507A2AB4320E00D3125E /* ELPO_GR3_1.DAT in Resources */ = {isa = PBXBuildFile; fileRef = 59FA408F2A9DFAA50035FD1E /* ELPO_GR3_1.DAT */; };
+		59AA507B2AB4320E00D3125E /* 时分2.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B97269D3CF1001E4D65 /* 时分2.bmp */; };
+		59AA507C2AB4320E00D3125E /* 日期3.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF782696893700B8001A /* 日期3.bmp */; };
+		59AA507D2AB4320E00D3125E /* pic_custom360x360.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BEA3268C7B8A00B8001A /* pic_custom360x360.png */; };
+		59AA507E2AB4320E00D3125E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 592A9FF125A4173B00CC515E /* LaunchScreen.storyboard */; };
+		59AA507F2AB4320E00D3125E /* 日期2.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF772696893700B8001A /* 日期2.bmp */; };
+		59AA50802AB4320E00D3125E /* 电量1.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF862696893700B8001A /* 电量1.bmp */; };
+		59AA50812AB4320E00D3125E /* FBSystemFunctionSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 590776142A57E82900D449E9 /* FBSystemFunctionSwitchCell.xib */; };
+		59AA50822AB4320E00D3125E /* ic_dial_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE50268C13C400B8001A /* ic_dial_button@2x.png */; };
+		59AA50832AB4320E00D3125E /* hotnoon_front_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE5F268C13C400B8001A /* hotnoon_front_image.jpg */; };
+		59AA50842AB4320E00D3125E /* 日期10.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF7A2696893700B8001A /* 日期10.bmp */; };
+		59AA50852AB4320E00D3125E /* 日期12.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF7B2696893700B8001A /* 日期12.bmp */; };
+		59AA50862AB4320E00D3125E /* srpText_sleep.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE5C268C13C400B8001A /* srpText_sleep.png */; };
+		59AA50872AB4320E00D3125E /* FBTestUIBaseListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5904198B2A2F417800BD3A0A /* FBTestUIBaseListCell.xib */; };
+		59AA50882AB4320E00D3125E /* 电量7.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF822696893700B8001A /* 电量7.bmp */; };
+		59AA50892AB4320E00D3125E /* 时分13.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B9D269D3CF1001E4D65 /* 时分13.bmp */; };
+		59AA508A2AB4320E00D3125E /* 时分10.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B9A269D3CF1001E4D65 /* 时分10.bmp */; };
+		59AA508B2AB4320E00D3125E /* 电量8.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF882696893700B8001A /* 电量8.bmp */; };
+		59AA508C2AB4320E00D3125E /* FBTestUIItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592F5F0B2A050130008C06D7 /* FBTestUIItemCell.xib */; };
+		59AA508D2AB4320E00D3125E /* FBTestUIPhoneRingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596E6D5A2A558A9100987964 /* FBTestUIPhoneRingView.xib */; };
+		59AA508E2AB4320E00D3125E /* 时分8.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B9E269D3CF1001E4D65 /* 时分8.bmp */; };
+		59AA508F2AB4320E00D3125E /* icons8-phonelink-ring.gif in Resources */ = {isa = PBXBuildFile; fileRef = 596E6D532A557E1C00987964 /* icons8-phonelink-ring.gif */; };
+		59AA50902AB4320E00D3125E /* 时分11.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B99269D3CF1001E4D65 /* 时分11.bmp */; };
+		59AA50912AB4320E00D3125E /* FBCustomDialListTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593E41BB2A29928500B438FE /* FBCustomDialListTitleCell.xib */; };
+		59AA50922AB4320E00D3125E /* pic_custom75x75px@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE62268C13C400B8001A /* pic_custom75x75px@3x.png */; };
+		59AA50932AB4320E00D3125E /* FBTestUIBaseChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5959858A2A0F1DD8002AB22F /* FBTestUIBaseChartCell.xib */; };
+		59AA50942AB4320E00D3125E /* srpText_steps.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE5B268C13C400B8001A /* srpText_steps.png */; };
+		59AA50952AB4320E00D3125E /* FBLogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592196A62A1B514700A4BE45 /* FBLogTableViewCell.xib */; };
+		59AA50962AB4320E00D3125E /* FBTestUIBaseListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593E413F2A25A9CF00B438FE /* FBTestUIBaseListViewController.xib */; };
+		59AA50972AB4320E00D3125E /* 日期5.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF742696893700B8001A /* 日期5.bmp */; };
+		59AA50982AB4320E00D3125E /* 日期9.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF702696893700B8001A /* 日期9.bmp */; };
+		59AA50992AB4320E00D3125E /* pic_custom126x154px@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE65268C13C400B8001A /* pic_custom126x154px@3x.png */; };
+		59AA509A2AB4320E00D3125E /* 时分3.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B9F269D3CF1001E4D65 /* 时分3.bmp */; };
+		59AA509B2AB4320E00D3125E /* FemaleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5921967D2A1B514700A4BE45 /* FemaleCell.xib */; };
+		59AA509C2AB4320E00D3125E /* ChipFlashSpatialVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592197072A1B514700A4BE45 /* ChipFlashSpatialVC.xib */; };
+		59AA509D2AB4320E00D3125E /* FBSystemFunctionSwitchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5907760F2A57C3C000D449E9 /* FBSystemFunctionSwitchVC.xib */; };
+		59AA509E2AB4320E00D3125E /* LWCustomDialPickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592196722A1B514700A4BE45 /* LWCustomDialPickerViewCell.xib */; };
+		59AA509F2AB4320E00D3125E /* FBTestUISportsSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 590419872A2F243300BD3A0A /* FBTestUISportsSectionHeader.xib */; };
+		59AA50A02AB4320E00D3125E /* HeartRateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592196F92A1B514700A4BE45 /* HeartRateViewController.xib */; };
+		59AA50A12AB4320E00D3125E /* LWMotionPushCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592196702A1B514700A4BE45 /* LWMotionPushCell.xib */; };
+		59AA50A22AB4320E00D3125E /* 电量3.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF852696893700B8001A /* 电量3.bmp */; };
+		59AA50A32AB4320E00D3125E /* FBTestUISportsHrRangeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593E41D52A29EB7C00B438FE /* FBTestUISportsHrRangeCell.xib */; };
+		59AA50A42AB4320E00D3125E /* 背景.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF8A2696893700B8001A /* 背景.bmp */; };
+		59AA50A52AB4320E00D3125E /* 时分6.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B95269D3CF1001E4D65 /* 时分6.bmp */; };
+		59AA50A62AB4320E00D3125E /* 时分7.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84BA0269D3CF1001E4D65 /* 时分7.bmp */; };
+		59AA50A72AB4320E00D3125E /* ClockListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592196762A1B514700A4BE45 /* ClockListTableViewCell.xib */; };
+		59AA50A82AB4320E00D3125E /* CollCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5921967C2A1B514700A4BE45 /* CollCell.xib */; };
+		59AA50A92AB4320E00D3125E /* 电量6.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF832696893700B8001A /* 电量6.bmp */; };
+		59AA50AA2AB4320E00D3125E /* pic_dial_circular@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE63268C13C400B8001A /* pic_dial_circular@3x.png */; };
+		59AA50AB2AB4320E00D3125E /* 日期11.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF792696893700B8001A /* 日期11.bmp */; };
+		59AA50AC2AB4320E00D3125E /* WaterClockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592196F62A1B514700A4BE45 /* WaterClockViewController.xib */; };
+		59AA50AD2AB4320E00D3125E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 592A9FEF25A4173B00CC515E /* Assets.xcassets */; };
+		59AA50AE2AB4320E00D3125E /* NotDisturbViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592197022A1B514700A4BE45 /* NotDisturbViewController.xib */; };
+		59AA50AF2AB4320E00D3125E /* FBTestUITodayDataCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59400A872A08CBE100C93683 /* FBTestUITodayDataCell.xib */; };
+		59AA50B02AB4320E00D3125E /* 日期8.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF6F2696893700B8001A /* 日期8.bmp */; };
+		59AA50B12AB4320E00D3125E /* 日期13.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF7C2696893700B8001A /* 日期13.bmp */; };
+		59AA50B22AB4320E00D3125E /* srpText_date.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE57268C13C400B8001A /* srpText_date.png */; };
+		59AA50B32AB4320E00D3125E /* 电量10.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF7F2696893700B8001A /* 电量10.bmp */; };
+		59AA50B42AB4320E00D3125E /* FBTestUISportsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593E41D12A29D32300B438FE /* FBTestUISportsHeaderView.xib */; };
+		59AA50B52AB4320E00D3125E /* HeartRateReminderVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592196F22A1B514700A4BE45 /* HeartRateReminderVC.xib */; };
+		59AA50B62AB4320E00D3125E /* 时分9.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B96269D3CF1001E4D65 /* 时分9.bmp */; };
+		59AA50B72AB4320E00D3125E /* 2.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF8D2696893700B8001A /* 2.bmp */; };
+		59AA50B82AB4320E00D3125E /* 效果图 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF7D2696893700B8001A /* 效果图 (2).png */; };
+		59AA50B92AB4320E00D3125E /* ic_dial_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE52268C13C400B8001A /* ic_dial_button@3x.png */; };
+		59AA50BA2AB4320E00D3125E /* 时分1.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B94269D3CF1001E4D65 /* 时分1.bmp */; };
+		59AA50BB2AB4320E00D3125E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 592A9FEC25A4173A00CC515E /* Main.storyboard */; };
+		59AA50BC2AB4320E00D3125E /* ClockInforViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592196D82A1B514700A4BE45 /* ClockInforViewController.xib */; };
+		59AA50BD2AB4320E00D3125E /* 1.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF8E2696893700B8001A /* 1.bmp */; };
+		59AA50BE2AB4320E00D3125E /* 日期7.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF712696893700B8001A /* 日期7.bmp */; };
+		59AA50BF2AB4320E00D3125E /* srpText_hr.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE56268C13C400B8001A /* srpText_hr.png */; };
+		59AA50C02AB4320E00D3125E /* FemaleCircadianCycleVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5921971E2A1B514700A4BE45 /* FemaleCircadianCycleVC.xib */; };
+		59AA50C12AB4320E00D3125E /* 电量2.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF842696893700B8001A /* 电量2.bmp */; };
+		59AA50C22AB4320E00D3125E /* rgbA.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BEB7268EAE4A00B8001A /* rgbA.png */; };
+		59AA50C32AB4320E00D3125E /* icons8-walking-gif.gif in Resources */ = {isa = PBXBuildFile; fileRef = 593E41DB2A2DE01500B438FE /* icons8-walking-gif.gif */; };
+		59AA50C42AB4320E00D3125E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 592358DB293F2C8C00E5379C /* Localizable.strings */; };
+		59AA50C52AB4320E00D3125E /* BrightScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592197062A1B514700A4BE45 /* BrightScreenViewController.xib */; };
+		59AA50C62AB4320E00D3125E /* dial_style3_yellow.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE5A268C13C400B8001A /* dial_style3_yellow.jpg */; };
+		59AA50C72AB4320E00D3125E /* FBCustomDialListColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5920EAC22A3873C2008D1CB0 /* FBCustomDialListColorCell.xib */; };
+		59AA50C82AB4320E00D3125E /* 电量4.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF802696893700B8001A /* 电量4.bmp */; };
+		59AA50C92AB4320E00D3125E /* FBTestUIOverviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593E41E92A2DF08D00B438FE /* FBTestUIOverviewCell.xib */; };
+		59AA50CA2AB4320E00D3125E /* ic_dial_button_d@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE54268C13C400B8001A /* ic_dial_button_d@2x.png */; };
+		59AA50CB2AB4320E00D3125E /* srpText_time.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE5D268C13C400B8001A /* srpText_time.png */; };
+		59AA50CC2AB4320E00D3125E /* ClockDialListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592196E62A1B514700A4BE45 /* ClockDialListViewController.xib */; };
+		59AA50CD2AB4320E00D3125E /* zhouhai_font_1001_TEXT.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE60268C13C400B8001A /* zhouhai_font_1001_TEXT.png */; };
+		59AA50CE2AB4320E00D3125E /* LWPersonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592196A82A1B514700A4BE45 /* LWPersonCell.xib */; };
+		59AA50D02AB4320E00D3125E /* BAHNSCHRIFT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 59B51C4D2A49938A0020708C /* BAHNSCHRIFT.TTF */; };
+		59AA50D12AB4320E00D3125E /* FBTestUISportsChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593E41DF2A2DE81300B438FE /* FBTestUISportsChartCell.xib */; };
+		59AA50D22AB4320E00D3125E /* 日期0.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF762696893700B8001A /* 日期0.bmp */; };
+		59AA50D32AB4320E00D3125E /* FBCustomDialListImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593E41AA2A28781600B438FE /* FBCustomDialListImageCell.xib */; };
+		59AA50D42AB4320E00D3125E /* 电量5.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF812696893700B8001A /* 电量5.bmp */; };
+		59AA50D52AB4320E00D3125E /* LWCustomDialColorCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5921966E2A1B514700A4BE45 /* LWCustomDialColorCollectionCell.xib */; };
+		59AA50D62AB4320E00D3125E /* 时分5.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84BA1269D3CF1001E4D65 /* 时分5.bmp */; };
+		59AA50D72AB4320E00D3125E /* pic_dial_rectangle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE64268C13C400B8001A /* pic_dial_rectangle@3x.png */; };
+		59AA50D82AB4320E00D3125E /* MotionPushCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592196872A1B514700A4BE45 /* MotionPushCollectionViewCell.xib */; };
+		59AA50D92AB4320E00D3125E /* FBTestUISportsRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59116DE02A0B4CCD009C242B /* FBTestUISportsRecordCell.xib */; };
+		59AA50DA2AB4320E00D3125E /* 日期6.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF722696893700B8001A /* 日期6.bmp */; };
+		59AA50DB2AB4320E00D3125E /* 标注.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF8B2696893700B8001A /* 标注.png */; };
+		59AA50DC2AB4320E00D3125E /* LWCustomDialColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5921968F2A1B514700A4BE45 /* LWCustomDialColorCell.xib */; };
+		59AA50DD2AB4320E00D3125E /* pic_custom240x240px@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE66268C13C400B8001A /* pic_custom240x240px@3x.png */; };
+		59AA50DE2AB4320E00D3125E /* FBTestUISportsPaceRatioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A78BCB2A80C62B000A80DD /* FBTestUISportsPaceRatioCell.xib */; };
+		59AA50DF2AB4320E00D3125E /* 时分0.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B98269D3CF1001E4D65 /* 时分0.bmp */; };
+		59AA50E02AB4320E00D3125E /* examples_img_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE51268C13C400B8001A /* examples_img_03.png */; };
+		59AA50E12AB4320E00D3125E /* SportTargetViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592197152A1B514700A4BE45 /* SportTargetViewController.xib */; };
+		59AA50E22AB4320E00D3125E /* 时分12.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B9C269D3CF1001E4D65 /* 时分12.bmp */; };
+		59AA50E32AB4320E00D3125E /* FBConnectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59B3DA1C2A78F7FF00218990 /* FBConnectViewController.xib */; };
+		59AA50E42AB4320E00D3125E /* HrCheckViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592197052A1B514700A4BE45 /* HrCheckViewController.xib */; };
+		59AA50E52AB4320E00D3125E /* ic_colorSlider@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 593E414E2A25AA6F00B438FE /* ic_colorSlider@3x.png */; };
+		59AA50E62AB4320E00D3125E /* 时分4.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B9B269D3CF1001E4D65 /* 时分4.bmp */; };
+		59AA50E72AB4320E00D3125E /* WeatherCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5921967E2A1B514700A4BE45 /* WeatherCell.xib */; };
+		59AA50E82AB4320E00D3125E /* MessagePushSwitchVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592196FA2A1B514700A4BE45 /* MessagePushSwitchVC.xib */; };
+		59AA50E92AB4320E00D3125E /* 缩略图.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF6D2696893700B8001A /* 缩略图.bmp */; };
+		59AA50EA2AB4320E00D3125E /* ClockInforListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592197042A1B514700A4BE45 /* ClockInforListVC.xib */; };
+		59AA50EB2AB4320E00D3125E /* dial_style2_black.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE53268C13C400B8001A /* dial_style2_black.jpg */; };
+		59AA50EC2AB4320E00D3125E /* dial_style4_green.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE5E268C13C400B8001A /* dial_style4_green.jpg */; };
+		59AA50ED2AB4320E00D3125E /* ic_dial_button_d@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE58268C13C400B8001A /* ic_dial_button_d@3x.png */; };
+		59AA50EE2AB4320E00D3125E /* LWCustomDialPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592196892A1B514700A4BE45 /* LWCustomDialPickerView.xib */; };
+		59AA50EF2AB4320E00D3125E /* 电量9.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF892696893700B8001A /* 电量9.bmp */; };
+		59AA50F02AB4320E00D3125E /* WeatherViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592196F02A1B514700A4BE45 /* WeatherViewController.xib */; };
+		59AA50F12AB4320E00D3125E /* dial_style1_white.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE59268C13C400B8001A /* dial_style1_white.jpg */; };
+		59AA50F22AB4320E00D3125E /* 电量0.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF872696893700B8001A /* 电量0.bmp */; };
+		59AA50F32AB4320E00D3125E /* dial_style5_black.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE55268C13C400B8001A /* dial_style5_black.jpg */; };
+		59AA50F42AB4320E00D3125E /* 日期1.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF752696893700B8001A /* 日期1.bmp */; };
+		59AA50F52AB4320E00D3125E /* 日期4.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF732696893700B8001A /* 日期4.bmp */; };
+		59AA50F62AB4320E00D3125E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 590B977629667AC300D31A76 /* InfoPlist.strings */; };
+		59AA50F72AB4320E00D3125E /* PushSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592196882A1B514700A4BE45 /* PushSwitchCell.xib */; };
+		59AA50F82AB4320E00D3125E /* FBTestUISportsDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593E41CB2A29CD9E00B438FE /* FBTestUISportsDetailsCell.xib */; };
+		59AA50F92AB4320E00D3125E /* rgb.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BED82695980B00B8001A /* rgb.bmp */; };
+		59AA50FC2AB4320E00D3125E /* RTKOTASDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA652AB2AB2C004A88F1 /* RTKOTASDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59AA50FD2AB4320E00D3125E /* Fission_Sdk_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA612AB2AA8F004A88F1 /* Fission_Sdk_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59AA50FE2AB4320E00D3125E /* RTKLEFoundation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA662AB2AB2C004A88F1 /* RTKLEFoundation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59B3DA1D2A78F7FF00218990 /* FBConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59B3DA1B2A78F7FF00218990 /* FBConnectViewController.m */; };
 		59B3DA1E2A78F7FF00218990 /* FBConnectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59B3DA1C2A78F7FF00218990 /* FBConnectViewController.xib */; };
 		59B51C4E2A49938A0020708C /* BAHNSCHRIFT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 59B51C4D2A49938A0020708C /* BAHNSCHRIFT.TTF */; };
+		59BDFA632AB2AA9B004A88F1 /* Fission_Sdk_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA612AB2AA8F004A88F1 /* Fission_Sdk_iOS.xcframework */; };
+		59BDFA642AB2AA9B004A88F1 /* Fission_Sdk_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA612AB2AA8F004A88F1 /* Fission_Sdk_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59BDFA692AB2AB31004A88F1 /* RTKLEFoundation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA662AB2AB2C004A88F1 /* RTKLEFoundation.xcframework */; };
+		59BDFA6A2AB2AB31004A88F1 /* RTKLEFoundation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA662AB2AB2C004A88F1 /* RTKLEFoundation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59BDFA6B2AB2AB33004A88F1 /* RTKOTASDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA652AB2AB2C004A88F1 /* RTKOTASDK.xcframework */; };
+		59BDFA6C2AB2AB33004A88F1 /* RTKOTASDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA652AB2AB2C004A88F1 /* RTKOTASDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59C3A4802A24AB9600C95E19 /* FBTestUIBaseSportsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C3A47E2A24AB9600C95E19 /* FBTestUIBaseSportsCell.m */; };
 		59C444AC2A0CDA3400F236B0 /* RLMHeartRateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C444AB2A0CDA3400F236B0 /* RLMHeartRateModel.m */; };
 		59C444AF2A0CDBBB00F236B0 /* RLMBloodOxygenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C444AE2A0CDBBB00F236B0 /* RLMBloodOxygenModel.m */; };
@@ -276,6 +542,8 @@
 		59F84BAD269D3CF1001E4D65 /* 时分3.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B9F269D3CF1001E4D65 /* 时分3.bmp */; };
 		59F84BAE269D3CF1001E4D65 /* 时分7.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84BA0269D3CF1001E4D65 /* 时分7.bmp */; };
 		59F84BAF269D3CF1001E4D65 /* 时分5.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84BA1269D3CF1001E4D65 /* 时分5.bmp */; };
+		59FA408E2A9D95C40035FD1E /* FBLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 59FA408D2A9D95C40035FD1E /* FBLocationManager.m */; };
+		59FA40902A9DFAA50035FD1E /* ELPO_GR3_1.DAT in Resources */ = {isa = PBXBuildFile; fileRef = 59FA408F2A9DFAA50035FD1E /* ELPO_GR3_1.DAT */; };
 		D97F5ABDB9669A8AA9FF900E /* Pods_FissionBluetoothTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F904E21A1EB542FFEDA725CF /* Pods_FissionBluetoothTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -303,9 +571,22 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				59400A822A08C71A00C93683 /* RTKLEFoundation.framework in Embed Frameworks */,
-				59400A842A08C71C00C93683 /* RTKOTASDK.framework in Embed Frameworks */,
-				592358C3293EE30500E5379C /* Fission_Sdk_iOS.framework in Embed Frameworks */,
+				59BDFA6C2AB2AB33004A88F1 /* RTKOTASDK.xcframework in Embed Frameworks */,
+				59BDFA642AB2AA9B004A88F1 /* Fission_Sdk_iOS.xcframework in Embed Frameworks */,
+				59BDFA6A2AB2AB31004A88F1 /* RTKLEFoundation.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59AA50FB2AB4320E00D3125E /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				59AA50FC2AB4320E00D3125E /* RTKOTASDK.xcframework in Embed Frameworks */,
+				59AA50FD2AB4320E00D3125E /* Fission_Sdk_iOS.xcframework in Embed Frameworks */,
+				59AA50FE2AB4320E00D3125E /* RTKLEFoundation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -314,7 +595,7 @@
 
 /* Begin PBXFileReference section */
 		18EE9E81A4ED5C0501FB81F3 /* Pods_FissionBluetooth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FissionBluetooth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3CAADF886303D331C1B5C7CD /* Pods-FissionBluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetooth.release.xcconfig"; path = "Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth.release.xcconfig"; sourceTree = "<group>"; };
+		57341709EC93704774649593 /* Pods-FissionBluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetooth.debug.xcconfig"; path = "Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth.debug.xcconfig"; sourceTree = "<group>"; };
 		590419812A2F058600BD3A0A /* FBTestUIOverviewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBTestUIOverviewModel.h; sourceTree = "<group>"; };
 		590419822A2F058600BD3A0A /* FBTestUIOverviewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBTestUIOverviewModel.m; sourceTree = "<group>"; };
 		590419842A2F241C00BD3A0A /* FBTestUISportsSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBTestUISportsSectionHeader.h; sourceTree = "<group>"; };
@@ -323,7 +604,6 @@
 		590419892A2F417800BD3A0A /* FBTestUIBaseListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBTestUIBaseListCell.h; sourceTree = "<group>"; };
 		5904198A2A2F417800BD3A0A /* FBTestUIBaseListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBTestUIBaseListCell.m; sourceTree = "<group>"; };
 		5904198B2A2F417800BD3A0A /* FBTestUIBaseListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FBTestUIBaseListCell.xib; sourceTree = "<group>"; };
-		5904198E2A308A4D00BD3A0A /* WatchUIResource.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = WatchUIResource.zip; sourceTree = "<group>"; };
 		590419902A30A86E00BD3A0A /* FBCustomDialListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBCustomDialListModel.h; sourceTree = "<group>"; };
 		590419912A30A86E00BD3A0A /* FBCustomDialListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBCustomDialListModel.m; sourceTree = "<group>"; };
 		5907760D2A57C3C000D449E9 /* FBSystemFunctionSwitchVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBSystemFunctionSwitchVC.h; sourceTree = "<group>"; };
@@ -523,7 +803,6 @@
 		5921971E2A1B514700A4BE45 /* FemaleCircadianCycleVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FemaleCircadianCycleVC.xib; sourceTree = "<group>"; };
 		592197862A1B522400A4BE45 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		592197872A1B522400A4BE45 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		59235807293ED8D000E5379C /* Fission_Sdk_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fission_Sdk_iOS.framework; sourceTree = "<group>"; };
 		592358CF293F26C100E5379C /* QMUIConfigurationTemplate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMUIConfigurationTemplate.h; sourceTree = "<group>"; };
 		592358D0293F26C100E5379C /* QMUIConfigurationTemplate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMUIConfigurationTemplate.m; sourceTree = "<group>"; };
 		592358D5293F2C5A00E5379C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -604,8 +883,6 @@
 		593E41E72A2DF08D00B438FE /* FBTestUIOverviewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBTestUIOverviewCell.h; sourceTree = "<group>"; };
 		593E41E82A2DF08D00B438FE /* FBTestUIOverviewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBTestUIOverviewCell.m; sourceTree = "<group>"; };
 		593E41E92A2DF08D00B438FE /* FBTestUIOverviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FBTestUIOverviewCell.xib; sourceTree = "<group>"; };
-		59400A7D2A08C70500C93683 /* RTKOTASDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RTKOTASDK.framework; sourceTree = "<group>"; };
-		59400A7E2A08C70500C93683 /* RTKLEFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RTKLEFoundation.framework; sourceTree = "<group>"; };
 		59400A852A08CBE100C93683 /* FBTestUITodayDataCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBTestUITodayDataCell.h; sourceTree = "<group>"; };
 		59400A862A08CBE100C93683 /* FBTestUITodayDataCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBTestUITodayDataCell.m; sourceTree = "<group>"; };
 		59400A872A08CBE100C93683 /* FBTestUITodayDataCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FBTestUITodayDataCell.xib; sourceTree = "<group>"; };
@@ -629,11 +906,16 @@
 		59A78BC92A80C62B000A80DD /* FBTestUISportsPaceRatioCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBTestUISportsPaceRatioCell.h; sourceTree = "<group>"; };
 		59A78BCA2A80C62B000A80DD /* FBTestUISportsPaceRatioCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBTestUISportsPaceRatioCell.m; sourceTree = "<group>"; };
 		59A78BCB2A80C62B000A80DD /* FBTestUISportsPaceRatioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FBTestUISportsPaceRatioCell.xib; sourceTree = "<group>"; };
+		59AA51022AB4320E00D3125E /* FissionBluetooth_internal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FissionBluetooth_internal.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		59AA51032AB4321000D3125E /* FissionBluetooth_internal-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "FissionBluetooth_internal-Info.plist"; path = "/Users/liebian/Desktop/Fission_Sdk_iOS/Example Demo/FissionBluetooth/FissionBluetooth_internal-Info.plist"; sourceTree = "<absolute>"; };
 		59B3DA1A2A78F7FF00218990 /* FBConnectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBConnectViewController.h; sourceTree = "<group>"; };
 		59B3DA1B2A78F7FF00218990 /* FBConnectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBConnectViewController.m; sourceTree = "<group>"; };
 		59B3DA1C2A78F7FF00218990 /* FBConnectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FBConnectViewController.xib; sourceTree = "<group>"; };
 		59B51C4D2A49938A0020708C /* BAHNSCHRIFT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = BAHNSCHRIFT.TTF; sourceTree = "<group>"; };
 		59B66DB625A4376D0068B89A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		59BDFA612AB2AA8F004A88F1 /* Fission_Sdk_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Fission_Sdk_iOS.xcframework; sourceTree = "<group>"; };
+		59BDFA652AB2AB2C004A88F1 /* RTKOTASDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RTKOTASDK.xcframework; sourceTree = "<group>"; };
+		59BDFA662AB2AB2C004A88F1 /* RTKLEFoundation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RTKLEFoundation.xcframework; sourceTree = "<group>"; };
 		59C3A47D2A24AB9600C95E19 /* FBTestUIBaseSportsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBTestUIBaseSportsCell.h; sourceTree = "<group>"; };
 		59C3A47E2A24AB9600C95E19 /* FBTestUIBaseSportsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBTestUIBaseSportsCell.m; sourceTree = "<group>"; };
 		59C444AA2A0CDA3400F236B0 /* RLMHeartRateModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RLMHeartRateModel.h; sourceTree = "<group>"; };
@@ -722,10 +1004,13 @@
 		59F84B9F269D3CF1001E4D65 /* 时分3.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分3.bmp"; sourceTree = "<group>"; };
 		59F84BA0269D3CF1001E4D65 /* 时分7.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分7.bmp"; sourceTree = "<group>"; };
 		59F84BA1269D3CF1001E4D65 /* 时分5.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分5.bmp"; sourceTree = "<group>"; };
+		59FA408C2A9D95C40035FD1E /* FBLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBLocationManager.h; sourceTree = "<group>"; };
+		59FA408D2A9D95C40035FD1E /* FBLocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBLocationManager.m; sourceTree = "<group>"; };
+		59FA408F2A9DFAA50035FD1E /* ELPO_GR3_1.DAT */ = {isa = PBXFileReference; lastKnownFileType = file; path = ELPO_GR3_1.DAT; sourceTree = "<group>"; };
 		73C300FB567263FC20125FEE /* Pods-FissionBluetoothTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetoothTests.release.xcconfig"; path = "Target Support Files/Pods-FissionBluetoothTests/Pods-FissionBluetoothTests.release.xcconfig"; sourceTree = "<group>"; };
 		7CC02F02B45C16A32981171D /* Pods_FissionBluetooth_FissionBluetoothUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FissionBluetooth_FissionBluetoothUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		80B835452B691EA0DBD52BCD /* Pods-FissionBluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetooth.release.xcconfig"; path = "Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth.release.xcconfig"; sourceTree = "<group>"; };
 		8A63387D526BF805F11A16F9 /* Pods-FissionBluetooth-FissionBluetoothUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetooth-FissionBluetoothUITests.release.xcconfig"; path = "Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests.release.xcconfig"; sourceTree = "<group>"; };
-		E948B1D4C7D2967D8B7AFF14 /* Pods-FissionBluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetooth.debug.xcconfig"; path = "Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth.debug.xcconfig"; sourceTree = "<group>"; };
 		F904E21A1EB542FFEDA725CF /* Pods_FissionBluetoothTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FissionBluetoothTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE0F92F69642F6E6D10CB7AB /* Pods-FissionBluetooth-FissionBluetoothUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetooth-FissionBluetoothUITests.debug.xcconfig"; path = "Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -735,11 +1020,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59BDFA692AB2AB31004A88F1 /* RTKLEFoundation.xcframework in Frameworks */,
+				59BDFA6B2AB2AB33004A88F1 /* RTKOTASDK.xcframework in Frameworks */,
 				1E29CF31781E67E402257E0F /* Pods_FissionBluetooth.framework in Frameworks */,
-				59400A812A08C71A00C93683 /* RTKLEFoundation.framework in Frameworks */,
-				592358C2293EE30500E5379C /* Fission_Sdk_iOS.framework in Frameworks */,
-				59400A832A08C71C00C93683 /* RTKOTASDK.framework in Frameworks */,
 				59C6CC4B25ADA95F007C2521 /* AudioToolbox.framework in Frameworks */,
+				59BDFA632AB2AA9B004A88F1 /* Fission_Sdk_iOS.xcframework in Frameworks */,
+				1E5BBB410FDB395C0B24BE48 /* Pods_FissionBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,6 +1042,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1EF3A85EB70AB3172F3AF72A /* Pods_FissionBluetooth_FissionBluetoothUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59AA50732AB4320E00D3125E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59AA50742AB4320E00D3125E /* RTKLEFoundation.xcframework in Frameworks */,
+				59AA50752AB4320E00D3125E /* RTKOTASDK.xcframework in Frameworks */,
+				59AA50772AB4320E00D3125E /* AudioToolbox.framework in Frameworks */,
+				59AA50782AB4320E00D3125E /* Fission_Sdk_iOS.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -915,6 +1212,8 @@
 				592196C72A1B514700A4BE45 /* UIAlertObject.m */,
 				592196BC2A1B514700A4BE45 /* XYButton.h */,
 				592196CE2A1B514700A4BE45 /* XYButton.m */,
+				59FA408C2A9D95C40035FD1E /* FBLocationManager.h */,
+				59FA408D2A9D95C40035FD1E /* FBLocationManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1011,9 +1310,9 @@
 		59235806293ED8D000E5379C /* SDK */ = {
 			isa = PBXGroup;
 			children = (
-				59235807293ED8D000E5379C /* Fission_Sdk_iOS.framework */,
-				59400A7E2A08C70500C93683 /* RTKLEFoundation.framework */,
-				59400A7D2A08C70500C93683 /* RTKOTASDK.framework */,
+				59BDFA612AB2AA8F004A88F1 /* Fission_Sdk_iOS.xcframework */,
+				59BDFA662AB2AB2C004A88F1 /* RTKLEFoundation.xcframework */,
+				59BDFA652AB2AB2C004A88F1 /* RTKOTASDK.xcframework */,
 			);
 			path = SDK;
 			sourceTree = "<group>";
@@ -1055,6 +1354,7 @@
 				592A9FE125A4173A00CC515E /* Products */,
 				749A57D9A5AE00850B0B5BD3 /* Pods */,
 				2F7260CFD7131112B53695AC /* Frameworks */,
+				59AA51032AB4321000D3125E /* FissionBluetooth_internal-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1064,6 +1364,7 @@
 				592A9FE025A4173A00CC515E /* FissionBluetooth.app */,
 				592A9FFB25A4173C00CC515E /* FissionBluetoothTests.xctest */,
 				592AA00625A4173C00CC515E /* FissionBluetoothUITests.xctest */,
+				59AA51022AB4320E00D3125E /* FissionBluetooth_internal.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1207,7 +1508,6 @@
 			isa = PBXGroup;
 			children = (
 				59B51C4D2A49938A0020708C /* BAHNSCHRIFT.TTF */,
-				5904198E2A308A4D00BD3A0A /* WatchUIResource.zip */,
 				593E41482A25AA6F00B438FE /* Model */,
 				593E414A2A25AA6F00B438FE /* View */,
 				593E41512A25AA6F00B438FE /* ViewController */,
@@ -1308,6 +1608,7 @@
 		59E7BE4E268C13C400B8001A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				59FA408F2A9DFAA50035FD1E /* ELPO_GR3_1.DAT */,
 				592F5F112A05084E008C06D7 /* UI_TEST */,
 				59E7BE4F268C13C400B8001A /* Plate */,
 				59E7BE61268C13C400B8001A /* dial */,
@@ -1442,12 +1743,12 @@
 		749A57D9A5AE00850B0B5BD3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E948B1D4C7D2967D8B7AFF14 /* Pods-FissionBluetooth.debug.xcconfig */,
-				3CAADF886303D331C1B5C7CD /* Pods-FissionBluetooth.release.xcconfig */,
 				FE0F92F69642F6E6D10CB7AB /* Pods-FissionBluetooth-FissionBluetoothUITests.debug.xcconfig */,
 				8A63387D526BF805F11A16F9 /* Pods-FissionBluetooth-FissionBluetoothUITests.release.xcconfig */,
 				593399584BF981F494D22BCE /* Pods-FissionBluetoothTests.debug.xcconfig */,
 				73C300FB567263FC20125FEE /* Pods-FissionBluetoothTests.release.xcconfig */,
+				57341709EC93704774649593 /* Pods-FissionBluetooth.debug.xcconfig */,
+				80B835452B691EA0DBD52BCD /* Pods-FissionBluetooth.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1514,6 +1815,24 @@
 			productReference = 592AA00625A4173C00CC515E /* FissionBluetoothUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		59AA4FEC2AB4320E00D3125E /* FissionBluetooth_internal */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 59AA50FF2AB4320E00D3125E /* Build configuration list for PBXNativeTarget "FissionBluetooth_internal" */;
+			buildPhases = (
+				59AA4FEE2AB4320E00D3125E /* Sources */,
+				59AA50732AB4320E00D3125E /* Frameworks */,
+				59AA50792AB4320E00D3125E /* Resources */,
+				59AA50FB2AB4320E00D3125E /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FissionBluetooth_internal;
+			productName = FissionBluetooth;
+			productReference = 59AA51022AB4320E00D3125E /* FissionBluetooth_internal.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1552,6 +1871,7 @@
 				592A9FDF25A4173A00CC515E /* FissionBluetooth */,
 				592A9FFA25A4173C00CC515E /* FissionBluetoothTests */,
 				592AA00525A4173C00CC515E /* FissionBluetoothUITests */,
+				59AA4FEC2AB4320E00D3125E /* FissionBluetooth_internal */,
 			);
 		};
 /* End PBXProject section */
@@ -1561,6 +1881,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59FA40902A9DFAA50035FD1E /* ELPO_GR3_1.DAT in Resources */,
 				59F84BA5269D3CF1001E4D65 /* 时分2.bmp in Resources */,
 				59E7BFA82696893700B8001A /* 日期3.bmp in Resources */,
 				59E7BEA4268C7B8A00B8001A /* pic_custom360x360.png in Resources */,
@@ -1645,7 +1966,6 @@
 				5921975F2A1B514800A4BE45 /* ClockDialListViewController.xib in Resources */,
 				59E7BE78268C13C400B8001A /* zhouhai_font_1001_TEXT.png in Resources */,
 				592197432A1B514800A4BE45 /* LWPersonCell.xib in Resources */,
-				5904198F2A308A4D00BD3A0A /* WatchUIResource.zip in Resources */,
 				59B51C4E2A49938A0020708C /* BAHNSCHRIFT.TTF in Resources */,
 				593E41E12A2DE81300B438FE /* FBTestUISportsChartCell.xib in Resources */,
 				59E7BFA62696893700B8001A /* 日期0.bmp in Resources */,
@@ -1702,6 +2022,140 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59AA50792AB4320E00D3125E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59AA507A2AB4320E00D3125E /* ELPO_GR3_1.DAT in Resources */,
+				59AA507B2AB4320E00D3125E /* 时分2.bmp in Resources */,
+				59AA507C2AB4320E00D3125E /* 日期3.bmp in Resources */,
+				59AA507D2AB4320E00D3125E /* pic_custom360x360.png in Resources */,
+				59AA507E2AB4320E00D3125E /* LaunchScreen.storyboard in Resources */,
+				59AA507F2AB4320E00D3125E /* 日期2.bmp in Resources */,
+				59AA50802AB4320E00D3125E /* 电量1.bmp in Resources */,
+				59AA50812AB4320E00D3125E /* FBSystemFunctionSwitchCell.xib in Resources */,
+				59AA50822AB4320E00D3125E /* ic_dial_button@2x.png in Resources */,
+				59AA50832AB4320E00D3125E /* hotnoon_front_image.jpg in Resources */,
+				59AA50842AB4320E00D3125E /* 日期10.bmp in Resources */,
+				59AA50852AB4320E00D3125E /* 日期12.bmp in Resources */,
+				59AA50862AB4320E00D3125E /* srpText_sleep.png in Resources */,
+				59AA50872AB4320E00D3125E /* FBTestUIBaseListCell.xib in Resources */,
+				59AA50882AB4320E00D3125E /* 电量7.bmp in Resources */,
+				59AA50892AB4320E00D3125E /* 时分13.bmp in Resources */,
+				59AA508A2AB4320E00D3125E /* 时分10.bmp in Resources */,
+				59AA508B2AB4320E00D3125E /* 电量8.bmp in Resources */,
+				59AA508C2AB4320E00D3125E /* FBTestUIItemCell.xib in Resources */,
+				59AA508D2AB4320E00D3125E /* FBTestUIPhoneRingView.xib in Resources */,
+				59AA508E2AB4320E00D3125E /* 时分8.bmp in Resources */,
+				59AA508F2AB4320E00D3125E /* icons8-phonelink-ring.gif in Resources */,
+				59AA50902AB4320E00D3125E /* 时分11.bmp in Resources */,
+				59AA50912AB4320E00D3125E /* FBCustomDialListTitleCell.xib in Resources */,
+				59AA50922AB4320E00D3125E /* pic_custom75x75px@3x.png in Resources */,
+				59AA50932AB4320E00D3125E /* FBTestUIBaseChartCell.xib in Resources */,
+				59AA50942AB4320E00D3125E /* srpText_steps.png in Resources */,
+				59AA50952AB4320E00D3125E /* FBLogTableViewCell.xib in Resources */,
+				59AA50962AB4320E00D3125E /* FBTestUIBaseListViewController.xib in Resources */,
+				59AA50972AB4320E00D3125E /* 日期5.bmp in Resources */,
+				59AA50982AB4320E00D3125E /* 日期9.bmp in Resources */,
+				59AA50992AB4320E00D3125E /* pic_custom126x154px@3x.png in Resources */,
+				59AA509A2AB4320E00D3125E /* 时分3.bmp in Resources */,
+				59AA509B2AB4320E00D3125E /* FemaleCell.xib in Resources */,
+				59AA509C2AB4320E00D3125E /* ChipFlashSpatialVC.xib in Resources */,
+				59AA509D2AB4320E00D3125E /* FBSystemFunctionSwitchVC.xib in Resources */,
+				59AA509E2AB4320E00D3125E /* LWCustomDialPickerViewCell.xib in Resources */,
+				59AA509F2AB4320E00D3125E /* FBTestUISportsSectionHeader.xib in Resources */,
+				59AA50A02AB4320E00D3125E /* HeartRateViewController.xib in Resources */,
+				59AA50A12AB4320E00D3125E /* LWMotionPushCell.xib in Resources */,
+				59AA50A22AB4320E00D3125E /* 电量3.bmp in Resources */,
+				59AA50A32AB4320E00D3125E /* FBTestUISportsHrRangeCell.xib in Resources */,
+				59AA50A42AB4320E00D3125E /* 背景.bmp in Resources */,
+				59AA50A52AB4320E00D3125E /* 时分6.bmp in Resources */,
+				59AA50A62AB4320E00D3125E /* 时分7.bmp in Resources */,
+				59AA50A72AB4320E00D3125E /* ClockListTableViewCell.xib in Resources */,
+				59AA50A82AB4320E00D3125E /* CollCell.xib in Resources */,
+				59AA50A92AB4320E00D3125E /* 电量6.bmp in Resources */,
+				59AA50AA2AB4320E00D3125E /* pic_dial_circular@3x.png in Resources */,
+				59AA50AB2AB4320E00D3125E /* 日期11.bmp in Resources */,
+				59AA50AC2AB4320E00D3125E /* WaterClockViewController.xib in Resources */,
+				59AA50AD2AB4320E00D3125E /* Assets.xcassets in Resources */,
+				59AA50AE2AB4320E00D3125E /* NotDisturbViewController.xib in Resources */,
+				59AA50AF2AB4320E00D3125E /* FBTestUITodayDataCell.xib in Resources */,
+				59AA50B02AB4320E00D3125E /* 日期8.bmp in Resources */,
+				59AA50B12AB4320E00D3125E /* 日期13.bmp in Resources */,
+				59AA50B22AB4320E00D3125E /* srpText_date.png in Resources */,
+				59AA50B32AB4320E00D3125E /* 电量10.bmp in Resources */,
+				59AA50B42AB4320E00D3125E /* FBTestUISportsHeaderView.xib in Resources */,
+				59AA50B52AB4320E00D3125E /* HeartRateReminderVC.xib in Resources */,
+				59AA50B62AB4320E00D3125E /* 时分9.bmp in Resources */,
+				59AA50B72AB4320E00D3125E /* 2.bmp in Resources */,
+				59AA50B82AB4320E00D3125E /* 效果图 (2).png in Resources */,
+				59AA50B92AB4320E00D3125E /* ic_dial_button@3x.png in Resources */,
+				59AA50BA2AB4320E00D3125E /* 时分1.bmp in Resources */,
+				59AA50BB2AB4320E00D3125E /* Main.storyboard in Resources */,
+				59AA50BC2AB4320E00D3125E /* ClockInforViewController.xib in Resources */,
+				59AA50BD2AB4320E00D3125E /* 1.bmp in Resources */,
+				59AA50BE2AB4320E00D3125E /* 日期7.bmp in Resources */,
+				59AA50BF2AB4320E00D3125E /* srpText_hr.png in Resources */,
+				59AA50C02AB4320E00D3125E /* FemaleCircadianCycleVC.xib in Resources */,
+				59AA50C12AB4320E00D3125E /* 电量2.bmp in Resources */,
+				59AA50C22AB4320E00D3125E /* rgbA.png in Resources */,
+				59AA50C32AB4320E00D3125E /* icons8-walking-gif.gif in Resources */,
+				59AA50C42AB4320E00D3125E /* Localizable.strings in Resources */,
+				59AA50C52AB4320E00D3125E /* BrightScreenViewController.xib in Resources */,
+				59AA50C62AB4320E00D3125E /* dial_style3_yellow.jpg in Resources */,
+				59AA50C72AB4320E00D3125E /* FBCustomDialListColorCell.xib in Resources */,
+				59AA50C82AB4320E00D3125E /* 电量4.bmp in Resources */,
+				59AA50C92AB4320E00D3125E /* FBTestUIOverviewCell.xib in Resources */,
+				59AA50CA2AB4320E00D3125E /* ic_dial_button_d@2x.png in Resources */,
+				59AA50CB2AB4320E00D3125E /* srpText_time.png in Resources */,
+				59AA50CC2AB4320E00D3125E /* ClockDialListViewController.xib in Resources */,
+				59AA50CD2AB4320E00D3125E /* zhouhai_font_1001_TEXT.png in Resources */,
+				59AA50CE2AB4320E00D3125E /* LWPersonCell.xib in Resources */,
+				59AA50D02AB4320E00D3125E /* BAHNSCHRIFT.TTF in Resources */,
+				59AA50D12AB4320E00D3125E /* FBTestUISportsChartCell.xib in Resources */,
+				59AA50D22AB4320E00D3125E /* 日期0.bmp in Resources */,
+				59AA50D32AB4320E00D3125E /* FBCustomDialListImageCell.xib in Resources */,
+				59AA50D42AB4320E00D3125E /* 电量5.bmp in Resources */,
+				59AA50D52AB4320E00D3125E /* LWCustomDialColorCollectionCell.xib in Resources */,
+				59AA50D62AB4320E00D3125E /* 时分5.bmp in Resources */,
+				59AA50D72AB4320E00D3125E /* pic_dial_rectangle@3x.png in Resources */,
+				59AA50D82AB4320E00D3125E /* MotionPushCollectionViewCell.xib in Resources */,
+				59AA50D92AB4320E00D3125E /* FBTestUISportsRecordCell.xib in Resources */,
+				59AA50DA2AB4320E00D3125E /* 日期6.bmp in Resources */,
+				59AA50DB2AB4320E00D3125E /* 标注.png in Resources */,
+				59AA50DC2AB4320E00D3125E /* LWCustomDialColorCell.xib in Resources */,
+				59AA50DD2AB4320E00D3125E /* pic_custom240x240px@3x.png in Resources */,
+				59AA50DE2AB4320E00D3125E /* FBTestUISportsPaceRatioCell.xib in Resources */,
+				59AA50DF2AB4320E00D3125E /* 时分0.bmp in Resources */,
+				59AA50E02AB4320E00D3125E /* examples_img_03.png in Resources */,
+				59AA50E12AB4320E00D3125E /* SportTargetViewController.xib in Resources */,
+				59AA50E22AB4320E00D3125E /* 时分12.bmp in Resources */,
+				59AA50E32AB4320E00D3125E /* FBConnectViewController.xib in Resources */,
+				59AA50E42AB4320E00D3125E /* HrCheckViewController.xib in Resources */,
+				59AA50E52AB4320E00D3125E /* ic_colorSlider@3x.png in Resources */,
+				59AA50E62AB4320E00D3125E /* 时分4.bmp in Resources */,
+				59AA50E72AB4320E00D3125E /* WeatherCell.xib in Resources */,
+				59AA50E82AB4320E00D3125E /* MessagePushSwitchVC.xib in Resources */,
+				59AA50E92AB4320E00D3125E /* 缩略图.bmp in Resources */,
+				59AA50EA2AB4320E00D3125E /* ClockInforListVC.xib in Resources */,
+				59AA50EB2AB4320E00D3125E /* dial_style2_black.jpg in Resources */,
+				59AA50EC2AB4320E00D3125E /* dial_style4_green.jpg in Resources */,
+				59AA50ED2AB4320E00D3125E /* ic_dial_button_d@3x.png in Resources */,
+				59AA50EE2AB4320E00D3125E /* LWCustomDialPickerView.xib in Resources */,
+				59AA50EF2AB4320E00D3125E /* 电量9.bmp in Resources */,
+				59AA50F02AB4320E00D3125E /* WeatherViewController.xib in Resources */,
+				59AA50F12AB4320E00D3125E /* dial_style1_white.jpg in Resources */,
+				59AA50F22AB4320E00D3125E /* 电量0.bmp in Resources */,
+				59AA50F32AB4320E00D3125E /* dial_style5_black.jpg in Resources */,
+				59AA50F42AB4320E00D3125E /* 日期1.bmp in Resources */,
+				59AA50F52AB4320E00D3125E /* 日期4.bmp in Resources */,
+				59AA50F62AB4320E00D3125E /* InfoPlist.strings in Resources */,
+				59AA50F72AB4320E00D3125E /* PushSwitchCell.xib in Resources */,
+				59AA50F82AB4320E00D3125E /* FBTestUISportsDetailsCell.xib in Resources */,
+				59AA50F92AB4320E00D3125E /* rgb.bmp in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1849,6 +2303,7 @@
 				593AA48F29BAC87000B2DD49 /* AppDelegate+FissionSDK.m in Sources */,
 				5921972B2A1B514800A4BE45 /* LWCustomDialColorCell.m in Sources */,
 				593E41BC2A29928500B438FE /* FBCustomDialListTitleCell.m in Sources */,
+				59FA408E2A9D95C40035FD1E /* FBLocationManager.m in Sources */,
 				5921974E2A1B514800A4BE45 /* LWMotionPushDownloadObject.m in Sources */,
 				592197642A1B514800A4BE45 /* LWCustomDialViewController.m in Sources */,
 				592197592A1B514800A4BE45 /* ClockDialListViewController.m in Sources */,
@@ -1962,6 +2417,145 @@
 			buildActionMask = 2147483647;
 			files = (
 				592AA00B25A4173C00CC515E /* FissionBluetoothUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		59AA4FEE2AB4320E00D3125E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59AA4FEF2AB4320E00D3125E /* FBHUD.m in Sources */,
+				59AA4FF02AB4320E00D3125E /* FBAboutHeadView.m in Sources */,
+				59AA4FF12AB4320E00D3125E /* FBLocalHistoricalModel.m in Sources */,
+				59AA4FF22AB4320E00D3125E /* LWCustomDialPickerViewCell.m in Sources */,
+				59AA4FF32AB4320E00D3125E /* NotDisturbViewController.m in Sources */,
+				59AA4FF42AB4320E00D3125E /* RLMManualMeasureModel.m in Sources */,
+				59AA4FF52AB4320E00D3125E /* FemaleCircadianCycleVC.m in Sources */,
+				59AA4FF62AB4320E00D3125E /* FBClockDialCategoryViewController.m in Sources */,
+				59AA4FF72AB4320E00D3125E /* LWContactViewController.m in Sources */,
+				59AA4FF82AB4320E00D3125E /* MainViewController.m in Sources */,
+				59AA4FF92AB4320E00D3125E /* FBBatteryView.m in Sources */,
+				59AA4FFA2AB4320E00D3125E /* UserInforViewController.m in Sources */,
+				59AA4FFB2AB4320E00D3125E /* FBTestUISportsPaceRatioCell.m in Sources */,
+				59AA4FFC2AB4320E00D3125E /* FBLogViewController.m in Sources */,
+				59AA4FFD2AB4320E00D3125E /* LWMotionPushCell.m in Sources */,
+				59AA4FFE2AB4320E00D3125E /* LWCustomDialHeaderView.m in Sources */,
+				59AA4FFF2AB4320E00D3125E /* FBTutorialViewController.m in Sources */,
+				59AA50002AB4320E00D3125E /* FBCustomDialListHeadrView.m in Sources */,
+				59AA50012AB4320E00D3125E /* FBColorPickerView.m in Sources */,
+				59AA50022AB4320E00D3125E /* FBTestUISportsHeaderView.m in Sources */,
+				59AA50032AB4320E00D3125E /* FBTestUIItemModel.m in Sources */,
+				59AA50042AB4320E00D3125E /* WaterClockViewController.m in Sources */,
+				59AA50052AB4320E00D3125E /* FBTestUISportsRecordCell.m in Sources */,
+				59AA50062AB4320E00D3125E /* XYButton.m in Sources */,
+				59AA50072AB4320E00D3125E /* FBAboutViewController.m in Sources */,
+				59AA50082AB4320E00D3125E /* RLMBloodOxygenModel.m in Sources */,
+				59AA50092AB4320E00D3125E /* WeatherViewController.m in Sources */,
+				59AA500A2AB4320E00D3125E /* FemaleCell.m in Sources */,
+				59AA500B2AB4320E00D3125E /* FBLogTableViewCell.m in Sources */,
+				59AA500C2AB4320E00D3125E /* LWCustomDialCell.m in Sources */,
+				59AA500D2AB4320E00D3125E /* LWDeviceListCell.m in Sources */,
+				59AA500E2AB4320E00D3125E /* AppDelegate+FissionSDK.m in Sources */,
+				59AA500F2AB4320E00D3125E /* LWCustomDialColorCell.m in Sources */,
+				59AA50102AB4320E00D3125E /* FBCustomDialListTitleCell.m in Sources */,
+				59AA50112AB4320E00D3125E /* FBLocationManager.m in Sources */,
+				59AA50122AB4320E00D3125E /* LWMotionPushDownloadObject.m in Sources */,
+				59AA50132AB4320E00D3125E /* LWCustomDialViewController.m in Sources */,
+				59AA50142AB4320E00D3125E /* ClockDialListViewController.m in Sources */,
+				59AA50152AB4320E00D3125E /* RLMBloodPressureModel.m in Sources */,
+				59AA50162AB4320E00D3125E /* LWPersonCell.m in Sources */,
+				59AA50172AB4320E00D3125E /* LWMotionDataView.m in Sources */,
+				59AA50182AB4320E00D3125E /* HrCheckViewController.m in Sources */,
+				59AA50192AB4320E00D3125E /* FBCustomDialViewController.m in Sources */,
+				59AA501A2AB4320E00D3125E /* FBAuthorityObject.m in Sources */,
+				59AA501B2AB4320E00D3125E /* QRViewController.m in Sources */,
+				59AA501C2AB4320E00D3125E /* LWWaveProgress.m in Sources */,
+				59AA501D2AB4320E00D3125E /* SportTargetViewController.m in Sources */,
+				59AA501E2AB4320E00D3125E /* UIAlertObject.m in Sources */,
+				59AA501F2AB4320E00D3125E /* FBTestUISportsDetailsCell.m in Sources */,
+				59AA50202AB4320E00D3125E /* NSObject+HUD.m in Sources */,
+				59AA50212AB4320E00D3125E /* FBTestUIBaseSportsCell.m in Sources */,
+				59AA50222AB4320E00D3125E /* BrightScreenViewController.m in Sources */,
+				59AA50232AB4320E00D3125E /* FBTestUIItemCell.m in Sources */,
+				59AA50242AB4320E00D3125E /* HeartRateViewController.m in Sources */,
+				59AA50252AB4320E00D3125E /* FBTestUISportsChartCell.m in Sources */,
+				59AA50262AB4320E00D3125E /* PushSwitchCell.m in Sources */,
+				59AA50272AB4320E00D3125E /* LWCustomDialTableView.m in Sources */,
+				59AA50282AB4320E00D3125E /* ChipFlashSpatialVC.m in Sources */,
+				59AA50292AB4320E00D3125E /* RLMStepModel.m in Sources */,
+				59AA502A2AB4320E00D3125E /* BinFileTableViewCell.m in Sources */,
+				59AA502B2AB4320E00D3125E /* ListViewController.m in Sources */,
+				59AA502C2AB4320E00D3125E /* HeartRateReminderVC.m in Sources */,
+				59AA502D2AB4320E00D3125E /* LWCustomDialModel.m in Sources */,
+				59AA502E2AB4320E00D3125E /* LWPersonViewController.m in Sources */,
+				59AA502F2AB4320E00D3125E /* dispatch_source_timer.m in Sources */,
+				59AA50302AB4320E00D3125E /* FBTestUISportsSectionHeader.m in Sources */,
+				59AA50312AB4320E00D3125E /* FBCustomDialListColorCell.m in Sources */,
+				59AA50322AB4320E00D3125E /* WeatherCell.m in Sources */,
+				59AA50332AB4320E00D3125E /* MotionPushCollectionViewCell.m in Sources */,
+				59AA50342AB4320E00D3125E /* ClockListTableViewCell.m in Sources */,
+				59AA50352AB4320E00D3125E /* FBRadarView.m in Sources */,
+				59AA50362AB4320E00D3125E /* FBConnectViewController.m in Sources */,
+				59AA50372AB4320E00D3125E /* FBTestUIPhoneRingView.m in Sources */,
+				59AA50382AB4320E00D3125E /* FBCustomDialObject.m in Sources */,
+				59AA50392AB4320E00D3125E /* Tools.m in Sources */,
+				59AA503A2AB4320E00D3125E /* FBTestUIViewController.m in Sources */,
+				59AA503B2AB4320E00D3125E /* ClockInforListVC.m in Sources */,
+				59AA503C2AB4320E00D3125E /* FBLogManager.m in Sources */,
+				59AA503D2AB4320E00D3125E /* LWContactSearchBarHeaderView.m in Sources */,
+				59AA503E2AB4320E00D3125E /* DialListModel.m in Sources */,
+				59AA503F2AB4320E00D3125E /* AppDelegate.m in Sources */,
+				59AA50402AB4320E00D3125E /* MotionPushViewController.m in Sources */,
+				59AA50412AB4320E00D3125E /* FBCustomDialHeadView.m in Sources */,
+				59AA50422AB4320E00D3125E /* LWStartCountdownView.m in Sources */,
+				59AA50432AB4320E00D3125E /* BinFileViewController.m in Sources */,
+				59AA50442AB4320E00D3125E /* SedentaryViewController.m in Sources */,
+				59AA50452AB4320E00D3125E /* FBTestUISportsViewController.m in Sources */,
+				59AA50462AB4320E00D3125E /* NSObject+Authorized.m in Sources */,
+				59AA50472AB4320E00D3125E /* LWCustomDialColorCollectionCell.m in Sources */,
+				59AA50482AB4320E00D3125E /* FBCustomDialListImageCell.m in Sources */,
+				59AA50492AB4320E00D3125E /* MessagePushSwitchVC.m in Sources */,
+				59AA504A2AB4320E00D3125E /* FBTextImageView.m in Sources */,
+				59AA504B2AB4320E00D3125E /* RLMStressModel.m in Sources */,
+				59AA504C2AB4320E00D3125E /* LWPersonModel.m in Sources */,
+				59AA504D2AB4320E00D3125E /* FBSystemFunctionSwitchVC.m in Sources */,
+				59AA504E2AB4320E00D3125E /* QMUIConfigurationTemplate.m in Sources */,
+				59AA504F2AB4320E00D3125E /* LWMotionPushDataCell.m in Sources */,
+				59AA50502AB4320E00D3125E /* FBTestUIBaseListViewController.m in Sources */,
+				59AA50512AB4320E00D3125E /* FBBaseNavigationController.m in Sources */,
+				59AA50522AB4320E00D3125E /* FBColorSliderView.m in Sources */,
+				59AA50532AB4320E00D3125E /* LWLanguageLocalizble.m in Sources */,
+				59AA50542AB4320E00D3125E /* FBSportsConnectViewController.m in Sources */,
+				59AA50552AB4320E00D3125E /* RLMDeviceListModel.m in Sources */,
+				59AA50562AB4320E00D3125E /* FBTestUITodayDataCell.m in Sources */,
+				59AA50572AB4320E00D3125E /* RLMSleepModel.m in Sources */,
+				59AA50582AB4320E00D3125E /* FBTestUIOverviewCell.m in Sources */,
+				59AA50592AB4320E00D3125E /* LWBaseViewController.m in Sources */,
+				59AA505A2AB4320E00D3125E /* NSDate+Date.m in Sources */,
+				59AA505B2AB4320E00D3125E /* FBCameraViewController.m in Sources */,
+				59AA505C2AB4320E00D3125E /* FBTestUIBaseListCell.m in Sources */,
+				59AA505D2AB4320E00D3125E /* LWMotionPushCollectionView.m in Sources */,
+				59AA505E2AB4320E00D3125E /* LWMotionPushSelectCell.m in Sources */,
+				59AA505F2AB4320E00D3125E /* FBWebViewController.m in Sources */,
+				59AA50602AB4320E00D3125E /* CollCell.m in Sources */,
+				59AA50612AB4320E00D3125E /* RLMBaseModel.m in Sources */,
+				59AA50622AB4320E00D3125E /* RLMSportsModel.m in Sources */,
+				59AA50632AB4320E00D3125E /* LWCustomDialPickerView.m in Sources */,
+				59AA50642AB4320E00D3125E /* FBTestUIBaseChartCell.m in Sources */,
+				59AA50652AB4320E00D3125E /* LWSportsConnectModel.m in Sources */,
+				59AA50662AB4320E00D3125E /* FBTestUISportsHrRangeCell.m in Sources */,
+				59AA50672AB4320E00D3125E /* LeftViewController.m in Sources */,
+				59AA50682AB4320E00D3125E /* LWNetworkingManager.m in Sources */,
+				59AA50692AB4320E00D3125E /* main.m in Sources */,
+				59AA506A2AB4320E00D3125E /* FBCustomDialListModel.m in Sources */,
+				59AA506B2AB4320E00D3125E /* FBLoadDataObject.m in Sources */,
+				59AA506C2AB4320E00D3125E /* ClockInforViewController.m in Sources */,
+				59AA506D2AB4320E00D3125E /* LWMotionPushClassifyModel.m in Sources */,
+				59AA506E2AB4320E00D3125E /* WMDragView.m in Sources */,
+				59AA506F2AB4320E00D3125E /* FBSystemFunctionSwitchCell.m in Sources */,
+				59AA50702AB4320E00D3125E /* RLMHeartRateModel.m in Sources */,
+				59AA50712AB4320E00D3125E /* FBCustomDialListContentView.m in Sources */,
+				59AA50722AB4320E00D3125E /* FBTestUIOverviewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2136,8 +2730,9 @@
 		};
 		592AA01025A4173C00CC515E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E948B1D4C7D2967D8B7AFF14 /* Pods-FissionBluetooth.debug.xcconfig */;
+			baseConfigurationReference = 57341709EC93704774649593 /* Pods-FissionBluetooth.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -2174,8 +2769,9 @@
 		};
 		592AA01125A4173C00CC515E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3CAADF886303D331C1B5C7CD /* Pods-FissionBluetooth.release.xcconfig */;
+			baseConfigurationReference = 80B835452B691EA0DBD52BCD /* Pods-FissionBluetooth.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
@@ -2290,6 +2886,92 @@
 			};
 			name = Release;
 		};
+		59AA51002AB4320E00D3125E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PL4B74TGHZ;
+				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = "EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64=arm64 arm64e armv7 armv7s armv6 armv8EXCLUDED_ARCHS=$(inherited)$(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT))";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass",
+					"$(PROJECT_DIR)/FissionBluetooth/OTA_SDK",
+					"$(PROJECT_DIR)/FissionBluetooth/RTKOTASDK",
+					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass/RTKOTASDK",
+					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass/FissionSDK",
+					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass/SDK",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FissionBluetooth/SystemBaseclass/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"FBINTERNAL=1",
+				);
+				INFOPLIST_FILE = "FissionBluetooth_internal-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FissionBluetooth.Demo.Test.UI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		59AA51012AB4320E00D3125E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = PL4B74TGHZ;
+				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = "EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64=arm64 arm64e armv7 armv7s armv6 armv8EXCLUDED_ARCHS=$(inherited)$(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT))";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass",
+					"$(PROJECT_DIR)/FissionBluetooth/OTA_SDK",
+					"$(PROJECT_DIR)/FissionBluetooth/RTKOTASDK",
+					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass/RTKOTASDK",
+					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass/FissionSDK",
+					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass/SDK",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FissionBluetooth/SystemBaseclass/PrefixHeader.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"FBINTERNAL=1",
+				);
+				INFOPLIST_FILE = "FissionBluetooth_internal-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.FissionBluetooth.Demo.Test.UI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2325,6 +3007,15 @@
 			buildConfigurations = (
 				592AA01625A4173C00CC515E /* Debug */,
 				592AA01725A4173C00CC515E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		59AA50FF2AB4320E00D3125E /* Build configuration list for PBXNativeTarget "FissionBluetooth_internal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				59AA51002AB4320E00D3125E /* Debug */,
+				59AA51012AB4320E00D3125E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

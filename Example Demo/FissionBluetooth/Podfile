@@ -22,7 +22,6 @@ target 'FissionBluetooth' do
   pod 'AFNetworking'
   pod 'MJExtension'
   pod 'MJRefresh'
-  pod 'Bugly'
   pod 'IQKeyboardManager'
   pod 'SVProgressHUD'
   pod 'BRPickerView'

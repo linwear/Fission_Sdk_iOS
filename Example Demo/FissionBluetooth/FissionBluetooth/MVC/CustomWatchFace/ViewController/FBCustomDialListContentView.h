@@ -14,11 +14,13 @@ typedef void(^FBCustomDialListContentViewBlock)(FBCustomDialListModel *dialList,
 
 typedef void(^FBCustomDialListContentHeightUpdateBlock)(FBCustomDialListType listType, CGFloat updateHeight);
 
+typedef void(^FBCustomDialListContentDynamicSelectionBlock)(FBCustomDialDynamicSelection dynamicSelection, FBCustomDialSoures *item);
+
 
 @interface FBCustomDialListContentView : LWBaseViewController <JXCategoryListContentViewDelegate>
 
 /// 初始化
-- (instancetype)initWithListContentBlock:(FBCustomDialListContentViewBlock)listContentBlock heightUpdateBlock:(FBCustomDialListContentHeightUpdateBlock)heightUpdateBlock;
+- (instancetype)initWithListContentBlock:(FBCustomDialListContentViewBlock)listContentBlock heightUpdateBlock:(FBCustomDialListContentHeightUpdateBlock)heightUpdateBlock dynamicSelectionBlock:(FBCustomDialListContentDynamicSelectionBlock)dynamicSelectionBlock;
 
 /// 刷新列表
 - (void)reloadCollectionView:(FBCustomDialListModel *)dialList soures:(NSArray <FBCustomDialSoures *> *)selectSoures;

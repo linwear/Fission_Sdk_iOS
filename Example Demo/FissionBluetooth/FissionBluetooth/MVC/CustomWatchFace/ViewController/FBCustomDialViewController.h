@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBCustomDialViewController : LWBaseViewController <JXCategoryViewDelegate, JXCategoryListContainerViewDelegate>
 
+- (instancetype)initWithResource:(NSString *)filePath;
+
 @end
 
 NS_ASSUME_NONNULL_END

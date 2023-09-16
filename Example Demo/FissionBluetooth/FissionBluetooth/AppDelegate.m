@@ -25,20 +25,14 @@
     // 初始化裂变SDK｜FissionSDK initialization
     [self FissionSDK_Initialization];
     
-    BuglyConfig *config = [BuglyConfig new];
-    config.debugMode = YES;
-    config.blockMonitorEnable = YES;
-    config.blockMonitorTimeout = 2;
-    config.unexpectedTerminatingDetectionEnable = YES;
-    config.reportLogLevel = BuglyLogLevelWarn;
-    [Bugly startWithAppId:@"c7e22878ff" developmentDevice:YES config:config];
-    
+    // HUD
     [SVProgressHUD setBackgroundColor:UIColorBlack];
     [SVProgressHUD setForegroundColor:UIColorWhite];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeGradient];
     [SVProgressHUD setMinimumDismissTimeInterval:2.0f];
     [SVProgressHUD setMaximumDismissTimeInterval:3.0f];
     
+    // 数据库
     RLMRealmConfiguration *configuration = RLMRealmConfiguration.defaultConfiguration;
     // 设置新的架构版本。必须大于之前所使用的版本
     configuration.schemaVersion = 3;
@@ -56,6 +50,7 @@
     [self.window makeKeyAndVisible];
     self.window.clipsToBounds = YES;
     
+    // 键盘管理
     IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
     manager.enable = YES;
     manager.shouldResignOnTouchOutside = YES;

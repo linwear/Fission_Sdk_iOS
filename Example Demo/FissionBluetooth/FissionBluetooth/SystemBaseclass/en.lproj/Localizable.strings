@@ -165,6 +165,8 @@
 "Read off-chip flash space data (Used for device abnormal restart analysis)" = "Read off-chip flash space data (Used for device abnormal restart analysis)";
 "Request Device Logs" = "Request Device Logs";
 "Get/Set system function switch information" = "Get/Set system function switch information";
+"Push basic information of AGPS location (latitude and longitude UTC)" = "Push basic information of AGPS location (latitude and longitude UTC)";
+"Synchronize AGPS positioning data" = "Synchronize AGPS positioning data";
 
 "Firmware OTA" = "Firmware OTA";
 "Dial Face OTA" = "Dial Face OTA";
@@ -193,6 +195,8 @@
 "Please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone" = "Please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone";
 "Can't use camera" = "Can't use camera";
 "The photo after taking the photo needs to be added to the album, please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone" = "The photo after taking the photo needs to be added to the album, please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone";
+"Unable to use location services" = "Unable to use location services";
+"Please allow %@ to access Location Services in iPhone's \"Settings-Privacy-Location Services\"" = "Please allow %@ to access Location Services in iPhone's \"Settings-Privacy-Location Services\"";
 
 "Firmware Version" = "Firmware Version";
 "Project Number" = "Project Number";
@@ -281,6 +285,7 @@
 
 "Custom Dial" = "Custom Dial";
 "Long press the module to move" = "Long press the module to move";
+"Space Occupied" = "Space Occupied";
 "Background" = "Background";
 "Dial" = "Dial";
 "Module" = "Module";

@@ -46,6 +46,15 @@ typedef enum {
     FBCustomDialListItemsEvent_Color,                   // 颜色
 }FBCustomDialListItemsEvent; // 事件 类型
 
+typedef enum {
+    FBCustomDialDynamicSelection_None,
+    FBCustomDialDynamicSelection_AddSuccess, // + 成功
+    FBCustomDialDynamicSelection_AddFailure, // + 失败
+    FBCustomDialDynamicSelection_CutSuccess, // - 成功
+    FBCustomDialDynamicSelection_CutFailure, // - 失败
+    
+    FBCustomDialDynamicSelection_Reset,      // 初始化、重置
+}FBCustomDialDynamicSelection; // 动态选择 类型
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -2111,7 +2111,7 @@ x_arr;\
     
     NSString *SQL = [FBLoadDataObject SQL_StaTime:staTime endTime:endTime deviceName:deviceName deviceMAC:deviceMAC];
     
-    RLMResults *sportsArray = [[RLMSportsModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES]; // 对查询结果排序
+    RLMResults *sportsArray = [[RLMSportsModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:NO]; // 由近到远，对查询结果排序
     
     NSMutableArray <RLMSportsModel *> *allArray = NSMutableArray.array;
     for (RLMSportsModel *sportsModel in sportsArray) {
@@ -2634,7 +2634,7 @@ x_arr;\
 
     
     // 最近一条运动记录
-    historicalModel.sportsModel = [[RLMSportsModel objectsWhere:FBLoadDataObject.SQL_CurrentDevice_All] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
+    historicalModel.sportsModel = [[RLMSportsModel objectsWhere:FBLoadDataObject.SQL_CurrentDevice_All] sortedResultsUsingKeyPath:@"begin" ascending:NO].firstObject;
     historicalModel.sportsBegin = historicalModel.sportsModel.begin;
     
     

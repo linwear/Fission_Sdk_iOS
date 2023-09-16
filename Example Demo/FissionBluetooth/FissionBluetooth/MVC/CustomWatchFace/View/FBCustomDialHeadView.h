@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 刷新
 - (void)reloadWithSoures:(NSArray <FBCustomDialSoures *> *)selectSoures withColor:(UIColor *)color firstTime:(BOOL)isFirstTime;
 
+/// 刷新空间占用数量
+- (void)reloadWithDynamicSelection:(FBCustomDialDynamicSelection)dynamicSelection soures:(FBCustomDialSoures * _Nullable)soures;
+
 /// 生成自定义表盘数据
 - (FBMultipleCustomDialsModel *)generateCustomWatchFaceData;
 

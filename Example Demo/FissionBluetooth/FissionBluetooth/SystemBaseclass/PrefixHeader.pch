@@ -91,7 +91,6 @@ static NSString *const FISSION_SDK_WATCHCLICKTAKEPHOTO = @"FISSION_SDK_WATCHCLIC
 #import <QMUIKit/QMUIKit.h>
 #import "LWNetworkingManager.h"
 #import "UIViewController+CWLateralSlide.h"
-#import <Bugly/Bugly.h>
 #import <IQKeyboardManager.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import <MJExtension/MJExtension.h>
@@ -309,7 +308,7 @@ typedef NS_ENUM(NSUInteger, LWSportType) {
     LWTugOfWar,                 //拔河比赛
     LWFreeSparring,             //自由的陪练
     LWRafting,                  //漂流
-    LWSpinning,                 //旋转
+    LWSpinning,                 //动感单车
     LWBMX,                      //BMX
     
     LWATV,                      //ATV
@@ -317,6 +316,7 @@ typedef NS_ENUM(NSUInteger, LWSportType) {
     LWBeachFootball,            //沙滩足球
     LWKayaking,                 //皮划艇
     LWSavate,                   //法国式拳击
+    LWBeachVolleyball,          //沙滩排球
     
     LWSportAll = 0xFFFF         //所有运动
 };
@@ -370,5 +370,6 @@ typedef enum {
 #import "FBCustomDialObject.h"
 #import "FBAuthorityObject.h"
 #import "FBTestUIPhoneRingView.h"
+#import "FBLocationManager.h"
 
 #endif /* PrefixHeader_pch */

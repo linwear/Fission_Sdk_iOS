@@ -12,7 +12,12 @@
 		<key>FissionBluetooth.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>8</integer>
+			<integer>0</integer>
+		</dict>
+		<key>FissionBluetooth_internal.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>28</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -28,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>592AA00525A4173C00CC515E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>59AA4FE82AB42FA500D3125E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

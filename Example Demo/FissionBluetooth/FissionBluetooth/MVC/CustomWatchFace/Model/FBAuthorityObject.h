@@ -20,7 +20,7 @@ typedef void(^FBAuthorityObjectBlock)(UIImage *image);
 
 + (FBAuthorityObject *)sharedInstance;
 
-- (void)presentViewController:(UIViewController *)superViewController getPictures:(FBAuthorityObjectBlock)block;
+- (void)presentRequestImageWithBlock:(FBAuthorityObjectBlock)block;
 
 - (void)accessType:(FBAuthorityType)type block:(FBAuthorityObjectBlock)block;
 

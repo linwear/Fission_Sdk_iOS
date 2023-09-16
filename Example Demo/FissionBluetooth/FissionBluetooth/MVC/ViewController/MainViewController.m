@@ -379,6 +379,8 @@
                                  LWLocalizbleString(@"Read off-chip flash space data (Used for device abnormal restart analysis)"),
                                  LWLocalizbleString(@"Request Device Logs"),
                                  LWLocalizbleString(@"Get/Set system function switch information"),
+                                 LWLocalizbleString(@"Push basic information of AGPS location (latitude and longitude UTC)"),
+                                 LWLocalizbleString(@"Synchronize AGPS positioning data"),
                              ]
     };
     
@@ -1732,6 +1734,47 @@
             
             FBSystemFunctionSwitchVC *vc = FBSystemFunctionSwitchVC.new;
             [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Push basic information of AGPS location (latitude and longitude UTC)")]) {
+            FBAGPSLocationModel *model = FBAGPSLocationModel.new;
+            model.currentTimeUTC = NSDate.date.timeIntervalSince1970;
+            model.longitude = +114.02579409;
+            model.latitude = +22.62022159;
+            
+            [FBBgCommand.sharedInstance fbPushAGPSLocationInformation:model withBlock:^(NSError * _Nullable error) {
+                if (error) {
+                    [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+                } else {
+                    weakSelf.receTextView.text = LWLocalizbleString(@"Success");
+                }
+            }];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Synchronize AGPS positioning data")]) {
+            FBBluetoothOTA.sharedInstance.isCheckPower = NO;
+            
+            FBBluetoothOTA.sharedInstance.sendTimerOut = 30;
+            
+            [NSObject showLoading:LWLocalizbleString(@"Loading...")];
+            
+            NSString *filePath = [NSBundle.mainBundle pathForResource:@"ELPO_GR3_1" ofType:@"DAT"];
+            NSData *fileData = [NSData dataWithContentsOfFile:filePath];
+            
+            [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:fileData withOTAType:FB_OTANotification_AGPS_Package withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
+                if (error) {
+                    [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+                }
+                else if (status==FB_INDATATRANSMISSION) {
+                    [NSObject showProgress:progress.totalPackageProgress/100.0 status:[NSString stringWithFormat:@"%@ %ld%%", LWLocalizbleString(@"Synchronize"), progress.totalPackageProgress]];
+                }
+                else if (status==FB_DATATRANSMISSIONDONE) {
+                    [NSObject dismiss];
+                    NSString *message = [NSString stringWithFormat:@"%@", responseObject.mj_keyValues];
+                    [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Success") message:message cancel:nil sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
+                    }];
+                }
+            }];
         }
     }
     

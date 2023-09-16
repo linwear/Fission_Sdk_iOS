@@ -13,8 +13,6 @@
 
 @property (nonatomic, copy) FBAuthorityObjectBlock block;
 
-@property (nonatomic, strong) UIViewController *superViewController;
-
 @end
 
 @implementation FBAuthorityObject
@@ -28,10 +26,8 @@
     return manager;
 }
 
-- (void)presentViewController:(UIViewController *)superViewController getPictures:(FBAuthorityObjectBlock)block {
-    
-    self.superViewController = superViewController;
-    
+- (void)presentRequestImageWithBlock:(FBAuthorityObjectBlock)block {
+        
     WeakSelf(self);
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     [alertVC addAction:[UIAlertAction actionWithTitle:LWLocalizbleString(@"Select from album") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -50,7 +46,7 @@
 
     }]];
 
-    [self.superViewController presentViewController:alertVC animated:YES completion:nil];
+    [QMUIHelper.visibleViewController presentViewController:alertVC animated:YES completion:nil];
 }
 
 - (void)accessType:(FBAuthorityType)type block:(FBAuthorityObjectBlock)block {
@@ -67,19 +63,17 @@
 - (void)accessPhotoAlbum {
     if ([PHPhotoLibrary authorizationStatus] == 2) { // 已被拒绝，没有相册权限
 
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:LWLocalizbleString(@"Can't access album") message:[NSString stringWithFormat:LWLocalizbleString(@"Please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone"), Tools.appName] preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:nil];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Set") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            //进入系统设置页面，APP本身的权限管理页面
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+        [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Can't access album") message:[NSString stringWithFormat:LWLocalizbleString(@"Please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone"), Tools.appName] cancel:LWLocalizbleString(@"Cancel") sure:LWLocalizbleString(@"Set") block:^(AlertClickType clickType) {
+            if (clickType == AlertClickType_Sure) {
+                //进入系统设置页面，APP本身的权限管理页面
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+            }
         }];
-        [alert addAction:cancelAction];
-        [alert addAction:okAction];
-        [self.superViewController presentViewController:alert animated:YES completion:nil];
 
     } else if ([PHPhotoLibrary authorizationStatus] == 0) { // 未请求过相册权限
+        WeakSelf(self);
         [[TZImageManager manager] requestAuthorizationWithCompletion:^{
-            [self accessPhotoAlbum];
+            [weakSelf accessPhotoAlbum];
         }];
     } else {
         [self pushImagePickerTypePhotoController];
@@ -126,49 +120,44 @@
         }
     }];
 
-    [self.superViewController presentViewController:imagePC animated:YES completion:nil];
+    [QMUIHelper.visibleViewController presentViewController:imagePC animated:YES completion:nil];
 }
 
 #pragma mark - 访问相机
 - (void)accessCamera {
+    WeakSelf(self);
     AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
     if (authStatus == AVAuthorizationStatusRestricted || authStatus == AVAuthorizationStatusDenied) {
         // 无相机权限 做一个友好的提示
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:LWLocalizbleString(@"Can't use camera") message:[NSString stringWithFormat:LWLocalizbleString(@"Please allow %@ to access the camera in \"Settings-Privacy-Camera\" of the iPhone"), Tools.appName] preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:nil];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Set") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            //进入系统设置页面，APP本身的权限管理页面
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+        [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Can't use camera") message:[NSString stringWithFormat:LWLocalizbleString(@"Please allow %@ to access the camera in \"Settings-Privacy-Camera\" of the iPhone"), Tools.appName] cancel:LWLocalizbleString(@"Cancel") sure:LWLocalizbleString(@"Set") block:^(AlertClickType clickType) {
+            if (clickType == AlertClickType_Sure) {
+                //进入系统设置页面，APP本身的权限管理页面
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+            }
         }];
-        [alert addAction:cancelAction];
-        [alert addAction:okAction];
-        [self.superViewController presentViewController:alert animated:YES completion:nil];
 
     } else if (authStatus == AVAuthorizationStatusNotDetermined) {
         // fix issue 466, 防止用户首次拍照拒绝授权时相机页黑屏
         [AVCaptureDevice requestAccessForMediaType:AVMediaTypeVideo completionHandler:^(BOOL granted) {
             if (granted) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [self accessCamera];
+                GCD_MAIN_QUEUE(^{
+                    [weakSelf accessCamera];
                 });
             }
         }];
         // 拍照之前还需要检查相册权限
     } else if ([PHPhotoLibrary authorizationStatus] == 2) { // 已被拒绝，没有相册权限，将无法保存拍的照片
 
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:LWLocalizbleString(@"Can't access album") message:[NSString stringWithFormat:LWLocalizbleString(@"The photo after taking the photo needs to be added to the album, please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone"), Tools.appName] preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:nil];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Set") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            //进入系统设置页面，APP本身的权限管理页面
-            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+        [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Can't access album") message:[NSString stringWithFormat:LWLocalizbleString(@"The photo after taking the photo needs to be added to the album, please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone"), Tools.appName] cancel:LWLocalizbleString(@"Cancel") sure:LWLocalizbleString(@"Set") block:^(AlertClickType clickType) {
+            if (clickType == AlertClickType_Sure) {
+                //进入系统设置页面，APP本身的权限管理页面
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString] options:@{} completionHandler:nil];
+            }
         }];
-        [alert addAction:cancelAction];
-        [alert addAction:okAction];
-        [self.superViewController presentViewController:alert animated:YES completion:nil];
 
     } else if ([PHPhotoLibrary authorizationStatus] == 0) { // 未请求过相册权限
         [[TZImageManager manager] requestAuthorizationWithCompletion:^{
-            [self accessCamera];
+            [weakSelf accessCamera];
         }];
     } else {
         [self pushImagePickerTypeCameraController];
@@ -182,7 +171,7 @@
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         self.imagePickerVc.sourceType = sourceType;
         self.imagePickerVc.modalPresentationStyle = UIModalPresentationFullScreen;
-        [self.superViewController presentViewController:self.imagePickerVc animated:YES completion:nil];
+        [QMUIHelper.visibleViewController presentViewController:self.imagePickerVc animated:YES completion:nil];
     }
 }
 
@@ -226,7 +215,7 @@
                     imagePicker.cropRect = CGRectMake(left, top, width, widthHeight);;
                 }
 
-                [weakSelf.superViewController presentViewController:imagePicker animated:YES completion:nil];
+                [QMUIHelper.visibleViewController presentViewController:imagePicker animated:YES completion:nil];
             }
         }];
     }
@@ -239,8 +228,8 @@
         _imagePickerVc = [[UIImagePickerController alloc] init];
         _imagePickerVc.delegate = self;
         // set appearance / 改变相册选择页的导航栏外观
-        _imagePickerVc.navigationBar.barTintColor = self.superViewController.navigationController.navigationBar.barTintColor;
-        _imagePickerVc.navigationBar.tintColor = self.superViewController.navigationController.navigationBar.tintColor;
+        _imagePickerVc.navigationBar.barTintColor = QMUIHelper.visibleViewController.navigationController.navigationBar.barTintColor;
+        _imagePickerVc.navigationBar.tintColor = QMUIHelper.visibleViewController.navigationController.navigationBar.tintColor;
         UIBarButtonItem *tzBarItem, *BarItem;
         tzBarItem = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[TZImagePickerController class]]];
         BarItem = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UIImagePickerController class]]];

@@ -80,12 +80,12 @@
 }
 
 
-- (void)requestSetWeather:(NSDictionary *)param {
+- (void)requestSetWeather {
     WeakSelf(self);
     
     NSMutableString *mutStr = NSMutableString.string;
     
-    NSDictionary *current = param[@"current"];
+    NSDictionary *current = self.param[@"current"];
     
     FBWeatherDetailsModel *currentModel = [FBWeatherDetailsModel new];
     currentModel.airTemp = [current[@"temperature"] integerValue];
@@ -104,7 +104,9 @@
         weakSelf.textView.text = mutStr;
     }];
     
-    NSArray *forecastWeatherDataArr = param[@"forecast"];
+    
+    
+    NSArray *forecastWeatherDataArr = self.param[@"forecast"];
     if (forecastWeatherDataArr.count<1) return;
     
     BOOL support_14days_Weather = FBAllConfigObject.firmwareConfig.support_14days_Weather;
@@ -125,7 +127,7 @@
     }
     
     // Set future weather forecast information｜设置未来天气预报信息
-    [FBBgCommand.sharedInstance fbPushWeatherMessageWithModel:array support:support_14days_Weather withBlock:^(NSError * _Nullable error) {
+    [FBBgCommand.sharedInstance fbPushWeatherMessageWithModel:array withBlock:^(NSError * _Nullable error) {
         if (error) {
             [mutStr appendFormat:@"%@ ERROR: %@\n\n", LWLocalizbleString(@"Set future weather forecast information"), error.localizedDescription];
         } else {
@@ -201,7 +203,7 @@
 */
 - (IBAction)weatherPush:(id)sender {
     WeakSelf(self);
-    [weakSelf requestSetWeather:self.param];
+    [weakSelf requestSetWeather];
 }
 
 @end

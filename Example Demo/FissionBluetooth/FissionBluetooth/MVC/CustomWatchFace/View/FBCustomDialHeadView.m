@@ -7,6 +7,7 @@
 
 #import "FBCustomDialHeadView.h"
 #import "WMDragView.h"
+#import "dispatch_source_timer.h"
 
 #define dialScale (SCREEN_WIDTH / 375.0) // 系数，基于w=375开发
 #define FBDigitalTimeSize CGSizeMake(130 * dialScale, 76 * dialScale) // 数字时间
@@ -54,6 +55,9 @@
 @property (nonatomic, assign) NSInteger selectSouresCount; // 已选择的个数
 
 @property (nonatomic, strong) UIColor *selectColor; // 已选择的字体颜色
+
+@property (nonatomic, strong) UILabel *controlsNumber;
+@property (nonatomic, strong) UILabel *number;
 
 @end
 
@@ -142,11 +146,24 @@
     
 
 #pragma mark - 6⃣️描述
+    UILabel *controlsNumber = [[UILabel alloc] qmui_initWithFont:FONT(14) textColor:UIColorBlack];
+    controlsNumber.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:controlsNumber];
+    controlsNumber.sd_layout.topSpaceToView(backgroundView, 10).heightIs(19).centerXEqualToView(backgroundView);
+    [controlsNumber setSingleLineAutoResizeWithMaxWidth:SCREEN_WIDTH];
+    self.controlsNumber = controlsNumber;
+    
+    UILabel *number = [[UILabel alloc] qmui_initWithFont:FONT(12) textColor:UIColor.redColor];
+    number.alpha = 0.0;
+    [self addSubview:number];
+    number.sd_layout.leftSpaceToView(controlsNumber, 2).centerYEqualToView(controlsNumber).offset(-8).widthIs(20).heightIs(16);
+    self.number = number;
+    
     UILabel *label = [[UILabel alloc] qmui_initWithFont:FONT(14) textColor:UIColorGray];
     label.textAlignment = NSTextAlignmentCenter;
     label.text = LWLocalizbleString(@"Long press the module to move");
     [self addSubview:label];
-    label.sd_layout.leftSpaceToView(self, 10).rightSpaceToView(self, 10).topSpaceToView(backgroundView, 10).heightIs(19);
+    label.sd_layout.leftSpaceToView(self, 10).rightSpaceToView(self, 10).topSpaceToView(controlsNumber, 10).autoHeightRatio(0);
     [label updateLayout];
     
     
@@ -508,6 +525,126 @@
 }
 
 
+/// 刷新空间占用数量
+- (void)reloadWithDynamicSelection:(FBCustomDialDynamicSelection)dynamicSelection soures:(FBCustomDialSoures *)soures {
+    
+#ifdef FBINTERNAL
+    
+    if (dynamicSelection == FBCustomDialDynamicSelection_Reset) {
+        self.controlsNumber.text = [NSString stringWithFormat:@"%@: 16/6", LWLocalizbleString(@"Space Occupied")];
+
+        return;
+    }
+    
+    FBCustomDialItem *item = [self returnCustomDialItem:soures];
+    
+    NSMutableArray <FBCustomDialItem *> *selectItem = NSMutableArray.array;
+    for (FBCustomDialSoures *soures in self.selectSoures) {
+        FBCustomDialItem *item = [self returnCustomDialItem:soures];
+        if (item.type != FB_CustomDialItems_None) {
+            [selectItem addObject:item];
+        }
+    }
+    
+    int all = [FBCustomDataTools numberOfControlsInAllItems:selectItem.copy];
+    int count = [FBCustomDataTools numberOfControlsInSingleItem:item];
+    
+    
+    if (dynamicSelection == FBCustomDialDynamicSelection_None || // None
+        dynamicSelection == FBCustomDialDynamicSelection_CutFailure || // 减 失败
+        count == 0) { // 个数0
+        
+        return; // 不提示
+    }
+    
+    else if (dynamicSelection == FBCustomDialDynamicSelection_CutSuccess) { // 减 成功
+        all -= count;
+    }
+    
+    else if (dynamicSelection == FBCustomDialDynamicSelection_AddSuccess || // 加 成功
+             dynamicSelection == FBCustomDialDynamicSelection_AddFailure) { // 加 失败
+        // 查询该类型是否已有被选择
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(FBCustomDialSoures * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+            return (evaluatedObject.itemEvent == soures.itemEvent);
+        }];
+        FBCustomDialSoures *originalSoures = [self.selectSoures filteredArrayUsingPredicate:predicate].firstObject;
+        
+        if (originalSoures) { // 已被选择
+            
+            FBCustomDialItem *originalItem = [self returnCustomDialItem:originalSoures];
+            int originalCount = [FBCustomDataTools numberOfControlsInSingleItem:originalItem];
+            
+            // 计算 差
+            if (originalCount == count) { // 且占用控件数一致
+                
+                return; // 不提示
+            }
+            else {
+                if (count > originalCount) { // 大于，显示 +
+                    if (dynamicSelection == FBCustomDialDynamicSelection_AddSuccess) { // 加 成功
+                        count -= originalCount;
+                        all += count;
+                    } else { // 加 失败
+                        count -= originalCount;
+                        // all
+                    }
+                } else { // 小于，重置，显示 -
+                    count = originalCount - count;
+                    all -= count;
+                    dynamicSelection = FBCustomDialDynamicSelection_CutSuccess;
+                }
+            }
+        }
+        else { // 第一次
+            if (dynamicSelection == FBCustomDialDynamicSelection_AddSuccess) { // 加 成功
+                all += count;
+            } else { // 加 失败
+                // all
+            }
+        }
+    }
+    
+    
+    if (dynamicSelection == FBCustomDialDynamicSelection_AddSuccess) {
+        self.number.textColor = UIColor.greenColor;
+        self.number.text = [NSString stringWithFormat:@"+%d", count];
+    }
+    else if (dynamicSelection == FBCustomDialDynamicSelection_AddFailure) {
+        self.number.textColor = UIColor.redColor;
+        self.number.text = [NSString stringWithFormat:@"+%d", count];
+    }
+    else if (dynamicSelection == FBCustomDialDynamicSelection_CutSuccess) {
+        self.number.textColor = UIColor.greenColor;
+        self.number.text = [NSString stringWithFormat:@"-%d", count];
+    }
+    
+    self.controlsNumber.text = [NSString stringWithFormat:@"%@: 16/%d", LWLocalizbleString(@"Space Occupied"), all];
+    self.number.alpha = 1.0; // 显示
+    [self.controlsNumber updateLayout];
+    self.number.centerY = self.controlsNumber.centerY - 8; // 重置Y
+    
+    // 计时器
+    WeakSelf(self);
+    [dispatch_source_timer.sharedInstance initializeTiming:0 andStartBlock:^(NSInteger timeIndex) {
+        GCD_MAIN_QUEUE(^{
+            if (timeIndex >= 3) {
+                [dispatch_source_timer.sharedInstance PauseTiming]; // 停止计时
+                [UIView animateWithDuration:0.3 animations:^{ // 上升Y 动画
+                    weakSelf.number.centerY = weakSelf.controlsNumber.centerY - 18;
+                    weakSelf.number.alpha = 0.3;
+                } completion:^(BOOL finished) {
+                    weakSelf.number.alpha = 0.0; // 隐藏
+                }];
+            }
+        });
+    }];
+    [dispatch_source_timer.sharedInstance StartTiming]; // 开始计时
+    
+#endif
+    
+}
+
+
 /// 生成自定义表盘数据
 - (FBMultipleCustomDialsModel *)generateCustomWatchFaceData {
         
@@ -529,66 +666,7 @@
     
     for (FBCustomDialSoures *soures in self.selectSoures) {
         
-        FBCustomDialItem *item = FBCustomDialItem.new;
-        item.index = soures.index;
-        
-        FB_CUSTOMDIALITEMS type = FB_CustomDialItems_None;
-        CGPoint center = CGPointZero;
-        
-        if (soures.itemEvent == FBCustomDialListItemsEvent_NumberImage) {
-            type = FB_CustomDialItems_Time_Style;
-            item.fontColor = self.selectColor;
-            center = self.digitalTime.center;
-        }
-        else if (soures.itemEvent == FBCustomDialListItemsEvent_PointerImage) {
-            type = FB_CustomDialItems_Pointer;
-            center = self.pointerImage.center;
-        }
-        else if (soures.itemEvent == FBCustomDialListItemsEvent_StateBatteryImage) {
-            type = FB_CustomDialItems_Battery;
-            center = self.battery.center;
-        }
-        else if (soures.itemEvent == FBCustomDialListItemsEvent_StateBluetoothImage_BLE) {
-            type = FB_CustomDialItems_BLE;
-            item.fontColor = nil; // 不设置颜色，SDK内部取json配置
-            center = self.BLE.center;
-        }
-        else if (soures.itemEvent == FBCustomDialListItemsEvent_StateBluetoothImage_BT) {
-            type = FB_CustomDialItems_BT;
-            item.fontColor = nil; // 不设置颜色，SDK内部取json配置
-            center = self.BT.center;
-        }
-        else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleStepImage) {
-            type = FB_CustomDialItems_Step;
-            center = self.step.center;
-        }
-        else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleCalorieImage) {
-            type = FB_CustomDialItems_Calorie;
-            center = self.calorie.center;
-        }
-        else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleDistanceImage) {
-            type = FB_CustomDialItems_Distance;
-            center = self.distance.center;
-        }
-        else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleHeartRateImage) {
-            type = FB_CustomDialItems_HeartRate;
-            center = self.heartRate.center;
-        }
-        else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleBloodOxygenImage) {
-            type = FB_CustomDialItems_BloodOxygen;
-            center = self.bloodOxygen.center;
-        }
-        else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleBloodPressureImage) {
-            type = FB_CustomDialItems_BloodPressure;
-            center = self.bloodPressure.center;
-        }
-        else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleStressImage) {
-            type = FB_CustomDialItems_Stress;
-            center = self.stress.center;
-        }
-        
-        item.type = type;
-        item.center = center;
+        FBCustomDialItem *item = [self returnCustomDialItem:soures];
         
         if (item.type != FB_CustomDialItems_None) {
             [selectItem addObject:item];
@@ -597,6 +675,72 @@
     model.items = selectItem;
     
     return model;
+}
+
+- (FBCustomDialItem *)returnCustomDialItem:(FBCustomDialSoures *)soures {
+    
+    FBCustomDialItem *item = FBCustomDialItem.new;
+    item.index = soures.index;
+    
+    FB_CUSTOMDIALITEMS type = FB_CustomDialItems_None;
+    CGPoint center = CGPointZero;
+    
+    if (soures.itemEvent == FBCustomDialListItemsEvent_NumberImage) {
+        type = FB_CustomDialItems_Time_Style;
+        item.fontColor = self.selectColor;
+        center = self.digitalTime.center;
+    }
+    else if (soures.itemEvent == FBCustomDialListItemsEvent_PointerImage) {
+        type = FB_CustomDialItems_Pointer;
+        center = self.pointerImage.center;
+    }
+    else if (soures.itemEvent == FBCustomDialListItemsEvent_StateBatteryImage) {
+        type = FB_CustomDialItems_Battery;
+        center = self.battery.center;
+    }
+    else if (soures.itemEvent == FBCustomDialListItemsEvent_StateBluetoothImage_BLE) {
+        type = FB_CustomDialItems_BLE;
+        item.fontColor = nil; // 不设置颜色，SDK内部取json配置
+        center = self.BLE.center;
+    }
+    else if (soures.itemEvent == FBCustomDialListItemsEvent_StateBluetoothImage_BT) {
+        type = FB_CustomDialItems_BT;
+        item.fontColor = nil; // 不设置颜色，SDK内部取json配置
+        center = self.BT.center;
+    }
+    else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleStepImage) {
+        type = FB_CustomDialItems_Step;
+        center = self.step.center;
+    }
+    else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleCalorieImage) {
+        type = FB_CustomDialItems_Calorie;
+        center = self.calorie.center;
+    }
+    else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleDistanceImage) {
+        type = FB_CustomDialItems_Distance;
+        center = self.distance.center;
+    }
+    else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleHeartRateImage) {
+        type = FB_CustomDialItems_HeartRate;
+        center = self.heartRate.center;
+    }
+    else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleBloodOxygenImage) {
+        type = FB_CustomDialItems_BloodOxygen;
+        center = self.bloodOxygen.center;
+    }
+    else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleBloodPressureImage) {
+        type = FB_CustomDialItems_BloodPressure;
+        center = self.bloodPressure.center;
+    }
+    else if (soures.itemEvent == FBCustomDialListItemsEvent_ModuleStressImage) {
+        type = FB_CustomDialItems_Stress;
+        center = self.stress.center;
+    }
+    
+    item.type = type;
+    item.center = center;
+    
+    return item;
 }
 
 - (void)StartScreenshot:(BOOL)showAll {

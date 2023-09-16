@@ -11,6 +11,8 @@
 
 @interface FBCustomDialViewController ()
 
+@property (nonatomic, copy) NSString *filePath;
+
 @property (nonatomic, strong) UIScrollView *scrollView;
 
 @property (nonatomic, strong) NSMutableArray <FBCustomDialListModel *> *list;  // 列表数据
@@ -28,6 +30,13 @@
 @end
 
 @implementation FBCustomDialViewController
+
+- (instancetype)initWithResource:(NSString *)filePath {
+    if (self = [super init]) {
+        self.filePath = filePath;
+    }
+    return self;
+}
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -140,11 +149,9 @@
 - (void)LoadData {
     
     [self.selectSoures removeAllObjects];
-    
-    NSString *filePath = [NSBundle.mainBundle pathForResource:@"WatchUIResource" ofType:@"zip"];
-    
+        
     WeakSelf(self);
-    [FBCustomDialObject.sharedInstance UnzipFormFilePath:filePath block:^(NSArray<FBCustomDialListModel *> * _Nullable list, NSError * _Nullable error) {
+    [FBCustomDialObject.sharedInstance UnzipFormFilePath:self.filePath block:^(NSArray<FBCustomDialListModel *> * _Nullable list, NSError * _Nullable error) {
                 
         if (error) {
             [NSObject showHUDText:error.localizedDescription];
@@ -187,6 +194,8 @@
             }
             
             [weakSelf.customDialHeadView reloadWithSoures:weakSelf.selectSoures withColor:weakSelf.selectColor firstTime:YES]; // 刷新预览图
+            
+            [weakSelf.customDialHeadView reloadWithDynamicSelection:FBCustomDialDynamicSelection_Reset soures:nil]; // 重置：刷新空间占用数量
         }
     }];
 }
@@ -267,6 +276,10 @@
         // 更新scrollView内容高度
         weakSelf.listContainerView.height = updateHeight;
         [weakSelf.scrollView setupAutoContentSizeWithBottomView:weakSelf.listContainerView bottomMargin:0.0];
+    } dynamicSelectionBlock:^(FBCustomDialDynamicSelection dynamicSelection, FBCustomDialSoures * _Nonnull item) {
+        
+        // 刷新空间占用数量
+        [weakSelf.customDialHeadView reloadWithDynamicSelection:dynamicSelection soures:item];
     }];
     
     FBCustomDialListModel *listModel = self.list[index];
@@ -298,37 +311,36 @@
 
 - (void)Synchronize {
     
-//    FBMultipleCustomDialsModel *dialsModel =  [self.customDialHeadView generateCustomWatchFaceData];
-//    NSData *binFile = [FBCustomDataTools.sharedInstance fbGenerateMultiProjectCustomDialBinFileDataWithDialsModel:dialsModel];
-//
-////    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true);
-////    NSString *s = [NSString stringWithFormat:@"%@/customDial", paths[0]];
-////    NSString *FileName=[s stringByAppendingPathComponent:[NSString stringWithFormat:@"CustomDialBin-%f", NSDate.date.timeIntervalSince1970]];//fileName就是保存文件的文件名
-////
-////    [binFile writeToFile:FileName atomically:YES];//将NSData类型对象data写入文件，文件名为FileName
-//
-//    [NSObject showLoading:LWLocalizbleString(@"Loading...")];
-//
-//    FBBluetoothOTA.sharedInstance.isCheckPower = NO;
-//
-//    FBBluetoothOTA.sharedInstance.sendTimerOut = 30;
-//
-//    [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:FB_OTANotification_CustomClockDial withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
-//        if (error) {
-//            [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
-//        }
-//        else if (status==FB_INDATATRANSMISSION) {
-//            [NSObject showProgress:progress.totalPackageProgress/100.0 status:[NSString stringWithFormat:@"%@ %ld%%", LWLocalizbleString(@"Synchronize"), progress.totalPackageProgress]];
-//        }
-//        else if (status==FB_DATATRANSMISSIONDONE) {
-//            [SVProgressHUD dismiss];
-//            NSString *message = [NSString stringWithFormat:@"%@",responseObject.mj_keyValues];
-//
-//            [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Success") message:message cancel:nil sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
-//
-//            }];
-//        }
-//    }];
+#ifdef FBINTERNAL
+    
+    FBMultipleCustomDialsModel *dialsModel =  [self.customDialHeadView generateCustomWatchFaceData];
+    NSData *binFile = [FBCustomDataTools.sharedInstance fbGenerateMultiProjectCustomDialBinFileDataWithDialsModel:dialsModel];
+
+    [NSObject showLoading:LWLocalizbleString(@"Loading...")];
+
+    FBBluetoothOTA.sharedInstance.isCheckPower = NO;
+
+    FBBluetoothOTA.sharedInstance.sendTimerOut = 30;
+
+    [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:FB_OTANotification_CustomClockDial withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
+        if (error) {
+            [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+        }
+        else if (status==FB_INDATATRANSMISSION) {
+            [NSObject showProgress:progress.totalPackageProgress/100.0 status:[NSString stringWithFormat:@"%@ %ld%%", LWLocalizbleString(@"Synchronize"), progress.totalPackageProgress]];
+        }
+        else if (status==FB_DATATRANSMISSIONDONE) {
+            [SVProgressHUD dismiss];
+            NSString *message = [NSString stringWithFormat:@"%@",responseObject.mj_keyValues];
+
+            [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Success") message:message cancel:nil sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
+
+            }];
+        }
+    }];
+    
+#endif
+    
 }
 
 @end

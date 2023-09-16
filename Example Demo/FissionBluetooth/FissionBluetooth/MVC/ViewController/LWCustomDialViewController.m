@@ -149,39 +149,14 @@ const CGFloat CustomDiaButtonMargin = 24.0;
     self.dialmodel.selectTimeTopStyle = LWCustomTimeTopStyleNone;
     self.dialmodel.selectTimeBottomStyle = LWCustomTimeBottomStyleNone;
     
-    NSArray *array = nil;
-//    array = @[
-//        @{LWLocalizbleString(@"文字颜色替换", nil) : @[]},
-//        @{LWLocalizbleString(@"文字样式", nil) : @[@{LWLocalizbleString(@"样式A", nil):@(LWCustomDialStyleA)},
-//                                              @{LWLocalizbleString(@"样式B", nil):@(LWCustomDialStyleB)},
-//                                              @{LWLocalizbleString(@"样式C", nil):@(LWCustomDialStyleC)},
-//                                              @{LWLocalizbleString(@"样式D", nil):@(LWCustomDialStyleD)},
-//                                              @{LWLocalizbleString(@"样式E", nil):@(LWCustomDialStyleE)},
-//                                              @{LWLocalizbleString(@"样式F", nil):@(LWCustomDialStyleF)}]},
-//        @{LWLocalizbleString(@"背景图片", nil) : @[]},
-//        @{LWLocalizbleString(@"时间位置", nil) : @[@{LWLocalizbleString(@"上", nil):@(LWCustomTimeLocationStyleTop)},
-//                                              @{LWLocalizbleString(@"下", nil):@(LWCustomTimeLocationStyleBottom)},
-//                                              @{LWLocalizbleString(@"左", nil):@(LWCustomTimeLocationStyleLeft)},
-//                                              @{LWLocalizbleString(@"右", nil):@(LWCustomTimeLocationStyleRight)},
-//                                              @{LWLocalizbleString(@"中间", nil):@(LWCustomTimeLocationStyleCentre)}]},
-//        @{LWLocalizbleString(@"时间上方内容", nil) : @[@{LWLocalizbleString(@"日期", nil):@(LWCustomTimeTopStyleDate)},
-//                                                @{LWLocalizbleString(@"睡眠", nil):@(LWCustomTimeTopStyleSleep)},
-//                                                @{LWLocalizbleString(@"心率", nil):@(LWCustomTimeTopStyleHeart)},
-//                                                @{LWLocalizbleString(@"计步", nil):@(LWCustomTimeTopStyleStep)}]},
-//        @{LWLocalizbleString(@"时间下方内容", nil) : @[@{LWLocalizbleString(@"日期", nil):@(LWCustomTimeTopStyleDate)},
-//                                                @{LWLocalizbleString(@"睡眠", nil):@(LWCustomTimeTopStyleSleep)},
-//                                                @{LWLocalizbleString(@"心率", nil):@(LWCustomTimeTopStyleHeart)},
-//                                                @{LWLocalizbleString(@"计步", nil):@(LWCustomTimeTopStyleStep)}]},
-//        @{LWLocalizbleString(@"恢复默认设置", nil) : @[]},
-//    ];
-    array = @[
+    NSArray *array = @[
         @{LWLocalizbleString(@"Text Color Replacement") : @[]},
         @{LWLocalizbleString(@"Background Picture") : @[]},
         @{LWLocalizbleString(@"Time Position") : @[@{LWLocalizbleString(@"Top"):@(LWCustomTimeLocationStyleTop)},
-                                              @{LWLocalizbleString(@"Bottom"):@(LWCustomTimeLocationStyleBottom)},
-                                              @{LWLocalizbleString(@"Left"):@(LWCustomTimeLocationStyleLeft)},
-                                              @{LWLocalizbleString(@"Right"):@(LWCustomTimeLocationStyleRight)},
-                                              @{LWLocalizbleString(@"Mid"):@(LWCustomTimeLocationStyleCentre)}]},
+                                                   @{LWLocalizbleString(@"Bottom"):@(LWCustomTimeLocationStyleBottom)},
+                                                   @{LWLocalizbleString(@"Left"):@(LWCustomTimeLocationStyleLeft)},
+                                                   @{LWLocalizbleString(@"Right"):@(LWCustomTimeLocationStyleRight)},
+                                                   @{LWLocalizbleString(@"Mid"):@(LWCustomTimeLocationStyleCentre)}]},
         @{LWLocalizbleString(@"Restore Default Settings") : @[]},
     ];
     WeakSelf(self);

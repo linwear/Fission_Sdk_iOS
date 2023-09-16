@@ -27,7 +27,6 @@ PODS:
     - BRPickerView/Base
   - BRPickerView/StringPickerView (2.7.3):
     - BRPickerView/Base
-  - Bugly (2.5.71)
   - CHIPageControl/Fresno (0.2)
   - CocoaLumberjack (3.7.2):
     - CocoaLumberjack/Core (= 3.7.2)
@@ -365,7 +364,6 @@ DEPENDENCIES:
   - AAChartKit (from `https://github.com/AAChartModel/AAChartKit.git`)
   - AFNetworking
   - BRPickerView
-  - Bugly
   - CHIPageControl/Fresno
   - CocoaLumberjack
   - CWLateralSlide
@@ -389,7 +387,6 @@ SPEC REPOS:
   https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
     - AFNetworking
     - BRPickerView
-    - Bugly
     - CHIPageControl
     - CocoaLumberjack
     - CWLateralSlide
@@ -422,7 +419,6 @@ SPEC CHECKSUMS:
   AAChartKit: 3c5759bcb4ed2d640d6f99db64f2a92c7ca78b09
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   BRPickerView: 9cc11880ac79c4872d081ccb88f306224c1501d7
-  Bugly: fd066c75c4a0eca1440f9b6a84bd37d51bfc85ac
   CHIPageControl: a787bf7205c9b7e7fbfc412be36c5e8636b68f86
   CocoaLumberjack: b7e05132ff94f6ae4dfa9d5bce9141893a21d9da
   CWLateralSlide: 8939c8dea91a24e40d0793553118cb57cd67f64b
@@ -442,6 +438,6 @@ SPEC CHECKSUMS:
   TZImagePickerController: a37d7eec87c54436e896a67947033ad2178d498b
   ZLCollectionViewFlowLayout: 6cd506c05d77cb2ac0772f68155e377d50d39f8a
 
-PODFILE CHECKSUM: 08add9240948007f5d696af5defe323d6be740d5
+PODFILE CHECKSUM: 77d4059630ee4612b6d833348ff90afd004a8143
 
 COCOAPODS: 1.12.1

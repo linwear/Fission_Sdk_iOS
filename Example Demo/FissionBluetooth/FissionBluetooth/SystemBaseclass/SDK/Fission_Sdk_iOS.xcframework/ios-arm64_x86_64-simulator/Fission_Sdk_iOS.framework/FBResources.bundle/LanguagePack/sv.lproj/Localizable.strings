@@ -1,0 +1,104 @@
+/* 
+  Localizable.strings
+  Fission_Sdk_iOS
+
+  Created by 裂变智能 on 2022/6/24.
+  
+*/
+
+//****************************** 🇸🇪瑞典 ******************************
+
+/**
+ FBAtCommand
+ */
+"蓝牙未打开或不支持" = "Bluetooth är inte aktiverat eller stöds inte";
+"尚未连接到设备" = "Inte ansluten till enheten";
+"设备尚未初始化完成" = "Enheten har inte initierats";
+"写指令失败，或缺少连接参数" = "Skrivinstruktion misslyckades eller anslutningsparametrar saknas";
+"应答超时" = "Svarstid";
+"AT指令异常，无效指令/无效参数" = "Vid undantag för instruktion, ogiltig instruktion / ogiltig parameter";
+"参数错误，UTC时间设置不能为0" = "Parameterfel, UTC-tidsinställning kan inte vara 0";
+"参数错误，时区设置需大于等于-1440，小于等于+1440" = "Parameterfel, tidszonsinställningen måste vara större än eller lika med -1440 och mindre än eller lika med +1440";
+"数据长度错误" = "Fel i datalängd";
+"设备初始化失败，初始化超时" = "Enhetens initialisering misslyckades, initialisering tidsinställd";
+
+"执行失败，低压无法执行" = "Körning misslyckades, låg spänning kan inte utföras";
+"指令状态错误" = "Kommandostatusfel";
+"常规运动中，请先停止当前运动" = "Vid normal rörelse, vänligen stoppa den aktuella rörelsen först";
+"正在通话中，无法执行此指令" = "Det här kommandot kan inte köras medan ett samtal pågår";
+"手表取消开启运动" = "Titta på avbryt öppen rörelse";
+"本地无此运动信息" = "Ingen lokal idrottsinformation";
+
+/**
+ FBBgCommand
+ */
+"参数错误，开始查询时间不能大于结束查询时间" = "Parameterfel, startfrågetiden kan inte vara större än slutfrågetiden";
+
+"参数错误，用户Id设置需大于0，小于0xFFFFFFFF（4294967295）" = "Parameterfel, inställning av användar-ID måste vara större än 0 och mindre än 0xFFFFFF (4294967295)";
+"参数错误，用户昵称设置长度需小于32字节" = "Parameterfel, användarens smeknamnsinställningslängd bör vara mindre än 32 byte";
+"参数错误，用户身高设置需大于100cm，小于250cm" = "Parameterfel, användarens höjdinställning bör vara större än 100cm och mindre än 250cm";
+"参数错误，用户体重设置需大于30kg，小于250kg" = "Parameterfel, användarens viktinställning bör vara större än 30 kg och mindre än 250 kg";
+"参数错误，用户年龄设置需大于5岁，小于130岁" = "Parameterfel, användarens ålder måste ställas in till att vara större än 5 år gammal och mindre än 130 år gammal";
+"参数错误，用户步幅设置需大于40，小于90" = "Parameterfel, användarsteginställning bör vara större än 40 och mindre än 90";
+
+"参数错误，序号ID设置需大于等于0，小于等于%d" = "Parameterfel, S / N ID inställning måste vara större än eller lika med 0 och mindre än eller lika med %d";
+"参数错误，描述内容设置长度需小于24字节" = "Parameterfel, beskrivningens innehållsinställningslängd bör vara mindre än 24 byte";
+"参数错误，日期时间设置不能为空，格式：YYYY-MM-dd HH:mm" = "Parameterfel, datumtidsinställning kan inte vara tom, format: YYYY-MM-dd HH:mm";
+"参数错误，时间设置不能为空，格式：HH:mm" = "Parameterfel, tidsinställning kan inte vara tom, format: HH:mm";
+"参数错误，星期未选择" = "Parameterfel, vecka inte markerad";
+"参数错误，星期选中标记设置不能为空（星期日、星期一、星期二、星期三、星期四、星期五、星期六）" = "Parameterfel. Inställningen för veckobock kan inte vara tom (söndag, måndag, tisdag, onsdag, torsdag, fredag, lördag)";
+
+"参数错误，起始时间，一天的绝对分钟（大于等于0分钟，小于等于1440分钟）" = "Parameterfel, starttid, absoluta minuter av en dag (större än eller lika med 0 minuter, mindre än eller lika med 1440 minuter)";
+"参数错误，结束时间，一天的绝对分钟（大于等于0分钟，小于等于1440分钟）" = "Parameterfel, sluttid, absoluta minuter av en dag (större än eller lika med 0 minuter, mindre än eller lika med 1440 minuter)";
+"参数错误，起始时间需小于结束时间" = "Parameterfel, starttiden måste vara mindre än sluttiden";
+"参数错误，检测时间需大于0" = "Parameterfel, detekteringstiden måste vara större än 0";
+"参数错误，目标步数需大于0" = "Parameterfel, målsteg måste vara större än 0";
+
+"参数错误，目标卡路里消耗需大于0" = "Parameterfel, målkaloriförbrukning måste vara större än 0";
+"参数错误，目标里程数需大于0" = "Parameterfel, målkörsträckan måste vara större än 0";
+"参数错误，目标运动时间需大于0" = "Parameterfel, målrörelsetiden måste vara större än 0";
+
+"参数错误，天气数据推送至少1天，最多%d天" = "Parameterfel, väderdata trycks under minst 1 dag och högst%d dagar";
+"参数错误，序号设置值范围0-%d" = "Parameterfel, Sn-inställningsintervall 0-%d";
+
+"参数错误，提前提醒天数，范围为1-3天" = "Parameterfel, förhandspåminnelsedagar, intervall: 1-3 dagar";
+"参数错误，经期天数，范围为3-15天" = "Parameterfel, menstruationsdagar, intervall: 3-15 dagar";
+"参数错误，经期周期天数，范围为17-60天" = "Parameterfel, menscykeldagar, intervall 17-60 dagar";
+"参数错误，最后一次经期年月日，年份范围为最近两年（去年，今年），月份范围为1-12，日数范围为1-31" = "Parameterfel: den senaste menstruationsperioden är mm / DD / åååå, årsintervallet är de senaste två åren (förra året, i år), månadsintervallet är 1-12 och antalet dagar intervallet är 1-31";
+"参数错误，提醒时间，小时范围为0-23，分钟范围为0-59" = "Parameterfel, påminnelsetid, timintervall 0-23, minutintervall 0-59";
+
+"参数错误，心率提醒上限值需大于等于30，小于等于200" = "Parameterfel, den övre gränsen för hjärtfrekvenspåminnelse bör vara större än eller lika med 30 och mindre än eller lika med 200";
+"参数错误，心率提醒下限值需大于等于30，小于等于200" = "Parameterfel, den nedre gränsen för pulspåminnelse bör vara större än eller lika med 30 och mindre än eller lika med 200";
+"参数错误，心率提醒下限值需小于心率提醒上限值" = "Parameterfel. Den nedre gränsen för pulspåminnelse måste vara lägre än den övre gränsen för pulspåminnelse";
+"参数错误，心率值连续超标次数不能小于1" = "Parameterfel, antalet på varandra följande överskridanden av pulsvärdet får inte vara mindre än 1";
+
+"参数错误，常用联系人最多不能超过50个" = "Parameterfel, högst 50 vanliga kontakter";
+ 
+"执行失败" = "Körning misslyckades";
+"失败，数据校验未通过" = "Misslyckades, dataverifiering misslyckades";
+"数据无效(格式错误)" = "Ogiltiga data (formatfel)";
+"通信中(系统忙)" = "Kommunikation pågår (systemet är upptaget)";
+"无效指令" = "Ogiltig instruktion";
+"协议版本不符" = "Missmatchning av protokollversion";
+"收到正确的结果" = "Ta emot korrekta resultat";
+"数据错误" = "datafel";
+"接收超时" = "Ta emot tidsgräns";
+"内存超出" = "Slut på minnet";
+"校验和错误" = "Kontrollsummefel";
+"参数错误" = "Parameterfel";
+"数据长度错误" = "Fel i datalängd";
+"未知的错误" = "okänt fel";
+
+/**
+ FBBluetoothOTA
+ */
+"参数错误，bin文件错误" = "Parameterfel, bin filfel";
+"当前连接的设备OTA升级不可用" = "Den för närvarande anslutna OTA-uppgraderingen är inte tillgänglig";
+"OTA升级失败，切换到OTA mode失败" = "OTA-uppgradering misslyckades, byte till OTA-läge misslyckades";
+"OTA升级失败，不支持普通升级" = "OTA- uppgradering misslyckades. Normal uppgradering stöds inte";
+"OTA升级失败，不支持静默升级" = "OTA-uppgradering misslyckades. Tyst uppgradering stöds inte";
+"手表电量低于30%" = "Klockbatteriet är mindre än 30%";
+
+"操作频繁，请稍后重试..." = "Operation är frekvent, försök igen senare";
+"设备处于禁止OTA状态，请稍后重试..." = "Enheten är i OTA förbjudet tillstånd, försök igen senare";
+"设备处于运动中，请结束运动后重试..." = "Enheten är i rörelse, avsluta rörelsen och försök igen...";

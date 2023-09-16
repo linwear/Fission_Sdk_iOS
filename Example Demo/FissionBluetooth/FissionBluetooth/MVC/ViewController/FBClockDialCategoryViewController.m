@@ -129,9 +129,45 @@
 
 
 - (void)customWatchFcae {
+    
+#ifdef FBINTERNAL
+    
+    if (FBAllConfigObject.firmwareConfig.supportAntiAliasing) {
+        WeakSelf(self);
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:LWLocalizbleString(@"Custom Dial") message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+        
+        UIAlertAction *action_A = [UIAlertAction actionWithTitle:[NSString stringWithFormat:@"%@-A", LWLocalizbleString(@"Custom⌚️")] style:UIAlertActionStyleDestructive handler:^(UIAlertAction * action) {
+            
+            LWCustomDialViewController *vc = LWCustomDialViewController.new;
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+        }];
+        [alertController addAction: action_A];
+            
+        UIAlertAction *action_B = [UIAlertAction actionWithTitle:[NSString stringWithFormat:@"%@-B", LWLocalizbleString(@"Custom⌚️")] style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+            
+            [weakSelf requestCustomBinPack];
+        }];
+        [alertController addAction:action_B];
+
+        UIAlertAction *cancel = [UIAlertAction actionWithTitle:LWLocalizbleString(@"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {
+            FBLog(@"UIAlertActionStyleCancel");
+        }];
+        [alertController addAction:cancel];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+    }
+    else {
+        LWCustomDialViewController *vc = LWCustomDialViewController.new;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+#else
+    
     LWCustomDialViewController *vc = LWCustomDialViewController.new;
-//    FBCustomDialViewController *vc = FBCustomDialViewController.new;
     [self.navigationController pushViewController:vc animated:YES];
+    
+#endif
+    
 }
 
 /*
@@ -159,6 +195,71 @@
 
 - (NSInteger)numberOfListsInlistContainerView:(JXCategoryListContainerView *)listContainerView {
     return self.arrayData.count;
+}
+
+#pragma mark - Networking
+- (void)requestCustomBinPack {
+    
+    FBFirmwareVersionObject *object = FBAllConfigObject.firmwareConfig;
+    NSDictionary *param = @{@"dpiWidth" : @(object.watchDisplayWide),
+                            @"dpiHeight" : @(object.watchDisplayHigh),
+                            @"version" : @"1.0",
+                            @"sdkType" : @(2),
+                            @"shapeType" : @(object.shape==1 ? 1 : 2)
+    };
+                            
+    WeakSelf(self);
+    [NSObject showLoading:LWLocalizbleString(@"Loading...")];
+    
+    [LWNetworkingManager requestURL:@"api/v2/dial/custom" httpMethod:GET params:param success:^(id  _Nonnull result) {
+        
+        [NSObject dismiss];
+        
+        if ([result[@"code"] integerValue] == 200) {
+                        
+            NSArray <NSDictionary *> *list = result[@"data"][@"list"];
+            
+            NSString *zipUrl = list.firstObject[@"zipUrl"];
+            
+            if (StringIsEmpty(zipUrl)) {
+                [NSObject showHUDText:LWLocalizbleString(@"Fail")];
+            } else {
+                [weakSelf downloadZipUrl:zipUrl];
+            }
+        } else {
+            [NSObject showHUDText:result[@"msg"]];
+        }
+        
+    } failure:^(NSError * _Nonnull error, id  _Nullable responseObject) {
+        [NSObject dismiss];
+        [NSObject showHUDText:error.localizedDescription];
+    }];
+}
+
+- (void)downloadZipUrl:(NSString *)zipUrl {
+    
+    WeakSelf(self);
+    [NSObject showLoading:LWLocalizbleString(@"Loading...")];
+    
+    [LWNetworkingManager requestDownloadURL:zipUrl success:^(NSDictionary *result) {
+        
+        [NSObject dismiss];
+        
+        NSString *filePath = result[@"filePath"];
+        
+        if (StringIsEmpty(filePath)) {
+            [NSObject showHUDText:LWLocalizbleString(@"Fail")];
+        } else {
+            GCD_MAIN_QUEUE(^{
+                FBCustomDialViewController *vc = [[FBCustomDialViewController alloc] initWithResource:filePath];
+                [weakSelf.navigationController pushViewController:vc animated:YES];
+            });
+        }
+        
+    } failure:^(NSError * _Nonnull error, id  _Nullable responseObject) {
+        [NSObject dismiss];
+        [NSObject showHUDText:error.localizedDescription];
+    }];
 }
 
 @end

@@ -1,0 +1,104 @@
+/* 
+  Localizable.strings
+  Fission_Sdk_iOS
+
+  Created by 裂变智能 on 2021/4/1.
+  
+*/
+
+//****************************** 🇹🇷土耳其语 ******************************
+
+/**
+ FBAtCommand
+ */
+"蓝牙未打开或不支持" = "Bluetooth is not turned on or not supported";
+"尚未连接到设备" = "Aygıtlara bağlanmadı";
+"设备尚未初始化完成" = "Aygıt henüz başlatmadı";
+"写指令失败，或缺少连接参数" = "Yazım talimatı başarısız oldu, ya da bağlantı parametri kayıp oldu";
+"应答超时" = "Cevap zamanı aşımı";
+"AT指令异常，无效指令/无效参数" = "talimatı istisnasında, geçersiz talimatı / geçersiz parametre";
+"参数错误，UTC时间设置不能为0" = "Parametre hatası, UTC zamanı 0'ya ayarlanabilir";
+"参数错误，时区设置需大于等于-1440，小于等于+1440" = "Parametre hatası, zaman bölgesi ayarlaması -1440'den daha büyük ya da eşit olmalı ve +1440'den daha az ya da eşit olmalı";
+"数据长度错误" = "Veri uzunluğu hatası";
+"设备初始化失败，初始化超时" = "Aygıt başlatılması başarısız oldu, başlatma zamanı aştı";
+
+"执行失败，低压无法执行" = "Çalıştırma başarısız, çalıştırılamadı";
+"指令状态错误" = "Bildirim durumu hatası";
+"常规运动中，请先停止当前运动" = "Normal harekette, lütfen önce şu anda hareketi durdurun";
+"正在通话中，无法执行此指令" = "Bu komut bir arama ilerliyorduğunda çalışılamaz.";
+"手表取消开启运动" = "Açık hareketi iptal et";
+"本地无此运动信息" = "Yerel spor bilgisi yok";
+
+/**
+ FBBgCommand
+ */
+"参数错误，开始查询时间不能大于结束查询时间" = "Parametre hatası, sorgulama zamanı son sorgulama zamanından daha büyük olamaz";
+
+"参数错误，用户Id设置需大于0，小于0xFFFFFFFF（4294967295）" = "Parametr hatası, kullanıcı kimliği ayarlaması 0'dan ve 0xFFFFF'den daha az olmalı (4294967295)";
+"参数错误，用户昵称设置长度需小于32字节" = "Parametre hatası, kullanıcı isim ayarlama uzunluğu 32 bytes'dan az olmalı";
+"参数错误，用户身高设置需大于100cm，小于250cm" = "Parametre hatası, kullanıcı yükseklik ayarları 100cm'den daha büyük ve 250cm'den daha az olmalı";
+"参数错误，用户体重设置需大于30kg，小于250kg" = "Parametre hatası, kullanıcının ağırlık ayarlaması 30kg ve 250kg'den daha az olmalı";
+"参数错误，用户年龄设置需大于5岁，小于130岁" = "Parametre hatası, kullanıcı yaşı ayarlaması 5 yaşından daha büyük ve 130 yaşından daha az olmalı";
+"参数错误，用户步幅设置需大于40，小于90" = "Parametr hatası, kullanıcı kategori ayarları 40'dan ve 90'dan daha az olmalı";
+
+"参数错误，序号ID设置需大于等于0，小于等于%d" = "Parametre hatası, Sn ID ayarlaması 0'dan daha büyük ya da eşit olmalı ve %d'den daha az ya da eşit olmalı";
+"参数错误，描述内容设置长度需小于24字节" = "Parametre hatası, tanımlama içeriği ayarlama uzunluğu 24 bytes'dan az olmalı";
+"参数错误，日期时间设置不能为空，格式：YYYY-MM-dd HH:mm" = "Parameter error, date time setting cannot be empty, format: YYYY-MM-dd HH:mm";
+"参数错误，时间设置不能为空，格式：HH:mm" = "Parametre hatası, zaman ayarlaması boş olamaz, format ı: HH:mm";
+"参数错误，星期未选择" = "Parametre hatası, hafta seçilmemiş";
+"参数错误，星期选中标记设置不能为空（星期日、星期一、星期二、星期三、星期四、星期五、星期六）" = "Parametre hatası, hafta kontrol işareti ayarı boş olamaz (Pazar günü, Pazartesi, Salı günü, Çarşamba günü, Perşembe günü, Cuma günü, Cuma günü)";
+
+"参数错误，起始时间，一天的绝对分钟（大于等于0分钟，小于等于1440分钟）" = "Parametre hatası, başlangıç zamanı, günün kesinlikle dakikalığı (0 dakikadan daha büyük ya da eşittir, 1440 dakikadan az ya da eşittir)";
+"参数错误，结束时间，一天的绝对分钟（大于等于0分钟，小于等于1440分钟）" = "Parametre hatası, son zamanı, günün kesinlikle dakikaları (0 dakikadan daha büyük ya da eşittir, 1440 dakikadan az ya da eşittir)";
+"参数错误，起始时间需小于结束时间" = "Parametre hatası, başlangıç zamanı son zamandan az olmalı";
+"参数错误，检测时间需大于0" = "Parametre hatası, keşfetme zamanı 0'dan daha büyük olmalı";
+"参数错误，目标步数需大于0" = "Parametre hatası, hedef adımları 0'dan daha büyük olmalı";
+
+"参数错误，目标卡路里消耗需大于0" = "Parametr hatası, hedef kalori tüketimin 0'dan daha büyük olmalı";
+"参数错误，目标里程数需大于0" = "Parametr hatası, hedef mileage 0'dan daha büyük olmalı";
+"参数错误，目标运动时间需大于0" = "Parametre hatası, hedef hareket zamanı 0'dan daha büyük olmalı";
+
+"参数错误，天气数据推送至少1天，最多%d天" = "Parametre hatası, hava verileri en azından 1 gün,  %d günlere kadar basıldı.";
+"参数错误，序号设置值范围0-%d" = "Parametre hatası, 0-%d değer aralığını ayarlamak";
+
+"参数错误，提前提醒天数，范围为1-3天" = "Parametre hatası, hatırlatma günleri önünde, 1-3 gün aralığı";
+"参数错误，经期天数，范围为3-15天" = "Parametre hatası, mensüel dönemi günleri, 3-15 günü aralığı";
+"参数错误，经期周期天数，范围为17-60天" = "Parametre hatası, menstrual döngü günleri, 17-60 günü aralığı";
+"参数错误，最后一次经期年月日，年份范围为最近两年（去年，今年），月份范围为1-12，日数范围为1-31" = "Parametre hatası, son ay dönemi mm / DD / yyyy, yıl menzili son iki yıldır (geçen yıl, bu yıl), ay menzili 1-12 ve günün menzili 1-31";
+"参数错误，提醒时间，小时范围为0-23，分钟范围为0-59" = "Parametre hatası, hatırlatma zamanı, saat menzili: 0-23, dakika menzili: 0-59";
+
+"参数错误，心率提醒上限值需大于等于30，小于等于200" = "Parametre hatası, kalp hızının üst sınırı hatırlatıcısı 30'dan veya eşittir veya 200'den az veya eşittir olmalı.";
+"参数错误，心率提醒下限值需大于等于30，小于等于200" = "Parametr hatası, kalp hızının anımsatıcının düşük sınırı 30'dan veya eşittir veya 200'den az veya eşittir olmalı.";
+"参数错误，心率提醒下限值需小于心率提醒上限值" = "Parametre hatası. Kalp hızının aşağı sınırı hatırlatıcısı kalp hızının hatırlatıcısından daha az olmalı.";
+"参数错误，心率值连续超标次数不能小于1" = "Parametre hatası. Kalp hızı değerinin sayısı 1'dan az olamaz.";
+
+"参数错误，常用联系人最多不能超过50个" = "Parametre hatası, 50 ortak bağlantılardan fazla";
+
+"执行失败" = "Execution failed";
+"失败，数据校验未通过" = "Veri doğrulaması başarısız oldu";
+"数据无效(格式错误)" = "Keçersiz veri (format ı hatası)";
+"通信中(系统忙)" = "İletişim ilerliyor (sistem meşgul)";
+"无效指令" = "Keçersiz direktif";
+"协议版本不符" = "Anlaşma versiyonu uygun";
+"收到正确的结果" = "Doğru sonuçlar alındı";
+"数据错误" = "Veri hatası";
+"接收超时" = "Zaman alın";
+"内存超出" = "Out of memory";
+"校验和错误" = "Checksum hatası";
+"参数错误" = "Parametre hatası";
+"数据长度错误" = "Veri uzunluğu hatası";
+"未知的错误" = "Bilinmemiş hata";
+
+/**
+ FBBluetoothOTA
+ */
+"参数错误，bin文件错误" = "Parametre hatası, bin dosya hatası";
+"当前连接的设备OTA升级不可用" = "Şu anda bağlantı cihazının OTA geliştirmesi mevcut değil";
+"OTA升级失败，切换到OTA mode失败" = "OTA geliştirmesi başarısız oldu, OTA moduna değiştirmesi başarısız oldu";
+"OTA升级失败，不支持普通升级" = "OTA geliştirmesi başarısız, normal geliştirme desteklenmiyor";
+"OTA升级失败，不支持静默升级" = "OTA geliştirmesi başarısız, sessiz geliştirme desteklenmiyor";
+"手表电量低于30%" = "Dikkat gücü %30'dan az";
+
+"操作频繁，请稍后重试..." = "Sıradan operasyonlar, lütfen sonra tekrar deneyin.";
+"设备处于禁止OTA状态，请稍后重试..." = "Aygıt OTA yasaklanmış durumda. Lütfen sonra tekrar deneyin.";
+"设备处于运动中，请结束运动后重试..." = "Cihaz hareket halinde, lütfen hareketi sonlandırın ve tekrar deneyin...";

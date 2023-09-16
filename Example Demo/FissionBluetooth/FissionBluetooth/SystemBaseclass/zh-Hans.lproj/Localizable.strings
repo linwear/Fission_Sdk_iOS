@@ -165,6 +165,8 @@
 "Read off-chip flash space data (Used for device abnormal restart analysis)" = "读取片外Flash空间数据（用于设备异常重启分析）";
 "Request Device Logs" = "请求设备日志";
 "Get/Set system function switch information" = "获取/设置 系统功能开关信息";
+"Push basic information of AGPS location (latitude and longitude UTC)" = "推送AGPS位置基础信息(经纬度UTC)";
+"Synchronize AGPS positioning data" = "同步AGPS定位数据";
 
 "Firmware OTA" = "固件OTA";
 "Dial Face OTA" = "表盘OTA";
@@ -193,6 +195,8 @@
 "Please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone" = "请允许 %@ 访问 iPhone 的\"设置-隐私-相册\"中的相册";
 "Can't use camera" = "无法使用相机";
 "The photo after taking the photo needs to be added to the album, please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone" = "拍照后的照片需要添加到相册，请在iPhone的“设置-隐私-相册”中允许%@访问相册";
+"Unable to use location services" = "无法使用定位服务";
+"Please allow %@ to access Location Services in iPhone's \"Settings-Privacy-Location Services\"" = "请允许 %@ 访问 iPhone 的\"设置-隐私-定位服务\"中的定位服务";
 
 "Firmware Version" = "固件版本号";
 "Project Number" = "适配号";
@@ -281,6 +285,7 @@
 
 "Custom Dial" = "自定义表盘";
 "Long press the module to move" = "长按模块可移动";
+"Space Occupied" = "空间占用";
 "Background" = "背景";
 "Dial" = "表盘";
 "Module" = "组件";
