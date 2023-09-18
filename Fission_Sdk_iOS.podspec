@@ -14,7 +14,7 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => "https://github.com/linwear/Fission_Sdk_iOS.git", :tag => spec.version.to_s }
   spec.documentation_url = 'https://github.com/linwear/Fission_Sdk_iOS/blob/main/README.md'
   spec.requires_arc     = true
-  spec.frameworks = 'Foundation', 'CoreBluetooth'
+  spec.frameworks = 'CoreBluetooth'
   spec.vendored_frameworks = 'SDK/Fission_Sdk_iOS.xcframework'
 
 
