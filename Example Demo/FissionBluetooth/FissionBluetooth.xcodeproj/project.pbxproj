@@ -320,10 +320,7 @@
 		59AA50702AB4320E00D3125E /* RLMHeartRateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C444AB2A0CDA3400F236B0 /* RLMHeartRateModel.m */; };
 		59AA50712AB4320E00D3125E /* FBCustomDialListContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E41612A25D4B700B438FE /* FBCustomDialListContentView.m */; };
 		59AA50722AB4320E00D3125E /* FBTestUIOverviewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 590419822A2F058600BD3A0A /* FBTestUIOverviewModel.m */; };
-		59AA50742AB4320E00D3125E /* RTKLEFoundation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA662AB2AB2C004A88F1 /* RTKLEFoundation.xcframework */; };
-		59AA50752AB4320E00D3125E /* RTKOTASDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA652AB2AB2C004A88F1 /* RTKOTASDK.xcframework */; };
 		59AA50772AB4320E00D3125E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C6CC4A25ADA95F007C2521 /* AudioToolbox.framework */; };
-		59AA50782AB4320E00D3125E /* Fission_Sdk_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA612AB2AA8F004A88F1 /* Fission_Sdk_iOS.xcframework */; };
 		59AA507A2AB4320E00D3125E /* ELPO_GR3_1.DAT in Resources */ = {isa = PBXBuildFile; fileRef = 59FA408F2A9DFAA50035FD1E /* ELPO_GR3_1.DAT */; };
 		59AA507B2AB4320E00D3125E /* 时分2.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B97269D3CF1001E4D65 /* 时分2.bmp */; };
 		59AA507C2AB4320E00D3125E /* 日期3.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF782696893700B8001A /* 日期3.bmp */; };
@@ -451,18 +448,9 @@
 		59AA50F72AB4320E00D3125E /* PushSwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592196882A1B514700A4BE45 /* PushSwitchCell.xib */; };
 		59AA50F82AB4320E00D3125E /* FBTestUISportsDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593E41CB2A29CD9E00B438FE /* FBTestUISportsDetailsCell.xib */; };
 		59AA50F92AB4320E00D3125E /* rgb.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BED82695980B00B8001A /* rgb.bmp */; };
-		59AA50FC2AB4320E00D3125E /* RTKOTASDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA652AB2AB2C004A88F1 /* RTKOTASDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		59AA50FD2AB4320E00D3125E /* Fission_Sdk_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA612AB2AA8F004A88F1 /* Fission_Sdk_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		59AA50FE2AB4320E00D3125E /* RTKLEFoundation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA662AB2AB2C004A88F1 /* RTKLEFoundation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59B3DA1D2A78F7FF00218990 /* FBConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59B3DA1B2A78F7FF00218990 /* FBConnectViewController.m */; };
 		59B3DA1E2A78F7FF00218990 /* FBConnectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59B3DA1C2A78F7FF00218990 /* FBConnectViewController.xib */; };
 		59B51C4E2A49938A0020708C /* BAHNSCHRIFT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 59B51C4D2A49938A0020708C /* BAHNSCHRIFT.TTF */; };
-		59BDFA632AB2AA9B004A88F1 /* Fission_Sdk_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA612AB2AA8F004A88F1 /* Fission_Sdk_iOS.xcframework */; };
-		59BDFA642AB2AA9B004A88F1 /* Fission_Sdk_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA612AB2AA8F004A88F1 /* Fission_Sdk_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		59BDFA692AB2AB31004A88F1 /* RTKLEFoundation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA662AB2AB2C004A88F1 /* RTKLEFoundation.xcframework */; };
-		59BDFA6A2AB2AB31004A88F1 /* RTKLEFoundation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA662AB2AB2C004A88F1 /* RTKLEFoundation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		59BDFA6B2AB2AB33004A88F1 /* RTKOTASDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA652AB2AB2C004A88F1 /* RTKOTASDK.xcframework */; };
-		59BDFA6C2AB2AB33004A88F1 /* RTKOTASDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59BDFA652AB2AB2C004A88F1 /* RTKOTASDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59C3A4802A24AB9600C95E19 /* FBTestUIBaseSportsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C3A47E2A24AB9600C95E19 /* FBTestUIBaseSportsCell.m */; };
 		59C444AC2A0CDA3400F236B0 /* RLMHeartRateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C444AB2A0CDA3400F236B0 /* RLMHeartRateModel.m */; };
 		59C444AF2A0CDBBB00F236B0 /* RLMBloodOxygenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C444AE2A0CDBBB00F236B0 /* RLMBloodOxygenModel.m */; };
@@ -528,6 +516,12 @@
 		59E7BFBA2696893700B8001A /* 标注.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF8B2696893700B8001A /* 标注.png */; };
 		59E7BFBB2696893700B8001A /* 2.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF8D2696893700B8001A /* 2.bmp */; };
 		59E7BFBC2696893700B8001A /* 1.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BF8E2696893700B8001A /* 1.bmp */; };
+		59E9634B2AB846CD00BD3855 /* Fission_Sdk_iOS.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E963472AB8469E00BD3855 /* Fission_Sdk_iOS.xcframework */; };
+		59E9634C2AB846CD00BD3855 /* Fission_Sdk_iOS.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59E963472AB8469E00BD3855 /* Fission_Sdk_iOS.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59E9634D2AB846CF00BD3855 /* RTKLEFoundation.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E963452AB8469E00BD3855 /* RTKLEFoundation.xcframework */; };
+		59E9634E2AB846CF00BD3855 /* RTKLEFoundation.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59E963452AB8469E00BD3855 /* RTKLEFoundation.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		59E9634F2AB846D100BD3855 /* RTKOTASDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59E963462AB8469E00BD3855 /* RTKOTASDK.xcframework */; };
+		59E963502AB846D100BD3855 /* RTKOTASDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59E963462AB8469E00BD3855 /* RTKOTASDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59F84BA2269D3CF1001E4D65 /* 时分1.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B94269D3CF1001E4D65 /* 时分1.bmp */; };
 		59F84BA3269D3CF1001E4D65 /* 时分6.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B95269D3CF1001E4D65 /* 时分6.bmp */; };
 		59F84BA4269D3CF1001E4D65 /* 时分9.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B96269D3CF1001E4D65 /* 时分9.bmp */; };
@@ -571,9 +565,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				59BDFA6C2AB2AB33004A88F1 /* RTKOTASDK.xcframework in Embed Frameworks */,
-				59BDFA642AB2AA9B004A88F1 /* Fission_Sdk_iOS.xcframework in Embed Frameworks */,
-				59BDFA6A2AB2AB31004A88F1 /* RTKLEFoundation.xcframework in Embed Frameworks */,
+				59E963502AB846D100BD3855 /* RTKOTASDK.xcframework in Embed Frameworks */,
+				59E9634C2AB846CD00BD3855 /* Fission_Sdk_iOS.xcframework in Embed Frameworks */,
+				59E9634E2AB846CF00BD3855 /* RTKLEFoundation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,9 +578,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				59AA50FC2AB4320E00D3125E /* RTKOTASDK.xcframework in Embed Frameworks */,
-				59AA50FD2AB4320E00D3125E /* Fission_Sdk_iOS.xcframework in Embed Frameworks */,
-				59AA50FE2AB4320E00D3125E /* RTKLEFoundation.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -913,9 +904,6 @@
 		59B3DA1C2A78F7FF00218990 /* FBConnectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FBConnectViewController.xib; sourceTree = "<group>"; };
 		59B51C4D2A49938A0020708C /* BAHNSCHRIFT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = BAHNSCHRIFT.TTF; sourceTree = "<group>"; };
 		59B66DB625A4376D0068B89A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		59BDFA612AB2AA8F004A88F1 /* Fission_Sdk_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Fission_Sdk_iOS.xcframework; sourceTree = "<group>"; };
-		59BDFA652AB2AB2C004A88F1 /* RTKOTASDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RTKOTASDK.xcframework; sourceTree = "<group>"; };
-		59BDFA662AB2AB2C004A88F1 /* RTKLEFoundation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RTKLEFoundation.xcframework; sourceTree = "<group>"; };
 		59C3A47D2A24AB9600C95E19 /* FBTestUIBaseSportsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBTestUIBaseSportsCell.h; sourceTree = "<group>"; };
 		59C3A47E2A24AB9600C95E19 /* FBTestUIBaseSportsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBTestUIBaseSportsCell.m; sourceTree = "<group>"; };
 		59C444AA2A0CDA3400F236B0 /* RLMHeartRateModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RLMHeartRateModel.h; sourceTree = "<group>"; };
@@ -990,6 +978,9 @@
 		59E7BF8B2696893700B8001A /* 标注.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "标注.png"; sourceTree = "<group>"; };
 		59E7BF8D2696893700B8001A /* 2.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = 2.bmp; sourceTree = "<group>"; };
 		59E7BF8E2696893700B8001A /* 1.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = 1.bmp; sourceTree = "<group>"; };
+		59E963452AB8469E00BD3855 /* RTKLEFoundation.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RTKLEFoundation.xcframework; sourceTree = "<group>"; };
+		59E963462AB8469E00BD3855 /* RTKOTASDK.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = RTKOTASDK.xcframework; sourceTree = "<group>"; };
+		59E963472AB8469E00BD3855 /* Fission_Sdk_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Fission_Sdk_iOS.xcframework; sourceTree = "<group>"; };
 		59F84B94269D3CF1001E4D65 /* 时分1.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分1.bmp"; sourceTree = "<group>"; };
 		59F84B95269D3CF1001E4D65 /* 时分6.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分6.bmp"; sourceTree = "<group>"; };
 		59F84B96269D3CF1001E4D65 /* 时分9.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分9.bmp"; sourceTree = "<group>"; };
@@ -1020,11 +1011,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59BDFA692AB2AB31004A88F1 /* RTKLEFoundation.xcframework in Frameworks */,
-				59BDFA6B2AB2AB33004A88F1 /* RTKOTASDK.xcframework in Frameworks */,
 				1E29CF31781E67E402257E0F /* Pods_FissionBluetooth.framework in Frameworks */,
+				59E9634D2AB846CF00BD3855 /* RTKLEFoundation.xcframework in Frameworks */,
+				59E9634B2AB846CD00BD3855 /* Fission_Sdk_iOS.xcframework in Frameworks */,
+				59E9634F2AB846D100BD3855 /* RTKOTASDK.xcframework in Frameworks */,
 				59C6CC4B25ADA95F007C2521 /* AudioToolbox.framework in Frameworks */,
-				59BDFA632AB2AA9B004A88F1 /* Fission_Sdk_iOS.xcframework in Frameworks */,
 				1E5BBB410FDB395C0B24BE48 /* Pods_FissionBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1049,10 +1040,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59AA50742AB4320E00D3125E /* RTKLEFoundation.xcframework in Frameworks */,
-				59AA50752AB4320E00D3125E /* RTKOTASDK.xcframework in Frameworks */,
 				59AA50772AB4320E00D3125E /* AudioToolbox.framework in Frameworks */,
-				59AA50782AB4320E00D3125E /* Fission_Sdk_iOS.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1307,16 +1295,6 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		59235806293ED8D000E5379C /* SDK */ = {
-			isa = PBXGroup;
-			children = (
-				59BDFA612AB2AA8F004A88F1 /* Fission_Sdk_iOS.xcframework */,
-				59BDFA662AB2AB2C004A88F1 /* RTKLEFoundation.xcframework */,
-				59BDFA652AB2AB2C004A88F1 /* RTKOTASDK.xcframework */,
-			);
-			path = SDK;
-			sourceTree = "<group>";
-		};
 		5923580D293EDED300E5379C /* MVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -1383,6 +1361,7 @@
 				592A9FEC25A4173A00CC515E /* Main.storyboard */,
 				592A9FF125A4173B00CC515E /* LaunchScreen.storyboard */,
 				592A9FEF25A4173B00CC515E /* Assets.xcassets */,
+				59E963442AB8469E00BD3855 /* SDK_iOS */,
 				59E7BE4E268C13C400B8001A /* Resources */,
 			);
 			path = FissionBluetooth;
@@ -1598,7 +1577,6 @@
 			children = (
 				59B66DB625A4376D0068B89A /* PrefixHeader.pch */,
 				592358CE293F26C100E5379C /* QMUIConfigurationTemplate */,
-				59235806293ED8D000E5379C /* SDK */,
 				592358DB293F2C8C00E5379C /* Localizable.strings */,
 				590B977629667AC300D31A76 /* InfoPlist.strings */,
 			);
@@ -1738,6 +1716,16 @@
 				59F84B9D269D3CF1001E4D65 /* 时分13.bmp */,
 			);
 			path = "时-分";
+			sourceTree = "<group>";
+		};
+		59E963442AB8469E00BD3855 /* SDK_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				59E963452AB8469E00BD3855 /* RTKLEFoundation.xcframework */,
+				59E963462AB8469E00BD3855 /* RTKOTASDK.xcframework */,
+				59E963472AB8469E00BD3855 /* Fission_Sdk_iOS.xcframework */,
+			);
+			path = SDK_iOS;
 			sourceTree = "<group>";
 		};
 		749A57D9A5AE00850B0B5BD3 /* Pods */ = {

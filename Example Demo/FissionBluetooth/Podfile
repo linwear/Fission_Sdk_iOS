@@ -18,6 +18,7 @@ target 'FissionBluetooth' do
     # Pods for testing
   end
 
+  #pod 'Fission_Sdk_iOS', git: 'https://github.com/linwear/Fission_Sdk_iOS.git' 由于需要经常性调试新协议，该示例工程使用手动导入SDK集成方式
   pod 'QMUIKit'
   pod 'AFNetworking'
   pod 'MJExtension'
