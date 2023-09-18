@@ -6,7 +6,7 @@
 
 #### 框架功能: Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装｜Framework Function: iOS framework for Fission smart watch, which is responsible for the communication with the watch.
 
-#### ⚠️暂不支持CocoaPods导入方式！请下载zip并仔细阅读文档，根据文档指引手动导入集成SDK；参考提供的示例demo，以帮助您更好地理解SDK API的使用｜The CocoaPods import method is not currently supported! Please download the zip and read the documentation carefully, and manually import the integrated SDK according to the documentation; refer to the provided sample demo to help you better understand the use of the SDK API.
+#### ⚠️SDK支持模拟器、真机编译运行。支持CocoaPods和手动导入方式！请仔细阅读《接入指南》，根据文档指引集成SDK；参考提供的示例demo（Example Demo），以帮助您更好地理解SDK API的使用！｜The SDK supports compilation and running on simulators and real machines. Supports CocoaPods and manual import methods! Please read the "Access Guide" carefully and integrate the SDK according to the document guidelines; refer to the provided example demo (Example Demo) to help you better understand the use of the SDK API!
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -27,6 +27,23 @@
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 ### 🚀SDK 修改记录｜SDK Modification Record:（Fission_Sdk_iOS.h）
+
+    pcjbird    2023-08-24  Version:3.1.6 Build:20230824001
+                            1.EM_FUNC_SWITCH 新增类型:
+                              FS_AGPS_LOCATION_REQUEST(35)
+                              FS_AGPS_DATA_REQUEST(36)
+                            2.FB_OTANOTIFICATION 新增OTA通知类型:
+                              FB_OTANotification_AGPS_Package(30)
+                            3.新增"推送AGPS位置基础信息(经纬度UTC)"协议（FBBgCommand）fbPushAGPSLocationInformation: withBlock:
+                            4.新增"同步AGPS定位数据"协议（FBBgCommand）fbSynchronizeAGPSPositioningData: withBlock:
+                            5.FB_MOTIONMODE 新增运动类型:
+                              沙滩排球(140)
+                            6.FB_LANGUAGES 新增语言类型:
+                              FB_SDK_ms(29)
+                              FB_SDK_sk(30)
+                              FB_SDK_my(31)
+                              FB_SDK_da(32)
+                            7.SDK同时支持 真机、模拟器 编译运行（注意：模拟器无法使用蓝牙）
 
      pcjbird    2023-07-18  Version:3.1.5 Build:20230718001
                             1.修复"设置/获取 个人用户信息"协议已知错误问题
