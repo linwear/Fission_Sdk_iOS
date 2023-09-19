@@ -16,19 +16,16 @@ Pod::Spec.new do |spec|
   spec.requires_arc     = true
   spec.frameworks = 'Foundation', 'CoreBluetooth'
   spec.vendored_frameworks = 'SDK/Fission_Sdk_iOS.xcframework'
-
+  spec.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
 
   spec.subspec 'RTKOTASDK' do |rtkota|
     rtkota.vendored_frameworks = 'SDK/RTKOTASDK.xcframework'
     rtkota.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
   end
 
-
   spec.subspec 'RTKLEFoundation' do |rtkle|
     rtkle.vendored_frameworks = 'SDK/RTKLEFoundation.xcframework'
     rtkle.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
   end
   
-  spec.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
-
 end
