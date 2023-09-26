@@ -20,7 +20,7 @@
 ### 安装｜Installation
 
 * **方式一: CocoaPods｜Method 1: CocoaPods**
-1. 在 `Podfile` 中添加以下内容｜1.Add the following content in `Podfile`
+1. 在 `Podfile` 中添加以下内容｜Add the following content in `Podfile`
 ```ruby
 pod 'Fission_Sdk_iOS', git: 'https://github.com/linwear/Fission_Sdk_iOS.git'
 ```
@@ -28,7 +28,25 @@ pod 'Fission_Sdk_iOS', git: 'https://github.com/linwear/Fission_Sdk_iOS.git'
 2. 运行 `pod install` 或 `pod update`｜Run `pod install` or `pod update`
 
 * **方式二: 手动导入｜Method 2: Manually**
-1. 将 `Fission_Sdk_iOS.xcframework`、`RTKOTASDK.xcframework`、 `RTKLEFoundation.xcframework` 文件 `Add File` 导入工程
+1. 将 Fission_Sdk_iOS.xcframework、RTKOTASDK.xcframework、 RTKLEFoundation.xcframework 文件 `Add File` 导入工程｜Import Fission_Sdk_iOS.xcframework, RTKOTASDK.xcframework, RTKLEFoundation.xcframework files `Add File` into the project
+
+2. 在 project 中修改 Fission_Sdk_iOS.xcframework、RTKOTASDK.xcframework、 RTKLEFoundation.xcframework 的嵌入方式为 `Embed&Sign`｜Modify the embedding mode of Fission_Sdk_iOS.xcframework, RTKOTASDK.xcframework, and RTKLEFoundation.xcframework in the project to `Embed&Sign`
+
+| Add File  | Embed&Sign  |
+| :----:  | :----:  |
+| ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/008.png) | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/009.png) |
+
+### 设置蓝牙后台模式｜Set Bluetooth Background Modes
+1. 在 project 的 `Background Modes` 中勾选开启 `Uses Bluetooth LE accessories`｜Check and enable `Uses Bluetooth LE accessories` in the `Background Modes` of the project
+
+### 设置隐私权限｜Set privacy permissions
+1. 在 `info plist` 文件中增加以下两个隐私权限
+```objective-c
+Privacy - Bluetooth Peripheral Usage Description
+```
+```objective-c
+Privacy - Bluetooth Always Usage Description
+```
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
