@@ -23,6 +23,17 @@
 
      pcjbird    2023-06-09
                 1.新增【数据可视化UI】模块，便于了解数据同步API的使用，直观查看设备历史数据
+                
+     pcjbird    2020-12-31
+                1.首个发布版本
+
+| Column Chart  | Column Range Chart  | Area Chart  |
+| :----:  | :----: | :----: |
+| ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/001.png) | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/002.png) | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/003.png) |
+
+| Line Chart  | Step Area Chart  | Step Line Chart  |
+| :----:  | :----: | :----: |
+| ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/004.png) | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/005.png) | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/006.png) |
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
