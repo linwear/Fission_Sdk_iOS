@@ -27,11 +27,11 @@
      pcjbird    2020-12-31
                 1.首个发布版本
 
-| Column Chart  | Column Range Chart  | Area Chart  |
+| Basic  | Set Query Time  | Left Drawer  |
 | :----:  | :----: | :----: |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/001.png) | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/002.png) | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/003.png) |
 
-| Line Chart  | Step Area Chart  | Step Line Chart  |
+| Search Connection  | Log File  | Test UI  |
 | :----:  | :----: | :----: |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/004.png) | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/005.png) | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/006.png) |
 
