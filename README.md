@@ -6,7 +6,7 @@
 
 #### 框架功能: Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装｜Framework Function: iOS framework for Fission smart watch, which is responsible for the communication with the watch.
 
-#### ⚠️SDK支持模拟器、真机编译运行[(x86_64、arm64)](#NOTE)。支持CocoaPods和手动导入方式！请仔细阅读《接入指南》，根据文档指引集成SDK；参考提供的示例demo（Example Demo），以帮助您更好地理解SDK API的使用！｜The SDK supports compilation and running on simulators and real machines. Supports CocoaPods and manual import methods! Please read the "Access Guide" carefully and integrate the SDK according to the document guidelines; refer to the provided example demo (Example Demo) to help you better understand the use of the SDK API!
+#### ⚠️SDK支持[模拟器(x86_64)、真机(arm64)](#NOTE)编译运行。支持[CocoaPods、手动导入](#NOTE)方式！请仔细阅读[《接入指南》](#NOTE)，根据文档指引集成SDK；参考提供的示例demo[（Example Demo）](#NOTE)，以帮助您更好地理解SDK API的使用！｜SDK supports [simulator (x86_64), real machine (arm64)](#NOTE) compilation and operation. Support [CocoaPods, manual import](#NOTE) method! Please read the ["Access Guide"](#NOTE) carefully and integrate the SDK according to the document guidelines; refer to the provided example demo [(Example Demo)](#NOTE) to help you better understand the use of the SDK API!
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
