@@ -27,12 +27,12 @@
      pcjbird    2020-12-31
                 1.首个发布版本
 
-| Basic   | Query    | Drawer  |
-| :----:  | :----: | :----: |
+| Basic  | Query  | Drawer  |
+| :----: | :----: | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/001.png) | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/002.png) | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/003.png) |
 
-| Search  | Logging  | TestUI  |
-| :----:  | :----: | :----: |
+| Search  | Logger  | TestUI  |
+| :----:  | :----:  | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/004.png) | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/005.png) | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/006.png) |
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
