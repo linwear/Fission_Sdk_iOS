@@ -39,14 +39,30 @@ pod 'Fission_Sdk_iOS', git: 'https://github.com/linwear/Fission_Sdk_iOS.git'
 ### 设置蓝牙后台模式｜Set Bluetooth Background Modes
 1. 在 project 的 `Background Modes` 中勾选开启 `Uses Bluetooth LE accessories`｜Check and enable `Uses Bluetooth LE accessories` in the `Background Modes` of the project
 
+| Background Modes  |
+| :----:  |
+| ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/010.png) |
+
 ### 设置隐私权限｜Set privacy permissions
-1. 在 `info plist` 文件中增加以下两个隐私权限
+1. 在 `info plist` 文件中增加以下两个隐私权限｜Add the following two privacy permissions in the `info plist` file
 ```objective-c
 Privacy - Bluetooth Peripheral Usage Description
 ```
 ```objective-c
 Privacy - Bluetooth Always Usage Description
 ```
+
+| Privacy  |
+| :----:  |
+| ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
+
+### 使用｜Usage
+1. 将以下内容添加到您要使用的文件中｜Add the following to the file you want to use
+```objective-c
+#import <Fission_Sdk_iOS/Fission_Sdk_iOS.h>
+```
+
+##### 🎉🎉🎉恭喜!!!至此你已完成集成工作!!!｜Congratulations!!! At this point you have completed the integration!!!🌈🌈🌈
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
