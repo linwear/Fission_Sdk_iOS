@@ -12,7 +12,7 @@
 
 ### 📃接入指南｜Access Guide
 
-* **[中文文档(Chinese Document)]**(iOS版FissionSDK用户指南.pdf)
+* **[中文文档(Chinese Document)](iOS版FissionSDK用户指南.pdf)**
 * **[英文文档(English Document)](FissionSDK_UserGuide_for_iOS.pdf)**
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
