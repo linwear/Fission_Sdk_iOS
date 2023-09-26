@@ -1,5 +1,7 @@
 # 📁Fission_Sdk_iOS
 
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 ## 🔖SDK For iOS &amp; LinWear &amp; Fission
 
 #### 框架名称: Fission_Sdk_iOS.framework｜Framework Name: Fission_Sdk_iOS.framework
@@ -15,9 +17,18 @@
 * **[中文文档(Chinese Document)](iOS版FissionSDK用户指南.pdf)**
 * **[英文文档(English Document)](FissionSDK_UserGuide_for_iOS.pdf)**
 
-#### 安装｜Installation
+### 安装｜Installation
 
-**方式一: CocoaPods｜Method 1: CocoaPods**
+* **方式一: CocoaPods｜Method 1: CocoaPods**
+1. 在 `Podfile` 中添加以下内容｜1.Add the following content in `Podfile`
+```ruby
+pod 'Fission_Sdk_iOS', git: 'https://github.com/linwear/Fission_Sdk_iOS.git'
+```
+
+2. 运行 `pod install` 或 `pod update`｜Run `pod install` or `pod update`
+
+* **方式二: 手动导入｜Method 2: Manually**
+1. 将 `Fission_Sdk_iOS.xcframework`、`RTKOTASDK.xcframework`、 `RTKLEFoundation.xcframework` 文件 `Add File` 导入工程
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -39,9 +50,9 @@
 | :----:  | :----:  | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/004.png) | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/005.png) | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/006.png) |
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-### 🚀SDK 修改记录｜SDK Modification Record:（Fission_Sdk_iOS.h）
+## 🚀SDK 修改记录｜SDK Modification Record:（Fission_Sdk_iOS.h）
 
 | Public Header Files  |
 | :----:  |
@@ -232,3 +243,5 @@
 
      pcjbird    2020-12-31  Version:1.0.0 Build:202012311800
                             1.首个发布版本
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
