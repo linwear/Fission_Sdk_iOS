@@ -39,6 +39,10 @@
 
 ### 🚀SDK 修改记录｜SDK Modification Record:（Fission_Sdk_iOS.h）
 
+| Public Header Files  |
+| :----:  |
+| ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/007.png) |
+
     pcjbird    2023-08-24  Version:3.1.6 Build:20230824001
                             1.EM_FUNC_SWITCH 新增类型:
                               FS_AGPS_LOCATION_REQUEST(35)
