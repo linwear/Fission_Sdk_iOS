@@ -1,6 +1,6 @@
 # 📁Fission_Sdk_iOS
 
-### 🔖SDK For iOS &amp; LinWear &amp; Fission
+## 🔖SDK For iOS &amp; LinWear &amp; Fission
 
 #### 框架名称: Fission_Sdk_iOS.framework｜Framework Name: Fission_Sdk_iOS.framework
 
@@ -8,14 +8,16 @@
 
 #### [⚠️SDK支持模拟器(x86_64)、真机(arm64)编译运行。支持CocoaPods、手动导入方式！请仔细阅读《接入指南》，根据文档指引集成SDK；参考提供的示例demo（Example Demo），以帮助您更好地理解SDK API的使用！｜The SDK supports compilation and running on simulators (x86_64) and real machines (arm64). Support CocoaPods, manual import method! Please read the "Access Guide" carefully and integrate the SDK according to the document guidelines; refer to the provided example demo (Example Demo) to help you better understand the use of the SDK API!](#NOTE)
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-### 📃接入指南｜Access Guide
+## 📃接入指南｜Access Guide
 
 * **[中文文档(Chinese Document)](iOS版FissionSDK用户指南.pdf)**
 * **[英文文档(English Document)](FissionSDK_UserGuide_for_iOS.pdf)**
 
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+#### 安装｜Installation
+
+**方式一: CocoaPods｜Method 1: CocoaPods**
+
 
 ### 🚀示例演示工程 修改记录｜Example Demo Modification Record:
 
