@@ -14,8 +14,8 @@
 
 ## 📃接入指南｜Access Guide
 
-* **[中文文档(Chinese Document)](iOS版FissionSDK用户指南.pdf)**
-* **[英文文档(English Document)](FissionSDK_UserGuide_for_iOS.pdf)**
+* **📝[中文文档(Chinese Document)](iOS版FissionSDK用户指南.pdf)**
+* **📝[英文文档(English Document)](FissionSDK_UserGuide_for_iOS.pdf)**
 
 ### 安装｜Installation
 
@@ -62,7 +62,7 @@ Privacy - Bluetooth Always Usage Description
 #import <Fission_Sdk_iOS/Fission_Sdk_iOS.h>
 ```
 
-##### 🎉🎉🎉恭喜!!!至此你已完成集成工作!!!｜Congratulations!!! At this point you have completed the integration!!!🌈🌈🌈
+#### 🎉🎉🎉恭喜!!!至此你已完成集成工作!!!｜Congratulations!!! At this point you have completed the integration!!!🌈🌈🌈
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
