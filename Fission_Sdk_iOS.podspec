@@ -16,14 +16,11 @@ Pod::Spec.new do |spec|
   spec.requires_arc             = true
   spec.frameworks               = 'CoreBluetooth'
   spec.vendored_frameworks      = 'SDK/Fission_Sdk_iOS.xcframework'
+  spec.source_files             = 'SDK/Fission_Sdk_iOS.xcframework/ios-arm64/Fission_Sdk_iOS.framework/Headers/Fission_Sdk_iOS.h'
   spec.pod_target_xcconfig      = { 
                                   'OTHER_LDFLAGS' => '-lObjC',
                                   'USER_HEADER_SEARCH_PATHS' => '"SDK/Fission_Sdk_iOS.xcframework/ios-arm64/Fission_Sdk_iOS.framework/Headers"',
                                   }
-
-  spec.subspec 'Headers' do |spec|
-    spec.source_files           = 'SDK/Fission_Sdk_iOS.xcframework/ios-arm64/Fission_Sdk_iOS.framework/Headers/*.{h,m}'
-  end
 
   spec.subspec 'RTKOTASDK' do |rtkota|
     rtkota.vendored_frameworks  = 'SDK/RTKOTASDK.xcframework'
