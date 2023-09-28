@@ -18,7 +18,7 @@ Pod::Spec.new do |spec|
   spec.vendored_frameworks = 'SDK/Fission_Sdk_iOS.xcframework'
   spec.pod_target_xcconfig = { 
     'OTHER_LDFLAGS' => '-lObjC',
-    'USER_HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/SDK/Fission_Sdk_iOS.xcframework/ios-arm64/Fission_Sdk_iOS.framework/Headers" "${PODS_ROOT}/SDK/Fission_Sdk_iOS.xcframework/ios-arm64_x86_64-simulator/Fission_Sdk_iOS.framework/Headers"',
+    'USER_HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/SDK/Fission_Sdk_iOS.xcframework/ios-arm64/Fission_Sdk_iOS.framework/Headers"',
   }
 
   spec.subspec 'Headers' do |spec|
