@@ -19,13 +19,14 @@ Pod::Spec.new do |spec|
 
   public_header_files           = 'SDK/Fission_Sdk_iOS.xcframework/ios-arm64/Fission_Sdk_iOS.framework/Headers/*.{h,m}'
   spec.default_subspec = "Headers"
-  spec.subspec "Headers" do |spec|
-    spec.source_files  = public_header_files
-  end
   
   spec.pod_target_xcconfig      = { 
                                   'OTHER_LDFLAGS' => '-lObjC',
                                   }
+
+  spec.subspec "Headers" do |spec|
+    spec.source_files  = public_header_files
+  end
 
   spec.subspec 'RTKOTASDK' do |rtkota|
     rtkota.vendored_frameworks  = 'SDK/RTKOTASDK.xcframework'
