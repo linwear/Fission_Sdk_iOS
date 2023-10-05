@@ -18,14 +18,9 @@ Pod::Spec.new do |spec|
   spec.vendored_frameworks      = 'SDK/Fission_Sdk_iOS.xcframework'
 
   public_header_files           = 'SDK/Fission_Sdk_iOS.xcframework/ios-arm64/Fission_Sdk_iOS.framework/Headers/*.{h,m}'
-  spec.default_subspec = "Headers"
-  
-  spec.pod_target_xcconfig      = { 
-                                  'OTHER_LDFLAGS' => '-lObjC',
-                                  }
 
   spec.subspec "Headers" do |spec|
-    spec.source_files  = public_header_files
+    spec.source_files           = public_header_files
   end
 
   spec.subspec 'RTKOTASDK' do |rtkota|
@@ -35,5 +30,9 @@ Pod::Spec.new do |spec|
   spec.subspec 'RTKLEFoundation' do |rtkle|
     rtkle.vendored_frameworks   = 'SDK/RTKLEFoundation.xcframework'
   end
+
+  spec.pod_target_xcconfig      = { 
+                                  'OTHER_LDFLAGS' => '-lObjC',
+                                  }
   
 end
