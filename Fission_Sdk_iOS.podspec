@@ -20,7 +20,7 @@ Pod::Spec.new do |spec|
   public_header_files           = 'SDK/Fission_Sdk_iOS.xcframework/ios-arm64/Fission_Sdk_iOS.framework/Headers/*.{h,m}'
   spec.default_subspec = "Headers"
   spec.subspec "Headers" do |spec|
-    spec.source_files  = "Source/Charts/**/*.swift"
+    spec.source_files  = public_header_files
   end
   
   spec.pod_target_xcconfig      = { 
