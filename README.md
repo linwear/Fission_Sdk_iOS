@@ -34,14 +34,14 @@ pod 'Fission_Sdk_iOS', git: 'https://github.com/linwear/Fission_Sdk_iOS.git'
 
 | Add File  | Embed&Sign  |
 | :----:  | :----:  |
-| ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/008.png) | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/009.png) |
+| ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/007.png) | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/008.png) |
 
 ### 设置蓝牙后台模式｜Set Bluetooth Background Modes
 1. 在 project 的 `Background Modes` 中勾选开启 `Uses Bluetooth LE accessories`｜Check and enable `Uses Bluetooth LE accessories` in the `Background Modes` of the project
 
 | Background Modes  |
 | :----:  |
-| ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/010.png) |
+| ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/009.png) |
 
 ### 设置隐私权限｜Set privacy permissions
 1. 在 `info plist` 文件中增加以下两个隐私权限｜Add the following two privacy permissions in the `info plist` file
@@ -54,7 +54,7 @@ Privacy - Bluetooth Always Usage Description
 
 | Privacy  |
 | :----:  |
-| ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
+| ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/010.png) |
 
 ### 使用｜Usage
 1. 将以下内容添加到您要使用的文件中｜Add the following to the file you want to use
@@ -90,7 +90,7 @@ Privacy - Bluetooth Always Usage Description
 
 | Public Header Files  |
 | :----:  |
-| ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/007.png) |
+| ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
 
     pcjbird    2023-08-24  Version:3.1.6 Build:20230824001
                             1.EM_FUNC_SWITCH 新增类型:
