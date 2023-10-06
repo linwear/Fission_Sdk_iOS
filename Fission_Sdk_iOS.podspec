@@ -31,9 +31,5 @@ Pod::Spec.new do |spec|
   spec.subspec 'RTKLEFoundation' do |rtkle|
     rtkle.vendored_frameworks   = 'SDK/RTKLEFoundation.xcframework'
   end
-
-  spec.pod_target_xcconfig      = { 
-                                  'OTHER_LDFLAGS' => '-lObjC',
-                                  }
   
 end
