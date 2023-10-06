@@ -14,10 +14,12 @@ Pod::Spec.new do |spec|
   spec.source                   = { :git => "https://github.com/linwear/Fission_Sdk_iOS.git", :tag => spec.version.to_s }
   spec.documentation_url        = 'https://github.com/linwear/Fission_Sdk_iOS/blob/main/README.md'
   spec.requires_arc             = true
-  spec.frameworks               = 'CoreBluetooth'
+  spec.frameworks               = 'Foundation', 'CoreBluetooth'
   spec.vendored_frameworks      = 'SDK/Fission_Sdk_iOS.xcframework'
 
   public_header_files           = 'SDK/Fission_Sdk_iOS.xcframework/ios-arm64/Fission_Sdk_iOS.framework/Headers/*.{h,m}'
+
+  spec.header_mappings_dir      =  'SDK/Fission_Sdk_iOS.xcframework/ios-arm64/Fission_Sdk_iOS.framework/Headers'
 
   spec.subspec 'Headers' do |spec|
     spec.source_files           = public_header_files
@@ -31,5 +33,9 @@ Pod::Spec.new do |spec|
   spec.subspec 'RTKLEFoundation' do |rtkle|
     rtkle.vendored_frameworks   = 'SDK/RTKLEFoundation.xcframework'
   end
+
+  spec.pod_target_xcconfig      = { 
+                                  'OTHER_LDFLAGS' => '-lObjC',
+                                  }
   
 end
