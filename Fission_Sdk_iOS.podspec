@@ -22,8 +22,8 @@ Pod::Spec.new do |spec|
   #spec.header_mappings_dir      = public_header_files
 
   spec.subspec 'Headers' do |spec|
-    spec.source_files           = public_header_files + ['/*.{h,m}']
-    spec.public_header_files    = public_header_files + ['/*.{h,m}']
+    spec.source_files           = "#{public_header_files}/*.{h,m}"
+    spec.public_header_files    = "#{public_header_files}/*.{h,m}"
   end
 
   spec.subspec 'RTKOTASDK' do |rtkota|
