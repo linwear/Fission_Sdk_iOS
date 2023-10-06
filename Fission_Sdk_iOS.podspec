@@ -19,7 +19,7 @@ Pod::Spec.new do |spec|
 
   public_header_files           = 'SDK/Fission_Sdk_iOS.xcframework/ios-arm64/Fission_Sdk_iOS.framework/Headers/*.{h,m}'
 
-  #spec.header_mappings_dir      =  'SDK/Fission_Sdk_iOS.xcframework/ios-arm64/Fission_Sdk_iOS.framework/Headers'
+  spec.header_mappings_dir      =  'SDK/Fission_Sdk_iOS.xcframework/ios-arm64/Fission_Sdk_iOS.framework/Headers'
 
   spec.subspec 'Headers' do |spec|
     spec.source_files           = public_header_files
