@@ -17,13 +17,11 @@ Pod::Spec.new do |spec|
   spec.frameworks               = 'Foundation', 'CoreBluetooth'
   spec.vendored_frameworks      = 'SDK/Fission_Sdk_iOS.xcframework'
 
-  public_header_files           = 'SDK/Fission_Sdk_iOS.xcframework/ios-arm64/Fission_Sdk_iOS.framework/Headers'
-
-  #spec.header_mappings_dir      = public_header_files
+  public_header_files           = 'SDK/Fission_Sdk_iOS.xcframework/ios-arm64/Fission_Sdk_iOS.framework/Headers/*.{h,m}'
 
   spec.subspec 'Headers' do |spec|
-    spec.source_files           = "#{public_header_files}/*.{h,m}"
-    spec.public_header_files    = "#{public_header_files}/*.{h,m}"
+    spec.source_files           = public_header_files
+    spec.public_header_files    = public_header_files
   end
 
   spec.subspec 'RTKOTASDK' do |rtkota|
