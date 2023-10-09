@@ -19,6 +19,12 @@
 * **📝[中文文档(Chinese Document)](iOS版FissionSDK用户指南.pdf)**
 * **📝[英文文档(English Document)](FissionSDK_UserGuide_for_iOS.pdf)**
 
+### 兼容性｜Compatibility
+
+* **1. iOS 10.0 及以上操作系统｜iOS 10.0 and above operating systems**
+
+* **2. 支持 x86_64/arm64 指令集｜Support x86_64/arm64 instruction set**
+
 ### 安装｜Installation
 
 * **方式一: CocoaPods｜Method 1: CocoaPods**
