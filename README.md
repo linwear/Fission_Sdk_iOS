@@ -21,9 +21,9 @@
 
 ### 兼容性｜Compatibility
 
-* **1. iOS 10.0 及以上操作系统｜iOS 10.0 and above operating systems**
+1. iOS 10.0 及以上操作系统｜iOS 10.0 and above operating systems
 
-* **2. 支持 x86_64/arm64 指令集｜Support x86_64/arm64 instruction set**
+2. 支持 x86_64/arm64 指令集｜Support x86_64/arm64 instruction set
 
 ### 安装｜Installation
 
