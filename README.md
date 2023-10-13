@@ -3,9 +3,6 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Dependent-CoreBluetooth -coral.svg">
-</a>
-<a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/OS-iOS10+ -blue.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
@@ -21,7 +18,7 @@
     <img src="https://img.shields.io/badge/Document-简体中文｜English -teal.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Include-Demo -pink.svg">
+    <img src="https://img.shields.io/badge/Include-Example Demo -pink.svg">
 </a>
 
 </p>
