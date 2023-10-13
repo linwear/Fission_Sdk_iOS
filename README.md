@@ -3,7 +3,7 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Support-iOS10+ -blue.svg">
+    <img src="https://img.shields.io/badge/OS-iOS10+ -blue.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/Support-x86_64｜arm64 -purple.svg">
@@ -15,10 +15,7 @@
     <img src="https://img.shields.io/badge/Language-OC -red.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Document-English -orange.svg">
-</a>
-<a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Document-简体中文 -cyan.svg">
+    <img src="https://img.shields.io/badge/Document-简体中文｜English -teal.svg">
 </a>
 
 </p>
