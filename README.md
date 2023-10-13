@@ -1,5 +1,28 @@
 ![Fission_Sdk_iOS-LOGO](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/000.png)
 
+<p align="center">
+
+<a href="https://github.com/linwear/Fission_Sdk_iOS.git">
+    <img src="https://img.shields.io/badge/Support-iOS10+ -blue.svg">
+</a>
+<a href="https://github.com/linwear/Fission_Sdk_iOS.git">
+    <img src="https://img.shields.io/badge/Support-x86_64｜arm64 -purple.svg">
+</a>
+<a href="https://github.com/linwear/Fission_Sdk_iOS.git">
+    <img src="https://img.shields.io/badge/Support-CocoaPods -green.svg">
+</a>
+<a href="https://github.com/linwear/Fission_Sdk_iOS.git">
+    <img src="https://img.shields.io/badge/Language-OC -red.svg">
+</a>
+<a href="https://github.com/linwear/Fission_Sdk_iOS.git">
+    <img src="https://img.shields.io/badge/Document-English -orange.svg">
+</a>
+<a href="https://github.com/linwear/Fission_Sdk_iOS.git">
+    <img src="https://img.shields.io/badge/Document-简体中文 -cyan.svg">
+</a>
+
+</p>
+
 # 📁Fission_Sdk_iOS
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
