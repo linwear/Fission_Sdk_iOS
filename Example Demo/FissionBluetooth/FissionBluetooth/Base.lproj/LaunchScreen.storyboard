@@ -21,15 +21,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fission Bluetooth" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7p-FD-so3">
-                                <rect key="frame" x="67.666666666666686" y="285.66666666666669" width="240" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="XhW-fg-2sG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Bahnschrift_Bold" family="Bahnschrift" pointSize="50"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dI9-mD-QS5">
                                 <rect key="frame" x="0.0" y="405.66666666666669" width="375" height="1"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -37,15 +28,29 @@
                                     <constraint firstAttribute="height" constant="1" id="ejM-Pt-QTk"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bluetooth" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFV-v1-4tn">
+                                <rect key="frame" x="75" y="320" width="225" height="52"/>
+                                <fontDescription key="fontDescription" name="Bahnschrift_Bold" family="Bahnschrift" pointSize="52"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fission" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJW-bi-Tcx">
+                                <rect key="frame" x="103.66666666666669" y="268" width="168" height="52"/>
+                                <fontDescription key="fontDescription" name="Bahnschrift_Bold" family="Bahnschrift" pointSize="52"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.33725490196078434" green="0.4392156862745098" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.26666666666666666" green="0.41176470588235292" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="EFV-v1-4tn" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-60" id="65M-pb-gbz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dI9-mD-QS5" secondAttribute="trailing" id="DC7-wd-TIP"/>
+                            <constraint firstItem="EFV-v1-4tn" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="EXc-db-qpB"/>
                             <constraint firstItem="dI9-mD-QS5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="KuF-DR-Tc0"/>
+                            <constraint firstItem="eJW-bi-Tcx" firstAttribute="centerX" secondItem="EFV-v1-4tn" secondAttribute="centerX" id="Lya-xU-ovM"/>
                             <constraint firstItem="dI9-mD-QS5" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="enP-gd-YAm"/>
-                            <constraint firstItem="X7p-FD-so3" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="r7T-Rt-QV4"/>
-                            <constraint firstItem="dI9-mD-QS5" firstAttribute="top" secondItem="X7p-FD-so3" secondAttribute="bottom" constant="20" id="wNI-U6-nI4"/>
+                            <constraint firstItem="EFV-v1-4tn" firstAttribute="top" secondItem="eJW-bi-Tcx" secondAttribute="bottom" id="ggP-nB-bVo"/>
                         </constraints>
                     </view>
                 </viewController>

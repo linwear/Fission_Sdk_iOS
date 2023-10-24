@@ -21,3 +21,7 @@
 @implementation RLMSportsItemModel
 
 @end
+
+@implementation RLMSportsLocationModel
+
+@end

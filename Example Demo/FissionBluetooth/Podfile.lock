@@ -28,9 +28,9 @@ PODS:
   - BRPickerView/StringPickerView (2.7.3):
     - BRPickerView/Base
   - CHIPageControl/Fresno (0.2)
-  - CocoaLumberjack (3.7.2):
-    - CocoaLumberjack/Core (= 3.7.2)
-  - CocoaLumberjack/Core (3.7.2)
+  - CocoaLumberjack (3.7.4):
+    - CocoaLumberjack/Core (= 3.7.4)
+  - CocoaLumberjack/Core (3.7.4)
   - CWLateralSlide (1.6.5)
   - FSCalendar (2.8.4)
   - HJViewStyle (1.2.9)
@@ -420,7 +420,7 @@ SPEC CHECKSUMS:
   AFNetworking: 3bd23d814e976cd148d7d44c3ab78017b744cd58
   BRPickerView: 9cc11880ac79c4872d081ccb88f306224c1501d7
   CHIPageControl: a787bf7205c9b7e7fbfc412be36c5e8636b68f86
-  CocoaLumberjack: b7e05132ff94f6ae4dfa9d5bce9141893a21d9da
+  CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
   CWLateralSlide: 8939c8dea91a24e40d0793553118cb57cd67f64b
   FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
   HJViewStyle: 0fac31e22a1254acd9a097b0919187ad99a8e949
@@ -438,6 +438,6 @@ SPEC CHECKSUMS:
   TZImagePickerController: a37d7eec87c54436e896a67947033ad2178d498b
   ZLCollectionViewFlowLayout: 6cd506c05d77cb2ac0772f68155e377d50d39f8a
 
-PODFILE CHECKSUM: c169c479d8370474e35abb02c65522ddf30513bc
+PODFILE CHECKSUM: 1c0291146c3239eeeb9828885240cf2b0eb06ad7
 
 COCOAPODS: 1.12.1

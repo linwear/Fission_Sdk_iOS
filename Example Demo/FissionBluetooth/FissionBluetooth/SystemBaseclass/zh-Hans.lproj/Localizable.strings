@@ -6,7 +6,7 @@
   
 */
 
-"Search Connected" = "搜索连接";
+"Search Connection" = "搜索连接";
 "Disconnect" = "断开连接";
 "Confirm whether to unbind the device and disconnect?" = "确认是否解绑设备并断开连接？";
 "Log File" = "日志文件";
@@ -272,6 +272,8 @@
 "Awake" = "清醒";
 "Nap" = "零星小睡";
 "Nap (Awake)" = "零星小睡（清醒）";
+"Sleep Resting HR" = "睡眠静息心率";
+"Resting HR" = "静息心率";
 "Systolic (high pressure)" = "收缩压（高压）";
 "Diastolic (low pressure)" = "舒张压（低压）";
 "High" = "偏高";
@@ -348,7 +350,7 @@
 "Pace" = "配速";
 "Best Pace" = "最佳配速";
 "Minimum Pace" = "最低配速";
-
+"Sports Trajectory" = "运动轨迹";
 
 
 

@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RLMSportsItemModel : RLMObject
+@interface RLMSportsItemModel : RLMObject // 详情
 /// 时间戳
 @property NSInteger begin;
 /// 步数
@@ -33,11 +33,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-
 RLM_COLLECTION_TYPE(RLMSportsItemModel)
 
 
-@interface RLMSportsModel : RLMBaseModel
+@interface RLMSportsLocationModel : RLMObject // 定位
+/// 时间戳
+@property NSInteger begin;
+/// 经度
+@property float longitude;
+/// 纬度
+@property float latitude;
+/// GPS 速度（米/秒）
+@property NSInteger speed;
+/// 状态。NO 正常，YES 暂停
+@property BOOL gpsPause;
+/// GPS 实时心率（次/分钟）
+@property NSInteger gpsHeartRate;
+
+@end
+
+RLM_COLLECTION_TYPE(RLMSportsLocationModel)
+
+
+@interface RLMSportsModel : RLMBaseModel // 运动统计报告
 
 /// 时间戳，运动开始时间
 @property NSInteger begin;
@@ -77,6 +95,9 @@ RLM_COLLECTION_TYPE(RLMSportsItemModel)
 
 /// 运动详细
 @property RLMArray <RLMSportsItemModel> *items;
+
+/// 运动详细
+@property RLMArray <RLMSportsLocationModel> *locations;
 
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * 运动心率区间 * * * * * * * * * * * * * * * * * * * * * * * * * * * *

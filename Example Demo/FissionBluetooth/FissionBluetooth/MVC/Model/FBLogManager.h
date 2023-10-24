@@ -6,7 +6,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CocoaLumberjack/CocoaLumberjack.h>
 
 //声明外部变量
 extern DDLogLevel ddLogLevel;

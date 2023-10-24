@@ -203,13 +203,10 @@ static NSString *FBTestUIBaseListCellID = @"FBTestUIBaseListCell";
             return 1;
         } else if (section-1 < self.baseListModel.section.count) {
             FBTestUIBaseListSection *listSection = self.baseListModel.section[section-1];
-            if ([listSection.title isEqualToString:LWLocalizbleString(@"Today's Overview")]) {
-                if (self.dataType == FBTestUIDataType_Sleep) {
-                    return listSection.overviewArray.count;
-                } else {
-                    return 1;
-                }
-            } else if ([listSection.title isEqualToString:LWLocalizbleString(@"Manual Measurement Data")]) {
+            if ([listSection.title isEqualToString:LWLocalizbleString(@"Today's Overview")] && self.dataType != FBTestUIDataType_Sleep) {
+                return 1;
+            }
+            else {
                 return listSection.overviewArray.count;
             }
         }
@@ -246,13 +243,10 @@ static NSString *FBTestUIBaseListCellID = @"FBTestUIBaseListCell";
     } else {
         if (indexPath.section-1 < self.baseListModel.section.count) {
             FBTestUIBaseListSection *listSection = self.baseListModel.section[indexPath.section-1];
-            if ([listSection.title isEqualToString:LWLocalizbleString(@"Today's Overview")]) {
-                if (self.dataType == FBTestUIDataType_Sleep) {
-                    return 60;
-                } else {
-                    return 120;
-                }
-            } else if ([listSection.title isEqualToString:LWLocalizbleString(@"Manual Measurement Data")]) {
+            if ([listSection.title isEqualToString:LWLocalizbleString(@"Today's Overview")] && self.dataType != FBTestUIDataType_Sleep) {
+                return 120;
+            }
+            else {
                 return 60;
             }
         }
@@ -291,22 +285,17 @@ static NSString *FBTestUIBaseListCellID = @"FBTestUIBaseListCell";
                     
                     FBTestUIOverviewModel *overviewModel = listSection.overviewArray[indexPath.row];
                     
-                    if ([listSection.title isEqualToString:LWLocalizbleString(@"Today's Overview")]) {
-                        if (self.dataType == FBTestUIDataType_Sleep) {
-                            listCell.titleLab.text = overviewModel.title;
-                            listCell.valueLab.text = overviewModel.value;
-                            if (indexPath.row == 0) {
-                                listCell.titleLab.textColor = BlueColor;
-                                listCell.valueLab.textColor = BlueColor;
-                            }
-                            return listCell;
-                        } else {
-                            [overviewCell reloadOverviewModel:listSection.overviewArray];
-                            return overviewCell;
-                        }
-                    } else if ([listSection.title isEqualToString:LWLocalizbleString(@"Manual Measurement Data")]) {
+                    if ([listSection.title isEqualToString:LWLocalizbleString(@"Today's Overview")] && self.dataType != FBTestUIDataType_Sleep) {
+                        [overviewCell reloadOverviewModel:listSection.overviewArray];
+                        return overviewCell;
+                    }
+                    else {
                         listCell.titleLab.text = overviewModel.title;
                         listCell.valueLab.text = overviewModel.value;
+                        if (self.dataType == FBTestUIDataType_Sleep && indexPath.section == 1 && indexPath.row == 0) {
+                            listCell.titleLab.textColor = BlueColor;
+                            listCell.valueLab.textColor = BlueColor;
+                        }
                         return listCell;
                     }
                 }

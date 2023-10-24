@@ -95,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSString *)ConvertValues:(CGFloat)value scale:(int)scale rounding:(BOOL)rounding;
 
 /// 整型转化字符串 0 转为 - -
-+ (NSString *)stringValue:(NSInteger)value;
++ (NSString *)stringValue:(NSInteger)value unit:(NSString * _Nullable)unit space:(BOOL)space;
 
 @end
 

@@ -58,8 +58,18 @@ x_arr;\
         options = options | FB_StressRecording; // 精神压力记录
     }
     
+    __block FBSportsPositioningRecordResults *sportsPositioningRecordResults = FBSportsPositioningRecordResults.new;
+    if (object.supportAGPS) {
+        sportsPositioningRecordResults.supportGPS = YES;
+        options = options | FB_SportsPositioningRecord; // 运动定位记录
+    }
+    
+    if (object.supportRestingHeartRate) {
+        options = options | FB_SleepStatisticsReport; // 睡眠统计报告（获取睡眠静息心率）
+    }
+    
     options = options |
-    FB_SleepStateRecording | // 睡眠记录
+    FB_SleepStateRecording | // 睡眠状态记录
     FB_CurrentSleepStateRecording | // 实时睡眠记录（正在进行中的睡眠，已结束的睡眠会在通过 FB_SleepStateRecording 返回）
     FB_Sports_Statistics_Details_Report | // 运动记录
     FB_ManualMeasurementData; // 手动测量记录
@@ -157,7 +167,30 @@ x_arr;\
             }
         }
         
-        else if (recordType == FB_SleepStateRecording) // 睡眠记录
+        else if (recordType == FB_SportsPositioningRecord) // 运动定位记录
+        {
+            if (error) { // 请求失败
+                [errorString appendFormat:@"\nFB_SportsPositioningRecord: %@", error.localizedDescription];
+                FBLog(@"运动定位记录请求失败: %@", error.localizedDescription);
+            } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
+                sportsPositioningRecordResults.isSuccessful = YES;
+                sportsPositioningRecordResults.sportsPositioningArray = (NSArray <FBTypeRecordModel *> *)responseObject;
+            }
+        }
+        
+        else if (recordType == FB_SleepStatisticsReport) // 睡眠统计报告（获取睡眠静息心率）
+        {
+            if (error) { // 请求失败
+                [errorString appendFormat:@"\nFB_SleepStatisticsReport: %@", error.localizedDescription];
+                FBLog(@"睡眠统计报告（获取睡眠静息心率）请求失败: %@", error.localizedDescription);
+            } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
+                NSArray <FBSleepCaculateReportModel *> *sleepArray = (NSArray <FBSleepCaculateReportModel *> *)responseObject;
+                
+                [FBLoadDataObject SaveSleepRestingHeartRateRecords:sleepArray];
+            }
+        }
+        
+        else if (recordType == FB_SleepStateRecording) // 睡眠状态记录
         {
             if (error) { // 请求失败
                 [errorString appendFormat:@"\nFB_SleepStateRecording: %@", error.localizedDescription];
@@ -189,7 +222,7 @@ x_arr;\
             } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
                 NSArray <FBSportsStatisticsDetailsRecordModel *> *sportsArray = (NSArray <FBSportsStatisticsDetailsRecordModel *> *)responseObject;
                 
-                [FBLoadDataObject SaveSportsRecords:sportsArray];
+                [FBLoadDataObject SaveSportsRecords:sportsArray sportsPositioningRecordResults:sportsPositioningRecordResults];
             }
         }
         
@@ -438,6 +471,34 @@ x_arr;\
 }
 
 
+#pragma mark - ✅ 保存睡眠静息心率记录｜Save sleep resting heart rate records
++ (void)SaveSleepRestingHeartRateRecords:(NSArray <FBSleepCaculateReportModel *> *)sleepArray {
+    
+    // 获取Realm对象
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    // 开始写入事务
+    [realm beginWriteTransaction];
+    
+    /* - - - ⬇️ - - - - - - - - - - - - - - - - - - - - - - - - 保存数据 - - - - - - - - - - - - - - - - - - - - - - - - ⬇️ - - - */
+    for (FBSleepCaculateReportModel *recordModel in sleepArray) {
+        
+        if (recordModel.restingHeartRate > 0) {
+            
+            RLMRestingHRModel *item = RLMRestingHRModel.new;
+            item.begin = recordModel.endSleepTime;
+            item.restingHR = recordModel.restingHeartRate;
+            [item QuickSetup];
+            
+            [realm addOrUpdateObject:item];
+        }
+    }
+    /* - - - ⬆️ - - - - - - - - - - - - - - - - - - - - - - - - 保存数据 - - - - - - - - - - - - - - - - - - - - - - - - ⬆️ - - - */
+    
+    //提交写入事务
+    [realm commitWriteTransaction];
+}
+
+
 #pragma mark - ✅ 保存睡眠记录｜Save Sleep Record
 + (void)SaveSleepRecords:(NSArray <FBSleepStatusRecordModel *> *)sleepArray {
     
@@ -494,7 +555,13 @@ x_arr;\
 
 
 #pragma mark - ✅ 保存运动记录｜Save exercise records
-+ (void)SaveSportsRecords:(NSArray <FBSportsStatisticsDetailsRecordModel *> *)sportsArray {
++ (void)SaveSportsRecords:(NSArray <FBSportsStatisticsDetailsRecordModel *> *)sportsArray sportsPositioningRecordResults:(FBSportsPositioningRecordResults *)sportsPositioningRecordResults {
+    
+    // 是否支持gps，如果支持，应该判断是否需要定位记录再进行保存
+    if (sportsPositioningRecordResults.supportGPS && !sportsPositioningRecordResults.isSuccessful) {
+        FBLog(@"支持GPS，但是定位记录请求失败，运动记录不保存...");
+        return;
+    }
     
     // 获取Realm对象
     RLMRealm *realm = [RLMRealm defaultRealm];
@@ -544,6 +611,25 @@ x_arr;\
             }
             
             [model.items addObject:item];
+        }
+        
+        if (sportsPositioningRecordResults.supportGPS) { // 支持gps，匹配定位记录...
+            for (FBTypeRecordModel *locationModel in sportsPositioningRecordResults.sportsPositioningArray) {
+                if (locationModel.sportTimeStamp == model.begin) {
+                    for (FBRecordDetailsModel *item in locationModel.recordArray) {
+                        
+                        RLMSportsLocationModel *locationModel = RLMSportsLocationModel.new;
+                        locationModel.begin = item.GMTtimeInterval;
+                        locationModel.longitude = item.longitude;
+                        locationModel.latitude = item.latitude;
+                        locationModel.speed = item.speed;
+                        locationModel.gpsPause = item.gpsPause;
+                        locationModel.gpsHeartRate = item.gpsHeartRate;
+                        
+                        [model.locations addObject:locationModel];
+                    }
+                }
+            }
         }
         
         [model QuickSetup];
@@ -768,9 +854,9 @@ x_arr;\
             FBTestUIBaseListSection *section = FBTestUIBaseListSection.new;
             section.title = LWLocalizbleString(@"Today's Overview");
             section.overviewArray = @[
-                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Average Heart Rate") value:[Tools stringValue:avg]],
-                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Maximum Heart Rate") value:[Tools stringValue:max]],
-                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Minimum Heart Rate") value:[Tools stringValue:min]]
+                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Average Heart Rate") value:[Tools stringValue:avg unit:@"bpm" space:YES]],
+                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Maximum Heart Rate") value:[Tools stringValue:max unit:@"bpm" space:YES]],
+                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Minimum Heart Rate") value:[Tools stringValue:min unit:@"bpm" space:YES]]
             ];
             [sectionArray addObject:section];
         }
@@ -779,7 +865,7 @@ x_arr;\
         NSMutableArray *manualOverviewArray = NSMutableArray.array;
         RLMResults <RLMManualMeasureModel *> *m_Results = [FBLoadDataObject QueryManualMeasurementRecordWithDate:queryDate dataType:FBTestUIDataType_HeartRate deviceName:deviceName deviceMAC:deviceMAC];
         for (RLMManualMeasureModel *item in m_Results) {
-            FBTestUIOverviewModel *overviewModel = [[FBTestUIOverviewModel alloc] initWithTitle:[NSDate timeStamp:item.begin dateFormat:FBDateFormatHm] value:[Tools stringValue:item.hr]];
+            FBTestUIOverviewModel *overviewModel = [[FBTestUIOverviewModel alloc] initWithTitle:[NSDate timeStamp:item.begin dateFormat:FBDateFormatHm] value:[Tools stringValue:item.hr unit:@"bpm" space:YES]];
             [manualOverviewArray addObject:overviewModel];
         }
         if (manualOverviewArray.count) {
@@ -817,9 +903,9 @@ x_arr;\
             FBTestUIBaseListSection *section = FBTestUIBaseListSection.new;
             section.title = LWLocalizbleString(@"Today's Overview");
             section.overviewArray = @[
-                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Average Blood Oxygen") value:[Tools stringValue:avg]],
-                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Maximum Blood Oxygen") value:[Tools stringValue:max]],
-                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Minimum Blood Oxygen") value:[Tools stringValue:min]]
+                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Average Blood Oxygen") value:[Tools stringValue:avg unit:@"%" space:NO]],
+                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Maximum Blood Oxygen") value:[Tools stringValue:max unit:@"%" space:NO]],
+                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Minimum Blood Oxygen") value:[Tools stringValue:min unit:@"%" space:NO]]
             ];
             [sectionArray addObject:section];
         }
@@ -828,7 +914,7 @@ x_arr;\
         NSMutableArray *manualOverviewArray = NSMutableArray.array;
         RLMResults <RLMManualMeasureModel *> *m_Results = [FBLoadDataObject QueryManualMeasurementRecordWithDate:queryDate dataType:FBTestUIDataType_BloodOxygen deviceName:deviceName deviceMAC:deviceMAC];
         for (RLMManualMeasureModel *item in m_Results) {
-            FBTestUIOverviewModel *overviewModel = [[FBTestUIOverviewModel alloc] initWithTitle:[NSDate timeStamp:item.begin dateFormat:FBDateFormatHm] value:[Tools stringValue:item.Sp02]];
+            FBTestUIOverviewModel *overviewModel = [[FBTestUIOverviewModel alloc] initWithTitle:[NSDate timeStamp:item.begin dateFormat:FBDateFormatHm] value:[Tools stringValue:item.Sp02 unit:@"%" space:NO]];
             [manualOverviewArray addObject:overviewModel];
         }
         if (manualOverviewArray.count) {
@@ -868,9 +954,9 @@ x_arr;\
             FBTestUIBaseListSection *section = FBTestUIBaseListSection.new;
             section.title = LWLocalizbleString(@"Today's Overview");
             section.overviewArray = @[
-                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Average Stress") value:[Tools stringValue:avg]],
-                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Maximum Stress") value:[Tools stringValue:max]],
-                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Minimum Stress") value:[Tools stringValue:min]]
+                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Average Stress") value:[Tools stringValue:avg unit:nil space:NO]],
+                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Maximum Stress") value:[Tools stringValue:max unit:nil space:NO]],
+                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Minimum Stress") value:[Tools stringValue:min unit:nil space:NO]]
             ];
             [sectionArray addObject:section];
         }
@@ -879,7 +965,7 @@ x_arr;\
         NSMutableArray *manualOverviewArray = NSMutableArray.array;
         RLMResults <RLMManualMeasureModel *> *m_Results = [FBLoadDataObject QueryManualMeasurementRecordWithDate:queryDate dataType:FBTestUIDataType_Stress deviceName:deviceName deviceMAC:deviceMAC];
         for (RLMManualMeasureModel *item in m_Results) {
-            FBTestUIOverviewModel *overviewModel = [[FBTestUIOverviewModel alloc] initWithTitle:[NSDate timeStamp:item.begin dateFormat:FBDateFormatHm] value:[Tools stringValue:item.stress]];
+            FBTestUIOverviewModel *overviewModel = [[FBTestUIOverviewModel alloc] initWithTitle:[NSDate timeStamp:item.begin dateFormat:FBDateFormatHm] value:[Tools stringValue:item.stress unit:nil space:NO]];
             [manualOverviewArray addObject:overviewModel];
         }
         if (manualOverviewArray.count) {
@@ -946,6 +1032,22 @@ x_arr;\
                 [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Nap") value:[Tools HM:napSleep*60]]
             ];
             [sectionArray addObject:section];
+            
+            // 睡眠静息心率
+            NSArray <FBRestingHrItem *> *restingHrArray = [FBLoadDataObject QuerySleepRestingHeartRateRecordWithDate:queryDate deviceName:deviceName deviceMAC:deviceMAC];
+            if (restingHrArray.count) {
+                
+                NSMutableArray <FBTestUIOverviewModel *> *overviewArray = NSMutableArray.array;
+                for (FBRestingHrItem *item in restingHrArray) {
+                    FBTestUIOverviewModel *overviewModel = [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Resting HR") value:[Tools stringValue:item.restingHR unit:@"bpm" space:YES]];
+                    [overviewArray addObject:overviewModel];
+                }
+                
+                FBTestUIBaseListSection *section_1 = FBTestUIBaseListSection.new;
+                section_1.title = LWLocalizbleString(@"Sleep Resting HR");
+                section_1.overviewArray = overviewArray.copy;
+                [sectionArray addObject:section_1];
+            }
         }
         
         // 自动数据
@@ -981,9 +1083,9 @@ x_arr;\
             FBTestUIBaseListSection *section = FBTestUIBaseListSection.new;
             section.title = LWLocalizbleString(@"Today's Overview");
             section.overviewArray = @[
-                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Average Blood Pressure") value:[NSString stringWithFormat:@"%@/%@", [Tools stringValue:avg_s], [Tools stringValue:avg_d]]],
-                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Highest Blood Pressure") value:[NSString stringWithFormat:@"%@/%@", [Tools stringValue:filteredArray_s[max_index].integerValue], [Tools stringValue:filteredArray_d[max_index].integerValue]]],
-                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Minimum Blood Pressure") value:[NSString stringWithFormat:@"%@/%@", [Tools stringValue:filteredArray_s[min_index].integerValue], [Tools stringValue:filteredArray_d[min_index].integerValue]]]
+                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Average Blood Pressure") value:[NSString stringWithFormat:@"%@/%@", [Tools stringValue:avg_s unit:nil space:NO], [Tools stringValue:avg_d unit:@"mmHg" space:YES]]],
+                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Highest Blood Pressure") value:[NSString stringWithFormat:@"%@/%@", [Tools stringValue:filteredArray_s[max_index].integerValue unit:nil space:NO], [Tools stringValue:filteredArray_d[max_index].integerValue unit:@"mmHg" space:YES]]],
+                [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Minimum Blood Pressure") value:[NSString stringWithFormat:@"%@/%@", [Tools stringValue:filteredArray_s[min_index].integerValue unit:nil space:NO], [Tools stringValue:filteredArray_d[min_index].integerValue unit:@"mmHg" space:YES]]]
             ];
             [sectionArray addObject:section];
         }
@@ -992,7 +1094,7 @@ x_arr;\
         NSMutableArray *manualOverviewArray = NSMutableArray.array;
         RLMResults <RLMManualMeasureModel *> *m_Results = [FBLoadDataObject QueryManualMeasurementRecordWithDate:queryDate dataType:FBTestUIDataType_BloodPressure deviceName:deviceName deviceMAC:deviceMAC];
         for (RLMManualMeasureModel *item in m_Results) {
-            FBTestUIOverviewModel *overviewModel = [[FBTestUIOverviewModel alloc] initWithTitle:[NSDate timeStamp:item.begin dateFormat:FBDateFormatHm] value:[NSString stringWithFormat:@"%@/%@", [Tools stringValue:item.systolic], [Tools stringValue:item.diastolic]]];
+            FBTestUIOverviewModel *overviewModel = [[FBTestUIOverviewModel alloc] initWithTitle:[NSDate timeStamp:item.begin dateFormat:FBDateFormatHm] value:[NSString stringWithFormat:@"%@/%@", [Tools stringValue:item.systolic unit:nil space:NO], [Tools stringValue:item.diastolic unit:@"mmHg" space:YES]]];
             [manualOverviewArray addObject:overviewModel];
         }
         if (manualOverviewArray.count) {
@@ -2103,6 +2205,30 @@ x_arr;\
 }
 
 
+#pragma mark - ❌ 查询某一天的睡眠静息心率记录｜Query the resting heart rate record of a certain day
++ (NSArray <FBRestingHrItem *> *)QuerySleepRestingHeartRateRecordWithDate:(NSDate *)queryDate deviceName:(NSString *)deviceName deviceMAC:(NSString *)deviceMAC {
+    
+    NSInteger staTime = queryDate.Time_01-1 - 2.5*3600;
+    NSInteger endTime = queryDate.Time_24-1 - 2.5*3600;
+    
+    NSString *SQL = [FBLoadDataObject SQL_StaTime:staTime endTime:endTime deviceName:deviceName deviceMAC:deviceMAC];
+    
+    RLMResults *restingHrArray = [[RLMRestingHRModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES]; // 对查询结果排序
+    
+    NSMutableArray <FBRestingHrItem *> *allArray = NSMutableArray.array;
+    for (RLMRestingHRModel *restingHrModel in restingHrArray) {
+
+        FBRestingHrItem *model = FBRestingHrItem.new;
+        model.begin = restingHrModel.begin;
+        model.restingHR = restingHrModel.restingHR;
+
+        [allArray addObject:model];
+    }
+
+    return allArray;
+}
+
+
 #pragma mark - ❌ 查询某一天的运动记录｜Query exercise records for a certain day
 + (NSArray <RLMSportsModel *> *)QueryExerciseRecordWithDate:(NSDate *)queryDate deviceName:(NSString *)deviceName deviceMAC:(NSString *)deviceMAC {
     
@@ -2746,4 +2872,10 @@ x_arr;\
 @end
 
 @implementation FBSleepItem
+@end
+
+@implementation FBRestingHrItem
+@end
+
+@implementation FBSportsPositioningRecordResults
 @end

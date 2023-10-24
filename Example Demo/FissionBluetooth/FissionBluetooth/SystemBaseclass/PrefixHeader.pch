@@ -11,6 +11,7 @@
 //#ifdef DEBUG
 #define FBLog(format, ...) printf("[%s] %s [第%d行] %s\n", __TIME__, __FUNCTION__, __LINE__, [[NSString stringWithFormat:format, ## __VA_ARGS__] UTF8String]);
 
+//#define FBINTERNAL // 最好配置成多scheme
 
 // 判断字符串是否为空
 #define StringIsEmpty(string) ((![string isKindOfClass:[NSString class]])||[string isEqualToString:@""] || (string == nil) || [string isEqualToString:@""] || [string isKindOfClass:[NSNull class]]||[[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] length]==0)
@@ -86,6 +87,7 @@ typedef NS_ENUM(NSUInteger, CONNECTBINGSTATE) {
 /// 拍照｜Take Photo
 static NSString *const FISSION_SDK_WATCHCLICKTAKEPHOTO = @"FISSION_SDK_WATCHCLICKTAKEPHOTO";
 
+#import <CocoaLumberjack/CocoaLumberjack.h>
 #import "FBLogManager.h"
 #import "LWLanguageLocalizble.h"
 #import <QMUIKit/QMUIKit.h>
@@ -109,6 +111,7 @@ static NSString *const FISSION_SDK_WATCHCLICKTAKEPHOTO = @"FISSION_SDK_WATCHCLIC
 #import <AAChartKit/AAChartKit.h>
 #import <Realm/Realm.h>
 #import <FSCalendar/FSCalendar.h>
+#import "UINavigationController+WXSTransition.h"
 
 #import <Fission_Sdk_iOS/Fission_Sdk_iOS.h> // 裂变SDK
 
@@ -355,6 +358,7 @@ typedef enum {
 #import "RLMSleepModel.h"
 #import "RLMSportsModel.h"
 #import "RLMManualMeasureModel.h"
+#import "RLMRestingHRModel.h"
 
 /// 基础
 #import "FBBaseNavigationController.h"

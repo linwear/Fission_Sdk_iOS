@@ -1536,7 +1536,7 @@
                         [mutStr appendFormat:@"%@\n", model.mj_keyValues];
                         
                         for (FBRecordDetailsModel *reArr in model.recordArray) {
-                            [mutStr appendFormat:@"%@", [NSString stringWithFormat:@"%@=====\n lat%.6f\n log%.6f\n speed%ld\n gpsIsSuspend%ld\n", reArr.dateTimeStr, reArr.latitude, reArr.longitude, reArr.speed, (long)reArr.gpsIsSuspend]];
+                            [mutStr appendFormat:@"%@", [NSString stringWithFormat:@"%@=====\n lat%.6f\n log%.6f\n speed%ld\n gpsIsSuspend%ld\ngpsHeartRate%ld\n", reArr.dateTimeStr, reArr.latitude, reArr.longitude, reArr.speed, (long)reArr.gpsPause, reArr.gpsHeartRate]];
                         }
                         
                     }
@@ -1758,7 +1758,7 @@
             
             [NSObject showLoading:LWLocalizbleString(@"Loading...")];
             
-            NSString *filePath = [NSBundle.mainBundle pathForResource:@"ELPO_GR3_1" ofType:@"DAT"];
+            NSString *filePath = [NSBundle.mainBundle pathForResource:@"ELPO_GR3_1" ofType:@"DAT"]; // 这是一个示例文件...现实中应该从服务器取
             NSData *fileData = [NSData dataWithContentsOfFile:filePath];
             
             [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:fileData withOTAType:FB_OTANotification_AGPS_Package withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {

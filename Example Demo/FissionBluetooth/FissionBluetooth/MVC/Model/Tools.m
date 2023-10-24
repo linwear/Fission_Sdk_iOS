@@ -700,9 +700,20 @@
 }
 
 /// 整型转化字符串 0 转为 - -
-+ (NSString *)stringValue:(NSInteger)value {
-    if (value == 0) return @"- -";
-    return @(value).stringValue;
++ (NSString *)stringValue:(NSInteger)value unit:(NSString *)unit space:(BOOL)space {
+    if (value == 0) {
+        if (StringIsEmpty(unit)) {
+            return @"- -";
+        } else {
+            return [NSString stringWithFormat:@"- -%@%@", space?@" ":@"", unit];
+        }
+    } else {
+        if (StringIsEmpty(unit)) {
+            return @(value).stringValue;
+        } else {
+            return [NSString stringWithFormat:@"%@%@%@", @(value), space?@" ":@"", unit];
+        }
+    }
 }
 
 @end

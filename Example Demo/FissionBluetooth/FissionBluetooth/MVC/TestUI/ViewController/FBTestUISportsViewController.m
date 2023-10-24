@@ -13,12 +13,15 @@
 #import "FBTestUISportsChartCell.h"
 #import "FBTestUIOverviewCell.h"
 #import "FBTestUISportsPaceRatioCell.h"
+#import "FBTestUISportsTrajectoryViewController.h"
 
 @interface FBTestUISportsViewController () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
 
 @property (nonatomic, strong) NSArray <FBTestUISportsSectionModel *> *dataArray;
+
+@property (nonatomic, strong) QMUIButton *rightItemButton;
 
 @end
 
@@ -36,6 +39,16 @@ static NSString *FBTestUISportsPaceRatioCellID = @"FBTestUISportsPaceRatioCell";
     // Do any additional setup after loading the view.
     self.navigationItem.title = [FBLoadDataObject sportName:self.sportsModel.MotionMode];
     
+    if (self.sportsModel.locations.count) { // 如果有轨迹数据，右上角显示轨迹查看按钮
+        QMUIButton *rightItemButton = [QMUIButton buttonWithType:UIButtonTypeCustom];
+        [rightItemButton setBackgroundImage:UIImageMake(@"ic_sports_trajectory") forState:UIControlStateNormal];
+        rightItemButton.frame = CGRectMake(0, 0, 44, 44);
+        [rightItemButton addTarget:self action:@selector(showSportsTrajectory) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightItemButton];
+        [self.navigationItem setRightBarButtonItem:rightItem animated:YES];
+        self.rightItemButton = rightItemButton;
+    }
+
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, NavigationContentTop, SCREEN_WIDTH, SCREEN_HEIGHT-NavigationContentTop) style:UITableViewStylePlain];
     tableView.backgroundColor = UIColorClear;
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -99,7 +112,7 @@ static NSString *FBTestUISportsPaceRatioCellID = @"FBTestUISportsPaceRatioCell";
     FBTestUISportsDetailsModel *model_6 = FBTestUISportsDetailsModel.new;
     model_6.img = @"ic_details_pulse_s";
     model_6.title = LWLocalizbleString(@"Average Heart Rate");
-    model_6.details = [NSString stringWithFormat:@"%ld bpm", self.sportsModel.avgHeartRate];
+    model_6.details = [Tools stringValue:self.sportsModel.avgHeartRate unit:@"bpm" space:YES];
     
     NSArray *sectionArray = nil;
     if (isCalorie) {
@@ -306,18 +319,18 @@ static NSString *FBTestUISportsPaceRatioCellID = @"FBTestUISportsPaceRatioCell";
     FBTestUISportsChartOverviewModel *chartOverviewModel_1 = FBTestUISportsChartOverviewModel.new;
     chartOverviewModel_1.aaChartModel = heartRateAAChartModel;
     chartOverviewModel_1.overviewArray = @[
-        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Average Heart Rate") value:[Tools stringValue:self.sportsModel.avgHeartRate]],
-        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Maximum Heart Rate") value:[Tools stringValue:self.sportsModel.maxHeartRate]],
-        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Minimum Heart Rate") value:[Tools stringValue:self.sportsModel.minHeartRate]]
+        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Average Heart Rate") value:[Tools stringValue:self.sportsModel.avgHeartRate unit:nil space:NO]],
+        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Maximum Heart Rate") value:[Tools stringValue:self.sportsModel.maxHeartRate unit:nil space:NO]],
+        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Minimum Heart Rate") value:[Tools stringValue:self.sportsModel.minHeartRate unit:nil space:NO]]
     ];
     
     // 步频-概览
     FBTestUISportsChartOverviewModel *chartOverviewModel_2 = FBTestUISportsChartOverviewModel.new;
     chartOverviewModel_2.aaChartModel = stepAAChartModel;
     chartOverviewModel_2.overviewArray = @[
-        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Average Cadence") value:[Tools stringValue:self.sportsModel.avgStride]],
-        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Maximum Cadence") value:[Tools stringValue:self.sportsModel.maxStride]],
-        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Minimum Cadence") value:[Tools stringValue:stepFrequencyMin]]
+        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Average Cadence") value:[Tools stringValue:self.sportsModel.avgStride unit:nil space:NO]],
+        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Maximum Cadence") value:[Tools stringValue:self.sportsModel.maxStride unit:nil space:NO]],
+        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Minimum Cadence") value:[Tools stringValue:stepFrequencyMin unit:nil space:NO]]
     ];
     
     // 卡路里-概览
@@ -371,6 +384,18 @@ static NSString *FBTestUISportsPaceRatioCellID = @"FBTestUISportsPaceRatioCell";
         ]);
     
     return aaChartModel;
+}
+
+- (void)showSportsTrajectory {
+    FBTestUISportsTrajectoryViewController *vc = FBTestUISportsTrajectoryViewController.new;
+    vc.sportsModel = self.sportsModel;
+    WeakSelf(self);
+    [self.navigationController wxs_pushViewController:vc makeTransition:^(WXSTransitionProperty *transition) {
+        transition.animationType =  WXSTransitionAnimationTypePointSpreadPresent;
+        transition.animationTime = 0.7;
+        transition.autoShowAndHideNavBar = NO;
+        transition.startView = weakSelf.rightItemButton;
+    }];
 }
 
 /*

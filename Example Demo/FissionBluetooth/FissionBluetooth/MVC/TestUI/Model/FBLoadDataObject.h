@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class FBSpo2Item;
 @class FBBpItem;
 @class FBStressItem;
+@class FBSportsPositioningRecordResults;
 
 #define x_Hour @[@"00:00-01:00", @"01:00-02:00", @"02:00-03:00", @"03:00-04:00", @"04:00-05:00", @"05:00-06:00", @"06:00-07:00", @"07:00-08:00", @"08:00-09:00", @"09:00-10:00", @"10:00-11:00", @"11:00-12:00", @"12:00-13:00", @"13:00-14:00", @"14:00-15:00", @"15:00-16:00", @"16:00-17:00", @"17:00-18:00", @"18:00-19:00", @"19:00-20:00", @"20:00-21:00", @"21:00-22:00", @"22:00-23:00", @"23:00-24:00"]
 
@@ -105,6 +106,22 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger end;
 @property (nonatomic, assign) NSInteger duration;
 @property (nonatomic, assign) RLMSLEEPSTATE SleepState;
+@end
+
+
+@interface FBRestingHrItem : NSObject
+@property (nonatomic, assign) NSInteger begin;
+@property (nonatomic, assign) NSInteger restingHR;
+@end
+
+
+@interface FBSportsPositioningRecordResults : NSObject
+/// 是否支持GPS
+@property (nonatomic, assign) BOOL supportGPS;
+/// 运动定位记录是否请求成功
+@property (nonatomic, assign) BOOL isSuccessful;
+/// 运动定位记录
+@property (nonatomic, retain) NSArray <FBTypeRecordModel *> *sportsPositioningArray;
 @end
 
 NS_ASSUME_NONNULL_END

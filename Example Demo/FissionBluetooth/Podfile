@@ -1,3 +1,4 @@
+# 我这边用的源是清华的，如源不是清华的注释掉下面这一行
 source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 
 # Uncomment the next line to define a global platform for your project
@@ -18,7 +19,9 @@ target 'FissionBluetooth' do
     # Pods for testing
   end
 
-  #pod 'Fission_Sdk_iOS', git: 'https://github.com/linwear/Fission_Sdk_iOS.git' 由于需要经常性调试新协议，该示例工程使用手动导入SDK集成方式
+  #由于此示例工程需要经常性调试新协议，该示例工程不使用CocoaPods集成方式，使用手动导入SDK集成方式，以方便调试
+  #pod 'Fission_Sdk_iOS', git: 'https://github.com/linwear/Fission_Sdk_iOS.git'
+  
   pod 'QMUIKit'
   pod 'AFNetworking'
   pod 'MJExtension'
@@ -39,7 +42,7 @@ target 'FissionBluetooth' do
   pod 'CHIPageControl/Fresno'
   pod 'ZLCollectionViewFlowLayout'
   pod 'AAChartKit', :git => 'https://github.com/AAChartModel/AAChartKit.git'
-  pod 'Realm'
+  #pod 'Realm'
   pod 'FSCalendar'
 
 end

@@ -55,7 +55,7 @@
     if (FBAllConfigObject.firmwareConfig.deviceName.length > 0) {
         [array addObject:@{@"personal_preview_icons" : LWLocalizbleString(@"Disconnect")}];
     } else {
-        [array addObject:@{@"personal_preview_icons" : LWLocalizbleString(@"Search Connected")}];
+        [array addObject:@{@"personal_preview_icons" : LWLocalizbleString(@"Search Connection")}];
     }
     [array addObjectsFromArray:@[
         @{@"personal_order_icons" : LWLocalizbleString(@"Log File")},
@@ -93,7 +93,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSDictionary *dict = self.arrayData[indexPath.row];
     
-    if ([dict.allValues.firstObject isEqualToString:LWLocalizbleString(@"Search Connected")]) {
+    if ([dict.allValues.firstObject isEqualToString:LWLocalizbleString(@"Search Connection")]) {
         ListViewController *vc = ListViewController.new;
         [self cw_pushViewController:vc];
     }

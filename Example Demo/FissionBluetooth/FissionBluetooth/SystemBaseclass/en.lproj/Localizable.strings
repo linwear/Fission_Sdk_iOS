@@ -6,7 +6,7 @@
   
 */
 
-"Search Connected" = "Search Connected";
+"Search Connection" = "Search Connection";
 "Disconnect" = "Disconnect";
 "Confirm whether to unbind the device and disconnect?" = "Confirm whether to unbind the device and disconnect?";
 "Log File" = "Log File";
@@ -272,6 +272,8 @@
 "Awake" = "Awake";
 "Nap" = "Nap";
 "Nap (Awake)" = "Nap (Awake)";
+"Sleep Resting HR" = "Sleep Resting HR";
+"Resting HR" = "Resting HR";
 "Systolic (high pressure)" = "Systolic (high pressure)";
 "Diastolic (low pressure)" = "Diastolic (low pressure)";
 "High" = "High";
@@ -348,7 +350,7 @@
 "Pace" = "Pace";
 "Best Pace" = "Best Pace";
 "Minimum Pace" = "Minimum Pace";
-
+"Sports Trajectory" = "Sports Trajectory";
 
 
 

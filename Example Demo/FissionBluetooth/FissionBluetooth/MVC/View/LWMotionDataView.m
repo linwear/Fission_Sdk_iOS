@@ -184,7 +184,7 @@
         
         weakSelf.avgPace.text = [NSString stringWithFormat:@"%02ld'%02ld\"/km", model.avgPace/60, model.avgPace%60];
         
-        weakSelf.heartRate.text = [NSString stringWithFormat:@"%ldbpm", model.heartRate];
+        weakSelf.heartRate.text = [Tools stringValue:model.heartRate unit:@"bpm" space:NO];
                 
         weakSelf.steps.text = [NSString stringWithFormat:@"%ld", model.steps];
         
