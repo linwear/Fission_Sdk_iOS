@@ -101,6 +101,10 @@ Privacy - Bluetooth Always Usage Description
 
 #### [⚠️演示项目中使用到数据库'Realm'，运行demo前，请先cd到项目，再执行pod install｜The database 'Realm' is used in the demo project. Before running the demo, please cd to the project first, and then execute pod install](#NOTE)
 
+     pcjbird    2023-10-24
+                1.【数据可视化UI】睡眠记录模块，新增睡眠静息心率
+                2.【数据可视化UI】运动记录模块，新增GPS运动轨迹预览
+
      pcjbird    2023-06-09
                 1.新增【数据可视化UI】模块，便于了解数据同步API的使用，直观查看设备历史数据
                 
@@ -123,7 +127,13 @@ Privacy - Bluetooth Always Usage Description
 | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
 
-    pcjbird    2023-08-24  Version:3.1.6 Build:20230824001
+     pcjbird    2023-10-10  Version:3.1.7 Build:20231010001
+                            1.FBFirmwareVersionObject 新增标志位:
+                              是否支持静息心率
+                              是否支持AGPS定位
+                            2.修复"获取运动定位记录"协议已知错误问题（FBBgCommand）fbGetMotionLocationRecordDataStartTime: forEndTime: withBlock:
+
+     pcjbird    2023-08-24  Version:3.1.6 Build:20230824001
                             1.EM_FUNC_SWITCH 新增类型:
                               FS_AGPS_LOCATION_REQUEST(35)
                               FS_AGPS_DATA_REQUEST(36)
@@ -141,9 +151,10 @@ Privacy - Bluetooth Always Usage Description
                             7.SDK同时支持 真机、模拟器 编译运行（注意：模拟器无法使用蓝牙）
 
      pcjbird    2023-07-18  Version:3.1.5 Build:20230718001
-                            1.修复"设置/获取 个人用户信息"协议已知错误问题
-                            2.新增"读取片外 flash 空间数据"协议，用于获取设备意外重启信息，供固件分析问题（FBBgCommand）fbReadOffChipFlashWithAddress: withLength: withBlock:
-                            3.FBFirmwareVersionObject 新增:
+                            1.新增"多项目自定义表盘"功能（FBCustomDataTools）fbGenerateMultiProjectCustomDialBinFileDataWithDialsModel:
+                            2.修复"设置/获取 个人用户信息"协议已知错误问题
+                            3.新增"读取片外 flash 空间数据"协议，用于获取设备意外重启信息，供固件分析问题（FBBgCommand）fbReadOffChipFlashWithAddress: withLength: withBlock:
+                            4.FBFirmwareVersionObject 新增:
                               适配号，长整形（部分手表支持）
                               Hardfault信息空间地址
                               Hardfault信息空间尺寸
@@ -152,15 +163,15 @@ Privacy - Bluetooth Always Usage Description
                               是否支持带适配号验证的OTA通知指令
                               是否支持hardfault信息和系統参数读取
                               是否支持表盘CRC校验
-                            4.EM_FUNC_SWITCH 新增类型:
+                            5.EM_FUNC_SWITCH 新增类型:
                               FS_TIMING_BP_WARN(33)
                               FS_DEVICE_EXCEPTION_WARN(34)
-                            5.新增表盘数据校验（UTC或CRC）
-                            6.原厂OTA SDK更新至v1.4.9版本（RTKOTASDK.framework、RTKLEFoundation.framework）修改多包OTA文件顺序
-                            7.FBTypeRecordModel 记录生成周期 参数名由原先 createTimes 改为 recordingCycle，避免歧义，并且单位统一为秒；新增参数 记录格式定义（recordDefinition）
-                            8.FBRecordDetailsModel 运动详情记录新增参数 一公里用时（一公里配速，单位秒）KilometerPace，一英里用时（一英里配速，单位秒）MilePace，仅部分设备支持，具体根据参数 记录格式定义（recordDefinition）而定
-                            9.自定义表盘抗锯齿切图更新
-                            10.优化记录/报告排序及其他已知问题
+                            6.新增表盘数据校验（UTC或CRC）
+                            7.原厂OTA SDK更新至v1.4.9版本（RTKOTASDK.framework、RTKLEFoundation.framework）修改多包OTA文件顺序
+                            8.FBTypeRecordModel 记录生成周期 参数名由原先 createTimes 改为 recordingCycle，避免歧义，并且单位统一为秒；新增参数 记录格式定义（recordDefinition）
+                            9.FBRecordDetailsModel 运动详情记录新增参数 一公里用时（一公里配速，单位秒）KilometerPace，一英里用时（一英里配速，单位秒）MilePace，仅部分设备支持，具体根据参数 记录格式定义（recordDefinition）而定
+                            10.自定义表盘抗锯齿切图更新
+                            11.优化记录/报告排序及其他已知问题
 
      pcjbird    2023-05-18  Version:3.1.4 Build:202305181600
                             1.优化已知问题
@@ -243,8 +254,8 @@ Privacy - Bluetooth Always Usage Description
                               是否支持血压功能
                               是否支持精神压力功能
                             6.协议方法调用合并:
-                              同步系统时间，调用（FBAtCommand）fbAutomaticallySynchronizeSystemTimeWithBlock: 即可
-                              同时获取运动统计报告+运动详情纪录，调用 (FBBgCommand) fbGetSportsStatisticsDetailsReportsWithStartTime: 即可
+                              同步系统时间 调用（FBAtCommand）fbAutomaticallySynchronizeSystemTimeWithBlock: 即可
+                              同时获取运动统计报告+运动详情纪录 调用 (FBBgCommand) fbGetSportsStatisticsDetailsReportsWithStartTime: 即可
                             7.FB_RECORDTYPE 新增类型:
                               FB_HFHeartRecord
                             8.FB_MULTIPLERECORDREPORTS 新增类型:
@@ -258,7 +269,7 @@ Privacy - Bluetooth Always Usage Description
                               FS_MULTIMEDIAAUDIO_WARN(32)
 
      pcjbird    2022-12-30  Version:3.0.3 Build:202212301600
-                            1.新增 定时心率检测开关设置协议、定时血氧检测开关设置协议、定时精神压力检测开关设置协议
+                            1.新增 定时心率检测开关设置协议、定时血氧检测开关设置协议、定时血压检测开关设置协议、定时精神压力检测开关设置协议
                             2.EM_FUNC_SWITCH 新增类型:
                               FS_TIMING_HR_WARN(28)
                               FS_TIMING_SPO2_WARN(29)
