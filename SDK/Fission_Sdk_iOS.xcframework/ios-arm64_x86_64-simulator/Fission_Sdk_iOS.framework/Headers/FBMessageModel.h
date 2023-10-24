@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  消息推送开关信息｜Message push switch information
 */
 @interface FBMessageModel : NSObject

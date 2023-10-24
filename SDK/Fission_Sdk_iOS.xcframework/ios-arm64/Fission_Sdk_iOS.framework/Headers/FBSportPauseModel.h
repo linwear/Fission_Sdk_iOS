@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  中断UTC记录｜Interrupt UTC record
 */
 @interface FBSportPauseModel : NSObject

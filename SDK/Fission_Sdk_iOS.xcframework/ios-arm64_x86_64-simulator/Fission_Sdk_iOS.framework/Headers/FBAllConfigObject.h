@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/*
+/**
  所有配置信息｜All configuration information
 */
 @interface FBAllConfigObject : NSObject

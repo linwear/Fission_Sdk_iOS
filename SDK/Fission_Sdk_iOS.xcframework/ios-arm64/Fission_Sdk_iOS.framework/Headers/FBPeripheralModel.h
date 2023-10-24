@@ -9,7 +9,8 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  外围设备信息模型｜Peripheral Information Model
 */
 @interface FBPeripheralModel : NSObject

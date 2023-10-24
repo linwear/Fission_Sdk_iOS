@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  喝水提醒信息｜Water drinking reminder information
 */
 @interface FBWaterClockModel : NSObject

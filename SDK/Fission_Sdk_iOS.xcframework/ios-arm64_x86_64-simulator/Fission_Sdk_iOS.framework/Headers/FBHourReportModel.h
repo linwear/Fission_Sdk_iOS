@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  整点活动统计报告｜Statistical report of on-time activities
 */
 @interface FBHourReportModel : NSObject

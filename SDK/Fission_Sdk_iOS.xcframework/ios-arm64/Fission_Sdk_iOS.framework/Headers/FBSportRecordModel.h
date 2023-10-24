@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  运动记录列表｜Sports record list
 */
 @interface FBSportRecordModel : NSObject

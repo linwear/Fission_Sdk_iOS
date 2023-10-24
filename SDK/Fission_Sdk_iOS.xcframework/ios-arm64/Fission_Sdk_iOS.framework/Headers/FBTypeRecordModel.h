@@ -9,7 +9,8 @@
 #import "FBRecordDetailsModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  类型记录/报告（公共类，recordArray内容具体参考枚举值 FB_RECORDTYPE）｜Type record/report (public class, the content of recordArray refers to the enumeration value FB_RECORDTYPE)
 */
 @interface FBTypeRecordModel : NSObject

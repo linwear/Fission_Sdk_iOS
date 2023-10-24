@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  久坐提醒信息｜Sedentary reminder
 */
 @interface FBLongSitModel : NSObject

@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  自定义运动类型参数｜Customize motion category parameters
 */
 @interface FBCustomMotionModel : NSObject

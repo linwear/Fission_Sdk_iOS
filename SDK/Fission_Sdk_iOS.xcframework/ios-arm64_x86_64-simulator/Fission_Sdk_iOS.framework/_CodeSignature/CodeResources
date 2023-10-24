@@ -1551,103 +1551,103 @@
 		</dict>
 		<key>Headers/FBAGPSLocationModel.h</key>
 		<data>
-		rhe7Ca+cx75nVNx2Tw4ZV3RcIOU=
+		jjXgJA8k/w/U/LXn2IK9ZXkKg2w=
 		</data>
 		<key>Headers/FBAlarmClockModel.h</key>
 		<data>
-		GUpaGGkBhJtvQ9KpUo8t+P7Hob8=
+		m485qdcn79XvYmKHpcfY4yghWOw=
 		</data>
 		<key>Headers/FBAllConfigObject.h</key>
 		<data>
-		NLsEhEEsa/1noqmdndp2w9NAF54=
+		nt/Ld7pK8gR+9vF16rwLytxB7Zo=
 		</data>
 		<key>Headers/FBAtCommand.h</key>
 		<data>
-		wH8jIcMcTYCXt46ChSyzkApJOH8=
+		W6Nwy7HcYHwM39WTRFoTuTBLRDg=
 		</data>
 		<key>Headers/FBBatteryInfoModel.h</key>
 		<data>
-		scAZ7RR1BQv7lxIv/GTilgKYhFQ=
+		5aRwsjm9Po/ZHEmRQCgf9xjo3ws=
 		</data>
 		<key>Headers/FBBgCommand.h</key>
 		<data>
-		TpTzyWxBdkFWvd95tOWhr7fN5dI=
+		GMVrTh+jnm2/MODomV/PFSYffHo=
 		</data>
 		<key>Headers/FBBluetoothManager.h</key>
 		<data>
-		l+mQw0WH64kA43SAI2wO1IxSKpE=
+		uT1OvXDFmbUa4Wjhjd3rn65EfDg=
 		</data>
 		<key>Headers/FBBluetoothOTA.h</key>
 		<data>
-		FM/4075gjWbMZ+19NhTs8QaV3I8=
+		jBqxrYOtURpSHz8DA2FH5JLu14E=
 		</data>
 		<key>Headers/FBCommandCallback.h</key>
 		<data>
-		oFa9GywuwAKxisZpN//myJUzh0o=
+		BJR0yeElBNZ76a0F7tufqgbkEM4=
 		</data>
 		<key>Headers/FBCurrentDataModel.h</key>
 		<data>
-		TsRxMcJfhstHg0Y2E51D2ig8DSU=
+		S6A+7exffuxJ7no4gbZDzVgC6pc=
 		</data>
 		<key>Headers/FBCustomDataTools.h</key>
 		<data>
-		fUHmxJWPLNMqQLT1txAtIrXQpH0=
+		8yOQHXSaBIFRKA5EJVsBHZoi86A=
 		</data>
 		<key>Headers/FBCustomDialModel.h</key>
 		<data>
-		akC3WWr/+DwmvMD0EW/B83+aVdg=
+		MMwqMpEfk0x0Sw1pN/Oov6FYGC0=
 		</data>
 		<key>Headers/FBCustomMotionModel.h</key>
 		<data>
-		3NY4yWz/GJRGLDDZE3rc1dGris4=
+		fDwGlnrInmP7kdjGDRlvB4UIyLA=
 		</data>
 		<key>Headers/FBDayActivityModel.h</key>
 		<data>
-		COlEehqJAsGE5diQDFFHPxDpKDE=
+		bFsQNLV0OSHEhsgpcRT5BKRK0ZQ=
 		</data>
 		<key>Headers/FBDeviceInfoModel.h</key>
 		<data>
-		8c5i4MKNy24mPgjwtj1UOKDFluE=
+		W0qq15K/Mn1uT3vDDKaauJ2uquk=
 		</data>
 		<key>Headers/FBDeviceVersionModel.h</key>
 		<data>
-		CyZNpxX6N88ZppAV47iCFitKyW0=
+		gbB5KTjDhkVI0b5aFbMz18lboDQ=
 		</data>
 		<key>Headers/FBFavContactModel.h</key>
 		<data>
-		NtbLIa6YiCM9dtCGmkwjd+3d3Tg=
+		e35CcfeBu36lr6/WOyc+0vIob28=
 		</data>
 		<key>Headers/FBFemalePhysiologyModel.h</key>
 		<data>
-		L9kyXvOVxjDQI1I0e5139ZATApo=
+		0tbFao26GX9EVJNzG/WD2CQ0Ry8=
 		</data>
 		<key>Headers/FBFirmwareVersionObject.h</key>
 		<data>
-		XZMSR2W5zw8HR9jMrbvHumwVqnw=
+		nMIxjVEbWiiZxzCLz/qPkKa901U=
 		</data>
 		<key>Headers/FBGPSMotionActionModel.h</key>
 		<data>
-		5op1oriGIdprEtBmOomhaI6SuwU=
+		G1Wkl9nIRvt3dUA9G8gaTw5A8QU=
 		</data>
 		<key>Headers/FBHeartRateRatingModel.h</key>
 		<data>
-		RyQaEknGBho906FdW2TdB8ZJcIk=
+		Rqmv0UdYqZmS4MzBghfiwsoEorY=
 		</data>
 		<key>Headers/FBHourReportModel.h</key>
 		<data>
-		YclrTO4BN/e6T1K1qrazSw8Arrg=
+		AUxl9Ev3lzn2dTm0SvUd8L6xhOs=
 		</data>
 		<key>Headers/FBHrCheckModel.h</key>
 		<data>
-		g7jFI04fHdBUTxIkZ7cmqPzFujA=
+		zo9JiJLAKeL9OaDCG+K8uPLCLdo=
 		</data>
 		<key>Headers/FBHrReminderModel.h</key>
 		<data>
-		NfJs8qAiEIN0EgQ+JmY1cZERFaw=
+		oktHgk3zRJscKoyrlfOQoBT/ink=
 		</data>
 		<key>Headers/FBLongSitModel.h</key>
 		<data>
-		h7nAtkzLJOcPakzvykmSZsyUCQo=
+		J3lSvprK4r0kwYDqyMVtlPSmftU=
 		</data>
 		<key>Headers/FBMacro.h</key>
 		<data>
@@ -1655,119 +1655,119 @@
 		</data>
 		<key>Headers/FBManualMeasureDataModel.h</key>
 		<data>
-		pRrXakvoc+G1wKIdHr0wKtBx1vs=
+		eg1S3AIiXvfg3QpKzN43sBLn1NA=
 		</data>
 		<key>Headers/FBMessageModel.h</key>
 		<data>
-		uhMMibEpYnjsbEPjXXceQFAsRAM=
+		Jh8XvsNgsMRDgNTYgBr8W3K1aCc=
 		</data>
 		<key>Headers/FBMotionInterconnectionModel.h</key>
 		<data>
-		HWP3+5y1GHe5tIQuRicUZoDyC9M=
+		OAf8mos66i9gyzttlB9J9BR9dAM=
 		</data>
 		<key>Headers/FBMotionTypesListModel.h</key>
 		<data>
-		+/4v3eijtnoDgSGDN334DauUS4E=
+		hXymtG0OSKNTyBxbABPYgg8T5R0=
 		</data>
 		<key>Headers/FBMultipleCustomDialsModel.h</key>
 		<data>
-		vnCkECfD5S6wanLt4ohZukd76gg=
+		PhXp5giJY9hYYAoyoAE/8n47iGQ=
 		</data>
 		<key>Headers/FBNotDisturbModel.h</key>
 		<data>
-		Rsmg1aaMeQNiCIumwNvsgu+7YZI=
+		tBZeAHwYXBcrBpIDHnwqx8PWrYk=
 		</data>
 		<key>Headers/FBOTADoneModel.h</key>
 		<data>
-		gPE1XCug4tNklAejtmKavfSSpzU=
+		dBUxfhbiZ3B6PRirXWq7ef2PoUo=
 		</data>
 		<key>Headers/FBPeripheralModel.h</key>
 		<data>
-		6kZFLgcxrgBZu46fFdOsh4uhE5k=
+		mI0fz1rFWqT+HHQzILuxHZUzP+c=
 		</data>
 		<key>Headers/FBProgressModel.h</key>
 		<data>
-		XWtPUY7fyivz7Tj3xzlNMUW7OvM=
+		ej9A+DNujeyiPyzRd7tbXF8bysQ=
 		</data>
 		<key>Headers/FBRecordDetailsModel.h</key>
 		<data>
-		S6k0VAzo9XDyuV4df95sjsvp1Uo=
+		It9kCXFbGYsdzhOdUiLphA2Vvs8=
 		</data>
 		<key>Headers/FBSleepCaculateReportModel.h</key>
 		<data>
-		5V+sy/fiw56gdIg4TRvZIEf2pek=
+		YX+RltWmhBg4Ea1kh+hVlwW0jZI=
 		</data>
 		<key>Headers/FBSleepStateModel.h</key>
 		<data>
-		5IMDvIppZVvSu6PejFu+2J7lwsU=
+		44LXmvdDgBEb3ATMdOcifQfRqyU=
 		</data>
 		<key>Headers/FBSleepStatusRecordModel.h</key>
 		<data>
-		mdOdIy70eKiGlcYp9ybYYcFPfwc=
+		LroZCWzK7TQQhuiM2WPl32uldz4=
 		</data>
 		<key>Headers/FBSportCaculateModel.h</key>
 		<data>
-		drEBm00AaGg13Wu+vvM5h4pLMZU=
+		mUXSHJf0E715PTWi1tQQAMAOp3s=
 		</data>
 		<key>Headers/FBSportPauseModel.h</key>
 		<data>
-		BDPJvUlY+31MBm2jHt66CKkbAYI=
+		ddq54rEfXUP+S6nWLVuAjpW9UX0=
 		</data>
 		<key>Headers/FBSportRecordModel.h</key>
 		<data>
-		UF29g0QtQ/mFNOlTxYmpPGgf6ms=
+		cWVDBGSs222f+0M1OgEPuUKtSuw=
 		</data>
 		<key>Headers/FBSportTargetModel.h</key>
 		<data>
-		hJ1DsUR2Zv5m+48Jjz8ti0tlzV4=
+		yt2nDkciguu54CH6eWyxTNqsoWw=
 		</data>
 		<key>Headers/FBSportsStatisticsDetailsRecordModel.h</key>
 		<data>
-		GwwUD0R3TMw1yovQMh7hGtFMyfs=
+		sb+ZY4y5GPgjWGfApMfbmH+XLsE=
 		</data>
 		<key>Headers/FBStreamDataModel.h</key>
 		<data>
-		lLLqZBDDYCjXLq0nK6INxnmxdsE=
+		uuHzi1T1lRdvXiuV+GH4TtJFf/o=
 		</data>
 		<key>Headers/FBSystemFunctionSwitchModel.h</key>
 		<data>
-		tiNreTk47v7QtXOiIFP7uYPD8Zk=
+		w7sph6xZIMVzo4ADDXNK+//CtNk=
 		</data>
 		<key>Headers/FBTypeRecordModel.h</key>
 		<data>
-		bOOzJfRrwHuNwaO4bxEY9YqmSiw=
+		tAw44sEZZaNvYV78VOQDc5fXfBk=
 		</data>
 		<key>Headers/FBUserInforModel.h</key>
 		<data>
-		xVBKw3ky+4UE8Tu3P+psgY7GH5A=
+		wxDChsBBY2Yb+JYnYnAzRAiSFAc=
 		</data>
 		<key>Headers/FBWatchFunctionChangeNoticeModel.h</key>
 		<data>
-		S5Z3MTCUeTDJXWhIVeUxSzBTmc0=
+		vTliriRZBBs22DBZl+Uh/Z/jUL4=
 		</data>
 		<key>Headers/FBWaterClockModel.h</key>
 		<data>
-		VouXspDLJk43GJOcVLse7LTVE/s=
+		tVPzJaRzRuUckaM//5Uf8280g18=
 		</data>
 		<key>Headers/FBWeatherDetailsModel.h</key>
 		<data>
-		5r7aaJVbJyj7C6gP6V9OpU8f5qE=
+		RA+Tzna782EZhr85JF6zAgn/+lY=
 		</data>
 		<key>Headers/FBWeatherModel.h</key>
 		<data>
-		3lLvc9FAK9xqQifepHCoZ62TqCg=
+		5FbX0QZYj5t/MS/1BcHPOnxxQa0=
 		</data>
 		<key>Headers/FBWristModel.h</key>
 		<data>
-		/v/OPQjheFZ0UvrQfNOsI1j8JbY=
+		Fs8NPCl7WYMt4hsjNXRDojM9Zvc=
 		</data>
 		<key>Headers/Fission_Sdk_iOS.h</key>
 		<data>
-		VCL3rD3h34IaoJqWE345cGC/SEs=
+		OhTtHKvJJLXI23/Les6m0toyCso=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		sdtozscPEJ8d03xG9bCCqsbMjr4=
+		7kGYEVo3yne6E5djOyeOvvNlTAo=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -5641,275 +5641,275 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			rhe7Ca+cx75nVNx2Tw4ZV3RcIOU=
+			jjXgJA8k/w/U/LXn2IK9ZXkKg2w=
 			</data>
 			<key>hash2</key>
 			<data>
-			i8vkBDz3cQoJYu6v9tiNcTXflniEonSInoaS7hDOZVs=
+			aF40g1evvS7fngBbho9Yt3eYbDjyHAGXAL+t81uVhW8=
 			</data>
 		</dict>
 		<key>Headers/FBAlarmClockModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GUpaGGkBhJtvQ9KpUo8t+P7Hob8=
+			m485qdcn79XvYmKHpcfY4yghWOw=
 			</data>
 			<key>hash2</key>
 			<data>
-			XS7JHKdRmuS2lcmxy4J+3Ehl25aLkPYrPQazQKdYiOw=
+			kUtKxC8teDtclPTjOGXNHNMFNgUpbiyZ3EIPt8qtTv8=
 			</data>
 		</dict>
 		<key>Headers/FBAllConfigObject.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NLsEhEEsa/1noqmdndp2w9NAF54=
+			nt/Ld7pK8gR+9vF16rwLytxB7Zo=
 			</data>
 			<key>hash2</key>
 			<data>
-			D33LQUmDiCRP34cOCYEE9kupW60cMuHkevDnI6kuQKA=
+			KVn1fWp/cnOJ7o21eZQGeVz8iyIS8urbm7/cjxP7Fuw=
 			</data>
 		</dict>
 		<key>Headers/FBAtCommand.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			wH8jIcMcTYCXt46ChSyzkApJOH8=
+			W6Nwy7HcYHwM39WTRFoTuTBLRDg=
 			</data>
 			<key>hash2</key>
 			<data>
-			QXKWafTjpwCwzUGYSuEuxKmLixCCY8VeGIuyHsSyjh4=
+			LRVPdSa7f5VwojxxOjYCb22aLUVjBH1GXq6YFPL6ZQQ=
 			</data>
 		</dict>
 		<key>Headers/FBBatteryInfoModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			scAZ7RR1BQv7lxIv/GTilgKYhFQ=
+			5aRwsjm9Po/ZHEmRQCgf9xjo3ws=
 			</data>
 			<key>hash2</key>
 			<data>
-			NLbATn2hDHok4hAGcVmaSifq2+tvgOUMD8mBtn8Dwpo=
+			mSxBGhjTfjPW5kjU9imGMf3CmmYghXOBp1Upq+lYilw=
 			</data>
 		</dict>
 		<key>Headers/FBBgCommand.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			TpTzyWxBdkFWvd95tOWhr7fN5dI=
+			GMVrTh+jnm2/MODomV/PFSYffHo=
 			</data>
 			<key>hash2</key>
 			<data>
-			ygm3LvV+IMDJewgMWjxIYeIPHfn+cqvFjRJp2tEOrrY=
+			f4j2+Xx8CvQuXXpFGx/6TEf3UZCqnWnC0U7tTp72Rqw=
 			</data>
 		</dict>
 		<key>Headers/FBBluetoothManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			l+mQw0WH64kA43SAI2wO1IxSKpE=
+			uT1OvXDFmbUa4Wjhjd3rn65EfDg=
 			</data>
 			<key>hash2</key>
 			<data>
-			NUFulPbGwsvI/nfQEM+7ttCo2mH+3sOSX3zIDXcM/yw=
+			HJRR+GNJqXfzqZ5aJOPPFJLEiKThFFsZK539MvM99U0=
 			</data>
 		</dict>
 		<key>Headers/FBBluetoothOTA.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			FM/4075gjWbMZ+19NhTs8QaV3I8=
+			jBqxrYOtURpSHz8DA2FH5JLu14E=
 			</data>
 			<key>hash2</key>
 			<data>
-			51TRvufGSQ2fVrQ18lcGvDxkRD/GtWJfxiVt+8NrgU4=
+			96Z58lhHWNcgh2XkH0EyEwcPKeJwwm+G0eYYBVVk+mw=
 			</data>
 		</dict>
 		<key>Headers/FBCommandCallback.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			oFa9GywuwAKxisZpN//myJUzh0o=
+			BJR0yeElBNZ76a0F7tufqgbkEM4=
 			</data>
 			<key>hash2</key>
 			<data>
-			TTDDdAgh5fYnKOjOBbozwbm21B4ZgYwe9njovMD5h0I=
+			FhIxFB0YHk84cg9XF+xSsSLtNpJ1mzhW6CBxNFRHkGw=
 			</data>
 		</dict>
 		<key>Headers/FBCurrentDataModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			TsRxMcJfhstHg0Y2E51D2ig8DSU=
+			S6A+7exffuxJ7no4gbZDzVgC6pc=
 			</data>
 			<key>hash2</key>
 			<data>
-			a/xYawUYAR6fJf0Kjnm8DivEPgQdItdxfh2NJLUTDAg=
+			6MbYnR78N7etAAPI9YaofY0KisV48n0SYzgCXLIZt94=
 			</data>
 		</dict>
 		<key>Headers/FBCustomDataTools.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			fUHmxJWPLNMqQLT1txAtIrXQpH0=
+			8yOQHXSaBIFRKA5EJVsBHZoi86A=
 			</data>
 			<key>hash2</key>
 			<data>
-			zTZCRT1rjfd62PKt3EOiSrhfil1kZ0smY+AiyqiX2HM=
+			K82J0gfWHdaAoQLmppdb/6nqB4jYqM00kr73uy+Eg9g=
 			</data>
 		</dict>
 		<key>Headers/FBCustomDialModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			akC3WWr/+DwmvMD0EW/B83+aVdg=
+			MMwqMpEfk0x0Sw1pN/Oov6FYGC0=
 			</data>
 			<key>hash2</key>
 			<data>
-			8uon3Fefzb1cwapJGxEVe8MuXCPMOk+PAOK+D+/SWgs=
+			lxfMTn6vuvz8IINo9rM0CQWF8045yUgpQyOitJ0qpTc=
 			</data>
 		</dict>
 		<key>Headers/FBCustomMotionModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3NY4yWz/GJRGLDDZE3rc1dGris4=
+			fDwGlnrInmP7kdjGDRlvB4UIyLA=
 			</data>
 			<key>hash2</key>
 			<data>
-			3tWs/dqebjghF2f9lcKlFtxdjG+xvo5eyklwRESN/Nk=
+			Z4EGzhvAAGS/Cfz9qVzV6w+T/j5dB+ZuwXBLkTd/QBY=
 			</data>
 		</dict>
 		<key>Headers/FBDayActivityModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			COlEehqJAsGE5diQDFFHPxDpKDE=
+			bFsQNLV0OSHEhsgpcRT5BKRK0ZQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			pXG2LZmBEQz5/YECQeoFWF4GtW6hgnkaduUZ46Ob9ZE=
+			ieANvQwu0Y8R92YKIjqTBN7+/i3RXxM58xKegkwsWyA=
 			</data>
 		</dict>
 		<key>Headers/FBDeviceInfoModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			8c5i4MKNy24mPgjwtj1UOKDFluE=
+			W0qq15K/Mn1uT3vDDKaauJ2uquk=
 			</data>
 			<key>hash2</key>
 			<data>
-			R6m7Z4NugDYVe9u3XqwghUCZNnMnMX4bEp85icUTT00=
+			7hl26FPso8+te3JQMfqcWJe3U4Ofw+HWw8iQ2lo+vr4=
 			</data>
 		</dict>
 		<key>Headers/FBDeviceVersionModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			CyZNpxX6N88ZppAV47iCFitKyW0=
+			gbB5KTjDhkVI0b5aFbMz18lboDQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			zZV64b9UixSWwHAyRVReokPZmzAXZa12W77GcBKTrwM=
+			P4RcHmz+TzVJEioTPnQEm8msFONgM+eBXJZTu5xF/PY=
 			</data>
 		</dict>
 		<key>Headers/FBFavContactModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NtbLIa6YiCM9dtCGmkwjd+3d3Tg=
+			e35CcfeBu36lr6/WOyc+0vIob28=
 			</data>
 			<key>hash2</key>
 			<data>
-			/T8tV6SLKPIqY8UnN+2przHiwd50NGNFypECPCb8lnY=
+			jEqu7SWqYbzOcOduBpE19fihGa9mAFq7CLaYKcNTomw=
 			</data>
 		</dict>
 		<key>Headers/FBFemalePhysiologyModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			L9kyXvOVxjDQI1I0e5139ZATApo=
+			0tbFao26GX9EVJNzG/WD2CQ0Ry8=
 			</data>
 			<key>hash2</key>
 			<data>
-			Sr2JFohw/UDp2dlGmLGNDvKbXfnEz2r6px4N3FXFwDE=
+			4ozxJpmgVWhVbuT+nzuI64meifBK98LZxtNbBEICr2w=
 			</data>
 		</dict>
 		<key>Headers/FBFirmwareVersionObject.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			XZMSR2W5zw8HR9jMrbvHumwVqnw=
+			nMIxjVEbWiiZxzCLz/qPkKa901U=
 			</data>
 			<key>hash2</key>
 			<data>
-			bAjxM2KAeUwBm/DvOSRwR4Q+7CiQAmBzACiSAJkJb+c=
+			FnjX8vP2/HUdum0STGUDcqZ+TF9b484na0QnUtaaGxA=
 			</data>
 		</dict>
 		<key>Headers/FBGPSMotionActionModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5op1oriGIdprEtBmOomhaI6SuwU=
+			G1Wkl9nIRvt3dUA9G8gaTw5A8QU=
 			</data>
 			<key>hash2</key>
 			<data>
-			64biFaVszuZiPWSF81NMMNSWGZr3HOMZqS8htMzltdY=
+			DeU5RxUrHBKeDfloK+Vgx4upudz1noOYcfMIgAFb4K4=
 			</data>
 		</dict>
 		<key>Headers/FBHeartRateRatingModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			RyQaEknGBho906FdW2TdB8ZJcIk=
+			Rqmv0UdYqZmS4MzBghfiwsoEorY=
 			</data>
 			<key>hash2</key>
 			<data>
-			abeEOKxET8nvFY7Jao1JNgnI7qvCpmiM/PtRyoCSrg4=
+			CkpAR4D1j0I13LPwcB4YqpSYxmYIeNxDVnC9V9eMsRk=
 			</data>
 		</dict>
 		<key>Headers/FBHourReportModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			YclrTO4BN/e6T1K1qrazSw8Arrg=
+			AUxl9Ev3lzn2dTm0SvUd8L6xhOs=
 			</data>
 			<key>hash2</key>
 			<data>
-			TD1jGiWNPPuNyfl3VicxvwABb4/AS9NSUnS/YrIpRHQ=
+			g6jKLQv1WdksiE5RnCc4ap801PqLvMyq7MdB2+Fo7vo=
 			</data>
 		</dict>
 		<key>Headers/FBHrCheckModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			g7jFI04fHdBUTxIkZ7cmqPzFujA=
+			zo9JiJLAKeL9OaDCG+K8uPLCLdo=
 			</data>
 			<key>hash2</key>
 			<data>
-			yJjQf3mamMN/KXmK9/ukIc+hErgcEhD9YePyP3HR6Do=
+			NKZJS2s0q4XLA6NRLcuVIXcePqBV94pO3eaRK9BXpbI=
 			</data>
 		</dict>
 		<key>Headers/FBHrReminderModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NfJs8qAiEIN0EgQ+JmY1cZERFaw=
+			oktHgk3zRJscKoyrlfOQoBT/ink=
 			</data>
 			<key>hash2</key>
 			<data>
-			HtXN44nfBnE9jKVFQoTFQxBFvozL42YuN4/SoUvk7GE=
+			m5S2Rn+OrDNdizVC5b4HAdZjieCsuV+eVN5uF+6aOf4=
 			</data>
 		</dict>
 		<key>Headers/FBLongSitModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			h7nAtkzLJOcPakzvykmSZsyUCQo=
+			J3lSvprK4r0kwYDqyMVtlPSmftU=
 			</data>
 			<key>hash2</key>
 			<data>
-			B54kSFSOKxNt5IX9ZCjxzECcLHC9kV1wUYycabwCfdk=
+			ZFlOraWQnZqe96mOumi/uom1XQirlq58c2jOPEmmTnA=
 			</data>
 		</dict>
 		<key>Headers/FBMacro.h</key>
@@ -5927,308 +5927,308 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			pRrXakvoc+G1wKIdHr0wKtBx1vs=
+			eg1S3AIiXvfg3QpKzN43sBLn1NA=
 			</data>
 			<key>hash2</key>
 			<data>
-			IT0B1zSrt8U42xNIoO+jp7EV8I05enJRXcq4DdnPWmU=
+			eIB3x/ltpI8hBtNLokB8Oh7lNx4v35F2uNpjtbsgPa0=
 			</data>
 		</dict>
 		<key>Headers/FBMessageModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			uhMMibEpYnjsbEPjXXceQFAsRAM=
+			Jh8XvsNgsMRDgNTYgBr8W3K1aCc=
 			</data>
 			<key>hash2</key>
 			<data>
-			3ZCB7pDl8GiyBH+uSeDxbrfa+VbLr2zSB53R9dkeKCY=
+			7cb3G3R5giYXQ7dCVzXMZghcu8KUxCAJ67pzKK2EN6M=
 			</data>
 		</dict>
 		<key>Headers/FBMotionInterconnectionModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			HWP3+5y1GHe5tIQuRicUZoDyC9M=
+			OAf8mos66i9gyzttlB9J9BR9dAM=
 			</data>
 			<key>hash2</key>
 			<data>
-			dJRKChSFiw/RiWlzgTZ4XEoczJml9OymEOpJAwL7eGQ=
+			hUyQoAy78RnHGQO2tOM3ZyncTHITGGUlvCwa91hOxHY=
 			</data>
 		</dict>
 		<key>Headers/FBMotionTypesListModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			+/4v3eijtnoDgSGDN334DauUS4E=
+			hXymtG0OSKNTyBxbABPYgg8T5R0=
 			</data>
 			<key>hash2</key>
 			<data>
-			FxLqWoCtZT5yDg3L/EiwdqZJyb5ORAfcyu2UETrjbpA=
+			Jzw9rNtWcb2q7w8/NQ338+poxQ05uvoIKq5ILQOZYMc=
 			</data>
 		</dict>
 		<key>Headers/FBMultipleCustomDialsModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			vnCkECfD5S6wanLt4ohZukd76gg=
+			PhXp5giJY9hYYAoyoAE/8n47iGQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			cXT625nhe3UP/UTg+ljdd6mfhiOXD1h9+VNZlKJ1eKg=
+			/7UgDEGiT5jDo9hi+VbKWrjTk8xTkNotcDcjbLO3RbE=
 			</data>
 		</dict>
 		<key>Headers/FBNotDisturbModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Rsmg1aaMeQNiCIumwNvsgu+7YZI=
+			tBZeAHwYXBcrBpIDHnwqx8PWrYk=
 			</data>
 			<key>hash2</key>
 			<data>
-			QfLkYE7r/nORyaawzrHlM1d2O+U8MkGJjlhcP4ECfOc=
+			vbodmfeA29Hi/4CgBngzl7jW0G+K5YhlxBn8Z+GAUts=
 			</data>
 		</dict>
 		<key>Headers/FBOTADoneModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			gPE1XCug4tNklAejtmKavfSSpzU=
+			dBUxfhbiZ3B6PRirXWq7ef2PoUo=
 			</data>
 			<key>hash2</key>
 			<data>
-			HuyHfXc1JXxq0E+kUqd27E5QIOL3uHJ3dAt7iyjtkZQ=
+			hDxkY16ZdRufrN2hSSjLuN8si3AuiSCBs7Y+6uYV9t0=
 			</data>
 		</dict>
 		<key>Headers/FBPeripheralModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6kZFLgcxrgBZu46fFdOsh4uhE5k=
+			mI0fz1rFWqT+HHQzILuxHZUzP+c=
 			</data>
 			<key>hash2</key>
 			<data>
-			NuRpyQaWCv8/5jDIvkiINlsZLVbe+AhUv6a28POLsH8=
+			iONRGjHfUpssAWC2pQZn0Y5ePNaKu9+YQOm2XHJmbf0=
 			</data>
 		</dict>
 		<key>Headers/FBProgressModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			XWtPUY7fyivz7Tj3xzlNMUW7OvM=
+			ej9A+DNujeyiPyzRd7tbXF8bysQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			eW+5eOh8UZwlzA0ygLL1a47Tn3jlhyrXGYPPduCM0F0=
+			RAMurDVzp/RPxmJGdXEANtP4z7XdMgxLU7Gs97IkPfs=
 			</data>
 		</dict>
 		<key>Headers/FBRecordDetailsModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			S6k0VAzo9XDyuV4df95sjsvp1Uo=
+			It9kCXFbGYsdzhOdUiLphA2Vvs8=
 			</data>
 			<key>hash2</key>
 			<data>
-			0Fw8LYFTEGCXX6q7fIfU6ePFPU3jwEDqhaxWs0OdBTw=
+			hGEp+tTYkmzhqtFzepyYp/nEyQE2wIDTfSrkBCH5Jd8=
 			</data>
 		</dict>
 		<key>Headers/FBSleepCaculateReportModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5V+sy/fiw56gdIg4TRvZIEf2pek=
+			YX+RltWmhBg4Ea1kh+hVlwW0jZI=
 			</data>
 			<key>hash2</key>
 			<data>
-			fuE9FIIoHAlmlrp3Os7u0YBTiqktoy5YH06dGElUOQQ=
+			l3ktUYouuawt1f2NvxPZ3+VeYCkhPVfrmqQ2jNVPugQ=
 			</data>
 		</dict>
 		<key>Headers/FBSleepStateModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5IMDvIppZVvSu6PejFu+2J7lwsU=
+			44LXmvdDgBEb3ATMdOcifQfRqyU=
 			</data>
 			<key>hash2</key>
 			<data>
-			bdW1sKRg08N4uUQ0nhkDEIoxpr66+gg5ku6DNvKkzVs=
+			o7s+llGeA7HC3eAB2dqnUNyOroRaGzZI0oocvZPS9pc=
 			</data>
 		</dict>
 		<key>Headers/FBSleepStatusRecordModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			mdOdIy70eKiGlcYp9ybYYcFPfwc=
+			LroZCWzK7TQQhuiM2WPl32uldz4=
 			</data>
 			<key>hash2</key>
 			<data>
-			Zv6ug9qRE2wCaZIzpQ2RefnBKIULH3Ptn5Fe5bdTWeE=
+			NDcDN9S1cEnSOPMKYv5b18J2Gru5cscoL+MhI0//vxQ=
 			</data>
 		</dict>
 		<key>Headers/FBSportCaculateModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			drEBm00AaGg13Wu+vvM5h4pLMZU=
+			mUXSHJf0E715PTWi1tQQAMAOp3s=
 			</data>
 			<key>hash2</key>
 			<data>
-			4Y2Inrj4RJ+otzAkiowUfO2I07lZ94cu1XrYWIuMhWk=
+			+WHcf0Z7VWKODC8nr5qgnpUL0HRPGz4Dw1FVFpHcLEY=
 			</data>
 		</dict>
 		<key>Headers/FBSportPauseModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			BDPJvUlY+31MBm2jHt66CKkbAYI=
+			ddq54rEfXUP+S6nWLVuAjpW9UX0=
 			</data>
 			<key>hash2</key>
 			<data>
-			lo1RhN2LeMmqF0rIlpw9xVcRETJZ3IxbtxYrLsK9TjY=
+			oKVOmmAgH7bx1SzfxAdhLKSpgdpWQ+qu5YtjFVSPdj8=
 			</data>
 		</dict>
 		<key>Headers/FBSportRecordModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UF29g0QtQ/mFNOlTxYmpPGgf6ms=
+			cWVDBGSs222f+0M1OgEPuUKtSuw=
 			</data>
 			<key>hash2</key>
 			<data>
-			OECpWmRAIFYC8tPNTlDy0JhY+W60jlHWFj/POhLZ9KQ=
+			xhfbMiEmgPmBcXuS0IT5TTmyF/leX2OVehSCYF+Qx0U=
 			</data>
 		</dict>
 		<key>Headers/FBSportTargetModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hJ1DsUR2Zv5m+48Jjz8ti0tlzV4=
+			yt2nDkciguu54CH6eWyxTNqsoWw=
 			</data>
 			<key>hash2</key>
 			<data>
-			vwHKRyKe7xraSe25vcKGDNBYfkizJvkfPdM1y031Gds=
+			lzYmv3cmuPzISU+iMrrlUvfiK6K+uxk8LF8pC33+ens=
 			</data>
 		</dict>
 		<key>Headers/FBSportsStatisticsDetailsRecordModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GwwUD0R3TMw1yovQMh7hGtFMyfs=
+			sb+ZY4y5GPgjWGfApMfbmH+XLsE=
 			</data>
 			<key>hash2</key>
 			<data>
-			9qQLUNqXK63URWuW2RoE2wKh6QqPob9HOl1Pvf7cgJw=
+			sLhQ7X3e4DKXxRiE8NRXkVGc1KalNOoQkbREhZb2Fzk=
 			</data>
 		</dict>
 		<key>Headers/FBStreamDataModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			lLLqZBDDYCjXLq0nK6INxnmxdsE=
+			uuHzi1T1lRdvXiuV+GH4TtJFf/o=
 			</data>
 			<key>hash2</key>
 			<data>
-			hv3ATk8dgWLh/LHIQ3T01nsJenSCRYtTg+2829elV/0=
+			QCEIIUZJPQmaywTVdUi33hNuNCeNf1DnntC1C4cLWIk=
 			</data>
 		</dict>
 		<key>Headers/FBSystemFunctionSwitchModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			tiNreTk47v7QtXOiIFP7uYPD8Zk=
+			w7sph6xZIMVzo4ADDXNK+//CtNk=
 			</data>
 			<key>hash2</key>
 			<data>
-			nNpko3rtvBDLhqlflvNHG/9BXaS9Dppg4wBH3lbF1+E=
+			TLDSHduepFzZpclaPQj5LQCx3fJzyNEJJjtUIyK9oig=
 			</data>
 		</dict>
 		<key>Headers/FBTypeRecordModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			bOOzJfRrwHuNwaO4bxEY9YqmSiw=
+			tAw44sEZZaNvYV78VOQDc5fXfBk=
 			</data>
 			<key>hash2</key>
 			<data>
-			SGzb9IlHYxKOJ9mY6OySH9Nh4nkmuC2e4UGCo4+Vnp8=
+			5wRn8uUGP47O4o1l+o6S/gwIVIu0KNRZw+GSY4xOqUE=
 			</data>
 		</dict>
 		<key>Headers/FBUserInforModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			xVBKw3ky+4UE8Tu3P+psgY7GH5A=
+			wxDChsBBY2Yb+JYnYnAzRAiSFAc=
 			</data>
 			<key>hash2</key>
 			<data>
-			DgXbOnvuvCw3ZHew8w/PIm0h0qABrxRuIbk7Jt6h3tM=
+			lPKUYrb51zS99ernG52AW0d+R3h4MDwzkHMQ2efxCpo=
 			</data>
 		</dict>
 		<key>Headers/FBWatchFunctionChangeNoticeModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			S5Z3MTCUeTDJXWhIVeUxSzBTmc0=
+			vTliriRZBBs22DBZl+Uh/Z/jUL4=
 			</data>
 			<key>hash2</key>
 			<data>
-			Ya58V7/foG/2FzqNdLJIsdc9UwqLA0VKCFbhX5pgLfc=
+			jjGTMK9AfQSATNw60o+mvyXo/G5XWUJy3yzaTusGwPY=
 			</data>
 		</dict>
 		<key>Headers/FBWaterClockModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			VouXspDLJk43GJOcVLse7LTVE/s=
+			tVPzJaRzRuUckaM//5Uf8280g18=
 			</data>
 			<key>hash2</key>
 			<data>
-			eK2zCqsRGE7tHLVKHE+AbMPZw6ERTTo2nHt3kq8xGFQ=
+			vepEWdiKs4xPoUrqBHDZDw/I1gbJBd3nj5MxOr7ivz0=
 			</data>
 		</dict>
 		<key>Headers/FBWeatherDetailsModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			5r7aaJVbJyj7C6gP6V9OpU8f5qE=
+			RA+Tzna782EZhr85JF6zAgn/+lY=
 			</data>
 			<key>hash2</key>
 			<data>
-			/Mn/JZRDvRrX9ekoKhjQJW6kWIGgLq165KujZPN91Wk=
+			/AeYJ/vEdjfqgrynNHRaX8Sak1kEhCrc9ABreNXn6UE=
 			</data>
 		</dict>
 		<key>Headers/FBWeatherModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3lLvc9FAK9xqQifepHCoZ62TqCg=
+			5FbX0QZYj5t/MS/1BcHPOnxxQa0=
 			</data>
 			<key>hash2</key>
 			<data>
-			3voxk+DGA4JPQ0az1ir83ktnVunKt4TsLcYXmLaZSMA=
+			LPcGvySo6kvCG2jO+nwkAiyZZ83+KPiUtdnedLS2mrE=
 			</data>
 		</dict>
 		<key>Headers/FBWristModel.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/v/OPQjheFZ0UvrQfNOsI1j8JbY=
+			Fs8NPCl7WYMt4hsjNXRDojM9Zvc=
 			</data>
 			<key>hash2</key>
 			<data>
-			c8Vexf+1CvV0S1IEHMs1/Cqcq/vU+MvQHWuz2n0IfyA=
+			FfMITPcG91lj3dMbK0t4lP/SOctinzQzXJb5bhsUDJQ=
 			</data>
 		</dict>
 		<key>Headers/Fission_Sdk_iOS.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			VCL3rD3h34IaoJqWE345cGC/SEs=
+			OhTtHKvJJLXI23/Les6m0toyCso=
 			</data>
 			<key>hash2</key>
 			<data>
-			Pb7YzalmfvDyliHVe2cx0cKpJ/Z1WVawXx2l1eV/V24=
+			RTrMQj7DR9lhy8OiDhAF0U0AbX+3LzHIw6iJxPQXIjQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

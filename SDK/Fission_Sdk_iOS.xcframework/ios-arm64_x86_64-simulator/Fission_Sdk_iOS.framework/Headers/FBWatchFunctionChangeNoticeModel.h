@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  手表设备功能变更通知｜Watch device function change notice
  */
 @interface FBWatchFunctionChangeNoticeModel : NSObject

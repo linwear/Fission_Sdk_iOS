@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  手动测量数据记录｜Manual measurement data record
 */
 @interface FBManualMeasureDataModel : NSObject

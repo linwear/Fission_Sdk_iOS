@@ -11,7 +11,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/*
+/**
  FB蓝牙OTA管理器 | FB Bluetooth OTA Manager
 */
 @interface FBBluetoothOTA : NSObject

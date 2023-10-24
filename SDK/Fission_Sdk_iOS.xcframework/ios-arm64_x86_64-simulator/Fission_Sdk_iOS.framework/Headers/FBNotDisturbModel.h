@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  勿扰提醒信息｜Do not disturb reminder message
 */
 @interface FBNotDisturbModel : NSObject

@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  运动目标信息｜Moving target information
 */
 @interface FBSportTargetModel : NSObject

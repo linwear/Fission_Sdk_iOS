@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  推送今日天气详情消息参数｜Push today's weather details message parameters
 */
 @interface FBWeatherDetailsModel : NSObject

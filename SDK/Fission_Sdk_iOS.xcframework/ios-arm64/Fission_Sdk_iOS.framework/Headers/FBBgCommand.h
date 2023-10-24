@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/*
+/**
  FB Bg命令集｜FB Bg command set
 */
 @interface FBBgCommand : NSObject

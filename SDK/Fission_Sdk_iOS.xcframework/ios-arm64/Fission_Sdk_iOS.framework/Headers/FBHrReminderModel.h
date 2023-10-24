@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  心率异常提醒信息｜Abnormal heart rate reminder information
 */
 @interface FBHrReminderModel : NSObject

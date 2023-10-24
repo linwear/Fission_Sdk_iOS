@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  类型记录数组详情（公共类，具体参考枚举值 FB_RECORDTYPE）｜Type record array details (public class, refer to enumeration value FB_RECORDTYPE for details)
 */
 @interface FBRecordDetailsModel : NSObject
@@ -104,17 +105,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 #pragma mark - 当 FB_RECORDTYPE为FB_MotionGpsRecord 时（运动定位记录），以下有值｜When FB_RECORDTYPE is FB_MotionGpsRecord (motion positioning record), the following values
-/** 纬度｜Real time distance in motion */
-@property (nonatomic) float latitude;
-
-/** 经度｜Real time heart rate */
+/** 经度 (WGS-84)｜Longitude (WGS-84) */
 @property (nonatomic) float longitude;
+
+/** 纬度 (WGS-84)｜Latitude (WGS-84) */
+@property (nonatomic) float latitude;
 
 /** GPS 速度（米/秒）｜GPS speed (M / s) */
 @property (nonatomic, assign) NSInteger speed;
 
 /** 状态。NO 正常，YES 暂停｜Status. NO normal, YES pause */
-@property (nonatomic, assign) BOOL gpsIsSuspend;
+@property (nonatomic, assign) BOOL gpsPause;
+
+/** GPS 实时心率（次/分钟）｜GPS Real time heart rate (times / min) */
+@property (nonatomic, assign) NSInteger gpsHeartRate;
 
 
 @end

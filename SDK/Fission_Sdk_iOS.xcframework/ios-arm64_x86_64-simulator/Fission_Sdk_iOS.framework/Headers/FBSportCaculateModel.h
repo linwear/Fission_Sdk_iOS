@@ -9,7 +9,8 @@
 #import "FBSportPauseModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  运动统计报告｜Sports statistics report
 */
 @interface FBSportCaculateModel : NSObject
@@ -145,27 +146,27 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger armSwingTimes;
 
 /**
- 热身运动时间，单位分钟｜Warm up exercise time in minutes
+ 热身运动时间，单位分钟｜Warm-up time in minutes
 */
 @property (nonatomic, assign) NSInteger heartRate_level_1;
 
 /**
- 燃脂运动时间，单位分钟｜Fat burning movement time, in minutes
+ 燃脂运动时间，单位分钟｜Fat burning exercise time in minutes
 */
 @property (nonatomic, assign) NSInteger heartRate_level_2;
 
 /**
- 有氧耐力运动时间，单位分钟｜Aerobic endurance exercise time, in minutes
+ 有氧运动时间，单位分钟｜Aerobic exercise time in minutes
 */
 @property (nonatomic, assign) NSInteger heartRate_level_3;
 
 /**
- 高强有氧运动时间，单位分钟｜High strength aerobic exercise time, in minutes
+ 无氧运动时间，单位分钟｜Anaerobic exercise time in minutes
 */
 @property (nonatomic, assign) NSInteger heartRate_level_4;
 
 /**
- 无氧运动时间，单位分钟｜Anaerobic exercise time in minutes
+ 极限运动时间，单位分钟｜Extreme exercise time in minutes
 */
 @property (nonatomic, assign) NSInteger heartRate_level_5;
 

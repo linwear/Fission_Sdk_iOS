@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  常用联系人信息｜Frequently used contact information
  */
 @interface FBFavContactModel : NSObject

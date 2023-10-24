@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/*
+/**
  FB蓝牙管理器｜FB Bluetooth Manager
 */
 @interface FBBluetoothManager : NSObject
@@ -47,7 +47,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  调试模式（默认YES，即输出日志记录）｜debug mode (default YES, i.e. output logging)
  
- @note 如需接收日志信息请实现监听方法 [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(logOutput:) name:FBLOGNOTIFICATIONOFOUTPUT object:nil]｜If you need to receive log information, please implement the monitoring method [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(logOutput:) name:FBLOGNOTIFICATIONOFOUTPUT object:nil]
+ @note 如需接收日志信息请实现监听方法 [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(logOutput:) name:FBLOGNOTIFICATIONOFOUTPUT object:nil]，建议在初始化FBBluetoothManager前实现监听｜If you need to receive log information, please implement the listening method [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(logOutput:) name:FBLOGNOTIFICATIONOFOUTPUT object:nil]. It is recommended to implement listening before initializing FBBluetoothManager.
  */
 @property (nonatomic, assign) BOOL debugging;
 

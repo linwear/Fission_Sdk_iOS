@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  OTA完成信息｜OTA completion information
 */
 @interface FBOTADoneModel : NSObject

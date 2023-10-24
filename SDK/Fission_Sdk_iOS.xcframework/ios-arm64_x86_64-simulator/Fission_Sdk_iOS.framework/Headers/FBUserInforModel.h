@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  用户个人信息｜User personal information
 */
 @interface FBUserInforModel : NSObject

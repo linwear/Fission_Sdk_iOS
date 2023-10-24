@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  自定义表盘参数｜Custom dial parameters
 */
 @interface FBCustomDialModel : NSObject

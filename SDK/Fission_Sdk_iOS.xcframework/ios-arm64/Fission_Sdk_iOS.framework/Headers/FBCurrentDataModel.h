@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  当日实时测量数据｜Real time measurement data of the day
 */
 @interface FBCurrentDataModel : NSObject
@@ -94,12 +95,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger sittingStep;
 
 /**
- 当前的经度｜Current longitude
+ 当前的经度 (WGS-84)｜Current longitude (WGS-84)
 */
 @property (nonatomic) float currentLongitude;
 
 /**
- 当前的纬度｜Current latitude
+ 当前的纬度 (WGS-84)｜Current latitude (WGS-84)
 */
 @property (nonatomic) float currentLatitude;
 

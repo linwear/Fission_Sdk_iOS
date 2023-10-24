@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  设备运动类型列表｜List of Equipment Motion Types
 */
 @interface FBMotionTypesListModel : NSObject

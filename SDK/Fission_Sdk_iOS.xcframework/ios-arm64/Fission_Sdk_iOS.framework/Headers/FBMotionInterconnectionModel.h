@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  GPS运动互联数据交互信息｜Interactive information of GPS motion interconnection data
  */
 @interface FBMotionInterconnectionModel : NSObject

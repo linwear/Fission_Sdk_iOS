@@ -468,8 +468,11 @@ typedef void (^FBRequestDeviceLogsBlock)(FB_RET_CMD status, float progress, NSSt
 typedef void (^FBRequestSystemFunctionSwitchInfoBlock)(FB_RET_CMD status, float progress, FBSystemFunctionSwitchModel * _Nullable responseObject, NSError * _Nullable error);
 
 
-/* block回调类｜Block callback class */
+/**
+ block回调类｜Block callback class
+ */
 @interface FBCommandCallback : NSObject
+
 @end
 
 NS_ASSUME_NONNULL_END

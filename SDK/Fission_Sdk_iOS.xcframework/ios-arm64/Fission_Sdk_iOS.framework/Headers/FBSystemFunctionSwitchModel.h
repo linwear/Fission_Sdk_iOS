@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/*
+/**
  系统功能开关信息｜System function switch information
 */
 @interface FBSystemFunctionSwitchModel : NSObject

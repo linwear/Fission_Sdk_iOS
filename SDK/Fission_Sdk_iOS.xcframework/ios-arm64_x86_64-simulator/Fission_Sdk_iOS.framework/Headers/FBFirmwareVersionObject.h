@@ -9,6 +9,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ 设备信息配置类｜Device information configuration class
+*/
 @interface FBFirmwareVersionObject : NSObject <NSCoding, NSSecureCoding>
 
 /**
@@ -398,6 +401,20 @@ NS_ASSUME_NONNULL_BEGIN
  @note  NO：不支持、YES：支持｜NO: not support YES: support
 */
 @property (nonatomic, assign) BOOL support_dial_CRC_check;
+
+/**
+ 🌟是否支持静息心率｜Whether to support resting heart rate🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportRestingHeartRate;
+
+/**
+ 🌟是否支持AGPS定位｜Whether to support AGPS positioning🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportAGPS;
 
 @end
 

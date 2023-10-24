@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  FB蓝牙OTA进度模型 | FB Bluetooth OTA progress model
 */
 @interface FBProgressModel : NSObject

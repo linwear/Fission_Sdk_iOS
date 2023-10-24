@@ -10,7 +10,8 @@
 @class FBCustomDialItem;
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  多项目自定义表盘参数｜Multi-item custom dial parameters
 */
 @interface FBMultipleCustomDialsModel : NSObject
@@ -33,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-/*
+/**
  项目参数｜Project Parameters
 */
 @interface FBCustomDialItem : NSObject

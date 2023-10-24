@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  抬腕亮屏信息｜Wrist lifting light screen information
 */
 @interface FBWristModel : NSObject

@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  记事提醒/闹钟信息｜Reminder / alarm clock
 */
 @interface FBAlarmClockModel : NSObject

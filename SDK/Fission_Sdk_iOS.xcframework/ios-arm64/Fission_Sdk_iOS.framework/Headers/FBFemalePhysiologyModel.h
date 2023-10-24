@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  女性生理周期信息｜Female physiological cycle information
 */
 @interface FBFemalePhysiologyModel : NSObject

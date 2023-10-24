@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  睡眠统计报告｜Sleep statistics report
 */
 @interface FBSleepCaculateReportModel : NSObject
@@ -74,6 +75,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger eyeMoveTime;
 
 /**
+ 本次睡眠零星小睡累计时间（分钟）｜Cumulative time of this sporadic nap (minutes)
+*/
+@property (nonatomic, assign) NSInteger sporadicNapTime;
+
+/**
  本次睡眠时最大血氧（%）｜Maximum blood oxygen during this sleep (%)
 */
 @property (nonatomic, assign) NSInteger maxOxy;
@@ -94,9 +100,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger minHeartRate;
 
 /**
- 本次睡眠零星小睡累计时间（分钟）｜Cumulative time of this sporadic nap (minutes)
+ 本次睡眠时静息心率｜Resting heart rate during sleep
 */
-@property (nonatomic, assign) NSInteger sporadicNapTime;
+@property (nonatomic, assign) NSInteger restingHeartRate;
 
 @end
 

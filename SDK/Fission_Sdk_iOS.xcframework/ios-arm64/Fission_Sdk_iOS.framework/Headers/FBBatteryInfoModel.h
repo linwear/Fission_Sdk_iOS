@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  手表设备电量信息｜Watch device battery info
  */
 @interface FBBatteryInfoModel : NSObject

@@ -9,7 +9,8 @@
 #import "FBSleepStateModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  睡眠状态记录｜Sleep state recording
 */
 @interface FBSleepStatusRecordModel : NSObject

@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  心率等级判定信息｜Heart rate level determination information
 */
 @interface FBHeartRateRatingModel : NSObject

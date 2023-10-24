@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  心率检测信息，为全天候检测，建议只可修改提醒周期｜The heart rate detection information is all-weather detection, and it is recommended that only the reminder cycle can be modified
 */
 @interface FBHrCheckModel : NSObject

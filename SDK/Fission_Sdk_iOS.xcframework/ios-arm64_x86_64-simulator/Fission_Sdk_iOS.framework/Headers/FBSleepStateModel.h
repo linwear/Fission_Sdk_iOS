@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  睡眠状态详细｜Sleep status details
 */
 @interface FBSleepStateModel : NSObject

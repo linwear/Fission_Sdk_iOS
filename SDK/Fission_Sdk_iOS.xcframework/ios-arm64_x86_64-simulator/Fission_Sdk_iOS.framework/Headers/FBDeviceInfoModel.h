@@ -8,7 +8,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-/*
+
+/**
  设备硬件信息｜Device hardware information
 */
 @interface FBDeviceInfoModel : NSObject
