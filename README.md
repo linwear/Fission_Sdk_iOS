@@ -3,28 +3,28 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Latest Version-3.1.7 -HotPink.svg">
+    <img src="https://img.shields.io/badge/Latest Version-3.1.7 -hotPink.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Support-iOS10+ -Blue.svg">
+    <img src="https://img.shields.io/badge/Support-iOS10+ -blue.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Support-x86_64｜arm64 -Purple.svg">
+    <img src="https://img.shields.io/badge/Support-x86_64｜arm64 -purple.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Support-CocoaPods -Aquamarine.svg">
+    <img src="https://img.shields.io/badge/Support-CocoaPods -aquamarine.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Language-OC -Red.svg">
+    <img src="https://img.shields.io/badge/Language-OC -red.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Document-简体中文｜English -Teal.svg">
+    <img src="https://img.shields.io/badge/Document-简体中文｜English -teal.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Team-Fission -DarkSlateBlue.svg">
+    <img src="https://img.shields.io/badge/Team-Fission -darkSlateBlue.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/License-MIT -Gold.svg">
+    <img src="https://img.shields.io/badge/License-MIT -gold.svg">
 </a>
 
 </p>
