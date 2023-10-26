@@ -18,7 +18,7 @@
     <img src="https://img.shields.io/badge/Language-Objective_C -red.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Document-简体中文_English -teal.svg">
+    <img src="https://img.shields.io/badge/Document-简体中文+English -teal.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/Team-Fission -pink.svg">
