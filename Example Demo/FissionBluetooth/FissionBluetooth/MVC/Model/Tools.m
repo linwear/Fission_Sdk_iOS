@@ -568,6 +568,50 @@
     return isFirstBinding;
 }
 
+/// 保存最近绑定的设备名称
++ (void)saveRecentlyDeviceName:(NSString *)deviceName {
+    [NSUserDefaults.standardUserDefaults setObject:deviceName forKey:@"FB_RecentlyDeviceName"];
+}
+
+/// 最近绑定的设备名称
++ (NSString * _Nullable)RecentlyDeviceName {
+    NSString *deviceName = [NSUserDefaults.standardUserDefaults objectForKey:@"FB_RecentlyDeviceName"];
+    return deviceName;
+}
+
+/// 保存最近绑定的设备MAC地址
++ (void)saveRecentlyDeviceMAC:(NSString *)deviceMAC {
+    [NSUserDefaults.standardUserDefaults setObject:deviceMAC forKey:@"FB_RecentlyDeviceMAC"];
+}
+
+/// 最近绑定的设备MAC地址
++ (NSString * _Nullable)RecentlyDeviceMAC {
+    NSString *deviceMAC = [NSUserDefaults.standardUserDefaults objectForKey:@"FB_RecentlyDeviceMAC"];
+    return deviceMAC;
+}
+
+/// 保存了解GPS运动轨迹按钮时间
++ (void)saveReadGPSButton:(NSInteger)time {
+    [NSUserDefaults.standardUserDefaults setInteger:time forKey:@"FB_ReadGPSButton"];
+}
+
+/// 是否已阅GPS运动轨迹按钮
++ (BOOL)isReadGPSButton {
+    BOOL isRead = [NSUserDefaults.standardUserDefaults integerForKey:@"FB_ReadGPSButton"] > 0;
+    return isRead;
+}
+
+/// 保存了解切换设备数据按钮时间
++ (void)saveReadSwitchDeviceDataButton:(NSInteger)time {
+    [NSUserDefaults.standardUserDefaults setInteger:time forKey:@"FB_ReadSwitchDeviceDataButton"];
+}
+
+/// 是否已阅切换设备数据
++ (BOOL)isReadSwitchDeviceDataButton {
+    BOOL isRead = [NSUserDefaults.standardUserDefaults integerForKey:@"FB_ReadSwitchDeviceDataButton"] > 0;
+    return isRead;
+}
+
 /// 记录当前实时数据流开启状态
 + (void)saveIsStreamOpen:(BOOL)isOpen {
     [NSUserDefaults.standardUserDefaults setBool:isOpen forKey:@"FB_isStreamOpen"];

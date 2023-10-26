@@ -47,6 +47,15 @@ static NSString *FBTestUISportsPaceRatioCellID = @"FBTestUISportsPaceRatioCell";
         UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightItemButton];
         [self.navigationItem setRightBarButtonItem:rightItem animated:YES];
         self.rightItemButton = rightItemButton;
+        
+        if (!Tools.isReadGPSButton) {
+            [Tools saveReadGPSButton:NSDate.date.timeIntervalSince1970];
+            
+            NSString *text = [NSString stringWithFormat:@"GPS%@%@", Tools.isChinese?@"":@" ", LWLocalizbleString(@"Sports Trajectory")];
+            FBDropDownMenuModel *model = [FBDropDownMenuModel fb_DropDownMenuModelWithTitle:text subTitle:nil mark:NO textAlignment:NSTextAlignmentCenter];
+            
+            [FBDropDownMenu showDropDownMenuWithModel:@[model] menuWidth:150 itemHeight:50 menuBlock:nil];
+        }
     }
 
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, NavigationContentTop, SCREEN_WIDTH, SCREEN_HEIGHT-NavigationContentTop) style:UITableViewStylePlain];

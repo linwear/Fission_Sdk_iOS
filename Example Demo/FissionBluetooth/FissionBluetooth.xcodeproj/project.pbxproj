@@ -226,6 +226,13 @@
 		59C66FB72ADCEC52001771BA /* RTKOTASDK.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C66FAE2ADCEC43001771BA /* RTKOTASDK.xcframework */; };
 		59C66FB82ADCEC52001771BA /* RTKOTASDK.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59C66FAE2ADCEC43001771BA /* RTKOTASDK.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59C6CC4B25ADA95F007C2521 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59C6CC4A25ADA95F007C2521 /* AudioToolbox.framework */; };
+		59CAAA992AE8C0B200BF061A /* FBDropDownMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CAAA982AE8C0B200BF061A /* FBDropDownMenu.m */; };
+		59CAAAA82AE9332500BF061A /* FFDropDownMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CAAA9C2AE9332500BF061A /* FFDropDownMenuCell.m */; };
+		59CAAAA92AE9332500BF061A /* FFDropDownMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CAAA9D2AE9332500BF061A /* FFDropDownMenuView.m */; };
+		59CAAAAA2AE9332500BF061A /* FFDropDownMenuBasedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CAAAA12AE9332500BF061A /* FFDropDownMenuBasedCell.m */; };
+		59CAAAAB2AE9332500BF061A /* FFDropDownMenuBasedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CAAAA32AE9332500BF061A /* FFDropDownMenuBasedModel.m */; };
+		59CAAAAC2AE9332500BF061A /* FFDropDownMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CAAAA52AE9332500BF061A /* FFDropDownMenuModel.m */; };
+		59CAAAAD2AE9332500BF061A /* FFDropDownMenuTriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CAAAA62AE9332500BF061A /* FFDropDownMenuTriangleView.m */; };
 		59E7BE68268C13C400B8001A /* ic_dial_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE50268C13C400B8001A /* ic_dial_button@2x.png */; };
 		59E7BE69268C13C400B8001A /* examples_img_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE51268C13C400B8001A /* examples_img_03.png */; };
 		59E7BE6A268C13C400B8001A /* ic_dial_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE52268C13C400B8001A /* ic_dial_button@3x.png */; };
@@ -718,6 +725,21 @@
 		59C66FAF2ADCEC43001771BA /* Fission_Sdk_iOS.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = Fission_Sdk_iOS.xcframework; sourceTree = "<group>"; };
 		59C6CC4A25ADA95F007C2521 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		59CA6D8F25B7C4BD00093622 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		59CAAA972AE8C0B200BF061A /* FBDropDownMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBDropDownMenu.h; sourceTree = "<group>"; };
+		59CAAA982AE8C0B200BF061A /* FBDropDownMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBDropDownMenu.m; sourceTree = "<group>"; };
+		59CAAA9B2AE9332500BF061A /* FFDropDownMenuBasedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFDropDownMenuBasedCell.h; sourceTree = "<group>"; };
+		59CAAA9C2AE9332500BF061A /* FFDropDownMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFDropDownMenuCell.m; sourceTree = "<group>"; };
+		59CAAA9D2AE9332500BF061A /* FFDropDownMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFDropDownMenuView.m; sourceTree = "<group>"; };
+		59CAAA9E2AE9332500BF061A /* FFDropDownMenuBasedModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFDropDownMenuBasedModel.h; sourceTree = "<group>"; };
+		59CAAA9F2AE9332500BF061A /* FFDropDownMenuTriangleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFDropDownMenuTriangleView.h; sourceTree = "<group>"; };
+		59CAAAA02AE9332500BF061A /* FFDropDownMenuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFDropDownMenuModel.h; sourceTree = "<group>"; };
+		59CAAAA12AE9332500BF061A /* FFDropDownMenuBasedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFDropDownMenuBasedCell.m; sourceTree = "<group>"; };
+		59CAAAA22AE9332500BF061A /* FFDropDownMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFDropDownMenuCell.h; sourceTree = "<group>"; };
+		59CAAAA32AE9332500BF061A /* FFDropDownMenuBasedModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFDropDownMenuBasedModel.m; sourceTree = "<group>"; };
+		59CAAAA42AE9332500BF061A /* FFDropDownMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFDropDownMenuView.h; sourceTree = "<group>"; };
+		59CAAAA52AE9332500BF061A /* FFDropDownMenuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFDropDownMenuModel.m; sourceTree = "<group>"; };
+		59CAAAA62AE9332500BF061A /* FFDropDownMenuTriangleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFDropDownMenuTriangleView.m; sourceTree = "<group>"; };
+		59CAAAA72AE9332500BF061A /* FFDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFDropDownMenu.h; sourceTree = "<group>"; };
 		59E7BE50268C13C400B8001A /* ic_dial_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_dial_button@2x.png"; sourceTree = "<group>"; };
 		59E7BE51268C13C400B8001A /* examples_img_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = examples_img_03.png; sourceTree = "<group>"; };
 		59E7BE52268C13C400B8001A /* ic_dial_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_dial_button@3x.png"; sourceTree = "<group>"; };
@@ -1202,6 +1224,7 @@
 		592F5F072A04F39B008C06D7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				59CAAA962AE8C09200BF061A /* FBDropDownMenu */,
 				59831BD42A78DCE3008BB4C8 /* FBHUD */,
 				5941D7452AE3B9C7004F17A6 /* WXSTransition */,
 				59400A852A08CBE100C93683 /* FBTestUITodayDataCell.h */,
@@ -1443,6 +1466,36 @@
 			);
 			name = SDK;
 			path = ../../../SDK;
+			sourceTree = "<group>";
+		};
+		59CAAA962AE8C09200BF061A /* FBDropDownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				59CAAA9A2AE9332500BF061A /* FFDropDownMenu */,
+				59CAAA972AE8C0B200BF061A /* FBDropDownMenu.h */,
+				59CAAA982AE8C0B200BF061A /* FBDropDownMenu.m */,
+			);
+			path = FBDropDownMenu;
+			sourceTree = "<group>";
+		};
+		59CAAA9A2AE9332500BF061A /* FFDropDownMenu */ = {
+			isa = PBXGroup;
+			children = (
+				59CAAAA72AE9332500BF061A /* FFDropDownMenu.h */,
+				59CAAA9B2AE9332500BF061A /* FFDropDownMenuBasedCell.h */,
+				59CAAAA12AE9332500BF061A /* FFDropDownMenuBasedCell.m */,
+				59CAAA9E2AE9332500BF061A /* FFDropDownMenuBasedModel.h */,
+				59CAAAA32AE9332500BF061A /* FFDropDownMenuBasedModel.m */,
+				59CAAAA22AE9332500BF061A /* FFDropDownMenuCell.h */,
+				59CAAA9C2AE9332500BF061A /* FFDropDownMenuCell.m */,
+				59CAAAA02AE9332500BF061A /* FFDropDownMenuModel.h */,
+				59CAAAA52AE9332500BF061A /* FFDropDownMenuModel.m */,
+				59CAAA9F2AE9332500BF061A /* FFDropDownMenuTriangleView.h */,
+				59CAAAA62AE9332500BF061A /* FFDropDownMenuTriangleView.m */,
+				59CAAAA42AE9332500BF061A /* FFDropDownMenuView.h */,
+				59CAAA9D2AE9332500BF061A /* FFDropDownMenuView.m */,
+			);
+			path = FFDropDownMenu;
 			sourceTree = "<group>";
 		};
 		59E7BE4E268C13C400B8001A /* Resources */ = {
@@ -1969,9 +2022,11 @@
 				5921976A2A1B514800A4BE45 /* FemaleCircadianCycleVC.m in Sources */,
 				592197722A1B514800A4BE45 /* FBClockDialCategoryViewController.m in Sources */,
 				5921977D2A1B514800A4BE45 /* LWContactViewController.m in Sources */,
+				59CAAAAB2AE9332500BF061A /* FFDropDownMenuBasedModel.m in Sources */,
 				5941D77D2AE3D760004F17A6 /* FBLocationConverter.m in Sources */,
 				5941D7762AE3B9C7004F17A6 /* WXSTransitionManager.m in Sources */,
 				592197882A1B522400A4BE45 /* MainViewController.m in Sources */,
+				59CAAAA92AE9332500BF061A /* FFDropDownMenuView.m in Sources */,
 				592197322A1B514800A4BE45 /* FBBatteryView.m in Sources */,
 				5921977B2A1B514800A4BE45 /* UserInforViewController.m in Sources */,
 				59A78BCC2A80C62B000A80DD /* FBTestUISportsPaceRatioCell.m in Sources */,
@@ -1998,6 +2053,7 @@
 				593AA48F29BAC87000B2DD49 /* AppDelegate+FissionSDK.m in Sources */,
 				5921972B2A1B514800A4BE45 /* LWCustomDialColorCell.m in Sources */,
 				593E41BC2A29928500B438FE /* FBCustomDialListTitleCell.m in Sources */,
+				59CAAAAC2AE9332500BF061A /* FFDropDownMenuModel.m in Sources */,
 				59FA408E2A9D95C40035FD1E /* FBLocationManager.m in Sources */,
 				5921974E2A1B514800A4BE45 /* LWMotionPushDownloadObject.m in Sources */,
 				592197642A1B514800A4BE45 /* LWCustomDialViewController.m in Sources */,
@@ -2012,6 +2068,7 @@
 				592197782A1B514800A4BE45 /* QRViewController.m in Sources */,
 				5941D7732AE3B9C7004F17A6 /* WXSTransitionManager+TypeTool.m in Sources */,
 				5921973A2A1B514800A4BE45 /* LWWaveProgress.m in Sources */,
+				59CAAAAA2AE9332500BF061A /* FFDropDownMenuBasedCell.m in Sources */,
 				5941D7702AE3B9C7004F17A6 /* UINavigationController+WXSTransition.m in Sources */,
 				5921975C2A1B514800A4BE45 /* SportTargetViewController.m in Sources */,
 				592197512A1B514800A4BE45 /* UIAlertObject.m in Sources */,
@@ -2019,6 +2076,8 @@
 				5941D76B2AE3B9C7004F17A6 /* WXSTransitionManager+BoomAnimation.m in Sources */,
 				592197542A1B514800A4BE45 /* NSObject+HUD.m in Sources */,
 				59C3A4802A24AB9600C95E19 /* FBTestUIBaseSportsCell.m in Sources */,
+				59CAAA992AE8C0B200BF061A /* FBDropDownMenu.m in Sources */,
+				59CAAAA82AE9332500BF061A /* FFDropDownMenuCell.m in Sources */,
 				5941D7722AE3B9C7004F17A6 /* WXSPercentDrivenInteractiveTransition.m in Sources */,
 				592197792A1B514800A4BE45 /* BrightScreenViewController.m in Sources */,
 				592F5F0C2A050130008C06D7 /* FBTestUIItemCell.m in Sources */,
@@ -2040,6 +2099,7 @@
 				590419862A2F241C00BD3A0A /* FBTestUISportsSectionHeader.m in Sources */,
 				5941D7812AE3D88C004F17A6 /* MASmoothPathTool.m in Sources */,
 				5920EAC32A3873C2008D1CB0 /* FBCustomDialListColorCell.m in Sources */,
+				59CAAAAD2AE9332500BF061A /* FFDropDownMenuTriangleView.m in Sources */,
 				5941D7752AE3B9C7004F17A6 /* WXSTransitionManager+FragmentAnimation.m in Sources */,
 				592197202A1B514800A4BE45 /* WeatherCell.m in Sources */,
 				592197452A1B514800A4BE45 /* MotionPushCollectionViewCell.m in Sources */,

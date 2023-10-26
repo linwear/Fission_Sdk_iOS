@@ -13,7 +13,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSDictionary *titleTextAttributes = @{NSFontAttributeName:[NSObject BahnschriftFont:18], NSForegroundColorAttributeName:UIColorWhite};
+    NSDictionary *titleTextAttributes = @{NSFontAttributeName:FONT(18), NSForegroundColorAttributeName:UIColorWhite};
     
     self.navigationBar.tintColor = UIColorWhite;
     

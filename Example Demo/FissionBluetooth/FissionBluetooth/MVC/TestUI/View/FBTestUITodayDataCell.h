@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBTestUITodayDataCell : UICollectionViewCell
 
-- (void)realTimeDataStreamWithStep:(NSInteger)currentStep calories:(NSInteger)currentCalories distance:(NSInteger)currentDistance;
+- (void)step:(NSInteger)step calories:(NSInteger)calories distance:(NSInteger)distance;
 
 - (void)reloadCellModel:(FBLocalHistoricalModel *)model click:(void(^)(FBTestUIDataType dataType))block;
 

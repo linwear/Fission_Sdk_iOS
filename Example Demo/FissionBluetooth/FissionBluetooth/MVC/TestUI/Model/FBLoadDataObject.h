@@ -45,6 +45,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 查询本地历史数据（查询数据库）｜Query local historical data (Query Database)
 + (void)QueryLocalHistoricalDataWithBlock:(void(^)(FBLocalHistoricalModel *historicalModel))block;
 
+/// 获取设备绑定记录｜Obtain device binding records
++ (NSArray <FBDropDownMenuModel *> *)ObtainDeviceBindingRecordsWithCurrentDeviceName:(NSString *)deviceName withDeviceMAC:(NSString *)deviceMAC;
+
 @end
 
 

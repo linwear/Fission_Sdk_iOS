@@ -74,7 +74,7 @@ x_arr;\
     FB_Sports_Statistics_Details_Report | // 运动记录
     FB_ManualMeasurementData; // 手动测量记录
     
-    NSInteger staTime = [FBLoadDataObject getMinimumTime]; // 起始查询时间
+    NSInteger staTime = [FBLoadDataObject getMinimumTimeWithObject:object]; // 起始查询时间
     NSInteger endTime = NSDate.date.timeIntervalSince1970; // 结束查询时间
     
     __block NSMutableString *errorString = [NSMutableString stringWithString:@"🙅ERROR:"];
@@ -248,13 +248,11 @@ x_arr;\
 }
 
 /// 最小时间
-+ (NSInteger)getMinimumTime
++ (NSInteger)getMinimumTimeWithObject:(FBFirmwareVersionObject *)object
  {
-     FBFirmwareVersionObject *object = FBAllConfigObject.firmwareConfig;
-     
      // 未避免重复请求，可以设置本地数据最小时间为起始时间
      NSMutableArray <NSNumber *> *begin = NSMutableArray.array;
-     NSString *SQL = [FBLoadDataObject SQL_CurrentDevice_All];
+     NSString *SQL = [FBLoadDataObject SQL_deviceName:object.deviceName deviceMAC:object.mac];
      
      // 心率
      RLMHeartRateModel *hr = [[RLMHeartRateModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
@@ -682,11 +680,9 @@ x_arr;\
 
 
 #pragma mark - 数据库查询条件 - 指定当前设备名称/当前设备mac地址
-+ (NSString *)SQL_CurrentDevice_All {
++ (NSString *)SQL_deviceName:(NSString *)deviceName deviceMAC:(NSString *)deviceMAC {
     
-    FBFirmwareVersionObject *object = FBAllConfigObject.firmwareConfig;
-
-    NSString *SQL = [NSString stringWithFormat:@"deviceName = '%@' AND deviceMAC = '%@'", object.deviceName, object.mac];
+    NSString *SQL = [NSString stringWithFormat:@"deviceName = '%@' AND deviceMAC = '%@'", deviceName, deviceMAC];
     
     return SQL;
 }
@@ -696,7 +692,7 @@ x_arr;\
 + (NSArray <NSString *>  * _Nullable)QueryAllRecordWithDataType:(FBTestUIDataType)dataType dateFormat:(FBDateFormat)dateFormat deviceName:(NSString *)deviceName deviceMAC:(NSString *)deviceMAC {
     
     NSMutableArray <NSString *> *dataStringArray = NSMutableArray.array;
-    NSString *SQL = [NSString stringWithFormat:@"deviceName = '%@' AND deviceMAC = '%@'", deviceName, deviceMAC];
+    NSString *SQL = [FBLoadDataObject SQL_deviceName:deviceName deviceMAC:deviceMAC];
     
     if (dataType == FBTestUIDataType_Step) { // 步数
         
@@ -1470,23 +1466,23 @@ x_arr;\
     NSString *y_JS = [series aa_toJSArray];
     NSString *unit_JS = [arr aa_toJSArray];
     
-    NSString *jsFormatterStr = [NSString stringWithFormat:@AAJSFunc(
-                                                                    function () {
-                                                                        const x_JS_Array = %@;
-                                                                        const y_JS_Array = %@;
-                                                                        const unit = %@;
-                                                                        //‼️以 this.point.index 这种方式获取选中的点的索引必须设置 tooltip 的 shared 为 false
-                                                                        //‼️共享时是 this.points (由多个 point 组成的 points 数组)
-                                                                        //‼️非共享时是 this.point 单个 point 对象
-                                                                        const selectedSeries = this.points[0];
-                                                                        const pointIndex = selectedSeries.point.index;
-                                                                        const time = x_JS_Array[pointIndex] + "&nbsp";
-                                                                        const data = unit + "&nbsp" + y_JS_Array[pointIndex] + "&nbsp" + "%%";
-                                                                        
-                                                                        const wholeContentStr =  time + data;
-                                                                        
-                                                                        return wholeContentStr;
-                                                                    }), x_JS, y_JS, unit_JS];
+//    NSString *jsFormatterStr = [NSString stringWithFormat:@AAJSFunc(
+//                                                                    function () {
+//                                                                        const x_JS_Array = %@;
+//                                                                        const y_JS_Array = %@;
+//                                                                        const unit = %@;
+//                                                                        //‼️以 this.point.index 这种方式获取选中的点的索引必须设置 tooltip 的 shared 为 false
+//                                                                        //‼️共享时是 this.points (由多个 point 组成的 points 数组)
+//                                                                        //‼️非共享时是 this.point 单个 point 对象
+//                                                                        const selectedSeries = this.points[0];
+//                                                                        const pointIndex = selectedSeries.point.index;
+//                                                                        const time = x_JS_Array[pointIndex] + "&nbsp";
+//                                                                        const data = unit + "&nbsp" + y_JS_Array[pointIndex] + "&nbsp" + "%%";
+//
+//                                                                        const wholeContentStr =  time + data;
+//
+//                                                                        return wholeContentStr;
+//                                                                    }), x_JS, y_JS, unit_JS];
     
     AAOptions *aaOptions = aaChartModel.aa_toAAOptions;
     AATooltip *tooltip = aaOptions.tooltip;
@@ -2740,27 +2736,29 @@ x_arr;\
     if (StringIsEmpty(SQL_Manual)) return nil;
     
     RLMResults <RLMManualMeasureModel *> *m_Results = [[RLMManualMeasureModel objectsWhere:SQL_Manual] sortedResultsUsingKeyPath:@"begin" ascending:YES];
+    
     return m_Results;
 }
 
 
-#pragma mark - 查询本地历史数据（查询数据库）｜Query local historical data (Query Database)
+#pragma mark - ❌ 查询本地历史数据（查询数据库）｜Query local historical data (Query Database)
 /// 查询本地历史数据（查询数据库）｜Query local historical data (Query Database)
 + (void)QueryLocalHistoricalDataWithBlock:(void (^)(FBLocalHistoricalModel * _Nonnull))block {
     
     FBLocalHistoricalModel *historicalModel = FBLocalHistoricalModel.new;
     
-    FBFirmwareVersionObject *object = FBAllConfigObject.firmwareConfig;
+    NSString *deviceName = Tools.RecentlyDeviceName;
+    NSString *deviceMAC = Tools.RecentlyDeviceMAC;
     
-    NSString *SQL = FBLoadDataObject.SQL_CurrentDevice_All;
+    NSString *SQL = [FBLoadDataObject SQL_deviceName:deviceName deviceMAC:deviceMAC];
     
     
     // 今日24小时步数记录
-    historicalModel.stepsArray = [FBLoadDataObject QueryStepCountRecordWithDate:NSDate.date deviceName:object.deviceName deviceMAC:object.mac];
+    historicalModel.stepsArray = [FBLoadDataObject QueryStepCountRecordWithDate:NSDate.date deviceName:deviceName deviceMAC:deviceMAC];
 
     
     // 最近一条运动记录
-    historicalModel.sportsModel = [[RLMSportsModel objectsWhere:FBLoadDataObject.SQL_CurrentDevice_All] sortedResultsUsingKeyPath:@"begin" ascending:NO].firstObject;
+    historicalModel.sportsModel = [[RLMSportsModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:NO].firstObject;
     historicalModel.sportsBegin = historicalModel.sportsModel.begin;
     
     
@@ -2769,7 +2767,7 @@ x_arr;\
     RLMHeartRateModel *lastHr = [[RLMHeartRateModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
     
     // 手动测量数据
-    RLMManualMeasureModel *lastHr_M = [FBLoadDataObject QueryManualMeasurementRecordWithDate:nil dataType:FBTestUIDataType_HeartRate deviceName:object.deviceName deviceMAC:object.mac].lastObject;
+    RLMManualMeasureModel *lastHr_M = [FBLoadDataObject QueryManualMeasurementRecordWithDate:nil dataType:FBTestUIDataType_HeartRate deviceName:deviceName deviceMAC:deviceMAC].lastObject;
     
     NSInteger hrBegin = lastHr.begin > lastHr_M.begin ? lastHr.begin : lastHr_M.begin;
     historicalModel.hrBegin = hrBegin;
@@ -2781,7 +2779,7 @@ x_arr;\
     RLMBloodOxygenModel *lastSpo2 = [[RLMBloodOxygenModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
     
     // 手动测量数据
-    RLMManualMeasureModel *lastSpo2_M = [FBLoadDataObject QueryManualMeasurementRecordWithDate:nil dataType:FBTestUIDataType_BloodOxygen deviceName:object.deviceName deviceMAC:object.mac].lastObject;
+    RLMManualMeasureModel *lastSpo2_M = [FBLoadDataObject QueryManualMeasurementRecordWithDate:nil dataType:FBTestUIDataType_BloodOxygen deviceName:deviceName deviceMAC:deviceMAC].lastObject;
     
     NSInteger spo2Begin = lastSpo2.begin > lastSpo2_M.begin ? lastSpo2.begin : lastSpo2_M.begin;
     historicalModel.spo2Begin = spo2Begin;
@@ -2793,7 +2791,7 @@ x_arr;\
     RLMBloodPressureModel *lastBp = [[RLMBloodPressureModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
     
     // 手动测量数据
-    RLMManualMeasureModel *lastBp_M = [FBLoadDataObject QueryManualMeasurementRecordWithDate:nil dataType:FBTestUIDataType_BloodPressure deviceName:object.deviceName deviceMAC:object.mac].lastObject;
+    RLMManualMeasureModel *lastBp_M = [FBLoadDataObject QueryManualMeasurementRecordWithDate:nil dataType:FBTestUIDataType_BloodPressure deviceName:deviceName deviceMAC:deviceMAC].lastObject;
     
     NSInteger bpBegin = lastBp.begin > lastBp_M.begin ? lastBp.begin : lastBp_M.begin;
     historicalModel.bpBegin = bpBegin;
@@ -2805,7 +2803,7 @@ x_arr;\
     RLMStressModel *lastStress = [[RLMStressModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
     
     // 手动测量数据
-    RLMManualMeasureModel *lastStress_M = [FBLoadDataObject QueryManualMeasurementRecordWithDate:nil dataType:FBTestUIDataType_Stress deviceName:object.deviceName deviceMAC:object.mac].lastObject;
+    RLMManualMeasureModel *lastStress_M = [FBLoadDataObject QueryManualMeasurementRecordWithDate:nil dataType:FBTestUIDataType_Stress deviceName:deviceName deviceMAC:deviceMAC].lastObject;
     
     NSInteger stressBegin =  lastStress.begin > lastStress_M.begin ? lastStress.begin : lastStress_M.begin;
     historicalModel.stressBegin = stressBegin;
@@ -2828,7 +2826,7 @@ x_arr;\
     
     if (sleepBegin > 0) {
         
-        NSArray <FBSleepItem *> *array = [FBLoadDataObject QuerySleepCountRecordWithDate:[NSDate dateWithTimeIntervalSince1970:sleepBegin] deviceName:object.deviceName deviceMAC:object.mac];
+        NSArray <FBSleepItem *> *array = [FBLoadDataObject QuerySleepCountRecordWithDate:[NSDate dateWithTimeIntervalSince1970:sleepBegin] deviceName:deviceName deviceMAC:deviceMAC];
                 
         NSInteger totalSleep = 0; // 睡眠总时长
         for (FBSleepItem *item in array) {
@@ -2845,6 +2843,23 @@ x_arr;\
     if (block) {
         block(historicalModel);
     }
+}
+
+
+#pragma mark - 获取设备绑定记录｜Obtain device binding records
+/// 获取设备绑定记录｜Obtain device binding records
++ (NSArray <FBDropDownMenuModel *> *)ObtainDeviceBindingRecordsWithCurrentDeviceName:(NSString *)deviceName withDeviceMAC:(NSString *)deviceMAC {
+    
+    NSMutableArray <FBDropDownMenuModel *> *menuArray = NSMutableArray.array;
+    
+    RLMResults <RLMDeviceListModel *> *results = [RLMDeviceListModel.allObjects sortedResultsUsingKeyPath:@"begin" ascending:NO];
+    for (RLMDeviceListModel *item in results) {
+        BOOL mark = ([deviceName isEqualToString:item.deviceName] && [deviceMAC isEqualToString:item.deviceMAC]);
+        FBDropDownMenuModel *dropDownMenuModel = [FBDropDownMenuModel fb_DropDownMenuModelWithTitle:item.deviceName subTitle:item.deviceMAC mark:mark textAlignment:NSTextAlignmentLeft];
+        [menuArray addObject:dropDownMenuModel];
+    }
+    
+    return menuArray;
 }
 
 @end

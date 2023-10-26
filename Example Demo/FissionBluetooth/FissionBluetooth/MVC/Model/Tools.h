@@ -58,6 +58,30 @@ NS_ASSUME_NONNULL_BEGIN
 /// 是否是第一次绑定
 + (BOOL)isFirstBinding;
 
+/// 保存最近绑定的设备名称
++ (void)saveRecentlyDeviceName:(NSString *)deviceName;
+
+/// 最近绑定的设备名称
++ (NSString * _Nullable)RecentlyDeviceName;
+
+/// 保存最近绑定的设备MAC地址
++ (void)saveRecentlyDeviceMAC:(NSString *)deviceMAC;
+
+/// 最近绑定的设备MAC地址
++ (NSString * _Nullable)RecentlyDeviceMAC;
+
+/// 保存了解GPS运动轨迹按钮时间
++ (void)saveReadGPSButton:(NSInteger)time;
+
+/// 是否已阅GPS运动轨迹按钮
++ (BOOL)isReadGPSButton;
+
+/// 保存了解切换设备数据按钮时间
++ (void)saveReadSwitchDeviceDataButton:(NSInteger)time;
+
+/// 是否已阅切换设备数据
++ (BOOL)isReadSwitchDeviceDataButton;
+
 /// 记录当前实时数据流开启状态
 + (void)saveIsStreamOpen:(BOOL)isOpen;
 

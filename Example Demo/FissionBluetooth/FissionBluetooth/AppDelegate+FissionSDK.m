@@ -90,8 +90,6 @@
     [FBAtCommand.sharedInstance fbReceiveFunctionSwitchSynchronizationWithBlock:^(FBWatchFunctionChangeNoticeModel * _Nullable responseObject) {
         
         FBLog(@"🖍️change: %@", responseObject.mj_keyValues);
-
-        [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:responseObject];
         
         [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_FUNCTIONSTATUSCHANGE object:responseObject];
     }];
@@ -103,7 +101,7 @@
             [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
         }
         else {
-            [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:responseObject];
+            [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_REALTIMEDATASTREAM object:responseObject];
         }
     }];
 }

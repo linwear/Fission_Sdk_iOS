@@ -16,9 +16,17 @@
 
 @interface FBTestUIBaseListViewController () <UITableViewDataSource, UITableViewDelegate, FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance, UIGestureRecognizerDelegate>
 
+/// 当前查询的数据类型
 @property (nonatomic, assign) FBTestUIDataType dataType;
 
+/// 当前查询的日期
 @property (nonatomic, strong) NSDate *queryDate;
+
+/// 当前查询的设备名称
+@property (nonatomic, copy) NSString *queryDeviceName;
+
+/// 当前查询的设备MAC地址
+@property (nonatomic, copy) NSString *queryDeviceMAC;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *calendarTopConstraint;
 @property (weak, nonatomic) IBOutlet FSCalendar *calendar;
@@ -56,16 +64,17 @@ static NSString *FBTestUIBaseListCellID = @"FBTestUIBaseListCell";
     
     self.view.backgroundColor = LineColor;
     
-    FBFirmwareVersionObject *object = FBAllConfigObject.firmwareConfig;
+    UIBarButtonItem *rightItem_1 = [[UIBarButtonItem alloc] initWithImage:UIImageMake(@"ic_linear_calendar") style:UIBarButtonItemStylePlain target:self action:@selector(showCalendar)];
+    UIBarButtonItem *rightItem_2 = [[UIBarButtonItem alloc] initWithImage:UIImageMake(@"ic_linear_switch") style:UIBarButtonItemStylePlain target:self action:@selector(showDeviceList)];
+    [self.navigationItem setRightBarButtonItems:@[rightItem_2, rightItem_1] animated:YES];
     
-    // 日历事件
-    self.eventsForDate = [FBLoadDataObject QueryAllRecordWithDataType:self.dataType dateFormat:FBDateFormatYMD deviceName:object.deviceName deviceMAC:object.mac];
-    
-    // 查询数据
-    [self loadBaseListModel:self.queryDate deviceName:object.deviceName deviceMAC:object.mac];
-    
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:UIImageMake(@"ic_linear_calendar") style:UIBarButtonItemStylePlain target:self action:@selector(showCalendar)];
-    [self.navigationItem setRightBarButtonItem:rightItem animated:YES];
+    if (!Tools.isReadSwitchDeviceDataButton) {
+        [Tools saveReadSwitchDeviceDataButton:NSDate.date.timeIntervalSince1970];
+        
+        FBDropDownMenuModel *model = [FBDropDownMenuModel fb_DropDownMenuModelWithTitle:LWLocalizbleString(@"Switch Device Data Source") subTitle:nil mark:NO textAlignment:NSTextAlignmentCenter];
+        
+        [FBDropDownMenu showDropDownMenuWithModel:@[model] menuWidth:200 itemHeight:50 menuBlock:nil];
+    }
     
     self.calendarTopConstraint.constant = NavigationContentTop;
     
@@ -81,7 +90,7 @@ static NSString *FBTestUIBaseListCellID = @"FBTestUIBaseListCell";
     self.calendar.backgroundColor = UIColorWhite;
     self.calendar.appearance.headerTitleColor = BlueColor;
     self.calendar.appearance.weekdayTextColor = BlueColor;
-//    self.calendar.appearance.todayColor = GreenColor;
+    self.calendar.appearance.todayColor = COLOR_HEX(0xFF1493, 1);
     self.calendar.appearance.selectionColor = BlueColor;
     self.calendar.appearance.borderSelectionColor = UIColorBlack;
     self.calendar.placeholderType = FSCalendarPlaceholderTypeFillHeadTail;
@@ -98,6 +107,16 @@ static NSString *FBTestUIBaseListCellID = @"FBTestUIBaseListCell";
     [self.tableView registerNib:[UINib nibWithNibName:FBTestUIOverviewCellID bundle:nil] forCellReuseIdentifier:FBTestUIOverviewCellID];
     [self.tableView registerClass:NSClassFromString(FBTestUIBaseSportsCellID) forCellReuseIdentifier:FBTestUIBaseSportsCellID];
     [self.tableView registerNib:[UINib nibWithNibName:FBTestUIBaseListCellID bundle:nil] forCellReuseIdentifier:FBTestUIBaseListCellID];
+    
+    
+    // 当前要查询某一个设备的数据
+    self.queryDeviceName = Tools.RecentlyDeviceName;
+    self.queryDeviceMAC = Tools.RecentlyDeviceMAC;
+    
+    // 查询日历事件
+    [self QueryCalendarEvents];
+    // 查询历史记录
+    [self QueryHistoricalData];
 }
 
 - (void)showCalendar {
@@ -108,6 +127,48 @@ static NSString *FBTestUIBaseListCellID = @"FBTestUIBaseListCell";
         [self.calendar setScope:FSCalendarScopeMonth animated:YES];
     }
 }
+
+- (void)showDeviceList {
+
+    NSArray <FBDropDownMenuModel *> *menuArray = [FBLoadDataObject ObtainDeviceBindingRecordsWithCurrentDeviceName:self.queryDeviceName withDeviceMAC:self.queryDeviceMAC];
+    
+    if (menuArray.count) {
+        WeakSelf(self);
+        [FBDropDownMenu showDropDownMenuWithModel:menuArray menuWidth:200 itemHeight:60 menuBlock:^(NSInteger index) {
+            
+            FBDropDownMenuModel *menuModel = menuArray[index];
+            weakSelf.queryDeviceName = menuModel.mainTitle;
+            weakSelf.queryDeviceMAC = menuModel.subTitle;
+            
+            // 查询日历事件
+            [weakSelf QueryCalendarEvents];
+            // 查询历史记录
+            [weakSelf QueryHistoricalData];
+        }];
+    } else {
+        [NSObject showHUDText:LWLocalizbleString(@"No Data")];
+    }
+}
+
+
+#pragma mark - 查询日历事件
+- (void)QueryCalendarEvents {
+    // 日历事件
+    self.eventsForDate = [FBLoadDataObject QueryAllRecordWithDataType:self.dataType dateFormat:FBDateFormatYMD deviceName:self.queryDeviceName deviceMAC:self.queryDeviceMAC];
+    
+    [self.calendar reloadData];
+}
+
+
+#pragma mark - 查询历史记录
+- (void)QueryHistoricalData {
+    // 查询数据
+    FBTestUIBaseListModel *baseListModel = [FBLoadDataObject QueryAllDataWithDate:self.queryDate dataType:self.dataType deviceName:self.queryDeviceName deviceMAC:self.queryDeviceMAC];
+    self.baseListModel = baseListModel;
+    
+    [self.tableView reloadData];
+}
+
 
 #pragma mark - UIGestureRecognizerDelegate
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer
@@ -171,18 +232,10 @@ static NSString *FBTestUIBaseListCellID = @"FBTestUIBaseListCell";
         [calendar setCurrentPage:date animated:YES];
     }
     
-    FBFirmwareVersionObject *object = FBAllConfigObject.firmwareConfig;
-    
     // 查询数据
-    [self loadBaseListModel:date deviceName:object.deviceName deviceMAC:object.mac];
-    
-    [self.tableView reloadData];
+    [self QueryHistoricalData];
 }
 
-- (void)loadBaseListModel:(NSDate *)date deviceName:(NSString *)deviceName deviceMAC:(NSString *)deviceMAC {
-    FBTestUIBaseListModel *baseListModel = [FBLoadDataObject QueryAllDataWithDate:date dataType:self.dataType deviceName:deviceName deviceMAC:deviceMAC];
-    self.baseListModel = baseListModel;
-}
 
 #pragma mark - UITableViewDataSource, UITableViewDelegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

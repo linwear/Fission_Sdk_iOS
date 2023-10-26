@@ -86,10 +86,12 @@ static NSString *FBTestUISportsRecordCellID = @"FBTestUISportsRecordCell";
     UIBarButtonItem *rightBar = [[UIBarButtonItem alloc] initWithCustomView:rightBarSwitch];
     [self.navigationItem setRightBarButtonItem:rightBar animated:YES];
     
-    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(realTimeDataStream:) name:FISSION_SDK_CONNECTBINGSTATE object:nil];
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(realTimeDataStream:) name:FISSION_SDK_REALTIMEDATASTREAM object:nil];
 }
 
 - (void)loadItemData {
+    
+    FBFirmwareVersionObject *object = FBAllConfigObject.firmwareConfig;
     
     FBTestUIItemModel *item_1 = FBTestUIItemModel.new;
     item_1.dataType = FBTestUIDataType_TodayData;
@@ -130,7 +132,7 @@ static NSString *FBTestUISportsRecordCellID = @"FBTestUISportsRecordCell";
     item_5.gradientBColor = Color_Spo2;
     [section_2 addObject:item_5];
     
-    if (FBAllConfigObject.firmwareConfig.supportBloodPressure) {
+    if (object.supportBloodPressure || StringIsEmpty(object.mac)) { // 支持 或 未绑定
         FBTestUIItemModel *item_6 = FBTestUIItemModel.new;
         item_6.dataType = FBTestUIDataType_BloodPressure;
         item_6.title = LWLocalizbleString(@"Blood Pressure");
@@ -140,7 +142,7 @@ static NSString *FBTestUISportsRecordCellID = @"FBTestUISportsRecordCell";
         [section_2 addObject:item_6];
     }
     
-    if (FBAllConfigObject.firmwareConfig.supportMentalStress) {
+    if (object.supportMentalStress || StringIsEmpty(object.mac)) { // 支持 或 未绑定
         FBTestUIItemModel *item_7 = FBTestUIItemModel.new;
         item_7.dataType = FBTestUIDataType_Stress;
         item_7.title = LWLocalizbleString(@"Mental Stress");
@@ -390,6 +392,9 @@ static NSString *FBTestUISportsRecordCellID = @"FBTestUISportsRecordCell";
 
 #pragma mark - 实时数据流相关
 - (void)rightBarSwitchChanged {
+    
+    // Before opening, please register the listening method -(void)fbStreamDataHandlerWithBlock: to receive stream data
+    
     WeakSelf(self);
     [FBAtCommand.sharedInstance fbUpDataStreamData:self.rightBarSwitch.on ? 2 : 0 withBlock:^(NSError * _Nullable error) {
         if (error) {
@@ -399,15 +404,13 @@ static NSString *FBTestUISportsRecordCellID = @"FBTestUISportsRecordCell";
             [Tools saveIsStreamOpen:weakSelf.rightBarSwitch.on];
         }
     }];
-    
-    // After it is enabled, please use the monitoring method -(void)fbStreamDataHandlerWithBlock: to receive streaming data
 }
 
 /// 实时数据流
-- (void)realTimeDataStream:(NSNotification *)obj {
+- (void)realTimeDataStream:(NSNotification *)streamObj {
     
-    if ([obj.object isKindOfClass:FBStreamDataModel.class]) {
-        FBStreamDataModel *model = (FBStreamDataModel *)obj.object;
+    if ([streamObj.object isKindOfClass:FBStreamDataModel.class]) {
+        FBStreamDataModel *model = (FBStreamDataModel *)streamObj.object;
         
         [self reloadFBTestUITodayDataCellWithStep:model.currentStepCount calories:model.currentCalories distance:model.currentDistance];
     }
@@ -420,9 +423,8 @@ static NSString *FBTestUISportsRecordCellID = @"FBTestUISportsRecordCell";
     self.historicalModel.currentCalories = currentCalories;
     self.historicalModel.currentDistance = currentDistance;
     
-    FBTestUITodayDataCell *cell = (FBTestUITodayDataCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
-    
-    [cell realTimeDataStreamWithStep:currentStep calories:currentCalories distance:currentDistance];
+    FBTestUITodayDataCell *todayDataCell = (FBTestUITodayDataCell *)[self.collectionView cellForItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0]];
+    [todayDataCell step:currentStep calories:currentCalories distance:currentDistance];
 }
 
 #pragma mark - dealloc

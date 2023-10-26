@@ -84,8 +84,14 @@
         }
     }];
     
-    // result
-    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(result:) name:FISSION_SDK_CONNECTBINGSTATE object:nil];
+    // 实时数据流更新
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(realTimeDataStream:) name:FISSION_SDK_REALTIMEDATASTREAM object:nil];
+    
+    // 功能状态变更
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(functionStatusChange:) name:FISSION_SDK_FUNCTIONSTATUSCHANGE object:nil];
+    
+    // 连接绑定通知
+    [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(connectBingState:) name:FISSION_SDK_CONNECTBINGSTATE object:nil];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSString * docsdir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
@@ -1824,27 +1830,22 @@
 }
 
 
-#pragma mark - NSNotification
-- (void)result:(NSNotification *)obj {
+#pragma mark - NSNotification - 实时数据流更新
+- (void)realTimeDataStream:(NSNotification *)streamObj {
     
-    if ([obj.object isKindOfClass:NSNumber.class]) {
+    if ([streamObj.object isKindOfClass:FBStreamDataModel.class]) {
         
-        [self reloadTitle];
-        
-        CONNECTBINGSTATE state = (CONNECTBINGSTATE)[obj.object integerValue];
-        
-        WeakSelf(self);
-        if (state == CONNECTBINGSTATE_COMPLETE) {
-            [FBAtCommand.sharedInstance fbReqBatteryStatusDataWithBlock:^(FBBatteryInfoModel * _Nullable responseObject, NSError * _Nullable error) { // Refresh battery
-                
-                [weakSelf.batteryView reloadBattery:responseObject.batteryLevel state:responseObject.batteryState];
-            }];
-        }
+        FBStreamDataModel *model = (FBStreamDataModel *)streamObj.object;
+        self.receTextView.text = [NSString stringWithFormat:@"%@", model.mj_keyValues];
     }
+}
+
+#pragma mark - NSNotification - 功能状态变更
+- (void)functionStatusChange:(NSNotification *)functionObj {
     
-    else if ([obj.object isKindOfClass:FBWatchFunctionChangeNoticeModel.class]) {
+    if ([functionObj.object isKindOfClass:FBWatchFunctionChangeNoticeModel.class]) {
         
-        FBWatchFunctionChangeNoticeModel *model = (FBWatchFunctionChangeNoticeModel *)obj.object;
+        FBWatchFunctionChangeNoticeModel *model = (FBWatchFunctionChangeNoticeModel *)functionObj.object;
         EM_FUNC_SWITCH functionMode = model.functionMode;
         NSInteger functionChangeValue = model.functionChangeValue;
         
@@ -1881,11 +1882,24 @@
             FBLog(@"🏆For more definitions, refer to EM_FUNC_SWITCH｜🏆更多定义，参考EM_FUNC_SWITCH")
         }
     }
+}
+
+#pragma mark - NSNotification - 连接绑定通知
+- (void)connectBingState:(NSNotification *)connectObj {
     
-    else if ([obj.object isKindOfClass:FBStreamDataModel.class]) {
+    if ([connectObj.object isKindOfClass:NSNumber.class]) {
         
-        FBStreamDataModel *model = (FBStreamDataModel *)obj.object;
-        self.receTextView.text = [NSString stringWithFormat:@"%@", model.mj_keyValues];
+        [self reloadTitle];
+        
+        CONNECTBINGSTATE state = (CONNECTBINGSTATE)[connectObj.object integerValue];
+        
+        WeakSelf(self);
+        if (state == CONNECTBINGSTATE_COMPLETE) {
+            [FBAtCommand.sharedInstance fbReqBatteryStatusDataWithBlock:^(FBBatteryInfoModel * _Nullable responseObject, NSError * _Nullable error) { // Refresh battery
+                
+                [weakSelf.batteryView reloadBattery:responseObject.batteryLevel state:responseObject.batteryState];
+            }];
+        }
     }
 }
 

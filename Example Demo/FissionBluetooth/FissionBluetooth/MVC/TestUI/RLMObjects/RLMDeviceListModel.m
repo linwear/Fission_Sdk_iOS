@@ -9,4 +9,11 @@
 
 @implementation RLMDeviceListModel
 
+- (void)QuickSetup {
+    FBFirmwareVersionObject *object = FBAllConfigObject.firmwareConfig;
+    self.deviceName = object.deviceName;
+    self.deviceMAC  = object.mac;
+    self.primaryKey_ID = [NSString stringWithFormat:@"%@ + %@", self.deviceName, self.deviceMAC];
+}
+
 @end

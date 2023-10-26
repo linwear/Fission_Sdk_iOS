@@ -88,11 +88,6 @@ typedef void(^FBTestUITodayDataClickBlock)(FBTestUIDataType dataType);
     }
 }
 
-- (void)realTimeDataStreamWithStep:(NSInteger)currentStep calories:(NSInteger)currentCalories distance:(NSInteger)currentDistance {
-    
-    [self step:currentStep calories:currentCalories distance:currentDistance];
-}
-
 - (void)step:(NSInteger)step calories:(NSInteger)calories distance:(NSInteger)distance {
     
     [self.step setTitle:[NSString stringWithFormat:@"%ld", step] forState:UIControlStateNormal];

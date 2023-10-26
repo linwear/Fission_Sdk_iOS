@@ -72,6 +72,9 @@ static NSString *const FISSION_SDK_SCANTODEVICENOTICE = @"FISSION_SDK_SCANTODEVI
 /// 自定义功能状态变更通知｜Custom Feature Status Change Notification
 static NSString *const FISSION_SDK_FUNCTIONSTATUSCHANGE = @"FISSION_SDK_FUNCTIONSTATUSCHANGE";
 
+/// 自定义实时数据流更新通知｜Custom Feature Status Change Notification
+static NSString *const FISSION_SDK_REALTIMEDATASTREAM = @"FISSION_SDK_REALTIMEDATASTREAM";
+
 /// 自定义连接绑定通知｜Custom connection binding notification
 static NSString *const FISSION_SDK_CONNECTBINGSTATE = @"FISSION_SDK_CONNECTBINGSTATE";
 typedef NS_ENUM(NSUInteger, CONNECTBINGSTATE) {
@@ -112,6 +115,7 @@ static NSString *const FISSION_SDK_WATCHCLICKTAKEPHOTO = @"FISSION_SDK_WATCHCLIC
 #import <Realm/Realm.h>
 #import <FSCalendar/FSCalendar.h>
 #import "UINavigationController+WXSTransition.h"
+#import "FBDropDownMenu.h"
 
 #import <Fission_Sdk_iOS/Fission_Sdk_iOS.h> // 裂变SDK
 
@@ -350,6 +354,7 @@ typedef enum {
 }FBSportsListType;
 
 /// RLMRealm Object Model
+#import "RLMDeviceListModel.h"
 #import "RLMHeartRateModel.h"
 #import "RLMStepModel.h"
 #import "RLMBloodOxygenModel.h"

@@ -118,7 +118,20 @@ typedef enum {
 }
 
 - (void)showSuccess {
-        
+    
+    RLMDeviceListModel *model = RLMDeviceListModel.new;
+    model.begin = NSDate.date.timeIntervalSince1970;
+    [model QuickSetup];
+    
+    // 保存绑定的设备记录
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm transactionWithBlock:^{
+        [realm addOrUpdateObject:model];
+    }];
+    
+    [Tools saveRecentlyDeviceName:model.deviceName];
+    [Tools saveRecentlyDeviceMAC:model.deviceMAC];
+    
     self.connectionStatus = FBConnectionStatus_Success;
     
     [FBHUD showSuccess:self.HUD_view];
