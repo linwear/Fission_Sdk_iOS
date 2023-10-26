@@ -107,6 +107,9 @@ Privacy - Bluetooth Always Usage Description
 
 #### [⚠️演示项目中使用到数据库'Realm'，运行demo前，请先cd到项目，再执行pod install｜The database 'Realm' is used in the demo project. Before running the demo, please cd to the project first, and then execute pod install](#NOTE)
 
+     pcjbird    2023-10-26
+                1.【数据可视化UI】模块，支持切换数据源查看不同设备的历史健康数据
+
      pcjbird    2023-10-24
                 1.【数据可视化UI】睡眠记录模块，新增睡眠静息心率
                 2.【数据可视化UI】运动记录模块，新增GPS运动轨迹预览
