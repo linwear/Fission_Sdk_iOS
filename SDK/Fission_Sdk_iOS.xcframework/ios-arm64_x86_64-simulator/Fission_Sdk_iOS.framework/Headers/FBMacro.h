@@ -15,7 +15,7 @@ static NSString *const FBLOGNOTIFICATIONOFOUTPUT = @"FBLOGNOTIFICATIONOFOUTPUT";
 /*
  * 错误码｜Error code
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_RET_CMD) {
     //协议定义的通讯错误｜Protocol defined communication error
     RET_EXEC_ER         = 3,    //执行失败｜Execution failed
     RET_DATA_INVA       = 4,    //数据无效（格式错误）｜Invalid data (format error)
@@ -52,33 +52,33 @@ typedef enum {
     FB_GPS_MOTION_STATE_INCALLERROR          = 200015, //正在通话中，无法执行此指令｜This command cannot be executed during a call
     FB_GPS_MOTION_STATE_CANCELS              = 200017, //手表取消开启运动｜The watch cancels the movement
     FB_GPS_MOTION_STATE_NONE                 = 200019, //本地无此运动信息｜There is no local sports information
-}FB_RET_CMD;
+};
 
 #pragma mark - 电池电量等级｜Battery level
 /*
  * 电池电量等级｜Battery level
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_BATTERYLEVEL) {
     BATT_NORMAL    = 0,  //正常｜Normal
     BATT_LOW_POWER = 1,  //低压｜Low power
     BATT_CHARGING  = 2,  //充电中｜Charging
     BATT_FULL      = 3,  //电池满｜Full power
-}FB_BATTERYLEVEL;
+};
 
 #pragma mark - 时间显示模式｜Time display mode
 /*
  * 时间显示模式｜Time display mode
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_TIMEDISPLAYMODE) {
     FB_TimeDisplayMode12Hours = 12,  //12小时制｜12 hour system
     FB_TimeDisplayMode24Hours = 24,  //24小时制｜24 hour system
-}FB_TIMEDISPLAYMODE;
+};
 
 #pragma mark - 多语种国际化 和 SDK多语言设置｜Multilingual internationalization and SDK Multilingual Settings
 /*
  * 多语种国际化 和 SDK多语言设置｜Multilingual internationalization and SDK Multilingual Settings
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_LANGUAGES) {
     FB_SDK_zh_Hans  = 0,    //中文简体｜Simplified Chinese
     FB_SDK_en       = 1,    //英文｜English
     FB_SDK_ja       = 2,    //日语｜Japanese
@@ -112,22 +112,22 @@ typedef enum {
     FB_SDK_sk       = 30,   //斯洛伐克语｜Slovak
     FB_SDK_my       = 31,   //缅甸语｜Burmese
     FB_SDK_da       = 32,   //丹麦语｜Danish
-}FB_LANGUAGES;
+};
 
 #pragma mark - 距离单位 ｜Distance unit
 /*
  * 距离单位 ｜Distance unit
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_DISTANCEUNIT) {
     FB_EnglishUnits = 0,  //英制单位｜English units
     FB_MetricUnit   = 1,  //公制单位｜Metric unit
-}FB_DISTANCEUNIT;
+};
 
 #pragma mark - 女性生理状态 ｜Female physiological state
 /*
  * 女性生理状态 ｜Female physiological state
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_FEMALEPHYSIOLOGICALSTATE) {
     FB_FPS_NotUsed              = 0,  //未启用｜Not used
     FB_FPS_Pregnancy            = 1,  //怀孕期｜Pregnancy
     FB_FPS_Menstruation         = 2,  //月经期｜Menstruation
@@ -135,33 +135,33 @@ typedef enum {
     FB_FPS_Ovulation            = 4,  //排卵期｜During ovulation
     FB_FPS_OvulationDay         = 5,  //排卵日｜Ovulation day
     FB_FPS_PregnancyPreparation = 6,  //备孕期｜Pregnancy preparation period
-}FB_FEMALEPHYSIOLOGICALSTATE;
+};
 
 #pragma mark - 女性生理健康模式｜Female 's physical health model
 /*
  * 女性生理健康模式｜Female 's physical health model
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_FEMALEPHYSIOLOGICALHEALTHMODEL) {
     FB_HealthModel_NotUsed              = 0,  //未启用｜Not used
     FB_HealthModel_Menstrual            = 1,  //月经期｜Menstrual period
     FB_HealthModel_PregnancyPreparation = 2,  //备孕期｜Pregnancy preparation period
     FB_HealthModel_Pregnancy            = 3,  //怀孕期｜Pregnancy
-}FB_FEMALEPHYSIOLOGICALHEALTHMODEL;
+};
 
 #pragma mark - 短跑模式 ｜Sprint mode
 /*
  * 短跑模式 ｜Sprint mode
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_SPRINTMODE) {
     FB_SPRINTMODE_OFF = 0,  //关闭｜Close
     FB_SPRINTMODE_ON  = 1,  //开启｜Open
-}FB_SPRINTMODE;
+};
 
 #pragma mark - 心率等级｜Heart rate rating
 /*
  * 心率等级｜Heart rate rating
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_CURRENTHEARTRANGE) {
     FB_HR_NORMAL            = 0,  //正常的｜Normal
     FB_HR_MODERATE          = 1,  //缓和的｜Moderate
     FB_HR_VIGOROUS          = 2,  //充沛的｜Vigorous
@@ -169,47 +169,47 @@ typedef enum {
     FB_HR_TAKE_IT_EASY      = 4,  //别紧张｜Take it easy
     FB_HR_WATCH_YOUR_LIMITS = 5,  //注意你的极限｜Watch your limits
     FB_HR_DONT_OVEREXERT    = 6,  //不要用力过猛｜Don't overdo it
-}FB_CURRENTHEARTRANGE;
+};
 
 #pragma mark - 血氧等级｜Blood oxygen level
 /*
  * 血氧等级｜Blood oxygen level
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_CURRENTOXYRANGE) {
     FB_OXY_NORMAL   = 0,  //正常｜Normal
     FB_OXY_MILD     = 1,  //轻度缺氧｜Mild hypoxia
     FB_OXY_MODERATE = 2,  //中度缺氧｜Moderate hypoxia
     FB_OXY_SEVERE   = 3,  //重度缺氧｜Severe hypoxia
-}FB_CURRENTOXYRANGE;
+};
 
 #pragma mark - 精神压力等级｜Stress level
 /*
  * 精神压力等级｜Stress level
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_CURRENTSTRESSRANGE) {
     FB_STRESS_RELAX     = 0,  //1-25放松｜1-25 Relax
     FB_STRESS_NORMAL    = 1,  //26-50正常｜26-50 normal
     FB_STRESS_SECONDARY = 2,  //51-75中等｜51-75 Medium
     FB_STRESS_HIGN      = 3   //76-99偏高｜76-99 high
-}FB_CURRENTSTRESSRANGE;
+};
 
 #pragma mark - 睡眠状态｜Sleep state
 /*
  * 睡眠状态｜Sleep state
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_SLEEPSTATE) {
     Awake_state   = 0,  //清醒状态｜Awake state
     Shallow_sleep = 1,  //浅层睡眠｜Shallow sleep
     Deep_sleep    = 2,  //深层睡眠｜Deep sleep
     
     Eye_move      = 3,  //眼动状态（结构体版本不等于0时才有此类型）｜Eye move (This type is only available when the structure version is not equal to 0)
-}FB_SLEEPSTATE;
+};
 
 #pragma mark - 运动模式｜Movement mode
 /*
  * 运动模式｜Movement mode
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_MOTIONMODE) {
     FBNotUsed               = 0,   //不使用｜Not used
     FBRunning               = 1,   //跑步｜Running
     FBMountaineering        = 2,   //登山｜Mountaineering
@@ -366,13 +366,13 @@ typedef enum {
     FBBEACHVOLLEYBALL       = 140, //沙滩排球｜Beach Volleyball
     
     FBOther_reservation     = 255, //其他预留｜Other reservation
-}FB_MOTIONMODE;
+};
 
 #pragma mark - 记录类型｜Record type
 /*
  * 记录类型｜Record type
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_RECORDTYPE) {
     FB_HeartRecord     = 0,  //心率记录｜Heart rate recording
     FB_StepRecord      = 1,  //计步记录｜Step count record
     FB_BloodOxyRecord  = 2,  //血氧记录｜Blood oxygen recording
@@ -381,31 +381,31 @@ typedef enum {
     FB_MotionGpsRecord = 5,  //运动定位记录｜Motion location record
     FB_HFHeartRecord   = 6,  //运动高频心率记录(1秒1次)｜Sports high-frequency heart rate recording (1 time per second)
     FB_StressRecord    = 7,  //精神压力记录｜Stress Record
-}FB_RECORDTYPE;
+};
 
 #pragma mark - 用户性别｜User gender
 /*
  * 用户性别｜User gender
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_USERGENDER) {
     FB_UserMale   = 0,  //男性｜Male
     FB_UserFemale = 1,  //女性｜Female
-}FB_USERGENDER;
+};
 
 #pragma mark - 闹铃类别｜Alarm category
 /*
  * 闹铃类别｜Alarm category
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_ALARMCATEGORY) {
     FB_Reminders  = 0,  //备忘提醒｜Reminders
     FB_AlarmClock = 1,  //定时闹钟｜Alarm clock
-}FB_ALARMCATEGORY;
+};
 
 #pragma mark - 天气｜Weather
 /*
  * 天气｜Weather
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_WEATHER) {
     WT_SUNNY               = 0,   //晴｜Sunny
     WT_PARTLY_CLOUDY       = 1,   //多云｜Cloudy
     WT_WIND                = 2,   //风｜Wind
@@ -427,35 +427,35 @@ typedef enum {
     WT_RAINSTORM           = 18,  //暴雨｜Rainstorm
     
     WT_UNKNOW              = 255, //未知天气｜Unknown weather
-}FB_WEATHER;
+};
 
 #pragma mark - 空气质量等级｜Air quality level
 /*
  * 空气质量等级｜Air quality level
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_AIRLEVEL) {
     AL_BAD     = 0,  //差｜Bad
     AL_GOOD    = 1,  //良｜Good
     AL_WONDFUL = 2,  //优｜Wonderful
-}FB_AIRLEVEL;
+};
 
 #pragma mark - PM2.5等级｜PM2.5 grade
 /*
  * PM2.5等级｜PM2.5 grade
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_PM25) {
     PM_LEVEL1 = 0,  //优｜Wonderful
     PM_LEVEL2 = 1,  //良｜Good
     PM_LEVEL3 = 2,  //轻度污染｜Light pollution
     PM_LEVEL4 = 3,  //中度污染｜Moderate pollution
     PM_LEVEL5 = 4,  //重度污染｜Heavy pollution
-}FB_PM25;
+};
 
 #pragma mark - 风向｜Wind direction
 /*
  * 风向｜Wind direction
  */
-typedef enum{
+typedef NS_ENUM (NSInteger, EM_WINDDIRECTION) {
     WD_0 = 0,  //无风｜No wind
     WD_1 = 1,  //东风｜East wind
     WD_2 = 2,  //东南风｜Southeast wind
@@ -465,13 +465,13 @@ typedef enum{
     WD_6 = 6,  //西北风｜Northwest wind
     WD_7 = 7,  //北风｜North wind
     WD_8 = 8,  //东北风｜Northeasterly wind
-}EM_WINDDIRECTION;
+};
 
 #pragma mark - OTA类型通知｜OTA type notification
 /*
  * OTA类型通知｜OTA type notification
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_OTANOTIFICATION) {
     FB_OTANotification_Firmware                 = 0,    //升级固件｜Update Firmware
     FB_OTANotification_ClockDial                = 1,    //升级默认动态表盘｜Upgrade default dynamic dial
     FB_OTANotification_SmallFont                = 2,    //升级小字库｜Upgrade small font
@@ -494,13 +494,13 @@ typedef enum {
     FB_OTANotification_ERROR_Busy               = 254,  //设备处于禁止OTA状态，稍后再试｜The device is in OTA prohibited state, please try again later
     
     FB_OTANotification_Cancel                   = 255,  //放弃当前升级｜Discard current upgrade
-}FB_OTANOTIFICATION;
+};
 
 #pragma mark - 获取多个记录报告｜Get multiple record reports
 /*
  * 获取多个记录报告｜Get multiple record reports
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_MULTIPLERECORDREPORTS) {
     FB_CurrentDayActivityData           = 1<<0,   //当日实时测量数据｜Real time measurement data of the day
     FB_HeartRateRecording               = 1<<1,   //心率记录｜Heart rate recording
     FB_StepCountRecord                  = 1<<2,   //计步记录｜Step counting record
@@ -520,13 +520,13 @@ typedef enum {
     FB_SportsStatisticsReport           = 1<<16,  //运动统计报告｜Sports statistics report
     FB_Sports_Statistics_Details_Report = 1<<17,  //运动统计报告+运动详情纪录｜Sports statistics report + sports details record
     FB_ManualMeasurementData            = 1<<18,  //手动测量数据｜Manual measurement data
-}FB_MULTIPLERECORDREPORTS;
+};
 
 #pragma mark - 功能开关状态同步｜Function switch state synchronization
 /*
  * 功能开关状态同步｜Function switch state synchronization
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, EM_FUNC_SWITCH) {
     FS_NULL                    = 0,   //无｜Nothing
     FS_SENSOR_GATHER           = 1,   //体征数据采集总开关状态，0关1开｜Sign data acquisition master switch status, 0 off and 1 on
     FS_MOTOR_ENABLE            = 2,   //振动开关状态，0关1开｜Vibration switch status, 0 off, 1 on
@@ -566,34 +566,34 @@ typedef enum {
     FS_AGPS_DATA_REQUEST       = 36, //AGPS定位数据请求｜AGPS positioning data request
     
     FS_OTHER_EXPAND            = 255  //更多功能待拓展｜More functions to be expanded
-}EM_FUNC_SWITCH;
+};
 
 #pragma mark - 温度单位｜Temperature unit
 /*
  * 温度单位｜Temperature unit
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_TEMPERATUREUNIT) {
     FB_Centigrade       = 0,  //摄氏度C｜Centigrade(C)
     FB_FahrenheitDegree = 1,  //华氏度F｜Fahrenheit degree(F)
-}FB_TEMPERATUREUNIT;
+};
 
 #pragma mark - 自定义表盘时间显示位置｜Custom dial time display position
 /*
  * 自定义表盘时间显示位置｜Custom dial time display position
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_CUSTOMDIALTIMEPOSITION) {
     FB_DialTimePositionStyleTop    = 0,  //上｜Top
     FB_DialTimePositionStyleBottom = 1,  //下｜Bottom
     FB_DialTimePositionStyleLeft   = 2,  //左｜Left
     FB_DialTimePositionStyleRight  = 3,  //右｜Right
     FB_DialTimePositionStyleMiddle = 4,  //中｜Middle
-}FB_CUSTOMDIALTIMEPOSITION;
+};
 
 #pragma mark - 自定义表盘项目｜Custom dial items
 /*
  * 自定义表盘项目｜Custom dial items
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_CUSTOMDIALITEMS) {
     FB_CustomDialItems_None,            //无｜None
     FB_CustomDialItems_Pointer,         //指针｜Pointer
     FB_CustomDialItems_Time_Style,      //时间样式｜Time Style
@@ -617,55 +617,55 @@ typedef enum {
     FB_CustomDialItems_BloodOxygen,     //血氧｜BloodOxygen
     FB_CustomDialItems_BloodPressure,   //血压｜BloodPressure
     FB_CustomDialItems_Stress,          //精神压力｜Stress
-}FB_CUSTOMDIALITEMS;
+};
 
 #pragma mark - 指定提示功能｜Specify prompt function
 /*
  * 指定提示功能｜Specify prompt function
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_PROMPTFUNCTION) {
     FB_ExerciseHeartRate = 1,  //运动心率超高提示｜Exercise heart rate ultra-high prompt
     // 更多... 待拓展｜More... To be expanded
-}FB_PROMPTFUNCTION;
+};
 
 #pragma mark - GPS运动状态｜GPS Motion status
 /*
  * GPS运动状态｜GPS Motion status
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_GPS_MOTION_STATE) {
     FB_SettingStopMotion  = 0,  //停止运动｜Stop motion
     FB_SettingStartMotion = 1,  //开始运动｜Start motion
     FB_SettingPauseMotion = 2,  //暂停运动｜Pause motion
     FB_SettingKeepMotion  = 3,  //继续运动｜Keep motion
-}FB_GPS_MOTION_STATE;
+};
 
 #pragma mark - 运动心率区间｜Motion heart rate interval
 /*
  * 运动心率区间｜Motion heart rate interval
  * @note 从上往下 等级越高｜The higher the level from top to bottom
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_MOTIONHEARTRATERANGE) {
     FB_Motion_WarmUp     = 0,  //热身｜warm-up
     FB_Motion_FatBurning = 1,  //燃脂｜Fat burning
     FB_Motion_Aerobic    = 2,  //有氧耐力｜Aerobic endurance
     FB_Motion_Limit      = 3,  //高强有氧｜High strength aerobic
     FB_Motion_Anaerobic  = 4,  //无氧｜anaerobic
-}FB_MOTIONHEARTRATERANGE;
+};
 
 #pragma mark - 自定义表盘算法类型｜Custom dial algorithm type
 /*
  * 自定义表盘算法类型｜Custom dial algorithm type
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_ALGORITHMGENERATION) {
     FB_OrdinaryAlgorithm = 0,  //普通算法｜Ordinary algorithm
     FB_CompressAlgorithm = 1   //压缩算法｜Compression algorithm
-}FB_ALGORITHMGENERATION;
+};
 
 #pragma mark - 自定义设置开关类型｜Custom setting switch type
 /*
  * 自定义设置开关类型｜Custom setting switch type
  */
-typedef enum {
+typedef NS_ENUM (NSInteger, FB_CUSTOMSETTINGSWITCHTYPE) {
     FB_SWITCH_None              = 0,            //空｜None
     FB_SWITCH_HeartRate         = 1<<0,         //定时心率采集开关｜Timing heart rate acquisition switch
     FB_SWITCH_BloodOxygen       = 1<<1,         //定时血氧采集开关｜Timing blood oxygen collection switch
@@ -677,6 +677,6 @@ typedef enum {
     FB_SWITCH_TestMode          = 1<<7,         //进入测试模式开关｜Enter test mode switch
     FB_SWITCH_WristScreen       = 1<<8,         //抬腕亮屏开关｜Wrist up screen switch
     FB_SWITCH_ALL               = 0xFFFFFFFF,   //所有｜All
-}FB_CUSTOMSETTINGSWITCHTYPE;
+};
 
 #endif /* FBMacro_h */
