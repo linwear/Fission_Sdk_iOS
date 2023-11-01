@@ -3,7 +3,7 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Release-3.1.7 -Green.svg">
+    <img src="https://img.shields.io/badge/Release-3.1.8_beta -Green.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/Support-iOS10+ -blue.svg">
@@ -135,6 +135,9 @@ Privacy - Bluetooth Always Usage Description
 | Public Header Files  |
 | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
+
+     pcjbird    2023-11-01  Version:3.1.8_beta Build:20231101001
+                            1.FBMacro.h调整枚举声明方式
 
      pcjbird    2023-10-10  Version:3.1.7 Build:20231010001
                             1.FBFirmwareVersionObject 新增标志位:
