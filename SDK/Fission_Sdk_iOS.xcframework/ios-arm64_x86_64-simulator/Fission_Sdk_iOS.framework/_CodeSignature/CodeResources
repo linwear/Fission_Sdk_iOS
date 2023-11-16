@@ -1575,7 +1575,7 @@
 		</data>
 		<key>Headers/FBBluetoothManager.h</key>
 		<data>
-		uT1OvXDFmbUa4Wjhjd3rn65EfDg=
+		ewSeP/5Ai2u9XGOI1z8PRFKdl4Y=
 		</data>
 		<key>Headers/FBBluetoothOTA.h</key>
 		<data>
@@ -1763,11 +1763,11 @@
 		</data>
 		<key>Headers/Fission_Sdk_iOS.h</key>
 		<data>
-		O2puP2u9TGF8uDCRLT6iwm8Lxfw=
+		j/a5EyeeGjnjyZKgZSjWLApLeug=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		bhlmilTqvtuYtdxKgPc+HDwy0ko=
+		tMKnDsmAO3gqs5vT64rRhLg+iIA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -5707,11 +5707,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			uT1OvXDFmbUa4Wjhjd3rn65EfDg=
+			ewSeP/5Ai2u9XGOI1z8PRFKdl4Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			HJRR+GNJqXfzqZ5aJOPPFJLEiKThFFsZK539MvM99U0=
+			9LgzQaeL/Ky9/8yDZfrTKV3wljw6H2oznvUdMZ5xhRI=
 			</data>
 		</dict>
 		<key>Headers/FBBluetoothOTA.h</key>
@@ -6224,11 +6224,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			O2puP2u9TGF8uDCRLT6iwm8Lxfw=
+			j/a5EyeeGjnjyZKgZSjWLApLeug=
 			</data>
 			<key>hash2</key>
 			<data>
-			UVW4PDhusF9+a6F3x8qeBnELGejUjhr536mnXcbuirA=
+			ruNMEPV2STvQZcH+SyfHoNLuRwcr0SaWDCcZfO5qI1I=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

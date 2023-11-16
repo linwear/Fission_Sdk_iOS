@@ -103,9 +103,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)connectToPeripheral:(CBPeripheral * _Nonnull)peripheral;
 
 /**
- 断开连接设备｜Disconnect device
+ 断开连接设备，同时是否清除连接历史记录｜Disconnect the device and clear the connection history
+ @param clearHistory                   清除连接历史记录｜Clear connection history
+ 
+ @note NO不清除连接历史记录，仅仅是临时断开连接，不清除设备相关信息、密钥等数据，在需要的时候可调用 @see tryLastConnection 尝试恢复连接。YES清除连接历史记录，清除设备相关信息、密钥等数据，完全断开连接。｜NO does not clear the connection history, it only temporarily disconnects, and does not clear device-related information, keys and other data. You can call @see tryLastConnection to try to restore the connection when needed. YES clears the connection history, clears device-related information, keys and other data, and completely disconnects.
 */
-- (void)disconnectPeripheral;
+- (void)disconnectPeripheralAndClearHistory:(BOOL)clearHistory;
 
 /**
  获取当前连接的设备｜Gets the currently connected device
