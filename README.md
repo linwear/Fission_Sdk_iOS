@@ -3,7 +3,7 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Release-3.1.8_beta -Green.svg">
+    <img src="https://img.shields.io/badge/Release-3.1.8 -Green.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/Support-iOS10+ -blue.svg">
@@ -107,17 +107,20 @@ Privacy - Bluetooth Always Usage Description
 
 #### [⚠️演示项目中使用到数据库'Realm'，运行demo前，请先cd到项目，再执行pod install｜The database 'Realm' is used in the demo project. Before running the demo, please cd to the project first, and then execute pod install](#NOTE)
 
-     pcjbird    2023-10-26
+     project    2023-11-16
+                1.优化已知问题
+                
+     project    2023-10-26
                 1.【数据可视化UI】模块，支持切换数据源查看不同设备的历史健康数据
 
-     pcjbird    2023-10-24
+     project    2023-10-24
                 1.【数据可视化UI】睡眠记录模块，新增睡眠静息心率
                 2.【数据可视化UI】运动记录模块，新增GPS运动轨迹预览
 
-     pcjbird    2023-06-09
+     project    2023-06-09
                 1.新增【数据可视化UI】模块，便于了解数据同步API的使用，直观查看设备历史数据
                 
-     pcjbird    2020-12-31
+     project    2020-12-31
                 1.首个发布版本
 
 | Basic  | Query  | Drawer  |
@@ -136,16 +139,21 @@ Privacy - Bluetooth Always Usage Description
 | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
 
-     pcjbird    2023-11-01  Version:3.1.8_beta Build:20231101001
+     project    2023-11-16  Version:3.1.8 Build:20231116001
                             1.FBMacro.h调整枚举声明方式
+                            2.广播信息优化
+                            3.OTA进度回调优化
+                            4.时间格式转换优化
+                            5.断开连接同时是否清除连接历史记录 @see disconnectPeripheralAndClearHistory:
+                            6.其他已知问题的优化
 
-     pcjbird    2023-10-10  Version:3.1.7 Build:20231010001
+     project    2023-10-10  Version:3.1.7 Build:20231010001
                             1.FBFirmwareVersionObject 新增标志位:
                               是否支持静息心率
                               是否支持AGPS定位
                             2.修复"获取运动定位记录"协议已知错误问题（FBBgCommand）fbGetMotionLocationRecordDataStartTime: forEndTime: withBlock:
 
-     pcjbird    2023-08-24  Version:3.1.6 Build:20230824001
+     project    2023-08-24  Version:3.1.6 Build:20230824001
                             1.EM_FUNC_SWITCH 新增类型:
                               FS_AGPS_LOCATION_REQUEST(35)
                               FS_AGPS_DATA_REQUEST(36)
@@ -162,7 +170,7 @@ Privacy - Bluetooth Always Usage Description
                               FB_SDK_da(32)
                             7.SDK同时支持 真机、模拟器 编译运行（注意：模拟器无法使用蓝牙）
 
-     pcjbird    2023-07-18  Version:3.1.5 Build:20230718001
+     project    2023-07-18  Version:3.1.5 Build:20230718001
                             1.新增"多项目自定义表盘"功能（FBCustomDataTools）fbGenerateMultiProjectCustomDialBinFileDataWithDialsModel:
                             2.修复"设置/获取 个人用户信息"协议已知错误问题
                             3.新增"读取片外 flash 空间数据"协议，用于获取设备意外重启信息，供固件分析问题（FBBgCommand）fbReadOffChipFlashWithAddress: withLength: withBlock:
@@ -185,7 +193,7 @@ Privacy - Bluetooth Always Usage Description
                             10.自定义表盘抗锯齿切图更新
                             11.优化记录/报告排序及其他已知问题
 
-     pcjbird    2023-05-18  Version:3.1.4 Build:202305181600
+     project    2023-05-18  Version:3.1.4 Build:202305181600
                             1.优化已知问题
                             2.新增"自定义表盘支持抗锯齿"处理
                             3.FBFirmwareVersionObject 新增配置:
@@ -197,7 +205,7 @@ Privacy - Bluetooth Always Usage Description
                             6.报告/记录 按时间戳由小到大排序
                             7.广播信息中设配号兼容
 
-     pcjbird    2023-04-12  Version:3.1.3 Build:202304121900
+     project    2023-04-12  Version:3.1.3 Build:202304121900
                             1.新增"设备确认被找到"协议（FBAtCommand）fbUpDeviceConfirmedFoundDataWithBlock:
                             2.新增"获取系统功能开关信息"协议（FBBgCommand）fbGetSystemFunctionSwitchInformationWithBlock:
                             3.新增"设置系统功能开关信息"协议（FBBgCommand）fbSetSystemFunctionSwitchInformation: withBlock:
@@ -210,16 +218,16 @@ Privacy - Bluetooth Always Usage Description
                             6.OTA新增错误状态 FB_OTANotification_ERROR_Busy_Sport: 设备处于运动中，请结束运动后重试...
                             7.修正"界面跳转测试"协议错误（FBAtCommand）fbUpInterfaceJumpTestCode:
 
-     pcjbird    2023-04-03  Version:3.1.2 Build:202304031700
+     project    2023-04-03  Version:3.1.2 Build:202304031700
                             1.新增图片资源，自定义表盘，不同分辨率使用不同大小的切图
 
-     pcjbird    2023-03-29  Version:3.1.1 Build:202303291000
+     project    2023-03-29  Version:3.1.1 Build:202303291000
                             1.优化内部压缩算法
                             2.修复"获取设备硬件信息"结构体版本错误问题
                             2.新增"获取设备绑定状态"协议（FBAtCommand）fbGetBindingStatusRequestWithBlock:
                             3.新增"获取当前运动状态"协议（FBAtCommand）fbGetCurrentExerciseStateStatusWithBlock:
 
-     pcjbird    2023-03-24  Version:3.1.0 Build:202303241000
+     project    2023-03-24  Version:3.1.0 Build:202303241000
                             1.FB_OTANOTIFICATION 新增OTA通知类型:
                               FB_OTANotification_Multi_Dial_Built_in(200)
                               FB_OTANotification_Multi_Sport_Built_in(201)
@@ -227,7 +235,7 @@ Privacy - Bluetooth Always Usage Description
                             3.新增"获取设备运动类型列表"协议（FBBgCommand）fbGetListOfDeviceMotionTypesWithBlock:
                             4.原厂OTA SDK更新: RTKOTASDK.framework
 
-     pcjbird    2023-03-01  Version:3.0.9 Build:202303011000
+     project    2023-03-01  Version:3.0.9 Build:202303011000
                             1.FBFirmwareVersionObject 新增配置:
                               是否支持一次性推送多种运动模式
                               支持一次性推送多种运动模式的个数，0不支持
@@ -243,19 +251,19 @@ Privacy - Bluetooth Always Usage Description
                             10.FB_MOTIONMODE 新增运动类型:
                               法国式拳击(139)
 
-     pcjbird    2023-02-11  Version:3.0.8 Build:202302111000
+     project    2023-02-11  Version:3.0.8 Build:202302111000
                             1.绑定请求超时时长由30s延长至60s
                             2.新增获取设备log数据协议
 
-     pcjbird    2023-02-09  Version:3.0.7 Build:202302091800
+     project    2023-02-09  Version:3.0.7 Build:202302091800
                             1.优化设备搜索性能
                             2.优化数据发送间隔
                             3.新增"确认手机被找到"协议（FBAtCommand）fbUpPhoneConfirmedFoundDataWithBlock:
 
-     pcjbird    2023-02-02  Version:3.0.6 Build:202302021500
+     project    2023-02-02  Version:3.0.6 Build:202302021500
                             1.修正set心率异常提醒参数合法性判断
 
-     pcjbird    2023-01-30  Version:3.0.5 Build:202301301600
+     project    2023-01-30  Version:3.0.5 Build:202301301600
                             1.修正获取血压记录协议
                             2.新增获取运动高频心率记录(1秒1次)
                             3.新增获取精神压力协议
@@ -273,14 +281,14 @@ Privacy - Bluetooth Always Usage Description
                             8.FB_MULTIPLERECORDREPORTS 新增类型:
                               FB_Sports_Statistics_Details_Report
 
-     pcjbird    2023-01-05  Version:3.0.4 Build:202301051800
+     project    2023-01-05  Version:3.0.4 Build:202301051800
                             1.新增get、set通话音频开关协议
                             2.新增get、set多媒体音频开关协议
                             3.EM_FUNC_SWITCH 新增类型:
                               FS_CALLAUDIO_WARN(31)
                               FS_MULTIMEDIAAUDIO_WARN(32)
 
-     pcjbird    2022-12-30  Version:3.0.3 Build:202212301600
+     project    2022-12-30  Version:3.0.3 Build:202212301600
                             1.新增 定时心率检测开关设置协议、定时血氧检测开关设置协议、定时血压检测开关设置协议、定时精神压力检测开关设置协议
                             2.EM_FUNC_SWITCH 新增类型:
                               FS_TIMING_HR_WARN(28)
@@ -311,25 +319,25 @@ Privacy - Bluetooth Always Usage Description
                               沙滩足球(137)
                               皮划艇(138)
 
-     pcjbird    2022-12-14  Version:3.0.2 Build:202212141900
+     project    2022-12-14  Version:3.0.2 Build:202212141900
                             1.优化OTA通知问题
                             2.GPS运动控制增加 确认/取消 指令
 
-     pcjbird    2022-11-19  Version:3.0.1 Build:202211191600
+     project    2022-11-19  Version:3.0.1 Build:202211191600
                             1.广播信息解析:适配号兼容
                             2.新增印地语、孟加拉语、乌尔都语、波斯语
                             3.新增获取精神压力记录协议、血压协议暂时不使用
 
-     pcjbird    2022-07-15  Version:3.0.0 Build:202207151200
+     project    2022-07-15  Version:3.0.0 Build:202207151200
                             1.优化已知问题
                             2.block结果回调异常问题
 
-     pcjbird    2022-04-14  Version:2.0.0 Build:202204140900
+     project    2022-04-14  Version:2.0.0 Build:202204140900
                             1.优化已知问题
                             2.部分AT指令数据返回类型由NSDictionary字典转换为使用对象模型，后续会有更多api支持
                             3.增加自定义表盘压缩算法协议
 
-     pcjbird    2020-12-31  Version:1.0.0 Build:202012311800
+     project    2020-12-31  Version:1.0.0 Build:202012311800
                             1.首个发布版本
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
