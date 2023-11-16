@@ -526,7 +526,7 @@
 - (void)downloadOTAWithUrl:(NSString *)url {
     
     WeakSelf(self);
-    [LWNetworkingManager requestDownloadURL:url success:^(NSDictionary *result) {
+    [LWNetworkingManager requestDownloadURL:url namePrefix:@"FBSportsPush" success:^(NSDictionary *result) {
         
         NSString *filePath = result[@"filePath"];
         

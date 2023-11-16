@@ -136,7 +136,7 @@
 - (void)downloadOTA:(NSString *)url {
     [NSObject showLoading:LWLocalizbleString(@"Loading...")];
     WeakSelf(self);
-    [LWNetworkingManager requestDownloadURL:url success:^(NSDictionary *result) {
+    [LWNetworkingManager requestDownloadURL:url namePrefix:@"FBOnlineDial" success:^(NSDictionary *result) {
         
         NSString *filePath = result[@"filePath"];
         

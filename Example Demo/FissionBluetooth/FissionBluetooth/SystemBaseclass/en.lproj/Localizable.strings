@@ -172,6 +172,17 @@
 "Dial Face OTA" = "Dial Face OTA";
 "Sports Type OTA" = "Sports Type OTA";
 
+"Automatic OTA Testing" = "Automatic OTA Testing";
+"Automatic OTA Firmware" = "Automatic OTA Firmware";
+"Automatic OTA Dial" = "Automatic OTA Dial";
+"Automatic OTA Custom Dial" = "Automatic OTA Custom Dial";
+"Automatic OTA Single Package Sports Push" = "Automatic OTA Single Package Sports Push";
+"Automatic OTA Multi-pack Sports Push" = "Automatic OTA Multi-pack Sports Push";
+"Please Select Bin File" = "Please Select Bin File";
+"Confirm that the current OTA will stop immediately after completion?" = "Confirm that the current OTA will stop immediately after completion?";
+"File" = "File";
+"TIME" = "TIME";
+
 "This function does not support" = "This function does not support";
 "System Function Switch" = "System Function Switch";
 "Call Audio" = "Call Audio";
@@ -211,6 +222,7 @@
 "Press and hold the module and drag to adjust the display order" = "Press and hold the module and drag to adjust the display order";
 "Add Movement" = "Add Movement";
 "Please confirm whether to push sports" = "Please confirm whether to push sports";
+"The maximum supported number is %d, please select again!" = "The maximum supported number is %d, please select again!";
 "Please confirm whether the watch face is synchronized" = "Please confirm whether the watch face is synchronized";
 "Mac Address" = "Mac Address";
 "Outdoor Running" = "Outdoor Running";
@@ -221,11 +233,13 @@
 "OK" = "OK";
 "From Server" = "From Server";
 "From Local Folder" = "From Local Folder";
-"⚠️ You can also import the local bin file to test the OTA function of the firmware, the specific tutorial poke~👉" = "⚠️ You can also import the local bin file to test the OTA function of the firmware, the specific tutorial poke~👉";
+"⚠️How to import local .Bin file for testing OTA function, click here for detailed tutorial~👉" = "⚠️How to import local .Bin file for testing OTA function, click here for detailed tutorial~👉";
+"Folder" = "Folder";
 "Tutorial" = "Tutorial";
+"Take [i4 Assistant] as an example" = "Take [i4 Assistant] as an example";
 "1. Open the website https://www.i4.cn/ on the computer, download and install [i4]" = "1. Open the website https://www.i4.cn/ on the computer, download and install [i4]";
 "2. Use a data cable to connect your iPhone to the computer\n①. Click [My Devices]\n②. Click [Application Management]\n③. Click FissionBluetooth APP [Browse] to open the file management" = "2. Use a data cable to connect your iPhone to the computer\n①. Click [My Devices]\n②. Click [Application Management]\n③. Click FissionBluetooth APP [Browse] to open the file management";
-"3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [firmwares]" = "3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [firmwares]";
+"3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [FBFirmwareFile]" = "3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [FBFirmwareFile]";
 "4. There are two ways to import files:\n①. Click [Import] - [Select File] and select the bin file you want to import locally\n②. Drag the bin file you want to import locally to this list" = "4. There are two ways to import files:\n①. Click [Import] - [Select File] and select the bin file you want to import locally\n②. Drag the bin file you want to import locally to this list";
 "5. After the import is successful, refresh the APP page, you can see the file you just imported, click to select it for OTA" = "5. After the import is successful, refresh the APP page, you can see the file you just imported, click to select it for OTA";
 

@@ -38,7 +38,7 @@
     [_batterySoures removeAllObjects];
     
     // 解压后的文件路径
-    NSString *unzipPath = [NSString stringWithFormat:@"%@/%@", NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0], @"FBCustomDialUIResource"];
+    NSString *unzipPath = FBDocumentDirectory(FBDownloadFile);
 
     // 创建解压文件夹
     NSError *pathError = nil;
@@ -49,13 +49,10 @@
     if ([SSZipArchive unzipFileAtPath:filePath toDestination:unzipPath preserveAttributes:YES overwrite:YES password:nil error:&error delegate:self]) {
                 
         //目的文件路径
-        NSArray *cachesPathArr = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-        NSString *zipFilePath = [[cachesPathArr lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"FBCustomDialUIResource"]];
-
-        FBLog(@"💁解压成功: %@", zipFilePath);
+        FBLog(@"💁解压成功: %@", unzipPath);
 
         // 数据解析
-        [self AnalysisOfZipFile:zipFilePath block:block];
+        [self AnalysisOfZipFile:unzipPath block:block];
 
     } else {
         

@@ -16,11 +16,6 @@
 
 @implementation BinFileViewController
 
-- (void)viewWillAppear:(BOOL)animated{
-    [super viewWillAppear:animated];
-    [self reloadList];
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
@@ -47,14 +42,19 @@
     [self.view addSubview:self.tableView];
     
     self.arrayData = [NSMutableArray array];
+    
+    [self reloadList];
 }
 
 - (void)reloadList{
     [self.arrayData removeAllObjects];
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true);
-    NSString *s = [NSString stringWithFormat:@"%@/firmwares", paths[0]];
-    NSError *err;
-    [self.arrayData addObjectsFromArray:[[NSFileManager defaultManager] contentsOfDirectoryAtPath:s error:&err]];
+    
+    NSString *filePath = FBDocumentDirectory(FBFirmwareFile);
+    NSArray *fileArray = [NSFileManager.defaultManager contentsOfDirectoryAtPath:filePath error:nil];
+    if (fileArray.count) {
+        [self.arrayData addObjectsFromArray:fileArray];
+    }
+    
     [self.tableView reloadData];
         
     NSDictionary *param = @{@"adaptNum" : StringHandle(FBAllConfigObject.firmwareConfig.fitNumber),
@@ -102,7 +102,7 @@
     if (![class containsObject:NSStringFromClass(QMUIButton.class)]) {
         QMUIButton *sectionButton = [QMUIButton buttonWithType:UIButtonTypeCustom];
         [sectionButton setTitleColor:UIColorBlack forState:UIControlStateNormal];
-        [sectionButton setTitle:LWLocalizbleString(@"⚠️ You can also import the local bin file to test the OTA function of the firmware, the specific tutorial poke~👉") forState:UIControlStateNormal];
+        [sectionButton setTitle:[NSString stringWithFormat:@"%@【%@】%@ 👈", LWLocalizbleString(@"⚠️How to import local .Bin file for testing OTA function, click here for detailed tutorial~👉"), FBFirmwareFile, LWLocalizbleString(@"Folder")] forState:UIControlStateNormal];
         sectionButton.titleLabel.font = FONT(13);
         sectionButton.titleLabel.numberOfLines = 0;
         [sectionView addSubview:sectionButton];
@@ -132,20 +132,20 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    WeakSelf(self);
-    NSString *fileNamePaths = self.arrayData[indexPath.row];
-    if ([fileNamePaths containsString:@"https://"]) {
-        
-        [self downloadOTA:fileNamePaths]; // 下载
-        
-    } else {
-        
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true);
-        NSString *fileName = [NSString stringWithFormat:@"%@/firmwares/%@", paths[0], fileNamePaths];
-        NSData *binFile = [NSData dataWithContentsOfFile:fileName];
+    
+    NSString *fileNamePath = self.arrayData[indexPath.row];
+    
+    // 服务器文件
+    if ([fileNamePath containsString:@"https://"]) {
+        [self downloadOTA:fileNamePath]; // 下载
+    }
+    // 本地文件
+    else {
+        NSString *file = [FBDocumentDirectory(FBFirmwareFile) stringByAppendingPathComponent:fileNamePath];
+        NSData *binFile = [NSData dataWithContentsOfFile:file];
         
         [NSObject showLoading:LWLocalizbleString(@"Loading...")];
-        [weakSelf binFileData:binFile];
+        [self StartOtaUpgradeWithData:binFile];
     }
 }
 
@@ -156,12 +156,13 @@
     }];
 }
 
-- (void)binFileData:(NSData *)binFile{
+#pragma mark - 启动OTA升级｜Start Ota Upgrade
+- (void)StartOtaUpgradeWithData:(NSData *)binFile {
     WeakSelf(self);
     
     FBBluetoothOTA.sharedInstance.isCheckPower = NO;
     
-    FBBluetoothOTA.sharedInstance.sendTimerOut = 120;
+    FBBluetoothOTA.sharedInstance.sendTimerOut = 90;
     
     [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:FB_OTANotification_Firmware withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
         if (error) {
@@ -190,12 +191,12 @@
 - (void)downloadOTA:(NSString *)url {
     [NSObject showLoading:LWLocalizbleString(@"Loading...")];
     WeakSelf(self);
-    [LWNetworkingManager requestDownloadURL:url success:^(NSDictionary *result) {
+    [LWNetworkingManager requestDownloadURL:url namePrefix:@"FBFirmware" success:^(NSDictionary *result) {
         
         NSString *filePath = result[@"filePath"];
         NSData *binFile = [NSData dataWithContentsOfFile:filePath];
         if (binFile.length) {
-            [weakSelf binFileData:binFile];
+            [weakSelf StartOtaUpgradeWithData:binFile];
         }
     } failure:^(NSError * _Nonnull error, id  _Nullable responseObject) {
         [SVProgressHUD dismiss];
@@ -206,6 +207,7 @@
 // 组头点击 - 教程
 - (void)sectionButtonClick {
     FBTutorialViewController *vc = FBTutorialViewController.new;
+    vc.isFirmware = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

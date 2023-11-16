@@ -113,15 +113,14 @@
     FBLog(@"💁下载全部数据zip文件 %@", dataFileUrl);
 
     WeakSelf(self);
-    [LWNetworkingManager requestDownloadURL:dataFileUrl success:^(id  _Nonnull result) {
+    [LWNetworkingManager requestDownloadURL:dataFileUrl namePrefix:@"FBSportsPushPackage" success:^(id  _Nonnull result) {
 
-        FBLog(@"💁下载成功的zip包在本地的地址 %@", StringHandle(result[@"filePath"]));
         // 源文件路径
         NSString *sourceFilePath = result[@"filePath"];
-        FBLog(@"💁要解压的文件路径:%@", sourceFilePath);
+        FBLog(@"💁下载成功, 要解压的文件路径:%@", sourceFilePath);
 
         // 解压后的文件路径
-        NSString *unzipPath = [NSString stringWithFormat:@"%@/%@", NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0], @"LWMotionPushDataList"];
+        NSString *unzipPath = FBDocumentDirectory(FBDownloadFile);
         NSURL *url = [NSURL fileURLWithPath:unzipPath];
 
         // 创建解压文件夹
@@ -133,13 +132,10 @@
         if ([SSZipArchive unzipFileAtPath:sourceFilePath toDestination:unzipPath preserveAttributes:YES overwrite:YES password:nil error:&error delegate:self]) {
             
             //目的文件路径
-            NSArray *cachesPathArr = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-            NSString *allDatePath = [[cachesPathArr lastObject] stringByAppendingPathComponent:[NSString stringWithFormat:@"LWMotionPushDataList"]];
-
-            FBLog(@"💁解压成功: %@", allDatePath);
+            FBLog(@"💁解压成功: %@", unzipPath);
 
             // 数据解析
-            [weakSelf AnalysisOfZipFileData:allDatePath array:array success:successful failure:failure];
+            [weakSelf AnalysisOfZipFileData:unzipPath array:array success:successful failure:failure];
 
         } else {
             

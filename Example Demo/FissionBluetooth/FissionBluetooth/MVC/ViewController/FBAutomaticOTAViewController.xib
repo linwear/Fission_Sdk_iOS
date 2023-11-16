@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="BAHNSCHRIFT.TTF">
+            <string>Bahnschrift_Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FBAutomaticOTAViewController">
+            <connections>
+                <outlet property="hightConstraint" destination="3hD-ju-NKx" id="6L5-co-Fpb"/>
+                <outlet property="otaButton" destination="evn-va-f5n" id="AaO-1M-Znl"/>
+                <outlet property="progressLabel" destination="HDN-1A-gcr" id="FDO-Sg-Aef"/>
+                <outlet property="progressView" destination="DkG-Wx-nHQ" id="zlS-Zs-nIy"/>
+                <outlet property="tableView" destination="O8H-gI-XdV" id="U62-dR-PnK"/>
+                <outlet property="textView" destination="HGo-nl-v3A" id="A7e-6X-joD"/>
+                <outlet property="topConstraint" destination="Vaj-U4-7DC" id="9hB-XD-9WH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HGo-nl-v3A" customClass="QMUITextView">
+                    <rect key="frame" x="10" y="100" width="373" height="50"/>
+                    <color key="backgroundColor" red="0.72941176470000002" green="0.33333333329999998" blue="0.82745098039999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="3hD-ju-NKx"/>
+                    </constraints>
+                </view>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DkG-Wx-nHQ">
+                    <rect key="frame" x="10" y="168" width="336" height="4"/>
+                </progressView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HDN-1A-gcr">
+                    <rect key="frame" x="356" y="150" width="27" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="nMF-dr-nR8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evn-va-f5n">
+                    <rect key="frame" x="50" y="190" width="293" height="50"/>
+                    <color key="backgroundColor" red="0.86274509803921573" green="0.078431372549019607" blue="0.23529411764705882" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="okD-Nx-cUO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Bahnschrift_Bold" family="Bahnschrift" pointSize="18"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="otaClick:" destination="-1" eventType="touchUpInside" id="DuB-jW-aaX"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="O8H-gI-XdV">
+                    <rect key="frame" x="0.0" y="270" width="393" height="582"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </tableView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="evn-va-f5n" secondAttribute="trailing" constant="50" id="0NB-gr-M4L"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="O8H-gI-XdV" secondAttribute="trailing" id="2kV-a5-pmF"/>
+                <constraint firstItem="DkG-Wx-nHQ" firstAttribute="leading" secondItem="HGo-nl-v3A" secondAttribute="leading" id="30i-kJ-aWj"/>
+                <constraint firstItem="HGo-nl-v3A" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="3hl-Vc-Qlh"/>
+                <constraint firstItem="O8H-gI-XdV" firstAttribute="top" secondItem="evn-va-f5n" secondAttribute="bottom" constant="30" id="AeH-fr-hx8"/>
+                <constraint firstItem="evn-va-f5n" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="50" id="Cb4-Zo-ilB"/>
+                <constraint firstItem="DkG-Wx-nHQ" firstAttribute="centerY" secondItem="HDN-1A-gcr" secondAttribute="centerY" id="GzG-m8-wUV"/>
+                <constraint firstItem="HDN-1A-gcr" firstAttribute="trailing" secondItem="HGo-nl-v3A" secondAttribute="trailing" id="LOW-Le-wHT"/>
+                <constraint firstItem="HDN-1A-gcr" firstAttribute="leading" secondItem="DkG-Wx-nHQ" secondAttribute="trailing" constant="10" id="S4t-dl-h6Q"/>
+                <constraint firstItem="HGo-nl-v3A" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="100" id="Vaj-U4-7DC"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="HGo-nl-v3A" secondAttribute="trailing" constant="10" id="a6Y-ZV-B08"/>
+                <constraint firstItem="HDN-1A-gcr" firstAttribute="top" secondItem="HGo-nl-v3A" secondAttribute="bottom" id="bEC-5R-suP"/>
+                <constraint firstItem="evn-va-f5n" firstAttribute="top" secondItem="HDN-1A-gcr" secondAttribute="bottom" id="eU5-iL-WSe"/>
+                <constraint firstItem="O8H-gI-XdV" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="yb1-CV-5aV"/>
+                <constraint firstAttribute="bottom" secondItem="O8H-gI-XdV" secondAttribute="bottom" id="zY9-4g-Xwa"/>
+            </constraints>
+            <point key="canvasLocation" x="78.625954198473281" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -142,6 +142,11 @@
 		592F5F0C2A050130008C06D7 /* FBTestUIItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 592F5F0A2A050130008C06D7 /* FBTestUIItemCell.m */; };
 		592F5F0D2A050130008C06D7 /* FBTestUIItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 592F5F0B2A050130008C06D7 /* FBTestUIItemCell.xib */; };
 		592F5F102A050557008C06D7 /* FBTestUIItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 592F5F0F2A050557008C06D7 /* FBTestUIItemModel.m */; };
+		5930E5CE2AF1E7A200F694F6 /* FBAutomaticOTAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5930E5CC2AF1E7A200F694F6 /* FBAutomaticOTAViewController.m */; };
+		5930E5CF2AF1E7A200F694F6 /* FBAutomaticOTAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5930E5CD2AF1E7A200F694F6 /* FBAutomaticOTAViewController.xib */; };
+		5930E5D92AF1FBAA00F694F6 /* FBAutomaticOTACell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5930E5D72AF1FBAA00F694F6 /* FBAutomaticOTACell.m */; };
+		5930E5DA2AF1FBAA00F694F6 /* FBAutomaticOTACell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5930E5D82AF1FBAA00F694F6 /* FBAutomaticOTACell.xib */; };
+		5930E6052AF34D0B00F694F6 /* FBAutomaticOTAOverview.m in Sources */ = {isa = PBXBuildFile; fileRef = 5930E6042AF34D0B00F694F6 /* FBAutomaticOTAOverview.m */; };
 		593AA48F29BAC87000B2DD49 /* AppDelegate+FissionSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 593AA48E29BAC87000B2DD49 /* AppDelegate+FissionSDK.m */; };
 		593E41432A25A9CF00B438FE /* FBTestUISportsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 593E413D2A25A9CF00B438FE /* FBTestUISportsViewController.m */; };
 		593E41442A25A9CF00B438FE /* FBTestUIBaseListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 593E413F2A25A9CF00B438FE /* FBTestUIBaseListViewController.xib */; };
@@ -206,6 +211,10 @@
 		596E6D5B2A558A9100987964 /* FBTestUIPhoneRingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596E6D5A2A558A9100987964 /* FBTestUIPhoneRingView.xib */; };
 		59831BD72A78DD03008BB4C8 /* FBHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 59831BD62A78DD03008BB4C8 /* FBHUD.m */; };
 		599BF8882A5FA6A400751831 /* FBTextImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 599BF8872A5FA6A400751831 /* FBTextImageView.m */; };
+		59A31EFA2AF5D89E00F6CC7F /* FBOTAFilePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A31EF92AF5D89E00F6CC7F /* FBOTAFilePickerViewController.m */; };
+		59A31EFD2AF6528300F6CC7F /* FBOTAFailureReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A31EFC2AF6528300F6CC7F /* FBOTAFailureReportViewController.m */; };
+		59A31F012AF87DE900F6CC7F /* FBOTAFailureReportCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A31EFF2AF87DE900F6CC7F /* FBOTAFailureReportCell.m */; };
+		59A31F022AF87DE900F6CC7F /* FBOTAFailureReportCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A31F002AF87DE900F6CC7F /* FBOTAFailureReportCell.xib */; };
 		59A78BCC2A80C62B000A80DD /* FBTestUISportsPaceRatioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A78BCA2A80C62B000A80DD /* FBTestUISportsPaceRatioCell.m */; };
 		59A78BCD2A80C62B000A80DD /* FBTestUISportsPaceRatioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59A78BCB2A80C62B000A80DD /* FBTestUISportsPaceRatioCell.xib */; };
 		59B3DA1D2A78F7FF00218990 /* FBConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59B3DA1B2A78F7FF00218990 /* FBConnectViewController.m */; };
@@ -579,6 +588,14 @@
 		592F5F0B2A050130008C06D7 /* FBTestUIItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FBTestUIItemCell.xib; sourceTree = "<group>"; };
 		592F5F0E2A050557008C06D7 /* FBTestUIItemModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBTestUIItemModel.h; sourceTree = "<group>"; };
 		592F5F0F2A050557008C06D7 /* FBTestUIItemModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBTestUIItemModel.m; sourceTree = "<group>"; };
+		5930E5CB2AF1E7A200F694F6 /* FBAutomaticOTAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBAutomaticOTAViewController.h; sourceTree = "<group>"; };
+		5930E5CC2AF1E7A200F694F6 /* FBAutomaticOTAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBAutomaticOTAViewController.m; sourceTree = "<group>"; };
+		5930E5CD2AF1E7A200F694F6 /* FBAutomaticOTAViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FBAutomaticOTAViewController.xib; sourceTree = "<group>"; };
+		5930E5D62AF1FBAA00F694F6 /* FBAutomaticOTACell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBAutomaticOTACell.h; sourceTree = "<group>"; };
+		5930E5D72AF1FBAA00F694F6 /* FBAutomaticOTACell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBAutomaticOTACell.m; sourceTree = "<group>"; };
+		5930E5D82AF1FBAA00F694F6 /* FBAutomaticOTACell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FBAutomaticOTACell.xib; sourceTree = "<group>"; };
+		5930E6032AF34D0B00F694F6 /* FBAutomaticOTAOverview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBAutomaticOTAOverview.h; sourceTree = "<group>"; };
+		5930E6042AF34D0B00F694F6 /* FBAutomaticOTAOverview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBAutomaticOTAOverview.m; sourceTree = "<group>"; };
 		593399584BF981F494D22BCE /* Pods-FissionBluetoothTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetoothTests.debug.xcconfig"; path = "Target Support Files/Pods-FissionBluetoothTests/Pods-FissionBluetoothTests.debug.xcconfig"; sourceTree = "<group>"; };
 		593AA48D29BAC87000B2DD49 /* AppDelegate+FissionSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+FissionSDK.h"; sourceTree = "<group>"; };
 		593AA48E29BAC87000B2DD49 /* AppDelegate+FissionSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+FissionSDK.m"; sourceTree = "<group>"; };
@@ -696,6 +713,13 @@
 		59831BD62A78DD03008BB4C8 /* FBHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBHUD.m; sourceTree = "<group>"; };
 		599BF8862A5FA6A400751831 /* FBTextImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBTextImageView.h; sourceTree = "<group>"; };
 		599BF8872A5FA6A400751831 /* FBTextImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBTextImageView.m; sourceTree = "<group>"; };
+		59A31EF82AF5D89E00F6CC7F /* FBOTAFilePickerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBOTAFilePickerViewController.h; sourceTree = "<group>"; };
+		59A31EF92AF5D89E00F6CC7F /* FBOTAFilePickerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBOTAFilePickerViewController.m; sourceTree = "<group>"; };
+		59A31EFB2AF6528300F6CC7F /* FBOTAFailureReportViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBOTAFailureReportViewController.h; sourceTree = "<group>"; };
+		59A31EFC2AF6528300F6CC7F /* FBOTAFailureReportViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBOTAFailureReportViewController.m; sourceTree = "<group>"; };
+		59A31EFE2AF87DE900F6CC7F /* FBOTAFailureReportCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBOTAFailureReportCell.h; sourceTree = "<group>"; };
+		59A31EFF2AF87DE900F6CC7F /* FBOTAFailureReportCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBOTAFailureReportCell.m; sourceTree = "<group>"; };
+		59A31F002AF87DE900F6CC7F /* FBOTAFailureReportCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FBOTAFailureReportCell.xib; sourceTree = "<group>"; };
 		59A78BC92A80C62B000A80DD /* FBTestUISportsPaceRatioCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBTestUISportsPaceRatioCell.h; sourceTree = "<group>"; };
 		59A78BCA2A80C62B000A80DD /* FBTestUISportsPaceRatioCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBTestUISportsPaceRatioCell.m; sourceTree = "<group>"; };
 		59A78BCB2A80C62B000A80DD /* FBTestUISportsPaceRatioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FBTestUISportsPaceRatioCell.xib; sourceTree = "<group>"; };
@@ -971,6 +995,14 @@
 				590776122A57E82900D449E9 /* FBSystemFunctionSwitchCell.h */,
 				590776132A57E82900D449E9 /* FBSystemFunctionSwitchCell.m */,
 				590776142A57E82900D449E9 /* FBSystemFunctionSwitchCell.xib */,
+				5930E5D62AF1FBAA00F694F6 /* FBAutomaticOTACell.h */,
+				5930E5D72AF1FBAA00F694F6 /* FBAutomaticOTACell.m */,
+				5930E5D82AF1FBAA00F694F6 /* FBAutomaticOTACell.xib */,
+				5930E6032AF34D0B00F694F6 /* FBAutomaticOTAOverview.h */,
+				5930E6042AF34D0B00F694F6 /* FBAutomaticOTAOverview.m */,
+				59A31EFE2AF87DE900F6CC7F /* FBOTAFailureReportCell.h */,
+				59A31EFF2AF87DE900F6CC7F /* FBOTAFailureReportCell.m */,
+				59A31F002AF87DE900F6CC7F /* FBOTAFailureReportCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1101,6 +1133,13 @@
 				5907760D2A57C3C000D449E9 /* FBSystemFunctionSwitchVC.h */,
 				5907760E2A57C3C000D449E9 /* FBSystemFunctionSwitchVC.m */,
 				5907760F2A57C3C000D449E9 /* FBSystemFunctionSwitchVC.xib */,
+				5930E5CB2AF1E7A200F694F6 /* FBAutomaticOTAViewController.h */,
+				5930E5CC2AF1E7A200F694F6 /* FBAutomaticOTAViewController.m */,
+				5930E5CD2AF1E7A200F694F6 /* FBAutomaticOTAViewController.xib */,
+				59A31EF82AF5D89E00F6CC7F /* FBOTAFilePickerViewController.h */,
+				59A31EF92AF5D89E00F6CC7F /* FBOTAFilePickerViewController.m */,
+				59A31EFB2AF6528300F6CC7F /* FBOTAFailureReportViewController.h */,
+				59A31EFC2AF6528300F6CC7F /* FBOTAFailureReportViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -1799,6 +1838,7 @@
 				590419882A2F243300BD3A0A /* FBTestUISportsSectionHeader.xib in Resources */,
 				5921976C2A1B514800A4BE45 /* HeartRateViewController.xib in Resources */,
 				592197222A1B514800A4BE45 /* LWMotionPushCell.xib in Resources */,
+				5930E5DA2AF1FBAA00F694F6 /* FBAutomaticOTACell.xib in Resources */,
 				59E7BFB42696893700B8001A /* 电量3.bmp in Resources */,
 				593E41D72A29EB7C00B438FE /* FBTestUISportsHrRangeCell.xib in Resources */,
 				59E7BFB92696893700B8001A /* 背景.bmp in Resources */,
@@ -1829,6 +1869,7 @@
 				59E7BFBC2696893700B8001A /* 1.bmp in Resources */,
 				59E7BFA12696893700B8001A /* 日期7.bmp in Resources */,
 				59E7BE6E268C13C400B8001A /* srpText_hr.png in Resources */,
+				5930E5CF2AF1E7A200F694F6 /* FBAutomaticOTAViewController.xib in Resources */,
 				592197852A1B514800A4BE45 /* FemaleCircadianCycleVC.xib in Resources */,
 				59E7BFB32696893700B8001A /* 电量2.bmp in Resources */,
 				59E7BEB8268EAE4A00B8001A /* rgbA.png in Resources */,
@@ -1844,6 +1885,7 @@
 				5921975F2A1B514800A4BE45 /* ClockDialListViewController.xib in Resources */,
 				59E7BE78268C13C400B8001A /* zhouhai_font_1001_TEXT.png in Resources */,
 				592197432A1B514800A4BE45 /* LWPersonCell.xib in Resources */,
+				59A31F022AF87DE900F6CC7F /* FBOTAFailureReportCell.xib in Resources */,
 				59B51C4E2A49938A0020708C /* BAHNSCHRIFT.TTF in Resources */,
 				593E41E12A2DE81300B438FE /* FBTestUISportsChartCell.xib in Resources */,
 				59E7BFA62696893700B8001A /* 日期0.bmp in Resources */,
@@ -2032,6 +2074,7 @@
 				59A78BCC2A80C62B000A80DD /* FBTestUISportsPaceRatioCell.m in Sources */,
 				592197622A1B514800A4BE45 /* FBLogViewController.m in Sources */,
 				592197422A1B514800A4BE45 /* LWMotionPushCell.m in Sources */,
+				59A31EFA2AF5D89E00F6CC7F /* FBOTAFilePickerViewController.m in Sources */,
 				592197362A1B514800A4BE45 /* LWCustomDialHeaderView.m in Sources */,
 				5921975D2A1B514800A4BE45 /* FBTutorialViewController.m in Sources */,
 				593E41AF2A2890E900B438FE /* FBCustomDialListHeadrView.m in Sources */,
@@ -2065,6 +2108,7 @@
 				5921977F2A1B514800A4BE45 /* HrCheckViewController.m in Sources */,
 				593E415A2A25AB6800B438FE /* FBCustomDialViewController.m in Sources */,
 				593E41B52A28A42600B438FE /* FBAuthorityObject.m in Sources */,
+				5930E5D92AF1FBAA00F694F6 /* FBAutomaticOTACell.m in Sources */,
 				592197782A1B514800A4BE45 /* QRViewController.m in Sources */,
 				5941D7732AE3B9C7004F17A6 /* WXSTransitionManager+TypeTool.m in Sources */,
 				5921973A2A1B514800A4BE45 /* LWWaveProgress.m in Sources */,
@@ -2081,6 +2125,7 @@
 				5941D7722AE3B9C7004F17A6 /* WXSPercentDrivenInteractiveTransition.m in Sources */,
 				592197792A1B514800A4BE45 /* BrightScreenViewController.m in Sources */,
 				592F5F0C2A050130008C06D7 /* FBTestUIItemCell.m in Sources */,
+				5930E5CE2AF1E7A200F694F6 /* FBAutomaticOTAViewController.m in Sources */,
 				592197832A1B514800A4BE45 /* HeartRateViewController.m in Sources */,
 				593E41E02A2DE81300B438FE /* FBTestUISportsChartCell.m in Sources */,
 				5921973B2A1B514800A4BE45 /* PushSwitchCell.m in Sources */,
@@ -2101,6 +2146,7 @@
 				5920EAC32A3873C2008D1CB0 /* FBCustomDialListColorCell.m in Sources */,
 				59CAAAAD2AE9332500BF061A /* FFDropDownMenuTriangleView.m in Sources */,
 				5941D7752AE3B9C7004F17A6 /* WXSTransitionManager+FragmentAnimation.m in Sources */,
+				59A31EFD2AF6528300F6CC7F /* FBOTAFailureReportViewController.m in Sources */,
 				592197202A1B514800A4BE45 /* WeatherCell.m in Sources */,
 				592197452A1B514800A4BE45 /* MotionPushCollectionViewCell.m in Sources */,
 				592197252A1B514800A4BE45 /* ClockListTableViewCell.m in Sources */,
@@ -2122,6 +2168,7 @@
 				5941D76E2AE3B9C7004F17A6 /* WXSTransitionManager+BrickAnimation.m in Sources */,
 				592197472A1B514800A4BE45 /* LWStartCountdownView.m in Sources */,
 				592197612A1B514800A4BE45 /* BinFileViewController.m in Sources */,
+				59A31F012AF87DE900F6CC7F /* FBOTAFailureReportCell.m in Sources */,
 				592197712A1B514800A4BE45 /* SedentaryViewController.m in Sources */,
 				593E41432A25A9CF00B438FE /* FBTestUISportsViewController.m in Sources */,
 				592197532A1B514800A4BE45 /* NSObject+Authorized.m in Sources */,
@@ -2139,6 +2186,7 @@
 				593E41542A25AA6F00B438FE /* FBColorSliderView.m in Sources */,
 				592197572A1B514800A4BE45 /* LWLanguageLocalizble.m in Sources */,
 				5941D76A2AE3B9C7004F17A6 /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,
+				5930E6052AF34D0B00F694F6 /* FBAutomaticOTAOverview.m in Sources */,
 				592197802A1B514800A4BE45 /* FBSportsConnectViewController.m in Sources */,
 				595985792A0DD053002AB22F /* RLMDeviceListModel.m in Sources */,
 				59400A882A08CBE100C93683 /* FBTestUITodayDataCell.m in Sources */,

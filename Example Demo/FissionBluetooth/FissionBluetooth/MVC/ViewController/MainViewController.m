@@ -28,6 +28,7 @@
 #import "MotionPushViewController.h"
 #import "LWPersonViewController.h"
 #import "FBCameraViewController.h"
+#import "FBAutomaticOTAViewController.h"
 
 #import "LWStartCountdownView.h"
 #import "FBSportsConnectViewController.h"
@@ -69,20 +70,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     WeakSelf(self);
-    // Do any additional setup after loading the view.
-    //    NSData *h = [NSString dataForHexString:@"56312e3037"];
-    //    NSString *firmwareVersion = [[NSString alloc] initWithData:h encoding:NSUTF8StringEncoding];
-        
-    //    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true);
-    //    NSString *fileName = [NSString stringWithFormat:@"%@/firmwares/%@", paths[0], @"2.bin"];
-    //    NSData *binFile = [NSData dataWithContentsOfFile:fileName];
-    //    [FBCustomDataTools.sharedInstance d:binFile];
-    
+
     [self cw_registerShowIntractiveWithEdgeGesture:YES transitionDirectionAutoBlock:^(CWDrawerTransitionDirection direction) {
         if (CWDrawerTransitionFromLeft == direction) {
             [weakSelf scaleYAnimationFromLeft];
         }
     }];
+    
+    [self initUI];
+
+    [self initDatas];
     
     // 实时数据流更新
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(realTimeDataStream:) name:FISSION_SDK_REALTIMEDATASTREAM object:nil];
@@ -92,41 +89,6 @@
     
     // 连接绑定通知
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(connectBingState:) name:FISSION_SDK_CONNECTBINGSTATE object:nil];
-    
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString * docsdir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
-    
-    NSString *dataFilePath = [docsdir stringByAppendingPathComponent:@"firmwares"]; // 在Document目录下创建 "firmwares" 文件夹
-    BOOL isDir = NO;
-    //fileExistsAtPath 判断一个文件或目录是否有效，isDirectory判断是否一个目录
-    BOOL existed = [fileManager fileExistsAtPath:dataFilePath isDirectory:&isDir];
-    if (!(isDir && existed)) {
-        // 在Document目录下创建一个archiver目录
-        [fileManager createDirectoryAtPath:dataFilePath withIntermediateDirectories:YES attributes:nil error:nil];
-    }
-    
-    NSString *dataFilePath1 = [docsdir stringByAppendingPathComponent:@"motionPush"]; // 在Document目录下创建 "motionPush" 文件夹
-    BOOL isDir1 = NO;
-    //fileExistsAtPath 判断一个文件或目录是否有效，isDirectory判断是否一个目录
-    BOOL existed1 = [fileManager fileExistsAtPath:dataFilePath1 isDirectory:&isDir1];
-    if (!(isDir1 && existed1)) {
-        // 在Document目录下创建一个archiver目录
-        [fileManager createDirectoryAtPath:dataFilePath1 withIntermediateDirectories:YES attributes:nil error:nil];
-    }
-    
-    NSString *dataFilePath2 = [docsdir stringByAppendingPathComponent:@"customDial"]; // 在Document目录下创建 "customDial" 文件夹
-    BOOL isDir2 = NO;
-    //fileExistsAtPath 判断一个文件或目录是否有效，isDirectory判断是否一个目录
-    BOOL existed2 = [fileManager fileExistsAtPath:dataFilePath2 isDirectory:&isDir2];
-    if (!(isDir2 && existed2)) {
-        // 在Document目录下创建一个archiver目录
-        [fileManager createDirectoryAtPath:dataFilePath2 withIntermediateDirectories:YES attributes:nil error:nil];
-    }
-    
-    [self initUI];
-
-    [self initDatas];
-
 }
 
 #pragma mark - 左边抽屉｜left drawer
@@ -404,6 +366,20 @@
     [self.funDatas addObject:dict2];
     [self.funDatas addObject:dict3];
     [self.funDatas addObject:dict4];
+    
+#ifdef FBINTERNAL
+    NSDictionary *dict5  = @{@"command":LWLocalizbleString(@"Automatic OTA Testing"),
+                             @"status":@(0),
+                             @"funcArr":@[
+                                 LWLocalizbleString(@"Automatic OTA Firmware"),
+                                 LWLocalizbleString(@"Automatic OTA Dial"),
+                                 LWLocalizbleString(@"Automatic OTA Custom Dial"),
+                                 LWLocalizbleString(@"Automatic OTA Single Package Sports Push"),
+                                 LWLocalizbleString(@"Automatic OTA Multi-pack Sports Push"),
+                             ]
+    };
+    [self.funDatas addObject:dict5];
+#endif
 }
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource
@@ -917,10 +893,6 @@
                 } else {
                     weakSelf.receTextView.text = LWLocalizbleString(@"Success");
                 }
-                
-                [Tools saveIsFirstBinding:YES];
-                
-                [FBBluetoothManager.sharedInstance disconnectPeripheral];
             }];
         }
         
@@ -1805,6 +1777,45 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
+    
+#ifdef FBINTERNAL
+    else if (section == 4) {
+        if ([rowStr containsString:LWLocalizbleString(@"Automatic OTA Firmware")]) {
+            FBAutomaticOTAViewController *vc = [FBAutomaticOTAViewController new];
+            vc.title = rowStr;
+            vc.OTAType = FB_OTANotification_Firmware;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Automatic OTA Dial")]){
+            FBAutomaticOTAViewController *vc = [FBAutomaticOTAViewController new];
+            vc.title = rowStr;
+            vc.OTAType = FB_OTANotification_ClockDial;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Automatic OTA Custom Dial")]){
+            FBAutomaticOTAViewController *vc = [FBAutomaticOTAViewController new];
+            vc.title = rowStr;
+            vc.OTAType = FB_OTANotification_CustomClockDial;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Automatic OTA Single Package Sports Push")]){
+            FBAutomaticOTAViewController *vc = [FBAutomaticOTAViewController new];
+            vc.title = rowStr;
+            vc.OTAType = FB_OTANotification_Motion;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Automatic OTA Multi-pack Sports Push")]){
+            FBAutomaticOTAViewController *vc = [FBAutomaticOTAViewController new];
+            vc.title = rowStr;
+            vc.OTAType = FB_OTANotification_Multi_Sport;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }
+#endif
 }
 
 #pragma mark - titleView
@@ -1817,8 +1828,15 @@
         [_titleView setImage:IMAGE_NAME(@"ic_device_disconnect") forState:UIControlStateNormal];
         [_titleView setImage:IMAGE_NAME(@"ic_device_connect") forState:UIControlStateSelected];
         _titleView.spacingBetweenImageAndTitle = 5;
+        [_titleView addTarget:self action:@selector(tryLastConnection) forControlEvents:UIControlEventTouchUpInside];
     }
     return _titleView;
+}
+
+- (void)tryLastConnection {
+    if (!StringIsEmpty(FBAllConfigObject.firmwareConfig.deviceName) && !FBBluetoothManager.sharedInstance.IsTheDeviceReady) {
+        [FBBluetoothManager.sharedInstance tryLastConnection];
+    }
 }
 
 #pragma mark - batteryView

@@ -85,4 +85,9 @@ typedef void(^dispatch_source_timer_Block)(NSInteger timeIndex);
     }
 }
 
+#pragma mark - 计数重置
+- (void)CountReset {
+    self.timeIndex = 0;
+}
+
 @end

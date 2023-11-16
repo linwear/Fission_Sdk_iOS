@@ -315,7 +315,8 @@
     
     FBMultipleCustomDialsModel *dialsModel =  [self.customDialHeadView generateCustomWatchFaceData];
     NSData *binFile = [FBCustomDataTools.sharedInstance fbGenerateMultiProjectCustomDialBinFileDataWithDialsModel:dialsModel];
-
+    
+    
     [NSObject showLoading:LWLocalizbleString(@"Loading...")];
 
     FBBluetoothOTA.sharedInstance.isCheckPower = NO;
@@ -336,6 +337,11 @@
             [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Success") message:message cancel:nil sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
 
             }];
+            
+            
+            // 缓存起来，调试用
+            NSString *FileName=[FBDocumentDirectory(FBCustomDialFile) stringByAppendingPathComponent:[NSString stringWithFormat:@"FBCustomDial_Advanced_%ld.bin", (NSInteger)NSDate.date.timeIntervalSince1970]];
+            [binFile writeToFile:FileName atomically:YES];//将NSData类型对象data写入文件，文件名为FileName
         }
     }];
     

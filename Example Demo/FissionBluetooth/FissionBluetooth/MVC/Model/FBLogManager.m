@@ -51,6 +51,8 @@ DDLogLevel ddLogLevel = DDLogLevelVerbose;
         
         [DDLog addLogger:self.osLogger];
         [DDLog addLogger:self.fileLogger];
+        
+        [self CreateCategoryFolders];
     }
     return self;
 }
@@ -58,6 +60,50 @@ DDLogLevel ddLogLevel = DDLogLevelVerbose;
 - (NSArray <DDLogFileInfo *> *)allLogFileInfo {
     NSArray <DDLogFileInfo *> *allLogFileInfo = self.fileLogger.logFileManager.sortedLogFileInfos;
     return allLogFileInfo;
+}
+
+- (void)CreateCategoryFolders {
+    NSFileManager * fileManager = NSFileManager.defaultManager;
+    
+    // 在Document目录下创建 "FBFirmwareFile" 文件夹
+    NSString *firmwareFilePath = FBDocumentDirectory(FBFirmwareFile);
+    BOOL isFirmwareDirectory = NO;
+    //fileExistsAtPath 判断一个文件或目录是否有效，isDirectory判断是否一个目录
+    BOOL existedFirmware = [fileManager fileExistsAtPath:firmwareFilePath isDirectory:&isFirmwareDirectory];
+    if (!(isFirmwareDirectory && existedFirmware)) {
+        // 在Document目录下创建一个archiver目录
+        [fileManager createDirectoryAtPath:firmwareFilePath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    
+    // 在Document目录下创建 "FBDownloadFile" 文件夹
+    NSString *downloadFilePath = FBDocumentDirectory(FBDownloadFile);
+    BOOL isDownloadDirectory = NO;
+    //fileExistsAtPath 判断一个文件或目录是否有效，isDirectory判断是否一个目录
+    BOOL existedDownload = [fileManager fileExistsAtPath:downloadFilePath isDirectory:&isDownloadDirectory];
+    if (!(isDownloadDirectory && existedDownload)) {
+        // 在Document目录下创建一个archiver目录
+        [fileManager createDirectoryAtPath:downloadFilePath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    
+    // 在Document目录下创建 "FBCustomDialFile" 文件夹
+    NSString *customDialFilePath = FBDocumentDirectory(FBCustomDialFile);
+    BOOL isCustomDialDirectory = NO;
+    //fileExistsAtPath 判断一个文件或目录是否有效，isDirectory判断是否一个目录
+    BOOL existedCustomDial = [fileManager fileExistsAtPath:customDialFilePath isDirectory:&isCustomDialDirectory];
+    if (!(isCustomDialDirectory && existedCustomDial)) {
+        // 在Document目录下创建一个archiver目录
+        [fileManager createDirectoryAtPath:customDialFilePath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    
+    // 在Document目录下创建 "FBAutomaticOTAFile" 文件夹
+    NSString *automaticOTAFilePath = FBDocumentDirectory(FBAutomaticOTAFile);
+    BOOL isAutomaticOTADirectory = NO;
+    //fileExistsAtPath 判断一个文件或目录是否有效，isDirectory判断是否一个目录
+    BOOL existedAutomaticOTA = [fileManager fileExistsAtPath:automaticOTAFilePath isDirectory:&isAutomaticOTADirectory];
+    if (!(isAutomaticOTADirectory && existedAutomaticOTA)) {
+        // 在Document目录下创建一个archiver目录
+        [fileManager createDirectoryAtPath:automaticOTAFilePath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
 }
 
 @end

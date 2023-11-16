@@ -201,12 +201,7 @@ const CGFloat CustomDiaButtonMargin = 24.0;
     
 
     NSData *binFile = [[FBCustomDataTools sharedInstance] fbGenerateCustomDialBinFileDataWithDialModel:model];
-    
-//        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true);
-//        NSString *s = [NSString stringWithFormat:@"%@/customDial", paths[0]];
-//        NSString *FileName=[s stringByAppendingPathComponent:[NSString stringWithFormat:@"CustomDialBin-%f", NSDate.date.timeIntervalSince1970]];//fileName就是保存文件的文件名
-//
-//        [binFile writeToFile:FileName atomically:YES];//将NSData类型对象data写入文件，文件名为FileName
+
     
     [NSObject showLoading:LWLocalizbleString(@"Loading...")];
     
@@ -231,6 +226,11 @@ const CGFloat CustomDiaButtonMargin = 24.0;
             [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Success") message:message cancel:nil sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
                 
             }];
+            
+    
+            // 缓存起来，调试用
+            NSString *FileName=[FBDocumentDirectory(FBCustomDialFile) stringByAppendingPathComponent:[NSString stringWithFormat:@"FBCustomDial_Ordinary_%ld.bin", (NSInteger)NSDate.date.timeIntervalSince1970]];
+            [binFile writeToFile:FileName atomically:YES];//将NSData类型对象data写入文件，文件名为FileName
         }
     }];
 }

@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger, HttpMethod) {
            failure:(void(^)(NSError *error, id  _Nullable responseObject))failure;
 
 + (void)requestDownloadURL:(NSString *)URLString
+                namePrefix:(NSString *)namePrefix
                    success:(void(^)(id result))success
                    failure:(void(^)(NSError *error, id  _Nullable responseObject))failure;
 

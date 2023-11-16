@@ -26,22 +26,22 @@
     
     FBTutorialItemModel *model_1 = FBTutorialItemModel.new;
     model_1.imageName = @"tutorial_0";
-    model_1.title = LWLocalizbleString(@"1. Open the website https://www.i4.cn/ on the computer, download and install [i4]");
+    model_1.title = [NSString stringWithFormat:@"%@\n%@", LWLocalizbleString(@"Take [i4 Assistant] as an example"), LWLocalizbleString(@"1. Open the website https://www.i4.cn/ on the computer, download and install [i4]")];
     
     FBTutorialItemModel *model_2 = FBTutorialItemModel.new;
     model_2.imageName = @"tutorial_1";
     model_2.title = LWLocalizbleString(@"2. Use a data cable to connect your iPhone to the computer\n①. Click [My Devices]\n②. Click [Application Management]\n③. Click FissionBluetooth APP [Browse] to open the file management");
     
     FBTutorialItemModel *model_3 = FBTutorialItemModel.new;
-    model_3.imageName = @"tutorial_2";
-    model_3.title = LWLocalizbleString(@"3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [firmwares]");
+    model_3.imageName = self.isFirmware ? @"tutorial_2_1" : @"tutorial_2_2";
+    model_3.title = self.isFirmware ? LWLocalizbleString(@"3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [FBFirmwareFile]") : LWLocalizbleString(@"3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [FBAutomaticOTAFile]");
     
     FBTutorialItemModel *model_4 = FBTutorialItemModel.new;
-    model_4.imageName = @"tutorial_3";
+    model_4.imageName = self.isFirmware ? @"tutorial_3_1" : @"tutorial_3_2";
     model_4.title = LWLocalizbleString(@"4. There are two ways to import files:\n①. Click [Import] - [Select File] and select the bin file you want to import locally\n②. Drag the bin file you want to import locally to this list");
     
     FBTutorialItemModel *model_5 = FBTutorialItemModel.new;
-    model_5.imageName = @"tutorial_4";
+    model_5.imageName = self.isFirmware ? @"tutorial_4_1" : @"tutorial_4_2";
     model_5.title = LWLocalizbleString(@"5. After the import is successful, refresh the APP page, you can see the file you just imported, click to select it for OTA");
     
     NSArray *items = @[model_1, model_2, model_3, model_4, model_5];

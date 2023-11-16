@@ -172,6 +172,17 @@
 "Dial Face OTA" = "表盘OTA";
 "Sports Type OTA" = "运动类型OTA";
 
+"Automatic OTA Testing" = "自动OTA测试";
+"Automatic OTA Firmware" = "自动OTA固件";
+"Automatic OTA Dial" = "自动OTA表盘";
+"Automatic OTA Custom Dial" = "自动OTA自定义表盘";
+"Automatic OTA Single Package Sports Push" = "自动OTA单包运动推送";
+"Automatic OTA Multi-pack Sports Push" = "自动OTA多包运动推送";
+"Please Select Bin File" = "请选择Bin文件";
+"Confirm that the current OTA will stop immediately after completion?" = "确认当前OTA完成后立即停止？";
+"File" = "文件";
+"TIME" = "次数";
+
 "This function does not support" = "该功能不支持";
 "System Function Switch" = "系统功能开关";
 "Call Audio" = "通话音频";
@@ -211,6 +222,7 @@
 "Press and hold the module and drag to adjust the display order" = "按住模块拖动，即可调整显示顺序";
 "Add Movement" = "添加运动";
 "Please confirm whether to push sports" = "请确认是否推送运动";
+"The maximum supported number is %d, please select again!" = "最大支持个数%d，请重新选择！";
 "Please confirm whether the watch face is synchronized" = "请确认是否同步表盘";
 "Mac Address" = "Mac地址";
 "Outdoor Running" = "户外跑步";
@@ -221,11 +233,13 @@
 "OK" = "确定";
 "From Server" = "来自服务器";
 "From Local Folder" = "来自本地文件夹";
-"⚠️ You can also import the local bin file to test the OTA function of the firmware, the specific tutorial poke~👉" = "⚠️ 你也可以导入本地bin文件，测试固件OTA功能，具体教程 戳～👉";
+"⚠️How to import local .Bin file for testing OTA function, click here for detailed tutorial~👉" = "⚠️如何导入本地.Bin文件，用于测试OTA功能，具体教程 戳～👉";
+"Folder" = "文件夹";
 "Tutorial" = "教程";
+"Take [i4 Assistant] as an example" = "以【爱思助手】为例";
 "1. Open the website https://www.i4.cn/ on the computer, download and install [i4]" = "1. 电脑打开网站 https://www.i4.cn/ 下载安装【爱思助手】";
 "2. Use a data cable to connect your iPhone to the computer\n①. Click [My Devices]\n②. Click [Application Management]\n③. Click FissionBluetooth APP [Browse] to open the file management" = "2. 使用数据线将你的iPhone与电脑连接\n①. 点击「我的设备」\n②. 点击「应用管理」\n③. 点击 FissionBluetooth APP「浏览」打开文件管理";
-"3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [firmwares]" = "3. FissionBluetooth APP 文件管理\n①. 点击「Documents」\n②. 双击打开「firmwares」";
+"3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [FBFirmwareFile]" = "3. FissionBluetooth APP 文件管理\n①. 点击「Documents」\n②. 双击打开「FBFirmwareFile」";
 "4. There are two ways to import files:\n①. Click [Import] - [Select File] and select the bin file you want to import locally\n②. Drag the bin file you want to import locally to this list" = "4. 导入文件，有两种方式:\n①. 点击「导入」-「选择文件」，选择你本地要导入的bin文件\n②. 将本地要导入的bin文件拖动到此列表";
 "5. After the import is successful, refresh the APP page, you can see the file you just imported, click to select it for OTA" = "5. 导入成功后，刷新APP页面，就可以看到刚刚导入的文件，点击选中进行OTA";
 

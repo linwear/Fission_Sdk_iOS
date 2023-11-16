@@ -90,6 +90,12 @@ typedef NS_ENUM(NSUInteger, CONNECTBINGSTATE) {
 /// 拍照｜Take Photo
 static NSString *const FISSION_SDK_WATCHCLICKTAKEPHOTO = @"FISSION_SDK_WATCHCLICKTAKEPHOTO";
 
+static NSString *const FBFirmwareFile = @"FBFirmwareFile";
+static NSString *const FBDownloadFile = @"FBDownloadFile";
+static NSString *const FBCustomDialFile = @"FBCustomDialFile";
+static NSString *const FBAutomaticOTAFile = @"FBAutomaticOTAFile";
+#define FBDocumentDirectory(folderName) [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject stringByAppendingPathComponent:folderName]
+
 #import <CocoaLumberjack/CocoaLumberjack.h>
 #import "FBLogManager.h"
 #import "LWLanguageLocalizble.h"

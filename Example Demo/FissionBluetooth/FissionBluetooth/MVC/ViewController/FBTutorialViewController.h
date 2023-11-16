@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBTutorialViewController : LWBaseViewController
 
+@property (nonatomic, assign) BOOL isFirmware;
+
 @end
 
 @interface FBTutorialItemModel : NSObject

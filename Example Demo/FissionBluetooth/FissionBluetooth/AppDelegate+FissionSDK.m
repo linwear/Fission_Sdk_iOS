@@ -150,7 +150,7 @@
                     [NSObject showHUDText:error.localizedDescription];
                     
                     if (Tools.isFirstBinding) { // 根据自身业务处理｜Handle according to own business
-                        [FBBluetoothManager.sharedInstance disconnectPeripheral];
+                        [FBBluetoothManager.sharedInstance disconnectPeripheralAndClearHistory:YES];
                     }
                     
                 } else {
@@ -161,7 +161,12 @@
                     }
                     else // 4. 设备密钥不存在，弹窗询问客户是否重新绑定｜4. The device key does not exist, a pop-up window asks the customer whether to re-bind
                     {
+                        if (weakSelf.rebindShowing) return;
+                        weakSelf.rebindShowing = YES;
+                        
                         [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Tip") message:LWLocalizbleString(@"Device reset, do you want to rebind?") cancel:LWLocalizbleString(@"Cancel") sure:LWLocalizbleString(@"Rebind") block:^(AlertClickType clickType) {
+                            
+                            weakSelf.rebindShowing = NO;
                                  
                             if (clickType == AlertClickType_Cancel) // 选择了【取消】｜Selected【Cancel】
                             {
@@ -169,7 +174,7 @@
                                 
                                 [Tools saveIsFirstBinding:YES];
                                 
-                                [FBBluetoothManager.sharedInstance disconnectPeripheral];
+                                [FBBluetoothManager.sharedInstance disconnectPeripheralAndClearHistory:YES];
                                 
                                 [NSObject showHUDText:LWLocalizbleString(@"Refuse to bind")];
                             }
@@ -199,7 +204,7 @@
             [NSObject showHUDText:error.localizedDescription];
             
             if (Tools.isFirstBinding) { // 根据自身业务处理｜Handle according to own business
-                [FBBluetoothManager.sharedInstance disconnectPeripheral];
+                [FBBluetoothManager.sharedInstance disconnectPeripheralAndClearHistory:YES];
             }
             
         } else {
@@ -265,7 +270,7 @@
                         [NSObject showHUDText:error.localizedDescription];
                         
                         if (Tools.isFirstBinding) { // 根据自身业务处理｜Handle according to own business
-                            [FBBluetoothManager.sharedInstance disconnectPeripheral];
+                            [FBBluetoothManager.sharedInstance disconnectPeripheralAndClearHistory:YES];
                         }
                     }
                     else if (status == FB_INDATATRANSMISSION) {
@@ -287,7 +292,7 @@
             } else {
                 
                 if (Tools.isFirstBinding) { // 根据自身业务处理｜Handle according to own business
-                    [FBBluetoothManager.sharedInstance disconnectPeripheral];
+                    [FBBluetoothManager.sharedInstance disconnectPeripheralAndClearHistory:YES];
                 }
             }
         }

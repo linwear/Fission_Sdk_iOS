@@ -226,6 +226,7 @@
 }
 
 + (void)requestDownloadURL:(NSString *)URLString
+                namePrefix:(NSString *)namePrefix
                    success:(void(^)(id result))success
                    failure:(void(^)(NSError *error, id  _Nullable responseObject))failure {
     // 下载任务
@@ -241,9 +242,10 @@
         
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         
-        NSURL *documentsDirectoryURL = [[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil];
+        NSURL *documentsDirectoryURL = [NSURL fileURLWithPath:FBDocumentDirectory(FBDownloadFile)];
+        
         // 文件保存路径（命名：当前时间戳_文件名）
-        NSString *pathName = [NSString stringWithFormat:@"%ld_%@",(NSInteger)NSDate.date.timeIntervalSince1970, URL.lastPathComponent];
+        NSString *pathName = [NSString stringWithFormat:@"%@_%ld_%@", namePrefix, (NSInteger)NSDate.date.timeIntervalSince1970, URL.lastPathComponent];
         return [documentsDirectoryURL URLByAppendingPathComponent:pathName];
 
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {

@@ -241,7 +241,7 @@
     WeakSelf(self);
     [NSObject showLoading:LWLocalizbleString(@"Loading...")];
     
-    [LWNetworkingManager requestDownloadURL:zipUrl success:^(NSDictionary *result) {
+    [LWNetworkingManager requestDownloadURL:zipUrl namePrefix:@"FBCustomDialPackage" success:^(NSDictionary *result) {
         
         [NSObject dismiss];
         

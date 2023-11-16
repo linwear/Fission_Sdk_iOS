@@ -25,6 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 暂停计时
 - (void)PauseTiming;
 
+/// 计数重置
+- (void)CountReset;
+
 @end
 
 NS_ASSUME_NONNULL_END

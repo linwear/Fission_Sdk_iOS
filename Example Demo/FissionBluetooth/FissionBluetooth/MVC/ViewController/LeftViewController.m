@@ -116,7 +116,7 @@
                     
                     [Tools saveIsFirstBinding:YES];
                     
-                    [FBBluetoothManager.sharedInstance disconnectPeripheral];
+                    [FBBluetoothManager.sharedInstance disconnectPeripheralAndClearHistory:YES];
                     
                     GCD_MAIN_QUEUE(^{
                         [weakSelf loadData];
