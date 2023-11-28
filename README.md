@@ -3,7 +3,7 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Release-3.1.8_bate.1 -Green.svg">
+    <img src="https://img.shields.io/badge/Release-3.1.9 -Green.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/Support-iOS10+ -blue.svg">
@@ -139,7 +139,7 @@ Privacy - Bluetooth Always Usage Description
 | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
 
-     project    2023-11-21  Version:3.1.8-bate.1 Build:20231121001
+     project    2023-11-28  Version:3.1.9 Build:20231128001
                             1.优化绑定密钥缓存逻辑
                             
      project    2023-11-16  Version:3.1.8 Build:20231116001
