@@ -13,7 +13,7 @@
   框架功能｜Framework Function: iOS framework for Fission smart watch, which is responsible for the communication with the watch.
                               Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装。
   修改记录｜Modification Record:
-     project    2023-11-21  Version:3.1.8-bate.1 Build:20231121001
+     project    2023-11-28  Version:3.1.9 Build:20231128001
                             1.优化绑定密钥缓存逻辑
  
      project    2023-11-16  Version:3.1.8 Build:20231116001
