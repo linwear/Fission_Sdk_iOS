@@ -308,11 +308,11 @@
                              @"status":@(0),
                              @"funcArr":@[
                                  LWLocalizbleString(@"Get device hardware information"),
-                                 LWLocalizbleString(@"Obtain real-time measurement data of the day"),
+                                 LWLocalizbleString(@"Get real-time measurement data of the day"),
                                  LWLocalizbleString(@"Get real-time statistics report of current sleep"),
                                  LWLocalizbleString(@"Get the current real-time sleep state record"),
                                  LWLocalizbleString(@"Get daily activity statistics report"),
-                                 LWLocalizbleString(@"Obtain the hourly activity statistics report"),
+                                 LWLocalizbleString(@"Get the hourly activity statistics report"),
                                  LWLocalizbleString(@"Get sleep statistics report"),
                                  LWLocalizbleString(@"Get sleep status record"),
                                  LWLocalizbleString(@"Get a list of device motion types"),
@@ -322,11 +322,11 @@
                                  LWLocalizbleString(@"Get pedometer records"),
                                  LWLocalizbleString(@"Get Blood Oxygen Records"),
                                  LWLocalizbleString(@"Get blood pressure records"),
-                                 LWLocalizbleString(@"Obtain exercise high-frequency heart rate records (1 time per second)"),
+                                 LWLocalizbleString(@"Get exercise high-frequency heart rate records (1 time per second)"),
                                  LWLocalizbleString(@"Get Stress Records"),
                                  LWLocalizbleString(@"Get exercise details record"),
                                  LWLocalizbleString(@"Get sports statistics report + sports details record"),
-                                 LWLocalizbleString(@"Obtain motion location records"),
+                                 LWLocalizbleString(@"Get motion location records"),
                                  LWLocalizbleString(@"Acquire manual measurement data records"),
                                  LWLocalizbleString(@"Get specified records and reports"),
                                  LWLocalizbleString(@"User Info"),
@@ -1123,7 +1123,7 @@
             }];
         }
         
-        else if ([rowStr containsString:LWLocalizbleString(@"Obtain real-time measurement data of the day")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get real-time measurement data of the day")]) {
             [FBBgCommand.sharedInstance fbGetCurrentDayActivityDataWithBlock:^(FB_RET_CMD status, float progress, FBCurrentDataModel * _Nonnull responseObject, NSError * _Nonnull error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1186,7 +1186,7 @@
             }];
         }
         
-        else if ([rowStr containsString:LWLocalizbleString(@"Obtain the hourly activity statistics report")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get the hourly activity statistics report")]) {
             [FBBgCommand.sharedInstance fbGetHourlyActivityDataStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBHourReportModel *> * _Nonnull responseObject, NSError * _Nonnull error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1397,7 +1397,7 @@
             }];
         }
         
-        else if ([rowStr containsString:LWLocalizbleString(@"Obtain exercise high-frequency heart rate records (1 time per second)")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get exercise high-frequency heart rate records (1 time per second)")]) {
             [FBBgCommand.sharedInstance fbExerciseHighFrequencyHeartRateRecordsDataStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBTypeRecordModel *> * _Nullable responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1498,7 +1498,7 @@
             }];
         }
         
-        else if ([rowStr containsString:LWLocalizbleString(@"Obtain motion location records")]) {
+        else if ([rowStr containsString:LWLocalizbleString(@"Get motion location records")]) {
             [FBBgCommand.sharedInstance fbGetMotionLocationRecordDataStartTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, float progress, NSArray<FBTypeRecordModel *> * _Nonnull responseObject, NSError * _Nonnull error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
@@ -1514,7 +1514,7 @@
                         [mutStr appendFormat:@"%@\n", model.mj_keyValues];
                         
                         for (FBRecordDetailsModel *reArr in model.recordArray) {
-                            [mutStr appendFormat:@"%@", [NSString stringWithFormat:@"%@=====\n lat%.6f\n log%.6f\n speed%ld\n gpsIsSuspend%ld\ngpsHeartRate%ld\n", reArr.dateTimeStr, reArr.latitude, reArr.longitude, reArr.speed, (long)reArr.gpsPause, reArr.gpsHeartRate]];
+                            [mutStr appendFormat:@"%@", [NSString stringWithFormat:@"%@=====\n lat%.6f\n log%.6f\n speed%ld\n gpsIsSuspend%ld\ngpsHeartRate%ld\ngpsKilometerPoints%@\ngpsMilePoints%@\n", reArr.dateTimeStr, reArr.latitude, reArr.longitude, reArr.speed, (long)reArr.gpsPause, reArr.gpsHeartRate, reArr.gpsKilometerPoints?@"YES":@"NO", reArr.gpsMilePoints?@"YES":@"NO"]];
                         }
                         
                     }
@@ -1860,6 +1860,7 @@
 
 #pragma mark - NSNotification - 功能状态变更
 - (void)functionStatusChange:(NSNotification *)functionObj {
+    WeakSelf(self);
     
     if ([functionObj.object isKindOfClass:FBWatchFunctionChangeNoticeModel.class]) {
         
@@ -1893,6 +1894,28 @@
                     }
                 }
             }
+        }
+        else if (model.functionMode == FS_AGPS_LOCATION_REQUEST) {
+            [FBLocationManager startLocation:^(CLLocation * _Nonnull location) {
+                
+                [FBLocationManager stopLocation];
+                
+                FBAGPSLocationModel *model = FBAGPSLocationModel.new;
+                model.currentTimeUTC = NSDate.date.timeIntervalSince1970;
+                model.longitude = location.coordinate.longitude;
+                model.latitude = location.coordinate.latitude;
+                
+                [FBBgCommand.sharedInstance fbPushAGPSLocationInformation:model withBlock:^(NSError * _Nullable error) {
+                    if (error) {
+                        [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+                    } else {
+                        weakSelf.receTextView.text = LWLocalizbleString(@"Success");
+                    }
+                }];
+                
+            } failure:^(CLAuthorizationStatus status, NSError * _Nonnull error) {
+                // do something...
+            }];
         }
         
         else {

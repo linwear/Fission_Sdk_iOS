@@ -12,13 +12,15 @@
 #import "FBRadarView.h"
 #import "FBConnectViewController.h"
 
-@interface ListViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface ListViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
-@property(nonatomic,strong) UITableView *tableView;
-@property(nonatomic,strong) NSMutableArray <FBPeripheralModel *> *datas;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray <FBPeripheralModel *> *dataSource;
 
 @property (nonatomic, assign) BOOL isReload;
 
+@property (nonatomic, strong) QMUISearchBar *searchBar;
+@property (nonatomic, strong) NSArray <FBPeripheralModel *> *searchDataSource;
 @property (nonatomic, strong) FBRadarView *radarView;
 
 @end
@@ -27,7 +29,7 @@
 
 -(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
     if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        _datas = [NSMutableArray array];
+        _dataSource = [NSMutableArray array];
     }
     return self;
 }
@@ -59,13 +61,14 @@
     UIBarButtonItem *scanningCode = [[UIBarButtonItem alloc] initWithImage:IMAGE_NAME(@"ic_linear_scan") style:UIBarButtonItemStylePlain target:self action:@selector(scanningCode)];
     self.navigationItem.rightBarButtonItems = @[reloadScan, scanningCode];
     
-    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, NavigationContentTop, SCREEN_WIDTH, SCREEN_HEIGHT-NavigationContentTop)];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, NavigationContentTop, SCREEN_WIDTH, SCREEN_HEIGHT-NavigationContentTop) style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource = self;
     tableView.rowHeight = 64;
     tableView.tableHeaderView = [UIView new];
     [self.view addSubview:tableView];
     [tableView registerClass:LWDeviceListCell.class forCellReuseIdentifier:@"LWDeviceListCell"];
+    [tableView registerClass:UITableViewHeaderFooterView.class forHeaderFooterViewReuseIdentifier:@"UITableViewHeaderFooterView"];
     self.tableView = tableView;
     
     self.radarView = [[FBRadarView alloc] initWithFrame:tableView.bounds];
@@ -78,11 +81,11 @@
         self.isReload = YES;
         GCD_AFTER(3.0, ^{
             
-            if (weakSelf.datas.count) {
+            if (weakSelf.dataSource.count) {
                 [weakSelf.radarView animation:NO];
             }
             
-            [weakSelf.datas sortUsingComparator:^NSComparisonResult(FBPeripheralModel *  _Nonnull obj1, FBPeripheralModel *  _Nonnull obj2) {
+            [weakSelf.dataSource sortUsingComparator:^NSComparisonResult(FBPeripheralModel *  _Nonnull obj1, FBPeripheralModel *  _Nonnull obj2) {
                 
                 if (obj1.RSSI.integerValue > obj2.RSSI.integerValue) {
                     return NSOrderedAscending;
@@ -93,7 +96,12 @@
                 }
             }];
             
-            [weakSelf.tableView reloadData];
+            if (StringIsEmpty(weakSelf.searchBar.text)) {
+                [weakSelf.tableView reloadData];
+            } else {
+                [weakSelf searchBar:weakSelf.searchBar textDidChange:weakSelf.searchBar.text];
+            }
+            
             weakSelf.isReload = NO;
         });
     }
@@ -101,9 +109,11 @@
 
 - (void)startScan{
     
+    [self searchBarSearchButtonClicked:self.searchBar];
     [self.radarView animation:YES];
     
-    [self.datas removeAllObjects];
+    self.searchDataSource = @[];
+    [self.dataSource removeAllObjects];
     [self.tableView reloadData];
     
     if (FBBluetoothManager.sharedInstance.getFBCentralManagerDidUpdateState == CBManagerStatePoweredOn) {
@@ -114,18 +124,48 @@
 }
 
 - (void)scanningCode {
+    [self searchBarSearchButtonClicked:self.searchBar];
     if (NSObject.accessCamera) {
         QRViewController *vc = QRViewController.new;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
+#pragma mark - UITableViewDelegate, UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.datas.count;
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSArray <FBPeripheralModel *> *datas;
+    if (StringIsEmpty(self.searchBar.text)) {
+        datas = self.dataSource.copy;
+    } else {
+        datas = self.searchDataSource;
+    }
+    return datas.count;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return (self.radarView.isAnimation || !self.dataSource.count) ? 0.01 : 60;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if (self.radarView.isAnimation || !self.dataSource.count) return nil;
+
+    UITableViewHeaderFooterView *headerView = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"UITableViewHeaderFooterView"];
+    if (![headerView.subviews containsObject:self.searchBar]) {
+        QMUISearchBar *searchBar = QMUISearchBar.new;
+        searchBar.qmui_usedAsTableHeaderView = YES;
+        searchBar.placeholder = LWLocalizbleString(@"Search [Device Name] or [MAC Address]");
+        searchBar.delegate = self;
+        searchBar.returnKeyType = UIReturnKeyDone;
+        [headerView addSubview:searchBar];
+        searchBar.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
+        self.searchBar = searchBar;
+    }
+    
+    return headerView;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -135,9 +175,16 @@
     view.backgroundColor = UIColorTestGreen;
     cell.selectedBackgroundView = view;
     
-    if (indexPath.row < self.datas.count) {
+    NSArray <FBPeripheralModel *> *datas;
+    if (StringIsEmpty(self.searchBar.text)) {
+        datas = self.dataSource.copy;
+    } else {
+        datas = self.searchDataSource;
+    }
+    
+    if (indexPath.row < datas.count) {
         
-        FBPeripheralModel *model = self.datas[indexPath.row];
+        FBPeripheralModel *model = datas[indexPath.row];
         
         [cell reloadView:model];
     }
@@ -146,7 +193,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    FBPeripheralModel *model = self.datas[indexPath.row];
+    NSArray <FBPeripheralModel *> *datas;
+    if (StringIsEmpty(self.searchBar.text)) {
+        datas = self.dataSource.copy;
+    } else {
+        datas = self.searchDataSource;
+    }
+    
+    FBPeripheralModel *model = datas[indexPath.row];
     
     FBConnectViewController *vc = FBConnectViewController.new;
     vc.peripheralModel = model;
@@ -159,7 +213,7 @@
         
         FBPeripheralModel *model = obj.object;
         
-        NSArray *array = [NSArray arrayWithArray:self.datas];
+        NSArray *array = [NSArray arrayWithArray:self.dataSource];
         
         __block BOOL contains = NO;
          
@@ -173,11 +227,31 @@
         
         if (!contains) {
             
-            [self.datas addObject:model];
+            [self.dataSource addObject:model];
 
             [self reloadList];
         }
     }
+}
+
+#pragma mark - UISearchBarDelegate
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    // [cd] 大小写不敏感
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"device_Name CONTAINS[cd] %@ || mac_Address CONTAINS[cd] %@", searchText, searchText];
+
+    NSSortDescriptor* sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"RSSI" ascending:NO];
+
+    NSArray <FBPeripheralModel *> *dataSource = [NSArray arrayWithArray:self.dataSource];
+
+    NSArray <FBPeripheralModel *> *filterData = [[dataSource filteredArrayUsingPredicate:predicate] sortedArrayUsingDescriptors:@[sortDescriptor]];
+
+    self.searchDataSource = filterData;
+
+    [self.tableView reloadData];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
 }
     
 @end

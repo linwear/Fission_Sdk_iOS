@@ -54,6 +54,7 @@
 }
 
 - (void)animation:(BOOL)isAnimation {
+    _isAnimation = isAnimation;
     [self animationReplicatorAvatarInView:self.avatarWrapView animated:isAnimation];
     [self.avatarWrapView bringSubviewToFront:self.avatarImageView];
 }

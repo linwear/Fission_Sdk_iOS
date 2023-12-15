@@ -47,6 +47,10 @@ RLM_COLLECTION_TYPE(RLMSportsItemModel)
 @property NSInteger speed;
 /// 状态。NO 正常，YES 暂停
 @property BOOL gpsPause;
+/// 该经纬度是否为公里里程点。YES 里程点，NO 非里程点
+@property BOOL gpsKilometerPoints;
+/// 该经纬度是否为英里里程点。YES 里程点，NO 非里程点
+@property BOOL gpsMilePoints;
 /// GPS 实时心率（次/分钟）
 @property NSInteger gpsHeartRate;
 

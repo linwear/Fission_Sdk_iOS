@@ -103,8 +103,16 @@
  * @return 滤波后的list
  */
 - (NSArray<MALonLatPoint*>*)kalmanFilterPath:(NSArray<MALonLatPoint*>*)originlist intensity:(int)intensity {
-    if (!originlist || originlist.count <= 2) {
+    if (!originlist) {
         return nil;
+    }
+    if (originlist.count <= 2) { // 原算法<=2是return nil;
+        // 将被算法过滤，但是该组有标记点，需要保留
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(MALonLatPoint * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+            return (evaluatedObject.icon != nil);
+        }];
+        NSArray <MALonLatPoint *> *list = [originlist filteredArrayUsingPredicate:predicate];
+        return list;
     }
     
     NSMutableArray<MALonLatPoint*>* kalmanFilterList = [NSMutableArray array];
@@ -117,6 +125,8 @@
     lastLoc.lat = [originlist objectAtIndex:0].lat;
     lastLoc.lon = [originlist objectAtIndex:0].lon;
     lastLoc.pause = [originlist objectAtIndex:0].pause;
+    lastLoc.speed = [originlist objectAtIndex:0].speed;
+    lastLoc.icon = [originlist objectAtIndex:0].icon;
     [kalmanFilterList addObject:lastLoc];
     
     for (int i = 1; i < originlist.count; i++) {
@@ -154,8 +164,13 @@
     }
     for (int j = 0; j < intensity; j++){
         point = [self kalmanFilter:lastLoc.lon value_x:curLoc.lon oldValue_y:lastLoc.lat value_y:curLoc.lat];
-        curLoc = point;
+        curLoc.lat = point.lat;
+        curLoc.lon = point.lon;
     }
+    point.begin = curLoc.begin;
+    point.pause = curLoc.pause;
+    point.speed = curLoc.speed;
+    point.icon = curLoc.icon;
     return point;
 }
 
@@ -221,6 +236,8 @@
         MKMapPoint nextP = MKMapPointForCoordinate(CLLocationCoordinate2DMake(next.lat, next.lon));
         double distance = [self calculateDistanceFromPoint:curP lineBegin:prevP lineEnd:nextP];
         if (distance >= threshHold) {
+            [ret addObject:cur];
+        } else if (cur.icon) { // 将被算法过滤，但是该点是标记点，需要保留
             [ret addObject:cur];
         }
     }
@@ -289,6 +306,8 @@
         MKMapPoint nextP = MKMapPointForCoordinate(CLLocationCoordinate2DMake(next.lat, next.lon));
         double distance = [self calculateDistanceFromPoint:curP lineBegin:prevP lineEnd:nextP];
         if (distance < threshHold){
+            [ret addObject:cur];
+        } else if (cur.icon) { // 将被算法过滤，但是该点是标记点，需要保留
             [ret addObject:cur];
         }
     }

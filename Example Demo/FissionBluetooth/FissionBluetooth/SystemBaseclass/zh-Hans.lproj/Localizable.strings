@@ -18,6 +18,7 @@
 "Bluetooth pairing successful" = "蓝牙配对成功";
 "Receive Data" = "接收数据";
 "Device List" = "设备列表";
+"Search [Device Name] or [MAC Address]" = "搜索[设备名称]或[MAC地址]";
 "Bluetooth is not turned on or not supported" = "蓝牙未开启或不支持";
 "🌺🌺Paired🌺" = "🌺🌺已配对🌺";
 "Refuse to bind" = "拒绝绑定";
@@ -126,11 +127,11 @@
 "Enable(2s)/disable data monitoring flow" = "启用（2s）/禁用 数据流监控";
 
 "Get device hardware information" = "获取设备硬件信息";
-"Obtain real-time measurement data of the day" = "获取当天的实时测量数据";
+"Get real-time measurement data of the day" = "获取当天的实时测量数据";
 "Get real-time statistics report of current sleep" = "获取当前睡眠的实时统计报告";
 "Get the current real-time sleep state record" = "获取当前实时睡眠状态记录";
 "Get daily activity statistics report" = "获取每日活动统计报告";
-"Obtain the hourly activity statistics report" = "获取每小时活动统计报告";
+"Get the hourly activity statistics report" = "获取每小时活动统计报告";
 "Get sleep statistics report" = "获取睡眠统计报告";
 "Get sleep status record" = "获取睡眠状态记录";
 "Get a list of device motion types" = "获取设备运动类型列表";
@@ -140,11 +141,11 @@
 "Get pedometer records" = "获取计步记录";
 "Get Blood Oxygen Records" = "获取血氧记录";
 "Get blood pressure records" = "获取血压记录";
-"Obtain exercise high-frequency heart rate records (1 time per second)" = "获取运动高频心率记录(1秒1次)";
+"Get exercise high-frequency heart rate records (1 time per second)" = "获取运动高频心率记录(1秒1次)";
 "Get Stress Records" = "获取压力记录";
 "Get exercise details record" = "获取运动详情记录";
 "Get sports statistics report + sports details record" = "获取 运动统计报告+运动详情纪录";
-"Obtain motion location records" = "获取运动位置记录";
+"Get motion location records" = "获取运动位置记录";
 "Acquire manual measurement data records" = "获取手动测量数据记录";
 "Get specified records and reports" = "获取指定的记录和报告";
 "User Info" = "用户信息";
@@ -366,6 +367,8 @@
 "Best Pace" = "最佳配速";
 "Minimum Pace" = "最低配速";
 "Sports Trajectory" = "运动轨迹";
+"Meter" = "米";
+"Yards" = "码";
 
 
 

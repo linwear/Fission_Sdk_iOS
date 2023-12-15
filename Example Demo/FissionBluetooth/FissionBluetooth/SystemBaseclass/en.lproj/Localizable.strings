@@ -18,6 +18,7 @@
 "Bluetooth pairing successful" = "Bluetooth pairing successful";
 "Receive Data" = "Receive Data";
 "Device List" = "Device List";
+"Search [Device Name] or [MAC Address]" = "Search [Device Name] or [MAC Address]";
 "Bluetooth is not turned on or not supported" = "Bluetooth is not turned on or not supported";
 "🌺🌺Paired🌺" = "🌺🌺Paired🌺";
 "Refuse to bind" = "Refuse to bind";
@@ -126,11 +127,11 @@
 "Enable(2s)/disable data monitoring flow" = "Enable(2s)/disable data monitoring flow";
 
 "Get device hardware information" = "Get device hardware information";
-"Obtain real-time measurement data of the day" = "Obtain real-time measurement data of the day";
+"Get real-time measurement data of the day" = "Get real-time measurement data of the day";
 "Get real-time statistics report of current sleep" = "Get real-time statistics report of current sleep";
 "Get the current real-time sleep state record" = "Get the current real-time sleep state record";
 "Get daily activity statistics report" = "Get daily activity statistics report";
-"Obtain the hourly activity statistics report" = "Obtain the hourly activity statistics report";
+"Get the hourly activity statistics report" = "Get the hourly activity statistics report";
 "Get sleep statistics report" = "Get sleep statistics report";
 "Get sleep status record" = "Get sleep status record";
 "Get a list of device motion types" = "Get a list of device motion types";
@@ -140,11 +141,11 @@
 "Get pedometer records" = "Get pedometer records";
 "Get Blood Oxygen Records" = "Get Blood Oxygen Records";
 "Get blood pressure records" = "Get blood pressure records";
-"Obtain exercise high-frequency heart rate records (1 time per second)" = "Obtain exercise high-frequency heart rate records (1 time per second)";
+"Get exercise high-frequency heart rate records (1 time per second)" = "Get exercise high-frequency heart rate records (1 time per second)";
 "Get Stress Records" = "Get Stress Records";
 "Get exercise details record" = "Get exercise details record";
 "Get sports statistics report + sports details record" = "Get sports statistics report + sports details record";
-"Obtain motion location records" = "Obtain motion location records";
+"Get motion location records" = "Get motion location records";
 "Acquire manual measurement data records" = "Acquire manual measurement data records";
 "Get specified records and reports" = "Get specified records and reports";
 "User Info" = "User Info";
@@ -366,6 +367,8 @@
 "Best Pace" = "Best Pace";
 "Minimum Pace" = "Minimum Pace";
 "Sports Trajectory" = "Sports Trajectory";
+"Meter" = "Meter";
+"Yards" = "Yards";
 
 
 

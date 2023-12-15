@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface FBRadarView : UIView
 
+@property (nonatomic, assign, readonly) BOOL isAnimation;
+
 /// 是否开始动画
 - (void)animation:(BOOL)isAnimation;
 

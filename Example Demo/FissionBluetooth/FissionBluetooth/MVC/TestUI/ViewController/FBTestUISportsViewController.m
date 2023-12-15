@@ -72,7 +72,17 @@ static NSString *FBTestUISportsPaceRatioCellID = @"FBTestUISportsPaceRatioCell";
     FBTestUISportsHeaderView *tableHeaderView = [NSBundle.mainBundle loadNibNamed:@"FBTestUISportsHeaderView" owner:self options:nil].firstObject;
     tableHeaderView.frame = (CGRect){CGPointZero, CGSizeMake(SCREEN_WIDTH, 120)};
     
-    tableHeaderView.titleLab.text = isCalorie ? [NSString stringWithFormat:@"%ld kcal", self.sportsModel.calorie] : [Tools distanceConvert:self.sportsModel.distance space:YES];
+    NSString *title = nil;
+    if (isCalorie) {
+        if (self.sportsModel.distance > 0) {
+            title = [Tools distanceConvert:self.sportsModel.distance space:YES];
+        } else {
+            title = [NSString stringWithFormat:@"%ld kcal", self.sportsModel.calorie];
+        }
+    } else {
+        title = [Tools distanceConvert:self.sportsModel.distance space:YES];
+    }
+    tableHeaderView.titleLab.text = title;
     tableHeaderView.dateLab.text = [NSString stringWithFormat:@"%@-%@", [NSDate timeStamp:self.sportsModel.begin dateFormat:FBDateFormatYMDHm], [NSDate timeStamp:self.sportsModel.end dateFormat:FBDateFormatHm]];
     
     [Tools setUILabel:tableHeaderView.titleLab setDataArr:@[@"kcal", @"km", @"mi"] setColorArr:@[UIColorBlack, UIColorBlack, UIColorBlack] setFontArr:@[FONT(15), FONT(15), FONT(15)]];

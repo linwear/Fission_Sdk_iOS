@@ -35,7 +35,7 @@
     // 数据库
     RLMRealmConfiguration *configuration = RLMRealmConfiguration.defaultConfiguration;
     // 设置新的架构版本。必须大于之前所使用的版本
-    configuration.schemaVersion = 6;
+    configuration.schemaVersion = 7;
     // 通知 Realm 为默认的 Realm 数据库使用这个新的配置对象
     [RLMRealmConfiguration setDefaultConfiguration:configuration];
     // 现在我们已经通知了 Realm 如何处理架构变化，
@@ -61,6 +61,7 @@
         UITableView.appearance.estimatedRowHeight = 0;
         UITableView.appearance.estimatedSectionFooterHeight = 0;
         UITableView.appearance.estimatedSectionHeaderHeight = 0;
+        QMUISearchBar.appearance.qmui_centerPlaceholder = YES;
     }
     
     if (@available(iOS 15.0, *)) {

@@ -17,6 +17,8 @@
 
 @property (nonatomic, assign) BOOL ChinaRegion;
 
+@property (nonatomic, strong) NSMutableArray <FBPointAnnotation *> *annotations;
+
 @end
 
 @implementation FBTestUISportsTrajectoryViewController
@@ -26,6 +28,10 @@
     // Do any additional setup after loading the view.
     self.navigationItem.title = LWLocalizbleString(@"Sports Trajectory");
     
+    self.annotations = NSMutableArray.array;
+    
+    // 单例初始化公/英里 里程点
+    [FBPassingPointModel sharedInstance];
     
     // 初始化地图
     MKMapView *mapView = [[MKMapView alloc] initWithFrame:CGRectMake(0, NavigationContentTop, SCREEN_WIDTH, SCREEN_HEIGHT-NavigationContentTop)];
@@ -98,11 +104,13 @@
         self.optimization = swi.on;
     }
     
+    [self.annotations removeAllObjects];
+    
     // 加载、轨迹平滑优化
     NSArray <NSArray <FBLocation *> *> *allLocationArray = [self trajectorySmoothingOptimization];
     
-    // 添加 起点/终点 定位大头针
-    [self addStartEndPointPositioningPins:allLocationArray];
+    // 添加 标记点 定位大头针
+    [self addMarkPointPins:allLocationArray];
     
     // 添加 绘制 地图轨迹
     NSArray <FBPolyline *> *polylineArray = [self addDrawingMapTrack:allLocationArray];
@@ -112,7 +120,7 @@
 }
 
 
-#pragma mark - 地图 委托代理
+#pragma mark - 地图 委托代理 MKMapViewDelegate
 /**  大头针 */
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     
@@ -128,17 +136,28 @@
     }
     
     annotationView.image = pointAnnotation.pointImage;
-    
-    if (pointAnnotation.pointType == FBAnnotationPointType_Starting){
-        // 设置中心点偏移，使得标注底部中间点成为经纬度对应点
-        annotationView.centerOffset = CGPointMake(11, -20);
-    }
-    else if (pointAnnotation.pointType == FBAnnotationPointType_Ending) {
-        // 设置中心点偏移，使得标注底部中间点成为经纬度对应点
-        annotationView.centerOffset = CGPointMake(7, -16);
-    }
+    // 设置中心点偏移，使得标注底部中间点成为经纬度对应点
+    annotationView.centerOffset = pointAnnotation.centerOffset;
     
     return annotationView;
+}
+
+/**  大头针下坠动画 */
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray<MKAnnotationView *> *)views {
+        
+    for (MKAnnotationView *annoView in views) {
+        // 系统定位的大头针不设置动画效果
+        if (![annoView.annotation isKindOfClass:[MKUserLocation class]]) {
+            // 记录要放置的大头针坐标的位置
+            CGRect startFrame = annoView.frame;
+            // 位置的 Y 改为0，用来掉落
+            annoView.frame = CGRectMake(startFrame.origin.x, 0, startFrame.size.width, startFrame.size.height);
+            // 执行动画掉落
+            [UIView animateWithDuration:0.3 animations:^{
+                annoView.frame = startFrame;
+            }];
+        }
+    }
 }
 
 /**  轨迹路径 */
@@ -150,12 +169,12 @@
     MKPolylineRenderer *polylineRenderer = [[MKPolylineRenderer alloc] initWithPolyline:polyline];
     
     polylineRenderer.lineWidth   = 4;
-    polylineRenderer.strokeColor = UIColor.redColor;
+    polylineRenderer.strokeColor = UIColor.blueColor;
     polylineRenderer.lineJoin    = kCGLineJoinRound;
     polylineRenderer.lineCap     = kCGLineCapRound;
     if (polyline.dashed) { // 使用虚线
         polylineRenderer.lineWidth       = 3;
-        polylineRenderer.strokeColor     = UIColor.blueColor;
+        polylineRenderer.strokeColor     = UIColor.redColor;
         polylineRenderer.lineDashPattern = @[@(0), @(6)];
     }
     
@@ -175,11 +194,14 @@
 #pragma mark - 加载、轨迹平滑优化
 - (NSArray <NSArray <FBLocation *> *> *)trajectorySmoothingOptimization {
     
+    NSArray <UIImage *> *pointIcons = FBPassingPointModel.sharedInstance.imageIcon;
+    
     // 轨迹拆分：如果轨迹集合存在暂停的数据，则将其拆分成 @[ @[正常], @[暂停], @[正常]...]，用于后续画轨迹区分 虚实线。
     NSMutableArray <NSArray <FBLocation *> *> *allLocationArray = NSMutableArray.array;
     
     BOOL gpsPause = YES; // 记录状态是否变化
     NSMutableArray <MALonLatPoint *> *paragraphArray;
+    NSInteger mileagePoint = 0;
     
     for (NSInteger index = 0; index < self.sportsModel.locations.count; index++) {
 
@@ -198,7 +220,12 @@
         LonLatPoint.begin = model.begin;
         LonLatPoint.lon = model.longitude;
         LonLatPoint.lat = model.latitude;
+        LonLatPoint.speed = model.speed;
         LonLatPoint.pause = model.gpsPause; /// 是否暂停
+        if ((Tools.isMetric && model.gpsKilometerPoints) || (!Tools.isMetric && model.gpsMilePoints)) { /// 里程点
+            LonLatPoint.icon = pointIcons[mileagePoint<pointIcons.count ? mileagePoint : pointIcons.count-1];
+            mileagePoint ++;
+        }
         [paragraphArray addObject:LonLatPoint];
         
         if (index == (self.sportsModel.locations.count - 1)) { // 最后一组，直接添加
@@ -225,29 +252,70 @@
     NSArray <MALonLatPoint *> *OptimizationResults = self.optimization ? [tool pathOptimize:paragraphArray] : paragraphArray;
     
     NSMutableArray <FBLocation *> *locationArray = NSMutableArray.array;
-    for (MALonLatPoint *LonLatPoint in OptimizationResults) {
+    
+    
+    if (OptimizationResults.count) {
         
-        CLLocationCoordinate2D coordinate;
-        
-        // 处于中国地区，则需要转换
-        if (self.ChinaRegion) {
-            coordinate = [FBLocationConverter wgs_84ToGcj_02:CLLocationCoordinate2DMake(LonLatPoint.lat, LonLatPoint.lon)];
-        } else {
-            coordinate = CLLocationCoordinate2DMake(LonLatPoint.lat, LonLatPoint.lon);
+        // 遍历优化后的数据转换为FBLocation
+        for (MALonLatPoint *LonLatPoint in OptimizationResults) {
+            
+            FBLocation *location = [self handleMALonLatPoint:LonLatPoint];
+            
+            [locationArray addObject:location];
         }
         
-        FBLocation *location = [[FBLocation alloc] initWithCoordinate:coordinate altitude:0 horizontalAccuracy:0 verticalAccuracy:0 timestamp:[NSDate dateWithTimeIntervalSince1970:LonLatPoint.begin]];
-        location.pause = LonLatPoint.pause;
+        return locationArray.copy;
+    }
+    else { // 确保有定位数据，如果被简化成0个，则添加第一个
+        // 将被算法过滤，但是该组有标记点，需要保留
+        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(MALonLatPoint * _Nullable evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
+            return (evaluatedObject.icon != nil);
+        }];
+        NSArray <MALonLatPoint *> *list = [paragraphArray filteredArrayUsingPredicate:predicate];
+        if (list.count) { // 被优化为0个，但是存在标记点，保留
+            for (MALonLatPoint *LonLatPoint in list) {
+                FBLocation *location = [self handleMALonLatPoint:LonLatPoint];
+                [locationArray addObject:location];
+            }
+            return locationArray.copy;
+        }
         
+        // 被优化为0个，默认保留第一个
+        FBLocation *location = [self handleMALonLatPoint:paragraphArray.firstObject];
         [locationArray addObject:location];
+        
+        return locationArray.copy;
+    }
+}
+- (FBLocation *)handleMALonLatPoint:(MALonLatPoint *)LonLatPoint {
+    
+    CLLocationCoordinate2D coordinate;
+    // 处于中国地区，则需要转换
+    if (self.ChinaRegion) {
+        coordinate = [FBLocationConverter wgs_84ToGcj_02:CLLocationCoordinate2DMake(LonLatPoint.lat, LonLatPoint.lon)];
+    } else {
+        coordinate = CLLocationCoordinate2DMake(LonLatPoint.lat, LonLatPoint.lon);
     }
     
-    return locationArray.copy;
+    FBLocation *location = [[FBLocation alloc] initWithCoordinate:coordinate altitude:0 horizontalAccuracy:0 verticalAccuracy:0 course:0 speed:LonLatPoint.speed timestamp:[NSDate dateWithTimeIntervalSince1970:LonLatPoint.begin]];
+    location.pause = LonLatPoint.pause;
+    location.icon = LonLatPoint.icon;
+    
+    if (LonLatPoint.icon) { // 存在里程点
+        FBPointAnnotation *annotation = FBPointAnnotation.new;
+        annotation.pointType = FBAnnotationPointType_PassingPoint;
+        annotation.pointImage = LonLatPoint.icon;
+        annotation.centerOffset = CGPointMake(0, 0);
+        annotation.coordinate = coordinate;
+        
+        [self.annotations addObject:annotation];
+    }
+    
+    return location;
 }
 
-
-#pragma mark - 添加 起点/终点 定位大头针
-- (void)addStartEndPointPositioningPins:(NSArray <NSArray <FBLocation *> *> *)allLocationArray {
+#pragma mark - 添加 标记点 定位大头针
+- (void)addMarkPointPins:(NSArray <NSArray <FBLocation *> *> *)allLocationArray {
     
     // 起点
     FBLocation *startingLocation = allLocationArray.firstObject.firstObject;
@@ -255,7 +323,9 @@
     FBPointAnnotation *starting = FBPointAnnotation.new;
     starting.pointType = FBAnnotationPointType_Starting;
     starting.pointImage = UIImageMake(@"icon_starting");
+    starting.centerOffset = CGPointMake(11, -20);
     starting.coordinate = startingLocation.coordinate;
+    [self.annotations addObject:starting];
     
     // 终点
     FBLocation *endingLocation = allLocationArray.lastObject.lastObject;
@@ -263,7 +333,9 @@
     FBPointAnnotation *ending = FBPointAnnotation.new;
     ending.pointType = FBAnnotationPointType_Ending;
     ending.pointImage = UIImageMake(@"icon_ending");
+    ending.centerOffset = CGPointMake(7, -16);
     ending.coordinate = endingLocation.coordinate;
+    [self.annotations addObject:ending];
     
     
     // 替换前先移除所有
@@ -272,7 +344,7 @@
     }
     
     // 替换方案: 添加
-    [self.mapView addAnnotations:@[starting, ending]];
+    [self.mapView addAnnotations:self.annotations];
 }
 
 
@@ -339,6 +411,57 @@
 
 
 @implementation FBPointAnnotation
+@end
+
+
+@interface FBPassingPointModel ()
+@property (nonatomic, strong) QMUILabel *label;
+@end
+@implementation FBPassingPointModel
++ (FBPassingPointModel *)sharedInstance {
+    static FBPassingPointModel *model = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        model = FBPassingPointModel.new;
+    });
+    return model;
+}
+- (instancetype)init {
+    if (self = [super init]) {
+        /*
+        18*18 #000000
+        描边 1px #FFFFFF
+        字体 #FFFFFF 9px
+         */
+        QMUILabel *label = [[QMUILabel alloc] qmui_initWithFont:FONT(9) textColor:UIColor.whiteColor];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.backgroundColor = UIColor.blackColor;
+        label.frame = CGRectMake(0, 0, 18, 18);
+        label.circle = YES;
+        label.borderWidth = 1;
+        label.borderColor = UIColor.whiteColor;
+        self.label = label;
+        
+        NSMutableArray <UIImage *> *imageIcon = NSMutableArray.array;
+        for (int j = 1; j <= 1001; j++) {
+            UIImage *image = [self imageWithTest:j];
+            [imageIcon addObject:image];
+        }
+        self.imageIcon = imageIcon.copy;
+    }
+    return self;
+}
+- (UIImage *)imageWithTest:(int)text {
+    if (text<1000) {
+        self.label.text = @(text).stringValue;
+    } else if (text == 1000) {
+        self.label.text = @"1k";
+    } else {
+        self.label.text = @"1k+";
+    }
+    UIImage *image = [UIImage qmui_imageWithView:self.label];
+    return image;
+}
 @end
 
 

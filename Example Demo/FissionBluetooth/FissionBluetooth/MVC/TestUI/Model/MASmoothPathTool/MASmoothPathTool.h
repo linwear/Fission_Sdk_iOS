@@ -12,7 +12,9 @@
 @property (nonatomic, assign) NSInteger begin;
 @property (nonatomic, assign) double lat;
 @property (nonatomic, assign) double lon;
+@property (nonatomic, assign) double speed;
 @property (nonatomic, assign) BOOL pause;
+@property (nonatomic, strong, nullable) UIImage *icon; // 公/英里 里程点
 @end
 
 @interface MASmoothPathTool : NSObject

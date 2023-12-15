@@ -622,6 +622,8 @@ x_arr;\
                         locationModel.latitude = item.latitude;
                         locationModel.speed = item.speed;
                         locationModel.gpsPause = item.gpsPause;
+                        locationModel.gpsKilometerPoints = item.gpsKilometerPoints;
+                        locationModel.gpsMilePoints = item.gpsMilePoints;
                         locationModel.gpsHeartRate = item.gpsHeartRate;
                         
                         [model.locations addObject:locationModel];

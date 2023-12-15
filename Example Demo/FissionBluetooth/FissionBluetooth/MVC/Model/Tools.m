@@ -641,7 +641,7 @@
 
 /// 距离单位（米级）
 + (NSString *)distanceUnit_metre {
-    return Tools.isMetric ? @"m" : @"yd";
+    return Tools.isMetric ? LWLocalizbleString(@"Meter") : LWLocalizbleString(@"Yards");
 }
 
 /// 距离+单位（公英制）distance单位为米m，space是否需要空格间隔
