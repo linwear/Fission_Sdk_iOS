@@ -3,7 +3,7 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Release-3.1.9 -Green.svg">
+    <img src="https://img.shields.io/badge/Release-3.2.0 -Green.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/Support-iOS10+ -blue.svg">
@@ -107,6 +107,9 @@ Privacy - Bluetooth Always Usage Description
 
 #### [⚠️演示项目中使用到数据库'Realm'，运行demo前，请先cd到项目，再执行pod install｜The database 'Realm' is used in the demo project. Before running the demo, please cd to the project first, and then execute pod install](#NOTE)
 
+     project    2023-12-15
+                1.运动记录增加地图运动轨迹
+
      project    2023-11-16
                 1.优化已知问题
                 
@@ -138,6 +141,11 @@ Privacy - Bluetooth Always Usage Description
 | Public Header Files  |
 | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
+
+     project    2023-12-15  Version:3.2.0 Build:20231215001
+                            1.定位记录详情增加 公/英里 里程点
+                            2.修改翻译
+                            3.优化已知问题
 
      project    2023-11-28  Version:3.1.9 Build:20231128001
                             1.优化绑定密钥缓存逻辑
