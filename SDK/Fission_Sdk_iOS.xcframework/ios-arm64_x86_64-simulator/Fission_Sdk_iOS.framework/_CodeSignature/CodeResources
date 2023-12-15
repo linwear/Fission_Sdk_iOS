@@ -1283,7 +1283,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nrVIxPjRAIdYtSVAnrX/xMXHgnc=
+			X8+NUsKZPxXwfbWJFbq7rlpuny8=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1463,7 +1463,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2mmo29zoMHwPddKMEGhY9fEqj/4=
+			hYQsKemFbI3u2nuIRhenkQjSr0g=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1472,7 +1472,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			k3/koeF1VWhK8Mt/y9baWEoxe4c=
+			W5f8NeFU/CWf2hyTlXWi1DkrDHU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -1691,7 +1691,7 @@
 		</data>
 		<key>Headers/FBRecordDetailsModel.h</key>
 		<data>
-		It9kCXFbGYsdzhOdUiLphA2Vvs8=
+		oTlKgnkVwBChr5Br0+EbXQcXnjw=
 		</data>
 		<key>Headers/FBSleepCaculateReportModel.h</key>
 		<data>
@@ -1763,11 +1763,11 @@
 		</data>
 		<key>Headers/Fission_Sdk_iOS.h</key>
 		<data>
-		g93If0EGwV6A+aJ7lw6Mk9mXEhw=
+		b6/J1xFIUaT5Iwtk609V2RDaf5o=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		4Yn1+b3dZJtXX+NbE2RXKhpYrnU=
+		egC5RAnZ91sDrvRi27ujb/X3Y9E=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -5251,11 +5251,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nrVIxPjRAIdYtSVAnrX/xMXHgnc=
+			X8+NUsKZPxXwfbWJFbq7rlpuny8=
 			</data>
 			<key>hash2</key>
 			<data>
-			4kBOSa7s7tSauMxFtZLA/rRezl7cmZWuvwUffvNsFDc=
+			ZThZEclv1JeXizW849/ag/PzGErtcClP0fK+jXtz7ug=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -5511,11 +5511,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2mmo29zoMHwPddKMEGhY9fEqj/4=
+			hYQsKemFbI3u2nuIRhenkQjSr0g=
 			</data>
 			<key>hash2</key>
 			<data>
-			3niCGquCTOZyFb/OX6afFL26/fT1osEbztLIQPgUZ4I=
+			viB9gB9VM4s40XVzVJF7KLm8Dp1BFlz7GdT1AwVIKCk=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -5524,11 +5524,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			k3/koeF1VWhK8Mt/y9baWEoxe4c=
+			W5f8NeFU/CWf2hyTlXWi1DkrDHU=
 			</data>
 			<key>hash2</key>
 			<data>
-			iKkZvSLHkJbrU850iiei5TBPb7gSEK/OQSqxxulWUgo=
+			bEceVKYYzwlbPfNmXcbdpO4Fq1MraPcOivd5cMM4ufU=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -6026,11 +6026,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			It9kCXFbGYsdzhOdUiLphA2Vvs8=
+			oTlKgnkVwBChr5Br0+EbXQcXnjw=
 			</data>
 			<key>hash2</key>
 			<data>
-			hGEp+tTYkmzhqtFzepyYp/nEyQE2wIDTfSrkBCH5Jd8=
+			0/zdt9cAk+nhVdtnBTZxRTwDFng/cv/YrdXYAVN9osQ=
 			</data>
 		</dict>
 		<key>Headers/FBSleepCaculateReportModel.h</key>
@@ -6224,11 +6224,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			g93If0EGwV6A+aJ7lw6Mk9mXEhw=
+			b6/J1xFIUaT5Iwtk609V2RDaf5o=
 			</data>
 			<key>hash2</key>
 			<data>
-			L47SdWWHUkdImpQsKAy3angnJOh9OaDhdng+XUY7kBA=
+			KgF3xv5vYBMck1gee8POkvc1+mcrmOMEaXQSKCRv8JE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

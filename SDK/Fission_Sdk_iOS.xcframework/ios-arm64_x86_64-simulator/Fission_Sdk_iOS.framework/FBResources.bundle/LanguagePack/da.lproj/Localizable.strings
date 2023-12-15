@@ -97,7 +97,7 @@
 "OTA升级失败，切换到OTA mode失败" = "OTA-opgradering mislykkedes, skift til OTA-tilstand mislykkedes";
 "OTA升级失败，不支持普通升级" = "OTA-opgradering mislykkedes, normal opgradering understøttes ikke";
 "OTA升级失败，不支持静默升级" = "OTA-opgradering mislykkedes, lydløs opgradering understøttes ikke";
-"手表电量低于30%" = "Urets batteri er mindre end 30 %";
+"手表电量低于30%" = "Urets batteri er mindre end 30%";
 
 "操作频繁，请稍后重试..." = "Hyppige operationer, prøv venligst igen senere...";
 "设备处于禁止OTA状态，请稍后重试..." = "Enheden er i OTA forbudt tilstand, prøv venligst igen senere...";

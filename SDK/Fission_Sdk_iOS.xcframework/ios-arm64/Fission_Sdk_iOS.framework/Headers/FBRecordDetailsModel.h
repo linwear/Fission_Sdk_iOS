@@ -23,29 +23,31 @@ NS_ASSUME_NONNULL_BEGIN
 /** GMT转年月日时分秒｜GMT to YYYY-MM-dd HH:mm:ss */
 @property (nonatomic, copy) NSString *dateTimeStr;
 
+/** 记录类型｜Record type */
+@property (nonatomic, assign) FB_RECORDTYPE RecordType;
 
 
-#pragma mark - 当 FB_RECORDTYPE为FB_HeartRecord、FB_HFHeartRecord 时（心率记录、运动高频心率记录(1秒1次)），以下有值｜When FB_RECORDTYPE is FB_HeartRecord, FB_HFHeartRecord (heart rate record, exercise high-frequency heart rate record (1 time per second)), the following values
+#pragma mark - 当 FB_RECORDTYPE为FB_HeartRecord、FB_HFHeartRecord 时（心率记录、运动高频心率记录(1秒1次)），以下值有效｜When FB_RECORDTYPE is FB_HeartRecord, FB_HFHeartRecord (heart rate recording, sports high-frequency heart rate recording (once per second)), the following values are valid
 
 /** 心率值｜Heart rate value */
 @property (nonatomic, assign) NSInteger hr;
 
 
 
-#pragma mark - 当 FB_RECORDTYPE为FB_StepRecord 时（计步记录），以下有值｜When FB_RECORDTYPE is FB_StepRecord (step counting record), the following values
+#pragma mark - 当 FB_RECORDTYPE为FB_StepRecord 时（计步记录），以下值有效｜When FB_RECORDTYPE is FB_StepRecord (step recording), the following values are valid
 
 /** 计步数累加值｜Accumulated value of step count */
 @property (nonatomic, assign) NSInteger step;
 
 
 
-#pragma mark - 当 FB_RECORDTYPE为FB_BloodOxyRecord 时（血氧记录），以下有值｜When FB_RECORDTYPE is FB_BloodOxyRecord (blood oxygen record), the following values
+#pragma mark - 当 FB_RECORDTYPE为FB_BloodOxyRecord 时（血氧记录），以下值有效｜When FB_RECORDTYPE is FB_BloodOxyRecord (blood oxygen record), the following values are valid
 /** 血氧值（%）｜Blood oxygen value (%) */
 @property (nonatomic, assign) NSInteger Sp02;
 
 
 
-#pragma mark - 当 FB_RECORDTYPE为FB_BloodPreRecord 时（血压记录），以下有值｜When FB_RECORDTYPE is FB_BloodPreRecord (blood pressure record), the following values
+#pragma mark - 当 FB_RECORDTYPE为FB_BloodPreRecord 时（血压记录），以下值有效｜When FB_RECORDTYPE is FB_BloodPreRecord (blood pressure recording), the following values are valid
 /** 收缩压（高压，mmHg）｜Systolic blood pressure (high pressure, mmHg) */
 @property (nonatomic, assign) NSInteger pb_max;
 
@@ -54,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-#pragma mark - 当 FB_RECORDTYPE为FB_StressRecord 时（精神压力记录），以下有值｜When FB_RECORDTYPE is FB_StressRecord (mental stress record), the following values
+#pragma mark - 当 FB_RECORDTYPE为FB_StressRecord 时（精神压力记录），以下值有效｜When FB_RECORDTYPE is FB_StressRecord (mental stress record), the following values are valid
 /** 精神压力值｜Mental stress value */
 @property (nonatomic, assign) NSInteger stress;
 
@@ -63,7 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-#pragma mark - 当 FB_RECORDTYPE为FB_SportsRecord 时（运动详情记录），以下有值｜When FB_RECORDTYPE is FB_SportsRecord (sports details record), the following values
+#pragma mark - 当 FB_RECORDTYPE为FB_SportsRecord 时（运动详情记录），以下值有效｜When FB_RECORDTYPE is FB_SportsRecord (sports details record), the following values are valid
 /** 实时配速（秒/千米）｜Real time pace (SEC / km) */
 @property (nonatomic, assign) NSInteger pace;
 
@@ -85,7 +87,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger recordDefinition;
 
 
-// - - - - - - - - - - 当 recordDefinition == 0 时，以下有值｜When recordDefinition == 0, the following have values - - - - - - - - - -
+// - - - - - 当 记录格式定义recordDefinition == 0 时，以下值有效｜When recordDefinition == 0, the following values are valid - - - - -
 
 /** 实时体力，0~100｜Real time physical strength, 0-100 */
 @property (nonatomic, assign) NSInteger stamina;
@@ -94,7 +96,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isSuspend;
 
 
-// - - - - - - - - - - 当 recordDefinition == 1 时，以下有值｜When recordDefinition == 1, the following have values - - - - - - - - - -
+// - - - - - - - - - - 当 记录格式定义recordDefinition == 1 时，以下值有效｜When recordDefinition == 1, the following values are valid - - - - - - - - - -
 
 /** 一公里用时（一公里配速，单位秒）｜One kilometer time (one kilometer pace, unit second)*/
 @property (nonatomic, assign) NSInteger KilometerPace;
@@ -104,7 +106,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 
-#pragma mark - 当 FB_RECORDTYPE为FB_MotionGpsRecord 时（运动定位记录），以下有值｜When FB_RECORDTYPE is FB_MotionGpsRecord (motion positioning record), the following values
+#pragma mark - 当 FB_RECORDTYPE为FB_MotionGpsRecord 时（运动定位记录），以下值有效｜When FB_RECORDTYPE is FB_MotionGpsRecord (motion positioning record), the following values are valid
 /** 经度 (WGS-84)｜Longitude (WGS-84) */
 @property (nonatomic) float longitude;
 
@@ -116,6 +118,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 状态。NO 正常，YES 暂停｜Status. NO normal, YES pause */
 @property (nonatomic, assign) BOOL gpsPause;
+
+/** 该经纬度是否为公里里程点。YES 里程点，NO 非里程点｜Whether the latitude and longitude is a kilometer mileage point. YES mileage points, NO non-mileage points */
+@property (nonatomic, assign) BOOL gpsKilometerPoints;
+
+/** 该经纬度是否为英里里程点。YES 里程点，NO 非里程点｜Whether this latitude and longitude is a mileage point. YES mileage points, NO non-mileage points */
+@property (nonatomic, assign) BOOL gpsMilePoints;
 
 /** GPS 实时心率（次/分钟）｜GPS Real time heart rate (times / min) */
 @property (nonatomic, assign) NSInteger gpsHeartRate;

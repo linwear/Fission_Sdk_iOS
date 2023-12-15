@@ -97,7 +97,7 @@
 "OTA升级失败，切换到OTA mode失败" = "Aktualizácia OTA zlyhala, prepnutie do režimu OTA zlyhalo";
 "OTA升级失败，不支持普通升级" = "Aktualizácia OTA zlyhala, normálna aktualizácia nie je podporovaná";
 "OTA升级失败，不支持静默升级" = "Aktualizácia OTA zlyhala, tichá aktualizácia nie je podporovaná";
-"手表电量低于30%" = "Batéria hodiniek je menej ako 30 %";
+"手表电量低于30%" = "Batéria hodiniek je menej ako 30%";
 
 "操作频繁，请稍后重试..." = "Časté operácie, skúste to znova neskôr...";
 "设备处于禁止OTA状态，请稍后重试..." = "Zariadenie je v stave OTA zakázané, skúste to znova neskôr...";
