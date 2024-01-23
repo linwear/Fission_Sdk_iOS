@@ -3,7 +3,7 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Release-3.2.1 -Green.svg">
+    <img src="https://img.shields.io/badge/Release-3.2.0 -Green.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/Support-iOS10+ -blue.svg">
