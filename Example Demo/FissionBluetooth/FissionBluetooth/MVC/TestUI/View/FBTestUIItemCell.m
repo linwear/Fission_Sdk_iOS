@@ -56,6 +56,9 @@
     } else if ([item.title isEqualToString:LWLocalizbleString(@"Mental Stress")]) {
         self.detailLab.text = historicalModel.stress;
         self.dateLab.text = historicalModel.stressBegin>0 ? [NSDate timeStamp:historicalModel.stressBegin dateFormat:FBDateFormatYMDHm] : @"";
+    } else if ([item.title isEqualToString:LWLocalizbleString(@"Women's Health")]) {
+        self.detailLab.text = historicalModel.womenHealth;
+        self.dateLab.text = historicalModel.womenHealthBegin>0 ? [NSDate timeStamp:historicalModel.womenHealthBegin dateFormat:FBDateFormatYMDHm] : @"";
     }
     
     

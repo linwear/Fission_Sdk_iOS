@@ -106,7 +106,7 @@
                 
                 [NSObject showLoading:LWLocalizbleString(@"Loading...")];
                 
-                [FBAtCommand.sharedInstance fbUnbindDeviceRequestWithBlock:^(NSError * _Nullable error) {
+                [FBAtCommand.sharedInstance fbUnbindDeviceRequest:nil withBlock:^(NSError * _Nullable error) {
                     
                     [NSObject dismiss];
                     

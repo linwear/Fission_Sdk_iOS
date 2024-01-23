@@ -79,7 +79,7 @@
     WeakSelf(self);
     if (!self.isReload) {
         self.isReload = YES;
-        GCD_AFTER(3.0, ^{
+        GCD_AFTER(2.0, ^{
             
             if (weakSelf.dataSource.count) {
                 [weakSelf.radarView animation:NO];

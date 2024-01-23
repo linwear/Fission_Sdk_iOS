@@ -348,7 +348,7 @@
                                  LWLocalizbleString(@"Request Device Logs"),
                                  LWLocalizbleString(@"Get/Set system function switch information"),
                                  LWLocalizbleString(@"Push basic information of AGPS location (latitude and longitude UTC)"),
-                                 LWLocalizbleString(@"Synchronize AGPS positioning data"),
+                                 LWLocalizbleString(@"Push AGPS ephemeris data package"),
                              ]
     };
     
@@ -887,7 +887,7 @@
         }
         
         else if ([rowStr containsString:LWLocalizbleString(@"Request to unbind the device")]) {
-            [FBAtCommand.sharedInstance fbUnbindDeviceRequestWithBlock:^(NSError * _Nullable error) {
+            [FBAtCommand.sharedInstance fbUnbindDeviceRequest:nil withBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
                 } else {
@@ -1729,28 +1729,35 @@
             }];
         }
         
-        else if ([rowStr containsString:LWLocalizbleString(@"Synchronize AGPS positioning data")]) {
-            FBBluetoothOTA.sharedInstance.isCheckPower = NO;
-            
-            FBBluetoothOTA.sharedInstance.sendTimerOut = 30;
-            
+        else if ([rowStr containsString:LWLocalizbleString(@"Push AGPS ephemeris data package")]) {
             [NSObject showLoading:LWLocalizbleString(@"Loading...")];
-            
-            NSString *filePath = [NSBundle.mainBundle pathForResource:@"ELPO_GR3_1" ofType:@"DAT"]; // 这是一个示例文件...现实中应该从服务器取
-            NSData *fileData = [NSData dataWithContentsOfFile:filePath];
-            
-            [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:fileData withOTAType:FB_OTANotification_AGPS_Package withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
-                if (error) {
-                    [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
-                }
-                else if (status==FB_INDATATRANSMISSION) {
-                    [NSObject showProgress:progress.totalPackageProgress/100.0 status:[NSString stringWithFormat:@"%@ %ld%%", LWLocalizbleString(@"Synchronize"), progress.totalPackageProgress]];
-                }
-                else if (status==FB_DATATRANSMISSIONDONE) {
-                    [NSObject dismiss];
-                    NSString *message = [NSString stringWithFormat:@"%@", responseObject.mj_keyValues];
-                    [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Success") message:message cancel:nil sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
+            [FBEphemerisManager.sharedInstance requestEphemerisDataWithBlock:^(NSData * _Nullable binData, NSString * _Nullable errorString) {
+                
+                if (binData.length)
+                {
+                    FBBluetoothOTA.sharedInstance.isCheckPower = NO;
+                    
+                    FBBluetoothOTA.sharedInstance.sendTimerOut = 30;
+                    
+                    [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binData withOTAType:FB_OTANotification_AGPS_Ephemeris withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
+                        if (error) {
+                            [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+                        }
+                        else if (status==FB_INDATATRANSMISSION) {
+                            [NSObject showProgress:progress.totalPackageProgress/100.0 status:[NSString stringWithFormat:@"%@ %ld%%", LWLocalizbleString(@"Synchronize"), progress.totalPackageProgress]];
+                        }
+                        else if (status==FB_DATATRANSMISSIONDONE) {
+                            [NSObject dismiss];
+                            NSString *message = [NSString stringWithFormat:@"%@", responseObject.mj_keyValues];
+                            [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Success") message:message cancel:nil sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
+                            }];
+                        }
                     }];
+                }
+                else
+                {
+                    [NSObject dismiss];
+                    [NSObject showHUDText:errorString];
                 }
             }];
         }

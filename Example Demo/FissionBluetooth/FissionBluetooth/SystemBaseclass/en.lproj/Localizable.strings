@@ -167,7 +167,7 @@
 "Request Device Logs" = "Request Device Logs";
 "Get/Set system function switch information" = "Get/Set system function switch information";
 "Push basic information of AGPS location (latitude and longitude UTC)" = "Push basic information of AGPS location (latitude and longitude UTC)";
-"Synchronize AGPS positioning data" = "Synchronize AGPS positioning data";
+"Push AGPS ephemeris data package" = "Push AGPS ephemeris data package";
 
 "Firmware OTA" = "Firmware OTA";
 "Dial Face OTA" = "Dial Face OTA";
@@ -273,6 +273,7 @@
 "Blood Oxygen" = "Blood Oxygen";
 "Blood Pressure" = "Blood Pressure";
 "Mental Stress" = "Mental Stress";
+"Women's Health" = "Women's Health";
 "Manual measurement records" = "Manual measurement records";
 "No More Data" = "No More Data🤔️";
 "Total Steps" = "Total Steps";

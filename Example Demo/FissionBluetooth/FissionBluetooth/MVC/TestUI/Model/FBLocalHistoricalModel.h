@@ -47,6 +47,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger sleepBegin;
 @property (nonatomic, copy) NSString *sleep;
 
+/// 最近一次女性健康记录｜Latest women's health records
+@property (nonatomic, assign) NSInteger womenHealthBegin;
+@property (nonatomic, copy) NSString *womenHealth;
+
 @end
 
 NS_ASSUME_NONNULL_END

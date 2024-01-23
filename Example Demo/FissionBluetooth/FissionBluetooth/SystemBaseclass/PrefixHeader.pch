@@ -41,6 +41,7 @@
 #define Color_Bp_s      COLOR_HEX(0xFFA07A, 0.4) // 血压—收缩压-高
 #define Color_Bp_d      COLOR_HEX(0x1E90FF, 0.4) // 血压-舒张压-低
 #define Color_Stre      COLOR_HEX(0x6495ED, 0.4) // 压力
+#define Color_Women_H   COLOR_HEX(0xFF0000, 0.4) // 女性健康
 #define Color_DeepS     COLOR_HEX(0x191970, 0.4) // 深睡
 #define Color_LightS    COLOR_HEX(0x6A5ACD, 0.4) // 浅睡
 #define Color_REMS      COLOR_HEX(0x8A2BE2, 0.4) // 眼动
@@ -346,6 +347,7 @@ typedef NS_ENUM(NSUInteger, FBTestUIDataType) {
     FBTestUIDataType_Sleep,         // 睡眠记录
     FBTestUIDataType_Sports,        // 运动记录
     FBTestUIDataType_ManualMeasure, // 手动测量记录
+    FBTestUIDataType_WomenHealth,   // 女性健康记录
 };
 
 typedef enum {
@@ -386,5 +388,6 @@ typedef enum {
 #import "FBAuthorityObject.h"
 #import "FBTestUIPhoneRingView.h"
 #import "FBLocationManager.h"
+#import "FBEphemerisManager.h"
 
 #endif /* PrefixHeader_pch */

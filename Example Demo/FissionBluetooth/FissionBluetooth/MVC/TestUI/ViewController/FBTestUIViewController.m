@@ -146,11 +146,19 @@ static NSString *FBTestUISportsRecordCellID = @"FBTestUISportsRecordCell";
         FBTestUIItemModel *item_7 = FBTestUIItemModel.new;
         item_7.dataType = FBTestUIDataType_Stress;
         item_7.title = LWLocalizbleString(@"Mental Stress");
-        item_7.icon = @"icons8-critical-thinking";
+        item_7.icon = @"icons8-mental-stress";
         item_7.gradientAColor = COLOR_HEX(0xFFFFFF, 0);
         item_7.gradientBColor = Color_Stre;
         [section_2 addObject:item_7];
     }
+    
+//    FBTestUIItemModel *item_8 = FBTestUIItemModel.new;
+//    item_8.dataType = FBTestUIDataType_WomenHealth;
+//    item_8.title = LWLocalizbleString(@"Women's Health");
+//    item_8.icon = @"icons8-women-health";
+//    item_8.gradientAColor = COLOR_HEX(0xFFFFFF, 0);
+//    item_8.gradientBColor = Color_Women_H;
+//    [section_2 addObject:item_8];
     
     self.items = @[section_1, section_2];
 }
@@ -366,6 +374,9 @@ static NSString *FBTestUISportsRecordCellID = @"FBTestUISportsRecordCell";
         }
         else if (itemModel.dataType == FBTestUIDataType_Sports) {
             queryBegin = self.historicalModel.sportsBegin;
+        }
+        else if (itemModel.dataType == FBTestUIDataType_WomenHealth) {
+            queryBegin = self.historicalModel.womenHealthBegin;
         }
         
         if (queryBegin <= 0) { // 为0 默认今天

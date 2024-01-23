@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -220,6 +220,7 @@
 		59B3DA1D2A78F7FF00218990 /* FBConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59B3DA1B2A78F7FF00218990 /* FBConnectViewController.m */; };
 		59B3DA1E2A78F7FF00218990 /* FBConnectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59B3DA1C2A78F7FF00218990 /* FBConnectViewController.xib */; };
 		59B51C4E2A49938A0020708C /* BAHNSCHRIFT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 59B51C4D2A49938A0020708C /* BAHNSCHRIFT.TTF */; };
+		59C1CADC2B314CC3000DF450 /* FBEphemerisManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C1CADB2B314CC3000DF450 /* FBEphemerisManager.m */; };
 		59C3A4802A24AB9600C95E19 /* FBTestUIBaseSportsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C3A47E2A24AB9600C95E19 /* FBTestUIBaseSportsCell.m */; };
 		59C444AC2A0CDA3400F236B0 /* RLMHeartRateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C444AB2A0CDA3400F236B0 /* RLMHeartRateModel.m */; };
 		59C444AF2A0CDBBB00F236B0 /* RLMBloodOxygenModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59C444AE2A0CDBBB00F236B0 /* RLMBloodOxygenModel.m */; };
@@ -313,7 +314,6 @@
 		59F84BAE269D3CF1001E4D65 /* 时分7.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84BA0269D3CF1001E4D65 /* 时分7.bmp */; };
 		59F84BAF269D3CF1001E4D65 /* 时分5.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84BA1269D3CF1001E4D65 /* 时分5.bmp */; };
 		59FA408E2A9D95C40035FD1E /* FBLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 59FA408D2A9D95C40035FD1E /* FBLocationManager.m */; };
-		59FA40902A9DFAA50035FD1E /* ELPO_GR3_1.DAT in Resources */ = {isa = PBXBuildFile; fileRef = 59FA408F2A9DFAA50035FD1E /* ELPO_GR3_1.DAT */; };
 		D97F5ABDB9669A8AA9FF900E /* Pods_FissionBluetoothTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F904E21A1EB542FFEDA725CF /* Pods_FissionBluetoothTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -728,6 +728,8 @@
 		59B3DA1C2A78F7FF00218990 /* FBConnectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FBConnectViewController.xib; sourceTree = "<group>"; };
 		59B51C4D2A49938A0020708C /* BAHNSCHRIFT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = BAHNSCHRIFT.TTF; sourceTree = "<group>"; };
 		59B66DB625A4376D0068B89A /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		59C1CADA2B314CC3000DF450 /* FBEphemerisManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBEphemerisManager.h; sourceTree = "<group>"; };
+		59C1CADB2B314CC3000DF450 /* FBEphemerisManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBEphemerisManager.m; sourceTree = "<group>"; };
 		59C3A47D2A24AB9600C95E19 /* FBTestUIBaseSportsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBTestUIBaseSportsCell.h; sourceTree = "<group>"; };
 		59C3A47E2A24AB9600C95E19 /* FBTestUIBaseSportsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBTestUIBaseSportsCell.m; sourceTree = "<group>"; };
 		59C444AA2A0CDA3400F236B0 /* RLMHeartRateModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RLMHeartRateModel.h; sourceTree = "<group>"; };
@@ -836,7 +838,6 @@
 		59F84BA1269D3CF1001E4D65 /* 时分5.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分5.bmp"; sourceTree = "<group>"; };
 		59FA408C2A9D95C40035FD1E /* FBLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBLocationManager.h; sourceTree = "<group>"; };
 		59FA408D2A9D95C40035FD1E /* FBLocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBLocationManager.m; sourceTree = "<group>"; };
-		59FA408F2A9DFAA50035FD1E /* ELPO_GR3_1.DAT */ = {isa = PBXFileReference; lastKnownFileType = file; path = ELPO_GR3_1.DAT; sourceTree = "<group>"; };
 		73C300FB567263FC20125FEE /* Pods-FissionBluetoothTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetoothTests.release.xcconfig"; path = "Target Support Files/Pods-FissionBluetoothTests/Pods-FissionBluetoothTests.release.xcconfig"; sourceTree = "<group>"; };
 		7CC02F02B45C16A32981171D /* Pods_FissionBluetooth_FissionBluetoothUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FissionBluetooth_FissionBluetoothUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A0D48047ACB40815F24D2A /* Pods-FissionBluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetooth.debug.xcconfig"; path = "Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1044,6 +1045,8 @@
 				592196CE2A1B514700A4BE45 /* XYButton.m */,
 				59FA408C2A9D95C40035FD1E /* FBLocationManager.h */,
 				59FA408D2A9D95C40035FD1E /* FBLocationManager.m */,
+				59C1CADA2B314CC3000DF450 /* FBEphemerisManager.h */,
+				59C1CADB2B314CC3000DF450 /* FBEphemerisManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1540,7 +1543,6 @@
 		59E7BE4E268C13C400B8001A /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				59FA408F2A9DFAA50035FD1E /* ELPO_GR3_1.DAT */,
 				592F5F112A05084E008C06D7 /* UI_TEST */,
 				59E7BE4F268C13C400B8001A /* Plate */,
 				59E7BE61268C13C400B8001A /* dial */,
@@ -1798,7 +1800,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				59FA40902A9DFAA50035FD1E /* ELPO_GR3_1.DAT in Resources */,
 				59F84BA5269D3CF1001E4D65 /* 时分2.bmp in Resources */,
 				59E7BFA82696893700B8001A /* 日期3.bmp in Resources */,
 				59E7BEA4268C7B8A00B8001A /* pic_custom360x360.png in Resources */,
@@ -2213,6 +2214,7 @@
 				592A9FF625A4173B00CC515E /* main.m in Sources */,
 				590419922A30A86E00BD3A0A /* FBCustomDialListModel.m in Sources */,
 				59400A952A08DF6C00C93683 /* FBLoadDataObject.m in Sources */,
+				59C1CADC2B314CC3000DF450 /* FBEphemerisManager.m in Sources */,
 				5941D76D2AE3B9C7004F17A6 /* WXSTransitionManager+PageAnimation.m in Sources */,
 				5921977C2A1B514800A4BE45 /* ClockInforViewController.m in Sources */,
 				592197562A1B514800A4BE45 /* LWMotionPushClassifyModel.m in Sources */,
@@ -2421,7 +2423,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20231201001;
+				CURRENT_PROJECT_VERSION = 20201231001;
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = PL4B74TGHZ;
 				ENABLE_BITCODE = NO;
@@ -2457,7 +2459,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 20231201001;
+				CURRENT_PROJECT_VERSION = 20201231001;
 				DEFINES_MODULE = NO;
 				DEVELOPMENT_TEAM = PL4B74TGHZ;
 				ENABLE_BITCODE = NO;

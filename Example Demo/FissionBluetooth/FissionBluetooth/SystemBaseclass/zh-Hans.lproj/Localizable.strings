@@ -167,7 +167,7 @@
 "Request Device Logs" = "请求设备日志";
 "Get/Set system function switch information" = "获取/设置 系统功能开关信息";
 "Push basic information of AGPS location (latitude and longitude UTC)" = "推送AGPS位置基础信息(经纬度UTC)";
-"Synchronize AGPS positioning data" = "同步AGPS定位数据";
+"Push AGPS ephemeris data package" = "推送AGPS星历数据包";
 
 "Firmware OTA" = "固件OTA";
 "Dial Face OTA" = "表盘OTA";
@@ -273,6 +273,7 @@
 "Blood Oxygen" = "血氧";
 "Blood Pressure" = "血压";
 "Mental Stress" = "精神压力";
+"Women's Health" = "女性健康";
 "Manual measurement records" = "手动测量记录";
 "No More Data" = "我是有底线的🤔️";
 "Total Steps" = "总步数";
