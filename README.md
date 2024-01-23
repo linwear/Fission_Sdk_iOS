@@ -3,7 +3,7 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Release-3.2.0 -Green.svg">
+    <img src="https://img.shields.io/badge/Release-3.2.1 -Green.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/Support-iOS10+ -blue.svg">
@@ -142,6 +142,15 @@ Privacy - Bluetooth Always Usage Description
 | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
 
+     project    2024-01-22  Version:3.2.1 Build:20240122001
+                            1.新增生成AGPS星历bin文件数据（FBCustomDataTools）fbGenerateAGPSEphemerisBinFileDataWithModel:
+                            2.适配兼容新协议版本的数据格式解析
+                            3.FBFirmwareVersionObject 新增标志位:
+                              芯片厂商类型 (瑞昱、海思)
+                            4.不同芯片类型使用不同的OTA方法 (SDK内部已做区分，FBBluetoothOTA传入对应的otaType即可)
+                            5.qz压缩算法增加crc校验和，以及其他优化
+                            6.优化已知问题
+                            
      project    2023-12-15  Version:3.2.0 Build:20231215001
                             1.定位记录详情增加 公/英里 里程点
                             2.修改翻译
