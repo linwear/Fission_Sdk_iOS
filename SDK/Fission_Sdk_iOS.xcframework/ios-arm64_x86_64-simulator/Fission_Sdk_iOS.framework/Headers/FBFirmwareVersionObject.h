@@ -25,6 +25,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger structVersion;
 
 /**
+ 芯片厂商｜Chip manufacturer
+ */
+@property (nonatomic, assign) FB_CHIPMANUFACTURERTYPE chipManufacturer;
+
+/**
  硬件标志 | Hardware logo
 */
 @property (nonatomic, copy) NSString *hardwareIdentifier;

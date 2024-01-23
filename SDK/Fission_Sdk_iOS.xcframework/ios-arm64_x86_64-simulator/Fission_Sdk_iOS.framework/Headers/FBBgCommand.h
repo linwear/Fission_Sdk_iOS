@@ -431,6 +431,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param fileData            自定义表盘bin文件｜Custom dial bin file
  
  @note 内部使用，建议使用FBBluetoothOTA类方法，传入对应OTA类型 FB_OTANotification_CustomClockDial 即可｜For internal use, it is recommended to use the FBBluetoothOTA class method and pass in the corresponding OTA type FB_OTANotification_CustomClockDial
+ 
  @see fbStartCheckingOTAWithBinFileData:withOTAType:withBlock:
 */
 - (void)fbSynchronizeTheCustomDialData:(NSData * _Nonnull)fileData withBlock:(FBSetOtaUpgradeManagerBlock _Nonnull)fbBlock API_DEPRECATED("For internal use, it is recommended to use (FBBluetoothOTA) fbStartCheckingOTAWithBinFileData: withOTAType: withBlock: instead", macos(2.0, 2.0), ios(2.0, 2.0), tvos(2.0, 2.0), watchos(2.0, 2.0));
@@ -442,6 +443,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param fileData            在线表盘bin文件｜Online dial bin file
  
  @note 内部使用，建议使用FBBluetoothOTA类方法，传入对应OTA类型 FB_OTANotification_ClockDial 即可｜For internal use, it is recommended to use the FBBluetoothOTA class method and pass in the corresponding OTA type FB_OTANotification_ClockDial
+ 
  @see fbStartCheckingOTAWithBinFileData:withOTAType:withBlock:
 */
 - (void)fbSynchronousOnlineDialData:(NSData * _Nonnull)fileData withBlock:(FBSetOtaUpgradeManagerBlock _Nonnull)fbBlock API_DEPRECATED("For internal use, it is recommended to use (FBBluetoothOTA) fbStartCheckingOTAWithBinFileData: withOTAType: withBlock: instead", macos(2.0, 2.0), ios(2.0, 2.0), tvos(2.0, 2.0), watchos(2.0, 2.0));
@@ -453,6 +455,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param fileData            自定义运动bin文件｜Custom motion bin file
  
  @note 内部使用，建议使用FBBluetoothOTA类方法，传入对应OTA类型 FB_OTANotification_Motion 即可｜For internal use, it is recommended to use the FBBluetoothOTA class method and pass in the corresponding OTA type FB_OTANotification_Motion
+ 
  @see fbStartCheckingOTAWithBinFileData:withOTAType:withBlock:
 */
 - (void)fbPushCustomMotionCategoryData:(NSData * _Nonnull)fileData withBlock:(FBSetOtaUpgradeManagerBlock _Nonnull)fbBlock API_DEPRECATED("For internal use, it is recommended to use (FBBluetoothOTA) fbStartCheckingOTAWithBinFileData: withOTAType: withBlock: instead", macos(2.0, 2.0), ios(2.0, 2.0), tvos(2.0, 2.0), watchos(2.0, 2.0));
@@ -465,6 +468,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param OTAType              OTA类型，支持 FB_OTANotification_Multi_Sport 或 FB_OTANotification_Multi_Sport_Built_in｜OTA type, support FB_OTANotification_Multi_Sport or FB_OTANotification_Multi_Sport_Built_in
  
  @note 内部使用，建议使用FBBluetoothOTA类方法，传入对应OTA类型 FB_OTANotification_Multi_Sport 即可｜For internal use, it is recommended to use the FBBluetoothOTA class method and pass in the corresponding OTA type FB_OTANotification_Multi_Sport
+ 
  @see fbStartCheckingOTAWithBinFileData:withOTAType:withBlock:
 */
 - (void)fbPushCustomMultipleMotionCategoryData:(NSData * _Nonnull)fileData withOTAType:(FB_OTANOTIFICATION)OTAType withBlock:(FBSetOtaUpgradeManagerBlock _Nonnull)fbBlock API_DEPRECATED("For internal use, it is recommended to use (FBBluetoothOTA) fbStartCheckingOTAWithBinFileData: withOTAType: withBlock: instead", macos(2.0, 2.0), ios(2.0, 2.0), tvos(2.0, 2.0), watchos(2.0, 2.0));
@@ -533,12 +537,29 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)fbPushAGPSLocationInformation:(FBAGPSLocationModel * _Nonnull)locationModel withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
 
-#pragma mark - 同步AGPS定位数据｜Synchronize AGPS positioning data
+#pragma mark - 同步AGPS星历数据，星历数据可用 FBCustomDataTools 工具合并生成｜Synchronize AGPS ephemeris data, ephemeris data can be merged and generated using the FBCustomDataTools tool
 /**
- 同步AGPS定位数据｜Synchronize AGPS positioning data
- @param fileData            AGPS定位数据文件｜AGPS positioning data file
+ 同步AGPS星历数据，星历数据可用 FBCustomDataTools 工具合并生成｜Synchronize AGPS ephemeris data, ephemeris data can be merged and generated using the FBCustomDataTools tool
+ @param fileData            AGPS星历数据bin文件｜AGPS ephemeris data bin file
+ 
+ @note 内部使用，建议使用FBBluetoothOTA类方法，传入对应OTA类型 FB_OTANotification_AGPS_Ephemeris 即可｜For internal use, it is recommended to use the FBBluetoothOTA class method and pass in the corresponding OTA type FB_OTANotification_AGPS_Ephemeris
+ 
+ @see fbStartCheckingOTAWithBinFileData:withOTAType:withBlock:
 */
-- (void)fbSynchronizeAGPSPositioningData:(NSData * _Nonnull)fileData withBlock:(FBSetOtaUpgradeManagerBlock _Nonnull)fbBlock API_DEPRECATED("For internal use, it is recommended to use (FBBluetoothOTA) fbStartCheckingOTAWithBinFileData: withOTAType: withBlock: instead", macos(2.0, 2.0), ios(2.0, 2.0), tvos(2.0, 2.0), watchos(2.0, 2.0));
+- (void)fbSynchronizeAGPSEphemerisData:(NSData * _Nonnull)fileData withBlock:(FBSetOtaUpgradeManagerBlock _Nonnull)fbBlock API_DEPRECATED("For internal use, it is recommended to use (FBBluetoothOTA) fbStartCheckingOTAWithBinFileData: withOTAType: withBlock: instead", macos(2.0, 2.0), ios(2.0, 2.0), tvos(2.0, 2.0), watchos(2.0, 2.0));
+
+
+#pragma mark - 分包压缩发送文件到设备｜Subpackage and compress files to send to device
+/**
+ 分包压缩发送文件到设备｜Subpackage and compress files to send to device
+ @param fileData            将要分包压缩的文件｜Files to be subpackaged and compressed
+ @param otaType              OTA类型｜OTA type
+ 
+ @note 内部使用，建议使用FBBluetoothOTA类方法，传入将要分包压缩的文件数据类型对应OTA类型即可｜For internal use, it is recommended to use the FBBluetoothOTA class method and pass in the file data type to be subpackaged and compressed corresponding to the OTA type
+ 
+ @see fbStartCheckingOTAWithBinFileData:withOTAType:withBlock:
+*/
+- (void)fbSynchronousSubpackageCompressData:(NSData * _Nonnull)fileData withOtaType:(FB_OTANOTIFICATION)otaType withBlock:(FBSetOtaUpgradeManagerBlock _Nonnull)fbBlock API_DEPRECATED("For internal use, it is recommended to use (FBBluetoothOTA) fbStartCheckingOTAWithBinFileData: withOTAType: withBlock: instead", macos(2.0, 2.0), ios(2.0, 2.0), tvos(2.0, 2.0), watchos(2.0, 2.0));
 
 
 @end

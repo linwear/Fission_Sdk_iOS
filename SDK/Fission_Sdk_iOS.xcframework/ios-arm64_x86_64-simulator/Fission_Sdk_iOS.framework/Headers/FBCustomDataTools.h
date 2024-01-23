@@ -46,6 +46,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSData *)fbGenerateCustomMultipleMotionBinFileDataWithItems:(NSArray <NSData *> * _Nonnull)items isBuilt_in:(FB_OTANOTIFICATION)isBuilt_in;
 
 
+/**
+ 生成AGPS星历bin文件数据（多个星历Bin文件合并成一个Bin文件） | Generate AGPS ephemeris bin file data (merge multiple ephemeris Bin files into one Bin file)
+ @param ephemerisModel                             AGPS星历bin文件参数模型｜AGPS ephemeris bin file parameter model
+*/
+- (NSData *)fbGenerateAGPSEphemerisBinFileDataWithModel:(FBAGPSEphemerisModel* _Nonnull)ephemerisModel;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

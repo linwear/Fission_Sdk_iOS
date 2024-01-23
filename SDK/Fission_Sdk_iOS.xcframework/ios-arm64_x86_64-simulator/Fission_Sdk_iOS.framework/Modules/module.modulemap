@@ -1,6 +1,6 @@
 framework module Fission_Sdk_iOS {
   umbrella header "Fission_Sdk_iOS.h"
-
   export *
+
   module * { export * }
 }

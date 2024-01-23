@@ -1549,6 +1549,10 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>Headers/FBAGPSEphemerisModel.h</key>
+		<data>
+		0T5td2U/OmT2b+FWZaXKUCODEVo=
+		</data>
 		<key>Headers/FBAGPSLocationModel.h</key>
 		<data>
 		jjXgJA8k/w/U/LXn2IK9ZXkKg2w=
@@ -1563,7 +1567,7 @@
 		</data>
 		<key>Headers/FBAtCommand.h</key>
 		<data>
-		W6Nwy7HcYHwM39WTRFoTuTBLRDg=
+		0AAMaJDo0cvpy0oaCfUAN7GXBrs=
 		</data>
 		<key>Headers/FBBatteryInfoModel.h</key>
 		<data>
@@ -1571,7 +1575,7 @@
 		</data>
 		<key>Headers/FBBgCommand.h</key>
 		<data>
-		GMVrTh+jnm2/MODomV/PFSYffHo=
+		1MJ3/BguKwYGQZNHCu3HfRdK/zs=
 		</data>
 		<key>Headers/FBBluetoothManager.h</key>
 		<data>
@@ -1591,7 +1595,7 @@
 		</data>
 		<key>Headers/FBCustomDataTools.h</key>
 		<data>
-		8yOQHXSaBIFRKA5EJVsBHZoi86A=
+		PYgVUGvQzJVt15817AidSGta4/8=
 		</data>
 		<key>Headers/FBCustomDialModel.h</key>
 		<data>
@@ -1607,7 +1611,7 @@
 		</data>
 		<key>Headers/FBDeviceInfoModel.h</key>
 		<data>
-		W0qq15K/Mn1uT3vDDKaauJ2uquk=
+		6SBguICfZvt+rJ5Y6zftVM8gDD0=
 		</data>
 		<key>Headers/FBDeviceVersionModel.h</key>
 		<data>
@@ -1623,7 +1627,7 @@
 		</data>
 		<key>Headers/FBFirmwareVersionObject.h</key>
 		<data>
-		nMIxjVEbWiiZxzCLz/qPkKa901U=
+		dF4LQiKtKvdCC0n1TfjJieMYdXM=
 		</data>
 		<key>Headers/FBGPSMotionActionModel.h</key>
 		<data>
@@ -1651,7 +1655,7 @@
 		</data>
 		<key>Headers/FBMacro.h</key>
 		<data>
-		yGxZ7PczHa+rL7wo1CchGKJFTlI=
+		RldcTh51FLZVS4yNwdUT4/iN9qA=
 		</data>
 		<key>Headers/FBManualMeasureDataModel.h</key>
 		<data>
@@ -1763,15 +1767,15 @@
 		</data>
 		<key>Headers/Fission_Sdk_iOS.h</key>
 		<data>
-		b6/J1xFIUaT5Iwtk609V2RDaf5o=
+		Lm9gsI/zuQxwR8Vu+wAw3+jRhK8=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		egC5RAnZ91sDrvRi27ujb/X3Y9E=
+		C9f5yCD+nT5xVF6JBXml/80YL+I=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		EW2lNtghREbQD6eXPHx7JnDlMa8=
+		6Tqq6kUZdugWNnTMQD9MQh1mCsU=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -5637,6 +5641,17 @@
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>Headers/FBAGPSEphemerisModel.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			0T5td2U/OmT2b+FWZaXKUCODEVo=
+			</data>
+			<key>hash2</key>
+			<data>
+			IZcHB3G9LsAvadqsVHfdDQnVsnMlbg6dq27EFY61GcY=
+			</data>
+		</dict>
 		<key>Headers/FBAGPSLocationModel.h</key>
 		<dict>
 			<key>hash</key>
@@ -5674,11 +5689,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			W6Nwy7HcYHwM39WTRFoTuTBLRDg=
+			0AAMaJDo0cvpy0oaCfUAN7GXBrs=
 			</data>
 			<key>hash2</key>
 			<data>
-			LRVPdSa7f5VwojxxOjYCb22aLUVjBH1GXq6YFPL6ZQQ=
+			j/LBC2yTOD4AMJ+1omibshFgSumZ7T2lz7vfnWwUsbA=
 			</data>
 		</dict>
 		<key>Headers/FBBatteryInfoModel.h</key>
@@ -5696,11 +5711,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			GMVrTh+jnm2/MODomV/PFSYffHo=
+			1MJ3/BguKwYGQZNHCu3HfRdK/zs=
 			</data>
 			<key>hash2</key>
 			<data>
-			f4j2+Xx8CvQuXXpFGx/6TEf3UZCqnWnC0U7tTp72Rqw=
+			SgB5w2LgaGgwk2DIg2MKCR/3qX+cfrlYF+4MDIGI+GQ=
 			</data>
 		</dict>
 		<key>Headers/FBBluetoothManager.h</key>
@@ -5751,11 +5766,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			8yOQHXSaBIFRKA5EJVsBHZoi86A=
+			PYgVUGvQzJVt15817AidSGta4/8=
 			</data>
 			<key>hash2</key>
 			<data>
-			K82J0gfWHdaAoQLmppdb/6nqB4jYqM00kr73uy+Eg9g=
+			QNi4iHAkGY2MAb/dfxvlYhB1omc6tXLDHlvlrTuEW4U=
 			</data>
 		</dict>
 		<key>Headers/FBCustomDialModel.h</key>
@@ -5795,11 +5810,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			W0qq15K/Mn1uT3vDDKaauJ2uquk=
+			6SBguICfZvt+rJ5Y6zftVM8gDD0=
 			</data>
 			<key>hash2</key>
 			<data>
-			7hl26FPso8+te3JQMfqcWJe3U4Ofw+HWw8iQ2lo+vr4=
+			mzrqLWGdWyZRk+pqN6IaesNv/F4Yi1/9eBuc3ofj1T4=
 			</data>
 		</dict>
 		<key>Headers/FBDeviceVersionModel.h</key>
@@ -5839,11 +5854,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			nMIxjVEbWiiZxzCLz/qPkKa901U=
+			dF4LQiKtKvdCC0n1TfjJieMYdXM=
 			</data>
 			<key>hash2</key>
 			<data>
-			FnjX8vP2/HUdum0STGUDcqZ+TF9b484na0QnUtaaGxA=
+			xwE7SQmD3aBamkmuEgLb+6dE4SbA/uQk3jPQW3r8GoA=
 			</data>
 		</dict>
 		<key>Headers/FBGPSMotionActionModel.h</key>
@@ -5916,11 +5931,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			yGxZ7PczHa+rL7wo1CchGKJFTlI=
+			RldcTh51FLZVS4yNwdUT4/iN9qA=
 			</data>
 			<key>hash2</key>
 			<data>
-			q+UPqBmkaE3vMa+rW0cVTOjR4ZUq9nusZYktMp9tn4w=
+			IXFLf6K81kBSiDo3AdA4IJOOkss+LCnx+OsQhzhX7TY=
 			</data>
 		</dict>
 		<key>Headers/FBManualMeasureDataModel.h</key>
@@ -6224,22 +6239,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			b6/J1xFIUaT5Iwtk609V2RDaf5o=
+			Lm9gsI/zuQxwR8Vu+wAw3+jRhK8=
 			</data>
 			<key>hash2</key>
 			<data>
-			KgF3xv5vYBMck1gee8POkvc1+mcrmOMEaXQSKCRv8JE=
+			nMGIQXacXKwXguqgWvglHHaPIfUYAImxIVM5CwUXvDU=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			EW2lNtghREbQD6eXPHx7JnDlMa8=
+			6Tqq6kUZdugWNnTMQD9MQh1mCsU=
 			</data>
 			<key>hash2</key>
 			<data>
-			j7FDhzVjHSEilfXM4GMMRzDs6ydn9lWmi1lshyOcLbA=
+			dywqy8D2M6fayU0+xLUqMexSHoB+G23D767mY57YRnM=
 			</data>
 		</dict>
 	</dict>

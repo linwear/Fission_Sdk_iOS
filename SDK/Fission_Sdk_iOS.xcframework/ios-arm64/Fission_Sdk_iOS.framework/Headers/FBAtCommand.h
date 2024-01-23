@@ -409,8 +409,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 解绑设备请求｜Unbind device request
 /**
  解绑设备请求｜Unbind device request
+ @param macAddress            手表Mac地址，可不传，为nil时SDK内部处理，建议传nil｜The Mac address of the watch can not be passed. If it is nil, it will be processed internally by the SDK. It is recommended to pass nil
 */
-- (void)fbUnbindDeviceRequestWithBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+- (void)fbUnbindDeviceRequest:(NSString * _Nullable)macAddress withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
 
 #pragma mark - 获取当天静息心率｜Get the resting heart rate of the day

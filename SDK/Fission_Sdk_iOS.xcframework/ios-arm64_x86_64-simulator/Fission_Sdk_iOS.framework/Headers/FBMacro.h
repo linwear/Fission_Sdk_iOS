@@ -485,7 +485,7 @@ typedef NS_ENUM (NSInteger, FB_OTANOTIFICATION) {
     FB_OTANotification_DynamicClockDial         = 10,   //+n，升级动态表盘n｜+n. Upgrade dynamic dial n
     FB_OTANotification_CustomClockDial          = 20,   //+n，升级自定义表盘n｜+n. Upgrade custom dial n
     
-    FB_OTANotification_AGPS_Package             = 30,   //推送AGPS定位数据包｜Push AGPS positioning data package
+    FB_OTANotification_AGPS_Ephemeris           = 30,   //推送AGPS星历数据包｜Push AGPS ephemeris data package
     
     FB_OTANotification_Multi_Dial_Built_in      = 200,  //厂线推送内置表盘压缩数据包｜The factory line pushes the built-in dial compressed data package
     FB_OTANotification_Multi_Sport_Built_in     = 201,  //厂线推送内置多运动类型压缩数据包｜The factory line pushes the built-in multi-sport type compressed data package
@@ -563,7 +563,7 @@ typedef NS_ENUM (NSInteger, EM_FUNC_SWITCH) {
     FS_TIMING_BP_WARN          = 33, //定时血压检测开关状态，0关1开｜Timing blood pressure detection switch status, 0 off 1 on
     FS_DEVICE_EXCEPTION_WARN   = 34, //设备异常信息读取请求｜Device exception information read request
     FS_AGPS_LOCATION_REQUEST   = 35, //AGPS位置基础信息(经纬度UTC)请求｜AGPS location basic information (longitude and latitude UTC) request
-    FS_AGPS_DATA_REQUEST       = 36, //AGPS定位数据请求｜AGPS positioning data request
+    FS_AGPS_Ephemeris_REQUEST  = 36, //AGPS星历数据请求｜AGPS ephemeris data request
     
     FS_OTHER_EXPAND            = 255  //更多功能待拓展｜More functions to be expanded
 };
@@ -677,6 +677,16 @@ typedef NS_ENUM (NSInteger, FB_CUSTOMSETTINGSWITCHTYPE) {
     FB_SWITCH_TestMode          = 1<<7,         //进入测试模式开关｜Enter test mode switch
     FB_SWITCH_WristScreen       = 1<<8,         //抬腕亮屏开关｜Wrist up screen switch
     FB_SWITCH_ALL               = 0xFFFFFFFF,   //所有｜All
+};
+
+#pragma mark - 芯片厂商｜Chip manufacturer
+/*
+ * 芯片厂商｜Chip manufacturer
+ */
+typedef NS_ENUM (NSInteger, FB_CHIPMANUFACTURERTYPE) {
+    FB_CHIPMANUFACTURERTYPE_RTK     = 0,        //瑞昱｜Realtek
+    FB_CHIPMANUFACTURERTYPE_HISI    = 1,        //海思｜HiSilicon
+    // 更多... 待拓展｜More... To be expanded
 };
 
 #endif /* FBMacro_h */
