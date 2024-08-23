@@ -30,6 +30,10 @@
                               是否支持JS应用
                               支持常用联系人设置的个数
                               支持紧急联系人设置的个数
+                              是否支持今日天气显示城市名称
+                              是否支持JS应用
+                              是否支持多媒体空间
+                              是否支持视频表盘
                             5.新增"获取未使用的 日程信息 ID"协议（FBAtCommand）fbGetUnusedScheduleIDWithBlock:
                             6.新增"获取日程信息"协议（FBBgCommand）fbGetScheduleInforWithBlock:
                             7.新增"设置日程信息"协议（FBBgCommand）fbSetSchedulenforWithScheduleModel:withRemoved:withBlock:
@@ -38,7 +42,7 @@
                             10.优化运动记录数据排序问题
                             11.优化海思芯片OTA方案
                             12.新增"OTA文件增加文件信息"（FBCustomDataTools）createFileName:withFileData:withOTAType:方法，当前此方法仅用于海思芯片方案
-                            13.自定义表盘兼容海思芯片方案（FBCustomDataTools）fbGenerateCustomDialBinFileDataWithDialModel:
+                            13.自定义表盘兼容海思芯片方案，支持自定义视频表盘（FBCustomDataTools）fbGenerateCustomDialBinFileDataWithDialModel:
                             14.支持百度相关: 语音识别、文字翻译、文心一言、文字生成语音、百度导航（文字导航）。详见 FBBaiduCloudKit 类
                             15.支持系统麦克风的调用封装。详见 FBAudioRecorder 类。注意需要在 Info.plist 中添加 NSMicrophoneUsageDescription 权限
                             16.新增"获取系统空间使用信息"协议（FBBgCommand）fbGetSystemSpaceUsageInforWithBlock:
