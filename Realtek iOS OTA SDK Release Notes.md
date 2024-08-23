@@ -2,6 +2,46 @@
 
 This is in reverse chronological order, so newer entries are added to the top.
 
+## v1.10.0
+
+### Fixed
+
+- The logic for determining whether normal OTA is supported
+- Wrong image header offset of 8773E
+- Missing bootpatch image of 8773E when recognizing applicable images
+
+
+## v1.9.0
+
+### Added
+
+- Support ATT over BREDR
+
+### Updated
+
+- Send cmd to get battery info when connected to the device (flow update)
+- Add iAP related sample code
+
+### Fixed
+
+- `upgradeInProgress` is not updated after device information fails to be obtained
+
+
+## v1.8.0
+
+### Added
+
+- Support user data sing-file upgrade 
+
+### Updated
+
+- Optimize the mechanism for recognizing RTKOTAImageType
+
+### Fixed
+
+- The patch images version comparison issue
+
+
 ## v1.7.0
 
 ### Fixed
