@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name                     = "Fission_Sdk_iOS"
-  spec.version                  = "3.2.1"
+  spec.version                  = "3.2.2"
   spec.summary                  = "Fission智能手表SDK for iOS"
   spec.description              = <<-DESC
                                   Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装｜Framework Function: iOS framework for Fission smart watch, which is responsible for the communication with the watch.
@@ -10,14 +10,14 @@ Pod::Spec.new do |spec|
   spec.license                  = 'MIT'
   spec.author                   = { "WSR" => "921903719@qq.com" }
   spec.social_media_url         = 'https://www.linwear.com'
-  spec.platform                 = :ios, '10.0'
+  spec.platform                 = :ios, '12.1'
   spec.source                   = { :git => "https://github.com/linwear/Fission_Sdk_iOS.git", :tag => spec.version.to_s }
   spec.documentation_url        = 'https://github.com/linwear/Fission_Sdk_iOS/blob/main/README.md'
   spec.requires_arc             = true
   spec.frameworks               = 'Foundation', 'CoreBluetooth'
-  spec.vendored_frameworks      = 'SDK/Fission_Sdk_iOS.xcframework'
+  spec.vendored_frameworks      = 'SDK/Fission_Sdk_iOS.framework'
 
-  public_header_files           = 'SDK/Fission_Sdk_iOS.xcframework/ios-arm64/Fission_Sdk_iOS.framework/Headers/*.{h,m}'
+  public_header_files           = 'SDK/Fission_Sdk_iOS.framework/Headers/*.{h,m}'
 
   spec.subspec 'Headers' do |spec|
     spec.source_files           = public_header_files
@@ -25,11 +25,27 @@ Pod::Spec.new do |spec|
   end
 
   spec.subspec 'RTKOTASDK' do |rtkota|
-    rtkota.vendored_frameworks  = 'SDK/RTKOTASDK.xcframework'
+    rtkota.vendored_frameworks        = 'SDK/RTKOTASDK.framework'
   end
 
   spec.subspec 'RTKLEFoundation' do |rtkle|
-    rtkle.vendored_frameworks   = 'SDK/RTKLEFoundation.xcframework'
+    rtkle.vendored_frameworks         = 'SDK/RTKLEFoundation.framework'
+  end
+
+  spec.subspec 'SCompressLib' do |scompress|
+    scompress.vendored_frameworks     = 'SDK/SCompressLib.framework'
+  end
+
+  spec.subspec 'MagicTool' do |magic|
+    magic.vendored_frameworks         = 'SDK/MagicTool.framework'
+  end
+
+  spec.subspec 'Starscream' do |starscream|
+    starscream.vendored_frameworks    = 'SDK/Starscream.framework'
+  end
+
+  spec.subspec 'FFmpegKit' do |ffmpeg|
+    ffmpeg.dependency                   'ffmpeg-kit-ios-full', '~> 6.0' #处理视频(最低系统版本要求 12.1)
   end
 
   spec.pod_target_xcconfig      = { 
