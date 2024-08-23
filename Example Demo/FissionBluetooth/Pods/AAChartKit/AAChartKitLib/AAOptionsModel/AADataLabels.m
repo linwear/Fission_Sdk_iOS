@@ -33,6 +33,16 @@
 #import "AADataLabels.h"
 #import "NSString+toPureJSString.h"
 
+AAChartDataLabelsShapeType const AAChartDataLabelsShapeTypeSquare   = @"square";
+AAChartDataLabelsShapeType const AAChartDataLabelsShapeTypeCallout  = @"callout";
+AAChartDataLabelsShapeType const AAChartDataLabelsShapeTypeCircle   = @"circle";
+AAChartDataLabelsShapeType const AAChartDataLabelsShapeTypeDiamond  = @"diamond";
+AAChartDataLabelsShapeType const AAChartDataLabelsShapeTypeTriangle = @"triangle";
+
+AAChartDataLabelsOverflowType const AAChartDataLabelsOverflowTypeNone    = @"none";
+AAChartDataLabelsOverflowType const AAChartDataLabelsOverflowTypeAllow   = @"allow";
+AAChartDataLabelsOverflowType const AAChartDataLabelsOverflowTypeJustify = @"justify";
+
 @implementation AADataLabels
 
 - (instancetype)init {
@@ -61,10 +71,10 @@ AAPropSetFuncImplementation(AADataLabels, NSString *, backgroundColor)
 AAPropSetFuncImplementation(AADataLabels, NSString *, borderColor)
 AAPropSetFuncImplementation(AADataLabels, NSNumber *, borderRadius)
 AAPropSetFuncImplementation(AADataLabels, NSNumber *, borderWidth)
-AAPropSetFuncImplementation(AADataLabels, NSString *, shape)
+AAPropSetFuncImplementation(AADataLabels, AAChartDataLabelsShapeType, shape)
 AAPropSetFuncImplementation(AADataLabels, BOOL      , crop)
 AAPropSetFuncImplementation(AADataLabels, BOOL      , inside)
-AAPropSetFuncImplementation(AADataLabels, NSString *, overflow)
+AAPropSetFuncImplementation(AADataLabels, AAChartDataLabelsOverflowType, overflow)
 AAPropSetFuncImplementation(AADataLabels, BOOL      , softConnector)//Whether to render the connector as a soft arc or a line with sharp break. Only useful for pie, pyramid and funnel chart
 AAPropSetFuncImplementation(AADataLabels, NSDictionary *, textPath)
 AAPropSetFuncImplementation(AADataLabels, NSDictionary *, filter);
