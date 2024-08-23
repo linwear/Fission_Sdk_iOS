@@ -42,7 +42,7 @@ target 'FissionBluetooth' do
   pod 'CHIPageControl/Fresno'
   pod 'ZLCollectionViewFlowLayout'
   pod 'AAChartKit', :git => 'https://github.com/AAChartModel/AAChartKit.git'
-#  pod 'Realm'
+  pod 'Realm'
   pod 'FSCalendar'
   pod 'UICountingLabel'
   pod 'JJException'
