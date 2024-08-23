@@ -1,0 +1,113 @@
+/* 
+  Localizable.strings
+  Fission_Sdk_iOS
+
+  Created by 裂变智能 on 2022/6/24.
+  
+*/
+
+//****************************** 🇷🇴罗马尼亚 ******************************
+
+/**
+ FBAtCommand
+ */
+"蓝牙未打开或不支持" = "Bluetooth nu este activat sau nu este acceptat";
+"尚未连接到设备" = "Nu este conectat la dispozitiv";
+"设备尚未初始化完成" = "Dispozitivul nu a fost inițializat";
+"写指令失败，或缺少连接参数" = "Instrucțiunea de scriere a eșuat sau parametrii de conexiune lipsesc";
+"应答超时" = "Perioadă de răspuns";
+"AT指令异常，无效指令/无效参数" = "La excepția instrucțiunii, instrucțiune nevalidă / parametru nevalid";
+"参数错误，UTC时间设置不能为0" = "Eroare parametru, setarea UTC ora nu poate fi 0";
+"参数错误，时区设置需大于等于-1440，小于等于+1440" = "Eroare de parametru, setarea fusului orar trebuie să fie mai mare sau egală cu -1440 și mai mică sau egală cu +1440";
+"数据长度错误" = "Eroare de lungime a datelor";
+"设备初始化失败，初始化超时" = "Inițializarea dispozitivului a eșuat, inițializarea a fost expirată";
+"数据写入失败" = "Scrierea datelor a eșuat";
+
+"执行失败，低压无法执行" = "Execuția a eșuat, tensiunea joasă nu poate fi executată";
+"指令状态错误" = "Eroare de stare a comenzii";
+"常规运动中，请先停止当前运动" = "În mișcare normală, vă rugăm să opriți mișcarea curentă mai întâi";
+"正在通话中，无法执行此指令" = "Această comandă nu poate fi executată în timp ce un apel este în curs de desfășurare";
+"手表取消开启运动" = "Privește anularea mișcării deschise";
+"本地无此运动信息" = "Nu există informații sportive locale";
+"当前设备不支持此功能" = "Dispozitivul actual nu acceptă această caracteristică";
+
+/**
+ FBBgCommand
+ */
+"参数错误，开始查询时间不能大于结束查询时间" = "Eroare parametru, timpul interogării de pornire nu poate fi mai mare decât timpul interogării de sfârșit";
+
+"参数错误，用户Id设置需大于0，小于0xFFFFFFFF（4294967295）" = "Eroare de parametru, setarea ID-ului utilizator trebuie să fie mai mare de 0 și mai mică de 0xFFFFFF (4294967295)";
+"参数错误，用户昵称设置长度需小于32字节" = "Eroare parametrică, lungimea setarii poreclei utilizatorului ar trebui să fie mai mică de 32 octeți";
+"参数错误，用户身高设置需大于100cm，小于250cm" = "Eroare de parametru, setarea înălțimii utilizatorului ar trebui să fie mai mare de 100cm și mai mică de 250cm";
+"参数错误，用户体重设置需大于30kg，小于250kg" = "Eroare de parametru, setarea greutății utilizatorului ar trebui să fie mai mare de 30kg și mai mică de 250kg";
+"参数错误，用户年龄设置需大于5岁，小于130岁" = "Eroare de parametru, vârsta utilizatorului trebuie setată să fie mai mare de 5 ani și mai mică de 130 de ani";
+"参数错误，用户步幅设置需大于40，小于90" = "Eroare parametrică, setarea pasului utilizatorului ar trebui să fie mai mare de 40 și mai mică de 90";
+
+"参数错误，序号ID设置需大于等于0，小于等于%d" = "Eroare parametrică, setarea ID S / N trebuie să fie mai mare sau egală cu 0 și mai mică sau egală cu %d";
+"参数错误，描述内容设置长度需小于24字节" = "Eroare parametrică, lungimea setarii conținutului descrierii ar trebui să fie mai mică de 24 octeți";
+"参数错误，日期时间设置不能为空，格式：YYYY-MM-dd HH:mm" = "Eroare de parametru, setarea datei de oră nu poate fi goală, format: YYYY-MM-dd HH:mm";
+"参数错误，时间设置不能为空，格式：HH:mm" = "Eroare parametru, setarea timpului nu poate fi goală, format: HH:mm";
+"参数错误，星期未选择" = "Eroare parametrică, săptămâna nu este selectată";
+"参数错误，星期选中标记设置不能为空（星期日、星期一、星期二、星期三、星期四、星期五、星期六）" = "Setarea semnului de bifare de săptămână nu poate fi necompletată (duminică, luni, marți, miercuri, joi, vineri, sâmbătă)";
+
+"参数错误，起始时间，一天的绝对分钟（大于等于0分钟，小于等于1440分钟）" = "Eroare parametrică, timp de pornire, minute absolute ale unei zile (mai mari sau egale cu 0 minute, mai mici sau egale cu 1440 minute)";
+"参数错误，结束时间，一天的绝对分钟（大于等于0分钟，小于等于1440分钟）" = "Eroare de parametri, timp de sfârșit, minute absolute ale unei zile (mai mari sau egale cu 0 minute, mai mici sau egale cu 1440 minute)";
+"参数错误，起始时间需小于结束时间" = "Eroare parametru, ora de pornire trebuie să fie mai mică decât ora de sfârșit";
+"参数错误，检测时间需大于0" = "Eroare parametrică, timpul de detecție trebuie să fie mai mare de 0";
+"参数错误，目标步数需大于0" = "Eroare de parametru, pașii țintă trebuie să fie mai mari de 0";
+
+"参数错误，目标卡路里消耗需大于0" = "Eroare de parametru, consumul țintă de calorii trebuie să fie mai mare de 0";
+"参数错误，目标里程数需大于0" = "Eroare de parametru, kilometrajul țintă trebuie să fie mai mare de 0";
+"参数错误，目标运动时间需大于0" = "Eroare parametrică, timpul de mișcare țintă trebuie să fie mai mare de 0";
+
+"参数错误，天气数据推送至少1天，最多%d天" = "Eroare parametrică, date meteorologice împinse timp de cel puțin 1 zi și cel mult%d zile";
+"参数错误，序号设置值范围0-%d" = "Eroare parametrică, intervalul de valori de setare Sn 0-%d";
+
+"参数错误，提前提醒天数，范围为1-3天" = "Eroare parametru, zile de memento în avans, interval: 1-3 zile";
+"参数错误，经期天数，范围为3-15天" = "Eroare parametrică, zile menstruale, interval: 3-15 zile";
+"参数错误，经期周期天数，范围为17-60天" = "Eroare parametrică, zile ciclului menstrual, interval 17-60 zile";
+"参数错误，最后一次经期年月日，年份范围为最近两年（去年，今年），月份范围为1-12，日数范围为1-31" = "Eroare parametrică: ultima perioadă menstruală este mm / DD / aaaa, intervalul anului este ultimii doi ani (anul trecut, anul acesta), intervalul lunii este 1-12, iar intervalul de zile este 1-31";
+"参数错误，提醒时间，小时范围为0-23，分钟范围为0-59" = "Eroare parametrică, timp de memento, interval de oră 0-23, interval de minute 0-59";
+
+"参数错误，心率提醒上限值需大于等于30，小于等于200" = "Eroare de parametru, limita superioară a memento-ului ritmului cardiac ar trebui să fie mai mare sau egală cu 30 și mai mică sau egală cu 200";
+"参数错误，心率提醒下限值需大于等于30，小于等于200" = "Eroare de parametru, limita inferioară a memento-ului ritmului cardiac ar trebui să fie mai mare sau egală cu 30 și mai mică sau egală cu 200";
+"参数错误，心率提醒下限值需小于心率提醒上限值" = "Limita inferioară a memento-ului ritmului cardiac trebuie să fie mai mică decât limita superioară a memento-ului ritmului cardiac";
+"参数错误，心率值连续超标次数不能小于1" = "Eroare de parametru, numărul de depășiri consecutive ale valorii frecvenței cardiace nu poate fi mai mic de 1";
+
+"参数错误，常用联系人最多不能超过%d个" = "Eroare parametrică, nu mai mult de %d contacte comune";
+"参数错误，紧急联系人最多不能超过%d个" = "Eroare de parametru, numărul maxim de contacte de urgență nu poate depăși %d";
+
+"空间不足" = "spatiu insuficient";
+"执行失败" = "Executare eșuată";
+"失败，数据校验未通过" = "Eșuat, verificarea datelor eșuată";
+"数据无效(格式错误)" = "Date nevalide (eroare de format)";
+"通信中(系统忙)" = "Comunicare în curs de desfășurare (sistemul ocupat)";
+"无效指令" = "Instrucțiuni nevalide";
+"协议版本不符" = "Neconcordanță în versiunea protocolului";
+"收到正确的结果" = "Primiți rezultate corecte";
+"数据错误" = "eroare de date";
+"接收超时" = "RPerioadă primită";
+"内存超出" = "În afara memoriei";
+"校验和错误" = "Eroare sumă de verificare";
+"参数错误" = "Eroare parametrică";
+"数据长度错误" = "Eroare de lungime a datelor";
+"未知的错误" = "eroare necunoscută";
+
+/**
+ FBBluetoothOTA
+ */
+"参数错误，bin文件错误" = "Eroare parametru, eroare fișier bin";
+"当前连接的设备OTA升级不可用" = "Actualizarea OTA a dispozitivului conectat în prezent nu este disponibilă";
+"OTA升级失败，切换到OTA mode失败" = "Actualizarea OTA a eșuat, trecerea la modul OTA a eșuat";
+"OTA升级失败，不支持普通升级" = "Actualizarea OTA a eșuat. Actualizarea normală nu este acceptată";
+"OTA升级失败，不支持静默升级" = "Actualizarea OTA a eșuat. Actualizarea silențioasă nu este acceptată";
+"手表电量低于30%" = "Bateria ceasului este mai mică de 30%";
+
+"正在同步数据，请稍后重试..." = "Se sincronizează datele, vă rugăm să încercați din nou mai târziu...";
+"空间不足禁止推送文件" = "Spațiul insuficient interzice împingerea fișierelor";
+"适配号错误禁止升级" = "Eroarea numărului de adaptare interzice actualizarea";
+"设备处于禁止OTA状态，请稍后重试..." = "Dispozitivul este în stare interzisă OTA, vă rugăm să încercați din nou mai târziu";
+"设备处于运动中，请结束运动后重试..." = "Dispozitivul este în mișcare, vă rugăm să încheiați mișcarea și să încercați din nou...";
+"参数错误，未找到文件信息" = "Eroare de parametru, informații despre fișier nu au fost găsite";
+
+"网络错误，请检查你的网络" = "Eroare de rețea, vă rugăm să vă verificați rețeaua";

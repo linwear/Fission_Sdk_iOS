@@ -1,0 +1,113 @@
+/*
+  Localizable.strings
+  Fission_Sdk_iOS
+
+  Created by 裂变智能 on 2021/4/1.
+ 
+*/
+
+//****************************** 🇨🇿捷克语 ******************************
+
+/**
+ FBAtCommand
+ */
+"蓝牙未打开或不支持" = "Bluetooth není zapnut nebo není podporován";
+"尚未连接到设备" = "Ještě není připojen k zařízení";
+"设备尚未初始化完成" = "Zařízení nebylo inicializováno";
+"写指令失败，或缺少连接参数" = "Zapisování selhalo nebo chybí parametry připojení";
+"应答超时" = "Lhůta reakce";
+"AT指令异常，无效指令/无效参数" = "Při vyjímkě z pokynu neplatný parametr / neplatný parametr";
+"参数错误，UTC时间设置不能为0" = "Chyba parametru, čas UTC nelze nastavit na 0";
+"参数错误，时区设置需大于等于-1440，小于等于+1440" = "Chyba parametru, nastavení časových zón musí být větší nebo stejné než -1440, menší než nebo rovnající se +1440";
+"数据长度错误" = "Chyba délky dat";
+"设备初始化失败，初始化超时" = "Inicializace zařízení selhala, timeout inicializace";
+"数据写入失败" = "Zápis dat se nezdařil";
+
+"执行失败，低压无法执行" = "Provedení selhalo, nelze provést";
+"指令状态错误" = "Chyba stavu instrukcí";
+"常规运动中，请先停止当前运动" = "V normálním pohybu, prosím, nejprve zastavte aktuální pohyb";
+"正在通话中，无法执行此指令" = "Tento příkaz nelze spustit během probíhajícího volání";
+"手表取消开启运动" = "Hodinky ruší otevřený pohyb";
+"本地无此运动信息" = "Žádné informace o místních sportech";
+"当前设备不支持此功能" = "Aktuální zařízení tuto funkci nepodporuje";
+
+/**
+ FBBgCommand
+ */
+"参数错误，开始查询时间不能大于结束查询时间" = "Parametr error, start query time cannot be better than end query time";
+
+"参数错误，用户Id设置需大于0，小于0xFFFFFFFF（4294967295）" = "Chyba parametru, nastavení uživatelského ID musí být větší než 0 a méně než 0xFFFFFF (4294967295)";
+"参数错误，用户昵称设置长度需小于32字节" = "Chyba parametru, délka nastavení uživatelské přezdívky by měla být menší než 32 byte";
+"参数错误，用户身高设置需大于100cm，小于250cm" = "Parametr je chybný. Výška uživatele by měla být větší než 100cm a menší než 250cm";
+"参数错误，用户体重设置需大于30kg，小于250kg" = "Parametr je chybný. Hmotnost uživatele by měla být větší než 30kg a menší než 250kg";
+"参数错误，用户年龄设置需大于5岁，小于130岁" = "Parametr je chybný. věk uživatele by měl být více než pět let starý a méně než 130 let starý";
+"参数错误，用户步幅设置需大于40，小于90" = "Parametr chyba, nastavení kroku uživatele by mělo být větší než 40 a méně než 90";
+
+"参数错误，序号ID设置需大于等于0，小于等于%d" = "Chyba parametru, nastavení sériového čísla ID musí být větší než nebo rovna 0 a méně než %d";
+"参数错误，描述内容设置长度需小于24字节" = "Chyba parametrů, délka nastavení obsahu popisu by měla být menší než 24byte";
+"参数错误，日期时间设置不能为空，格式：YYYY-MM-dd HH:mm" = "Chyba parametru, nastavení času nemůže být prázdné, formát: YYYY-MM-dd HH:mm";
+"参数错误，时间设置不能为空，格式：HH:mm" = "Chyba parametru, nastavení času nemůže být prázdné, formát: HH:mm";
+"参数错误，星期未选择" = "Chyba parametrů, týden nebyl vybrán";
+"参数错误，星期选中标记设置不能为空（星期日、星期一、星期二、星期三、星期四、星期五、星期六）" = "Chyba parametru, nastavení týdenní značky nemůže být prázdné (neděle, pondělí, úterý, středa, čtvrtek, pátek, sobotu)";
+
+"参数错误，起始时间，一天的绝对分钟（大于等于0分钟，小于等于1440分钟）" = "Parametrická chyba, počáteční čas, absolutní minuty dne (větší než nebo rovnající se 0-minutám, menší než 1440 minut)";
+"参数错误，结束时间，一天的绝对分钟（大于等于0分钟，小于等于1440分钟）" = "Parametrická chyba, konečný čas, absolutní minuty dne (větší než nebo rovnající se 0-minutám, menší než 1440 minut)";
+"参数错误，起始时间需小于结束时间" = "Chyba parametrů, čas startu by měl být menší než čas konce";
+"参数错误，检测时间需大于0" = "Chyba parametrů, doba detekce musí být větší než 0";
+"参数错误，目标步数需大于0" = "Chyba parametrů, cílové kroky musí být větší než 0";
+
+"参数错误，目标卡路里消耗需大于0" = "Parametr chyba, cílová spotřeba kalorií musí být větší než 0";
+"参数错误，目标里程数需大于0" = "Parametr chyba, cílový kilometr musí být větší než 0";
+"参数错误，目标运动时间需大于0" = "Chyba parametrů, čas pohybu cíle musí být větší než 0";
+
+"参数错误，天气数据推送至少1天，最多%d天" = "Chyba parametrů, data o počasí odesílaná nejméně jeden den, až do %d dnů";
+"参数错误，序号设置值范围0-%d" = "Chyba parametru, pořadí čísel nastavení hodnoty rozsah 0-%d";
+
+"参数错误，提前提醒天数，范围为1-3天" = "Chyba parametrů, dny upomínky předem, rozsah 1-3 dnů";
+"参数错误，经期天数，范围为3-15天" = "Parametr chyba, menstruační dny, rozsah 3-15 dnů";
+"参数错误，经期周期天数，范围为17-60天" = "Parametr chyba, dny menstruačního cyklu, rozsah 17-60 dnů";
+"参数错误，最后一次经期年月日，年份范围为最近两年（去年，今年），月份范围为1-12，日数范围为1-31" = "Parametr je špatný. Poslední menstruační období je měsíc, rok, měsíc a dny. Rozsah je poslední dva roky (minulý rok, tento rok), 1-12 a 1-31";
+"参数错误，提醒时间，小时范围为0-23，分钟范围为0-59" = "Chyba parametrů, čas upomínky, hodinový rozsah je 0-23, minutový rozsah je 0-59";
+
+"参数错误，心率提醒上限值需大于等于30，小于等于200" = "Chyba parametru, horní hranice připomenutí srdeční frekvence by měla být větší nebo rovna 30 a menší než nebo rovná se 200";
+"参数错误，心率提醒下限值需大于等于30，小于等于200" = "Chyba parametru, dolní hranice připomenutí srdeční frekvence by měla být větší nebo rovna 30 a menší než nebo rovná se 200";
+"参数错误，心率提醒下限值需小于心率提醒上限值" = "Chyba parametrů. Nižší limit upomínek srdečního tepu musí být nižší než horní limit upomínky srdečního rytmu";
+"参数错误，心率值连续超标次数不能小于1" = "Chyba parametrů. Počet po sobě jdoucích překročení hodnoty srdečního tepu nemůže být menší než 1";
+
+"参数错误，常用联系人最多不能超过%d个" = "Chyba parametru, počet společných kontaktů nesmí překročit %d";
+"参数错误，紧急联系人最多不能超过%d个" = "Chyba parametru, maximální počet nouzových kontaktů nemůže překročit %d";
+
+"空间不足" = "nedostatek prostoru";
+"执行失败" = "Provedení selhalo";
+"失败，数据校验未通过" = "Selhalo, ověření dat selhalo";
+"数据无效(格式错误)" = "Neplatná data (deformovaná)";
+"通信中(系统忙)" = "V komunikaci (systém obsazen)";
+"无效指令" = "Neplatné instrukce";
+"协议版本不符" = "Verze dohody se neshoduje";
+"收到正确的结果" = "Získat správné výsledky";
+"数据错误" = "Chyba dat";
+"接收超时" = "Obdržet timeout";
+"内存超出" = "Z paměti";
+"校验和错误" = "Kontrola chyby součtu";
+"参数错误" = "Chyba parametrů";
+"数据长度错误" = "Chyba délky dat";
+"未知的错误" = "Neznámá chyba";
+
+/**
+ FBBluetoothOTA
+ */
+"参数错误，bin文件错误" = "Chyba parametru, chyba bin souboru";
+"当前连接的设备OTA升级不可用" = "Aktuální upgrade zařízení OTA není k dispozici";
+"OTA升级失败，切换到OTA mode失败" = "upgrade OTA selhala, přepnutí na režim OTA selhalo";
+"OTA升级失败，不支持普通升级" = "upgrade OTA selhala, běžné upgrade není podporováno";
+"OTA升级失败，不支持静默升级" = "upgrade OTA selhala, tichý upgrade není podporován";
+"手表电量低于30%" = "Sledujte výkon pod 30%";
+
+"正在同步数据，请稍后重试..." = "Probíhá synchronizace dat, zkuste to znovu později...";
+"空间不足禁止推送文件" = "Nedostatek místa brání vkládání souborů";
+"适配号错误禁止升级" = "Chyba adaptačního čísla zakazuje upgrade";
+"设备处于禁止OTA状态，请稍后重试..." = "Zařízení je v OTA zakázaném stavu, zkuste to prosím znovu později";
+"设备处于运动中，请结束运动后重试..." = "Zařízení je v pohybu, ukončete pohyb a zkuste to znovu...";
+"参数错误，未找到文件信息" = "Chyba parametru, informace o souboru nebyly nalezeny";
+
+"网络错误，请检查你的网络" = "Chyba sítě, zkontrolujte síť";
