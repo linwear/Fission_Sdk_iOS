@@ -1,0 +1,48 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.9 (swiftlang-5.9.0.128.108 clang-1500.0.40.1)
+// swift-module-flags: -target arm64-apple-ios12.0 -enable-objc-interop -cxx-interoperability-mode=default -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name SCompressLib
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import Foundation
+@_exported import SCompressLib
+import Swift
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public struct SPicZipApi {
+  public init()
+  public func Compress(compressParam: SCompressLib.SCompressParam)
+  public func Decompress(id: Swift.UInt32, fileBuffer: [Swift.UInt8])
+}
+public struct SDecompressRets {
+  public init()
+  public var width: Swift.Int32
+  public var height: Swift.Int32
+  public var format: Swift.Int32
+  public var redChannel: [Swift.UInt8]
+  public var greenChannel: [Swift.UInt8]
+  public var blueChannel: [Swift.UInt8]
+  public var alphaChannel: [Swift.UInt8]
+}
+public struct SCompressParam {
+  public init()
+  public var id: Swift.Int32
+  public var width: Swift.Int32
+  public var height: Swift.Int32
+  public var stride: Swift.Int32
+  public var pixelFormat: Swift.Int32
+  public var tileWidth: Swift.Int32
+  public var modeAlpha: Swift.Int32
+  public var modeRgb: Swift.Int32
+  public var cmpMode: Swift.Int32
+  public var redChannel: [Swift.UInt8]
+  public var greenChannel: [Swift.UInt8]
+  public var blueChannel: [Swift.UInt8]
+  public var alphaChannel: [Swift.UInt8]
+}
+public protocol PicZipEvent {
+  func CompressRets(id: Swift.Int, state: Swift.Int, tileWidth: Swift.Int, retData: [Swift.UInt8])
+  func DecompressRets(id: Swift.Int, state: Swift.Int, decomRets: SCompressLib.SDecompressRets)
+}
+public func SetZipEvent(picEvent: any SCompressLib.PicZipEvent)
+public func SCompressRets(id: Swift.Int, state: Swift.Int, tileWidth: Swift.Int, retData: [Swift.UInt8])
+public func SDecompressRet(id: Swift.Int, state: Swift.Int, width: Swift.UInt, height: Swift.UInt, format: Swift.UInt, red: [Swift.UInt8], green: [Swift.UInt8], blue: [Swift.UInt8], alpha: [Swift.UInt8])

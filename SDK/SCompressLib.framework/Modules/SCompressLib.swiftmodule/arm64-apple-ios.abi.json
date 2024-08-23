@@ -1,0 +1,2633 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SCompressLib",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SPicZipApi",
+        "printedName": "SPicZipApi",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SPicZipApi",
+                "printedName": "SCompressLib.SPicZipApi",
+                "usr": "s:12SCompressLib10SPicZipApiV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12SCompressLib10SPicZipApiVACycfc",
+            "mangledName": "$s12SCompressLib10SPicZipApiVACycfc",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "Compress",
+            "printedName": "Compress(compressParam:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SCompressParam",
+                "printedName": "SCompressLib.SCompressParam",
+                "usr": "s:12SCompressLib0A5ParamV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12SCompressLib10SPicZipApiV8Compress13compressParamyAA0aH0V_tF",
+            "mangledName": "$s12SCompressLib10SPicZipApiV8Compress13compressParamyAA0aH0V_tF",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "Decompress",
+            "printedName": "Decompress(id:fileBuffer:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt32",
+                "printedName": "Swift.UInt32",
+                "usr": "s:s6UInt32V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.UInt8]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12SCompressLib10SPicZipApiV10Decompress2id10fileBufferys6UInt32V_Says5UInt8VGtF",
+            "mangledName": "$s12SCompressLib10SPicZipApiV10Decompress2id10fileBufferys6UInt32V_Says5UInt8VGtF",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:12SCompressLib10SPicZipApiV",
+        "mangledName": "$s12SCompressLib10SPicZipApiV",
+        "moduleName": "SCompressLib",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SCompressLib",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SDecompressRets",
+        "printedName": "SDecompressRets",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SDecompressRets",
+                "printedName": "SCompressLib.SDecompressRets",
+                "usr": "s:12SCompressLib15SDecompressRetsV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12SCompressLib15SDecompressRetsVACycfc",
+            "mangledName": "$s12SCompressLib15SDecompressRetsVACycfc",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "width",
+            "printedName": "width",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib15SDecompressRetsV5widths5Int32Vvp",
+            "mangledName": "$s12SCompressLib15SDecompressRetsV5widths5Int32Vvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV5widths5Int32Vvg",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV5widths5Int32Vvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV5widths5Int32Vvs",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV5widths5Int32Vvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV5widths5Int32VvM",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV5widths5Int32VvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "height",
+            "printedName": "height",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib15SDecompressRetsV6heights5Int32Vvp",
+            "mangledName": "$s12SCompressLib15SDecompressRetsV6heights5Int32Vvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV6heights5Int32Vvg",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV6heights5Int32Vvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV6heights5Int32Vvs",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV6heights5Int32Vvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV6heights5Int32VvM",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV6heights5Int32VvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "format",
+            "printedName": "format",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib15SDecompressRetsV6formats5Int32Vvp",
+            "mangledName": "$s12SCompressLib15SDecompressRetsV6formats5Int32Vvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV6formats5Int32Vvg",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV6formats5Int32Vvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV6formats5Int32Vvs",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV6formats5Int32Vvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV6formats5Int32VvM",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV6formats5Int32VvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "redChannel",
+            "printedName": "redChannel",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.UInt8]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib15SDecompressRetsV10redChannelSays5UInt8VGvp",
+            "mangledName": "$s12SCompressLib15SDecompressRetsV10redChannelSays5UInt8VGvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.UInt8]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV10redChannelSays5UInt8VGvg",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV10redChannelSays5UInt8VGvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.UInt8]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV10redChannelSays5UInt8VGvs",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV10redChannelSays5UInt8VGvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV10redChannelSays5UInt8VGvM",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV10redChannelSays5UInt8VGvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "greenChannel",
+            "printedName": "greenChannel",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.UInt8]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib15SDecompressRetsV12greenChannelSays5UInt8VGvp",
+            "mangledName": "$s12SCompressLib15SDecompressRetsV12greenChannelSays5UInt8VGvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.UInt8]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV12greenChannelSays5UInt8VGvg",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV12greenChannelSays5UInt8VGvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.UInt8]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV12greenChannelSays5UInt8VGvs",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV12greenChannelSays5UInt8VGvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV12greenChannelSays5UInt8VGvM",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV12greenChannelSays5UInt8VGvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "blueChannel",
+            "printedName": "blueChannel",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.UInt8]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib15SDecompressRetsV11blueChannelSays5UInt8VGvp",
+            "mangledName": "$s12SCompressLib15SDecompressRetsV11blueChannelSays5UInt8VGvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.UInt8]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV11blueChannelSays5UInt8VGvg",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV11blueChannelSays5UInt8VGvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.UInt8]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV11blueChannelSays5UInt8VGvs",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV11blueChannelSays5UInt8VGvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV11blueChannelSays5UInt8VGvM",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV11blueChannelSays5UInt8VGvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "alphaChannel",
+            "printedName": "alphaChannel",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.UInt8]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib15SDecompressRetsV12alphaChannelSays5UInt8VGvp",
+            "mangledName": "$s12SCompressLib15SDecompressRetsV12alphaChannelSays5UInt8VGvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.UInt8]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV12alphaChannelSays5UInt8VGvg",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV12alphaChannelSays5UInt8VGvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.UInt8]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV12alphaChannelSays5UInt8VGvs",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV12alphaChannelSays5UInt8VGvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib15SDecompressRetsV12alphaChannelSays5UInt8VGvM",
+                "mangledName": "$s12SCompressLib15SDecompressRetsV12alphaChannelSays5UInt8VGvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:12SCompressLib15SDecompressRetsV",
+        "mangledName": "$s12SCompressLib15SDecompressRetsV",
+        "moduleName": "SCompressLib",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SCompressLib",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "SCompressParam",
+        "printedName": "SCompressParam",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "SCompressParam",
+                "printedName": "SCompressLib.SCompressParam",
+                "usr": "s:12SCompressLib0A5ParamV"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12SCompressLib0A5ParamVACycfc",
+            "mangledName": "$s12SCompressLib0A5ParamVACycfc",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "id",
+            "printedName": "id",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib0A5ParamV2ids5Int32Vvp",
+            "mangledName": "$s12SCompressLib0A5ParamV2ids5Int32Vvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV2ids5Int32Vvg",
+                "mangledName": "$s12SCompressLib0A5ParamV2ids5Int32Vvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV2ids5Int32Vvs",
+                "mangledName": "$s12SCompressLib0A5ParamV2ids5Int32Vvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV2ids5Int32VvM",
+                "mangledName": "$s12SCompressLib0A5ParamV2ids5Int32VvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "width",
+            "printedName": "width",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib0A5ParamV5widths5Int32Vvp",
+            "mangledName": "$s12SCompressLib0A5ParamV5widths5Int32Vvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV5widths5Int32Vvg",
+                "mangledName": "$s12SCompressLib0A5ParamV5widths5Int32Vvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV5widths5Int32Vvs",
+                "mangledName": "$s12SCompressLib0A5ParamV5widths5Int32Vvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV5widths5Int32VvM",
+                "mangledName": "$s12SCompressLib0A5ParamV5widths5Int32VvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "height",
+            "printedName": "height",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib0A5ParamV6heights5Int32Vvp",
+            "mangledName": "$s12SCompressLib0A5ParamV6heights5Int32Vvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV6heights5Int32Vvg",
+                "mangledName": "$s12SCompressLib0A5ParamV6heights5Int32Vvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV6heights5Int32Vvs",
+                "mangledName": "$s12SCompressLib0A5ParamV6heights5Int32Vvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV6heights5Int32VvM",
+                "mangledName": "$s12SCompressLib0A5ParamV6heights5Int32VvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "stride",
+            "printedName": "stride",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib0A5ParamV6strides5Int32Vvp",
+            "mangledName": "$s12SCompressLib0A5ParamV6strides5Int32Vvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV6strides5Int32Vvg",
+                "mangledName": "$s12SCompressLib0A5ParamV6strides5Int32Vvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV6strides5Int32Vvs",
+                "mangledName": "$s12SCompressLib0A5ParamV6strides5Int32Vvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV6strides5Int32VvM",
+                "mangledName": "$s12SCompressLib0A5ParamV6strides5Int32VvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "pixelFormat",
+            "printedName": "pixelFormat",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib0A5ParamV11pixelFormats5Int32Vvp",
+            "mangledName": "$s12SCompressLib0A5ParamV11pixelFormats5Int32Vvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV11pixelFormats5Int32Vvg",
+                "mangledName": "$s12SCompressLib0A5ParamV11pixelFormats5Int32Vvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV11pixelFormats5Int32Vvs",
+                "mangledName": "$s12SCompressLib0A5ParamV11pixelFormats5Int32Vvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV11pixelFormats5Int32VvM",
+                "mangledName": "$s12SCompressLib0A5ParamV11pixelFormats5Int32VvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "tileWidth",
+            "printedName": "tileWidth",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib0A5ParamV9tileWidths5Int32Vvp",
+            "mangledName": "$s12SCompressLib0A5ParamV9tileWidths5Int32Vvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV9tileWidths5Int32Vvg",
+                "mangledName": "$s12SCompressLib0A5ParamV9tileWidths5Int32Vvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV9tileWidths5Int32Vvs",
+                "mangledName": "$s12SCompressLib0A5ParamV9tileWidths5Int32Vvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV9tileWidths5Int32VvM",
+                "mangledName": "$s12SCompressLib0A5ParamV9tileWidths5Int32VvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "modeAlpha",
+            "printedName": "modeAlpha",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib0A5ParamV9modeAlphas5Int32Vvp",
+            "mangledName": "$s12SCompressLib0A5ParamV9modeAlphas5Int32Vvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV9modeAlphas5Int32Vvg",
+                "mangledName": "$s12SCompressLib0A5ParamV9modeAlphas5Int32Vvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV9modeAlphas5Int32Vvs",
+                "mangledName": "$s12SCompressLib0A5ParamV9modeAlphas5Int32Vvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV9modeAlphas5Int32VvM",
+                "mangledName": "$s12SCompressLib0A5ParamV9modeAlphas5Int32VvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "modeRgb",
+            "printedName": "modeRgb",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib0A5ParamV7modeRgbs5Int32Vvp",
+            "mangledName": "$s12SCompressLib0A5ParamV7modeRgbs5Int32Vvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV7modeRgbs5Int32Vvg",
+                "mangledName": "$s12SCompressLib0A5ParamV7modeRgbs5Int32Vvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV7modeRgbs5Int32Vvs",
+                "mangledName": "$s12SCompressLib0A5ParamV7modeRgbs5Int32Vvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV7modeRgbs5Int32VvM",
+                "mangledName": "$s12SCompressLib0A5ParamV7modeRgbs5Int32VvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "cmpMode",
+            "printedName": "cmpMode",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int32",
+                "printedName": "Swift.Int32",
+                "usr": "s:s5Int32V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib0A5ParamV7cmpModes5Int32Vvp",
+            "mangledName": "$s12SCompressLib0A5ParamV7cmpModes5Int32Vvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV7cmpModes5Int32Vvg",
+                "mangledName": "$s12SCompressLib0A5ParamV7cmpModes5Int32Vvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int32",
+                    "printedName": "Swift.Int32",
+                    "usr": "s:s5Int32V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV7cmpModes5Int32Vvs",
+                "mangledName": "$s12SCompressLib0A5ParamV7cmpModes5Int32Vvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV7cmpModes5Int32VvM",
+                "mangledName": "$s12SCompressLib0A5ParamV7cmpModes5Int32VvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "redChannel",
+            "printedName": "redChannel",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.UInt8]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib0A5ParamV10redChannelSays5UInt8VGvp",
+            "mangledName": "$s12SCompressLib0A5ParamV10redChannelSays5UInt8VGvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.UInt8]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV10redChannelSays5UInt8VGvg",
+                "mangledName": "$s12SCompressLib0A5ParamV10redChannelSays5UInt8VGvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.UInt8]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV10redChannelSays5UInt8VGvs",
+                "mangledName": "$s12SCompressLib0A5ParamV10redChannelSays5UInt8VGvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV10redChannelSays5UInt8VGvM",
+                "mangledName": "$s12SCompressLib0A5ParamV10redChannelSays5UInt8VGvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "greenChannel",
+            "printedName": "greenChannel",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.UInt8]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib0A5ParamV12greenChannelSays5UInt8VGvp",
+            "mangledName": "$s12SCompressLib0A5ParamV12greenChannelSays5UInt8VGvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.UInt8]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV12greenChannelSays5UInt8VGvg",
+                "mangledName": "$s12SCompressLib0A5ParamV12greenChannelSays5UInt8VGvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.UInt8]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV12greenChannelSays5UInt8VGvs",
+                "mangledName": "$s12SCompressLib0A5ParamV12greenChannelSays5UInt8VGvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV12greenChannelSays5UInt8VGvM",
+                "mangledName": "$s12SCompressLib0A5ParamV12greenChannelSays5UInt8VGvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "blueChannel",
+            "printedName": "blueChannel",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.UInt8]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib0A5ParamV11blueChannelSays5UInt8VGvp",
+            "mangledName": "$s12SCompressLib0A5ParamV11blueChannelSays5UInt8VGvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.UInt8]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV11blueChannelSays5UInt8VGvg",
+                "mangledName": "$s12SCompressLib0A5ParamV11blueChannelSays5UInt8VGvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.UInt8]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV11blueChannelSays5UInt8VGvs",
+                "mangledName": "$s12SCompressLib0A5ParamV11blueChannelSays5UInt8VGvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV11blueChannelSays5UInt8VGvM",
+                "mangledName": "$s12SCompressLib0A5ParamV11blueChannelSays5UInt8VGvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "alphaChannel",
+            "printedName": "alphaChannel",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.UInt8]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:12SCompressLib0A5ParamV12alphaChannelSays5UInt8VGvp",
+            "mangledName": "$s12SCompressLib0A5ParamV12alphaChannelSays5UInt8VGvp",
+            "moduleName": "SCompressLib",
+            "declAttributes": [
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.UInt8]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV12alphaChannelSays5UInt8VGvg",
+                "mangledName": "$s12SCompressLib0A5ParamV12alphaChannelSays5UInt8VGvg",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[Swift.UInt8]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "UInt8",
+                        "printedName": "Swift.UInt8",
+                        "usr": "s:s5UInt8V"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV12alphaChannelSays5UInt8VGvs",
+                "mangledName": "$s12SCompressLib0A5ParamV12alphaChannelSays5UInt8VGvs",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:12SCompressLib0A5ParamV12alphaChannelSays5UInt8VGvM",
+                "mangledName": "$s12SCompressLib0A5ParamV12alphaChannelSays5UInt8VGvM",
+                "moduleName": "SCompressLib",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          }
+        ],
+        "declKind": "Struct",
+        "usr": "s:12SCompressLib0A5ParamV",
+        "mangledName": "$s12SCompressLib0A5ParamV",
+        "moduleName": "SCompressLib",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "SCompressLib",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "PicZipEvent",
+        "printedName": "PicZipEvent",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "CompressRets",
+            "printedName": "CompressRets(id:state:tileWidth:retData:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[Swift.UInt8]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12SCompressLib11PicZipEventP12CompressRets2id5state9tileWidth7retDataySi_S2iSays5UInt8VGtF",
+            "mangledName": "$s12SCompressLib11PicZipEventP12CompressRets2id5state9tileWidth7retDataySi_S2iSays5UInt8VGtF",
+            "moduleName": "SCompressLib",
+            "genericSig": "<τ_0_0 where τ_0_0 : SCompressLib.PicZipEvent>",
+            "sugared_genericSig": "<Self where Self : SCompressLib.PicZipEvent>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "DecompressRets",
+            "printedName": "DecompressRets(id:state:decomRets:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "SDecompressRets",
+                "printedName": "SCompressLib.SDecompressRets",
+                "usr": "s:12SCompressLib15SDecompressRetsV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12SCompressLib11PicZipEventP14DecompressRets2id5state05decomG0ySi_SiAA011SDecompressG0VtF",
+            "mangledName": "$s12SCompressLib11PicZipEventP14DecompressRets2id5state05decomG0ySi_SiAA011SDecompressG0VtF",
+            "moduleName": "SCompressLib",
+            "genericSig": "<τ_0_0 where τ_0_0 : SCompressLib.PicZipEvent>",
+            "sugared_genericSig": "<Self where Self : SCompressLib.PicZipEvent>",
+            "protocolReq": true,
+            "reqNewWitnessTableEntry": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Protocol",
+        "usr": "s:12SCompressLib11PicZipEventP",
+        "mangledName": "$s12SCompressLib11PicZipEventP",
+        "moduleName": "SCompressLib",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      },
+      {
+        "kind": "Function",
+        "name": "SetZipEvent",
+        "printedName": "SetZipEvent(picEvent:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Void",
+            "printedName": "()"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "PicZipEvent",
+            "printedName": "SCompressLib.PicZipEvent",
+            "usr": "s:12SCompressLib11PicZipEventP"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:12SCompressLib11SetZipEvent03picE0yAA03PicdE0_p_tF",
+        "mangledName": "$s12SCompressLib11SetZipEvent03picE0yAA03PicdE0_p_tF",
+        "moduleName": "SCompressLib",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "SCompressRets",
+        "printedName": "SCompressRets(id:state:tileWidth:retData:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Void",
+            "printedName": "()"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Int",
+            "printedName": "Swift.Int",
+            "usr": "s:Si"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Int",
+            "printedName": "Swift.Int",
+            "usr": "s:Si"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Int",
+            "printedName": "Swift.Int",
+            "usr": "s:Si"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Array",
+            "printedName": "[Swift.UInt8]",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt8",
+                "printedName": "Swift.UInt8",
+                "usr": "s:s5UInt8V"
+              }
+            ],
+            "usr": "s:Sa"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:12SCompressLib0A4Rets2id5state9tileWidth7retDataySi_S2iSays5UInt8VGtF",
+        "mangledName": "$s12SCompressLib0A4Rets2id5state9tileWidth7retDataySi_S2iSays5UInt8VGtF",
+        "moduleName": "SCompressLib",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "funcSelfKind": "NonMutating"
+      },
+      {
+        "kind": "Function",
+        "name": "SDecompressRet",
+        "printedName": "SDecompressRet(id:state:width:height:format:red:green:blue:alpha:)",
+        "children": [
+          {
+            "kind": "TypeNominal",
+            "name": "Void",
+            "printedName": "()"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Int",
+            "printedName": "Swift.Int",
+            "usr": "s:Si"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Int",
+            "printedName": "Swift.Int",
+            "usr": "s:Si"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "UInt",
+            "printedName": "Swift.UInt",
+            "usr": "s:Su"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "UInt",
+            "printedName": "Swift.UInt",
+            "usr": "s:Su"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "UInt",
+            "printedName": "Swift.UInt",
+            "usr": "s:Su"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Array",
+            "printedName": "[Swift.UInt8]",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt8",
+                "printedName": "Swift.UInt8",
+                "usr": "s:s5UInt8V"
+              }
+            ],
+            "usr": "s:Sa"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Array",
+            "printedName": "[Swift.UInt8]",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt8",
+                "printedName": "Swift.UInt8",
+                "usr": "s:s5UInt8V"
+              }
+            ],
+            "usr": "s:Sa"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Array",
+            "printedName": "[Swift.UInt8]",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt8",
+                "printedName": "Swift.UInt8",
+                "usr": "s:s5UInt8V"
+              }
+            ],
+            "usr": "s:Sa"
+          },
+          {
+            "kind": "TypeNominal",
+            "name": "Array",
+            "printedName": "[Swift.UInt8]",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt8",
+                "printedName": "Swift.UInt8",
+                "usr": "s:s5UInt8V"
+              }
+            ],
+            "usr": "s:Sa"
+          }
+        ],
+        "declKind": "Func",
+        "usr": "s:12SCompressLib14SDecompressRet2id5state5width6height6format3red5green4blue5alphaySi_SiS3uSays5UInt8VGA3NtF",
+        "mangledName": "$s12SCompressLib14SDecompressRet2id5state5width6height6format3red5green4blue5alphaySi_SiS3uSays5UInt8VGA3NtF",
+        "moduleName": "SCompressLib",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "funcSelfKind": "NonMutating"
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/SPicZipApi.swift",
+      "kind": "StringLiteral",
+      "offset": 1926,
+      "length": 24,
+      "value": "\"Decompress id == \""
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/SPicZipApi.swift",
+      "kind": "StringLiteral",
+      "offset": 1949,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/DecomressRets.swift",
+      "kind": "IntegerLiteral",
+      "offset": 179,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/DecomressRets.swift",
+      "kind": "IntegerLiteral",
+      "offset": 198,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/DecomressRets.swift",
+      "kind": "IntegerLiteral",
+      "offset": 217,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/DecomressRets.swift",
+      "kind": "Array",
+      "offset": 240,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/DecomressRets.swift",
+      "kind": "Array",
+      "offset": 266,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/DecomressRets.swift",
+      "kind": "Array",
+      "offset": 291,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/DecomressRets.swift",
+      "kind": "Array",
+      "offset": 317,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/CompressParam.swift",
+      "kind": "IntegerLiteral",
+      "offset": 174,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/CompressParam.swift",
+      "kind": "IntegerLiteral",
+      "offset": 192,
+      "length": 3,
+      "value": "800"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/CompressParam.swift",
+      "kind": "IntegerLiteral",
+      "offset": 213,
+      "length": 4,
+      "value": "1280"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/CompressParam.swift",
+      "kind": "IntegerLiteral",
+      "offset": 235,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/CompressParam.swift",
+      "kind": "IntegerLiteral",
+      "offset": 259,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/CompressParam.swift",
+      "kind": "IntegerLiteral",
+      "offset": 281,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/CompressParam.swift",
+      "kind": "IntegerLiteral",
+      "offset": 303,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/CompressParam.swift",
+      "kind": "IntegerLiteral",
+      "offset": 323,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/CompressParam.swift",
+      "kind": "IntegerLiteral",
+      "offset": 343,
+      "length": 1,
+      "value": "0"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/CompressParam.swift",
+      "kind": "Array",
+      "offset": 366,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/CompressParam.swift",
+      "kind": "Array",
+      "offset": 392,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/CompressParam.swift",
+      "kind": "Array",
+      "offset": 417,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/CompressParam.swift",
+      "kind": "Array",
+      "offset": 443,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/API.swift",
+      "kind": "StringLiteral",
+      "offset": 501,
+      "length": 13,
+      "value": "\"id == \""
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/API.swift",
+      "kind": "StringLiteral",
+      "offset": 513,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/API.swift",
+      "kind": "StringLiteral",
+      "offset": 526,
+      "length": 19,
+      "value": "\"state == \""
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/API.swift",
+      "kind": "StringLiteral",
+      "offset": 544,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/API.swift",
+      "kind": "StringLiteral",
+      "offset": 557,
+      "length": 27,
+      "value": "\"tileWidth == \""
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/API.swift",
+      "kind": "StringLiteral",
+      "offset": 583,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/API.swift",
+      "kind": "StringLiteral",
+      "offset": 899,
+      "length": 13,
+      "value": "\"id == \""
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/API.swift",
+      "kind": "StringLiteral",
+      "offset": 911,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/API.swift",
+      "kind": "StringLiteral",
+      "offset": 924,
+      "length": 19,
+      "value": "\"state == \""
+    },
+    {
+      "filePath": "\/Users\/l30037444\/Desktop\/Code\/SCompressDemo\/SCompressLib\/API.swift",
+      "kind": "StringLiteral",
+      "offset": 942,
+      "length": 2,
+      "value": "\"\""
+    }
+  ]
+}
