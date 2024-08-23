@@ -3,13 +3,10 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Release-3.2.1 -Green.svg">
+    <img src="https://img.shields.io/badge/Release-3.2.2 -Green.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Support-iOS10+ -blue.svg">
-</a>
-<a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Support-x86_64_arm64 -purple.svg">
+    <img src="https://img.shields.io/badge/Support-iOS12.1+ -blue.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/Support-CocoaPods -aquamarine.svg">
@@ -21,7 +18,7 @@
     <img src="https://img.shields.io/badge/Document-简体中文+English -teal.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Team-Fission -pink.svg">
+    <img src="https://img.shields.io/badge/Team-Fission/LinWear -purple.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/License-MIT -gold.svg">
@@ -50,9 +47,9 @@
 
 ### 兼容性｜Compatibility
 
-1. iOS 10.0 及以上操作系统｜iOS 10.0 and above operating systems
+1. iOS 12.1 及以上操作系统｜iOS 12.1 and above operating systems
 
-2. 支持 x86_64/arm64 指令集｜Support x86_64/arm64 instruction set
+2. 支持 arm64 指令集（不再支持模拟器）｜Support arm64 instruction set (simulators is no longer supported)
 
 ### 安装｜Installation
 
@@ -65,9 +62,13 @@ pod 'Fission_Sdk_iOS', git: 'https://github.com/linwear/Fission_Sdk_iOS.git'
 2. 运行 `pod install` 或 `pod update`｜Run `pod install` or `pod update`
 
 * **方式二: 手动导入｜Method 2: Manually**
-1. 将 Fission_Sdk_iOS.xcframework、RTKOTASDK.xcframework、 RTKLEFoundation.xcframework 文件 `Add File` 导入工程｜Import Fission_Sdk_iOS.xcframework, RTKOTASDK.xcframework, RTKLEFoundation.xcframework files `Add File` into the project
+1. 将 Fission_Sdk_iOS.framework、RTKOTASDK.framework、RTKLEFoundation.framework、SCompressLib.framework、MagicTool.framework、Starscream.framework 文件 `Add File` 导入工程｜Import Fission_Sdk_iOS.framework、RTKOTASDK.framework、RTKLEFoundation.framework、SCompressLib.framework、MagicTool.framework、Starscream.framework files `Add File` into the project
 
-2. 在 project 中修改 Fission_Sdk_iOS.xcframework、RTKOTASDK.xcframework、 RTKLEFoundation.xcframework 的嵌入方式为 `Embed&Sign`｜Modify the embedding mode of Fission_Sdk_iOS.xcframework, RTKOTASDK.xcframework, and RTKLEFoundation.xcframework in the project to `Embed&Sign`
+2. 集成依赖 FFmpeg（参考 https://github.com/arthenica/ffmpeg-kit.git）｜ Integrated dependency FFmpeg (reference https://github.com/arthenica/ffmpeg-kit.git)
+
+3. 在 TARGETS - General 中修改 Fission_Sdk_iOS.framework、RTKOTASDK.framework、 RTKLEFoundation.framework、SCompressLib.framework 的嵌入方式为 `Embed&Sign`｜Modify the embedding mode of Fission_Sdk_iOS.framework、RTKOTASDK.framework、 RTKLEFoundation.framework、SCompressLib.framework in the TARGETS - General to `Embed&Sign`
+
+4. 在 TARGETS - Build Settings - Other Linker Flags 中添加 `-ObjC`｜Add `-ObjC` in TARGETS - Build Settings - Other Linker Flags
 
 | Add File  | Embed&Sign  |
 | :----:  | :----:  |
@@ -88,13 +89,18 @@ Privacy - Bluetooth Peripheral Usage Description
 ```objective-c
 Privacy - Bluetooth Always Usage Description
 ```
+```objective-c
+Privacy - Microphone Usage Description
+```
 
 | Privacy  |
 | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/010.png) |
 
 ### 使用｜Usage
-1. 将以下内容添加到您要使用的文件中｜Add the following to the file you want to use
+1. 由于SDK使用Objective-C与Swift混合开发。如果你的项目没有自动生成桥接头文件（Bridging Header），请手动创建一个。这里不对Bridging Header做过多叙述。｜Because the SDK is developed using a mixture of Objective-C and Swift. If your project does not automatically generate a bridging header file (Bridging Header), please create one manually. There is not much description of Bridging Header here.
+
+2. 将以下内容添加到您要使用的文件中｜Add the following to the file you want to use
 ```objective-c
 #import <Fission_Sdk_iOS/Fission_Sdk_iOS.h>
 ```
@@ -106,6 +112,9 @@ Privacy - Bluetooth Always Usage Description
 ## 🚀示例演示工程 修改记录｜Example Demo Modification Record:
 
 #### [⚠️演示项目中使用到数据库'Realm'，运行demo前，请先cd到项目，再执行pod install｜The database 'Realm' is used in the demo project. Before running the demo, please cd to the project first, and then execute pod install](#NOTE)
+
+     project    2024-08-22
+                1.支持自定义视频表盘（部分手表支持）
 
      project    2023-12-15
                 1.运动记录增加地图运动轨迹
@@ -142,6 +151,43 @@ Privacy - Bluetooth Always Usage Description
 | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
 
+          project    2024-08-22  Version:3.2.2 Build:20240822001
+                            1.⚠️Fission_Sdk_iOS.framework最低系统版本要求由 iOS10.0+ 提高至 iOS12.1+
+                            2.⚠️不再支持x86_64(模拟器)。新增Framework库依赖:
+                              SCompressLib.framework
+                              MagicTool.framework
+                              Starscream.framework
+                              ffmpegKit-kit @linkhttps://github.com/arthenica/ffmpeg-kit (参考pod 'ffmpeg-kit-ios-full', '~> 6.0' 最低系统版本要求12.1)
+                            3.新增运动类型: 141-151
+                            4.FBFirmwareVersionObject 新增标志位:
+                              是否支持PATCH版本字段
+                              是否支持日程功能
+                              是否支持紧急联系人（SOS）
+                              是否支持今日天气显示城市名称
+                              是否支持JS应用
+                              支持常用联系人设置的个数
+                              支持紧急联系人设置的个数
+                            5.新增"获取未使用的 日程信息 ID"协议（FBAtCommand）fbGetUnusedScheduleIDWithBlock:
+                            6.新增"获取日程信息"协议（FBBgCommand）fbGetScheduleInforWithBlock:
+                            7.新增"设置日程信息"协议（FBBgCommand）fbSetSchedulenforWithScheduleModel:withRemoved:withBlock:
+                            8.新增"获取紧急联系人信息"协议（FBBgCommand）fbGetEmergencyContactListWithBlock:
+                            9.新增"设置紧急联系人信息"协议（FBBgCommand）fbSetEmergencyContactListWithModel:withBlock:
+                            10.优化运动记录数据排序问题
+                            11.优化海思芯片OTA方案
+                            12.新增"OTA文件增加文件信息"（FBCustomDataTools）createFileName:withFileData:withOTAType:方法，当前此方法仅用于海思芯片方案
+                            13.自定义表盘兼容海思芯片方案（FBCustomDataTools）fbGenerateCustomDialBinFileDataWithDialModel:
+                            14.支持百度相关: 语音识别、文字翻译、文心一言、文字生成语音、百度导航（文字导航）。详见 FBBaiduCloudKit 类
+                            15.支持系统麦克风的调用封装。详见 FBAudioRecorder 类。注意需要在 Info.plist 中添加 NSMicrophoneUsageDescription 权限
+                            16.新增"获取系统空间使用信息"协议（FBBgCommand）fbGetSystemSpaceUsageInforWithBlock:
+                            17.新增"获取表盘列表文件信息"协议（FBBgCommand）fbGetDialListFileInforWithBlock:
+                            18.新增"获取JS应用列表文件信息"协议（FBBgCommand）fbGetJsAppListFileInforWithBlock:
+                            19.新增"删除表盘列表文件信息"协议（FBBgCommand）fbDeleteDialListFileInfor:withBlock:
+                            20.新增"删除JS应用列表文件信息"协议（FBBgCommand）fbDeleteJsAppListFileInfor:withBlock:
+                            21.支持【支付宝】【乘车码】功能，SDK内部处理，外部无需任何调用
+                            22.新增支持瑞昱8773芯片
+                            23.优化自定义表盘图片抗锯齿
+                            24.优化已知问题
+     
      project    2024-01-22  Version:3.2.1 Build:20240122001
                             1.新增生成AGPS星历bin文件数据（FBCustomDataTools）fbGenerateAGPSEphemerisBinFileDataWithModel:
                             2.适配兼容新协议版本的数据格式解析
