@@ -1,0 +1,113 @@
+/* 
+  Localizable.strings
+  Fission_Sdk_iOS
+
+  Created by 裂变智能 on 2021/4/1.
+  
+*/
+
+//****************************** 🇮🇩印尼语 ******************************
+
+/**
+ FBAtCommand
+ */
+"蓝牙未打开或不支持" = "Bluetooth tidak diaktifkan atau tidak didukung";
+"尚未连接到设备" = "Tidak terhubung ke perangkat";
+"设备尚未初始化完成" = "Inisialisasi perangkat belum selesai";
+"写指令失败，或缺少连接参数" = "Instruksi tulis gagal atau parameter koneksi hilang";
+"应答超时" = "Waktu habis jawaban";
+"AT指令异常，无效指令/无效参数" = "Pada pengecualian instruksi, instruksi tidak valid / parameter tidak valid";
+"参数错误，UTC时间设置不能为0" = "Galat parameter, waktu UTC tidak dapat ditetapkan ke 0";
+"参数错误，时区设置需大于等于-1440，小于等于+1440" = "Kesalahan parameter, pengaturan zona waktu harus lebih besar dari atau sama dengan -1440 dan kurang dari atau sama dengan +1440";
+"数据长度错误" = "Galat panjang data";
+"设备初始化失败，初始化超时" = "Inisialisasi perangkat gagal, masa tamat inisialisasi";
+"数据写入失败" = "Penulisan data gagal";
+
+"执行失败，低压无法执行" = "Eksekusi gagal, tidak dapat mengeksekusi";
+"指令状态错误" = "Galat status instruksi";
+"常规运动中，请先停止当前运动" = "Dalam gerakan normal, tolong hentikan gerakan saat ini dulu";
+"正在通话中，无法执行此指令" = "Perintah ini tidak dapat dieksekusi saat panggilan sedang berlangsung";
+"手表取消开启运动" = "Lihat batalkan gerakan terbuka";
+"本地无此运动信息" = "Tidak ada informasi olahraga lokal";
+"当前设备不支持此功能" = "Perangkat saat ini tidak mendukung fitur ini";
+
+/**
+ FBBgCommand
+ */
+"参数错误，开始查询时间不能大于结束查询时间" = "Galat parameter. Waktu pertanyaan awal tidak dapat lebih besar dari waktunya pertanyaan akhir";
+
+"参数错误，用户Id设置需大于0，小于0xFFFFFFFF（4294967295）" = "Galat parameter, pengaturan ID pengguna harus lebih besar dari 0 dan kurang dari 0xFFFFFF (4294967295)";
+"参数错误，用户昵称设置长度需小于32字节" = "Galat parameter, panjang pengaturan nama pengguna seharusnya kurang dari 32 byte";
+"参数错误，用户身高设置需大于100cm，小于250cm" = "Galat parameter. Pengaturan tinggi pengguna seharusnya lebih besar dari 100cm dan kurang dari 250cm";
+"参数错误，用户体重设置需大于30kg，小于250kg" = "Parameter error, pengaturan berat badan pengguna perlu lebih besar dari 30kg dan kurang dari 250kg";
+"参数错误，用户年龄设置需大于5岁，小于130岁" = "Kesalahan parameter, pengaturan usia pengguna harus lebih dari 5 tahun dan kurang dari 130 tahun";
+"参数错误，用户步幅设置需大于40，小于90" = "Galat parameter, pengaturan langkah pengguna seharusnya lebih dari 40 dan kurang dari 90";
+
+"参数错误，序号ID设置需大于等于0，小于等于%d" = "Galat parameter, pengaturan nomor serial ID harus lebih besar dari atau sama dengan 0 dan kurang dari atau sama dengan %d";
+"参数错误，描述内容设置长度需小于24字节" = "Galat parameter, keterangan isi penentuan panjang seharusnya kurang dari 24 byte";
+"参数错误，日期时间设置不能为空，格式：YYYY-MM-dd HH:mm" = "Galat parameter, pengaturan tanggal waktu tidak dapat kosong, format: YYYY-MM-dd HH:mm";
+"参数错误，时间设置不能为空，格式：HH:mm" = "Galat parameter, pengaturan waktu tidak dapat kosong, format: HH:mm";
+"参数错误，星期未选择" = "Galat parameter, minggu tidak dipilih";
+"参数错误，星期选中标记设置不能为空（星期日、星期一、星期二、星期三、星期四、星期五、星期六）" = "Kesalahan parameter, pengaturan tanda cek minggu tidak dapat kosong (Minggu, Senin, Selasa, Rabu, Kamis, Jumat, Sabtu)";
+
+"参数错误，起始时间，一天的绝对分钟（大于等于0分钟，小于等于1440分钟）" = "Kesalahan parameter, waktu awal, menit absolut sehari (lebih dari atau sama dengan 0 menit, kurang dari atau sama dengan 1440 menit)";
+"参数错误，结束时间，一天的绝对分钟（大于等于0分钟，小于等于1440分钟）" = "Kesalahan parameter, waktu akhir, menit absolut sehari (lebih dari atau sama dengan 0 menit, kurang dari atau sama dengan 1440 menit)";
+"参数错误，起始时间需小于结束时间" = "Galat parameter, waktu awal seharusnya kurang dari waktu akhir";
+"参数错误，检测时间需大于0" = "Galat parameter, waktu deteksi harus lebih besar dari 0";
+"参数错误，目标步数需大于0" = "Galat parameter, langkah sasaran harus lebih besar dari 0";
+
+"参数错误，目标卡路里消耗需大于0" = "Galat parameter, konsumsi kalori sasaran harus lebih besar dari 0";
+"参数错误，目标里程数需大于0" = "Galat parameter, mil sasaran harus lebih besar dari 0";
+"参数错误，目标运动时间需大于0" = "Galat parameter, waktu gerakan sasaran harus lebih besar dari 0";
+
+"参数错误，天气数据推送至少1天，最多%d天" = "Galat parameter, data cuaca ditekan selama setidaknya 1 hari, sampai %d hari";
+"参数错误，序号设置值范围0-%d" = "Galat parameter, nomor berantai menetapkan julat nilai 0-%d";
+
+"参数错误，提前提醒天数，范围为1-3天" = "Galat parameter, hari peringatan sebelumnya, jangkauan: 1-3 hari";
+"参数错误，经期天数，范围为3-15天" = "Parameter error, menstrual period days, range: 3-15 days";
+"参数错误，经期周期天数，范围为17-60天" = "Parameter error, menstrual cycle days, range 17-60 days";
+"参数错误，最后一次经期年月日，年份范围为最近两年（去年，今年），月份范围为1-12，日数范围为1-31" = "Parameter salah. Periode menstrual terakhir adalah mm / DD / YY, jangkauan tahun adalah dua tahun terakhir (tahun lalu, tahun ini), jangkauan bulan adalah 1-12, dan jumlah hari jangkauan adalah 1-31";
+"参数错误，提醒时间，小时范围为0-23，分钟范围为0-59" = "Galat parameter, waktu peringatan, jangkauan jam: 0-23, jangkauan menit: 0-59";
+
+"参数错误，心率提醒上限值需大于等于30，小于等于200" = "Galat parameter, batas atas peringatan kadar jantung harus lebih besar atau sama dengan 30 dan kurang dari atau sama dengan 200";
+"参数错误，心率提醒下限值需大于等于30，小于等于200" = "Galat parameter, batas bawah pengingat kadar jantung harus lebih besar atau sama dengan 30 dan kurang dari atau sama dengan 200";
+"参数错误，心率提醒下限值需小于心率提醒上限值" = "Galat parameter. Batas bawah peringatan kadar jantung harus kurang dari batas atas peringatan kadar jantung";
+"参数错误，心率值连续超标次数不能小于1" = "Galat parameter. Jumlah ketinggian berturut-turut nilai frekuensi jantung tidak dapat kurang dari 1";
+
+"参数错误，常用联系人最多不能超过%d个" = "Galat parameter, tidak lebih dari %d kontak umum";
+"参数错误，紧急联系人最多不能超过%d个" = "Kesalahan parameter, jumlah maksimum kontak darurat tidak boleh melebihi %d";
+
+"空间不足" = "tidak cukup ruang";
+"执行失败" = "Eksekusi gagal";
+"失败，数据校验未通过" = "Gagal, verifikasi data gagal";
+"数据无效(格式错误)" = "Data tidak valid (kesalahan format)";
+"通信中(系统忙)" = "Komunikasi dalam proses (sistem sibuk)";
+"无效指令" = "Instruksi tidak valid";
+"协议版本不符" = "Versi protokol tidak cocok";
+"收到正确的结果" = "Hasil yang benar diterima";
+"数据错误" = "Galat data";
+"接收超时" = "Menerima waktunya";
+"内存超出" = "Ingatan melebihi";
+"校验和错误" = "Kesalahan checksum";
+"参数错误" = "Parameter error";
+"数据长度错误" = "Galat panjang data";
+"未知的错误" = "Galat tidak diketahui";
+
+/**
+ FBBluetoothOTA
+ */
+"参数错误，bin文件错误" = "Kesalahan parameter, kesalahan berkas bin";
+"当前连接的设备OTA升级不可用" = "Perangkat yang terhubung saat ini tidak tersedia";
+"OTA升级失败，切换到OTA mode失败" = "Pemutakhiran OTA gagal. Beralih ke mode OTA gagal";
+"OTA升级失败，不支持普通升级" = "Pemutakhiran OTA gagal. Pemutakhiran normal tidak didukung";
+"OTA升级失败，不支持静默升级" = "Pemutakhiran OTA gagal. Pemutakhiran diam tidak didukung";
+"手表电量低于30%" = "Kekuatan menonton kurang dari 30%";
+
+"正在同步数据，请稍后重试..." = "Sinkronisasi data, silakan coba lagi nanti...";
+"空间不足禁止推送文件" = "Ruang tidak cukup melarang mendorong berkas";
+"适配号错误禁止升级" = "Kesalahan nomor adaptasi melarang peningkatan";
+"设备处于禁止OTA状态，请稍后重试..." = "The device is in OTA prohibited state, please try again later";
+"设备处于运动中，请结束运动后重试..." = "Perangkat sedang bergerak, harap akhiri gerakan dan coba lagi...";
+"参数错误，未找到文件信息" = "Kesalahan parameter, informasi file tidak ditemukan";
+
+"网络错误，请检查你的网络" = "Kesalahan jaringan, harap periksa jaringan Anda";

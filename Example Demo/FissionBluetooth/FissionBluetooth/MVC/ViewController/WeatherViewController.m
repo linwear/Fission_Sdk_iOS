@@ -8,11 +8,11 @@
 #import "WeatherViewController.h"
 #import "WeatherCell.h"
 
-@interface WeatherViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface WeatherViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UITextField *num;
+@property (weak, nonatomic) IBOutlet UITextField *longitude;
+@property (weak, nonatomic) IBOutlet UITextField *latitude;
 
 @property (nonatomic, retain) NSMutableArray <FBWeatherModel *>*array;
 
@@ -31,34 +31,18 @@
     UIBarButtonItem *rigItem = [[UIBarButtonItem alloc] initWithTitle:LWLocalizbleString(@"☁️Weather Data") style:UIBarButtonItemStylePlain target:self action:@selector(barButton)];
     self.navigationItem.rightBarButtonItem = rigItem;
     
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    [self.tableView registerNib:[UINib nibWithNibName:@"WeatherCell" bundle:nil] forCellReuseIdentifier:@"WeatherCell"];
+    self.longitude.delegate = self;
+    self.latitude.delegate = self;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.array.count;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 101;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    WeatherCell *cell = [tableView dequeueReusableCellWithIdentifier:@"WeatherCell"];
-    if (indexPath.row<self.array.count) {
-        FBWeatherModel *model = self.array[indexPath.row];
-        cell.lab1.text = [NSString stringWithFormat:@"%ld",model.days];
-        cell.lab2.text = [NSString stringWithFormat:@"%u",model.Weather];
-        cell.lab3.text = [NSString stringWithFormat:@"%ld",model.tempMin];
-        cell.lab4.text = [NSString stringWithFormat:@"%ld",model.tempMax];
-        cell.lab5.text = [NSString stringWithFormat:@"%u",model.AirCategory];
-        cell.lab6.text = [NSString stringWithFormat:@"%u",model.PM2p5];
-    }
-    return cell;
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
 }
 
 - (void)barButton{
+    [self.longitude resignFirstResponder];
+    [self.latitude resignFirstResponder];
     
     [self getWeatherAndAirLevel];
 }
@@ -67,7 +51,16 @@
 - (void)getWeatherAndAirLevel{
     WeakSelf(self);
     
-    [LWNetworkingManager requestURL:@"weather/forecast" httpMethod:GET params:@{} success:^(id  _Nonnull result) {
+    NSDictionary *params = @{};
+    if (self.longitude.text.length && self.latitude.text.length) {
+        params = @{
+            @"lng": @(self.longitude.text.doubleValue),
+            @"lat": @(self.latitude.text.doubleValue),
+            @"ip" : @""
+        };
+    }
+    
+    [LWNetworkingManager requestURL:@"weather/forecast" httpMethod:GET params:params success:^(id  _Nonnull result) {
         
         if ([result[@"code"] integerValue] == 200) {
             NSDictionary *param = result[@"data"];
@@ -88,6 +81,7 @@
     NSDictionary *current = self.param[@"current"];
     
     FBWeatherDetailsModel *currentModel = [FBWeatherDetailsModel new];
+    currentModel.cityName = current[@"location_name"];
     currentModel.airTemp = [current[@"temperature"] integerValue];
     currentModel.airPressure = [current[@"pressure"] integerValue];
     currentModel.tempMax = [current[@"temp_high"] integerValue];

@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) UILabel *detailLab;
 
+@property (nonatomic, retain) UIImageView *iconImage;
+
 @property (nonatomic, strong) UIView *line;
 
 @end
@@ -25,10 +27,16 @@
         self.selectedBackgroundView = UIView.new;
         self.selectedBackgroundView.backgroundColor = UIColorTestGreen;
         
+        UIImageView *iconImage = [[UIImageView alloc] initWithImage:UIImageMake(@"ic_sports_location")];
+        iconImage.contentMode = UIViewContentModeScaleAspectFit;
+        [self.contentView addSubview:iconImage];
+        iconImage.sd_layout.rightSpaceToView(self.contentView, 20).centerYEqualToView(self.contentView).widthIs(25).heightIs(25);
+        self.iconImage = iconImage;
+        
         UILabel *titleLab = [[UILabel alloc] qmui_initWithFont:[NSObject BahnschriftFont:15] textColor:UIColorBlack];
         titleLab.numberOfLines = 0;
         [self.contentView addSubview:titleLab];
-        titleLab.sd_layout.leftSpaceToView(self.contentView, 20).rightSpaceToView(self.contentView, 20).topSpaceToView(self.contentView, 20).autoHeightRatio(0);
+        titleLab.sd_layout.leftSpaceToView(self.contentView, 20).rightSpaceToView(iconImage, 20).topSpaceToView(self.contentView, 20).autoHeightRatio(0);
         self.titleLab = titleLab;
         
         UILabel *detailLab = [[UILabel alloc] qmui_initWithFont:[NSObject BahnschriftFont:15] textColor:UIColorGray];
@@ -40,7 +48,7 @@
         UIView *line = UIView.new;
         line.backgroundColor = UIColorGrayLighten;
         [self.contentView addSubview:line];
-        line.sd_layout.leftEqualToView(detailLab).rightEqualToView(detailLab).bottomEqualToView(self.contentView).heightIs(0.7);
+        line.sd_layout.leftEqualToView(detailLab).rightEqualToView(iconImage).bottomEqualToView(self.contentView).heightIs(0.7);
         self.line = line;
     }
     return self;
@@ -58,6 +66,8 @@
 }
 
 - (void)refreshModel:(RLMSportsModel *)sportsModel hiddenLine:(BOOL)isHidden {
+    
+    self.iconImage.hidden = !sportsModel.locations.count; // // 如果有轨迹数据，显示icon标识
      
     NSString *string = nil;
     if ([FBLoadDataObject isCalorie:sportsModel]) { // 卡路里运动

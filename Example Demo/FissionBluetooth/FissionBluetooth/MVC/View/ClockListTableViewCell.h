@@ -15,8 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *week;
 @property (weak, nonatomic) IBOutlet UILabel *time;
 @property (weak, nonatomic) IBOutlet UISwitch *swi;
-- (void)cellModel:(FBAlarmClockModel *)model;
-@property (nonatomic, strong) FBAlarmClockModel *model;
+- (void)cellModel:(id)model isSchedule:(BOOL)isSchedule;
 
 @end
 

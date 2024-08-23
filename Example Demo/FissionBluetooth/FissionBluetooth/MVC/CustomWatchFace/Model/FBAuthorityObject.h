@@ -14,13 +14,14 @@ typedef enum {
     FBAuthorityType_Camera_Album,   // 相机+相册
 }FBAuthorityType;
 
-typedef void(^FBAuthorityObjectBlock)(UIImage *image);
+/// 选择结果id类型 image 或 FBCustomDialVideoModel
+typedef void(^FBAuthorityObjectBlock)(id _Nullable results);
 
 @interface FBAuthorityObject : NSObject
 
 + (FBAuthorityObject *)sharedInstance;
 
-- (void)presentRequestImageWithBlock:(FBAuthorityObjectBlock)block;
+- (void)present:(UIViewController *)presentViewController requestImageWithBlock:(FBAuthorityObjectBlock)block;
 
 - (void)accessType:(FBAuthorityType)type block:(FBAuthorityObjectBlock)block;
 

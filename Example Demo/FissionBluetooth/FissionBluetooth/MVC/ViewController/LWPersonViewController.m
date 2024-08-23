@@ -26,9 +26,20 @@
 
 @property (nonatomic, strong) QMUIButton *selectAllBut;
 
+@property (nonatomic, assign) BOOL isFav;
+@property (nonatomic, assign) int max;
+
 @end
 
 @implementation LWPersonViewController
+
+- (instancetype)initWithFrequentContacts:(BOOL)isFav max:(int)max {
+    if (self = [super init]) {
+        self.isFav = isFav;
+        self.max = max;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -73,7 +84,7 @@
     lab.textColor = UIColorGray;
     lab.textAlignment = NSTextAlignmentCenter;
     lab.numberOfLines = 0;
-    lab.text = [NSString stringWithFormat:@"%@", LWLocalizbleString(@"The frequently used contacts you set will be automatically synced to the device.")];
+    lab.text = LWLocalizbleString(@"The contacts you set will be automatically synced to the device.");
     [toolView addSubview:lab];
     lab.sd_layout.leftSpaceToView(toolView, 10).rightSpaceToView(toolView, 10).topSpaceToView(self.deleteBut, 0).bottomEqualToView(toolView);
     
@@ -313,32 +324,62 @@
     WeakSelf(self);
     [NSObject showLoading:LWLocalizbleString(@"Get Contacts")];
     
-    [FBBgCommand.sharedInstance fbGetFavoriteContactListWithBlock:^(FB_RET_CMD status, float progress, NSArray<FBFavContactModel *> * _Nullable responseObject, NSError * _Nullable error) {
-        if (error) {
-            [NSObject showHUDText:[NSString stringWithFormat:@"%@", error.localizedDescription]];
-        }
-        else if (status==FB_INDATATRANSMISSION) {
-            [NSObject showProgress:progress status:[NSString stringWithFormat:@"%.0f%%", progress*100]];
-        }
-        else if (status==FB_DATATRANSMISSIONDONE) {
+    if (self.isFav) {
+        [FBBgCommand.sharedInstance fbGetFavoriteContactListWithBlock:^(FB_RET_CMD status, float progress, NSArray<FBFavContactModel *> * _Nullable responseObject, NSError * _Nullable error) {
             
-            [SVProgressHUD dismiss];
-            
-            [self.dataAry removeAllObjects];
-            
-            NSMutableArray *arr = NSMutableArray.array;
-            for (FBFavContactModel *favContactModel in responseObject) {
-                LWPersonModel *model = LWPersonModel.new;
-                model.name = favContactModel.contactName;
-                model.phoneNumber = favContactModel.contactNumber;
-                [arr addObject:model];
+            if (error) {
+                [NSObject showHUDText:[NSString stringWithFormat:@"%@", error.localizedDescription]];
             }
-            
-            [self.dataAry addObjectsFromArray:arr];
-            
-            [weakSelf.tableView reloadData];
-        }
-    }];
+            else if (status==FB_INDATATRANSMISSION) {
+                [NSObject showProgress:progress status:[NSString stringWithFormat:@"%.0f%%", progress*100]];
+            }
+            else if (status==FB_DATATRANSMISSIONDONE) {
+                [SVProgressHUD dismiss];
+                
+                [self.dataAry removeAllObjects];
+                
+                NSMutableArray *arr = NSMutableArray.array;
+                for (FBFavContactModel *favContactModel in responseObject) {
+                    LWPersonModel *model = LWPersonModel.new;
+                    model.name = favContactModel.contactName;
+                    model.phoneNumber = favContactModel.contactNumber;
+                    [arr addObject:model];
+                }
+                
+                [self.dataAry addObjectsFromArray:arr];
+                
+                [weakSelf.tableView reloadData];
+            }
+        }];
+    }
+    else {
+        [FBBgCommand.sharedInstance fbGetEmergencyContactListWithBlock:^(FB_RET_CMD status, float progress, NSArray<FBFavContactModel *> * _Nullable responseObject, NSError * _Nullable error) {
+    
+            if (error) {
+                [NSObject showHUDText:[NSString stringWithFormat:@"%@", error.localizedDescription]];
+            }
+            else if (status==FB_INDATATRANSMISSION) {
+                [NSObject showProgress:progress status:[NSString stringWithFormat:@"%.0f%%", progress*100]];
+            }
+            else if (status==FB_DATATRANSMISSIONDONE) {
+                [SVProgressHUD dismiss];
+                
+                [self.dataAry removeAllObjects];
+                
+                NSMutableArray *arr = NSMutableArray.array;
+                for (FBFavContactModel *favContactModel in responseObject) {
+                    LWPersonModel *model = LWPersonModel.new;
+                    model.name = favContactModel.contactName;
+                    model.phoneNumber = favContactModel.contactNumber;
+                    [arr addObject:model];
+                }
+                
+                [self.dataAry addObjectsFromArray:arr];
+                
+                [weakSelf.tableView reloadData];
+            }
+        }];
+    }
 }
 
 #pragma mark - 设置手表联系人
@@ -354,22 +395,44 @@
         [arr addObject:favContactModel];
     }
     
-    [FBBgCommand.sharedInstance fbSetFavoriteContactListWithModel:arr withBlock:^(NSError * _Nullable error) {
-        [SVProgressHUD dismiss];
-        if (error) {
-            [NSObject showHUDText:[NSString stringWithFormat:@"%@", error.localizedDescription]];
-        } else {
-            [weakSelf.dataAry removeAllObjects];
-            [weakSelf.dataAry addObjectsFromArray:array];
-            [weakSelf.tableView reloadData];
-            
-            if (!weakSelf.isEditing) {
-                if (!array.count) {
-                    [weakSelf defaultState];
+    if (self.isFav) {
+        [FBBgCommand.sharedInstance fbSetFavoriteContactListWithModel:arr withBlock:^(NSError * _Nullable error) {
+            if (error) {
+                [NSObject showHUDText:[NSString stringWithFormat:@"%@", error.localizedDescription]];
+            } else {
+                [SVProgressHUD dismiss];
+                
+                [weakSelf.dataAry removeAllObjects];
+                [weakSelf.dataAry addObjectsFromArray:array];
+                [weakSelf.tableView reloadData];
+                
+                if (!weakSelf.isEditing) {
+                    if (!array.count) {
+                        [weakSelf defaultState];
+                    }
                 }
             }
-        }
-    }];
+        }];
+    }
+    else {
+        [FBBgCommand.sharedInstance fbSetEmergencyContactListWithModel:arr withBlock:^(NSError * _Nullable error) {
+            if (error) {
+                [NSObject showHUDText:[NSString stringWithFormat:@"%@", error.localizedDescription]];
+            } else {
+                [SVProgressHUD dismiss];
+                
+                [weakSelf.dataAry removeAllObjects];
+                [weakSelf.dataAry addObjectsFromArray:array];
+                [weakSelf.tableView reloadData];
+                
+                if (!weakSelf.isEditing) {
+                    if (!array.count) {
+                        [weakSelf defaultState];
+                    }
+                }
+            }
+        }];
+    }
 }
 
 - (void)defaultState {
@@ -406,7 +469,7 @@
 
 - (void)presentContactPickerViewController {
     WeakSelf(self);
-    LWContactViewController *vc = [[LWContactViewController alloc] initWithSelectedArray:self.dataAry withBlock:^(NSArray<LWPersonModel *> * _Nullable selectedArray) {
+    LWContactViewController *vc = [[LWContactViewController alloc] initWithSelectedArray:self.dataAry max:self.max withBlock:^(NSArray<LWPersonModel *> * _Nullable selectedArray) {
         // 设置联系人
         [weakSelf setFavContactsList:selectedArray];
     }];

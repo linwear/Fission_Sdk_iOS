@@ -48,10 +48,11 @@ AAPropSetFuncImplementation(AASeries, AAAnimation  *, animation)
 AAPropSetFuncImplementation(AASeries, NSArray      *, keys) 
 //AAPropSetFuncImplementation(AASeries, BOOL , colorByPoint) //设置为 true 则是给每个点分配颜色。
 AAPropSetFuncImplementation(AASeries, BOOL ,          connectNulls) 
-AAPropSetFuncImplementation(AASeries, AAEvents *, events)
+AAPropSetFuncImplementation(AASeries, AASeriesEvents *, events)
 AAPropSetFuncImplementation(AASeries, AAShadow *, shadow)
 AAPropSetFuncImplementation(AASeries, AADataLabels *, dataLabels)
 AAPropSetFuncImplementation(AASeries, AAStates *, states)
+AAPropSetFuncImplementation(AASeries, id        , allowPointSelect) //折线图的曲线宽度，默认是：0
 AAPropSetFuncImplementation(AASeries, AAPoint  *, point)
 AAPropSetFuncImplementation(AASeries, NSNumber *, pointWidth) //柱状图, 条形图, 柱形范围图, 瀑布图, 箱线图(盒须图)直接设置单个图形元素的宽度
 AAPropSetFuncImplementation(AASeries, NSNumber *, maxPointWidth) //柱状图, 条形图, 柱形范围图, 瀑布图, 箱线图(盒须图)直接设置单个图形元素的最大宽度
@@ -61,15 +62,35 @@ AAPropSetFuncImplementation(AASeries, NSNumber *, minPointLength) //柱状图, �
 @end
 
 
-@implementation AAEvents
+@implementation AASeriesEvents
 
-//AAPropSetFuncImplementation(AAEvents, NSString *, legendItemClick)
+//AAPropSetFuncImplementation(AASeriesEvents, NSString *, click)
+//AAPropSetFuncImplementation(AASeriesEvents, NSString *, mouseOver)
+//AAPropSetFuncImplementation(AASeriesEvents, NSString *, mouseOut)
+//AAPropSetFuncImplementation(AASeriesEvents, NSString *, legendItemClick)
 
-AAJSFuncTypePropSetFuncImplementation(AAEvents, NSString *, legendItemClick)
+AAJSFuncTypePropSetFuncImplementation(AASeriesEvents, NSString *, click)
+AAJSFuncTypePropSetFuncImplementation(AASeriesEvents, NSString *, mouseOver)
+AAJSFuncTypePropSetFuncImplementation(AASeriesEvents, NSString *, mouseOut)
+AAJSFuncTypePropSetFuncImplementation(AASeriesEvents, NSString *, legendItemClick)
+
+
+- (void)setClick:(NSString *)click {
+    _click = [click aa_toPureJSString];
+}
+
+- (void)setMouseOver:(NSString *)mouseOver {
+    _mouseOver = [mouseOver aa_toPureJSString];
+}
+
+- (void)setMouseOut:(NSString *)mouseOut {
+    _mouseOut = [mouseOut aa_toPureJSString];
+}
 
 - (void)setLegendItemClick:(NSString *)legendItemClick {
     _legendItemClick = [legendItemClick aa_toPureJSString];
 }
+
 
 @end
 

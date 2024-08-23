@@ -536,6 +536,7 @@ static NSUInteger alertControllerCount = 0;
     BOOL hasMessage = (self.messageLabel.text.length > 0 && !self.messageLabel.hidden);
     BOOL hasTextField = self.alertTextFields.count > 0;
     BOOL hasCustomView = !!_customView;
+    BOOL shouldShowSeparatorAtTopOfButtonAtFirstLine = hasTitle || hasMessage || hasCustomView;
     CGFloat contentOriginY = 0;
     
     self.maskView.frame = self.view.bounds;
@@ -606,16 +607,21 @@ static NSUInteger alertControllerCount = 0;
                 // 对齐系统，先 add 的在右边，后 add 的在左边
                 QMUIAlertAction *leftAction = newOrderActions[1];
                 leftAction.button.frame = CGRectMake(0, contentOriginY, CGRectGetWidth(self.buttonScrollView.bounds) / 2, self.alertButtonHeight);
-                leftAction.button.qmui_borderPosition = QMUIViewBorderPositionTop|QMUIViewBorderPositionRight;
+                leftAction.button.qmui_borderPosition = QMUIViewBorderPositionRight;
                 QMUIAlertAction *rightAction = newOrderActions[0];
                 rightAction.button.frame = CGRectMake(CGRectGetMaxX(leftAction.button.frame), contentOriginY, CGRectGetWidth(self.buttonScrollView.bounds) / 2, self.alertButtonHeight);
-                rightAction.button.qmui_borderPosition = QMUIViewBorderPositionTop;
+                if (shouldShowSeparatorAtTopOfButtonAtFirstLine) {
+                    leftAction.button.qmui_borderPosition |= QMUIViewBorderPositionTop;
+                    rightAction.button.qmui_borderPosition = QMUIViewBorderPositionTop;
+                }
                 contentOriginY = CGRectGetMaxY(leftAction.button.frame);
             } else {
                 for (int i = 0; i < newOrderActions.count; i++) {
                     QMUIAlertAction *action = newOrderActions[i];
                     action.button.frame = CGRectMake(0, contentOriginY, CGRectGetWidth(self.containerView.bounds), self.alertButtonHeight);
-                    action.button.qmui_borderPosition = QMUIViewBorderPositionTop;
+                    if (i > 0 || shouldShowSeparatorAtTopOfButtonAtFirstLine) {
+                        action.button.qmui_borderPosition = QMUIViewBorderPositionTop;
+                    }
                     contentOriginY = CGRectGetMaxY(action.button.frame);
                 }
             }
@@ -625,7 +631,7 @@ static NSUInteger alertControllerCount = 0;
         self.buttonScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.buttonScrollView.bounds), contentOriginY);
         // 容器最后布局
         CGFloat contentHeight = CGRectGetHeight(self.headerScrollView.bounds) + CGRectGetHeight(self.buttonScrollView.bounds);
-        CGFloat screenSpaceHeight = CGRectGetHeight(self.view.bounds);
+        CGFloat screenSpaceHeight = CGRectGetHeight(self.view.bounds) - UIEdgeInsetsGetVerticalValue(SafeAreaInsetsConstantForDeviceWithNotch);
         if (contentHeight > screenSpaceHeight - 20) {
             screenSpaceHeight -= 20;
             CGFloat contentH = fmin(CGRectGetHeight(self.headerScrollView.bounds), screenSpaceHeight / 2);
@@ -649,7 +655,7 @@ static NSUInteger alertControllerCount = 0;
         self.scrollWrapView.frame =  CGRectMake(0, 0, CGRectGetWidth(self.scrollWrapView.bounds), contentHeight);
         self.mainVisualEffectView.frame = self.scrollWrapView.bounds;
         
-        self.containerView.qmui_frameApplyTransform = CGRectMake((CGRectGetWidth(self.view.bounds) - CGRectGetWidth(self.containerView.frame)) / 2, (screenSpaceHeight - contentHeight - self.keyboardHeight) / 2, CGRectGetWidth(self.containerView.frame), CGRectGetHeight(self.scrollWrapView.bounds));
+        self.containerView.qmui_frameApplyTransform = CGRectMake((CGRectGetWidth(self.view.bounds) - CGRectGetWidth(self.containerView.frame)) / 2, SafeAreaInsetsConstantForDeviceWithNotch.top + (screenSpaceHeight - contentHeight - self.keyboardHeight) / 2, CGRectGetWidth(self.containerView.frame), CGRectGetHeight(self.scrollWrapView.bounds));
     }
     
     else if (self.preferredStyle == QMUIAlertControllerStyleActionSheet) {
@@ -717,17 +723,25 @@ static NSUInteger alertControllerCount = 0;
                 if (action.style == QMUIAlertActionStyleCancel && i == newOrderActions.count - 1) {
                     continue;
                 } else {
+                    BOOL isFirstLine = floor(i / columnCount) == 0;
+                    BOOL isLastColumn = fmod(i + 1, columnCount) == 0;
+                    BOOL shouldShowSeparatorAtTop = !isFirstLine || shouldShowSeparatorAtTopOfButtonAtFirstLine;
+                    BOOL shouldShowSeparatorAtRight = !isLastColumn;// 单列时全都不用显示右分隔线，多列时最后一列不用显示右分隔线
                     action.button.frame = CGRectMake(alertActionsLayoutX, alertActionsLayoutY, alertActionsWidth, self.sheetButtonHeight);
-                    if (fmodf(i + 1, columnCount) == 0) {
-                        action.button.qmui_borderPosition = QMUIViewBorderPositionTop;
+                    if (isLastColumn) {
                         alertActionsLayoutX = 0;
                         alertActionsLayoutY = CGRectGetMaxY(action.button.frame);
                     } else {
-                        action.button.qmui_borderPosition = QMUIViewBorderPositionTop|QMUIViewBorderPositionRight;
                         alertActionsLayoutX += alertActionsWidth;
                     }
-                    
                     contentOriginY = MAX(contentOriginY, CGRectGetMaxY(action.button.frame));
+                    
+                    if (shouldShowSeparatorAtTop) {
+                        action.button.qmui_borderPosition |= QMUIViewBorderPositionTop;
+                    }
+                    if (shouldShowSeparatorAtRight) {
+                        action.button.qmui_borderPosition |= QMUIViewBorderPositionRight;
+                    }
                 }
             }
         }
@@ -1188,9 +1202,7 @@ static NSUInteger alertControllerCount = 0;
     if (!_headerScrollView) {
         _headerScrollView = [[UIScrollView alloc] init];
         _headerScrollView.scrollsToTop = NO;
-        if (@available(iOS 11, *)) {
-            _headerScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        }
+        _headerScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         [self updateHeaderBackgrondColor];
     }
     return _headerScrollView;
@@ -1200,9 +1212,7 @@ static NSUInteger alertControllerCount = 0;
     if (!_buttonScrollView) {
         _buttonScrollView = [[UIScrollView alloc] init];
         _buttonScrollView.scrollsToTop = NO;
-        if (@available(iOS 11, *)) {
-            _buttonScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        }
+        _buttonScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
     return _buttonScrollView;
 }

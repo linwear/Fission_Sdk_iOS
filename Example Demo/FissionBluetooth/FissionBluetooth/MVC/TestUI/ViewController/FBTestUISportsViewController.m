@@ -41,8 +41,7 @@ static NSString *FBTestUISportsPaceRatioCellID = @"FBTestUISportsPaceRatioCell";
     
     if (self.sportsModel.locations.count) { // 如果有轨迹数据，右上角显示轨迹查看按钮
         QMUIButton *rightItemButton = [QMUIButton buttonWithType:UIButtonTypeCustom];
-        [rightItemButton setBackgroundImage:UIImageMake(@"ic_sports_trajectory") forState:UIControlStateNormal];
-        rightItemButton.frame = CGRectMake(0, 0, 44, 44);
+        [rightItemButton setImage:UIImageMake(@"ic_sports_trajectory") forState:UIControlStateNormal];
         [rightItemButton addTarget:self action:@selector(showSportsTrajectory) forControlEvents:UIControlEventTouchUpInside];
         UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightItemButton];
         [self.navigationItem setRightBarButtonItem:rightItem animated:YES];
@@ -290,7 +289,7 @@ static NSString *FBTestUISportsPaceRatioCellID = @"FBTestUISportsPaceRatioCell";
         [heartRateArray     addObject:item.heartRate==0 ? NSNull.null : @(item.heartRate)];
         [stepFrequencyArray addObject:item.step==0 ?      NSNull.null : @(item.step)];
         [calorieArray       addObject:item.calorie==0 ?   NSNull.null : @(item.calorie)];
-        [distanceArray      addObject:item.distance==0 ?  NSNull.null : @([Tools distance_metre_Convert:item.distance])];
+        [distanceArray      addObject:item.distance==0 ?  NSNull.null : @([Tools distance_metre_Convert_2:item.distance])];
         [paceArray          addObject:item.pace==0 ?      NSNull.null : @([Tools paceSwitch:item.pace])];
     }
     
@@ -365,9 +364,9 @@ static NSString *FBTestUISportsPaceRatioCellID = @"FBTestUISportsPaceRatioCell";
     FBTestUISportsChartOverviewModel *chartOverviewModel_4 = FBTestUISportsChartOverviewModel.new;
     chartOverviewModel_4.aaChartModel = distanceAAChartModel;
     chartOverviewModel_4.overviewArray = @[
-        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Average Distance") value:[NSString stringWithFormat:@"%.2f", [Tools distance_metre_Convert:(CGFloat)self.sportsModel.distance/(CGFloat)self.sportsModel.items.count]]],
-        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Maximum Distance") value:[NSString stringWithFormat:@"%.2f", [Tools distance_metre_Convert:distanceMax]]],
-        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Total Distance") value:[NSString stringWithFormat:@"%.2f", [Tools distance_metre_Convert:self.sportsModel.distance]]]
+        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Average Distance") value:[NSString stringWithFormat:@"%.2f", [Tools distance_metre_Convert_2:(CGFloat)self.sportsModel.distance/(CGFloat)self.sportsModel.items.count]]],
+        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Maximum Distance") value:[NSString stringWithFormat:@"%.2f", [Tools distance_metre_Convert_2:distanceMax]]],
+        [[FBTestUIOverviewModel alloc] initWithTitle:LWLocalizbleString(@"Total Distance") value:[NSString stringWithFormat:@"%.2f", [Tools distance_metre_Convert_2:self.sportsModel.distance]]]
     ];
     
     // 实时配速-概览
@@ -413,6 +412,7 @@ static NSString *FBTestUISportsPaceRatioCellID = @"FBTestUISportsPaceRatioCell";
         transition.animationType =  WXSTransitionAnimationTypePointSpreadPresent;
         transition.animationTime = 0.7;
         transition.autoShowAndHideNavBar = NO;
+        transition.backGestureEnable = NO;
         transition.startView = weakSelf.rightItemButton;
     }];
 }

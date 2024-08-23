@@ -37,6 +37,9 @@
 @property (nonatomic, assign) NSInteger currentOtaIndex;
 /// 更新间隔，秒
 @property (nonatomic, assign) int interval;
+
+/// 失败时是否停止
+@property (nonatomic, assign) BOOL isStop;
  
 @end
 
@@ -67,12 +70,19 @@ static NSString *FBAutomaticOTAHeaderViewID = @"FBAutomaticOTAHeaderView";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    BOOL isFirmware = self.OTAType==FB_OTANotification_Firmware;
+        
+    UIButton *continueBut = [UIButton buttonWithType:UIButtonTypeCustom];
+    [continueBut setTitle:@"✅" forState:UIControlStateNormal];
+    [continueBut setTitle:@"❌" forState:UIControlStateSelected];
+    [continueBut addTarget:self action:@selector(continueClick:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *continueItem = [[UIBarButtonItem alloc] initWithCustomView:continueBut];
+    UIBarButtonItem *timeItem = [[UIBarButtonItem alloc] initWithTitle:@"⏰" style:UIBarButtonItemStylePlain target:self action:@selector(selectTime)];
+    self.navigationItem.rightBarButtonItems = @[timeItem, continueItem];
     
     self.topConstraint.constant = NavigationContentTop + 10;
 
-    self.interval = isFirmware ? 90 : 5; // 部分设备重启时间长，固件设置90秒的周期，表盘5秒的周期
+    // 固件OTA 部分设备需要重启，暂时设置120秒周期；其他类型5秒的周期；可以根据selectTime:自行选择
+    self.interval = self.OTAType==FB_OTANotification_Firmware ? 120 : 5;
     
     if (self.OTAType == FB_OTANotification_Motion || self.OTAType == FB_OTANotification_Multi_Sport) {
         BOOL supportMultipleSports = FBAllConfigObject.firmwareConfig.supportMultipleSports;
@@ -80,7 +90,7 @@ static NSString *FBAutomaticOTAHeaderViewID = @"FBAutomaticOTAHeaderView";
         if ((self.OTAType == FB_OTANotification_Motion && supportMultipleSports) ||
             (self.OTAType == FB_OTANotification_Multi_Sport && !supportMultipleSports)) {
             WeakSelf(self);
-            [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Tip") message:LWLocalizbleString(@"This function does not support") cancel:nil sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
+            [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Tip") message:LWLocalizbleString(@"The current device does not support this feature") cancel:nil sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
                      
                 [weakSelf.navigationController popViewControllerAnimated:YES];
             }];
@@ -143,6 +153,47 @@ static NSString *FBAutomaticOTAHeaderViewID = @"FBAutomaticOTAHeaderView";
     }];
 }
 
+- (void)continueClick:(UIButton *)continueBut {
+    WeakSelf(self);
+    
+    if (!continueBut.selected) {
+        [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Tip") message:LWLocalizbleString(@"Confirm to stop immediately when OTA fails?") cancel:LWLocalizbleString(@"Cancel") sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
+                 
+            if (clickType == AlertClickType_Sure)
+            {
+                continueBut.selected = YES;
+                weakSelf.isStop = continueBut.selected;
+            }
+        }];
+    }
+    else {
+        continueBut.selected = NO;
+        self.isStop = continueBut.selected;
+    }
+}
+
+- (void)selectTime {
+    WeakSelf(self);
+    
+    NSMutableArray *array = NSMutableArray.array;
+    for (int i = 1; i <= 60; i++) {
+        [array addObject:[NSString stringWithFormat:@"%d", i*5]];
+    }
+    
+    BRStringPickerView *stringPickerView = [[BRStringPickerView alloc]init];
+    stringPickerView.pickerMode = BRStringPickerComponentSingle;
+    stringPickerView.title = LWLocalizbleString(@"Select Time");
+    stringPickerView.dataSourceArr = array.copy;
+    stringPickerView.selectValue = [NSString stringWithFormat:@"%d", self.interval];
+    stringPickerView.resultModelBlock = ^(BRResultModel *resultModel) {
+        weakSelf.interval = resultModel.value.intValue;
+        [weakSelf.otaButton setTitle:[NSString stringWithFormat:@"OTA【%d s】", weakSelf.interval] forState:UIControlStateNormal];
+        [weakSelf.otaButton setTitle:[NSString stringWithFormat:@"STOP【%d s】", weakSelf.interval] forState:UIControlStateSelected];
+        
+    };
+    [stringPickerView show];
+}
+
 - (IBAction)otaClick:(id)sender {
     WeakSelf(self);
     
@@ -151,8 +202,8 @@ static NSString *FBAutomaticOTAHeaderViewID = @"FBAutomaticOTAHeaderView";
                  
             if (clickType == AlertClickType_Sure)
             {
-                weakSelf.otaButton.selected = NO;
                 [dispatch_source_timer.sharedInstance PauseTiming];
+                weakSelf.otaButton.selected = NO;
             }
         }];
         return;
@@ -172,7 +223,7 @@ static NSString *FBAutomaticOTAHeaderViewID = @"FBAutomaticOTAHeaderView";
 - (NSData *)ObtainOtaFile {
     
     if (!self.selectFileArray.count) return nil;
-    
+        
     NSData *otaData = nil;
     
     // 为运动推送，且支持一次推送多个，得打包合并成一个
@@ -189,7 +240,38 @@ static NSString *FBAutomaticOTAHeaderViewID = @"FBAutomaticOTAHeaderView";
         if (self.currentOtaIndex >= self.selectFileArray.count) self.currentOtaIndex = 0;
         
         if (self.currentOtaIndex < self.selectFileArray.count) {
+            
             otaData = self.selectFileArray[self.currentOtaIndex].data;
+            
+            if (FBAllConfigObject.firmwareConfig.chipManufacturer == FB_CHIPMANUFACTURERTYPE_HISI) {
+                // 海思的需要先合并一个文件信息
+                NSString *nameString = nil;
+                if (self.OTAType == FB_OTANotification_Firmware) {
+                    // update.fwpkg（固定命名｜Fixed naming）
+                    nameString = @"update.fwpkg";
+                }
+                else if (self.OTAType == FB_OTANotification_ClockDial) {
+                    // Dial_online_L******_xxxxxxxxxx_AAAA.bin（其中******为文件大小，xxxxxxxxxx为时间戳，AAAA为唯一ID｜Where ****** is the file size, xxxxxxxxxx is the timestamp, and AAAA is the unique ID）
+                    nameString = [NSString stringWithFormat:@"Dial_online_L%ld_%ld_%ld.bin", otaData.length, (NSInteger)NSDate.date.timeIntervalSince1970, self.currentOtaIndex+1];
+                }
+                else if (self.OTAType == FB_OTANotification_CustomClockDial) {
+                    // Dial_photo_L******_xxxxxxxxxx.bin（其中******为文件大小，xxxxxxxxxx为时间戳｜Where ****** is the file size, xxxxxxxxxx is the timestamp）
+                    nameString = [NSString stringWithFormat:@"Dial_photo_L%ld_%ld.bin", otaData.length, (NSInteger)NSDate.date.timeIntervalSince1970];
+                }
+                else if (self.OTAType == FB_OTANotification_JS_App) {
+                    // JS_AAAA_BBBB_L******_xxxxxxxxxx.bin（其中AAAA为应用唯一ID，BBBB为版本号，******为文件大小，xxxxxxxxxx为时间戳｜AAAA is the unique ID of the application, BBBB is the version number, ****** is the file size, and xxxxxxxxxx is the timestamp.）
+                    NSMutableString *bundleID = NSMutableString.string;
+                    NSArray *array = [self.selectFileArray[self.currentOtaIndex].name componentsSeparatedByString:@"."];
+                    for (NSString *string in array) {
+                        if (![string isEqualToString:@"bin"]) {
+                            if (!StringIsEmpty(bundleID)) [bundleID appendString:@"."];
+                            [bundleID appendString:string];
+                        }
+                    }
+                    nameString = [NSString stringWithFormat:@"JS_%@_V0.0%ld_L%ld_%ld.bin", bundleID, self.currentOtaIndex+1, otaData.length, (NSInteger)NSDate.date.timeIntervalSince1970];
+                }
+                otaData = [FBCustomDataTools createFileName:nameString withFileData:otaData withOTAType:self.OTAType];
+            }
         }
         
         self.currentOtaIndex += 1;
@@ -218,7 +300,8 @@ static NSString *FBAutomaticOTAHeaderViewID = @"FBAutomaticOTAHeaderView";
     [self refresh]; // 刷新列表
     
     FBBluetoothOTA.sharedInstance.isCheckPower = NO;
-    FBBluetoothOTA.sharedInstance.sendTimerOut = self.OTAType==FB_OTANotification_Firmware ? 90 : 30;
+    // 除固件以外，其他类似设置超时时间为30秒；部分设备固件OTA需要重启才能完成，又可能重启时间较长，设置150秒的等待重启
+    FBBluetoothOTA.sharedInstance.sendTimerOut = self.OTAType==FB_OTANotification_Firmware ? 150 : 30;
     
     [NSObject showLoading:LWLocalizbleString(@"Loading...")];
    
@@ -238,6 +321,12 @@ static NSString *FBAutomaticOTAHeaderViewID = @"FBAutomaticOTAHeaderView";
                 string = [NSString stringWithFormat:@"FAILURE: PROGRESS%.f%% ERROR%@ %@", weakSelf.progressView.progress*100.0, error.localizedDescription, [NSDate timeStamp:NSDate.date.timeIntervalSince1970 dateFormat:FBDateFormatYMDHms]];
                 
                 weakSelf.automaticOTAOverview.NG.text = @(weakSelf.automaticOTAOverview.NG.text.integerValue + 1).stringValue; // NG次数+1
+                
+                if (weakSelf.isStop) {
+                    [dispatch_source_timer.sharedInstance PauseTiming];
+                    weakSelf.otaButton.selected = NO;
+                }
+                
             } else {
                 string = [NSString stringWithFormat:@"SUCCESS: VELOCITY%.2fkb/s TIME%lds %@", responseObject.velocity, responseObject.totalInterval, [NSDate timeStamp:NSDate.date.timeIntervalSince1970 dateFormat:FBDateFormatYMDHms]];
                 

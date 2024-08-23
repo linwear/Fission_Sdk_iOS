@@ -6,8 +6,13 @@ ${BUILT_PRODUCTS_DIR}/CHIPageControl/CHIPageControl.framework
 ${BUILT_PRODUCTS_DIR}/CWLateralSlide/CWLateralSlide.framework
 ${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework
 ${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework
+${PODS_ROOT}/Fission_Sdk_iOS/SDK/Fission_Sdk_iOS.framework
+${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKLEFoundation.framework
+${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKOTASDK.framework
+${PODS_ROOT}/Fission_Sdk_iOS/SDK/SCompressLib.framework
 ${BUILT_PRODUCTS_DIR}/HJViewStyle/HJViewStyle.framework
 ${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework
+${BUILT_PRODUCTS_DIR}/JJException/JJException.framework
 ${BUILT_PRODUCTS_DIR}/JXCategoryView/JXCategoryView.framework
 ${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework
 ${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework
@@ -19,4 +24,13 @@ ${BUILT_PRODUCTS_DIR}/SGQRCode/SGQRCode.framework
 ${BUILT_PRODUCTS_DIR}/SSZipArchive/SSZipArchive.framework
 ${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework
 ${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework
+${BUILT_PRODUCTS_DIR}/UICountingLabel/UICountingLabel.framework
 ${BUILT_PRODUCTS_DIR}/ZLCollectionViewFlowLayout/ZLCollectionViewFlowLayout.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/ffmpeg-kit-ios-full/ffmpegkit.framework/ffmpegkit
+${PODS_XCFRAMEWORKS_BUILD_DIR}/ffmpeg-kit-ios-full/libavcodec.framework/libavcodec
+${PODS_XCFRAMEWORKS_BUILD_DIR}/ffmpeg-kit-ios-full/libavdevice.framework/libavdevice
+${PODS_XCFRAMEWORKS_BUILD_DIR}/ffmpeg-kit-ios-full/libavfilter.framework/libavfilter
+${PODS_XCFRAMEWORKS_BUILD_DIR}/ffmpeg-kit-ios-full/libavformat.framework/libavformat
+${PODS_XCFRAMEWORKS_BUILD_DIR}/ffmpeg-kit-ios-full/libavutil.framework/libavutil
+${PODS_XCFRAMEWORKS_BUILD_DIR}/ffmpeg-kit-ios-full/libswresample.framework/libswresample
+${PODS_XCFRAMEWORKS_BUILD_DIR}/ffmpeg-kit-ios-full/libswscale.framework/libswscale

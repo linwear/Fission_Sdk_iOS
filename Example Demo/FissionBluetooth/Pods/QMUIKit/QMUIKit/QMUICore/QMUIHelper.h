@@ -166,14 +166,17 @@ extern const CGPoint QMUIBadgeInvalidateOffset;
 /// @NEW_DEVICE_CHECKER
 @property(class, nonatomic, readonly) BOOL isRegularScreen;
 
-/// iPhone 12 Pro Max
+/// iPhone 14 Pro Max
+@property(class, nonatomic, readonly) BOOL is67InchScreenAndiPhone14Later;
+
+/// iPhone 14 Plus / 13 Pro Max / 12 Pro Max
 @property(class, nonatomic, readonly) BOOL is67InchScreen;
 
 /// iPhone XS Max / 11 Pro Max
 @property(class, nonatomic, readonly) BOOL is65InchScreen;
 
 /// iPhone 12 / 12 Pro
-@property(class, nonatomic, readonly) BOOL is61InchScreenAndiPhone12;
+@property(class, nonatomic, readonly) BOOL is61InchScreenAndiPhone12Later;
 
 /// iPhone XR / 11
 @property(class, nonatomic, readonly) BOOL is61InchScreen;
@@ -196,9 +199,10 @@ extern const CGPoint QMUIBadgeInvalidateOffset;
 /// iPhone 4
 @property(class, nonatomic, readonly) BOOL is35InchScreen;
 
+@property(class, nonatomic, readonly) CGSize screenSizeFor67InchAndiPhone14Later;
 @property(class, nonatomic, readonly) CGSize screenSizeFor67Inch;
 @property(class, nonatomic, readonly) CGSize screenSizeFor65Inch;
-@property(class, nonatomic, readonly) CGSize screenSizeFor61InchAndiPhone12;
+@property(class, nonatomic, readonly) CGSize screenSizeFor61InchAndiPhone12Later;
 @property(class, nonatomic, readonly) CGSize screenSizeFor61Inch;
 @property(class, nonatomic, readonly) CGSize screenSizeFor58Inch;
 @property(class, nonatomic, readonly) CGSize screenSizeFor55Inch;
@@ -209,7 +213,7 @@ extern const CGPoint QMUIBadgeInvalidateOffset;
 
 @property(class, nonatomic, readonly) CGFloat preferredLayoutAsSimilarScreenWidthForIPad;
 
-/// 用于获取 isNotchedScreen 设备的 insets，注意对于 iPad Pro 11-inch 这种无刘海凹槽但却有使用 Home Indicator 的设备，它的 top 返回0，bottom 返回 safeAreaInsets.bottom 的值
+/// 用于获取 isNotchedScreen 设备的 insets，注意对于无 Home 键的新款 iPad 而言，它不一定有物理凹槽，但因为使用了 Home Indicator，所以它的 safeAreaInsets 也是非0。
 /// @NEW_DEVICE_CHECKER
 @property(class, nonatomic, readonly) UIEdgeInsets safeAreaInsetsForDeviceWithNotch;
 
@@ -225,6 +229,11 @@ extern const CGPoint QMUIBadgeInvalidateOffset;
  @return 应用运行的窗口大小
  */
 @property(class, nonatomic, readonly) CGSize applicationSize;
+
+/**
+ 静态的导航栏高度，在导航栏不可见时也会根据机型返回导航栏的固定高度
+ */
+@property(class, nonatomic, readonly) CGFloat statusBarHeightConstant;
 
 @end
 

@@ -26,13 +26,15 @@
 
 @property (nonatomic, strong) NSArray <LWPersonModel *> *searchArray; // 已匹配搜索到的数据
 
+@property (nonatomic, assign) int max;
+
 @end
 
 @implementation LWContactViewController
 
-- (instancetype)initWithSelectedArray:(NSArray<LWPersonModel *> *)selectedArray withBlock:(LWSelectedPersonBlock)selectedPersonBlock {
+- (instancetype)initWithSelectedArray:(NSArray<LWPersonModel *> *)selectedArray max:(int)max withBlock:(LWSelectedPersonBlock)selectedPersonBlock {
     if (self = [super init]) {
-        
+        self.max = max;
         self.dataArray = NSMutableArray.array;
         self.selectedArray = [NSMutableArray arrayWithArray:selectedArray];
         self.selectedPersonBlock = selectedPersonBlock;
@@ -77,7 +79,7 @@
 }
 
 - (void)setNaviRigBar {
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%ld/50", self.selectedArray.count] style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnClick)];
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:[NSString stringWithFormat:@"%ld/%d", self.selectedArray.count, self.max] style:UIBarButtonItemStylePlain target:self action:@selector(rightBtnClick)];
     self.navigationItem.rightBarButtonItem = rightItem;
 }
 
@@ -95,51 +97,53 @@
 
 - (void)getContacts {
     // 获取所有通讯录
-    NSArray *keys = @[CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey];
-    CNContactFetchRequest *request = [[CNContactFetchRequest alloc]initWithKeysToFetch:keys];
-    CNContactStore *contactStore = CNContactStore.new;
-    WeakSelf(self);
-    [contactStore enumerateContactsWithFetchRequest:request error:nil usingBlock:^(CNContact * _Nonnull contact, BOOL * _Nonnull stop) {
-        
-        NSString *givenName = contact.givenName;
-        NSString *familyName = contact.familyName;
-        
-        NSString *name = nil;
-        
-        NSString *systemLanguage = [NSLocale preferredLanguages].firstObject; // 系统当前语言
-        if ([systemLanguage hasPrefix:@"zh"]) {
-            name = [NSString stringWithFormat:@"%@%@", StringHandle(familyName), StringHandle(givenName)];
-        } else {
-            name = [NSString stringWithFormat:@"%@%@", StringHandle(givenName), StringHandle(familyName)];
-        }
-        
-        
-        NSArray <CNLabeledValue <CNPhoneNumber *> *> *phoneNumbers = contact.phoneNumbers;
-        
-        for(CNLabeledValue *labeledValue in phoneNumbers) {
-            id phoneValue = labeledValue.value;
-            if ([phoneValue isKindOfClass:CNPhoneNumber.class]) {
-                CNPhoneNumber *phoneNumber = (CNPhoneNumber *)phoneValue;
-                NSString * Str = phoneNumber.stringValue;
-                NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@"0123456789"]invertedSet];
-                NSString *phoneStr = [[Str componentsSeparatedByCharactersInSet:setToRemove]componentsJoinedByString:@""];
-                
-                LWPersonModel *model = LWPersonModel.new;
-                model.name = name;
-                model.phoneNumber = phoneStr;
-                
-                // 谓词检索是否已选择
-                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@ && phoneNumber == %@", name, phoneStr];
-                NSArray <LWPersonModel *> *array = [weakSelf.selectedArray filteredArrayUsingPredicate:predicate];
-                if (array.count) {
-                    model.isSelect = YES;
-                }
-                
-                // 加入数据源
-                [weakSelf.dataArray addObject:model];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSArray *keys = @[CNContactGivenNameKey, CNContactFamilyNameKey, CNContactPhoneNumbersKey];
+        CNContactFetchRequest *request = [[CNContactFetchRequest alloc]initWithKeysToFetch:keys];
+        CNContactStore *contactStore = CNContactStore.new;
+        WeakSelf(self);
+        [contactStore enumerateContactsWithFetchRequest:request error:nil usingBlock:^(CNContact * _Nonnull contact, BOOL * _Nonnull stop) {
+            
+            NSString *givenName = contact.givenName;
+            NSString *familyName = contact.familyName;
+            
+            NSString *name = nil;
+            
+            NSString *systemLanguage = [NSLocale preferredLanguages].firstObject; // 系统当前语言
+            if ([systemLanguage hasPrefix:@"zh"]) {
+                name = [NSString stringWithFormat:@"%@%@", StringHandle(familyName), StringHandle(givenName)];
+            } else {
+                name = [NSString stringWithFormat:@"%@%@", StringHandle(givenName), StringHandle(familyName)];
             }
-        }
-    }];
+            
+            
+            NSArray <CNLabeledValue <CNPhoneNumber *> *> *phoneNumbers = contact.phoneNumbers;
+            
+            for(CNLabeledValue *labeledValue in phoneNumbers) {
+                id phoneValue = labeledValue.value;
+                if ([phoneValue isKindOfClass:CNPhoneNumber.class]) {
+                    CNPhoneNumber *phoneNumber = (CNPhoneNumber *)phoneValue;
+                    NSString * Str = phoneNumber.stringValue;
+                    NSCharacterSet *setToRemove = [[ NSCharacterSet characterSetWithCharactersInString:@"0123456789"]invertedSet];
+                    NSString *phoneStr = [[Str componentsSeparatedByCharactersInSet:setToRemove]componentsJoinedByString:@""];
+                    
+                    LWPersonModel *model = LWPersonModel.new;
+                    model.name = name;
+                    model.phoneNumber = phoneStr;
+                    
+                    // 谓词检索是否已选择
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@ && phoneNumber == %@", name, phoneStr];
+                    NSArray <LWPersonModel *> *array = [weakSelf.selectedArray filteredArrayUsingPredicate:predicate];
+                    if (array.count) {
+                        model.isSelect = YES;
+                    }
+                    
+                    // 加入数据源
+                    [weakSelf.dataArray addObject:model];
+                }
+            }
+        }];
+    });
 }
 
 /*
@@ -219,9 +223,9 @@
     NSString *name = model.name;
     NSString *phoneStr = model.phoneNumber;
     
-    if (self.selectedArray.count >= 50 && !model.isSelect) {
+    if (self.selectedArray.count >= self.max && !model.isSelect) {
 
-        [NSObject showLoading:LWLocalizbleString(@"Add up to 50 frequently used contacts")];
+        [NSObject showHUDText:[NSString stringWithFormat:LWLocalizbleString(@"Add up to %d contacts"), self.max]];
 
     } else {
     

@@ -132,7 +132,9 @@
     
 #ifdef FBINTERNAL
     
-    if (FBAllConfigObject.firmwareConfig.supportAntiAliasing) {
+    FBFirmwareVersionObject *object = FBAllConfigObject.firmwareConfig;
+    
+    if (object.supportAntiAliasing && object.chipManufacturer!=FB_CHIPMANUFACTURERTYPE_HISI) {
         WeakSelf(self);
         UIAlertController *alertController = [UIAlertController alertControllerWithTitle:LWLocalizbleString(@"Custom Dial") message:nil preferredStyle:UIAlertControllerStyleActionSheet];
         

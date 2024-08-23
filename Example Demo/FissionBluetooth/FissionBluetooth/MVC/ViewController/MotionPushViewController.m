@@ -184,12 +184,7 @@
 }
 
 - (void)reloadList{
-//    [self.arrayData removeAllObjects];
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, true);
-//    NSString *s = [NSString stringWithFormat:@"%@/motionPush", paths[0]];
-//    NSError *err;
-//    [self.arrayData addObjectsFromArray:[[NSFileManager defaultManager] contentsOfDirectoryAtPath:s error:&err]];
-//    [self.tableView reloadData];
+
     WeakSelf(self);
     // 获取手表运动类型列表
     [FBBgCommand.sharedInstance fbGetListOfDeviceMotionTypesWithBlock:^(FB_RET_CMD status, float progress, FBMotionTypesListModel * _Nullable responseObject, NSError * _Nullable error) {

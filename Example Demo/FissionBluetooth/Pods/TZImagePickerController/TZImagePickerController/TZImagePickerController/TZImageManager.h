@@ -49,6 +49,7 @@
 /// Return YES if Authorized 返回YES如果得到了授权
 - (BOOL)authorizationStatusAuthorized;
 - (void)requestAuthorizationWithCompletion:(void (^)(void))completion;
+- (BOOL)isPHAuthorizationStatusLimited;
 
 /// Get Album 获得相册/相册数组
 - (void)getCameraRollAlbumWithFetchAssets:(BOOL)needFetchAssets completion:(void (^)(TZAlbumModel *model))completion;
@@ -80,6 +81,9 @@
 - (PHImageRequestID)getOriginalPhotoDataWithAsset:(PHAsset *)asset completion:(void (^)(NSData *data,NSDictionary *info,BOOL isDegraded))completion;
 - (PHImageRequestID)getOriginalPhotoDataWithAsset:(PHAsset *)asset progressHandler:(void (^)(double progress, NSError *error, BOOL *stop, NSDictionary *info))progressHandler completion:(void (^)(NSData *data,NSDictionary *info,BOOL isDegraded))completion;
 
+/// Get Image For VideoURL
+- (UIImage *)getImageWithVideoURL:(NSURL *)videoURL;
+
 /// Save photo 保存照片
 - (void)savePhotoWithImage:(UIImage *)image completion:(void (^)(PHAsset *asset, NSError *error))completion;
 - (void)savePhotoWithImage:(UIImage *)image location:(CLLocation *)location completion:(void (^)(PHAsset *asset, NSError *error))completion;
@@ -96,6 +100,7 @@
 /// Export video 导出视频 presetName: 预设名字，默认值是AVAssetExportPreset640x480
 - (void)getVideoOutputPathWithAsset:(PHAsset *)asset success:(void (^)(NSString *outputPath))success failure:(void (^)(NSString *errorMessage, NSError *error))failure;
 - (void)getVideoOutputPathWithAsset:(PHAsset *)asset presetName:(NSString *)presetName success:(void (^)(NSString *outputPath))success failure:(void (^)(NSString *errorMessage, NSError *error))failure;
+- (void)getVideoOutputPathWithAsset:(PHAsset *)asset presetName:(NSString *)presetName timeRange:(CMTimeRange)timeRange success:(void (^)(NSString *outputPath))success failure:(void (^)(NSString *errorMessage, NSError *error))failure;
 /// 新的导出视频API，解决iOS14 iCloud视频导出失败的问题，未大量测试，请大家多多测试，有问题群里反馈
 - (void)requestVideoOutputPathWithAsset:(PHAsset *)asset presetName:(NSString *)presetName success:(void (^)(NSString *outputPath))success failure:(void (^)(NSString *errorMessage, NSError *error))failure;
 /// 得到视频原始文件地址

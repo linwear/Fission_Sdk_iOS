@@ -19,49 +19,125 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "3DF56253-C129-4EC7-B4F2-E7969AC99561"
+            uuid = "6ECF7BA1-B717-4FBF-A5F8-C3CC1EA0B9B8"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FissionBluetooth/MVC/Model/FBDocumentPickerManage.m"
+            filePath = "FissionBluetooth/MVC/TestUI/Model/FBLoadDataObject.h"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "11"
-            endingLineNumber = "11"
-            landmarkName = "FBDocumentPickerManageBlock"
-            landmarkType = "16">
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "sportsPositioningArray"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "6ECF7BA1-B717-4FBF-A5F8-C3CC1EA0B9B8 - 6c26750ff9b64b4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[FBSportsPositioningRecordResults sportsPositioningArray]"
+                  moduleName = "FissionBluetooth"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liebian/Desktop/Fission_Sdk_iOS/Example%20Demo/FissionBluetooth/FissionBluetooth/MVC/TestUI/Model/FBLoadDataObject.h"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127">
+               </Location>
+               <Location
+                  uuid = "6ECF7BA1-B717-4FBF-A5F8-C3CC1EA0B9B8 - 9d5ff58bb55ac71a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[FBSportsPositioningRecordResults setSportsPositioningArray:]"
+                  moduleName = "FissionBluetooth"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liebian/Desktop/Fission_Sdk_iOS/Example%20Demo/FissionBluetooth/FissionBluetooth/MVC/TestUI/Model/FBLoadDataObject.h"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1755F214-B756-4024-9A7D-01D1C83B51FA"
+            uuid = "00B559B2-4FA1-41B1-83A2-A35FA23E20EE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FissionBluetooth/MVC/Model/FBEphemerisManager.m"
+            filePath = "Pods/SGQRCode/SGQRCode/QRCode/SGScanCode.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "-requestEphemerisDataWithBlock:"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "-playSoundEffect:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "189E9A87-FE91-4EC8-954B-6F7F0357B5BC"
-            shouldBeEnabled = "No"
+            uuid = "E2B0E2AB-94DF-40CD-9135-0184990186FF"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "FissionBluetooth/MVC/TestUI/ViewController/FBTestUISportsTrajectoryViewController.m"
+            filePath = "FissionBluetooth/SystemBaseclass/PrefixHeader.pch"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
-            landmarkName = "-mapView:rendererForOverlay:"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E6120CC7-4F8E-4565-A44E-366FBC4FD769"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FissionBluetooth/MVC/CustomWatchFace/ViewController/FBCustomDialListContentView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
+            landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E6120CC7-4F8E-4565-A44E-366FBC4FD769 - 6bb7a907885d686"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[FBCustomDialListContentView collectionView:didSelectItemAtIndexPath:]"
+                  moduleName = "FissionBluetooth"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liebian/Desktop/Fission_Sdk_iOS/Example%20Demo/FissionBluetooth/FissionBluetooth/MVC/CustomWatchFace/ViewController/FBCustomDialListContentView.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "276"
+                  endingLineNumber = "276">
+               </Location>
+               <Location
+                  uuid = "E6120CC7-4F8E-4565-A44E-366FBC4FD769 - d605a5589e2542c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__71-[FBCustomDialListContentView collectionView:didSelectItemAtIndexPath:]_block_invoke"
+                  moduleName = "FissionBluetooth"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/liebian/Desktop/Fission_Sdk_iOS/Example%20Demo/FissionBluetooth/FissionBluetooth/MVC/CustomWatchFace/ViewController/FBCustomDialListContentView.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "278"
+                  endingLineNumber = "278">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

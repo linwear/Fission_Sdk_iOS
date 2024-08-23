@@ -147,13 +147,16 @@ static IMP qmui_getMsgForwardIMP(NSObject *self, SEL selector) {
 // 让 QMUIThemeImage 支持 NSCopying 是为了修复 iOS 12 及以下版本，QMUIThemeImage 在搭配 resizable 使用的情况下可能无法跟随主题刷新的 bug，使用的地方在 UIView+QMUITheme qmui_themeDidChangeByManager:identifier:theme 内。
 // https://github.com/Tencent/QMUI_iOS/issues/971
 - (id)copyWithZone:(NSZone *)zone {
-    QMUIThemeImage *image = (QMUIThemeImage *)[UIImage qmui_imageWithThemeManagerName:self.managerName provider:self.themeProvider];
+    QMUIThemeImage *image = [[self.class allocWithZone:zone] init];
     image.cachedRawImages = self.cachedRawImages;
+    image.name = self.name;
+    image.managerName = self.managerName;
+    image.themeProvider = self.themeProvider;
     return image;
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"<%@: %p>, rawImage is %@", NSStringFromClass(self.class), self, self.qmui_rawImage.description];
+    return [NSString stringWithFormat:@"<%@: %p>,%@rawImage is %@", NSStringFromClass(self.class), self, self.name.length ? [NSString stringWithFormat:@" name = %@, ", self.name] : @" ", self.qmui_rawImage.description];
 }
 
 - (instancetype)init {
@@ -336,10 +339,14 @@ static IMP qmui_getMsgForwardIMP(NSObject *self, SEL selector) {
 
 #pragma mark - <QMUIDynamicImageProtocol>
 
+- (NSString *)qmui_name {
+    return self.name;
+}
+
 - (UIImage *)qmui_rawImage {
     if (!_themeProvider) return nil;
     QMUIThemeManager *manager = [QMUIThemeManagerCenter themeManagerWithName:self.managerName];
-    NSString *cacheKey = [NSString stringWithFormat:@"%@_%@",manager.name, manager.currentThemeIdentifier];
+    NSString *cacheKey = [NSString stringWithFormat:@"%@%@_%@", self.name ? [NSString stringWithFormat:@"%@_", self.name] : @"", manager.name, manager.currentThemeIdentifier];
     UIImage *rawImage = [self.cachedRawImages objectForKey:cacheKey];
     if (!rawImage) {
         rawImage = self.themeProvider(manager, manager.currentThemeIdentifier, manager.currentTheme).qmui_rawImage;
@@ -377,11 +384,21 @@ static IMP qmui_getMsgForwardIMP(NSObject *self, SEL selector) {
     }];
 }
 
+// QMUIThemeImage 一定不存在 qmui_shouldUseSystemIMP 方法，该方法是为 UIImage 提供的，所以这里强制返回 NO。不这么处理的话，当遇到 [QMUIThemeImage qmui_imageWithTintColor:QMUIThemeColor] 时，该图片会无效。
+- (BOOL)qmui_shouldUseSystemIMP {
+    return NO;
+}
+
 @end
 
 @implementation UIImage (QMUITheme)
 
 QMUISynthesizeBOOLProperty(qmui_shouldUseSystemIMP, setQmui_shouldUseSystemIMP)
+
+static BOOL generatorSupportsDynamicColor = NO;
++ (BOOL)qmui_generatorSupportsDynamicColor {
+    return generatorSupportsDynamicColor;
+}
 
 + (void)load {
     static dispatch_once_t onceToken;
@@ -481,17 +498,28 @@ QMUISynthesizeBOOLProperty(qmui_shouldUseSystemIMP, setQmui_shouldUseSystemIMP)
                 };
             });
         }
+        
+        generatorSupportsDynamicColor = YES;
     });
 }
 
 + (UIImage *)qmui_imageWithThemeProvider:(UIImage * _Nonnull (^)(__kindof QMUIThemeManager * _Nonnull, __kindof NSObject<NSCopying> * _Nullable, __kindof NSObject * _Nullable))provider {
-    return [UIImage qmui_imageWithThemeManagerName:QMUIThemeManagerNameDefault provider:provider];
+    return [self qmui_imageWithName:nil themeManagerName:QMUIThemeManagerNameDefault provider:provider];
 }
 
-+ (UIImage *)qmui_imageWithThemeManagerName:(__kindof NSObject<NSCopying> *)name provider:(UIImage * _Nonnull (^)(__kindof QMUIThemeManager * _Nonnull, __kindof NSObject<NSCopying> * _Nullable, __kindof NSObject * _Nullable))provider {
++ (UIImage *)qmui_imageWithName:(NSString *)name themeProvider:(UIImage * _Nonnull (^)(__kindof QMUIThemeManager * _Nonnull, __kindof NSObject<NSCopying> * _Nullable, __kindof NSObject * _Nullable))provider {
+    return [self qmui_imageWithName:name themeManagerName:QMUIThemeManagerNameDefault provider:provider];
+}
+
++ (UIImage *)qmui_imageWithThemeManagerName:(__kindof NSObject<NSCopying> *)managerName provider:(UIImage * _Nonnull (^)(__kindof QMUIThemeManager * _Nonnull, __kindof NSObject<NSCopying> * _Nullable, __kindof NSObject * _Nullable))provider {
+    return [self qmui_imageWithName:nil themeManagerName:managerName provider:provider];
+}
+
++ (UIImage *)qmui_imageWithName:(NSString *)name themeManagerName:(__kindof NSObject<NSCopying> *)managerName provider:(UIImage * _Nonnull (^)(__kindof QMUIThemeManager * _Nonnull, __kindof NSObject<NSCopying> * _Nullable, __kindof NSObject * _Nullable))provider {
     QMUIThemeImage *image = [[QMUIThemeImage alloc] init];
     image.cachedRawImages = [[QMUIThemeImageCache alloc] init];
-    image.managerName = name;
+    image.name = name;
+    image.managerName = managerName;
     image.themeProvider = provider;
     return (UIImage *)image;
 }
@@ -520,6 +548,10 @@ QMUISynthesizeBOOLProperty(qmui_shouldUseSystemIMP, setQmui_shouldUseSystemIMP)
 }
 
 #pragma mark - <QMUIDynamicImageProtocol>
+
+- (NSString *)qmui_name {
+    return nil;
+}
 
 - (UIImage *)qmui_rawImage {
     return self;

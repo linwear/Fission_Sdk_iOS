@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LWPersonViewController : LWBaseViewController
 
+- (instancetype)initWithFrequentContacts:(BOOL)isFav max:(int)max;
+
 @end
 
 NS_ASSUME_NONNULL_END

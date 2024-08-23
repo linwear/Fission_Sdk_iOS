@@ -1,0 +1,65 @@
+{
+  "name": "Fission_Sdk_iOS",
+  "version": "3.2.2",
+  "summary": "Fission智能手表SDK for iOS",
+  "description": "Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装｜Framework Function: iOS framework for Fission smart watch, which is responsible for the communication with the watch.",
+  "homepage": "https://github.com/linwear/Fission_Sdk_iOS/tree/3.2.2/Fission_Sdk_iOS",
+  "license": "MIT",
+  "authors": {
+    "WSR": "921903719@qq.com"
+  },
+  "social_media_url": "https://www.linwear.com",
+  "platforms": {
+    "ios": "12.1"
+  },
+  "source": {
+    "git": "https://github.com/linwear/Fission_Sdk_iOS.git",
+    "tag": "3.2.2"
+  },
+  "documentation_url": "https://github.com/linwear/Fission_Sdk_iOS/blob/main/README.md",
+  "requires_arc": true,
+  "frameworks": [
+    "Foundation",
+    "CoreBluetooth",
+    "AudioToolbox"
+  ],
+  "vendored_frameworks": "SDK/Fission_Sdk_iOS.framework",
+  "pod_target_xcconfig": {
+    "OTHER_LDFLAGS": "-lObjC"
+  },
+  "subspecs": [
+    {
+      "name": "Headers",
+      "source_files": "SDK/Fission_Sdk_iOS.framework/Headers/*.{h,m}",
+      "public_header_files": "SDK/Fission_Sdk_iOS.framework/Headers/*.{h,m}"
+    },
+    {
+      "name": "RTKOTASDK",
+      "vendored_frameworks": "SDK/RTKOTASDK.framework"
+    },
+    {
+      "name": "RTKLEFoundation",
+      "vendored_frameworks": "SDK/RTKLEFoundation.framework"
+    },
+    {
+      "name": "SCompressLib",
+      "vendored_frameworks": "SDK/SCompressLib.framework"
+    },
+    {
+      "name": "MagicTool",
+      "vendored_frameworks": "SDK/MagicTool.framework"
+    },
+    {
+      "name": "Starscream",
+      "vendored_frameworks": "SDK/Starscream.framework"
+    },
+    {
+      "name": "FFmpegKit",
+      "dependencies": {
+        "ffmpeg-kit-ios-full": [
+          "~> 6.0"
+        ]
+      }
+    }
+  ]
+}

@@ -37,6 +37,7 @@ const CGFloat QMUILineHeightIdentity = -1000;
             @selector(setText:),
             @selector(setAttributedText:),
             @selector(setLineBreakMode:),
+            @selector(setTextAlignment:),
         };
         for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); index++) {
             SEL originalSelector = selectors[index];
@@ -178,6 +179,18 @@ static char kAssociatedObjectKey_textAttributes;
     }
 }
 
+- (void)qmuilb_setTextAlignment:(NSTextAlignment)textAlignment {
+    [self qmuilb_setTextAlignment:textAlignment];
+    if (!self.qmui_textAttributes) return;
+    if (self.qmui_textAttributes[NSParagraphStyleAttributeName]) {
+        NSMutableParagraphStyle *p = ((NSParagraphStyle *)self.qmui_textAttributes[NSParagraphStyleAttributeName]).mutableCopy;
+        p.alignment = textAlignment;
+        NSMutableDictionary<NSAttributedStringKey, id> *attrs = self.qmui_textAttributes.mutableCopy;
+        attrs[NSParagraphStyleAttributeName] = p.copy;
+        self.qmui_textAttributes = attrs.copy;
+    }
+}
+
 static char kAssociatedObjectKey_lineHeight;
 - (void)setQmui_lineHeight:(CGFloat)qmui_lineHeight {
     if (qmui_lineHeight == QMUILineHeightIdentity) {
@@ -211,6 +224,13 @@ static char kAssociatedObjectKey_lineHeight;
         return result == 0 ? self.font.lineHeight : result;
     } else if (self.text.length) {
         return self.font.lineHeight;
+    } else if (self.qmui_textAttributes) {
+        // 当前 label 连文字都没有时，再尝试从 qmui_textAttributes 里获取
+        if ([self.qmui_textAttributes.allKeys containsObject:NSParagraphStyleAttributeName]) {
+            return ((NSParagraphStyle *)self.qmui_textAttributes[NSParagraphStyleAttributeName]).minimumLineHeight;
+        } else if ([self.qmui_textAttributes.allKeys containsObject:NSFontAttributeName]) {
+            return ((UIFont *)self.qmui_textAttributes[NSFontAttributeName]).lineHeight;
+        }
     }
     
     return 0;

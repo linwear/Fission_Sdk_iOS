@@ -177,7 +177,7 @@ static NSString *UITableViewHeaderFooterViewID = @"UITableViewHeaderFooterView";
 // 组头点击 - 教程
 - (void)sectionButtonClick {
     FBTutorialViewController *vc = FBTutorialViewController.new;
-    vc.isFirmware = NO;
+    vc.tutorialType = FBTutorialType_AutomaticOTA;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

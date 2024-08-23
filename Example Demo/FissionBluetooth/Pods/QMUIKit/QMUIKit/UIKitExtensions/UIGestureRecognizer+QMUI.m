@@ -25,8 +25,9 @@
             return ^(UIGestureRecognizer *selfObject, BOOL firstArgv) {
                 
                 // 检测常见的错误，例如在 viewWillAppear: 里把系统手势返回禁用，会导致从下一个界面手势返回到当前界面的瞬间，手势返回无效，界面处于混乱状态，无法接受任何点击事件
-                if (selfObject.enabled && !firstArgv && (selfObject.state == UIGestureRecognizerStateBegan || selfObject.state == UIGestureRecognizerStateChanged)) {
-//                    QMUIAssert(NO, @"UIGestureRecognizer (QMUI)", @"在手势进行过程中把手势禁用，可能让界面状态出现错乱！");
+                // _UIParallaxTransitionPanGestureRecognizer
+                if ([NSStringFromClass(selfObject.class) containsString:@"_UIParallaxTransition"] && selfObject.enabled && !firstArgv && (selfObject.state == UIGestureRecognizerStateBegan || selfObject.state == UIGestureRecognizerStateChanged)) {
+                    QMUIAssert(NO, @"UIGestureRecognizer (QMUI)", @"在手势进行过程中把手势禁用，可能让界面状态出现错乱！");
                 }
                 
                 // call super

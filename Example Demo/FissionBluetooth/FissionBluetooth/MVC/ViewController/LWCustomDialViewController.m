@@ -19,6 +19,8 @@
 
 @property (nonatomic, assign) CGRect butRect;
 
+@property (nonatomic, strong) FBCustomDialVideoModel *dialVideoModel;
+
 @end
 
 const CGFloat CustomDiaHeaderViewHeight = 312.0;
@@ -86,16 +88,17 @@ const CGFloat CustomDiaButtonMargin = 24.0;
                 weakSelf.dialmodel.resolvePreviewImage = preImage;
             }];
             
-        } else if (mode==LWCustomDialSelectFontStyle) { // 选择的字体样式
-            LWCustomDialStyle style = [result integerValue];
-            weakSelf.dialmodel.selectStyle = style;
-            [weakSelf.headerView selectedCustomDialModel:weakSelf.dialmodel handler:^(UIImage * _Nullable preImage) {
-                weakSelf.dialmodel.resolvePreviewImage = preImage;
-            }];
-            
         } else if  (mode==LWCustomDialSelectBgImage) { // 选择的背景图片
-            UIImage *image = result;
-            weakSelf.dialmodel.selectImage = image;
+            if ([result isKindOfClass:UIImage.class]) {
+                UIImage *image = result;
+                weakSelf.dialmodel.selectImage = image;
+                weakSelf.dialVideoModel = nil;
+            } else if ([result isKindOfClass:FBCustomDialVideoModel.class]) {
+                FBCustomDialVideoModel *dialVideoModel = result;
+                weakSelf.dialVideoModel = dialVideoModel;
+                UIImage *image = [UIImage imageWithContentsOfFile:dialVideoModel.coverImagePath];
+                weakSelf.dialmodel.selectImage = image;
+            }
             [weakSelf.headerView selectedCustomDialModel:weakSelf.dialmodel handler:^(UIImage * _Nullable preImage) {
                 weakSelf.dialmodel.resolvePreviewImage = preImage;
             }];
@@ -103,20 +106,6 @@ const CGFloat CustomDiaButtonMargin = 24.0;
         } else if  (mode==LWCustomDialSelectPosition) { // 选择的时间位置
             LWCustomTimeLocationStyle position = [result integerValue];
             weakSelf.dialmodel.selectPosition = position;
-            [weakSelf.headerView selectedCustomDialModel:weakSelf.dialmodel handler:^(UIImage * _Nullable preImage) {
-                weakSelf.dialmodel.resolvePreviewImage = preImage;
-            }];
-            
-        } else if  (mode==LWCustomDialSelectTimeTopStyle) { // 选择的时间上方内容
-            LWCustomTimeTopStyle top = [result integerValue];
-            weakSelf.dialmodel.selectTimeTopStyle = top;
-            [weakSelf.headerView selectedCustomDialModel:weakSelf.dialmodel handler:^(UIImage * _Nullable preImage) {
-                weakSelf.dialmodel.resolvePreviewImage = preImage;
-            }];
-            
-        } else if  (mode==LWCustomDialSelectTimeBottomStyle) { // 选择的时间下方内容
-            LWCustomTimeBottomStyle bot = [result integerValue];
-            weakSelf.dialmodel.selectTimeBottomStyle = bot;
             [weakSelf.headerView selectedCustomDialModel:weakSelf.dialmodel handler:^(UIImage * _Nullable preImage) {
                 weakSelf.dialmodel.resolvePreviewImage = preImage;
             }];
@@ -144,10 +133,7 @@ const CGFloat CustomDiaButtonMargin = 24.0;
     self.dialmodel = [LWCustomDialModel new];
     self.dialmodel.selectImage = IMAGE_NAME(@"rgbA");
     self.dialmodel.selectColor = [UIColor whiteColor];
-    self.dialmodel.selectStyle = LWCustomDialStyleF;
     self.dialmodel.selectPosition = LWCustomTimeLocationStyleTop;
-    self.dialmodel.selectTimeTopStyle = LWCustomTimeTopStyleNone;
-    self.dialmodel.selectTimeBottomStyle = LWCustomTimeBottomStyleNone;
     
     NSArray *array = @[
         @{LWLocalizbleString(@"Text Color Replacement") : @[]},
@@ -182,57 +168,79 @@ const CGFloat CustomDiaButtonMargin = 24.0;
 
 - (void)Synchronize {
     
-    NSInteger watchDisplayWide = FBAllConfigObject.firmwareConfig.watchDisplayWide;
-    NSInteger watchDisplayHigh = FBAllConfigObject.firmwareConfig.watchDisplayHigh;
-    CGSize dialSize = CGSizeMake(watchDisplayWide, watchDisplayHigh);
+    [NSObject showLoading:LWLocalizbleString(@"Creating Dail...")];
     
-    NSInteger dialThumbnailDisplayWide = FBAllConfigObject.firmwareConfig.dialThumbnailDisplayWide;
-    NSInteger dialThumbnailDisplayHigh = FBAllConfigObject.firmwareConfig.dialThumbnailDisplayHigh;
-    CGSize thumbnailSize = CGSizeMake(dialThumbnailDisplayWide, dialThumbnailDisplayHigh);
-
+    __block NSData *binFile;
+    FB_OTANOTIFICATION OTAType = FB_OTANotification_CustomClockDial;
     
-    FBCustomDialModel *model = [FBCustomDialModel new];
-    model.dialSize = dialSize;
-    model.thumbnailSize = thumbnailSize;
-    model.dialFontColor = self.dialmodel.selectColor;
-    model.dialBackgroundImage = self.dialmodel.selectImage;
-    model.dialPreviewImage = self.dialmodel.resolvePreviewImage;
-    model.dialDisplayPosition = (FB_CUSTOMDIALTIMEPOSITION)self.dialmodel.selectPosition;
+    dispatch_queue_t serialQueue = dispatch_queue_create("com.CustomDialQueue.serial", DISPATCH_QUEUE_SERIAL);
     
-
-    NSData *binFile = [[FBCustomDataTools sharedInstance] fbGenerateCustomDialBinFileDataWithDialModel:model];
-
-    
-    [NSObject showLoading:LWLocalizbleString(@"Loading...")];
-    
-    FBBluetoothOTA.sharedInstance.isCheckPower = NO;
-    
-    FBBluetoothOTA.sharedInstance.sendTimerOut = 30;
-            
-    [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:FB_OTANotification_CustomClockDial withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
-        [SVProgressHUD dismiss];
-        if (error) {
-            [[LWWaveProgress sharedInstance] dismiss];
-            [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+    dispatch_async(serialQueue, ^{
+        
+        FBFirmwareVersionObject *object = FBAllConfigObject.firmwareConfig;
+        
+//        NSInteger watchDisplayWide = object.watchDisplayWide;
+//        NSInteger watchDisplayHigh = object.watchDisplayHigh;
+//        CGSize dialSize = CGSizeMake(watchDisplayWide, watchDisplayHigh);
+//        
+//        NSInteger dialThumbnailDisplayWide = object.dialThumbnailDisplayWide;
+//        NSInteger dialThumbnailDisplayHigh = object.dialThumbnailDisplayHigh;
+//        CGSize thumbnailSize = CGSizeMake(dialThumbnailDisplayWide, dialThumbnailDisplayHigh);
+        
+        
+        FBCustomDialModel *model = [FBCustomDialModel new];
+//        model.dialSize = dialSize;
+//        model.thumbnailSize = thumbnailSize;
+        model.dialFontColor = self.dialmodel.selectColor;
+        model.dialBackgroundImage = self.dialmodel.selectImage;
+        model.dialPreviewImage = self.dialmodel.resolvePreviewImage;
+        if (object.supportVideoDial) model.dialVideoPath = self.dialVideoModel.finalVideoPath;
+        model.dialDisplayPosition = (FB_CUSTOMDIALTIMEPOSITION)self.dialmodel.selectPosition;
+        
+        // 生成表盘
+        binFile = [[FBCustomDataTools sharedInstance] fbGenerateCustomDialBinFileDataWithDialModel:model];
+        
+        // 缓存起来，调试用
+        NSString *FileName=[FBDocumentDirectory(FBCustomDialFile) stringByAppendingPathComponent:[NSString stringWithFormat:@"FBCustomDial_Ordinary_%ld.bin", (NSInteger)NSDate.date.timeIntervalSince1970]];
+        [binFile writeToFile:FileName atomically:YES];//将NSData类型对象data写入文件，文件名为FileName
+        
+        
+        if (object.chipManufacturer == FB_CHIPMANUFACTURERTYPE_HISI) { // 海思的需要先合并一个文件信息
+            // Dial_photo_L******_xxxxxxxxxx.bin（其中******为文件大小，xxxxxxxxxx为时间戳｜Where ****** is the file size, xxxxxxxxxx is the timestamp）
+            NSString *nameString = [NSString stringWithFormat:@"Dial_photo_L%ld_%ld.bin", binFile.length, (NSInteger)NSDate.date.timeIntervalSince1970];
+            binFile = [FBCustomDataTools createFileName:nameString withFileData:binFile withOTAType:OTAType];
         }
-        else if (status==FB_INDATATRANSMISSION) {
-            NSString *title = [NSString stringWithFormat:@"%@ %ld%%", LWLocalizbleString(@"Synchronize"), progress.totalPackageProgress];
-            [[LWWaveProgress sharedInstance] showWithFrame:self.butRect withTitle:title withProgress:progress.totalPackageProgress/100.0 withWaveColor:BlueColor];
-        }
-        else if (status==FB_DATATRANSMISSIONDONE) {
-            [[LWWaveProgress sharedInstance] dismiss];
-            NSString *message = [NSString stringWithFormat:@"%@",responseObject.mj_keyValues];
-            
-            [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Success") message:message cancel:nil sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
+    });
+    
+    dispatch_async(serialQueue, ^{
+        
+        [NSObject showLoading:LWLocalizbleString(@"Loading...")];
+        
+        FBBluetoothOTA.sharedInstance.isCheckPower = NO;
+        
+        FBBluetoothOTA.sharedInstance.sendTimerOut = 30;
+        
+        // 开始同步
+        [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:OTAType withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
+            [SVProgressHUD dismiss];
+            if (error) {
+                [[LWWaveProgress sharedInstance] dismiss];
+                [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+            }
+            else if (status==FB_INDATATRANSMISSION) {
+                NSString *title = [NSString stringWithFormat:@"%@ %ld%%", LWLocalizbleString(@"Synchronize"), progress.totalPackageProgress];
+                [[LWWaveProgress sharedInstance] showWithFrame:self.butRect withTitle:title withProgress:progress.totalPackageProgress/100.0 withWaveColor:BlueColor];
+            }
+            else if (status==FB_DATATRANSMISSIONDONE) {
+                [[LWWaveProgress sharedInstance] dismiss];
+                NSString *message = [NSString stringWithFormat:@"%@",responseObject.mj_keyValues];
                 
-            }];
-            
-    
-            // 缓存起来，调试用
-            NSString *FileName=[FBDocumentDirectory(FBCustomDialFile) stringByAppendingPathComponent:[NSString stringWithFormat:@"FBCustomDial_Ordinary_%ld.bin", (NSInteger)NSDate.date.timeIntervalSince1970]];
-            [binFile writeToFile:FileName atomically:YES];//将NSData类型对象data写入文件，文件名为FileName
-        }
-    }];
+                [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Success") message:message cancel:nil sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
+                    
+                }];
+            }
+        }];
+    });
 }
 
 /*

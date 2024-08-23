@@ -14,13 +14,13 @@
 //
 
 #import "UITabBar+QMUI.h"
+#import "UITabBar+QMUIBarProtocol.h"
 #import "QMUICore.h"
 #import "UITabBarItem+QMUI.h"
 #import "UIBarItem+QMUI.h"
 #import "UIImage+QMUI.h"
 #import "UIView+QMUI.h"
 #import "UINavigationController+QMUI.h"
-#import "UIVisualEffectView+QMUI.h"
 #import "UIApplication+QMUI.h"
 
 NSInteger const kLastTouchedTabBarItemIndexNone = -1;
@@ -31,8 +31,6 @@ NSString *const kShouldCheckTabBarHiddenKey = @"kShouldCheckTabBarHiddenKey";
 @property(nonatomic, assign) BOOL canItemRespondDoubleTouch;
 @property(nonatomic, assign) NSInteger lastTouchedTabBarItemViewIndex;
 @property(nonatomic, assign) NSInteger tabBarItemViewTouchCount;
-@property(nonatomic, assign) BOOL qmuitb_hasSetEffect;
-@property(nonatomic, assign) BOOL qmuitb_hasSetEffectForegroundColor;
 @end
 
 @implementation UITabBar (QMUI)
@@ -40,8 +38,6 @@ NSString *const kShouldCheckTabBarHiddenKey = @"kShouldCheckTabBarHiddenKey";
 QMUISynthesizeBOOLProperty(canItemRespondDoubleTouch, setCanItemRespondDoubleTouch)
 QMUISynthesizeNSIntegerProperty(lastTouchedTabBarItemViewIndex, setLastTouchedTabBarItemViewIndex)
 QMUISynthesizeNSIntegerProperty(tabBarItemViewTouchCount, setTabBarItemViewTouchCount)
-QMUISynthesizeBOOLProperty(qmuitb_hasSetEffect, setQmuitb_hasSetEffect)
-QMUISynthesizeBOOLProperty(qmuitb_hasSetEffectForegroundColor, setQmuitb_hasSetEffectForegroundColor)
 
 + (void)load {
     static dispatch_once_t onceToken;
@@ -136,17 +132,13 @@ QMUISynthesizeBOOLProperty(qmuitb_hasSetEffectForegroundColor, setQmuitb_hasSetE
                     // [UIKit Bug] iOS 11-12，全面屏设备下，带 TabBar 的界面在 push/pop 后，UIScrollView 的滚动位置可能发生变化
                     // https://github.com/Tencent/QMUI_iOS/issues/934
                     if (@available(iOS 13.0, *)) {
-                    } else {
-                        if (@available(iOS 11, *)) {
-                            if (IS_NOTCHED_SCREEN && ((CGRectGetHeight(frame) == 49 || CGRectGetHeight(frame) == 32))) {// 只关注全面屏设备下的这两种非正常的 tabBar 高度即可
-                                CGFloat bottomSafeAreaInsets = selfObject.safeAreaInsets.bottom > 0 ? selfObject.safeAreaInsets.bottom : selfObject.superview.safeAreaInsets.bottom;// 注意，如果只是拿 selfObject.safeAreaInsets 判断，会肉眼看到高度的跳变，因此引入 superview 的值（虽然理论上 tabBar 不一定都会布局到 UITabBarController.view 的底部）
-                                if (bottomSafeAreaInsets == CGRectGetHeight(selfObject.frame)) {
-                                    return;// 由于这个系统 bug https://github.com/Tencent/QMUI_iOS/issues/446，这里先暂时屏蔽本次 frame 变化
-                                }
-                                frame.size.height += bottomSafeAreaInsets;
-                                frame.origin.y -= bottomSafeAreaInsets;
-                            }
+                    } else if (IS_NOTCHED_SCREEN && ((CGRectGetHeight(frame) == 49 || CGRectGetHeight(frame) == 32))) {// 只关注全面屏设备下的这两种非正常的 tabBar 高度即可
+                        CGFloat bottomSafeAreaInsets = selfObject.safeAreaInsets.bottom > 0 ? selfObject.safeAreaInsets.bottom : selfObject.superview.safeAreaInsets.bottom;// 注意，如果只是拿 selfObject.safeAreaInsets 判断，会肉眼看到高度的跳变，因此引入 superview 的值（虽然理论上 tabBar 不一定都会布局到 UITabBarController.view 的底部）
+                        if (bottomSafeAreaInsets == CGRectGetHeight(selfObject.frame)) {
+                            return;// 由于这个系统 bug https://github.com/Tencent/QMUI_iOS/issues/446，这里先暂时屏蔽本次 frame 变化
                         }
+                        frame.size.height += bottomSafeAreaInsets;
+                        frame.origin.y -= bottomSafeAreaInsets;
                     }
                 }
                 
@@ -376,6 +368,13 @@ QMUISynthesizeBOOLProperty(qmuitb_hasSetEffectForegroundColor, setQmuitb_hasSetE
                     [appearance qmui_applyItemAppearanceWithBlock:itemActionBlock];
                 }
                 tabBar.standardAppearance = appearance;
+#ifdef IOS15_SDK_ALLOWED
+                if (@available(iOS 15.0, *)) {
+                    if (QMUICMIActivated && TabBarUsesStandardAppearanceOnly) {
+                        tabBar.scrollEdgeAppearance = appearance;
+                    }
+                }
+#endif
             };
             
             ExtendImplementationOfVoidMethodWithSingleArgument([UITabBar class], @selector(setTintColor:), UIColor *, ^(UITabBar *selfObject, UIColor *tintColor) {
@@ -398,7 +397,7 @@ QMUISynthesizeBOOLProperty(qmuitb_hasSetEffectForegroundColor, setQmuitb_hasSetE
                 syncAppearance(selfObject, nil, ^void(UITabBarItemAppearance *itemAppearance) {
                     itemAppearance.normal.iconColor = tintColor;
                     
-                    NSMutableDictionary *textAttributes = itemAppearance.selected.titleTextAttributes.mutableCopy;
+                    NSMutableDictionary *textAttributes = itemAppearance.normal.titleTextAttributes.mutableCopy;
                     textAttributes[NSForegroundColorAttributeName] = tintColor;
                     itemAppearance.normal.titleTextAttributes = textAttributes.copy;
                 });
@@ -418,23 +417,11 @@ QMUISynthesizeBOOLProperty(qmuitb_hasSetEffectForegroundColor, setQmuitb_hasSetE
             
             ExtendImplementationOfVoidMethodWithSingleArgument([UITabBar class], @selector(setBarStyle:), UIBarStyle, ^(UITabBar *selfObject, UIBarStyle barStyle) {
                 syncAppearance(selfObject, ^void(UITabBarAppearance *appearance) {
-                    appearance.backgroundEffect = [UIBlurEffect effectWithStyle:barStyle == UIBarStyleDefault ? UIBlurEffectStyleSystemMaterialLight : UIBlurEffectStyleSystemMaterialDark];
+                    appearance.backgroundEffect = [UIBlurEffect effectWithStyle:barStyle == UIBarStyleDefault ? UIBlurEffectStyleSystemChromeMaterialLight : UIBlurEffectStyleSystemChromeMaterialDark];
                 }, nil);
             });
         }
     });
-}
-
-- (UIView *)qmui_backgroundView {
-    return [self qmui_valueForKey:@"_backgroundView"];
-}
-
-- (UIImageView *)qmui_shadowImageView {
-    if (@available(iOS 13, *)) {
-        return [self.qmui_backgroundView qmui_valueForKey:@"_shadowView1"];
-    }
-    // iOS 10 及以后，在 UITabBar 初始化之后就能获取到 backgroundView 和 shadowView 了
-    return [self.qmui_backgroundView qmui_valueForKey:@"_shadowView"];
 }
 
 - (void)handleTabBarItemViewEvent:(UIControl *)itemView {
@@ -480,119 +467,16 @@ QMUISynthesizeBOOLProperty(qmuitb_hasSetEffectForegroundColor, setQmuitb_hasSetE
     self.tabBarItemViewTouchCount = 0;
 }
 
-- (UIVisualEffectView *)qmui_effectView {
-    for (UIView *subview in self.qmui_backgroundView.subviews) {
-        if ([subview isMemberOfClass:UIVisualEffectView.class]) {
-            return (UIVisualEffectView *)subview;
-        }
-    }
-    return nil;
-}
-
-- (void)qmuitb_swizzleBackgroundView {
-    [QMUIHelper executeBlock:^{
-        Class backgroundClass = NSClassFromString(@"_UIBarBackground");
-        OverrideImplementation(backgroundClass, @selector(didAddSubview:), ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {
-            return ^(UIView *selfObject, UIView *subview) {
-                
-                // call super
-                void (*originSelectorIMP)(id, SEL, UIView *);
-                originSelectorIMP = (void (*)(id, SEL, UIView *))originalIMPProvider();
-                originSelectorIMP(selfObject, originCMD, subview);
-                
-                // 注意可能存在多个 UIVisualEffectView，例如用于 shadowImage 的 _UIBarBackgroundShadowView，需要过滤掉
-                if ([selfObject.superview isKindOfClass:UITabBar.class] && [subview isMemberOfClass:UIVisualEffectView.class]) {
-                    UITabBar *tabBar = (UITabBar *)selfObject.superview;
-                    if (tabBar.qmuitb_hasSetEffect || tabBar.qmuitb_hasSetEffectForegroundColor) {
-                        [tabBar qmuitb_updateEffect];
-                    }
-                }
-            };
-        });
-        // 系统会在任意可能的时机去刷新 backgroundEffects，为了避免被系统的值覆盖，这里需要重写它
-        OverrideImplementation(UIVisualEffectView.class, NSSelectorFromString(@"setBackgroundEffects:"), ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {
-            return ^(UIVisualEffectView *selfObject, NSArray<UIVisualEffect *> *firstArgv) {
-                
-                if ([selfObject.superview isKindOfClass:backgroundClass] && [selfObject.superview.superview isKindOfClass:UITabBar.class]) {
-                    UITabBar *tabBar = (UITabBar *)selfObject.superview.superview;
-                    if (tabBar.qmui_effectView == selfObject) {
-                        if (tabBar.qmuitb_hasSetEffect) {
-                            firstArgv = tabBar.qmuitb_backgroundEffects;
-                        }
-                    }
-                }
-                
-                // call super
-                void (*originSelectorIMP)(id, SEL, NSArray<UIVisualEffect *> *);
-                originSelectorIMP = (void (*)(id, SEL, NSArray<UIVisualEffect *> *))originalIMPProvider();
-                originSelectorIMP(selfObject, originCMD, firstArgv);
-            };
-        });
-    } oncePerIdentifier:@"UITabBar (QMUI) effect"];
-}
-
-- (void)qmuitb_updateEffect {
-    if (self.qmuitb_hasSetEffect) {
-        // 这里对 iOS 13 不使用 UITabBarAppearance.backgroundEffect 来修改，是因为反正不管 iOS 10 还是 13，最终都是 setBackgroundEffects: 在起作用，而且不用 UITabBarAppearance 还可以规避与 UIAppearance 机制的冲突
-        NSArray<UIVisualEffect *> *effects = self.qmuitb_backgroundEffects;
-        [self.qmui_effectView qmui_performSelector:NSSelectorFromString(@"setBackgroundEffects:") withArguments:&effects, nil];
-    }
-    if (self.qmuitb_hasSetEffectForegroundColor) {
-        self.qmui_effectView.qmui_foregroundColor = self.qmui_effectForegroundColor;
-    }
-}
-
-// UITabBar、UIVisualEffectView  都有一个私有的方法 backgroundEffects，当 UIVisualEffectView 应用于 UITabBar 场景时，磨砂的效果实际上被放在 backgroundEffects 内，而不是公开接口的 effect 属性里，这里为了方便，将 UITabBar (QMUI).effect 转成可用于 backgroundEffects 的数组
-- (NSArray<UIVisualEffect *> *)qmuitb_backgroundEffects {
-    if (self.qmuitb_hasSetEffect) {
-        return self.qmui_effect ? @[self.qmui_effect] : nil;
-    }
-    return nil;
-}
-
-static char kAssociatedObjectKey_effect;
-- (void)setQmui_effect:(UIBlurEffect *)qmui_effect {
-    if (qmui_effect) {
-        [self qmuitb_swizzleBackgroundView];
-    }
-    
-    BOOL valueChanged = self.qmui_effect != qmui_effect;
-    objc_setAssociatedObject(self, &kAssociatedObjectKey_effect, qmui_effect, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    if (valueChanged) {
-        self.qmuitb_hasSetEffect = YES;// QMUITheme 切换时会重新赋值，所以可能出现本来就是 nil，还给它又赋值了 nil，这种场景不应该导致 hasSet 标志位改变，所以要把标志位的设置放在 if (valueChanged) 里
-        [self qmuitb_updateEffect];
-    }
-}
-
-- (UIBlurEffect *)qmui_effect {
-    return (UIBlurEffect *)objc_getAssociatedObject(self, &kAssociatedObjectKey_effect);
-}
-
-static char kAssociatedObjectKey_effectForegroundColor;
-- (void)setQmui_effectForegroundColor:(UIColor *)qmui_effectForegroundColor {
-    if (qmui_effectForegroundColor) {
-        [self qmuitb_swizzleBackgroundView];
-    }
-    BOOL valueChanged = ![self.qmui_effectForegroundColor isEqual:qmui_effectForegroundColor];
-    objc_setAssociatedObject(self, &kAssociatedObjectKey_effectForegroundColor, qmui_effectForegroundColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    if (valueChanged) {
-        self.qmuitb_hasSetEffectForegroundColor = YES;// QMUITheme 切换时会重新赋值，所以可能出现本来就是 nil，还给它又赋值了 nil，这种场景不应该导致 hasSet 标志位改变，所以要把标志位的设置放在 if (valueChanged) 里
-        [self qmuitb_updateEffect];
-    }
-}
-
-- (UIColor *)qmui_effectForegroundColor {
-    return (UIColor *)objc_getAssociatedObject(self, &kAssociatedObjectKey_effectForegroundColor);
-}
-
 @end
 
 @implementation UITabBarAppearance (QMUI)
 
 - (void)qmui_applyItemAppearanceWithBlock:(void (^)(UITabBarItemAppearance * _Nonnull))block {
-    block(self.stackedLayoutAppearance);
-    block(self.inlineLayoutAppearance);
-    block(self.compactInlineLayoutAppearance);
+    if (@available(iOS 13.0, *)) {
+        block(self.stackedLayoutAppearance);
+        block(self.inlineLayoutAppearance);
+        block(self.compactInlineLayoutAppearance);
+    }
 }
 
 @end

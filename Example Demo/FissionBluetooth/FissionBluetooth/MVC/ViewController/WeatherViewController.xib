@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,6 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WeatherViewController">
             <connections>
+                <outlet property="latitude" destination="XHe-NI-TWK" id="EfL-PW-E6U"/>
+                <outlet property="longitude" destination="P5i-yG-67L" id="rFE-QL-Xiu"/>
                 <outlet property="textView" destination="tRC-tW-hA4" id="JD8-su-nm2"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -41,32 +43,48 @@
                         <action selector="weatherPush:" destination="-1" eventType="touchUpInside" id="hEu-K5-Iqu"/>
                     </connections>
                 </button>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="经度longitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P5i-yG-67L">
+                    <rect key="frame" x="20" y="751" width="177" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="纬度latitude" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XHe-NI-TWK">
+                    <rect key="frame" x="217" y="751" width="177" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                </textField>
             </subviews>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="XHe-NI-TWK" secondAttribute="trailing" constant="20" id="7BU-JP-X5s"/>
                 <constraint firstAttribute="bottom" secondItem="o9a-fd-LWR" secondAttribute="bottom" constant="20" id="ERv-ZH-7cY"/>
+                <constraint firstItem="XHe-NI-TWK" firstAttribute="leading" secondItem="P5i-yG-67L" secondAttribute="trailing" constant="20" id="PPz-p6-Ibm"/>
+                <constraint firstItem="P5i-yG-67L" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="Qbi-Kq-5KN"/>
+                <constraint firstItem="XHe-NI-TWK" firstAttribute="width" secondItem="P5i-yG-67L" secondAttribute="width" id="RXa-nR-9Lt"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="tRC-tW-hA4" secondAttribute="trailing" constant="20" id="dcL-pw-rdR"/>
                 <constraint firstItem="o9a-fd-LWR" firstAttribute="top" secondItem="tRC-tW-hA4" secondAttribute="bottom" constant="100" id="ekl-LB-Uo2"/>
+                <constraint firstItem="XHe-NI-TWK" firstAttribute="top" secondItem="tRC-tW-hA4" secondAttribute="bottom" constant="10" id="gPS-DC-c2L"/>
                 <constraint firstItem="o9a-fd-LWR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="h9v-Oz-tik"/>
                 <constraint firstItem="tRC-tW-hA4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="90" id="qWm-By-KuM"/>
                 <constraint firstItem="tRC-tW-hA4" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="20" id="tHb-TM-xcH"/>
+                <constraint firstItem="P5i-yG-67L" firstAttribute="top" secondItem="tRC-tW-hA4" secondAttribute="bottom" constant="10" id="uLI-2f-XRZ"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="52.901785714285715"/>
         </view>
     </objects>
     <resources>
         <systemColor name="labelColor">
-            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

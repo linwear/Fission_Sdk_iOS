@@ -120,7 +120,7 @@ typedef NS_OPTIONS(NSUInteger, QMUIViewControllerVisibleState) {
 @property(nullable, nonatomic, copy) UIStatusBarAnimation (^qmui_preferredStatusBarUpdateAnimationBlock)(void);
 
 /// 提供一个 block 可以方便地控制全面屏设备屏幕底部的 Home Indicator 的显隐，适用于无法重写父类方法的场景。默认不实现这个 block 则不干预显隐。
-@property(nullable, nonatomic, copy) BOOL (^qmui_prefersHomeIndicatorAutoHiddenBlock)(void) API_AVAILABLE(ios(11.0));
+@property(nullable, nonatomic, copy) BOOL (^qmui_prefersHomeIndicatorAutoHiddenBlock)(void);
 
 /**
  获取当前 viewController 的 statusBar 显隐状态，与系统 prefersStatusBarHidden 的区别在于，系统的方法在对 containerViewController（例如 UITabBarController、UINavigationController 等）调用时，返回的是 containerViewController 自身的 prefersStatusBarHidden 的值，但真正决定 statusBar 显隐的是该 containerViewController 的 childViewControllerForStatusBarHidden 的 prefersStatusBarHidden 的值，所以只有用 qmui_prefersStatusBarHidden 才能拿到真正的值。
@@ -162,13 +162,6 @@ typedef NS_OPTIONS(NSUInteger, QMUIViewControllerVisibleState) {
  *  @return YES 表示当前类重写了指定的方法，NO 表示没有重写，使用的是 UIViewController 默认的实现
  */
 - (BOOL)qmui_hasOverrideUIKitMethod:(_Nonnull SEL)selector;
-@end
-
-@interface UIViewController (RotateDeviceOrientation)
-
-/// 在配置表 AutomaticallyRotateDeviceOrientation 功能开启的情况下，QMUI 会自动判断当前的 UIViewController 是否具备强制旋转设备方向的权利，而如果 QMUI 判断结果为没权利但你又希望当前的 UIViewController 具备这个权利，则可以重写该方法并返回 YES。
-/// 默认返回 NO，也即交给 QMUI 自动判断。
-- (BOOL)qmui_shouldForceRotateDeviceOrientation;
 @end
 
 @interface UIViewController (QMUINavigationController)

@@ -95,8 +95,8 @@
         [self getSystemFunctionSwitchInformation];
     }
     else {
-        [NSObject showHUDText:LWLocalizbleString(@"This function does not support")];
-        self.textView.text = LWLocalizbleString(@"This function does not support");
+        [NSObject showHUDText:LWLocalizbleString(@"The current device does not support this feature")];
+        self.textView.text = LWLocalizbleString(@"The current device does not support this feature");
     }
 }
 
@@ -106,8 +106,8 @@
         [self fbSetSystemFunctionSwitchInformation];
     }
     else {
-        [NSObject showHUDText:LWLocalizbleString(@"This function does not support")];
-        self.textView.text = LWLocalizbleString(@"This function does not support");
+        [NSObject showHUDText:LWLocalizbleString(@"The current device does not support this feature")];
+        self.textView.text = LWLocalizbleString(@"The current device does not support this feature");
     }
 }
 

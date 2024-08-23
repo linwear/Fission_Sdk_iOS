@@ -548,6 +548,39 @@
         case FBBEACHVOLLEYBALL:
             sportType = LWBeachVolleyball;
             break;
+        case FBSNOWMOBILES:
+            sportType = LWSnowmobiles;
+            break;
+        case FBSNOWMOBILES_CAR:
+            sportType = LWSnowCar;
+            break;
+        case FBSLEDS:
+            sportType = LWSleds;
+            break;
+        case FBOPEN_WATERS:
+            sportType = LWOpenWaters;
+            break;
+        case FBSWIMMING_POOL:
+            sportType = LWSwimmingPool;
+            break;
+        case FBINDOOR_SWIMMING:
+            sportType = LWIndoorSwimming;
+            break;
+        case FBWATER_POLO:
+            sportType = LWWaterPolo;
+            break;
+        case FBWATER_SPORTS:
+            sportType = LWWaterSports;
+            break;
+        case FBPADDLING:
+            sportType = LWPaddling;
+            break;
+        case FBARTISTIC_SWIMMING:
+            sportType = LWArtisticSwimming;
+            break;
+        case FBKITESURFING:
+            sportType = LWKitesurfing;
+            break;
             
         default:
             sportType = LWSportFreeTraining;
@@ -647,18 +680,24 @@
 /// 距离+单位（公英制）distance单位为米m，space是否需要空格间隔
 + (NSString *)distanceConvert:(NSInteger)distance space:(BOOL)space {
     
-    CGFloat dis =  distance/1000.0;
-    if (!Tools.isMetric) {
-        dis *= 0.62137;
-    }
+    CGFloat dis =  [self distance_metre_Convert_1:distance];
     
     NSString *string = [NSString stringWithFormat:@"%@%@%@", [Tools ConvertValues:dis scale:2 rounding:NO], space?@" ":@"", Tools.distanceUnit];
     
     return string;
 }
 
+/// 距离（千米级 公英制）distance单位为米m
++ (CGFloat)distance_metre_Convert_1:(CGFloat)distance {
+    CGFloat dis =  distance/1000.0;
+    if (!Tools.isMetric) {
+        dis *= 0.62137;
+    }
+    return dis;
+}
+
 /// 距离（米级 公英制）distance单位为米m
-+ (CGFloat)distance_metre_Convert:(CGFloat)distance {
++ (CGFloat)distance_metre_Convert_2:(CGFloat)distance {
     if (Tools.isMetric) {
         return distance;
     } else {

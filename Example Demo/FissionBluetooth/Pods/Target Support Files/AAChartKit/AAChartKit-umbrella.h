@@ -18,6 +18,7 @@
 #import "AASeriesElement.h"
 #import "AAAnimation.h"
 #import "AAArea.h"
+#import "AAArearange.h"
 #import "AAAreaspline.h"
 #import "AABar.h"
 #import "AABoxplot.h"

@@ -32,16 +32,44 @@
     model_2.imageName = @"tutorial_1";
     model_2.title = LWLocalizbleString(@"2. Use a data cable to connect your iPhone to the computer\n①. Click [My Devices]\n②. Click [Application Management]\n③. Click FissionBluetooth APP [Browse] to open the file management");
     
+    NSString *imageName_1 = nil;
+    NSString *title_1 = nil;
+    if (self.tutorialType == FBTutorialType_Firmware) {
+        imageName_1 = @"tutorial_2_1";
+        title_1 = @"FBFirmwareFile";
+    } else if (self.tutorialType == FBTutorialType_AutomaticOTA) {
+        imageName_1 = @"tutorial_2_2";
+        title_1 = @"FBAutomaticOTAFile";
+    } else if (self.tutorialType == FBTutorialType_JSApp) {
+        imageName_1 = @"tutorial_2_3";
+        title_1 = @"FBJSAppFile";
+    }
     FBTutorialItemModel *model_3 = FBTutorialItemModel.new;
-    model_3.imageName = self.isFirmware ? @"tutorial_2_1" : @"tutorial_2_2";
-    model_3.title = self.isFirmware ? LWLocalizbleString(@"3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [FBFirmwareFile]") : LWLocalizbleString(@"3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [FBAutomaticOTAFile]");
+    model_3.imageName = imageName_1;
+    model_3.title = [NSString stringWithFormat:LWLocalizbleString(@"3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [%@]"), title_1];
     
+    NSString *imageName_2 = nil;
+    if (self.tutorialType == FBTutorialType_Firmware) {
+        imageName_2 = @"tutorial_3_1";
+    } else if (self.tutorialType == FBTutorialType_AutomaticOTA) {
+        imageName_2 = @"tutorial_3_2";
+    } else if (self.tutorialType == FBTutorialType_JSApp) {
+        imageName_2 = @"tutorial_3_3";
+    }
     FBTutorialItemModel *model_4 = FBTutorialItemModel.new;
-    model_4.imageName = self.isFirmware ? @"tutorial_3_1" : @"tutorial_3_2";
+    model_4.imageName = imageName_2;
     model_4.title = LWLocalizbleString(@"4. There are two ways to import files:\n①. Click [Import] - [Select File] and select the bin file you want to import locally\n②. Drag the bin file you want to import locally to this list");
     
+    NSString *imageName_3 = nil;
+    if (self.tutorialType == FBTutorialType_Firmware) {
+        imageName_3 = @"tutorial_4_1";
+    } else if (self.tutorialType == FBTutorialType_AutomaticOTA) {
+        imageName_3 = @"tutorial_4_2";
+    } else if (self.tutorialType == FBTutorialType_JSApp) {
+        imageName_3 = @"tutorial_4_3";
+    }
     FBTutorialItemModel *model_5 = FBTutorialItemModel.new;
-    model_5.imageName = self.isFirmware ? @"tutorial_4_1" : @"tutorial_4_2";
+    model_5.imageName = imageName_3;
     model_5.title = LWLocalizbleString(@"5. After the import is successful, refresh the APP page, you can see the file you just imported, click to select it for OTA");
     
     NSArray *items = @[model_1, model_2, model_3, model_4, model_5];

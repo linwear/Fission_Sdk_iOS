@@ -1,0 +1,11 @@
+framework module SCompressLib {
+  umbrella header "SCompressLib.h"
+  export *
+
+  module * { export * }
+}
+
+module SCompressLib.Swift {
+  header "SCompressLib-Swift.h"
+  requires objc
+}

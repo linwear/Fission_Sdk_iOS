@@ -37,6 +37,8 @@
 	<string>APP需要您允许访问位置权限，以定位获取当前天气信息</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>APP需要您允许访问位置权限，以定位获取当前天气信息</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>APP需要您允许访问麦克风权限，以使用语音识别功能</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>APP需要您允许访问相册权限，以选择图片定制表盘</string>
 	<key>NSPhotoLibraryUsageDescription</key>
@@ -71,8 +73,6 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>

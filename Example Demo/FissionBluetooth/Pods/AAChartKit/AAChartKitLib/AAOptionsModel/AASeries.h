@@ -34,7 +34,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class AAMarker, AAAnimation, AAShadow, AADataLabels, AAEvents, AAStates, AAPoint;
+@class AAMarker, AAAnimation, AAShadow, AADataLabels, AASeriesEvents, AAStates, AAPoint;
 
 @interface AASeries : NSObject
 
@@ -54,10 +54,11 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSArray      *, keys)
 //plotOptions.series.connectNulls
 //https://www.zhihu.com/question/24173311
 AAPropStatementAndPropSetFuncStatement(assign, AASeries, BOOL ,          connectNulls) //设置折线是否断点重连
-AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAEvents *, events)
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, AASeriesEvents *, events)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAShadow *, shadow)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AADataLabels *, dataLabels)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAStates *, states)
+AAPropStatementAndPropSetFuncStatement(strong, AASeries, id        , allowPointSelect) //折线图的曲线宽度，默认是：0
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, AAPoint  *, point)
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber *, pointWidth) //柱状图, 条形图, 柱形范围图, 瀑布图, 箱线图(盒须图)直接设置单个图形元素的宽度
 AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber *, maxPointWidth) //柱状图, 条形图, 柱形范围图, 瀑布图, 箱线图(盒须图)直接设置单个图形元素的最大宽度
@@ -66,9 +67,12 @@ AAPropStatementAndPropSetFuncStatement(strong, AASeries, NSNumber *, minPointLen
 @end
 
 
-@interface AAEvents : NSObject
+@interface AASeriesEvents : NSObject
 
-AAPropStatementAndPropSetFuncStatement(copy, AAEvents, NSString *, legendItemClick)
+AAPropStatementAndPropSetFuncStatement(copy, AASeriesEvents, NSString *, click)
+AAPropStatementAndPropSetFuncStatement(copy, AASeriesEvents, NSString *, mouseOver)
+AAPropStatementAndPropSetFuncStatement(copy, AASeriesEvents, NSString *, mouseOut)
+AAPropStatementAndPropSetFuncStatement(copy, AASeriesEvents, NSString *, legendItemClick)
 
 @end
 

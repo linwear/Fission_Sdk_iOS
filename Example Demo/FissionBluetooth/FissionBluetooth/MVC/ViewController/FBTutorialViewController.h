@@ -7,11 +7,17 @@
 
 #import "LWBaseViewController.h"
 
+typedef NS_ENUM(NSInteger, FBTutorialType) {
+    FBTutorialType_Firmware,
+    FBTutorialType_AutomaticOTA,
+    FBTutorialType_JSApp,
+};
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FBTutorialViewController : LWBaseViewController
 
-@property (nonatomic, assign) BOOL isFirmware;
+@property (nonatomic, assign) FBTutorialType tutorialType;
 
 @end
 

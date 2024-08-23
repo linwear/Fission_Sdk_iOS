@@ -94,6 +94,15 @@ DDLogLevel ddLogLevel = DDLogLevelVerbose;
         // 在Document目录下创建一个archiver目录
         [fileManager createDirectoryAtPath:customDialFilePath withIntermediateDirectories:YES attributes:nil error:nil];
     }
+    // 在Document目录下创建 "FBJSAppFile" 文件夹
+    NSString *jsAppFilePath = FBDocumentDirectory(FBJSAppFile);
+    BOOL isJsAppDirectory = NO;
+    //fileExistsAtPath 判断一个文件或目录是否有效，isDirectory判断是否一个目录
+    BOOL existedJsApp = [fileManager fileExistsAtPath:jsAppFilePath isDirectory:&isJsAppDirectory];
+    if (!(isJsAppDirectory && existedJsApp)) {
+        // 在Document目录下创建一个archiver目录
+        [fileManager createDirectoryAtPath:jsAppFilePath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
     
     // 在Document目录下创建 "FBAutomaticOTAFile" 文件夹
     NSString *automaticOTAFilePath = FBDocumentDirectory(FBAutomaticOTAFile);
@@ -113,7 +122,7 @@ DDLogLevel ddLogLevel = DDLogLevelVerbose;
 //重写方法(log文件名生成规则)
 - (NSString *)newLogFileName {
     
-    NSString *dateString = [NSDate br_stringFromDate:NSDate.date dateFormat:@"yyyy-MM-dd_HH_mm_ss" timeZone:nil language:@"zh-Hans-CN"];
+    NSString *dateString = [NSDate br_stringFromDate:NSDate.date dateFormat:@"yyyy-MM-dd_HH_mm_ss" language:@"zh-Hans-CN"];
     NSString *logFileName = [NSString stringWithFormat:@"%@.log", dateString];
 
     return logFileName;

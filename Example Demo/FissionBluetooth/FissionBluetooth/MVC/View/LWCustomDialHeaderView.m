@@ -16,12 +16,6 @@
 
 @property (nonatomic, strong) UIImageView *styleImageView; // 表盘样式图
 
-@property (nonatomic, strong) UIImageView *topImage; // 时间上方图片
-
-@property (nonatomic, strong) UIImageView *bottomImage; // 时间下方图片
-
-@property (nonatomic, strong) UILabel *fileSizeLab; // 显示表盘文件大小
-
 @property (nonatomic, strong) UIView *preView;
 @property (nonatomic, assign) CGSize preViewSize;
 
@@ -113,22 +107,6 @@
         make.centerXWithinMargins.mas_equalTo(self.bkImageView.center);
         make.size.mas_equalTo(CGSizeMake(62, 40));
     }];
-    // 时间上方内容
-    self.topImage = [[UIImageView alloc] initWithFrame:CGRectZero];
-    [self.bkImageView addSubview:self.topImage];
-    [self.topImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(self.styleImageView.mas_top).offset(6);
-        make.right.mas_equalTo(self.styleImageView.mas_right);
-        make.size.mas_equalTo(CGSizeMake(70, 10));
-    }];
-    // 时间下方内容
-    self.bottomImage = [[UIImageView alloc] initWithFrame:CGRectZero];
-    [self.bkImageView addSubview:self.bottomImage];
-    [self.bottomImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.styleImageView.mas_bottom).offset(-6);
-        make.right.mas_equalTo(self.styleImageView.mas_right);
-        make.size.mas_equalTo(CGSizeMake(70, 10));
-    }];
     // 自定义表盘
     UILabel *titleLabel = UILabel.new;
     titleLabel.text = LWLocalizbleString(@"Custom Dial");
@@ -143,21 +121,7 @@
         make.centerX.mas_equalTo(0);
         make.left.right.mas_equalTo(0);
     }];
-//    // 显示文件大小 暂时未用到
-//    self.fileSizeLab = UILabel.new;
-//    self.fileSizeLab.text = [NSString stringWithFormat:@"%@ --MB",LWLocalizbleString(@"大小：", nil)];
-//    self.fileSizeLab.font = [self BahnschriftFont:14];
-//    self.fileSizeLab.textColor = LWCustomColor.gray_999999;
-//    self.fileSizeLab.textAlignment = NSTextAlignmentCenter;
-//    [self addSubview:self.fileSizeLab];
-//
-//    [self.fileSizeLab mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.mas_equalTo(titleLabel.mas_bottom).offset(6);
-//        make.centerX.mas_equalTo(titleLabel);
-//        make.height.mas_equalTo(20);
-//        make.left.right.mas_equalTo(titleLabel);
-//    }];
-    
+
     // 移动图层
     [self sendSubviewToBack:self.preView];
 }
@@ -169,68 +133,9 @@
     [self.styleImageView setContentMode:UIViewContentModeScaleAspectFit];
     self.bkImageView.image = model.selectImage;
     
-    
-//    self.fileSizeLab.text = [NSString stringWithFormat:@"%@ --MB",LWLocalizbleString(@"大小：", nil)];
-    
     //样式
-    UIImage *styleImage = nil;
-    if (model.selectStyle==LWCustomDialStyleA) {
-        styleImage = IMAGE_NAME(@"srpText_time");
-    } else if (model.selectStyle==LWCustomDialStyleB) {
-        styleImage = IMAGE_NAME(@"dial_style2_black.jpg");
-    } else if (model.selectStyle==LWCustomDialStyleC) {
-        styleImage = IMAGE_NAME(@"dial_style4_green.jpg");
-    } else if (model.selectStyle==LWCustomDialStyleD) {
-        styleImage = IMAGE_NAME(@"dial_style5_black.jpg");
-    } else if (model.selectStyle==LWCustomDialStyleE) {
-        styleImage = IMAGE_NAME(@"dial_style3_yellow.jpg");
-    } else if (model.selectStyle==LWCustomDialStyleF) {
-        styleImage = IMAGE_NAME(@"dial_style1_white.jpg");
-    } else if (model.selectStyle==LWCustomDialStyleG) {
-        styleImage = IMAGE_NAME(@"zhouhai_font_1001_TEXT");
-    }  else if (model.selectStyle==LWCustomDialStyleH) {
-        styleImage = IMAGE_NAME(@"hotnoon_front_image.jpg");
-    }
-    self.styleImageView.image = [Tools maskWithImage:styleImage withColor:model.selectColor?model.selectColor:nil];
+    self.styleImageView.image = [Tools maskWithImage:UIImageMake(@"dial_style1_white.jpg") withColor:model.selectColor?model.selectColor:nil];
     
-    
-    UIImage *T_B_Image = nil;
-    //时间上方内容
-    if (model.selectTimeTopStyle==LWCustomTimeTopStyleNone) {
-        T_B_Image = nil;
-    }
-    else if (model.selectTimeTopStyle==LWCustomTimeTopStyleDate) {
-        T_B_Image = IMAGE_NAME(@"srpText_date");
-    }
-    else if (model.selectTimeTopStyle==LWCustomTimeTopStyleSleep) {
-        T_B_Image = IMAGE_NAME(@"srpText_sleep");
-    }
-    else if (model.selectTimeTopStyle==LWCustomTimeTopStyleHeart) {
-        T_B_Image = IMAGE_NAME(@"srpText_hr");
-    }
-    else if (model.selectTimeTopStyle==LWCustomTimeTopStyleStep) {
-        T_B_Image = IMAGE_NAME(@"srpText_steps");
-    }
-    self.topImage.image = [Tools maskWithImage:T_B_Image withColor:model.selectColor?model.selectColor:nil];
-    
-    
-    //时间下方内容
-    if (model.selectTimeBottomStyle==LWCustomTimeBottomStyleNone) {
-        T_B_Image = nil;
-    }
-    else if (model.selectTimeBottomStyle==LWCustomTimeBottomStyleDate) {
-        T_B_Image = IMAGE_NAME(@"srpText_date");
-    }
-    else if (model.selectTimeBottomStyle==LWCustomTimeBottomStyleSleep) {
-        T_B_Image = IMAGE_NAME(@"srpText_sleep");
-    }
-    else if (model.selectTimeBottomStyle==LWCustomTimeBottomStyleHeart) {
-        T_B_Image = IMAGE_NAME(@"srpText_hr");
-    }
-    else if (model.selectTimeBottomStyle==LWCustomTimeBottomStyleStep) {
-        T_B_Image = IMAGE_NAME(@"srpText_steps");
-    }
-//    self.bottomImage.image = [FBTools fbMaskWithImage:T_B_Image withColor:model.selectColor];
     
     // 更新位置
     if (model.selectPosition==LWCustomTimeLocationStyleTop) { // 上
@@ -270,19 +175,7 @@
             make.size.mas_equalTo(CGSizeMake(62, 40));
         }];
     }
-    
-    BOOL isStyleA = model.selectStyle==LWCustomDialStyleA;
-    [self.topImage mas_remakeConstraints:^(MASConstraintMaker *make) { // 时间上方内容
-        make.bottom.mas_equalTo(self.styleImageView.mas_top).offset(isStyleA?6:0);
-        make.right.mas_equalTo(self.styleImageView.mas_right);
-        make.size.mas_equalTo(CGSizeMake(70, 10));
-    }];
-    
-    [self.bottomImage mas_remakeConstraints:^(MASConstraintMaker *make) { // 时间下方内容
-        make.top.mas_equalTo(self.styleImageView.mas_bottom).offset(isStyleA?-6:0);
-        make.right.mas_equalTo(self.styleImageView.mas_right);
-        make.size.mas_equalTo(CGSizeMake(70, 10));
-    }];
+
     
     // 第一个参数:延迟的时间
     // 可以通过改变队列来改变线程

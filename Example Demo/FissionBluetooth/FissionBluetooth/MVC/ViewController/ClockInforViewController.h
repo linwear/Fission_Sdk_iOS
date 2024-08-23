@@ -10,7 +10,14 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ClockInforViewController : LWBaseViewController
-@property (nonatomic, retain) FBAlarmClockModel *model;
+
+/// 日程
+@property (nonatomic, assign) BOOL isSchedule;
+
+@property (nonatomic, retain) FBAlarmClockModel *alarmClockModel; // 闹钟
+
+@property (nonatomic, retain) FBScheduleModel *scheduleModel; // 日程
+
 @end
 
 NS_ASSUME_NONNULL_END

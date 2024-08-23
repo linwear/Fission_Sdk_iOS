@@ -296,13 +296,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface NSObject (QMUI_Debug)
 
 /// 获取当前对象的所有 @property、方法，父类的方法也会分别列出
-- (NSString *)qmui_methodList;
+@property(nonatomic, copy, readonly) NSString *qmui_methodList;
 
 /// 获取当前对象的所有 @property、方法，不包含父类的
-- (NSString *)qmui_shortMethodList;
+@property(nonatomic, copy, readonly) NSString *qmui_shortMethodList;
 
-/// 获取当前对象的所有 Ivar 变量
-- (NSString *)qmui_ivarList;
+/// 获取当前对象的所有 Ivar 变量，并在 Ivar 名字前面显示该 Ivar 的 offset，会同时显示十进制和十六进制，以“|”隔开。
+@property(nonatomic, copy, readonly) NSString *qmui_ivarList;
+
+/// 获取当前 UIView 层级树信息（只对 UIView 有效）
+@property(nonatomic, copy, readonly) NSString *qmui_viewInfo;
 @end
 
 @interface NSThread (QMUI_KVC)

@@ -104,19 +104,7 @@ static NSString *const idty = @"LWCustomDialCell";
     NSString *title = dict.allKeys.firstObject;
     NSArray *array = dict.allValues.firstObject;
     
-    if ([title isEqualToString:LWLocalizbleString(@"Text Style")]) {
-        
-        NSInteger selectObj = self.selectModel.selectStyle;
-        [[LWCustomDialPickerView sharedInstance] showMode:LWCustomDialSelectFontStyle withTitle:LWLocalizbleString(@"Text Style") withArrayData:array withSelectObj:selectObj withBlock:^(LWCustomDialSelectMode mode, NSInteger result) {
-            if (mode==LWCustomDialSelectFontStyle) {
-                LWCustomDialStyle selectStyle = result;
-                if (weakSelf.customDialSelectModeBlock) {
-                    weakSelf.customDialSelectModeBlock(mode, @(selectStyle));
-                }
-            }
-        }];
-    }
-    else if ([title isEqualToString:LWLocalizbleString(@"Background Picture")]) {
+    if ([title isEqualToString:LWLocalizbleString(@"Background Picture")]) {
         [self handleSelectedPhoto];
     }
     else if ([title isEqualToString:LWLocalizbleString(@"Time Position")]) {
@@ -131,30 +119,6 @@ static NSString *const idty = @"LWCustomDialCell";
             }
         }];
     }
-    else if ([title isEqualToString:LWLocalizbleString(@"More Content")]) {
-        
-        NSInteger selectObj = self.selectModel.selectTimeTopStyle;
-        [[LWCustomDialPickerView sharedInstance] showMode:LWCustomDialSelectTimeTopStyle withTitle:LWLocalizbleString(@"More Content") withArrayData:array withSelectObj:selectObj withBlock:^(LWCustomDialSelectMode mode, NSInteger result) {
-            if (mode==LWCustomDialSelectTimeTopStyle) {
-                LWCustomTimeTopStyle selectTimeTopStyle = result;
-                if (weakSelf.customDialSelectModeBlock) {
-                    weakSelf.customDialSelectModeBlock(mode, @(selectTimeTopStyle));
-                }
-            }
-        }];
-    }
-    else if ([title isEqualToString:LWLocalizbleString(@"Time Below")]) {
-        
-        NSInteger selectObj = self.selectModel.selectTimeBottomStyle;
-        [[LWCustomDialPickerView sharedInstance] showMode:LWCustomDialSelectTimeBottomStyle withTitle:LWLocalizbleString(@"Time Below") withArrayData:array withSelectObj:selectObj withBlock:^(LWCustomDialSelectMode mode, NSInteger result) {
-            if (mode==LWCustomDialSelectTimeBottomStyle) {
-                LWCustomTimeBottomStyle selectTimeBottomStyle = result;
-                if (weakSelf.customDialSelectModeBlock) {
-                    weakSelf.customDialSelectModeBlock(mode, @(selectTimeBottomStyle));
-                }
-            }
-        }];
-    }
     else if ([title isEqualToString:LWLocalizbleString(@"Restore Default Settings")]) {
         if (weakSelf.customDialSelectModeBlock) {
             weakSelf.customDialSelectModeBlock(LWCustomDialSelectRestoreDefault, @(YES));
@@ -164,34 +128,10 @@ static NSString *const idty = @"LWCustomDialCell";
 
 - (NSString *)returnContentString:(NSString *)title withArray:(NSArray *)array {
     NSString *content = @"";
-    if ([title isEqualToString:LWLocalizbleString(@"Text Style")]) {
-        
-        for (NSDictionary *dict in array) {
-            if ([dict.allValues.firstObject integerValue] == self.selectModel.selectStyle) {
-                return dict.allKeys.firstObject;
-                break;
-            }
-        }
-    } else if ([title isEqualToString:LWLocalizbleString(@"Time Position")]) {
+    if ([title isEqualToString:LWLocalizbleString(@"Time Position")]) {
         
         for (NSDictionary *dict in array) {
             if ([dict.allValues.firstObject integerValue] == self.selectModel.selectPosition) {
-                return dict.allKeys.firstObject;
-                break;
-            }
-        }
-    } else if ([title isEqualToString:LWLocalizbleString(@"More Content")]) {
-        
-        for (NSDictionary *dict in array) {
-            if ([dict.allValues.firstObject integerValue] == self.selectModel.selectTimeTopStyle) {
-                return dict.allKeys.firstObject;
-                break;
-            }
-        }
-    } else if ([title isEqualToString:LWLocalizbleString(@"Time Below")]) {
-        
-        for (NSDictionary *dict in array) {
-            if ([dict.allValues.firstObject integerValue] == self.selectModel.selectTimeBottomStyle) {
                 return dict.allKeys.firstObject;
                 break;
             }
@@ -204,10 +144,10 @@ static NSString *const idty = @"LWCustomDialCell";
 #pragma mark - SelectedPhoto
 - (void)handleSelectedPhoto {
     WeakSelf(self);
-    [FBAuthorityObject.sharedInstance presentRequestImageWithBlock:^(UIImage * _Nonnull image) {
+    [FBAuthorityObject.sharedInstance present:QMUIHelper.visibleViewController requestImageWithBlock:^(id  _Nullable results) {        
         // 将选择的照片刷新UI表盘预览
         if (weakSelf.customDialSelectModeBlock) {
-            weakSelf.customDialSelectModeBlock(LWCustomDialSelectBgImage, image);
+            weakSelf.customDialSelectModeBlock(LWCustomDialSelectBgImage, results);
         }
     }];
 }

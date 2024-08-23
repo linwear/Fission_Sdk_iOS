@@ -13,6 +13,8 @@
 
 @property (nonatomic, copy) FBAuthorityObjectBlock block;
 
+@property (nonatomic, strong) UIViewController *presentViewController;
+
 @end
 
 @implementation FBAuthorityObject
@@ -26,7 +28,9 @@
     return manager;
 }
 
-- (void)presentRequestImageWithBlock:(FBAuthorityObjectBlock)block {
+- (void)present:(UIViewController *)presentViewController requestImageWithBlock:(FBAuthorityObjectBlock)block {
+    
+    self.presentViewController = presentViewController;
         
     WeakSelf(self);
     UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
@@ -46,7 +50,7 @@
 
     }]];
 
-    [QMUIHelper.visibleViewController presentViewController:alertVC animated:YES completion:nil];
+    [self.presentViewController presentViewController:alertVC animated:YES completion:nil];
 }
 
 - (void)accessType:(FBAuthorityType)type block:(FBAuthorityObjectBlock)block {
@@ -81,14 +85,21 @@
 }
 
 - (void)pushImagePickerTypePhotoController {
-
+    BOOL allowDialVideo = FBAllConfigObject.firmwareConfig.supportVideoDial;
+    
     TZImagePickerController *imagePC = [[TZImagePickerController alloc] initWithMaxImagesCount:1 delegate:self];
-    imagePC.allowPickingVideo = NO;
+    imagePC.allowPickingVideo = allowDialVideo;
+    imagePC.allowEditVideo = allowDialVideo;
+    imagePC.maxCropVideoDuration = 10;
+    imagePC.presetName = AVAssetExportPresetHighestQuality;
     imagePC.allowTakeVideo = NO;
     imagePC.allowPickingOriginalPhoto = NO;
     imagePC.showSelectBtn = NO;
     imagePC.allowCrop = YES;
     imagePC.modalPresentationStyle = UIModalPresentationFullScreen;
+    imagePC.naviBgColor = BlueColor;
+    imagePC.naviTitleColor = UIColor.whiteColor;
+    imagePC.barItemTextColor = UIColor.whiteColor;
 
     // 根据手表显示不同形状裁剪框
     if (Tools.getShapeOFTheWatchCurrentlyConnectedIsRound) {
@@ -112,6 +123,7 @@
         cropView.layer.borderWidth = 2;
     }];
     WeakSelf(self);
+    // 选择的图片
     [imagePC setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *photos, NSArray *assets, BOOL isSelectOriginalPhoto) {
         UIImage *selectImage = photos.firstObject;
         // 将选择的照片刷新UI表盘预览
@@ -119,8 +131,29 @@
             weakSelf.block(selectImage);
         }
     }];
+    
+    // 选择的视频
+    [imagePC setDidFinishPickingAndEditingVideoHandle:^(UIImage *coverImage, NSString *outputPath, NSString *errorMsg) {
+        GCD_MAIN_QUEUE(^{
+            [NSObject showLoading:LWLocalizbleString(@"Loading...")];
+        });
+        dispatch_async(dispatch_queue_create(0,0), ^{
+            // 子线程执行任务（比如获取较大数据）
+            
+            [FBCustomDataTools fbHandleVideoDialWithPath:outputPath contentMode:FB_VIDEOCONTENTMODE_SCALEASPECTFILL scaleRect:CGRectZero timeRange:NSMakeRange(0, 0) callback:^(FBCustomDialVideoModel * _Nullable videoModel, NSError * _Nullable error) {
+                GCD_MAIN_QUEUE(^{
+                    [NSObject dismiss];
+                    if (error) [NSObject showHUDText:error.localizedDescription];
+                    // 将选择的照片刷新UI表盘预览
+                    if (weakSelf.block) {
+                        weakSelf.block(videoModel);
+                    }
+                });
+            }];
+        });
+    }];
 
-    [QMUIHelper.visibleViewController presentViewController:imagePC animated:YES completion:nil];
+    [self.presentViewController presentViewController:imagePC animated:YES completion:nil];
 }
 
 #pragma mark - 访问相机
@@ -171,7 +204,7 @@
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         self.imagePickerVc.sourceType = sourceType;
         self.imagePickerVc.modalPresentationStyle = UIModalPresentationFullScreen;
-        [QMUIHelper.visibleViewController presentViewController:self.imagePickerVc animated:YES completion:nil];
+        [self.presentViewController presentViewController:self.imagePickerVc animated:YES completion:nil];
     }
 }
 
@@ -215,7 +248,7 @@
                     imagePicker.cropRect = CGRectMake(left, top, width, widthHeight);;
                 }
 
-                [QMUIHelper.visibleViewController presentViewController:imagePicker animated:YES completion:nil];
+                [weakSelf.presentViewController presentViewController:imagePicker animated:YES completion:nil];
             }
         }];
     }
@@ -228,8 +261,8 @@
         _imagePickerVc = [[UIImagePickerController alloc] init];
         _imagePickerVc.delegate = self;
         // set appearance / 改变相册选择页的导航栏外观
-        _imagePickerVc.navigationBar.barTintColor = QMUIHelper.visibleViewController.navigationController.navigationBar.barTintColor;
-        _imagePickerVc.navigationBar.tintColor = QMUIHelper.visibleViewController.navigationController.navigationBar.tintColor;
+        _imagePickerVc.navigationBar.barTintColor = self.presentViewController.navigationController.navigationBar.barTintColor;
+        _imagePickerVc.navigationBar.tintColor = self.presentViewController.navigationController.navigationBar.tintColor;
         UIBarButtonItem *tzBarItem, *BarItem;
         tzBarItem = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[TZImagePickerController class]]];
         BarItem = [UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UIImagePickerController class]]];

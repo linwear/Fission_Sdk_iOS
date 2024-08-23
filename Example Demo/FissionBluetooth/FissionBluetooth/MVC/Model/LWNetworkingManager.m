@@ -244,7 +244,7 @@
         
         NSURL *documentsDirectoryURL = [NSURL fileURLWithPath:FBDocumentDirectory(FBDownloadFile)];
         
-        // 文件保存路径（命名：当前时间戳_文件名）
+        // 文件保存路径（命名：文件类型_____当前时间戳_____文件名）
         NSString *pathName = [NSString stringWithFormat:@"%@_%ld_%@", namePrefix, (NSInteger)NSDate.date.timeIntervalSince1970, URL.lastPathComponent];
         return [documentsDirectoryURL URLByAppendingPathComponent:pathName];
 

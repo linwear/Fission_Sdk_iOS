@@ -23,6 +23,7 @@
 #import "UIBarItem+QMUI.h"
 #import "QMUIAppearance.h"
 #import "CALayer+QMUI.h"
+#import "NSShadow+QMUI.h"
 
 @interface QMUIPopupContainerViewWindow : UIWindow
 
@@ -40,6 +41,10 @@
 @interface QMUIPopupContainerView () {
     UIImageView                     *_imageView;
     UILabel                         *_textLabel;
+    
+    CALayer                         *_backgroundViewMaskLayer;
+    CAShapeLayer                    *_copiedBackgroundLayer;
+    CALayer                         *_copiedArrowImageLayer;
 }
 
 @property(nonatomic, strong) QMUIPopupContainerViewWindow *popupWindow;
@@ -95,9 +100,39 @@
     return result;
 }
 
+- (void)setBackgroundView:(UIView *)backgroundView {
+    if (_backgroundView && !backgroundView) {
+        [_backgroundView removeFromSuperview];
+    }
+    _backgroundView = backgroundView;
+    if (backgroundView) {
+        [self insertSubview:backgroundView atIndex:0];
+        // backgroundView 必须盖在 _backgroundLayer、_arrowImageView 上面，否则背景色、阴影、箭头图片都会盖在 backgroundView 上方，影响表现
+        [self sendSubviewToBack:_arrowImageView];
+        [self.layer qmui_sendSublayerToBack:_backgroundLayer];
+        if (!_backgroundViewMaskLayer) {
+            _copiedBackgroundLayer = [CAShapeLayer layer];
+            [_copiedBackgroundLayer qmui_removeDefaultAnimations];
+            _copiedBackgroundLayer.fillColor = UIColor.blackColor.CGColor;// 这个 layer 是作为 mask 使用的，所以必须完整填充不透明的颜色，否则会影响 mask 效果
+            
+            _copiedArrowImageLayer = [CALayer layer];
+            [_copiedArrowImageLayer qmui_removeDefaultAnimations];
+            
+            _backgroundViewMaskLayer = [CALayer layer];
+            [_backgroundViewMaskLayer qmui_removeDefaultAnimations];
+            [_backgroundViewMaskLayer addSublayer:_copiedBackgroundLayer];
+            [_backgroundViewMaskLayer addSublayer:_copiedArrowImageLayer];
+        }
+        backgroundView.layer.mask = _backgroundViewMaskLayer;
+    }
+    // 存在 backgroundView 则隐藏原始的箭头，避免在 backgroundView 背后影响显示
+    _arrowImageView.hidden = backgroundView || !self.arrowImage;
+}
+
 - (void)setBackgroundColor:(UIColor *)backgroundColor {
     _backgroundColor = backgroundColor;
     _backgroundLayer.fillColor = _backgroundColor.CGColor;
+    _arrowImageView.tintColor = backgroundColor;
 }
 
 - (void)setMaskViewBackgroundColor:(UIColor *)maskViewBackgroundColor {
@@ -107,16 +142,9 @@
     }
 }
 
-- (void)setShadowColor:(UIColor *)shadowColor {
-    _shadowColor = shadowColor;
-    _backgroundLayer.shadowColor = shadowColor.CGColor;
-    if (shadowColor) {
-        _backgroundLayer.shadowOffset = CGSizeMake(0, 2);
-        _backgroundLayer.shadowOpacity = 1;
-        _backgroundLayer.shadowRadius = 10;
-    } else {
-        _backgroundLayer.shadowOpacity = 0;
-    }
+- (void)setShadow:(NSShadow *)shadow {
+    _shadow = shadow;
+    _backgroundLayer.qmui_shadow = shadow;
 }
 
 - (void)setBorderColor:(UIColor *)borderColor {
@@ -137,20 +165,27 @@
 - (void)setHighlighted:(BOOL)highlighted {
     [super setHighlighted:highlighted];
     if (self.highlightedBackgroundColor) {
-        _backgroundLayer.fillColor = highlighted ? self.highlightedBackgroundColor.CGColor : self.backgroundColor.CGColor;
+        UIColor *color = highlighted ? self.highlightedBackgroundColor : self.backgroundColor;
+        _backgroundLayer.fillColor = color.CGColor;
+        _arrowImageView.tintColor = color;
     }
 }
 
 - (CGSize)sizeThatFits:(CGSize)size {
     CGSize contentLimitSize = [self contentSizeInSize:size];
-    CGSize contentSize = [self sizeThatFitsInContentView:contentLimitSize];
+    CGSize contentSize = CGSizeZero;
+    if (self.contentViewSizeThatFitsBlock) {
+        contentSize = self.contentViewSizeThatFitsBlock(contentLimitSize);
+    } else {
+        contentSize = [self sizeThatFitsInContentView:contentLimitSize];
+    }
     CGSize resultSize = [self sizeWithContentSize:contentSize sizeThatFits:size];
     return resultSize;
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    BOOL isUsingArrowImage = _arrowImageLayer && !_arrowImageLayer.hidden;
+    BOOL isUsingArrowImage = !!self.arrowImage;
     CGAffineTransform arrowImageTransform = CGAffineTransformIdentity;
     CGPoint arrowImagePosition = CGPointZero;
     
@@ -233,8 +268,22 @@
     _backgroundLayer.frame = self.bounds;
     
     if (isUsingArrowImage) {
-        _arrowImageLayer.affineTransform = arrowImageTransform;
-        _arrowImageLayer.position = arrowImagePosition;
+        _arrowImageView.transform = arrowImageTransform;
+        _arrowImageView.center = arrowImagePosition;
+    }
+    
+    if (self.backgroundView) {
+        self.backgroundView.frame = self.bounds;
+        _backgroundViewMaskLayer.frame = self.bounds;
+        
+        _copiedBackgroundLayer.path = _backgroundLayer.path;
+        _copiedBackgroundLayer.frame = _backgroundLayer.frame;
+        
+        _copiedArrowImageLayer.bounds = _arrowImageView.bounds;
+        _copiedArrowImageLayer.affineTransform = arrowImageTransform;
+        _copiedArrowImageLayer.position = arrowImagePosition;
+        _copiedArrowImageLayer.contents = (id)_arrowImageView.image.CGImage;
+        _copiedArrowImageLayer.contentsScale = _arrowImageView.image.scale;
     }
     
     [self layoutDefaultSubviews];
@@ -280,7 +329,13 @@
 }
 
 - (void)setSourceBarItem:(__kindof UIBarItem *)sourceBarItem {
+    if (_sourceBarItem && _sourceBarItem != sourceBarItem) {
+        _sourceBarItem.qmui_viewLayoutDidChangeBlock = nil;
+    }
+    
     _sourceBarItem = sourceBarItem;
+    if (!_sourceBarItem) return;
+    
     __weak __typeof(self)weakSelf = self;
     // 每次都要重新定义 block，否则当不同的 popup 在同一个 sourceBarItem 显示，这个 block 内部得到的 weakSelf 可能是前一次的
     sourceBarItem.qmui_viewLayoutDidChangeBlock = ^(__kindof UIBarItem * _Nonnull item, UIView * _Nullable view) {
@@ -295,7 +350,13 @@
 }
 
 - (void)setSourceView:(__kindof UIView *)sourceView {
+    if (_sourceView && _sourceView != sourceView) {
+        _sourceView.qmui_frameDidChangeBlock = nil;
+    }
+    
     _sourceView = sourceView;
+    if (!_sourceView) return;
+    
     __weak __typeof(self)weakSelf = self;
     sourceView.qmui_frameDidChangeBlock = ^(__kindof UIView * _Nonnull view, CGRect precedingFrame) {
         if (!view.window || !weakSelf.superview) return;
@@ -701,14 +762,12 @@
 /// 根据内容大小和外部限制的大小，计算出合适的self size（包含箭头）
 - (CGSize)sizeWithContentSize:(CGSize)contentSize sizeThatFits:(CGSize)sizeThatFits {
     CGFloat resultWidth = contentSize.width + UIEdgeInsetsGetHorizontalValue(self.contentEdgeInsets) + self.borderWidth * 2 + self.arrowSpacingInHorizontal;
-//    resultWidth = MIN(resultWidth, sizeThatFits.width);// 宽度不能超过传进来的size.width
     resultWidth = MAX(MIN(resultWidth, self.maximumWidth), self.minimumWidth);// 宽度必须在最小值和最大值之间
-    resultWidth = ceil(resultWidth);
+    resultWidth = flat(resultWidth);
     
     CGFloat resultHeight = contentSize.height + UIEdgeInsetsGetVerticalValue(self.contentEdgeInsets) + self.borderWidth * 2 + self.arrowSpacingInVertical;
-//    resultHeight = MIN(resultHeight, sizeThatFits.height);
     resultHeight = MAX(MIN(resultHeight, self.maximumHeight), self.minimumHeight);
-    resultHeight = ceil(resultHeight);
+    resultHeight = flat(resultHeight);
     
     return CGSizeMake(resultWidth, resultHeight);
 }
@@ -726,18 +785,17 @@
     if (arrowImage) {
         _arrowSize = arrowImage.size;
         
-        if (!_arrowImageLayer) {
-            _arrowImageLayer = [CALayer layer];
-            [_arrowImageLayer qmui_removeDefaultAnimations];
-            [self.layer addSublayer:_arrowImageLayer];
+        if (!_arrowImageView) {
+            _arrowImageView = UIImageView.new;
+            _arrowImageView.tintColor = self.backgroundColor;
+            [self addSubview:_arrowImageView];
         }
-        _arrowImageLayer.hidden = NO;
-        _arrowImageLayer.contents = (id)arrowImage.CGImage;
-        _arrowImageLayer.contentsScale = arrowImage.scale;
-        _arrowImageLayer.bounds = CGRectMakeWithSize(arrowImage.size);
+        _arrowImageView.hidden = !!self.backgroundView;// 存在 backgroundView 时不要显示箭头（但依然要设置 _arrowImageView 的内容，以供 mask 用）
+        _arrowImageView.image = arrowImage;
+        _arrowImageView.bounds = CGRectMakeWithSize(arrowImage.size);
     } else {
-        _arrowImageLayer.hidden = YES;
-        _arrowImageLayer.contents = nil;
+        _arrowImageView.hidden = YES;
+        _arrowImageView.image = nil;
     }
 }
 
@@ -763,11 +821,11 @@
 - (UIEdgeInsets)safetyMarginsAvoidSafeAreaInsets {
     UIEdgeInsets result = self.safetyMarginsOfSuperview;
     if (self.isHorizontalLayoutDirection) {
-        result.left += self.superview.qmui_safeAreaInsets.left;
-        result.right += self.superview.qmui_safeAreaInsets.right;
+        result.left += self.superview.safeAreaInsets.left;
+        result.right += self.superview.safeAreaInsets.right;
     } else {
-        result.top += self.superview.qmui_safeAreaInsets.top;
-        result.bottom += self.superview.qmui_safeAreaInsets.bottom;
+        result.top += self.superview.safeAreaInsets.top;
+        result.bottom += self.superview.safeAreaInsets.bottom;
     }
     return result;
 }
@@ -840,7 +898,7 @@
     appearance.backgroundColor = UIColorWhite;// 如果先设置了 UIView.appearance.backgroundColor，再使用最传统的 method_exchangeImplementations 交换 UIView.setBackgroundColor 方法，则会 crash。QMUI 这里是在 +initialize 时设置的，业务如果要 hook -[UIView setBackgroundColor:] 则需要比 +initialize 更早才行
     appearance.maskViewBackgroundColor = UIColorMask;
     appearance.highlightedBackgroundColor = nil;
-    appearance.shadowColor = UIColorMakeWithRGBA(0, 0, 0, .1);
+    appearance.shadow = [NSShadow qmui_shadowWithColor:UIColorMakeWithRGBA(0, 0, 0, .1) shadowOffset:CGSizeMake(0, 2) shadowRadius:10];
     appearance.borderColor = UIColorGrayLighten;
     appearance.borderWidth = PixelOne;
     appearance.cornerRadius = 10;

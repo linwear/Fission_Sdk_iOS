@@ -42,6 +42,7 @@
 "No Connection" = "No Connection";
 "Start query time" = "Start query time";
 "End query time" = "End query time";
+"Select Time" = "Select Time";
 "Expand" = "Expand";
 "Away" = "Away";
 "Success" = "Success";
@@ -65,11 +66,12 @@
 "M" = "M";
 "T" = "T";
 "W" = "W";
-"T" = "T";
+"Tt" = "T";
 "F" = "F";
 "S" = "S";
 "Not Repeating" = "Not Repeating";
 "Up to %d alarms can be set" = "Up to %d alarms can be set";
+"Up to %d schedule can be set" = "Up to %d schedule can be set";
 
 "Get device power information" = "Get device power information";
 "Get device version information" = "Get device version information";
@@ -163,15 +165,32 @@
 "Physical Health" = "Physical Health";
 "Abnormal HR reminder" = "Abnormal HR reminder";
 "Frequent Contacts" = "Frequent Contacts";
+"Emergency Contact" = "Emergency Contact";
 "Read off-chip flash space data (Used for device abnormal restart analysis)" = "Read off-chip flash space data (Used for device abnormal restart analysis)";
 "Request Device Logs" = "Request Device Logs";
 "Get/Set system function switch information" = "Get/Set system function switch information";
 "Push basic information of AGPS location (latitude and longitude UTC)" = "Push basic information of AGPS location (latitude and longitude UTC)";
 "Push AGPS ephemeris data package" = "Push AGPS ephemeris data package";
+"Completed, total %ld files, took %f seconds" = "Completed, total %ld files, took %f seconds";
+"Schedule" = "Schedule";
+"Get system space usage information" = "Get system space usage information";
+"Get dial list file information" = "Get dial list file information";
+"Delete dial list file information" = "Delete dial list file information";
+"Get JS application list file information" = "Get JS application list file information";
+"Delete JS application list file information" = "Delete JS application list file information";
 
 "Firmware OTA" = "Firmware OTA";
 "Dial Face OTA" = "Dial Face OTA";
 "Sports Type OTA" = "Sports Type OTA";
+"JS Application OTA" = "JS Application OTA";
+
+"ERNIE Bot" = "ERNIE Bot";
+"Speech Recognition" = "Speech Recognition";
+"Text Translation" = "Text Translation";
+"Text To Speech" = "Text To Speech";
+"Start Recording" = "Start Recording";
+"Stop Recording" = "Stop Recording";
+"Baidu Navigation" = "Baidu Navigation";
 
 "Automatic OTA Testing" = "Automatic OTA Testing";
 "Automatic OTA Firmware" = "Automatic OTA Firmware";
@@ -179,12 +198,14 @@
 "Automatic OTA Custom Dial" = "Automatic OTA Custom Dial";
 "Automatic OTA Single Package Sports Push" = "Automatic OTA Single Package Sports Push";
 "Automatic OTA Multi-pack Sports Push" = "Automatic OTA Multi-pack Sports Push";
+"Automatic OTA JS Application" = "Automatic OTA JS Application";
 "Please Select Bin File" = "Please Select Bin File";
 "Confirm that the current OTA will stop immediately after completion?" = "Confirm that the current OTA will stop immediately after completion?";
+"Confirm to stop immediately when OTA fails?" = "Confirm to stop immediately when OTA fails?";
 "File" = "File";
 "TIME" = "TIME";
 
-"This function does not support" = "This function does not support";
+"The current device does not support this feature" = "The current device does not support this feature";
 "System Function Switch" = "System Function Switch";
 "Call Audio" = "Call Audio";
 "Media Audio" = "Media Audio";
@@ -209,6 +230,7 @@
 "The photo after taking the photo needs to be added to the album, please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone" = "The photo after taking the photo needs to be added to the album, please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone";
 "Unable to use location services" = "Unable to use location services";
 "Please allow %@ to access Location Services in iPhone's \"Settings-Privacy-Location Services\"" = "Please allow %@ to access Location Services in iPhone's \"Settings-Privacy-Location Services\"";
+"Creating Dail..." = "Creating Dail...";
 
 "Firmware Version" = "Firmware Version";
 "Project Number" = "Project Number";
@@ -240,18 +262,18 @@
 "Take [i4 Assistant] as an example" = "Take [i4 Assistant] as an example";
 "1. Open the website https://www.i4.cn/ on the computer, download and install [i4]" = "1. Open the website https://www.i4.cn/ on the computer, download and install [i4]";
 "2. Use a data cable to connect your iPhone to the computer\n①. Click [My Devices]\n②. Click [Application Management]\n③. Click FissionBluetooth APP [Browse] to open the file management" = "2. Use a data cable to connect your iPhone to the computer\n①. Click [My Devices]\n②. Click [Application Management]\n③. Click FissionBluetooth APP [Browse] to open the file management";
-"3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [FBFirmwareFile]" = "3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [FBFirmwareFile]";
+"3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [%@]" = "3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [%@]";
 "4. There are two ways to import files:\n①. Click [Import] - [Select File] and select the bin file you want to import locally\n②. Drag the bin file you want to import locally to this list" = "4. There are two ways to import files:\n①. Click [Import] - [Select File] and select the bin file you want to import locally\n②. Drag the bin file you want to import locally to this list";
 "5. After the import is successful, refresh the APP page, you can see the file you just imported, click to select it for OTA" = "5. After the import is successful, refresh the APP page, you can see the file you just imported, click to select it for OTA";
 
 "Select All" = "Select All";
 "Delete" = "Delete";
-"The frequently used contacts you set will be automatically synced to the device." = "The frequently used contacts you set will be automatically synced to the device.";
+"The contacts you set will be automatically synced to the device." = "The contacts you set will be automatically synced to the device.";
 "Are you sure you want to delete the selected contacts?" = "Are you sure you want to delete the selected contacts?";
 "Please allow %@ to access contact information in iPhone's [Settings-Privacy-Contacts]" = "Please allow %@ to access contact information in iPhone's [Settings-Privacy-Contacts]";
 "Get Contacts" = "Get Contacts";
 "Set contacts" = "Set contacts";
-"Add up to 50 frequently used contacts" = "Add up to 50 frequently used contacts";
+"Add up to %d contacts" = "Add up to %d contacts";
 "The length of the selected contact name or number is wrong, please choose again!" = "The length of the selected contact name or number is wrong, please choose again!";
 "The selected contact already exists, please select again!" = "The selected contact already exists, please select again!";
 "Address Book" = "Address Book";
@@ -371,8 +393,13 @@
 "Meter" = "Meter";
 "Yards" = "Yards";
 
+"The current device does not support screen recording" = "The current device does not support screen recording";
+"Screen recording has been terminated, please keep running in the foreground" = "Screen recording has been terminated, please keep running in the foreground";
+"Track Playback" = "Track Playback";
+"Screen recording failed, unknown error" = "Screen recording failed, unknown error";
+"Video successfully saved to album" = "Video successfully saved to album";
 
-
+"Voice recognition failed, please try again" = "Voice recognition failed, please try again";
 
 // 运动 1 - 10
 "Running" = "Running";
@@ -527,3 +554,17 @@
 "Beach Football" = "Beach Football";
 "Kayaking" = "Kayaking";
 "Savate" = "Savate";
+"Beach Volleyball" = "Beach Volleyball";
+// 运动 141 - 150
+"Snowmobiles" = "Snowmobiles";
+"Snow Car" = "Snow Car";
+"Sleds" = "Sleds";
+"Open Waters" = "Open Waters";
+"Swimming Pool" = "Swimming Pool";
+"Indoor Swimming" = "Indoor Swimming";
+"Water Polo" = "Water Polo";
+"Water Sports" = "Water Sports";
+"Paddling" = "Paddling";
+"Artistic Swimming" = "Artistic Swimming";
+// 运动 151-160
+"Kitesurfing" = "Kitesurfing";

@@ -9,8 +9,9 @@
 "NSBluetoothPeripheralUsageDescription" = "APP需要您允许访问蓝牙权限，以连接设备";
 "NSBluetoothAlwaysUsageDescription" = "APP需要您允许访问蓝牙权限，以连接设备";
 "NSCameraUsageDescription" = "APP需要您允许访问相机权限，以扫描二维码或拍照定制表盘";
-"NSPhotoLibraryUsageDescription" = "APP需要您允许访问相册权限，以选择图片定制表盘";
+"NSPhotoLibraryUsageDescription" = "APP需要您允许访问相册权限，以选择图片定制表盘或保存运动轨迹回放视频";
 "NSPhotoLibraryAddUsageDescription" = "APP需要您允许访问相册权限，以选择图片定制表盘";
 "NSLocationAlwaysAndWhenInUseUsageDescription" = "APP需要您允许访问位置权限，以定位获取当前天气信息";
 "NSLocationWhenInUseUsageDescription" = "APP需要您允许访问位置权限，以定位获取当前天气信息";
 "NSContactsUsageDescription" = "APP需要您允许访问通讯录权限，以选择联系人同步至设备";
+"NSMicrophoneUsageDescription" = "APP需要您允许访问麦克风权限，以测试语音识别功能";

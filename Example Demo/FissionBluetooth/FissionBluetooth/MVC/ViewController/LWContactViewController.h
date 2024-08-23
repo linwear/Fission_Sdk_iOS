@@ -16,7 +16,7 @@ typedef void(^LWSelectedPersonBlock)(NSArray <LWPersonModel *> * _Nullable selec
 
 @interface LWContactViewController : LWBaseViewController
 
-- (instancetype)initWithSelectedArray:(NSArray <LWPersonModel *> * _Nullable)selectedArray withBlock:(LWSelectedPersonBlock)selectedPersonBlock;
+- (instancetype)initWithSelectedArray:(NSArray <LWPersonModel *> * _Nullable)selectedArray max:(int)max withBlock:(LWSelectedPersonBlock)selectedPersonBlock;
 
 @end
 

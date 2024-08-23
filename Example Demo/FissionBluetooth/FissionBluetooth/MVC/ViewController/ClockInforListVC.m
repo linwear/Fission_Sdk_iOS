@@ -58,15 +58,27 @@
     WeakSelf(self);
     UIContextualAction *deleteRowAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive title:@"Delete" handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
         //左滑删除之后数据处理操作
-        [FBBgCommand.sharedInstance fbSetClockInforWithClockModel:weakSelf.arrayData[indexPath.row] withRemoved:YES withBlock:^(NSError * _Nullable error) {
-            if (error) {
-                [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
-            } else {
-                weakSelf.textView.text = LWLocalizbleString(@"Success");
-                [weakSelf.arrayData removeObjectAtIndex:indexPath.row];
-                [weakSelf.tableView reloadData];
-            }
-        }];
+        if (weakSelf.isSchedule) {
+            [FBBgCommand.sharedInstance fbSetSchedulenforWithScheduleModel:weakSelf.arrayData[indexPath.row] withRemoved:YES withBlock:^(NSError * _Nullable error) {
+                if (error) {
+                    [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+                } else {
+                    weakSelf.textView.text = LWLocalizbleString(@"Success");
+                    [weakSelf.arrayData removeObjectAtIndex:indexPath.row];
+                    [weakSelf.tableView reloadData];
+                }
+            }];
+        } else {
+            [FBBgCommand.sharedInstance fbSetClockInforWithClockModel:weakSelf.arrayData[indexPath.row] withRemoved:YES withBlock:^(NSError * _Nullable error) {
+                if (error) {
+                    [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+                } else {
+                    weakSelf.textView.text = LWLocalizbleString(@"Success");
+                    [weakSelf.arrayData removeObjectAtIndex:indexPath.row];
+                    [weakSelf.tableView reloadData];
+                }
+            }];
+        }
     }];
     deleteRowAction.backgroundColor = [UIColor grayColor];//删除背景颜色
     UISwipeActionsConfiguration *Configuration = [UISwipeActionsConfiguration configurationWithActions:@[deleteRowAction]];
@@ -77,46 +89,85 @@
     ClockListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ClockListTableViewCell"];
     
     if (indexPath.row<self.arrayData.count) {
-        FBAlarmClockModel *model = self.arrayData[indexPath.row];
-        [cell cellModel:model];
+        id model = self.arrayData[indexPath.row];
+        [cell cellModel:model isSchedule:self.isSchedule];
     }
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    FBAlarmClockModel *model = self.arrayData[indexPath.row];
-    ClockInforViewController *vc = [ClockInforViewController new];
-    vc.model = model;
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    id model = self.arrayData[indexPath.row];
+    
+    [self pushVC:model];
 }
 
-- (void)add{
+- (void)add {
+    WeakSelf(self);
     
-    if (FBAllConfigObject.firmwareConfig.supportSetAlarmClock) {
+    if (self.isSchedule) {
         
-        WeakSelf(self);
-        int max = FBAllConfigObject.firmwareConfig.supportMoreAlarmClock ? 10 : 5;
-        
-        [FBAtCommand.sharedInstance fbGetUnusedClockIDWithBlock:^(NSInteger responseObject, NSError * _Nullable error) {
-            if (error) {
-                [NSObject showHUDText:error.localizedDescription];
-            }else{
-                if (responseObject >= max) {
-                    [NSObject showHUDText:[NSString stringWithFormat:LWLocalizbleString(@"Up to %d alarms can be set"), max]];
+        if (FBAllConfigObject.firmwareConfig.supportSchedule) {
+            
+            NSInteger max = 5;
+                        
+            [FBAtCommand.sharedInstance fbGetUnusedScheduleIDWithBlock:^(NSInteger responseObject, NSError * _Nullable error) {
+                if (error) {
+                    [NSObject showHUDText:error.localizedDescription];
                 }else{
-                    FBAlarmClockModel *model = [FBAlarmClockModel new];
-                    model.clockID = responseObject;
-                    ClockInforViewController *vc = [ClockInforViewController new];
-                    vc.navigationItem.title = self.navigationItem.title;
-                    vc.model = model;
-                    [weakSelf.navigationController pushViewController:vc animated:YES];
+                    if (responseObject >= max) {
+                        [NSObject showHUDText:[NSString stringWithFormat:LWLocalizbleString(@"Up to %d schedule can be set"), max]];
+                    }
+                    else {
+                        FBScheduleModel *scheduleModel = [FBScheduleModel new];
+                        scheduleModel.clockID = responseObject;
+                        
+                        [weakSelf pushVC:scheduleModel];
+                    }
                 }
-            }
-        }];
+            }];
+        }
+        else {
+            [NSObject showHUDText:LWLocalizbleString(@"The current device does not support this feature")];
+        }
     }
     else {
-        [NSObject showHUDText:LWLocalizbleString(@"This function does not support")];
+        if (FBAllConfigObject.firmwareConfig.supportSetAlarmClock) {
+            
+            NSInteger max = FBAllConfigObject.firmwareConfig.alarmMaximumCount;
+                        
+            [FBAtCommand.sharedInstance fbGetUnusedClockIDWithBlock:^(NSInteger responseObject, NSError * _Nullable error) {
+                if (error) {
+                    [NSObject showHUDText:error.localizedDescription];
+                }else{
+                    if (responseObject >= max) {
+                        [NSObject showHUDText:[NSString stringWithFormat:LWLocalizbleString(@"Up to %d alarms can be set"), max]];
+                    }
+                    else {
+                        FBAlarmClockModel *alarmClockModel = [FBAlarmClockModel new];
+                        alarmClockModel.clockID = responseObject;
+                        
+                        [weakSelf pushVC:alarmClockModel];
+                    }
+                }
+            }];
+        }
+        else {
+            [NSObject showHUDText:LWLocalizbleString(@"The current device does not support this feature")];
+        }
     }
+}
+
+- (void)pushVC:(id)model {
+    ClockInforViewController *vc = [ClockInforViewController new];
+    vc.navigationItem.title = self.navigationItem.title;
+    vc.isSchedule = self.isSchedule;
+    if ([model isKindOfClass:[FBAlarmClockModel class]]) {
+        vc.alarmClockModel = model;
+    } else if ([model isKindOfClass:[FBScheduleModel class]]) {
+        vc.scheduleModel = model;
+    }
+    [self.navigationController pushViewController:vc animated:YES];
 }
 /*
 #pragma mark - Navigation
@@ -136,21 +187,41 @@
 }
 - (void)GetClockInfor {
     WeakSelf(self);
-    [FBBgCommand.sharedInstance fbGetClockInforWithBlock:^(FB_RET_CMD status, float progress, NSArray<FBAlarmClockModel *> * _Nonnull responseObject, NSError * _Nonnull error) {
-        if (error) {
-            [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
-        } else if (status==FB_INDATATRANSMISSION) {
-            weakSelf.textView.text = [NSString stringWithFormat:@"Receiving Progress: %.f%%", progress*100];
-        } else if (status==FB_DATATRANSMISSIONDONE) {
-            weakSelf.arrayData = [NSMutableArray arrayWithArray:responseObject];
-            NSMutableString *dsd = [NSMutableString string];
-            for (FBAlarmClockModel *model in responseObject) {
-                [dsd appendFormat:@"%@", [NSString stringWithFormat:@"%@",[model mj_JSONObject]]];
+    
+    if (self.isSchedule) {
+        [FBBgCommand.sharedInstance fbGetScheduleInforWithBlock:^(FB_RET_CMD status, float progress, NSArray<FBScheduleModel *> * _Nullable responseObject, NSError * _Nullable error) {
+            if (error) {
+                [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+            } else if (status==FB_INDATATRANSMISSION) {
+                weakSelf.textView.text = [NSString stringWithFormat:@"Receiving Progress: %.f%%", progress*100];
+            } else if (status==FB_DATATRANSMISSIONDONE) {
+                weakSelf.arrayData = [NSMutableArray arrayWithArray:responseObject];
+                NSMutableString *dsd = [NSMutableString string];
+                for (FBScheduleModel *model in responseObject) {
+                    [dsd appendFormat:@"%@", [NSString stringWithFormat:@"%@",[model mj_JSONObject]]];
+                }
+                weakSelf.textView.text = dsd.length ? dsd: LWLocalizbleString(@"No Data");
+                [weakSelf.tableView reloadData];
             }
-            weakSelf.textView.text = dsd.length ? dsd: LWLocalizbleString(@"No Data");
-            [weakSelf.tableView reloadData];
-        }
-    }];
+        }];
+    }
+    else {
+        [FBBgCommand.sharedInstance fbGetClockInforWithBlock:^(FB_RET_CMD status, float progress, NSArray<FBAlarmClockModel *> * _Nonnull responseObject, NSError * _Nonnull error) {
+            if (error) {
+                [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+            } else if (status==FB_INDATATRANSMISSION) {
+                weakSelf.textView.text = [NSString stringWithFormat:@"Receiving Progress: %.f%%", progress*100];
+            } else if (status==FB_DATATRANSMISSIONDONE) {
+                weakSelf.arrayData = [NSMutableArray arrayWithArray:responseObject];
+                NSMutableString *dsd = [NSMutableString string];
+                for (FBAlarmClockModel *model in responseObject) {
+                    [dsd appendFormat:@"%@", [NSString stringWithFormat:@"%@",[model mj_JSONObject]]];
+                }
+                weakSelf.textView.text = dsd.length ? dsd: LWLocalizbleString(@"No Data");
+                [weakSelf.tableView reloadData];
+            }
+        }];
+    }
 }
 
 @end

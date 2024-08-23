@@ -9,7 +9,7 @@
 #import "MainViewController.h"
 #import "AppDelegate+FissionSDK.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <JJExceptionHandle>
 
 @end
 
@@ -18,6 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // APP异常闪退保护
+    [JJException configExceptionCategory:JJExceptionGuardAll];
+    [JJException startGuardException];
+    [JJException registerExceptionHandle:self];
     
     // 初始化日志记录功能｜Initialize the logging function
     [FBLogManager sharedInstance];
@@ -35,7 +40,7 @@
     // 数据库
     RLMRealmConfiguration *configuration = RLMRealmConfiguration.defaultConfiguration;
     // 设置新的架构版本。必须大于之前所使用的版本
-    configuration.schemaVersion = 7;
+    configuration.schemaVersion = 8;
     // 通知 Realm 为默认的 Realm 数据库使用这个新的配置对象
     [RLMRealmConfiguration setDefaultConfiguration:configuration];
     // 现在我们已经通知了 Realm 如何处理架构变化，
@@ -82,6 +87,16 @@
     }];
     
     return YES;
+}
+
+#pragma mark - JJExceptionHandle 监听闪退
+- (void)handleCrashException:(NSString*)exceptionMessage extraInfo:(nullable NSDictionary*)info
+{
+    FBLog(@"闪退保护💥异常消息:%@ 额外信息:%@", exceptionMessage, info);
+    
+    [UIAlertObject presentAlertTitle:@"闪退保护" message:@"发生闪退了，触发程序保护(程序可正常运行)" cancel:nil sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
+        // more...
+    }];
 }
 
 @end

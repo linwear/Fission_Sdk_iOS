@@ -135,17 +135,18 @@
     
     NSString *fileNamePath = self.arrayData[indexPath.row];
     
+    FB_OTANOTIFICATION OTAType = FB_OTANotification_Firmware;
+    
     // 服务器文件
     if ([fileNamePath containsString:@"https://"]) {
-        [self downloadOTA:fileNamePath]; // 下载
+        [self downloadOTA:fileNamePath OTAType:OTAType]; // 下载
     }
     // 本地文件
     else {
         NSString *file = [FBDocumentDirectory(FBFirmwareFile) stringByAppendingPathComponent:fileNamePath];
         NSData *binFile = [NSData dataWithContentsOfFile:file];
         
-        [NSObject showLoading:LWLocalizbleString(@"Loading...")];
-        [self StartOtaUpgradeWithData:binFile];
+        [self StartOtaUpgradeWithData:binFile OTAType:OTAType];
     }
 }
 
@@ -157,14 +158,21 @@
 }
 
 #pragma mark - 启动OTA升级｜Start Ota Upgrade
-- (void)StartOtaUpgradeWithData:(NSData *)binFile {
+- (void)StartOtaUpgradeWithData:(NSData *)binFile OTAType:(FB_OTANOTIFICATION)OTAType {
     WeakSelf(self);
+    [NSObject showLoading:LWLocalizbleString(@"Loading...")];
+    
+    if (FBAllConfigObject.firmwareConfig.chipManufacturer == FB_CHIPMANUFACTURERTYPE_HISI) { // 海思的需要先合并一个文件信息
+        // update.fwpkg（固定命名｜Fixed naming）
+        NSString *nameString = @"update.fwpkg";
+        binFile = [FBCustomDataTools createFileName:nameString withFileData:binFile withOTAType:OTAType];
+    }
     
     FBBluetoothOTA.sharedInstance.isCheckPower = NO;
     
-    FBBluetoothOTA.sharedInstance.sendTimerOut = 90;
+    FBBluetoothOTA.sharedInstance.sendTimerOut = 30;
     
-    [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:FB_OTANotification_Firmware withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
+    [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:OTAType withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
         if (error) {
             [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
         }
@@ -188,15 +196,17 @@
 }
 */
 // 下载OTA包
-- (void)downloadOTA:(NSString *)url {
+- (void)downloadOTA:(NSString *)url OTAType:(FB_OTANOTIFICATION)OTAType {
     [NSObject showLoading:LWLocalizbleString(@"Loading...")];
     WeakSelf(self);
     [LWNetworkingManager requestDownloadURL:url namePrefix:@"FBFirmware" success:^(NSDictionary *result) {
+        [SVProgressHUD dismiss];
         
         NSString *filePath = result[@"filePath"];
         NSData *binFile = [NSData dataWithContentsOfFile:filePath];
+        
         if (binFile.length) {
-            [weakSelf StartOtaUpgradeWithData:binFile];
+            [weakSelf StartOtaUpgradeWithData:binFile OTAType:OTAType];
         }
     } failure:^(NSError * _Nonnull error, id  _Nullable responseObject) {
         [SVProgressHUD dismiss];
@@ -207,7 +217,7 @@
 // 组头点击 - 教程
 - (void)sectionButtonClick {
     FBTutorialViewController *vc = FBTutorialViewController.new;
-    vc.isFirmware = YES;
+    vc.tutorialType = FBTutorialType_Firmware;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

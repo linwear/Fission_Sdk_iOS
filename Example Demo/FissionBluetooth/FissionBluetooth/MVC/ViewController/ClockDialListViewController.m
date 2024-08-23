@@ -96,7 +96,7 @@
     if (self.arrayData.count > indexPath.row) {
         DialListModel *model = self.arrayData[indexPath.row];
         [cell.ima sd_setImageWithURL:[NSURL URLWithString:model.plateUrl] placeholderImage:IMAGE_NAME(@"pic_home")];
-        cell.tit.text = [NSString stringWithFormat:@"🆔 %@", model.plateId];
+        cell.tit.text = [NSString stringWithFormat:@"🆔 %ld", model.plateId];
     }
 
     return cell;
@@ -113,7 +113,7 @@
     [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Tip") message:message cancel:LWLocalizbleString(@"Cancel") sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
         
         if (clickType == AlertClickType_Sure) {
-            [weakSelf downloadOTA:model.plateZip];
+            [weakSelf downloadOTA:model.plateZip plateId:model.plateId];
         }
     }];
 }
@@ -133,20 +133,29 @@
 }
 */
 // 下载OTA包
-- (void)downloadOTA:(NSString *)url {
+- (void)downloadOTA:(NSString *)url plateId:(NSInteger)plate {
     [NSObject showLoading:LWLocalizbleString(@"Loading...")];
     WeakSelf(self);
     [LWNetworkingManager requestDownloadURL:url namePrefix:@"FBOnlineDial" success:^(NSDictionary *result) {
         
         NSString *filePath = result[@"filePath"];
         
+        FB_OTANOTIFICATION OTAType = FB_OTANotification_ClockDial;
+        
         NSData *binFile = [NSData dataWithContentsOfFile:filePath];
+        
+        if (FBAllConfigObject.firmwareConfig.chipManufacturer == FB_CHIPMANUFACTURERTYPE_HISI) {
+            // 海思的需要先合并一个文件信息
+            // Dial_online_L******_xxxxxxxxxx_AAAA.bin（其中******为文件大小，xxxxxxxxxx为时间戳，AAAA为唯一ID｜Where ****** is the file size, xxxxxxxxxx is the timestamp, and AAAA is the unique ID）
+            NSString *nameString = [NSString stringWithFormat:@"Dial_online_L%ld_%ld_%ld.bin", binFile.length, (NSInteger)NSDate.date.timeIntervalSince1970, plate];
+            binFile = [FBCustomDataTools createFileName:nameString withFileData:binFile withOTAType:OTAType];
+        }
         
         FBBluetoothOTA.sharedInstance.isCheckPower = NO;
         
         FBBluetoothOTA.sharedInstance.sendTimerOut = 30;
         
-        [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:FB_OTANotification_ClockDial withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
+        [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:OTAType withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
             if (error) {
                 [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
             }

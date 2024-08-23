@@ -13,7 +13,7 @@
 #ifndef QMUIKit_h
 #define QMUIKit_h
 
-static NSString * const QMUI_VERSION = @"4.3.0";
+static NSString * const QMUI_VERSION = @"4.6.0";
 
 #if __has_include("CAAnimation+QMUI.h")
 #import "CAAnimation+QMUI.h"
@@ -63,6 +63,10 @@ static NSString * const QMUI_VERSION = @"4.3.0";
 #import "NSPointerArray+QMUI.h"
 #endif
 
+#if __has_include("NSShadow+QMUI.h")
+#import "NSShadow+QMUI.h"
+#endif
+
 #if __has_include("NSString+QMUI.h")
 #import "NSString+QMUI.h"
 #endif
@@ -101,6 +105,10 @@ static NSString * const QMUI_VERSION = @"4.3.0";
 
 #if __has_include("QMUIBadgeProtocol.h")
 #import "QMUIBadgeProtocol.h"
+#endif
+
+#if __has_include("QMUIBarProtocol.h")
+#import "QMUIBarProtocol.h"
 #endif
 
 #if __has_include("QMUIButton.h")
@@ -183,16 +191,8 @@ static NSString * const QMUI_VERSION = @"4.3.0";
 #import "QMUIEmptyView.h"
 #endif
 
-#if __has_include("QMUIFillButton.h")
-#import "QMUIFillButton.h"
-#endif
-
 #if __has_include("QMUIFloatLayoutView.h")
 #import "QMUIFloatLayoutView.h"
-#endif
-
-#if __has_include("QMUIGhostButton.h")
-#import "QMUIGhostButton.h"
 #endif
 
 #if __has_include("QMUIGridView.h")
@@ -355,10 +355,6 @@ static NSString * const QMUI_VERSION = @"4.3.0";
 #import "QMUISegmentedControl.h"
 #endif
 
-#if __has_include("QMUISlider.h")
-#import "QMUISlider.h"
-#endif
-
 #if __has_include("QMUIStaticTableViewCellData.h")
 #import "QMUIStaticTableViewCellData.h"
 #endif
@@ -467,6 +463,10 @@ static NSString * const QMUI_VERSION = @"4.3.0";
 #import "UIBezierPath+QMUI.h"
 #endif
 
+#if __has_include("UIBlurEffect+QMUI.h")
+#import "UIBlurEffect+QMUI.h"
+#endif
+
 #if __has_include("UIButton+QMUI.h")
 #import "UIButton+QMUI.h"
 #endif
@@ -531,8 +531,8 @@ static NSString * const QMUI_VERSION = @"4.3.0";
 #import "UINavigationBar+QMUI.h"
 #endif
 
-#if __has_include("UINavigationBar+Transition.h")
-#import "UINavigationBar+Transition.h"
+#if __has_include("UINavigationBar+QMUIBarProtocol.h")
+#import "UINavigationBar+QMUIBarProtocol.h"
 #endif
 
 #if __has_include("UINavigationController+NavigationBarTransition.h")
@@ -559,12 +559,20 @@ static NSString * const QMUI_VERSION = @"4.3.0";
 #import "UISearchController+QMUI.h"
 #endif
 
+#if __has_include("UISlider+QMUI.h")
+#import "UISlider+QMUI.h"
+#endif
+
 #if __has_include("UISwitch+QMUI.h")
 #import "UISwitch+QMUI.h"
 #endif
 
 #if __has_include("UITabBar+QMUI.h")
 #import "UITabBar+QMUI.h"
+#endif
+
+#if __has_include("UITabBar+QMUIBarProtocol.h")
+#import "UITabBar+QMUIBarProtocol.h"
 #endif
 
 #if __has_include("UITabBarItem+QMUI.h")
@@ -601,6 +609,10 @@ static NSString * const QMUI_VERSION = @"4.3.0";
 
 #if __has_include("UITextView+QMUI.h")
 #import "UITextView+QMUI.h"
+#endif
+
+#if __has_include("UIToolbar+QMUI.h")
+#import "UIToolbar+QMUI.h"
 #endif
 
 #if __has_include("UITraitCollection+QMUI.h")

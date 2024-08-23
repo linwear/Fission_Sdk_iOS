@@ -2677,7 +2677,7 @@ x_arr;\
             return LWLocalizbleString(@"Tug of war"); //拔河比赛｜Tug of war
             break;
             
-// 131 - 139
+// 131 - 140
         case FBFREESPARRING:
             return LWLocalizbleString(@"Free Sparring"); //免费的陪练｜Free Sparring
             break;
@@ -2704,6 +2704,46 @@ x_arr;\
             break;
         case FBSAVATE:
             return LWLocalizbleString(@"Savate"); //法国式拳击｜Savate
+            break;
+        case FBBEACHVOLLEYBALL:
+            return LWLocalizbleString(@"Beach Volleyball"); //沙滩排球｜Beach Volleyball
+            break;
+            
+// 141 - 150
+        case FBSNOWMOBILES:
+            return LWLocalizbleString(@"Snowmobiles"); //雪地摩托｜Snowmobiles
+            break;
+        case FBSNOWMOBILES_CAR:
+            return LWLocalizbleString(@"Snow Car"); //雪车｜Snow Car
+            break;
+        case FBSLEDS:
+            return LWLocalizbleString(@"Sleds"); //雪橇｜Sleds
+            break;
+        case FBOPEN_WATERS:
+            return LWLocalizbleString(@"Open Waters"); //开放水域｜Open Waters
+            break;
+        case FBSWIMMING_POOL:
+            return LWLocalizbleString(@"Swimming Pool"); //泳池游泳｜Swimming Pool
+            break;
+        case FBINDOOR_SWIMMING:
+            return LWLocalizbleString(@"Indoor Swimming"); //室内游泳｜Indoor Swimming
+            break;
+        case FBWATER_POLO:
+            return LWLocalizbleString(@"Water Polo"); //水球｜Water Polo
+            break;
+        case FBWATER_SPORTS:
+            return LWLocalizbleString(@"Water Sports"); //水上运动｜Water Sports
+            break;
+        case FBPADDLING:
+            return LWLocalizbleString(@"Paddling"); //划水｜Paddling
+            break;
+        case FBARTISTIC_SWIMMING:
+            return LWLocalizbleString(@"Artistic Swimming"); //花样游泳｜Artistic Swimming
+            break;
+       
+// 151 - 160
+        case FBKITESURFING:
+            return LWLocalizbleString(@"Kitesurfing"); //风筝冲浪｜Kitesurfing
             break;
             
         default:

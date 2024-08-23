@@ -273,7 +273,7 @@ static NSString *FBCustomDialListColorCellID = @"FBCustomDialListColorCell";
     
     if (self.dialList.listType == FBCustomDialListType_Background && indexPath.row == 0) { // "+" 相册、相机
         
-        [FBAuthorityObject.sharedInstance presentRequestImageWithBlock:^(UIImage * _Nonnull image) {
+        [FBAuthorityObject.sharedInstance present:QMUIHelper.visibleViewController requestImageWithBlock:^(UIImage * _Nonnull image) {
             
             [weakSelf dialSouresOfArray:dialSoures withSelectedIndex:indexPath.row]; // 将要选中
             

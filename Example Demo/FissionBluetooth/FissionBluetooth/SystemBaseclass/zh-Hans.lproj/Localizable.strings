@@ -42,6 +42,7 @@
 "No Connection" = "无连接";
 "Start query time" = "开始查询时间";
 "End query time" = "结束查询时间";
+"Select Time" = "选择时间";
 "Expand" = "展开";
 "Away" = "收起";
 "Success" = "成功";
@@ -65,11 +66,12 @@
 "M" = "一";
 "T" = "二";
 "W" = "三";
-"T" = "四";
+"Tt" = "四";
 "F" = "五";
 "S" = "六";
 "Not Repeating" = "不重复";
 "Up to %d alarms can be set" = "最多可设置 %d 个闹钟";
+"Up to %d schedule can be set" = "最多可设置 %d 个日程";
 
 "Get device power information" = "获取设备电量信息";
 "Get device version information" = "获取设备版本信息";
@@ -163,15 +165,32 @@
 "Physical Health" = "女性健康";
 "Abnormal HR reminder" = "心率异常提醒";
 "Frequent Contacts" = "常用联系人";
+"Emergency Contact" = "紧急联系人";
 "Read off-chip flash space data (Used for device abnormal restart analysis)" = "读取片外Flash空间数据（用于设备异常重启分析）";
 "Request Device Logs" = "请求设备日志";
 "Get/Set system function switch information" = "获取/设置 系统功能开关信息";
 "Push basic information of AGPS location (latitude and longitude UTC)" = "推送AGPS位置基础信息(经纬度UTC)";
 "Push AGPS ephemeris data package" = "推送AGPS星历数据包";
+"Completed, total %ld files, took %f seconds" = "完成，共%ld个文件，耗时%f秒";
+"Schedule" = "日程";
+"Get system space usage information" = "获取系统空间使用信息";
+"Get dial list file information" = "获取表盘列表文件信息";
+"Delete dial list file information" = "删除表盘列表文件信息";
+"Get JS application list file information" = "获取JS应用列表文件信息";
+"Delete JS application list file information" = "删除JS应用列表文件信息";
 
 "Firmware OTA" = "固件OTA";
 "Dial Face OTA" = "表盘OTA";
 "Sports Type OTA" = "运动类型OTA";
+"JS Application OTA" = "JS应用OTA";
+
+"ERNIE Bot" = "文心一言";
+"Speech Recognition" = "语音识别";
+"Text Translation" = "文字翻译";
+"Text To Speech" = "文字转语音";
+"Start Recording" = "开始录音";
+"Stop Recording" = "停止录音";
+"Baidu Navigation" = "百度导航";
 
 "Automatic OTA Testing" = "自动OTA测试";
 "Automatic OTA Firmware" = "自动OTA固件";
@@ -179,12 +198,14 @@
 "Automatic OTA Custom Dial" = "自动OTA自定义表盘";
 "Automatic OTA Single Package Sports Push" = "自动OTA单包运动推送";
 "Automatic OTA Multi-pack Sports Push" = "自动OTA多包运动推送";
+"Automatic OTA JS Application" = "自动OTA JS应用";
 "Please Select Bin File" = "请选择Bin文件";
 "Confirm that the current OTA will stop immediately after completion?" = "确认当前OTA完成后立即停止？";
+"Confirm to stop immediately when OTA fails?" = "确认当OTA发生失败时立即停止？";
 "File" = "文件";
 "TIME" = "次数";
 
-"This function does not support" = "该功能不支持";
+"The current device does not support this feature" = "当前设备不支持此功能";
 "System Function Switch" = "系统功能开关";
 "Call Audio" = "通话音频";
 "Media Audio" = "多媒体音频";
@@ -209,6 +230,7 @@
 "The photo after taking the photo needs to be added to the album, please allow %@ to access the album in \"Settings-Privacy-Album\" of the iPhone" = "拍照后的照片需要添加到相册，请在iPhone的“设置-隐私-相册”中允许%@访问相册";
 "Unable to use location services" = "无法使用定位服务";
 "Please allow %@ to access Location Services in iPhone's \"Settings-Privacy-Location Services\"" = "请允许 %@ 访问 iPhone 的\"设置-隐私-定位服务\"中的定位服务";
+"Creating Dail..." = "正在生成表盘...";
 
 "Firmware Version" = "固件版本号";
 "Project Number" = "适配号";
@@ -240,18 +262,18 @@
 "Take [i4 Assistant] as an example" = "以【爱思助手】为例";
 "1. Open the website https://www.i4.cn/ on the computer, download and install [i4]" = "1. 电脑打开网站 https://www.i4.cn/ 下载安装【爱思助手】";
 "2. Use a data cable to connect your iPhone to the computer\n①. Click [My Devices]\n②. Click [Application Management]\n③. Click FissionBluetooth APP [Browse] to open the file management" = "2. 使用数据线将你的iPhone与电脑连接\n①. 点击「我的设备」\n②. 点击「应用管理」\n③. 点击 FissionBluetooth APP「浏览」打开文件管理";
-"3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [FBFirmwareFile]" = "3. FissionBluetooth APP 文件管理\n①. 点击「Documents」\n②. 双击打开「FBFirmwareFile」";
+"3. FissionBluetooth APP file management\n①. Click [Documents]\n②. Double-click to open [%@]" = "3. FissionBluetooth APP 文件管理\n①. 点击「Documents」\n②. 双击打开「%@」";
 "4. There are two ways to import files:\n①. Click [Import] - [Select File] and select the bin file you want to import locally\n②. Drag the bin file you want to import locally to this list" = "4. 导入文件，有两种方式:\n①. 点击「导入」-「选择文件」，选择你本地要导入的bin文件\n②. 将本地要导入的bin文件拖动到此列表";
 "5. After the import is successful, refresh the APP page, you can see the file you just imported, click to select it for OTA" = "5. 导入成功后，刷新APP页面，就可以看到刚刚导入的文件，点击选中进行OTA";
 
 "Select All" = "全选";
 "Delete" = "删除";
-"The frequently used contacts you set will be automatically synced to the device." = "您设置的常用联系人会自动同步到设备上。";
+"The contacts you set will be automatically synced to the device." = "您设置的联系人会自动同步到设备上。";
 "Are you sure you want to delete the selected contacts?" = "您确定要删除选定的联系人吗？";
 "Please allow %@ to access contact information in iPhone's [Settings-Privacy-Contacts]" = "请允许 %@ 访问 iPhone 的 [设置-隐私-通讯录] 中的联系人信息";
 "Get Contacts" = "获取联系人";
 "Set contacts" = "设置联系人";
-"Add up to 50 frequently used contacts" = "最多添加50个常用联系人";
+"Add up to %d contacts" = "最多添加%d个联系人";
 "The length of the selected contact name or number is wrong, please choose again!" = "所选联系人姓名或号码长度错误，请重新选择！";
 "The selected contact already exists, please select again!" = "选择的联系人已存在，请重新选择！";
 "Address Book" = "通讯录";
@@ -371,8 +393,13 @@
 "Meter" = "米";
 "Yards" = "码";
 
+"The current device does not support screen recording" = "当前设备不支持录屏";
+"Screen recording has been terminated, please keep running in the foreground" = "录屏已终止，请保持前台运行";
+"Track Playback" = "轨迹回放";
+"Screen recording failed, unknown error" = "录屏失败，未知错误";
+"Video successfully saved to album" = "视频成功保存到相册";
 
-
+"Voice recognition failed, please try again" = "语音识别失败，请重试";
 
 // 运动 1 - 10
 "Running" = "跑步";
@@ -517,13 +544,27 @@
 "Billiards" = "台球";
 "Cardio Cruiser" = "有氧运动巡洋舰";
 "Tug of war" = "拔河比赛";
-// 运动 131 - 139
+// 运动 131 - 140
 "Free Sparring" = "免费的陪练";
 "Rafting" = "漂流";
-"Spinning" = "旋转";
+"Spinning" = "动感单车";
 "BMX" = "BMX";
 "ATV" = "ATV";
 "Dumbbell" = "哑铃";
 "Beach Football" = "沙滩足球";
 "Kayaking" = "皮划艇";
 "Savate" = "法国式拳击";
+"Beach Volleyball" = "沙滩排球";
+// 运动 141 - 150
+"Snowmobiles" = "雪地摩托";
+"Snow Car" = "雪车";
+"Sleds" = "雪橇";
+"Open Waters" = "开放水域";
+"Swimming Pool" = "泳池游泳";
+"Indoor Swimming" = "室内游泳";
+"Water Polo" = "水球";
+"Water Sports" = "水上运动";
+"Paddling" = "划水";
+"Artistic Swimming" = "花样游泳";
+// 运动 151-160
+"Kitesurfing" = "风筝冲浪";

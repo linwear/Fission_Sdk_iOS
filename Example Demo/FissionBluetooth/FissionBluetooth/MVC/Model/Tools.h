@@ -103,8 +103,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// 距离+单位（千米级 公英制）distance单位为米m，space是否需要空格间隔
 + (NSString *)distanceConvert:(NSInteger)distance space:(BOOL)space;
 
+/// 距离（千米级 公英制）distance单位为米m
++ (CGFloat)distance_metre_Convert_1:(CGFloat)distance;
+
 /// 距离（米级 公英制）distance单位为米m
-+ (CGFloat)distance_metre_Convert:(CGFloat)distance;
++ (CGFloat)distance_metre_Convert_2:(CGFloat)distance;
 
 /// 平均配速（公英制）distance单位为米m
 + (NSInteger)averageSpeedWithDistance:(CGFloat)distance duration:(NSInteger)duration;

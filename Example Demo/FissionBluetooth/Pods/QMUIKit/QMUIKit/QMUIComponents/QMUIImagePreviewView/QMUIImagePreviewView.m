@@ -83,17 +83,15 @@ static NSString * const kImageOrUnknownCellIdentifier = @"imageorunknown";
     self.collectionViewLayout.allowsMultipleItemScroll = NO;
     
     _collectionView = [[UICollectionView alloc] initWithFrame:CGRectMakeWithSize(frame.size) collectionViewLayout:self.collectionViewLayout];
-    self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
     self.collectionView.backgroundColor = UIColorClear;
     self.collectionView.showsHorizontalScrollIndicator = NO;
     self.collectionView.showsVerticalScrollIndicator = NO;
     self.collectionView.scrollsToTop = NO;
     self.collectionView.delaysContentTouches = NO;
     self.collectionView.decelerationRate = UIScrollViewDecelerationRateFast;
-    if (@available(iOS 11, *)) {
-        self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    }
+    self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     [self.collectionView registerClass:[QMUIImagePreviewCell class] forCellWithReuseIdentifier:kImageOrUnknownCellIdentifier];
     [self.collectionView registerClass:[QMUIImagePreviewCell class] forCellWithReuseIdentifier:kVideoCellIdentifier];
     [self.collectionView registerClass:[QMUIImagePreviewCell class] forCellWithReuseIdentifier:kLivePhotoCellIdentifier];

@@ -11,6 +11,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ClockInforListVC : LWBaseViewController
 
+/// 日程
+@property (nonatomic, assign) BOOL isSchedule;
+
 @end
 
 NS_ASSUME_NONNULL_END

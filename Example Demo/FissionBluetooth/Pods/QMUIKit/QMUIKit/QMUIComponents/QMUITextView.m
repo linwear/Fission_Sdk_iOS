@@ -50,16 +50,14 @@ const UIEdgeInsets kSystemTextViewFixTextInsets = {0, 5, 0, 5};
 
 @dynamic delegate;
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
+- (instancetype)initWithFrame:(CGRect)frame textContainer:(NSTextContainer *)textContainer {
+    if (self = [super initWithFrame:frame textContainer:textContainer]) {
         [self didInitialize];
         if (QMUICMIActivated) {
             UIColor *textColor = TextFieldTextColor;
             if (textColor) {
                 self.textColor = textColor;
             }
-            
             self.tintColor = TextFieldTintColor;
         }
     }
@@ -87,9 +85,7 @@ const UIEdgeInsets kSystemTextViewFixTextInsets = {0, 5, 0, 5};
     self.maximumHeight = CGFLOAT_MAX;
     self.maximumTextLength = NSUIntegerMax;
     self.shouldResponseToProgrammaticallyTextChanges = YES;
-    if (@available(iOS 11, *)) {
-        self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    }
+    self.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     
     self.placeholderLabel = [[UILabel alloc] init];
     self.placeholderLabel.font = UIFontMake(kSystemTextViewDefaultFontPointSize);
@@ -182,19 +178,9 @@ const UIEdgeInsets kSystemTextViewFixTextInsets = {0, 5, 0, 5};
     [self updatePlaceholderStyle];
 }
 
-- (void)setTextContainerInset:(UIEdgeInsets)textContainerInset {
-    [super setTextContainerInset:textContainerInset];
-    if (@available(iOS 11, *)) {
-    } else {
-        // iOS 11 以下修改 textContainerInset 的时候无法自动触发 layoutSubview，导致 placeholderLabel 无法更新布局
-        [self setNeedsLayout];
-    }
-}
-
-
 - (void)setPlaceholder:(NSString *)placeholder {
     _placeholder = placeholder;
-    self.placeholderLabel.attributedText = [[NSAttributedString alloc] initWithString:_placeholder attributes:self.typingAttributes];
+    self.placeholderLabel.attributedText = placeholder ? [[NSAttributedString alloc] initWithString:_placeholder attributes:self.typingAttributes] : nil;
     if (self.placeholderColor) {
         self.placeholderLabel.textColor = self.placeholderColor;
     }
@@ -224,7 +210,7 @@ const UIEdgeInsets kSystemTextViewFixTextInsets = {0, 5, 0, 5};
     if (self.placeholder.length <= 0) return CGRectZero;
     
     UIEdgeInsets allInsets = self.allInsets;
-    UIEdgeInsets labelMargins = UIEdgeInsetsMake(allInsets.top - self.qmui_contentInset.top, allInsets.left - self.qmui_contentInset.left, allInsets.bottom - self.qmui_contentInset.bottom, allInsets.right - self.qmui_contentInset.right);
+    UIEdgeInsets labelMargins = UIEdgeInsetsMake(allInsets.top - self.adjustedContentInset.top, allInsets.left - self.adjustedContentInset.left, allInsets.bottom - self.adjustedContentInset.bottom, allInsets.right - self.adjustedContentInset.right);
     CGFloat limitWidth = size.width - UIEdgeInsetsGetHorizontalValue(allInsets);
     CGFloat limitHeight = size.height - UIEdgeInsetsGetVerticalValue(allInsets);
     CGSize labelSize = [self.placeholderLabel sizeThatFits:CGSizeMake(limitWidth, limitHeight)];
@@ -253,7 +239,7 @@ const UIEdgeInsets kSystemTextViewFixTextInsets = {0, 5, 0, 5};
     
     // 系统的三指撤销在文本框达到最大字符长度限制时可能引发 crash
     // https://github.com/Tencent/QMUI_iOS/issues/1168
-    if (textView.maximumTextLength < NSUIntegerMax && textView.undoManager.undoing) {
+    if (textView.maximumTextLength < NSUIntegerMax && (textView.undoManager.undoing || textView.undoManager.redoing)) {
         return;
     }
     
@@ -295,7 +281,7 @@ const UIEdgeInsets kSystemTextViewFixTextInsets = {0, 5, 0, 5};
     // 用 dispatch 延迟一下，因为在文字发生换行时，系统自己会做一些滚动，我们要延迟一点才能避免被系统的滚动覆盖
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         textView.shouldRejectSystemScroll = NO;
-        [textView qmui_scrollCaretVisibleAnimated:NO];
+        [textView qmui_scrollCaretVisibleAnimated:YES];
     });
 }
 
@@ -316,7 +302,7 @@ const UIEdgeInsets kSystemTextViewFixTextInsets = {0, 5, 0, 5};
 }
 
 - (UIEdgeInsets)allInsets {
-    return UIEdgeInsetsConcat(UIEdgeInsetsConcat(UIEdgeInsetsConcat(self.textContainerInset, self.placeholderMargins), kSystemTextViewFixTextInsets), self.qmui_contentInset);
+    return UIEdgeInsetsConcat(UIEdgeInsetsConcat(UIEdgeInsetsConcat(self.textContainerInset, self.placeholderMargins), kSystemTextViewFixTextInsets), self.adjustedContentInset);
 }
 
 - (void)setFrame:(CGRect)frame {
@@ -329,7 +315,15 @@ const UIEdgeInsets kSystemTextViewFixTextInsets = {0, 5, 0, 5};
     // https://github.com/Tencent/QMUI_iOS/issues/557
     frame = CGRectFlatted(frame);
     
+    // 系统的 UITextView 只要调用 setFrame: 不管 rect 有没有变化都会触发 setContentOffset，引起最后一行输入过程中文字抖动的问题，所以这里屏蔽掉
+    BOOL sizeChanged = !CGSizeEqualToSize(frame.size, self.frame.size);
+    if (!sizeChanged) {
+        self.shouldRejectSystemScroll = YES;
+    }
     [super setFrame:frame];
+    if (!sizeChanged) {
+        self.shouldRejectSystemScroll = NO;
+    }
 }
 
 - (void)setBounds:(CGRect)bounds {
@@ -433,6 +427,11 @@ const UIEdgeInsets kSystemTextViewFixTextInsets = {0, 5, 0, 5};
             return NO;
         }
         
+        if (!text.length && range.length > 0) {
+            // 允许删除，这段必须放在上面 #377、#1170 的逻辑后面
+            return YES;
+        }
+        
         NSUInteger rangeLength = textView.shouldCountingNonASCIICharacterAsTwo ? [textView.text substringWithRange:range].qmui_lengthWhenCountingNonASCIICharacterAsTwo : range.length;
         BOOL textWillOutofMaximumTextLength = [textView lengthWithString:textView.text] - rangeLength + [textView lengthWithString:text] > textView.maximumTextLength;
         if (textWillOutofMaximumTextLength) {
@@ -446,6 +445,13 @@ const UIEdgeInsets kSystemTextViewFixTextInsets = {0, 5, 0, 5};
             if (substringLength > 0 && [textView lengthWithString:text] > substringLength) {
                 NSString *allowedText = [text qmui_substringAvoidBreakingUpCharacterSequencesWithRange:NSMakeRange(0, substringLength) lessValue:YES countingNonASCIICharacterAsTwo:textView.shouldCountingNonASCIICharacterAsTwo];
                 if ([textView lengthWithString:allowedText] <= substringLength) {
+                    BOOL shouldChange = YES;
+                    if ([textView.delegate respondsToSelector:@selector(textView:shouldChangeTextInRange:replacementText:originalValue:)]) {
+                        shouldChange = [textView.delegate textView:textView shouldChangeTextInRange:range replacementText:text originalValue:shouldChange];
+                    }
+                    if (!shouldChange) {
+                        return NO;
+                    }
                     [textView _qmui_setTextForShouldChange:[textView.text stringByReplacingCharactersInRange:range withString:allowedText]];
                      
                     // iOS 10 修改 selectedRange 可以让光标立即移动到新位置，但 iOS 11 及以上版本需要延迟一会才可以
@@ -462,6 +468,11 @@ const UIEdgeInsets kSystemTextViewFixTextInsets = {0, 5, 0, 5};
             }
             return NO;
         }
+    }
+    
+    if ([textView.delegate respondsToSelector:@selector(textView:shouldChangeTextInRange:replacementText:originalValue:)]) {
+        BOOL delegateValue = [textView.delegate textView:textView shouldChangeTextInRange:range replacementText:text originalValue:YES];
+        return delegateValue;
     }
     
     return YES;

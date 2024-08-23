@@ -29,6 +29,7 @@
 #import "LWPersonViewController.h"
 #import "FBCameraViewController.h"
 #import "FBAutomaticOTAViewController.h"
+#import "JSAppPushViewController.h"
 
 #import "LWStartCountdownView.h"
 #import "FBSportsConnectViewController.h"
@@ -57,6 +58,12 @@
 
 @property (nonatomic, assign) BOOL switchMode;
 
+@property (nonatomic, strong) FBAudioRecorder *audioRecorder;
+@property (nonatomic, strong) AVPlayer *player;//播放实例
+
+@property (nonatomic, strong) NSArray <FBListFileInforModel *> *dialListFileInfor;
+@property (nonatomic, strong) NSArray <FBListFileInforModel *> *jsAppListFileInfor;
+
 @end
 
 @implementation MainViewController
@@ -80,6 +87,9 @@
     [self initUI];
 
     [self initDatas];
+    
+    // 初始化麦克风
+    [self initializeAudioRecorder];
     
     // 实时数据流更新
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(realTimeDataStream:) name:FISSION_SDK_REALTIMEDATASTREAM object:nil];
@@ -133,60 +143,91 @@
     
     CGFloat leftSpace = 5;
     
-    self.receLab = [[UILabel alloc] initWithFrame:CGRectMake(leftSpace, NavigationContentTop, SCREEN_WIDTH-leftSpace*2, 50)];
-    self.receLab.text = LWLocalizbleString(@"Receive Data");
-    self.receLab.font = FONT(14);
-    self.receLab.textAlignment = NSTextAlignmentLeft;
-    self.receLab.textColor = UIColorBlue;
-    self.receLab.numberOfLines = 0;
-    [self.view addSubview:self.receLab];
+    UILabel *receLab = [[UILabel alloc] qmui_initWithFont:FONT(14) textColor:UIColorBlue];
+    receLab.text = LWLocalizbleString(@"Receive Data");
+    receLab.numberOfLines = 0;
+    [self.view addSubview:receLab];
+    [receLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(leftSpace);
+        make.right.mas_equalTo(-leftSpace);
+        make.top.mas_equalTo(NavigationContentTop);
+        make.height.mas_equalTo(50);
+    }];
+    self.receLab = receLab;
     
-    self.receTextView = [[UITextView alloc] initWithFrame:CGRectMake(leftSpace, CGRectGetMaxY(self.receLab.frame), CGRectGetWidth(self.receLab.frame), 150)];
-    self.receTextView.textColor = UIColorBlue;
-    self.receTextView.font = FONT(14);
-    self.receTextView.editable = NO;
-    self.receTextView.layer.borderWidth = 1;
-    self.receTextView.layer.borderColor = UIColorBlack.CGColor;
-    self.receTextView.sd_cornerRadius = @(8);
-    [self.view addSubview:self.receTextView];
+    UITextView *receTextView = UITextView.new;
+    receTextView.textColor = UIColorBlue;
+    receTextView.font = FONT(14);
+    receTextView.editable = NO;
+    receTextView.layer.borderWidth = 1;
+    receTextView.layer.borderColor = UIColorBlack.CGColor;
+    receTextView.layer.cornerRadius = 8;
+    [self.view addSubview:receTextView];
+    [receTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.mas_equalTo(receLab);
+        make.top.mas_equalTo(receLab.mas_bottom);
+        make.height.mas_equalTo(150);
+    }];
+    self.receTextView = receTextView;
     
-    self.staTBut = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.staTBut.frame = CGRectMake(0, CGRectGetMaxY(self.receTextView.frame), SCREEN_WIDTH/2, 40);
-    self.staTBut.backgroundColor = UIColorRed;
-    self.staTBut.titleLabel.font = [NSObject BahnschriftFont:16];
-    [self.staTBut setTitle:[self getTheCurrentTimeFormat:NO] forState:UIControlStateNormal];
-    [self.staTBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.view addSubview:self.staTBut];
-    [self.staTBut addTarget:self action:@selector(staTimeClick:) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *staTBut = [UIButton buttonWithType:UIButtonTypeCustom];
+    staTBut.backgroundColor = UIColorRed;
+    staTBut.titleLabel.font = [NSObject BahnschriftFont:16];
+    [staTBut setTitle:[self getTheCurrentTimeFormat:NO] forState:UIControlStateNormal];
+    [staTBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.view addSubview:staTBut];
+    [staTBut addTarget:self action:@selector(staTimeClick:) forControlEvents:UIControlEventTouchUpInside];
+    [staTBut mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(0);
+        make.top.mas_equalTo(receTextView.mas_bottom);
+        make.width.mas_equalTo(SCREEN_WIDTH/2);
+        make.height.mas_equalTo(40);
+    }];
+    self.staTBut = staTBut;
     
-    self.endTBut = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.endTBut.frame = CGRectMake(CGRectGetMaxX(self.staTBut.frame), CGRectGetMaxY(self.receTextView.frame), SCREEN_WIDTH/2, 40);
-    self.endTBut.backgroundColor = BlueColor;
-    self.endTBut.titleLabel.font = [NSObject BahnschriftFont:16];
-    [self.endTBut setTitle:[self getTheCurrentTimeFormat:YES] forState:UIControlStateNormal];
-    [self.endTBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.view addSubview:self.endTBut];
-    [self.endTBut addTarget:self action:@selector(endTimeClick:) forControlEvents:UIControlEventTouchUpInside];
+    UIButton *endTBut = [UIButton buttonWithType:UIButtonTypeCustom];
+    endTBut.backgroundColor = BlueColor;
+    endTBut.titleLabel.font = [NSObject BahnschriftFont:16];
+    [endTBut setTitle:[self getTheCurrentTimeFormat:YES] forState:UIControlStateNormal];
+    [endTBut setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [self.view addSubview:endTBut];
+    [endTBut addTarget:self action:@selector(endTimeClick:) forControlEvents:UIControlEventTouchUpInside];
+    [endTBut mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(staTBut.mas_right);
+        make.right.mas_equalTo(0);
+        make.top.mas_equalTo(staTBut.mas_top);
+        make.height.mas_equalTo(staTBut.mas_height);
+    }];
+    self.endTBut = endTBut;
     
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.staTBut.frame), SCREEN_WIDTH,SCREEN_HEIGHT-CGRectGetMaxY(self.staTBut.frame)) style:UITableViewStylePlain];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.rowHeight = 52;
-    self.tableView.tableFooterView = UIView.new;
-    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"ViewControllerCell"];
-    [self.view addSubview:self.tableView];
+    UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    tableView.rowHeight = 52;
+    tableView.tableFooterView = UIView.new;
+    [tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"ViewControllerCell"];
+    [self.view addSubview:tableView];
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.mas_equalTo(0);
+        make.top.mas_equalTo(staTBut.mas_bottom);
+    }];
+    self.tableView = tableView;
     
-    UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 40)];
+    CGFloat footH = IS_NOTCHED_SCREEN ? 60 : 40;
+    UIView *footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, footH)];
     footView.backgroundColor = UIColorClear;
     self.tableView.tableFooterView = footView;
     
-    self.versionLab = [[UILabel alloc] initWithFrame:CGRectMake(0,SCREEN_HEIGHT-40, SCREEN_WIDTH,40)];
-    self.versionLab.font = FONT(14);
-    self.versionLab.textColor = [UIColor blueColor];
-    self.versionLab.numberOfLines = 0;
-    self.versionLab.textAlignment = NSTextAlignmentCenter;
-    [self.view bringSubviewToFront:self.versionLab];
-    [self.view addSubview:self.versionLab];
+    UILabel *versionLab = [[UILabel alloc] qmui_initWithFont:FONT(14) textColor:[UIColor blueColor]];
+    versionLab.numberOfLines = 0;
+    versionLab.textAlignment = NSTextAlignmentCenter;
+    [self.view bringSubviewToFront:versionLab];
+    [self.view addSubview:versionLab];
+    [versionLab mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.mas_equalTo(0);
+        make.height.mas_equalTo(footH);
+    }];
+    self.versionLab = versionLab;
 }
 
 - (NSString *)getTheCurrentTimeFormat:(BOOL)end {
@@ -343,12 +384,15 @@
                                  LWLocalizbleString(@"Push Location Info"),
                                  LWLocalizbleString(@"Physical Health"),
                                  LWLocalizbleString(@"Abnormal HR reminder"),
-                                 LWLocalizbleString(@"Frequent Contacts"),
+                                 LWLocalizbleString(@"Frequent Contacts"), LWLocalizbleString(@"Emergency Contact"),
                                  LWLocalizbleString(@"Read off-chip flash space data (Used for device abnormal restart analysis)"),
                                  LWLocalizbleString(@"Request Device Logs"),
                                  LWLocalizbleString(@"Get/Set system function switch information"),
                                  LWLocalizbleString(@"Push basic information of AGPS location (latitude and longitude UTC)"),
                                  LWLocalizbleString(@"Push AGPS ephemeris data package"),
+                                 LWLocalizbleString(@"Schedule"), LWLocalizbleString(@"Get system space usage information"),
+                                 LWLocalizbleString(@"Get dial list file information"), LWLocalizbleString(@"Delete dial list file information"),
+                                 LWLocalizbleString(@"Get JS application list file information"), LWLocalizbleString(@"Delete JS application list file information"),
                              ]
     };
     
@@ -358,6 +402,20 @@
                                  LWLocalizbleString(@"Firmware OTA"),
                                  LWLocalizbleString(@"Dial Face OTA"),
                                  LWLocalizbleString(@"Sports Type OTA"),
+                                 LWLocalizbleString(@"JS Application OTA"),
+                             ]
+    };
+    
+    NSDictionary *dict5  = @{@"command":LWLocalizbleString(@"ERNIE Bot"),
+                             @"status":@(0),
+                             @"funcArr":@[
+                                 LWLocalizbleString(@"Speech Recognition"),
+                                 LWLocalizbleString(@"Text Translation"),
+                                 LWLocalizbleString(@"ERNIE Bot"),
+                                 LWLocalizbleString(@"Text To Speech"),
+                                 LWLocalizbleString(@"Start Recording"),
+                                 LWLocalizbleString(@"Stop Recording"),
+                                 LWLocalizbleString(@"Baidu Navigation"),
                              ]
     };
     
@@ -366,9 +424,10 @@
     [self.funDatas addObject:dict2];
     [self.funDatas addObject:dict3];
     [self.funDatas addObject:dict4];
+    [self.funDatas addObject:dict5];
     
 #ifdef FBINTERNAL
-    NSDictionary *dict5  = @{@"command":LWLocalizbleString(@"Automatic OTA Testing"),
+    NSDictionary *dict6  = @{@"command":LWLocalizbleString(@"Automatic OTA Testing"),
                              @"status":@(0),
                              @"funcArr":@[
                                  LWLocalizbleString(@"Automatic OTA Firmware"),
@@ -376,9 +435,10 @@
                                  LWLocalizbleString(@"Automatic OTA Custom Dial"),
                                  LWLocalizbleString(@"Automatic OTA Single Package Sports Push"),
                                  LWLocalizbleString(@"Automatic OTA Multi-pack Sports Push"),
+                                 LWLocalizbleString(@"Automatic OTA JS Application"),
                              ]
     };
-    [self.funDatas addObject:dict5];
+    [self.funDatas addObject:dict6];
 #endif
 }
 
@@ -1438,7 +1498,7 @@
                         [mutStr appendFormat:@"%@\n", model.mj_keyValues];
                         
                         for (FBRecordDetailsModel *reArr in model.recordArray) {
-                            [mutStr appendFormat:@"%@", [NSString stringWithFormat:@"%@=====Value%ld-Range%u\n", reArr.dateTimeStr, reArr.stress, reArr.StressRange]];
+                            [mutStr appendFormat:@"%@", [NSString stringWithFormat:@"%@=====Value%ld-Range%lu\n", reArr.dateTimeStr, reArr.stress, reArr.StressRange]];
                         }
                         
                     }
@@ -1592,6 +1652,7 @@
         
         else if ([rowStr containsString:LWLocalizbleString(@"Reminder/Alarm")]) {
             ClockInforListVC *vc = [ClockInforListVC new];
+            vc.isSchedule = NO;
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -1674,7 +1735,13 @@
         }
         
         else if ([rowStr containsString:LWLocalizbleString(@"Frequent Contacts")]) {
-            LWPersonViewController *vc = [LWPersonViewController new];
+            LWPersonViewController *vc = [[LWPersonViewController alloc] initWithFrequentContacts:YES max:(int)FBAllConfigObject.firmwareConfig.favContactsCount];
+            vc.title = rowStr;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Emergency Contact")]) {
+            LWPersonViewController *vc = [[LWPersonViewController alloc] initWithFrequentContacts:NO max:(int)FBAllConfigObject.firmwareConfig.emergencyContactsCount];
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
         }
@@ -1730,34 +1797,167 @@
         }
         
         else if ([rowStr containsString:LWLocalizbleString(@"Push AGPS ephemeris data package")]) {
-            [NSObject showLoading:LWLocalizbleString(@"Loading...")];
-            [FBEphemerisManager.sharedInstance requestEphemerisDataWithBlock:^(NSData * _Nullable binData, NSString * _Nullable errorString) {
+            NSBundle *mainBundle = NSBundle.mainBundle;
+            NSData *binFile = nil;
+            FB_OTANOTIFICATION OTAType = FB_OTANotification_AGPS_Ephemeris;
+            if (FBAllConfigObject.firmwareConfig.chipManufacturer == FB_CHIPMANUFACTURERTYPE_HISI) {
+                // 海思的需要先合并一个文件信息，这里的文件只用于示例，实际应该从服务器更新下来
+                NSArray <NSString *> *fileArray = @[@"GLO_1710638082.eph",
+                                                    @"NonGlo_1710626382.eph",
+                                                    @"NonGlo_1710611982.eph",
+                                                    @"GLO_1710623682.eph",
+                                                    @"GLO_1710616482.eph",
+                                                    @"NonGlo_1710604782.eph",
+                                                    @"GLO_1710609282.eph",
+                                                    @"NonGlo_1710597582.eph",
+                                                    @"GLO_1710594882.eph",
+                                                    @"NonGlo_1710575982.eph",
+                                                    @"NonGlo_1710655182.eph",
+                                                    @"GLO_1710587682.eph",
+                                                    @"NonGlo_1710590382.eph",
+                                                    @"NonGlo_1710647982.eph",
+                                                    @"GLO_1710602082.eph",
+                                                    @"NonGlo_1710583182.eph",
+                                                    @"GLO_1710580482.eph",
+                                                    @"NonGlo_1710633582.eph",
+                                                    @"GLO_1710652482.eph",
+                                                    @"GLO_1710573282.eph",
+                                                    @"NonGlo_1710640782.eph",
+                                                    @"GLO_1710645282.eph",
+                                                    @"NonGlo_1710619182.eph",
+                                                    @"GLO_1710630882.eph",
+                                                    @"AssistInfo.dat"];
                 
-                if (binData.length)
-                {
-                    FBBluetoothOTA.sharedInstance.isCheckPower = NO;
-                    
-                    FBBluetoothOTA.sharedInstance.sendTimerOut = 30;
-                    
-                    [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binData withOTAType:FB_OTANotification_AGPS_Ephemeris withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
-                        if (error) {
-                            [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
-                        }
-                        else if (status==FB_INDATATRANSMISSION) {
-                            [NSObject showProgress:progress.totalPackageProgress/100.0 status:[NSString stringWithFormat:@"%@ %ld%%", LWLocalizbleString(@"Synchronize"), progress.totalPackageProgress]];
-                        }
-                        else if (status==FB_DATATRANSMISSIONDONE) {
-                            [NSObject dismiss];
-                            NSString *message = [NSString stringWithFormat:@"%@", responseObject.mj_keyValues];
-                            [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Success") message:message cancel:nil sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
-                            }];
-                        }
+                NSArray <NSString *> *sortedArray = [fileArray sortedArrayUsingComparator:^NSComparisonResult(NSString * _Nonnull obj1, NSString * _Nonnull obj2) {
+                    NSInteger time1 = [[Tools componentsSeparatedBySetCharacters:@"_." withString:obj1][1] integerValue];
+                    NSInteger time2 = [[Tools componentsSeparatedBySetCharacters:@"_." withString:obj2][1] integerValue];
+                    return (time1 > time2) ? NSOrderedDescending : NSOrderedAscending;
+                }];
+                
+                NSMutableArray <NSData *> *allData = NSMutableArray.array;
+                for (NSString *name in sortedArray) {
+                    NSArray *nameArray = [Tools componentsSeparatedBySetCharacters:@"." withString:name];
+                    NSString *path = [NSBundle.mainBundle pathForResource:nameArray.firstObject ofType:nameArray.lastObject];
+                    NSData *file = [NSData dataWithContentsOfFile:path];
+                    // 无需重新命名，即用原始文件的名称｜No need to rename, just use the name of the original file
+                    NSData *data = [FBCustomDataTools createFileName:name withFileData:file withOTAType:OTAType];
+                    if (data) {
+                        [allData addObject:data];
+                    }
+                }
+                
+                [self HisiliconOTAFiles:allData count:allData.count time:NSDate.date.timeIntervalSince1970 otaType:OTAType];
+            }
+            else {
+                // 其他的需要将3个文件合成1个文件，这里的文件只用于示例，实际应该从服务器更新下来
+                NSString *GPS_GlonassFilePath = [mainBundle pathForResource:@"1711068963_ELPO_GR3_1_20240322_085600" ofType:@"DAT"];
+                NSString *BeidouFilePath = [mainBundle pathForResource:@"1711068967_ELPO_BDS_3_20240322_085606" ofType:@"DAT"];
+                NSString *GalileoFilePath = [mainBundle pathForResource:@"1711068966_ELPO_GAL_3_20240322_085605" ofType:@"DAT"];
+                FBAGPSEphemerisModel *ephemerisModel = FBAGPSEphemerisModel.new;
+                ephemerisModel.GPS_Glonass = [NSData dataWithContentsOfFile:GPS_GlonassFilePath];
+                ephemerisModel.Beidou = [NSData dataWithContentsOfFile:BeidouFilePath];
+                ephemerisModel.Galileo = [NSData dataWithContentsOfFile:GalileoFilePath];
+                
+                binFile = [FBCustomDataTools.sharedInstance fbGenerateAGPSEphemerisBinFileDataWithModel:ephemerisModel];
+            }
+            
+            [NSObject showLoading:LWLocalizbleString(@"Loading...")];
+            
+            FBBluetoothOTA.sharedInstance.isCheckPower = NO;
+            
+            FBBluetoothOTA.sharedInstance.sendTimerOut = 30;
+            
+            [FBBluetoothOTA.sharedInstance fbStartCheckingOTAWithBinFileData:binFile withOTAType:OTAType withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
+                if (error) {
+                    [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+                }
+                else if (status==FB_INDATATRANSMISSION) {
+                    [NSObject showProgress:progress.totalPackageProgress/100.0 status:[NSString stringWithFormat:@"%@ %ld%%", LWLocalizbleString(@"Synchronize"), progress.totalPackageProgress]];
+                }
+                else if (status==FB_DATATRANSMISSIONDONE) {
+                    [NSObject dismiss];
+                    NSString *message = [NSString stringWithFormat:@"%@", responseObject.mj_keyValues];
+                    [UIAlertObject presentAlertTitle:LWLocalizbleString(@"Success") message:message cancel:nil sure:LWLocalizbleString(@"OK") block:^(AlertClickType clickType) {
                     }];
                 }
-                else
-                {
-                    [NSObject dismiss];
-                    [NSObject showHUDText:errorString];
+            }];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Schedule")]) {
+            ClockInforListVC *vc = [ClockInforListVC new];
+            vc.isSchedule = YES;
+            vc.title = rowStr;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+
+        else if ([rowStr containsString:LWLocalizbleString(@"Get system space usage information")]) {
+            [FBBgCommand.sharedInstance fbGetSystemSpaceUsageInforWithBlock:^(FB_RET_CMD status, float progress, FBSystemSpaceModel * _Nullable responseObject, NSError * _Nullable error) {
+                if (error) {
+                    [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+                }
+                else if (status==FB_INDATATRANSMISSION) {
+                    weakSelf.receTextView.text = [NSString stringWithFormat:@"Receiving Progress: %.f%%", progress*100];
+                }
+                else if (status==FB_DATATRANSMISSIONDONE) {
+                    weakSelf.receTextView.text = [NSString stringWithFormat:@"%@", responseObject.mj_keyValues];
+                }
+            }];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Get dial list file information")]) {
+            [FBBgCommand.sharedInstance fbGetDialListFileInforWithBlock:^(FB_RET_CMD status, float progress, NSArray<FBListFileInforModel *> * _Nullable responseObject, NSError * _Nullable error) {
+                if (error) {
+                    [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+                }
+                else if (status==FB_INDATATRANSMISSION) {
+                    weakSelf.receTextView.text = [NSString stringWithFormat:@"Receiving Progress: %.f%%", progress*100];
+                }
+                else if (status==FB_DATATRANSMISSIONDONE) {
+                    NSMutableArray *array = NSMutableArray.array;
+                    for (FBListFileInforModel *model in responseObject) {
+                        [array addObject:model.mj_keyValues];
+                    }
+                    weakSelf.receTextView.text = [NSString stringWithFormat:@"%@", array];
+                    weakSelf.dialListFileInfor = responseObject;
+                }
+            }];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Delete dial list file information")]) {
+            [FBBgCommand.sharedInstance fbDeleteDialListFileInfor:self.dialListFileInfor withBlock:^(NSError * _Nullable error) {
+                if (error) {
+                    [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+                } else {
+                    weakSelf.receTextView.text = LWLocalizbleString(@"Success");
+                }
+            }];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Get JS application list file information")]) {
+            [FBBgCommand.sharedInstance fbGetJsAppListFileInforWithBlock:^(FB_RET_CMD status, float progress, NSArray<FBListFileInforModel *> * _Nullable responseObject, NSError * _Nullable error) {
+                if (error) {
+                    [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+                }
+                else if (status==FB_INDATATRANSMISSION) {
+                    weakSelf.receTextView.text = [NSString stringWithFormat:@"Receiving Progress: %.f%%", progress*100];
+                }
+                else if (status==FB_DATATRANSMISSIONDONE) {
+                    NSMutableArray *array = NSMutableArray.array;
+                    for (FBListFileInforModel *model in responseObject) {
+                        [array addObject:model.mj_keyValues];
+                    }
+                    weakSelf.receTextView.text = [NSString stringWithFormat:@"%@", array];
+                    weakSelf.jsAppListFileInfor = responseObject;
+                }
+            }];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Delete JS application list file information")]) {
+            [FBBgCommand.sharedInstance fbDeleteJsAppListFileInfor:self.jsAppListFileInfor withBlock:^(NSError * _Nullable error) {
+                if (error) {
+                    [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+                } else {
+                    weakSelf.receTextView.text = LWLocalizbleString(@"Success");
                 }
             }];
         }
@@ -1783,10 +1983,128 @@
             vc.title = rowStr;
             [self.navigationController pushViewController:vc animated:YES];
         }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"JS Application OTA")]) {
+            JSAppPushViewController *vc = [JSAppPushViewController new];
+            vc.title = rowStr;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }
+    
+#pragma mark - ERNIE Bot
+    else if (section == 4) {
+        if ([rowStr containsString:LWLocalizbleString(@"Speech Recognition")]) {
+            // 语音转文字
+            NSString *audioDataPath = [NSBundle.mainBundle pathForResource:@"16k-0" ofType:@"pcm"];
+            NSData *completeAudioData = [NSData dataWithContentsOfFile:audioDataPath];
+            [FBBaiduCloudKit requestSpeechRecognitionWithCompleteAudioData:completeAudioData callback:^(FBBaiduSpeechRecognitionModel * _Nullable model, NSError * _Nullable error) {
+                if (error) {
+                    weakSelf.receTextView.text = error.localizedDescription;
+                } else {
+                    weakSelf.receTextView.text = model.results;
+                }
+            }];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Text Translation")]) {
+            // 文字翻译
+            [FBBaiduCloudKit requestTranslationWithText:@"这是一段待翻译的汉字，请翻译成英文" form:FB_TRANSLATIONLANGUAGE_auto to:FB_TRANSLATIONLANGUAGE_en callback:^(FBBaiduTranslationModel * _Nullable model, NSError * _Nullable error) {
+                if (error) {
+                    weakSelf.receTextView.text = error.localizedDescription;
+                } else {
+                    weakSelf.receTextView.text = model.translation;
+                }
+            }];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"ERNIE Bot")]) {
+            // 文心一言
+            [FBBaiduCloudKit requestERNIE_BotWithNewText:@"Introduce the Earth!" historyContext:nil callback:^(FBBaiduERNIE_BotModel * _Nullable model, NSError * _Nullable error) {
+                if (error) {
+                    weakSelf.receTextView.text = error.localizedDescription;
+                } else {
+                    weakSelf.receTextView.text = model.results;
+                }
+            }];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Text To Speech")]) {
+            // 文字转语音
+            [FBBaiduCloudKit requestSynthesisSpeechWithText:@"这是一段文字，请生成音频。This is a text, please generate audio." callback:^(NSURL * _Nullable audioURL, NSError * _Nullable error) {
+                if (error) {
+                    weakSelf.receTextView.text = error.localizedDescription;
+                } else {
+                    weakSelf.receTextView.text = LWLocalizbleString(@"Success");
+                    
+                    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:audioURL options:@{AVURLAssetPreferPreciseDurationAndTimingKey : @(YES)}];//url播放地址
+                    AVPlayerItem *item = [[AVPlayerItem alloc] initWithAsset:asset];
+                    weakSelf.player = [[AVPlayer alloc] init];
+                    [weakSelf.player replaceCurrentItemWithPlayerItem:item];
+                    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];//设置后台播放
+                    [weakSelf.player play];//开始播放
+                }
+            }];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Start Recording")]) {
+            // 开始录音
+            [self.audioRecorder startRecording];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Stop Recording")]) {
+            // 停止录音
+            [self.audioRecorder stopRecording];
+            
+            [FBBaiduCloudKit stopSpeechRecognitionRequest];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Baidu Navigation")]) {
+            // 百度导航
+            [FBBaiduCloudKit requestOpenJsBaiduNaviAppWithCallback:^(NSError * _Nullable error) {
+                
+                FBBaiduNaviModel *model_1 = FBBaiduNaviModel.new;
+                model_1.status = 1;
+                model_1.type = 1;
+                model_1.turnIconName = @"bsdk_drawable_rg_ic_turn_left.png";
+                model_1.bNaviInfo = @"步行导航_1_左转";
+                model_1.distance = 1000;
+                model_1.roadName = @"名探路";
+                model_1.remainTime = @"1小时30分";
+                model_1.remainDistance = @"距离1公里";
+                
+                FBBaiduNaviModel *model_2 = FBBaiduNaviModel.new;
+                model_2.status = 1;
+                model_2.type = 1;
+                model_2.turnIconName = @"bsdk_drawable_rg_ic_turn_right.png";
+                model_2.bNaviInfo = @"步行导航_2_右转";
+                model_2.distance = 500;
+                model_2.roadName = @"名探路";
+                model_2.remainTime = @"1小时";
+                model_2.remainDistance = @"距离500米";
+                model_2.gpsText = @"GPS信号弱";
+                
+                FBBaiduNaviModel *model_3 = FBBaiduNaviModel.new;
+                model_3.status = 1;
+                model_3.type = 1;
+                model_3.turnIconName = @"bsdk_drawable_rg_ic_turn_front.png";
+                model_3.bNaviInfo = @"步行导航_3_直行";
+                model_3.distance = 20;
+                model_3.roadName = @"名探路";
+                model_3.remainTime = @"30分";
+                model_3.remainDistance = @"距离20米";
+                
+                FBBaiduNaviModel *model_4 = FBBaiduNaviModel.new;
+                model_4.status = 0;
+                
+                NSArray *naviInfo = @[model_1, model_2, model_3, model_4];
+                
+                [self syncJsBaiduNaviInfo:naviInfo index:0];
+            }];
+        }
     }
     
 #ifdef FBINTERNAL
-    else if (section == 4) {
+    else if (section == 5) {
         if ([rowStr containsString:LWLocalizbleString(@"Automatic OTA Firmware")]) {
             FBAutomaticOTAViewController *vc = [FBAutomaticOTAViewController new];
             vc.title = rowStr;
@@ -1821,8 +2139,50 @@
             vc.OTAType = FB_OTANotification_Multi_Sport;
             [self.navigationController pushViewController:vc animated:YES];
         }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Automatic OTA JS Application")]){
+            FBAutomaticOTAViewController *vc = [FBAutomaticOTAViewController new];
+            vc.title = rowStr;
+            vc.OTAType = FB_OTANotification_JS_App;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
 #endif
+}
+
+/// 初始化录音
+- (void)initializeAudioRecorder {
+    WeakSelf(self);
+    
+    self.audioRecorder = [[FBAudioRecorder alloc] initWithCallback:^(NSData * _Nullable data, NSError * _Nullable error) {
+        
+        if (error) {
+            weakSelf.receTextView.text = error.localizedDescription;
+        }
+        else {
+            if (!data) return;
+                        
+            [FBBaiduCloudKit requestSpeechRecognitionWithAudioStreamingData:data callback:^(FBBaiduSpeechRecognitionModel * _Nullable model, NSError * _Nullable error) {
+                if (error) {
+                    weakSelf.receTextView.text = error.localizedDescription;
+                } else {
+                    if (model.status != FB_SPEECHRECOGNITIONSTATUS_HEARTBEAT) {
+                        weakSelf.receTextView.text = model.results;
+                    }
+                }
+            }];
+        }
+    }];
+}
+
+/// 同步导航数据
+- (void)syncJsBaiduNaviInfo:(NSArray *)array index:(int)index {
+    if (index >= array.count) return;
+    GCD_AFTER(3.0, (^{
+        [FBBaiduCloudKit requestSyncJsBaiduNaviInfo:array[index] callback:^(NSError * _Nullable error) {
+            [self syncJsBaiduNaviInfo:array index:index+1];
+        }];
+    }));
 }
 
 #pragma mark - titleView
@@ -1981,6 +2341,50 @@
     }
     
     self.navigationItem.titleView = self.titleView;
+}
+
+#pragma mark - 海思GNSS
+- (void)HisiliconOTAFiles:(NSMutableArray <NSData *> *)allData count:(NSInteger)count time:(NSInteger)time otaType:(FB_OTANOTIFICATION)otaType {
+    
+    NSData *binFile = nil;
+    if (allData.count) {
+        binFile = allData.firstObject;
+    } else {
+        [SVProgressHUD dismiss];
+        [NSObject showHUDText:[NSString stringWithFormat:LWLocalizbleString(@"Completed, total %ld files, took %f seconds"), count, NSDate.date.timeIntervalSince1970-time]];
+        return;
+    }
+    
+    FBBluetoothOTA.sharedInstance.isCheckPower = NO;
+    
+    FBBluetoothOTA.sharedInstance.sendTimerOut = 30;
+    
+    NSInteger index = count - allData.count + 1;
+    
+    [SVProgressHUD showWithStatus:[NSString stringWithFormat:@"%@(%ld/%ld)", LWLocalizbleString(@"Loading..."), index, count]];
+    
+    WeakSelf(self);
+    [[FBBluetoothOTA sharedInstance] fbStartCheckingOTAWithBinFileData:binFile withOTAType:otaType withBlock:^(FB_RET_CMD status, FBProgressModel * _Nullable progress, FBOTADoneModel * _Nullable responseObject, NSError * _Nullable error) {
+        if (error) {
+            
+            [SVProgressHUD dismiss];
+            [NSObject showHUDText:[NSString stringWithFormat:@"%@ %@(%ld/%ld)", LWLocalizbleString(@"Fail"), error.localizedDescription, index, count]];
+            
+        } else if (status==FB_INDATATRANSMISSION){
+            
+            [SVProgressHUD showProgress:(CGFloat)progress.totalPackageProgress/100.0 status:[NSString stringWithFormat:@"%ld%%(%ld/%ld)", progress.totalPackageProgress, index, count]];
+            
+        } else if (status==FB_DATATRANSMISSIONDONE){
+            
+            [SVProgressHUD dismiss];
+            [NSObject showHUDText:[NSString stringWithFormat:@"%@ (%ld/%ld)", LWLocalizbleString(@"Success"), index, count]];
+            GCD_AFTER(2.0, ^{
+                [allData removeObjectAtIndex:0];
+                
+                [weakSelf HisiliconOTAFiles:allData count:count time:time otaType:otaType];
+            });
+        }
+    }];
 }
 
 @end
