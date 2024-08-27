@@ -2,6 +2,31 @@
 
 This is in reverse chronological order, so newer entries are added to the top.
 
+
+## v1.12.0
+
+### Added
+
+- Support Bee4 merge bank image OTA
+- Support Bee4 user data OTA
+- Support Bee3Plus APP Config File OTA
+- Use dedicated dispatch queue for asynchronous callback invocation
+
+### Fixed
+
+- Clear pending write tasks if transport is unavailable
+
+
+## v1.11.0
+
+### Fixed
+
+- Version formats of Upperstack and Platform Ext
+- Dualbank logic, upgrade all images at once
+- Temp logic, determine whether images should be calculated into temp size
+- Incorret imageID in cmds when the image does not support OTA
+
+
 ## v1.10.0
 
 ### Fixed
