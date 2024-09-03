@@ -64,7 +64,7 @@ pod 'Fission_Sdk_iOS', git: 'https://github.com/linwear/Fission_Sdk_iOS.git'
 * **方式二: 手动导入｜Method 2: Manually**
 1. 将 Fission_Sdk_iOS.framework、RTKOTASDK.framework、RTKLEFoundation.framework、SCompressLib.framework、MagicTool.framework、Starscream.framework 文件 `Add File` 导入工程｜Import Fission_Sdk_iOS.framework、RTKOTASDK.framework、RTKLEFoundation.framework、SCompressLib.framework、MagicTool.framework、Starscream.framework files `Add File` into the project
 
-2. 集成依赖 FFmpeg（参考 https://github.com/arthenica/ffmpeg-kit.git）｜ Integrated dependency FFmpeg (reference https://github.com/arthenica/ffmpeg-kit.git)
+2. 集成依赖 FFmpeg(参考 https://github.com/arthenica/ffmpeg-kit.git)｜ Integrated dependency FFmpeg (reference https://github.com/arthenica/ffmpeg-kit.git)
 
 3. 在 TARGETS - General 中修改 Fission_Sdk_iOS.framework、RTKOTASDK.framework、 RTKLEFoundation.framework、SCompressLib.framework 的嵌入方式为 `Embed&Sign`｜Modify the embedding mode of Fission_Sdk_iOS.framework、RTKOTASDK.framework、 RTKLEFoundation.framework、SCompressLib.framework in the TARGETS - General to `Embed&Sign`
 
