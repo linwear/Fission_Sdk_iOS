@@ -14,6 +14,18 @@
                               Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装。
   GitHub @link https://github.com/linwear/Fission_Sdk_iOS.git
   修改记录｜Modification Record:
+     project    2024-09-20  Version:3.2.3 Build:20240920001
+                            1.新增推送电子书、视频、音频（仅部分手表支持: 支持多媒体空间）
+                            2.新增"获取电子书列表文件信息"协议（FBBgCommand）fbGetEBookListFileInforWithBlock:
+                            3.新增"获取视频列表文件信息"协议（FBBgCommand）fbGetVideoListFileInforWithBlock:
+                            4.新增"获取音频列表文件信息"协议（FBBgCommand）fbGetAudioListFileInforWithBlock:
+                            5.新增"删除电子书列表文件信息"协议（FBBgCommand）fbDeleteEBookListFileInfor:withBlock:
+                            6.新增"删除视频列表文件信息"协议（FBBgCommand）fbDeleteVideoListFileInfor:withBlock:
+                            7.新增"删除音频列表文件信息"协议（FBBgCommand）fbDeleteAudioListFileInfor:withBlock:
+                            8.新增"正在同步数据，请稍后重试..."错误码FB_SYNCHRONIZING_DATA_TRY_AGAIN_LATER
+                            9.修改"获取指定记录和报告"协议，支持使用不同请求时间、返回总进度（FBBgCommand）fbGetSpecialRecordsAndReportsDataWithType:withBlock:
+                            10.优化数据解析性能问题
+ 
      project    2024-08-22  Version:3.2.2 Build:20240822001
                             1.⚠️Fission_Sdk_iOS.framework最低系统版本要求由 iOS10.0+ 提高至 iOS12.1+
                             2.⚠️不再支持x86_64(模拟器)。新增Framework库依赖:
@@ -44,16 +56,15 @@
                             12.新增"OTA文件增加文件信息"（FBCustomDataTools）createFileName:withFileData:withOTAType:方法，当前此方法仅用于海思芯片方案
                             13.自定义表盘兼容海思芯片方案，支持自定义视频表盘（FBCustomDataTools）fbGenerateCustomDialBinFileDataWithDialModel:
                             14.支持百度相关: 语音识别、文字翻译、文心一言、文字生成语音、百度导航（文字导航）。详见 FBBaiduCloudKit 类
-                            15.支持系统麦克风的调用封装。详见 FBAudioRecorder 类。注意需要在 Info.plist 中添加 NSMicrophoneUsageDescription 权限
-                            16.新增"获取系统空间使用信息"协议（FBBgCommand）fbGetSystemSpaceUsageInforWithBlock:
-                            17.新增"获取表盘列表文件信息"协议（FBBgCommand）fbGetDialListFileInforWithBlock:
-                            18.新增"获取JS应用列表文件信息"协议（FBBgCommand）fbGetJsAppListFileInforWithBlock:
-                            19.新增"删除表盘列表文件信息"协议（FBBgCommand）fbDeleteDialListFileInfor:withBlock:
-                            20.新增"删除JS应用列表文件信息"协议（FBBgCommand）fbDeleteJsAppListFileInfor:withBlock:
-                            21.支持【支付宝】【乘车码】功能，SDK内部处理，外部无需任何调用
-                            22.新增支持瑞昱8773芯片
-                            23.优化自定义表盘图片抗锯齿
-                            24.优化已知问题
+                            15.新增"获取系统空间使用信息"协议（FBBgCommand）fbGetSystemSpaceUsageInforWithBlock:
+                            16.新增"获取表盘列表文件信息"协议（FBBgCommand）fbGetDialListFileInforWithBlock:
+                            17.新增"获取JS应用列表文件信息"协议（FBBgCommand）fbGetJsAppListFileInforWithBlock:
+                            18.新增"删除表盘列表文件信息"协议（FBBgCommand）fbDeleteDialListFileInfor:withBlock:
+                            19.新增"删除JS应用列表文件信息"协议（FBBgCommand）fbDeleteJsAppListFileInfor:withBlock:
+                            20.支持【支付宝】【乘车码】功能，SDK内部处理，外部无需任何调用
+                            21.新增支持瑞昱8773芯片
+                            22.优化自定义表盘图片抗锯齿
+                            23.优化已知问题
  
      project    2024-01-22  Version:3.2.1 Build:20240122001
                             1.新增生成AGPS星历bin文件数据（FBCustomDataTools）fbGenerateAGPSEphemerisBinFileDataWithModel:
@@ -337,6 +348,7 @@ FOUNDATION_EXPORT const unsigned char Fission_Sdk_iOSVersionString[];
 #import <Fission_Sdk_iOS/FBSystemSpaceModel.h>
 #import <Fission_Sdk_iOS/FBListFileInforModel.h>
 #import <Fission_Sdk_iOS/FBBaiduNaviModel.h>
+#import <Fission_Sdk_iOS/FBReqHistoryModel.h>
 
 /** 蓝牙管理器｜Bluetooth manager */
 #import <Fission_Sdk_iOS/FBCommandCallback.h>

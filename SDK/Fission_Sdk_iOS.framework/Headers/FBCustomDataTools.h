@@ -33,12 +33,22 @@ NS_ASSUME_NONNULL_BEGIN
  @param contentMode                               显示模式｜Content mode
  @param scaleRect                                 裁剪矩形范围，仅FB_VIDEOCONTENTMODE_SCALETORECT模式有效；其他模式置CGRectZero即可｜Crop rectangle range. Only valid in FB_VIDEOCONTENTMODE_SCALETORECT mode. For other modes, set CGRectZero.
  @param timeRange                                 裁剪时间范围，location:起始秒，length:时长；不裁剪全置0即可｜Crop time range, location: starting second, length: duration; if not cropped, all values ​​can be set to 0
+ @param clearAudio                                视频是否去除音频（如果视频用于制作表盘，那么应该设置为YES）｜Whether to remove audio from the video (if the video is used to make a watch face, it should be set to YES)
 */
 + (void)fbHandleVideoDialWithPath:(NSString * _Nonnull)videoPath
                       contentMode:(FB_VIDEOCONTENTMODE)contentMode
                         scaleRect:(CGRect)scaleRect
                         timeRange:(NSRange)timeRange
+                       clearAudio:(BOOL)clearAudio
                          callback:(void(^)(FBCustomDialVideoModel * _Nullable videoModel, NSError * _Nullable error))callback;
+
+
+/**
+ TXT电子书UTF8编码｜TXT E-book UTF8 encoding
+ @param eBookData                                 将要处理的电子书TXT数据｜E-book TXT data to be processed
+*/
++ (void)fbHandleEBookUTF8EncodingWithData:(NSData * _Nonnull)eBookData
+                                 callback:(void(^)(NSData * _Nullable eBookData, NSError * _Nullable error))callback;
 
 
 /**

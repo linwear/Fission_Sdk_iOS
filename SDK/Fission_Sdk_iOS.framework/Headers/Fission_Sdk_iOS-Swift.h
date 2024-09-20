@@ -278,8 +278,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
 @import CoreFoundation;
-@import Foundation;
-@import MagicTool;
 @import ObjectiveC;
 @import UIKit;
 #endif
@@ -302,74 +300,9 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #endif
 
 #if defined(__OBJC__)
-@class NSData;
-@class NSError;
-
-SWIFT_CLASS("_TtC15Fission_Sdk_iOS15FBAudioRecorder")
-@interface FBAudioRecorder : NSObject
-/// 初始化方法
-- (nonnull instancetype)initWithCallback:(void (^ _Nonnull)(NSData * _Nullable, NSError * _Nullable))callback OBJC_DESIGNATED_INITIALIZER;
-/// 启动录音
-- (void)startRecording;
-/// 停止录音
-- (void)stopRecording;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-@class NSString;
-@class FBChatRequestMeeage;
-
-SWIFT_CLASS("_TtC15Fission_Sdk_iOS13FBBaiduObject")
-@interface FBBaiduObject : NSObject
-/// 语音识别（音频文件转文本）
-- (void)asrRequestWithCompleteAudioData:(NSData * _Nonnull)completeAudioData withCallback:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))callback;
-/// 语音识别（音频流转文本）
-- (void)asrRequestWithAudioStreamingData:(NSData * _Nonnull)audioStreamingData finishFrame:(BOOL)finishFrame withCallback:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))callback;
-/// 停止语音识别（转文本）
-- (void)stopAsrResult;
-/// 文本翻译
-- (void)translateRequestWithContent:(NSString * _Nonnull)text from:(NSString * _Nonnull)from to:(NSString * _Nonnull)to withCallback:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))callback;
-/// 文本意图
-- (void)dcsChatRequestWithPrompt:(NSString * _Nonnull)text contexts:(NSArray<FBChatRequestMeeage *> * _Nonnull)context withCallback:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))callback;
-/// 文本转语音
-- (void)ttsReultWithContent:(NSString * _Nonnull)text withCallback:(void (^ _Nonnull)(NSString * _Nullable, NSError * _Nullable))callback;
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-@interface FBBaiduObject (SWIFT_EXTENSION(Fission_Sdk_iOS)) <TranslateCallback>
-/// 文字翻译成功
-- (void)translateResultWithResult:(NSString * _Nullable)result;
-/// 文字翻译失败
-- (void)translateFailureWithReason:(NSError * _Nullable)reason;
-@end
-
-
-@interface FBBaiduObject (SWIFT_EXTENSION(Fission_Sdk_iOS)) <VopCallback>
-/// 失败回调
-- (void)failureWithReason:(NSError * _Nullable)reason;
-/// 语音识别（转文本）
-- (void)asrResultWithResult:(NSString * _Nullable)result;
-/// 语音识别（结束）
-- (void)asrEnded;
-/// 文本意图
-- (void)dcschatResultWithResult:(NSString * _Nullable)result;
-/// 文本转语音
-- (void)ttsReultWithResult:(NSString * _Nullable)result;
-@end
-
-
-SWIFT_CLASS("_TtC15Fission_Sdk_iOS19FBChatRequestMeeage")
-@interface FBChatRequestMeeage : NSObject
-@property (nonatomic, copy) NSString * _Nonnull role;
-@property (nonatomic, copy) NSString * _Nonnull content;
-- (nonnull instancetype)initWithRole:(NSString * _Nonnull)role content:(NSString * _Nonnull)content OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
 @class UIImage;
+@class NSData;
+@class NSString;
 
 SWIFT_CLASS("_TtC15Fission_Sdk_iOS15FBHaiSiCompress")
 @interface FBHaiSiCompress : NSObject
@@ -667,14 +600,6 @@ struct TypeMetadataTrait<swift::UInt> {
 namespace Fission_Sdk_iOS SWIFT_PRIVATE_ATTR SWIFT_SYMBOL_MODULE("Fission_Sdk_iOS") {
 
 
-
-
-
-
-
-// Unavailable in C++: Swift type alias 'FBBaiduCallback'.
-
-// Unavailable in C++: Swift type alias 'FBRecordingCallback'.
 
 } // namespace Fission_Sdk_iOS
 

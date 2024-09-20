@@ -42,6 +42,7 @@ typedef NS_ENUM (NSInteger, FB_RET_CMD) {
     RET_FB_ERR_TIMEROUT                         = 22,       //应答超时｜Response timeout
     RET_FB_ERR_DATA_WRITING_FAILED              = 23,       //数据写入失败｜Data writing failed
     
+    FB_SYNCHRONIZING_DATA_TRY_AGAIN_LATER       = 100,      //正在同步数据，请稍后重试...｜Synchronizing data, please try again later...
     //自定义数据传输状态｜Data transmission status
     FB_INDATATRANSMISSION                       = 101,      //数据传输中｜In data transmission
     FB_DATATRANSMISSIONDONE                     = 200,      //数据传输完成｜Data transmission complete
@@ -525,6 +526,8 @@ typedef NS_ENUM (NSInteger, FB_OTANOTIFICATION) {
  * 获取多个记录报告｜Get multiple record reports
  */
 typedef NS_ENUM (NSInteger, FB_MULTIPLERECORDREPORTS) {
+    FB_MULTIPLERECORDREPORTS_ERROR,               //获取前检查参数回调失败了，不能作为获取参数，仅用于回调内处理异常｜The callback for checking parameters before getting failed. It cannot be used as a parameter for getting. It is only used to handle exceptions in the callback.
+    
     FB_CurrentDayActivityData           = 1<<0,   //当日实时测量数据｜Real time measurement data of the day
     FB_HeartRateRecording               = 1<<1,   //心率记录｜Heart rate recording
     FB_StepCountRecord                  = 1<<2,   //计步记录｜Step counting record
@@ -715,63 +718,6 @@ typedef NS_ENUM (NSInteger, FB_CHIPMANUFACTURERTYPE) {
     FB_CHIPMANUFACTURERTYPE_HISI        = 1,    //海思UIKit｜HiSilicon UIKit
     FB_CHIPMANUFACTURERTYPE_RTK_877x    = 2,    //瑞昱877x_HoneyGui｜Realtek 877x_HoneyGui
     // 更多... 待拓展｜More... To be expanded
-};
-
-#pragma mark - 语音识别状态｜Speech recognition status
-/*
- * 语音识别状态｜Speech recognition status
- */
-typedef NS_ENUM (NSInteger, FB_SPEECHRECOGNITIONSTATUS) {
-    FB_SPEECHRECOGNITIONSTATUS_MID_TEXT,    //语音识别中｜Speech recognition in progress
-    FB_SPEECHRECOGNITIONSTATUS_FIN_TEXT,    //语音识别完成｜Speech recognition completed
-    FB_SPEECHRECOGNITIONSTATUS_HEARTBEAT    //心跳包，正在等待语音数据｜Heartbeat packet, waiting for speech data
-};
-
-#pragma mark - 翻译语种列表｜Translation language list
-/*
- * 翻译语种列表｜Translation language list
- * 此为常见语种列表，如需支持更多语种请联系开发者咨询｜This is a list of common languages. If you need to support more languages, please contact the developer for consultation.
- * https://api.fanyi.baidu.com/doc/21
- */
-typedef NS_ENUM(NSInteger, FB_TRANSLATIONLANGUAGE) {
-    FB_TRANSLATIONLANGUAGE_auto,     //自动检测｜Automatic Detection
-    FB_TRANSLATIONLANGUAGE_zh,       //中文简体｜Simplified Chinese
-    FB_TRANSLATIONLANGUAGE_cht,      //繁体中文｜Traditional Chinese
-    FB_TRANSLATIONLANGUAGE_en,       //英语｜English
-    FB_TRANSLATIONLANGUAGE_yue,      //粤语｜Cantonese
-    FB_TRANSLATIONLANGUAGE_wyw,      //文言文｜Classical Chinese
-    FB_TRANSLATIONLANGUAGE_jp,       //日语｜Japanese
-    FB_TRANSLATIONLANGUAGE_kor,      //韩语｜Korean
-    FB_TRANSLATIONLANGUAGE_fra,      //法语｜French
-    FB_TRANSLATIONLANGUAGE_spa,      //西班牙语｜Spanish
-    FB_TRANSLATIONLANGUAGE_th,       //泰语｜Thai
-    FB_TRANSLATIONLANGUAGE_ara,      //阿拉伯语｜Arabic
-    FB_TRANSLATIONLANGUAGE_ru,       //俄语｜Russian
-    FB_TRANSLATIONLANGUAGE_pt,       //葡萄牙语｜Portuguese
-    FB_TRANSLATIONLANGUAGE_de,       //德语｜German
-    FB_TRANSLATIONLANGUAGE_it,       //意大利语｜Italian
-    FB_TRANSLATIONLANGUAGE_el,       //希腊语｜Greek
-    FB_TRANSLATIONLANGUAGE_nl,       //荷兰语｜Dutch
-    FB_TRANSLATIONLANGUAGE_pl,       //波兰语｜Polish
-    FB_TRANSLATIONLANGUAGE_bul,      //保加利亚语｜Bulgarian
-    FB_TRANSLATIONLANGUAGE_est,      //爱沙尼亚语｜Estonian
-    FB_TRANSLATIONLANGUAGE_dan,      //丹麦语｜Danish
-    FB_TRANSLATIONLANGUAGE_fin,      //芬兰语｜Finnish
-    FB_TRANSLATIONLANGUAGE_cs,       //捷克语｜Czech
-    FB_TRANSLATIONLANGUAGE_rom,      //罗马尼亚语｜Romanian
-    FB_TRANSLATIONLANGUAGE_slo,      //斯洛文尼亚语｜Slovenian
-    FB_TRANSLATIONLANGUAGE_swe,      //瑞典语｜Swedish
-    FB_TRANSLATIONLANGUAGE_hu,       //匈牙利语｜Hungarian
-    FB_TRANSLATIONLANGUAGE_vie,      //越南语｜Vietnamese
-};
-
-#pragma mark - 上下文角色类型｜Context role type
-/*
- * 上下文角色类型｜Context role type
- */
-typedef NS_ENUM (NSInteger, FB_CONTEXTROLE) {
-    FB_CONTEXTROLE_USER,            //用户｜User
-    FB_CONTEXTROLE_ASSISTANT,       //助手｜Assistant
 };
 
 #pragma mark - 结束录音类型｜End recording type
