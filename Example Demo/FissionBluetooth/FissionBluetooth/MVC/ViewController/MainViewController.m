@@ -58,7 +58,7 @@
 
 @property (nonatomic, assign) BOOL switchMode;
 
-@property (nonatomic, strong) FBAudioRecorder *audioRecorder;
+//@property (nonatomic, strong) FBAudioRecorder *audioRecorder;先注释掉
 @property (nonatomic, strong) AVPlayer *player;//播放实例
 
 @property (nonatomic, strong) NSArray <FBListFileInforModel *> *dialListFileInfor;
@@ -419,14 +419,6 @@
                              ]
     };
     
-    self.funDatas = NSMutableArray.array;
-    [self.funDatas addObject:dict1];
-    [self.funDatas addObject:dict2];
-    [self.funDatas addObject:dict3];
-    [self.funDatas addObject:dict4];
-    [self.funDatas addObject:dict5];
-    
-#ifdef FBINTERNAL
     NSDictionary *dict6  = @{@"command":LWLocalizbleString(@"Automatic OTA Testing"),
                              @"status":@(0),
                              @"funcArr":@[
@@ -438,8 +430,14 @@
                                  LWLocalizbleString(@"Automatic OTA JS Application"),
                              ]
     };
+    
+    self.funDatas = NSMutableArray.array;
+    [self.funDatas addObject:dict1];
+    [self.funDatas addObject:dict2];
+    [self.funDatas addObject:dict3];
+    [self.funDatas addObject:dict4];
+    [self.funDatas addObject:dict5];
     [self.funDatas addObject:dict6];
-#endif
 }
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource
@@ -1605,40 +1603,66 @@
         else if ([rowStr containsString:LWLocalizbleString(@"Get specified records and reports")]) {
             
             //For example, acquiring heart rate, blood oxygen, and exercise records
-            FB_MULTIPLERECORDREPORTS mode = FB_HeartRateRecording | FB_BloodOxygenRecording | FB_SportsRecordList;
+            FBReqHistoryModel *model_1 = FBReqHistoryModel.new;
+            model_1.recordType = FB_HeartRateRecording;
+            model_1.startTime = NSDate.date.timeIntervalSince1970 - 3600*1;
+            model_1.endTime = NSDate.date.timeIntervalSince1970;
             
+            FBReqHistoryModel *model_2 = FBReqHistoryModel.new;
+            model_2.recordType = FB_BloodOxygenRecording;
+            model_2.startTime = NSDate.date.timeIntervalSince1970 - 3600*2;
+            model_2.endTime = NSDate.date.timeIntervalSince1970;
+            
+            FBReqHistoryModel *model_3 = FBReqHistoryModel.new;
+            model_3.recordType = FB_SportsRecordList;
+            model_3.startTime = NSDate.date.timeIntervalSince1970 - 3600*3;
+            model_3.endTime = NSDate.date.timeIntervalSince1970;
+                        
             NSMutableString *mutStr = [NSMutableString string];
-            [FBBgCommand.sharedInstance fbGetSpecialRecordsAndReportsDataWithType:mode startTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, FB_MULTIPLERECORDREPORTS recordType, float progress, id  _Nonnull responseObject, NSError * _Nonnull error) {
-                if (mode==recordType) {
+            [FBBgCommand.sharedInstance fbGetSpecialRecordsAndReportsDataWithType:@[model_1, model_2, model_3] withBlock:^(FB_RET_CMD status, FB_MULTIPLERECORDREPORTS recordType, id  _Nullable responseObject, float progress, NSError * _Nullable error) {
+                
+                if (recordType == FB_MULTIPLERECORDREPORTS_ERROR) { // fail
                     if (error) {
                         [mutStr appendFormat:@"ERROR：%@\n\n",error.localizedDescription];
                         weakSelf.receTextView.text = mutStr;
                     }
-                } else if (recordType==FB_HeartRateRecording) {
-                    if (error) {
-                        [mutStr appendFormat:@"FB_HeartRateRecording ERROR：%@\n\n",error.localizedDescription];
-                    } else if (status==FB_DATATRANSMISSIONDONE) {
-                        
-                        [mutStr appendFormat:@"FB_HeartRateRecording：%@\n\n",responseObject];
+                } 
+                else {
+                    [NSObject showProgress:progress status:[NSString stringWithFormat:@"%.2f%%", progress*100.0]]; // total progress
+                    
+                    if (recordType == FB_HeartRateRecording) {
+                        if (error) {
+                            [mutStr appendFormat:@"FB_HeartRateRecording ERROR：%@\n\n",error.localizedDescription];
+                        }
+                        else if (status == FB_DATATRANSMISSIONDONE) {
+                            
+                            [mutStr appendFormat:@"FB_HeartRateRecording：%@\n\n",responseObject];
+                        }
                     }
-                } else if (recordType==FB_BloodOxygenRecording) {
-                    if (error) {
-                        [mutStr appendFormat:@"FB_BloodOxygenRecording ERROR：%@\n\n",error.localizedDescription];
-                    } else if (status==FB_DATATRANSMISSIONDONE) {
-                        
-                        [mutStr appendFormat:@"FB_BloodOxygenRecording：%@\n\n",responseObject];
+                    else if (recordType == FB_BloodOxygenRecording) {
+                        if (error) {
+                            [mutStr appendFormat:@"FB_BloodOxygenRecording ERROR：%@\n\n",error.localizedDescription];
+                        }
+                        else if (status == FB_DATATRANSMISSIONDONE) {
+                            
+                            [mutStr appendFormat:@"FB_BloodOxygenRecording：%@\n\n",responseObject];
+                        }
                     }
-                } else if (recordType==FB_SportsRecordList) {
-                    if (error)
-                    {
-                        [mutStr appendFormat:@"FB_SportsRecordList ERROR：%@\n\n",error.localizedDescription];
-                        weakSelf.receTextView.text = mutStr;
-                    }
-                    else if (status==FB_DATATRANSMISSIONDONE)
-                    {
+                    else if (recordType == FB_SportsRecordList) {
+                        if (error)
+                        {
+                            [mutStr appendFormat:@"FB_SportsRecordList ERROR：%@\n\n",error.localizedDescription];
+                            weakSelf.receTextView.text = mutStr;
+                        }
+                        else if (status == FB_DATATRANSMISSIONDONE)
+                        {
+                            [mutStr appendFormat:@"FB_SportsRecordList：%@\n\n",responseObject];
+                            weakSelf.receTextView.text = mutStr;
+                        }
                         
-                        [mutStr appendFormat:@"FB_SportsRecordList：%@\n\n",responseObject];
-                        weakSelf.receTextView.text = mutStr;
+                        if (error || status == FB_DATATRANSMISSIONDONE) {
+                            [NSObject dismiss];
+                        }
                     }
                 }
             }];
@@ -1997,65 +2021,65 @@
             // 语音转文字
             NSString *audioDataPath = [NSBundle.mainBundle pathForResource:@"16k-0" ofType:@"pcm"];
             NSData *completeAudioData = [NSData dataWithContentsOfFile:audioDataPath];
-            [FBBaiduCloudKit requestSpeechRecognitionWithCompleteAudioData:completeAudioData callback:^(FBBaiduSpeechRecognitionModel * _Nullable model, NSError * _Nullable error) {
-                if (error) {
-                    weakSelf.receTextView.text = error.localizedDescription;
-                } else {
-                    weakSelf.receTextView.text = model.results;
-                }
-            }];
+//            [FBBaiduCloudKit requestSpeechRecognitionWithCompleteAudioData:completeAudioData callback:^(FBBaiduSpeechRecognitionModel * _Nullable model, NSError * _Nullable error) {
+//                if (error) {
+//                    weakSelf.receTextView.text = error.localizedDescription;
+//                } else {
+//                    weakSelf.receTextView.text = model.results;
+//                }
+//            }];先注释掉
         }
         
         else if ([rowStr containsString:LWLocalizbleString(@"Text Translation")]) {
             // 文字翻译
-            [FBBaiduCloudKit requestTranslationWithText:@"这是一段待翻译的汉字，请翻译成英文" form:FB_TRANSLATIONLANGUAGE_auto to:FB_TRANSLATIONLANGUAGE_en callback:^(FBBaiduTranslationModel * _Nullable model, NSError * _Nullable error) {
-                if (error) {
-                    weakSelf.receTextView.text = error.localizedDescription;
-                } else {
-                    weakSelf.receTextView.text = model.translation;
-                }
-            }];
+//            [FBBaiduCloudKit requestTranslationWithText:@"这是一段待翻译的汉字，请翻译成英文" form:FB_TRANSLATIONLANGUAGE_auto to:FB_TRANSLATIONLANGUAGE_en callback:^(FBBaiduTranslationModel * _Nullable model, NSError * _Nullable error) {
+//                if (error) {
+//                    weakSelf.receTextView.text = error.localizedDescription;
+//                } else {
+//                    weakSelf.receTextView.text = model.translation;
+//                }
+//            }];先注释掉
         }
         
         else if ([rowStr containsString:LWLocalizbleString(@"ERNIE Bot")]) {
             // 文心一言
-            [FBBaiduCloudKit requestERNIE_BotWithNewText:@"Introduce the Earth!" historyContext:nil callback:^(FBBaiduERNIE_BotModel * _Nullable model, NSError * _Nullable error) {
-                if (error) {
-                    weakSelf.receTextView.text = error.localizedDescription;
-                } else {
-                    weakSelf.receTextView.text = model.results;
-                }
-            }];
+//            [FBBaiduCloudKit requestERNIE_BotWithNewText:@"Introduce the Earth!" historyContext:nil callback:^(FBBaiduERNIE_BotModel * _Nullable model, NSError * _Nullable error) {
+//                if (error) {
+//                    weakSelf.receTextView.text = error.localizedDescription;
+//                } else {
+//                    weakSelf.receTextView.text = model.results;
+//                }
+//            }];先注释掉
         }
         
         else if ([rowStr containsString:LWLocalizbleString(@"Text To Speech")]) {
             // 文字转语音
-            [FBBaiduCloudKit requestSynthesisSpeechWithText:@"这是一段文字，请生成音频。This is a text, please generate audio." callback:^(NSURL * _Nullable audioURL, NSError * _Nullable error) {
-                if (error) {
-                    weakSelf.receTextView.text = error.localizedDescription;
-                } else {
-                    weakSelf.receTextView.text = LWLocalizbleString(@"Success");
-                    
-                    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:audioURL options:@{AVURLAssetPreferPreciseDurationAndTimingKey : @(YES)}];//url播放地址
-                    AVPlayerItem *item = [[AVPlayerItem alloc] initWithAsset:asset];
-                    weakSelf.player = [[AVPlayer alloc] init];
-                    [weakSelf.player replaceCurrentItemWithPlayerItem:item];
-                    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];//设置后台播放
-                    [weakSelf.player play];//开始播放
-                }
-            }];
+//            [FBBaiduCloudKit requestSynthesisSpeechWithText:@"这是一段文字，请生成音频。This is a text, please generate audio." callback:^(NSURL * _Nullable audioURL, NSError * _Nullable error) {
+//                if (error) {
+//                    weakSelf.receTextView.text = error.localizedDescription;
+//                } else {
+//                    weakSelf.receTextView.text = LWLocalizbleString(@"Success");
+//                    
+//                    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:audioURL options:@{AVURLAssetPreferPreciseDurationAndTimingKey : @(YES)}];//url播放地址
+//                    AVPlayerItem *item = [[AVPlayerItem alloc] initWithAsset:asset];
+//                    weakSelf.player = [[AVPlayer alloc] init];
+//                    [weakSelf.player replaceCurrentItemWithPlayerItem:item];
+//                    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];//设置后台播放
+//                    [weakSelf.player play];//开始播放
+//                }
+//            }];先注释掉
         }
         
         else if ([rowStr containsString:LWLocalizbleString(@"Start Recording")]) {
             // 开始录音
-            [self.audioRecorder startRecording];
+//            [self.audioRecorder startRecording];先注释掉
         }
         
         else if ([rowStr containsString:LWLocalizbleString(@"Stop Recording")]) {
             // 停止录音
-            [self.audioRecorder stopRecording];
+//            [self.audioRecorder stopRecording];先注释掉
             
-            [FBBaiduCloudKit stopSpeechRecognitionRequest];
+//            [FBBaiduCloudKit stopSpeechRecognitionRequest];先注释掉
         }
         
         else if ([rowStr containsString:LWLocalizbleString(@"Baidu Navigation")]) {
@@ -2103,7 +2127,7 @@
         }
     }
     
-#ifdef FBINTERNAL
+#pragma mark - Automatic OTA
     else if (section == 5) {
         if ([rowStr containsString:LWLocalizbleString(@"Automatic OTA Firmware")]) {
             FBAutomaticOTAViewController *vc = [FBAutomaticOTAViewController new];
@@ -2147,32 +2171,31 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
-#endif
 }
 
 /// 初始化录音
 - (void)initializeAudioRecorder {
     WeakSelf(self);
     
-    self.audioRecorder = [[FBAudioRecorder alloc] initWithCallback:^(NSData * _Nullable data, NSError * _Nullable error) {
-        
-        if (error) {
-            weakSelf.receTextView.text = error.localizedDescription;
-        }
-        else {
-            if (!data) return;
-                        
-            [FBBaiduCloudKit requestSpeechRecognitionWithAudioStreamingData:data callback:^(FBBaiduSpeechRecognitionModel * _Nullable model, NSError * _Nullable error) {
-                if (error) {
-                    weakSelf.receTextView.text = error.localizedDescription;
-                } else {
-                    if (model.status != FB_SPEECHRECOGNITIONSTATUS_HEARTBEAT) {
-                        weakSelf.receTextView.text = model.results;
-                    }
-                }
-            }];
-        }
-    }];
+//    self.audioRecorder = [[FBAudioRecorder alloc] initWithCallback:^(NSData * _Nullable data, NSError * _Nullable error) {
+//        
+//        if (error) {
+//            weakSelf.receTextView.text = error.localizedDescription;
+//        }
+//        else {
+//            if (!data) return;
+//                        
+//            [FBBaiduCloudKit requestSpeechRecognitionWithAudioStreamingData:data callback:^(FBBaiduSpeechRecognitionModel * _Nullable model, NSError * _Nullable error) {
+//                if (error) {
+//                    weakSelf.receTextView.text = error.localizedDescription;
+//                } else {
+//                    if (model.status != FB_SPEECHRECOGNITIONSTATUS_HEARTBEAT) {
+//                        weakSelf.receTextView.text = model.results;
+//                    }
+//                }
+//            }];
+//        }
+//    }];先注释掉
 }
 
 /// 同步导航数据

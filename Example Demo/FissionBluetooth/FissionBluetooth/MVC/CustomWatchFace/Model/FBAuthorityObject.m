@@ -140,7 +140,7 @@
         dispatch_async(dispatch_queue_create(0,0), ^{
             // 子线程执行任务（比如获取较大数据）
             
-            [FBCustomDataTools fbHandleVideoDialWithPath:outputPath contentMode:FB_VIDEOCONTENTMODE_SCALEASPECTFILL scaleRect:CGRectZero timeRange:NSMakeRange(0, 0) callback:^(FBCustomDialVideoModel * _Nullable videoModel, NSError * _Nullable error) {
+            [FBCustomDataTools fbHandleVideoDialWithPath:outputPath contentMode:FB_VIDEOCONTENTMODE_SCALEASPECTFILL scaleRect:CGRectZero timeRange:NSMakeRange(0, 0) clearAudio:YES callback:^(FBCustomDialVideoModel * _Nullable videoModel, NSError * _Nullable error) {
                 GCD_MAIN_QUEUE(^{
                     [NSObject dismiss];
                     if (error) [NSObject showHUDText:error.localizedDescription];

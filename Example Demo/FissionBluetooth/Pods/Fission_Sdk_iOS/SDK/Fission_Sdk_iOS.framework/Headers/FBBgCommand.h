@@ -207,16 +207,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)fbGetManualMeasurementDataStartTime:(NSInteger)startTime forEndTime:(NSInteger)endTime withBlock:(FBGetManualMeasureDataBlock _Nonnull)fbBlock;
 
 
-#pragma mark - 获取指定记录和报告｜Get specified records and reports
+#pragma mark - 获取指定记录和报告｜Get specific records and reports
 /**
- 获取指定记录和报告｜Get specified records and reports
- @param recordTypes             记录类型集合，传入类型获取需要的数据，例如只获取心率/血氧/血压记录（FB_MULTIPLERECORDREPORTS recordTypes = FB_HeartRateRecording | FB_BloodOxygenRecording | FB_BloodPressureRecording）｜Record type collection. The input type gets the required data, such as heart rate / blood oxygen / blood pressure record (FB)_ MULTIPLERECORDREPORTS recordTypes = FB_ HeartRateRecording | FB_ BloodOxygenRecording | FB_ BloodPressureRecording）
- @param startTime                  开始时间，秒（时间戳）｜Start time, seconds (timestamp)
- @param endTime                       结束时间，秒（时间戳）｜End time, seconds (timestamp)
- 
- @note  数据返回顺序根据 枚举FB_MULTIPLERECORDREPORTS定义类型顺序返回，心率记录...计步记录...血氧记录...依此类推，直至调用结束｜The data return order is based on enumerating FB_MULTIPLERECORDREPORTS defines the type order return, heart rate record... Step record... Blood oxygen record... And so on, until the end of the call
+ 获取指定记录和报告｜Get specific records and reports
+ @param recordTypes             请求历史记录类型｜Request History Type
 */
-- (void)fbGetSpecialRecordsAndReportsDataWithType:(FB_MULTIPLERECORDREPORTS)recordTypes startTime:(NSInteger)startTime forEndTime:(NSInteger)endTime withBlock:(FBGetSpecialRecordsAndReportsBlock _Nonnull)fbBlock;
+- (void)fbGetSpecialRecordsAndReportsDataWithType:(NSArray <FBReqHistoryModel *> * _Nonnull)recordTypes withBlock:(FBGetSpecialRecordsAndReportsBlock _Nonnull)fbBlock;
 
 
 #pragma mark - 获取个人用户信息｜Get personal user information
@@ -614,6 +610,27 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)fbGetJsAppListFileInforWithBlock:(FBGetListFileInforBlock _Nonnull)fbBlock;
 
 
+#pragma mark - 获取音频列表文件信息｜Get audio list file information
+/**
+ 获取音频列表文件信息｜Get audio list file information
+*/
+- (void)fbGetAudioListFileInforWithBlock:(FBGetListFileInforBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 获取视频列表文件信息｜Get video list file information
+/**
+ 获取视频列表文件信息｜Get video list file information
+*/
+- (void)fbGetVideoListFileInforWithBlock:(FBGetListFileInforBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 获取电子书列表文件信息｜Get e-book list file information
+/**
+ 获取电子书列表文件信息｜Get e-book list file information
+*/
+- (void)fbGetEBookListFileInforWithBlock:(FBGetListFileInforBlock _Nonnull)fbBlock;
+
+
 #pragma mark - 删除表盘列表文件信息｜Delete dial list file information
 /**
  删除表盘列表文件信息｜Delete dial list file information
@@ -626,6 +643,27 @@ NS_ASSUME_NONNULL_BEGIN
  删除JS应用列表文件信息｜Delete JS application list file information
 */
 - (void)fbDeleteJsAppListFileInfor:(NSArray <FBListFileInforModel *> * _Nonnull)modelList withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 删除音频列表文件信息｜Delete audio list file information
+/**
+ 删除音频列表文件信息｜Delete audio list file information
+*/
+- (void)fbDeleteAudioListFileInfor:(NSArray <FBListFileInforModel *> * _Nonnull)modelList withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 删除视频列表文件信息｜Delete video list file information
+/**
+ 删除视频列表文件信息｜Delete video list file information
+*/
+- (void)fbDeleteVideoListFileInfor:(NSArray <FBListFileInforModel *> * _Nonnull)modelList withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 删除电子书列表文件信息｜Delete e-book list file information
+/**
+ 删除电子书列表文件信息｜Delete e-book list file information
+*/
+- (void)fbDeleteEBookListFileInfor:(NSArray <FBListFileInforModel *> * _Nonnull)modelList withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
 @end
 

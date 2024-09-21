@@ -19,52 +19,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6ECF7BA1-B717-4FBF-A5F8-C3CC1EA0B9B8"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "FissionBluetooth/MVC/TestUI/Model/FBLoadDataObject.h"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "sportsPositioningArray"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "6ECF7BA1-B717-4FBF-A5F8-C3CC1EA0B9B8 - 6c26750ff9b64b4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[FBSportsPositioningRecordResults sportsPositioningArray]"
-                  moduleName = "FissionBluetooth"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liebian/Desktop/Fission_Sdk_iOS/Example%20Demo/FissionBluetooth/FissionBluetooth/MVC/TestUI/Model/FBLoadDataObject.h"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "127"
-                  endingLineNumber = "127">
-               </Location>
-               <Location
-                  uuid = "6ECF7BA1-B717-4FBF-A5F8-C3CC1EA0B9B8 - 9d5ff58bb55ac71a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[FBSportsPositioningRecordResults setSportsPositioningArray:]"
-                  moduleName = "FissionBluetooth"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/liebian/Desktop/Fission_Sdk_iOS/Example%20Demo/FissionBluetooth/FissionBluetooth/MVC/TestUI/Model/FBLoadDataObject.h"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "127"
-                  endingLineNumber = "127">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "00B559B2-4FA1-41B1-83A2-A35FA23E20EE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"

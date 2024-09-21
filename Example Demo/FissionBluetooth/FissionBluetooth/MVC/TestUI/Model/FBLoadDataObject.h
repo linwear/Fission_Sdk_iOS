@@ -27,8 +27,9 @@ NS_ASSUME_NONNULL_BEGIN
 /* 请求历史数据（保存至数据库）｜Request Historical Data (Save to database)
  * currentStep、currentCalories、currentDistance 今日实时数据（步数、卡路里、距离）
  * errorString    失败信息，为nil表示全部类型请求成功
+ * progress       0-1进度
  */
-+ (void)requestHistoricalDataWithBlock:(void(^)(NSInteger currentStep, NSInteger currentCalories, NSInteger currentDistance, NSString * _Nullable errorString))block;
++ (void)requestHistoricalDataWithBlock:(void(^)(NSInteger currentStep, NSInteger currentCalories, NSInteger currentDistance, NSString * _Nullable errorString))block progressBlock:(void(^)(float progress))progressBlock;
 
 /// 查询所有数据的日期，日历事件着色用｜Query all data dates, use calendar event coloring
 + (NSArray <NSString *>  * _Nullable)QueryAllRecordWithDataType:(FBTestUIDataType)dataType dateFormat:(FBDateFormat)dateFormat deviceName:(NSString *)deviceName deviceMAC:(NSString *)deviceMAC;

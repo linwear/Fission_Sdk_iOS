@@ -284,7 +284,6 @@ static NSString *FBTestUISportsRecordCellID = @"FBTestUISportsRecordCell";
     
     WeakSelf(self);
     [FBLoadDataObject requestHistoricalDataWithBlock:^(NSInteger currentStep, NSInteger currentCalories, NSInteger currentDistance, NSString * _Nullable errorString) {
-        
         GCD_MAIN_QUEUE(^{
             [weakSelf.collectionView.mj_header endRefreshing];
             
@@ -294,6 +293,11 @@ static NSString *FBTestUISportsRecordCellID = @"FBTestUISportsRecordCell";
             
             // 查询本地历史数据（查询数据库）｜Query local historical data (Query Database)
             [weakSelf QueryLocalHistoricalDataAndStep:currentStep calories:currentCalories distance:currentDistance];
+        });
+    } progressBlock:^(float progress) {
+        GCD_MAIN_QUEUE(^{
+            NSString *text = ([NSString stringWithFormat:@"%.2f%%", progress * 100.0]);
+            [weakSelf updateHeaderViewStateLabelWithText:text]; // 更新进度
         });
     }];
 }

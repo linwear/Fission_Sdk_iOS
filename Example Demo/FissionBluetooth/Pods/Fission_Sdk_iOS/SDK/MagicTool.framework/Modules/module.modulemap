@@ -1,4 +1,0 @@
-framework module MagicTool {
-  header "MagicTool-Swift.h"
-  requires objc
-}

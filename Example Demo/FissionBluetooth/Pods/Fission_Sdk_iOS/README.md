@@ -3,7 +3,7 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Release-3.2.2 -Green.svg">
+    <img src="https://img.shields.io/badge/Release-3.2.3 -Green.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/Support-iOS12.1+ -blue.svg">
@@ -62,9 +62,9 @@ pod 'Fission_Sdk_iOS', git: 'https://github.com/linwear/Fission_Sdk_iOS.git'
 2. 运行 `pod install` 或 `pod update`｜Run `pod install` or `pod update`
 
 * **方式二: 手动导入｜Method 2: Manually**
-1. 将 Fission_Sdk_iOS.framework、RTKOTASDK.framework、RTKLEFoundation.framework、SCompressLib.framework、MagicTool.framework、Starscream.framework 文件 `Add File` 导入工程｜Import Fission_Sdk_iOS.framework、RTKOTASDK.framework、RTKLEFoundation.framework、SCompressLib.framework、MagicTool.framework、Starscream.framework files `Add File` into the project
+1. 将 Fission_Sdk_iOS.framework、RTKOTASDK.framework、RTKLEFoundation.framework、SCompressLib.framework 文件 `Add File` 导入工程｜Import Fission_Sdk_iOS.framework、RTKOTASDK.framework、RTKLEFoundation.framework、SCompressLib.framework files `Add File` into the project
 
-2. 集成依赖 FFmpeg（参考 https://github.com/arthenica/ffmpeg-kit.git）｜ Integrated dependency FFmpeg (reference https://github.com/arthenica/ffmpeg-kit.git)
+2. 集成依赖 FFmpeg｜Integrated dependency FFmpeg (reference https://github.com/arthenica/ffmpeg-kit.git)
 
 3. 在 TARGETS - General 中修改 Fission_Sdk_iOS.framework、RTKOTASDK.framework、 RTKLEFoundation.framework、SCompressLib.framework 的嵌入方式为 `Embed&Sign`｜Modify the embedding mode of Fission_Sdk_iOS.framework、RTKOTASDK.framework、 RTKLEFoundation.framework、SCompressLib.framework in the TARGETS - General to `Embed&Sign`
 
@@ -150,6 +150,18 @@ Privacy - Microphone Usage Description
 | Public Header Files  |
 | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
+
+     project    2024-09-20  Version:3.2.3 Build:20240920001
+                            1.新增推送电子书、视频、音频（仅部分手表支持: 支持多媒体空间）
+                            2.新增"获取电子书列表文件信息"协议（FBBgCommand）fbGetEBookListFileInforWithBlock:
+                            3.新增"获取视频列表文件信息"协议（FBBgCommand）fbGetVideoListFileInforWithBlock:
+                            4.新增"获取音频列表文件信息"协议（FBBgCommand）fbGetAudioListFileInforWithBlock:
+                            5.新增"删除电子书列表文件信息"协议（FBBgCommand）fbDeleteEBookListFileInfor:withBlock:
+                            6.新增"删除视频列表文件信息"协议（FBBgCommand）fbDeleteVideoListFileInfor:withBlock:
+                            7.新增"删除音频列表文件信息"协议（FBBgCommand）fbDeleteAudioListFileInfor:withBlock:
+                            8.新增"正在同步数据，请稍后重试..."错误码FB_SYNCHRONIZING_DATA_TRY_AGAIN_LATER
+                            9.修改"获取指定记录和报告"协议，支持使用不同请求时间、返回总进度（FBBgCommand）fbGetSpecialRecordsAndReportsDataWithType:withBlock:
+                            10.优化数据解析性能问题
 
      project    2024-08-22  Version:3.2.2 Build:20240822001
                             1.⚠️Fission_Sdk_iOS.framework最低系统版本要求由 iOS10.0+ 提高至 iOS12.1+

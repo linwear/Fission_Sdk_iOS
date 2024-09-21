@@ -37,12 +37,23 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  JS应用唯一ID｜JS application unique ID
 */
-@property (nonatomic, copy) NSString *jsAppBundleId;
+@property (nonatomic, copy, nullable) NSString *jsAppBundleId;
 
 /**
  JS应用版本号（例如V0.01）｜JS application version number（For example, V0.01）
 */
-@property (nonatomic, copy) NSString *jsAppVersion;
+@property (nonatomic, copy, nullable) NSString *jsAppVersion;
+
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+#pragma mark 当为 音频、视频、电子书 文件列表时，以下值，有效｜When it is a list of audio, video, or e-book files, the following values ​​are valid
+/**
+ 名称｜Name
+*/
+@property (nonatomic, copy, nullable) NSString *name;
+
 
 @end
 

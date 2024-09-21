@@ -26,6 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
  @param headerViewRefresh 回调函数
  */
 - (void)addHeaderView:(UIScrollView *)scrollView refresh:(void(^)(void))headerViewRefresh;
+/// 更新下拉刷新中的状态文字
+- (void)updateHeaderViewStateLabelWithText:(NSString *)text;
 
 /**
  添加上提加载下一页功能

@@ -308,11 +308,11 @@ typedef void (^FBGetManualMeasureDataBlock)(FB_RET_CMD status, float progress, N
  *@brief 获取指定记录报告数据 调用结果回调｜Get the specified record report data call result callback
  *@param status                                 状态码｜Status code
  *@param recordType                             当前返回的记录报告类型｜Currently returned record report type
- *@param progress                               当前进度0～1｜Current progress 0 ~ 1
  *@param responseObject                         当前返回记录报告数据｜Current return record report data
+ *@param progress                               总进度0～1｜Total progress 0 ~ 1
  *@param error                                  错误信息｜Error message
  */
-typedef void (^FBGetSpecialRecordsAndReportsBlock)(FB_RET_CMD status, FB_MULTIPLERECORDREPORTS recordType, float progress, id _Nullable responseObject, NSError * _Nullable error);
+typedef void (^FBGetSpecialRecordsAndReportsBlock)(FB_RET_CMD status, FB_MULTIPLERECORDREPORTS recordType, id _Nullable responseObject, float progress, NSError * _Nullable error);
 
 /**
  *@brief 获取个人用户信息 调用结果回调｜Get personal user information call result callback

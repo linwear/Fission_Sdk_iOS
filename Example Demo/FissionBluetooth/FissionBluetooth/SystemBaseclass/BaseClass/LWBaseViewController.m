@@ -9,6 +9,8 @@
 
 @interface LWBaseViewController ()
 
+@property (nonatomic, strong) MJRefreshNormalHeader *mj_header;
+
 @end
 
 @implementation LWBaseViewController
@@ -41,29 +43,34 @@
 #pragma mark - 添加下拉刷新功能
 - (void)addHeaderView:(UIScrollView *)scrollView refresh:(void(^)(void))headerViewRefresh {
     WeakSelf(self);
-    MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    MJRefreshNormalHeader *mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         weakSelf.pageIndex = 1;
         if (headerViewRefresh) {
             headerViewRefresh();
         }
     }];
-    header.stateLabel.textColor = BlueColor;
-    header.lastUpdatedTimeLabel.textColor = BlueColor;
-    scrollView.mj_header = header;
+    mj_header.stateLabel.textColor = BlueColor;
+    mj_header.lastUpdatedTimeLabel.textColor = BlueColor;
+    scrollView.mj_header = mj_header;
+    self.mj_header = mj_header;
+}
+/// 更新下拉刷新中的状态文字
+- (void)updateHeaderViewStateLabelWithText:(NSString *)text {
+    self.mj_header.stateLabel.text = text;
 }
 
 #pragma mark - 添加上提加载下一页功能
 - (void)addFooterView:(UIScrollView *)scrollView refresh:(void(^)(void))footerViewRefresh {
     WeakSelf(self);
-    MJRefreshBackNormalFooter *footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+    MJRefreshBackNormalFooter *mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
         weakSelf.pageIndex ++;
         if (footerViewRefresh) {
             footerViewRefresh();
         }
     }];
-    footer.stateLabel.textColor = BlueColor;
-    [footer setTitle:LWLocalizbleString(@"No More Data") forState:MJRefreshStateNoMoreData];
-    scrollView.mj_footer = footer;
+    mj_footer.stateLabel.textColor = BlueColor;
+    [mj_footer setTitle:LWLocalizbleString(@"No More Data") forState:MJRefreshStateNoMoreData];
+    scrollView.mj_footer = mj_footer;
 }
 
 

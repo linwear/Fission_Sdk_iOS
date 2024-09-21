@@ -40,260 +40,329 @@ x_arr;\
  * currentStep、currentCalories、currentDistance 今日实时数据（步数、卡路里、距离）
  * errorString    失败信息，为nil表示全部类型请求成功
  */
-+ (void)requestHistoricalDataWithBlock:(void (^)(NSInteger, NSInteger, NSInteger, NSString * _Nullable))block {
++ (void)requestHistoricalDataWithBlock:(void (^)(NSInteger, NSInteger, NSInteger, NSString * _Nullable))block progressBlock:(void (^)(float))progressBlock {
     
     FBFirmwareVersionObject *object = FBAllConfigObject.firmwareConfig;
     
+    NSString *SQL = [FBLoadDataObject SQL_deviceName:object.deviceName deviceMAC:object.mac];
+    NSInteger endTime = NSDate.date.timeIntervalSince1970; // 结束查询时间
+    
+    NSMutableArray <FBReqHistoryModel *> *recordTypes = NSMutableArray.array;
+    
     /// 要查询的数据类型集合
-    FB_MULTIPLERECORDREPORTS options = FB_CurrentDayActivityData | // 今日实时数据
-    FB_HeartRateRecording | // 心率记录
-    FB_StepCountRecord | // 步数记录
-    FB_BloodOxygenRecording; // 血氧记录
+    FBReqHistoryModel *reqHistoryModel_1 = FBReqHistoryModel.new;
+    reqHistoryModel_1.recordType = FB_CurrentDayActivityData; // 今日实时数据
+    //reqHistoryModel_1.startTime
+    //reqHistoryModel_1.endTime 当天的，不需要查询时间
+    [recordTypes addObject:reqHistoryModel_1];
+    
+    FBReqHistoryModel *reqHistoryModel_2 = FBReqHistoryModel.new;
+    reqHistoryModel_2.recordType = FB_HeartRateRecording; // 心率记录
+    reqHistoryModel_2.startTime = [FBLoadDataObject getMinimumTimeWithSql:SQL recordType:FB_HeartRateRecording];
+    reqHistoryModel_2.endTime = endTime;
+    [recordTypes addObject:reqHistoryModel_2];
+    
+    FBReqHistoryModel *reqHistoryModel_3 = FBReqHistoryModel.new;
+    reqHistoryModel_3.recordType = FB_StepCountRecord; // 步数记录
+    reqHistoryModel_3.startTime = [FBLoadDataObject getMinimumTimeWithSql:SQL recordType:FB_StepCountRecord];
+    reqHistoryModel_3.endTime = endTime;
+    [recordTypes addObject:reqHistoryModel_3];
+    
+    FBReqHistoryModel *reqHistoryModel_4 = FBReqHistoryModel.new;
+    reqHistoryModel_4.recordType = FB_BloodOxygenRecording; // 血氧记录
+    reqHistoryModel_4.startTime = [FBLoadDataObject getMinimumTimeWithSql:SQL recordType:FB_BloodOxygenRecording];
+    reqHistoryModel_4.endTime = endTime;
+    [recordTypes addObject:reqHistoryModel_4];
     
     if (object.supportBloodPressure) {
-        options = options | FB_BloodPressureRecording; // 血压记录
+        FBReqHistoryModel *reqHistoryModel_5 = FBReqHistoryModel.new;
+        reqHistoryModel_5.recordType = FB_BloodPressureRecording; // 血压记录
+        reqHistoryModel_5.startTime = [FBLoadDataObject getMinimumTimeWithSql:SQL recordType:FB_BloodPressureRecording];
+        reqHistoryModel_5.endTime = endTime;
+        [recordTypes addObject:reqHistoryModel_5];
     }
     
     if (object.supportMentalStress) {
-        options = options | FB_StressRecording; // 精神压力记录
+        FBReqHistoryModel *reqHistoryModel_6 = FBReqHistoryModel.new;
+        reqHistoryModel_6.recordType = FB_StressRecording; // 精神压力记录
+        reqHistoryModel_6.startTime = [FBLoadDataObject getMinimumTimeWithSql:SQL recordType:FB_StressRecording];
+        reqHistoryModel_6.endTime = endTime;
+        [recordTypes addObject:reqHistoryModel_6];
     }
     
     __block FBSportsPositioningRecordResults *sportsPositioningRecordResults = FBSportsPositioningRecordResults.new;
     if (object.supportAGPS) {
         sportsPositioningRecordResults.supportGPS = YES;
-        options = options | FB_SportsPositioningRecord; // 运动定位记录
+        FBReqHistoryModel *reqHistoryModel_7 = FBReqHistoryModel.new;
+        reqHistoryModel_7.recordType = FB_SportsPositioningRecord; // 运动定位记录
+        reqHistoryModel_7.startTime = [FBLoadDataObject getMinimumTimeWithSql:SQL recordType:FB_SportsPositioningRecord];
+        reqHistoryModel_7.endTime = endTime;
+        [recordTypes addObject:reqHistoryModel_7];
     }
     
     if (object.supportRestingHeartRate) {
-        options = options | FB_SleepStatisticsReport; // 睡眠统计报告（获取睡眠静息心率）
+        FBReqHistoryModel *reqHistoryModel_8 = FBReqHistoryModel.new;
+        reqHistoryModel_8.recordType = FB_SleepStatisticsReport; // 睡眠统计报告（获取睡眠静息心率）
+        reqHistoryModel_8.startTime = [FBLoadDataObject getMinimumTimeWithSql:SQL recordType:FB_SleepStatisticsReport];
+        reqHistoryModel_8.endTime = endTime;
+        [recordTypes addObject:reqHistoryModel_8];
     }
     
-    options = options |
-    FB_SleepStateRecording | // 睡眠状态记录
-    FB_CurrentSleepStateRecording | // 实时睡眠记录（正在进行中的睡眠，已结束的睡眠会在通过 FB_SleepStateRecording 返回）
-    FB_Sports_Statistics_Details_Report | // 运动记录
-    FB_ManualMeasurementData; // 手动测量记录
+    FBReqHistoryModel *reqHistoryModel_9 = FBReqHistoryModel.new;
+    reqHistoryModel_9.recordType = FB_SleepStateRecording; // 睡眠状态记录
+    reqHistoryModel_9.startTime = [FBLoadDataObject getMinimumTimeWithSql:SQL recordType:FB_SleepStateRecording];
+    reqHistoryModel_9.endTime = endTime;
+    [recordTypes addObject:reqHistoryModel_9];
     
-    NSInteger staTime = [FBLoadDataObject getMinimumTimeWithObject:object]; // 起始查询时间
-    NSInteger endTime = NSDate.date.timeIntervalSince1970; // 结束查询时间
+    FBReqHistoryModel *reqHistoryModel_10 = FBReqHistoryModel.new;
+    reqHistoryModel_10.recordType = FB_CurrentSleepStateRecording; // 实时睡眠记录（正在进行中的睡眠，已结束的睡眠会在通过 FB_SleepStateRecording 返回）
+    reqHistoryModel_10.startTime = [FBLoadDataObject getMinimumTimeWithSql:SQL recordType:FB_CurrentSleepStateRecording];
+    reqHistoryModel_10.endTime = endTime;
+    [recordTypes addObject:reqHistoryModel_10];
+    
+    FBReqHistoryModel *reqHistoryModel_11 = FBReqHistoryModel.new;
+    reqHistoryModel_11.recordType = FB_Sports_Statistics_Details_Report; // 运动记录（统计报告+详情）
+    reqHistoryModel_11.startTime = [FBLoadDataObject getMinimumTimeWithSql:SQL recordType:FB_Sports_Statistics_Details_Report];
+    reqHistoryModel_11.endTime = endTime;
+    [recordTypes addObject:reqHistoryModel_11];
+    
+    FBReqHistoryModel *reqHistoryModel_12 = FBReqHistoryModel.new;
+    reqHistoryModel_12.recordType = FB_ManualMeasurementData; // 手动测量记录
+    reqHistoryModel_12.startTime = [FBLoadDataObject getMinimumTimeWithSql:SQL recordType:FB_ManualMeasurementData];
+    reqHistoryModel_12.endTime = endTime;
+    [recordTypes addObject:reqHistoryModel_12];
+
+
     
     __block NSMutableString *errorString = [NSMutableString stringWithString:@"🙅ERROR:"];
     __block NSInteger currentStep = 0;      // 当前累计步数｜Current cumulative steps
     __block NSInteger currentCalories = 0;  // 当前累计消耗卡路里（千卡）｜Current cumulative calories consumed (kcal)
     __block NSInteger currentDistance = 0;  // 当前累计行程（米）｜Current cumulative travel (m)
         
-    [FBBgCommand.sharedInstance fbGetSpecialRecordsAndReportsDataWithType:options startTime:staTime forEndTime:endTime withBlock:^(FB_RET_CMD status, FB_MULTIPLERECORDREPORTS recordType, float progress, id  _Nullable responseObject, NSError * _Nullable error) {
+    [FBBgCommand.sharedInstance fbGetSpecialRecordsAndReportsDataWithType:recordTypes.copy withBlock:^(FB_RET_CMD status, FB_MULTIPLERECORDREPORTS recordType, id  _Nullable responseObject, float progress, NSError * _Nullable error) {
         
-        if (options == recordType && error) // 失败了
+        if (recordType == FB_MULTIPLERECORDREPORTS_ERROR) // 失败了
         {
-            if (block) {
-                [errorString appendFormat:@"\n%@", error.localizedDescription];
-                block (0, 0, 0, errorString);
-            }
+            [errorString appendFormat:@"\n%@", error.localizedDescription];
+            if (block) block (0, 0, 0, errorString);
         }
-        
-        else if (recordType == FB_CurrentDayActivityData) // 今日实时数据
+        else
         {
-            if (error) { // 请求失败
-                [errorString appendFormat:@"\nFB_CurrentDayActivityData: %@", error.localizedDescription];
-                FBLog(@"今日实时数据请求失败: %@", error.localizedDescription);
-            } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
-                FBCurrentDataModel *currentDataModel = (FBCurrentDataModel *)responseObject;
-                
-                // 今日实时数据（步数、卡路里、距离）
-                currentStep = currentDataModel.currentStep;
-                currentCalories = currentDataModel.currentCalories;
-                currentDistance = currentDataModel.currentDistance;
-            }
-        }
-        
-        else if (recordType == FB_HeartRateRecording) // 心率记录
-        {
-            if (error) { // 请求失败
-                [errorString appendFormat:@"\nFB_HeartRateRecording: %@", error.localizedDescription];
-                FBLog(@"心率记录请求失败: %@", error.localizedDescription);
-            } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
-                NSArray <FBTypeRecordModel *> *heartRateArray = (NSArray <FBTypeRecordModel *> *)responseObject;
-                
-                [FBLoadDataObject SaveHeartRateRecords:heartRateArray];
-            }
-        }
-        
-        else if (recordType == FB_StepCountRecord) // 步数记录
-        {
-            if (error) { // 请求失败
-                [errorString appendFormat:@"\nFB_StepCountRecord: %@", error.localizedDescription];
-                FBLog(@"步数记录请求失败: %@", error.localizedDescription);
-            } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
-                NSArray <FBTypeRecordModel *> *stepArray = (NSArray <FBTypeRecordModel *> *)responseObject;
-                
-                [FBLoadDataObject SaveStepRecords:stepArray];
-            }
-        }
-        
-        else if (recordType == FB_BloodOxygenRecording) // 血氧记录
-        {
-            if (error) { // 请求失败
-                [errorString appendFormat:@"\nFB_BloodOxygenRecording: %@", error.localizedDescription];
-                FBLog(@"血氧记录请求失败: %@", error.localizedDescription);
-            } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
-                NSArray <FBTypeRecordModel *> *bloodOxygenArray = (NSArray <FBTypeRecordModel *> *)responseObject;
-                
-                [FBLoadDataObject SaveBloodOxygenRecords:bloodOxygenArray];
-            }
-        }
-        
-        else if (recordType == FB_BloodPressureRecording) // 血压记录
-        {
-            if (error) { // 请求失败
-                [errorString appendFormat:@"\nFB_BloodPressureRecording: %@", error.localizedDescription];
-                FBLog(@"血压记录请求失败: %@", error.localizedDescription);
-            } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
-                NSArray <FBTypeRecordModel *> *bloodPressureArray = (NSArray <FBTypeRecordModel *> *)responseObject;
-                
-                [FBLoadDataObject SaveBloodPressureRecords:bloodPressureArray];
-            }
-        }
-        
-        else if (recordType == FB_StressRecording) // 精神压力记录
-        {
-            if (error) { // 请求失败
-                [errorString appendFormat:@"\nFB_StressRecording: %@", error.localizedDescription];
-                FBLog(@"精神压力记录请求失败: %@", error.localizedDescription);
-            } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
-                NSArray <FBTypeRecordModel *> *stressArray = (NSArray <FBTypeRecordModel *> *)responseObject;
-                
-                [FBLoadDataObject SaveStressRecords:stressArray];
-            }
-        }
-        
-        else if (recordType == FB_SportsPositioningRecord) // 运动定位记录
-        {
-            if (error) { // 请求失败
-                [errorString appendFormat:@"\nFB_SportsPositioningRecord: %@", error.localizedDescription];
-                FBLog(@"运动定位记录请求失败: %@", error.localizedDescription);
-            } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
-                sportsPositioningRecordResults.isSuccessful = YES;
-                sportsPositioningRecordResults.sportsPositioningArray = (NSArray <FBTypeRecordModel *> *)responseObject;
-            }
-        }
-        
-        else if (recordType == FB_SleepStatisticsReport) // 睡眠统计报告（获取睡眠静息心率）
-        {
-            if (error) { // 请求失败
-                [errorString appendFormat:@"\nFB_SleepStatisticsReport: %@", error.localizedDescription];
-                FBLog(@"睡眠统计报告（获取睡眠静息心率）请求失败: %@", error.localizedDescription);
-            } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
-                NSArray <FBSleepCaculateReportModel *> *sleepArray = (NSArray <FBSleepCaculateReportModel *> *)responseObject;
-                
-                [FBLoadDataObject SaveSleepRestingHeartRateRecords:sleepArray];
-            }
-        }
-        
-        else if (recordType == FB_SleepStateRecording) // 睡眠状态记录
-        {
-            if (error) { // 请求失败
-                [errorString appendFormat:@"\nFB_SleepStateRecording: %@", error.localizedDescription];
-                FBLog(@"睡眠记录请求失败: %@", error.localizedDescription);
-            } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
-                NSArray <FBSleepStatusRecordModel *> *sleepArray = (NSArray <FBSleepStatusRecordModel *> *)responseObject;
-                
-                [FBLoadDataObject SaveSleepRecords:sleepArray];
-            }
-        }
-        
-        else if (recordType == FB_CurrentSleepStateRecording) // // 实时睡眠记录（正在进行中的睡眠，已结束的睡眠会在通过 FB_SleepStateRecording 返回）
-        {
-            if (error) { // 请求失败
-                [errorString appendFormat:@"\nFB_CurrentSleepStateRecording: %@", error.localizedDescription];
-                FBLog(@"实时睡眠记录请求失败: %@", error.localizedDescription);
-            } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
-                NSArray <FBSleepStatusRecordModel *> *sleepArray = (NSArray <FBSleepStatusRecordModel *> *)responseObject;
-
-                [FBLoadDataObject SaveSleepRecords:sleepArray];
-            }
-        }
-        
-        else if (recordType == FB_Sports_Statistics_Details_Report) // 运动记录
-        {
-            if (error) { // 请求失败
-                [errorString appendFormat:@"\nFB_Sports_Statistics_Details_Report: %@", error.localizedDescription];
-                FBLog(@"运动记录请求失败: %@", error.localizedDescription);
-            } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
-                NSArray <FBSportsStatisticsDetailsRecordModel *> *sportsArray = (NSArray <FBSportsStatisticsDetailsRecordModel *> *)responseObject;
-                
-                [FBLoadDataObject SaveSportsRecords:sportsArray sportsPositioningRecordResults:sportsPositioningRecordResults];
-            }
-        }
-        
-        else if (recordType == FB_ManualMeasurementData) // 手动测量记录
-        {
-            if (error) { // 请求失败
-                [errorString appendFormat:@"\nFB_ManualMeasurementData: %@", error.localizedDescription];
-                FBLog(@"手动测量记录请求失败: %@", error.localizedDescription);
-            } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
-                NSArray <FBManualMeasureDataModel *> *manualMeasureArray = (NSArray <FBManualMeasureDataModel *> *)responseObject;
-                
-                [FBLoadDataObject SaveManualMeasureRecords:manualMeasureArray];
+            if (progressBlock) progressBlock(progress); // 进度
+            
+            if (recordType == FB_CurrentDayActivityData) // 今日实时数据
+            {
+                if (error) { // 请求失败
+                    [errorString appendFormat:@"\nFB_CurrentDayActivityData: %@", error.localizedDescription];
+                    FBLog(@"今日实时数据请求失败: %@", error.localizedDescription);
+                } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
+                    FBCurrentDataModel *currentDataModel = (FBCurrentDataModel *)responseObject;
+                    
+                    // 今日实时数据（步数、卡路里、距离）
+                    currentStep = currentDataModel.currentStep;
+                    currentCalories = currentDataModel.currentCalories;
+                    currentDistance = currentDataModel.currentDistance;
+                }
             }
             
-            if (error || status == FB_DATATRANSMISSIONDONE) { // 所有请求完成，结果回调
-                
-                if (block) {
-                    block (currentStep, currentCalories, currentDistance, [errorString isEqualToString:@"🙅ERROR:"] ? nil : errorString);
+            else if (recordType == FB_HeartRateRecording) // 心率记录
+            {
+                if (error) { // 请求失败
+                    [errorString appendFormat:@"\nFB_HeartRateRecording: %@", error.localizedDescription];
+                    FBLog(@"心率记录请求失败: %@", error.localizedDescription);
+                } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
+                    NSArray <FBTypeRecordModel *> *heartRateArray = (NSArray <FBTypeRecordModel *> *)responseObject;
+                    
+                    [FBLoadDataObject SaveHeartRateRecords:heartRateArray];
                 }
+            }
+            
+            else if (recordType == FB_StepCountRecord) // 步数记录
+            {
+                if (error) { // 请求失败
+                    [errorString appendFormat:@"\nFB_StepCountRecord: %@", error.localizedDescription];
+                    FBLog(@"步数记录请求失败: %@", error.localizedDescription);
+                } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
+                    NSArray <FBTypeRecordModel *> *stepArray = (NSArray <FBTypeRecordModel *> *)responseObject;
+                    
+                    [FBLoadDataObject SaveStepRecords:stepArray];
+                }
+            }
+            
+            else if (recordType == FB_BloodOxygenRecording) // 血氧记录
+            {
+                if (error) { // 请求失败
+                    [errorString appendFormat:@"\nFB_BloodOxygenRecording: %@", error.localizedDescription];
+                    FBLog(@"血氧记录请求失败: %@", error.localizedDescription);
+                } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
+                    NSArray <FBTypeRecordModel *> *bloodOxygenArray = (NSArray <FBTypeRecordModel *> *)responseObject;
+                    
+                    [FBLoadDataObject SaveBloodOxygenRecords:bloodOxygenArray];
+                }
+            }
+            
+            else if (recordType == FB_BloodPressureRecording) // 血压记录
+            {
+                if (error) { // 请求失败
+                    [errorString appendFormat:@"\nFB_BloodPressureRecording: %@", error.localizedDescription];
+                    FBLog(@"血压记录请求失败: %@", error.localizedDescription);
+                } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
+                    NSArray <FBTypeRecordModel *> *bloodPressureArray = (NSArray <FBTypeRecordModel *> *)responseObject;
+                    
+                    [FBLoadDataObject SaveBloodPressureRecords:bloodPressureArray];
+                }
+            }
+            
+            else if (recordType == FB_StressRecording) // 精神压力记录
+            {
+                if (error) { // 请求失败
+                    [errorString appendFormat:@"\nFB_StressRecording: %@", error.localizedDescription];
+                    FBLog(@"精神压力记录请求失败: %@", error.localizedDescription);
+                } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
+                    NSArray <FBTypeRecordModel *> *stressArray = (NSArray <FBTypeRecordModel *> *)responseObject;
+                    
+                    [FBLoadDataObject SaveStressRecords:stressArray];
+                }
+            }
+            
+            else if (recordType == FB_SportsPositioningRecord) // 运动定位记录
+            {
+                if (error) { // 请求失败
+                    [errorString appendFormat:@"\nFB_SportsPositioningRecord: %@", error.localizedDescription];
+                    FBLog(@"运动定位记录请求失败: %@", error.localizedDescription);
+                } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
+                    sportsPositioningRecordResults.isSuccessful = YES;
+                    sportsPositioningRecordResults.sportsPositioningArray = (NSArray <FBTypeRecordModel *> *)responseObject;
+                }
+            }
+            
+            else if (recordType == FB_SleepStatisticsReport) // 睡眠统计报告（获取睡眠静息心率）
+            {
+                if (error) { // 请求失败
+                    [errorString appendFormat:@"\nFB_SleepStatisticsReport: %@", error.localizedDescription];
+                    FBLog(@"睡眠统计报告（获取睡眠静息心率）请求失败: %@", error.localizedDescription);
+                } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
+                    NSArray <FBSleepCaculateReportModel *> *sleepArray = (NSArray <FBSleepCaculateReportModel *> *)responseObject;
+                    
+                    [FBLoadDataObject SaveSleepRestingHeartRateRecords:sleepArray];
+                }
+            }
+            
+            else if (recordType == FB_SleepStateRecording) // 睡眠状态记录
+            {
+                if (error) { // 请求失败
+                    [errorString appendFormat:@"\nFB_SleepStateRecording: %@", error.localizedDescription];
+                    FBLog(@"睡眠记录请求失败: %@", error.localizedDescription);
+                } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
+                    NSArray <FBSleepStatusRecordModel *> *sleepArray = (NSArray <FBSleepStatusRecordModel *> *)responseObject;
+                    
+                    [FBLoadDataObject SaveSleepRecords:sleepArray];
+                }
+            }
+            
+            else if (recordType == FB_CurrentSleepStateRecording) // // 实时睡眠记录（正在进行中的睡眠，已结束的睡眠会在通过 FB_SleepStateRecording 返回）
+            {
+                if (error) { // 请求失败
+                    [errorString appendFormat:@"\nFB_CurrentSleepStateRecording: %@", error.localizedDescription];
+                    FBLog(@"实时睡眠记录请求失败: %@", error.localizedDescription);
+                } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
+                    NSArray <FBSleepStatusRecordModel *> *sleepArray = (NSArray <FBSleepStatusRecordModel *> *)responseObject;
+                    
+                    [FBLoadDataObject SaveSleepRecords:sleepArray];
+                }
+            }
+            
+            else if (recordType == FB_Sports_Statistics_Details_Report) // 运动记录
+            {
+                if (error) { // 请求失败
+                    [errorString appendFormat:@"\nFB_Sports_Statistics_Details_Report: %@", error.localizedDescription];
+                    FBLog(@"运动记录请求失败: %@", error.localizedDescription);
+                } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
+                    NSArray <FBSportsStatisticsDetailsRecordModel *> *sportsArray = (NSArray <FBSportsStatisticsDetailsRecordModel *> *)responseObject;
+                    
+                    [FBLoadDataObject SaveSportsRecords:sportsArray sportsPositioningRecordResults:sportsPositioningRecordResults];
+                }
+            }
+            
+            else if (recordType == FB_ManualMeasurementData) // 手动测量记录
+            {
+                if (error) { // 请求失败
+                    [errorString appendFormat:@"\nFB_ManualMeasurementData: %@", error.localizedDescription];
+                    FBLog(@"手动测量记录请求失败: %@", error.localizedDescription);
+                } else if (status == FB_DATATRANSMISSIONDONE) { // 请求成功
+                    NSArray <FBManualMeasureDataModel *> *manualMeasureArray = (NSArray <FBManualMeasureDataModel *> *)responseObject;
+                    
+                    [FBLoadDataObject SaveManualMeasureRecords:manualMeasureArray];
+                }
+            }
+            
+            
+            // 所有请求完成，结果回调
+            if ((error || status == FB_DATATRANSMISSIONDONE) && recordTypes.lastObject.recordType == recordType) 
+            {
+                if (block) block (currentStep, currentCalories, currentDistance, [errorString isEqualToString:@"🙅ERROR:"] ? nil : errorString);
             }
         }
     }];
 }
 
 /// 最小时间
-+ (NSInteger)getMinimumTimeWithObject:(FBFirmwareVersionObject *)object
++ (NSInteger)getMinimumTimeWithSql:(NSString *)SQL recordType:(FB_MULTIPLERECORDREPORTS)recordType
  {
-     // 未避免重复请求，可以设置本地数据最小时间为起始时间
-     NSMutableArray <NSNumber *> *begin = NSMutableArray.array;
-     NSString *SQL = [FBLoadDataObject SQL_deviceName:object.deviceName deviceMAC:object.mac];
-     
      // 心率
-     RLMHeartRateModel *hr = [[RLMHeartRateModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
-     [begin addObject:@(hr.begin)]; // 由小到大排序，最新一条数据
+     if (recordType == FB_HeartRateRecording) {
+         RLMHeartRateModel *hr = [[RLMHeartRateModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
+         return hr.begin; // 由小到大排序，最新一条数据
+     }
      
      // 计步
-     RLMStepModel *step = [[RLMStepModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
-     [begin addObject:@(step.begin)]; // 由小到大排序，最新一条数据
+     else if (recordType == FB_StepCountRecord) {
+         RLMStepModel *step = [[RLMStepModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
+         return step.begin; // 由小到大排序，最新一条数据
+     }
      
      // 血氧
-     RLMBloodOxygenModel *spo2 = [[RLMBloodOxygenModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
-     [begin addObject:@(spo2.begin)]; // 由小到大排序，最新一条数据
+     else if (recordType == FB_BloodOxygenRecording) {
+         RLMBloodOxygenModel *spo2 = [[RLMBloodOxygenModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
+         return spo2.begin; // 由小到大排序，最新一条数据
+     }
      
      // 血压
-     if (object.supportBloodPressure) {
-         RLMBloodPressureModel *bp = [[RLMBloodPressureModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject; // 由小到大排序，最新一条数据
-         [begin addObject:@(bp.begin)];
+     else if (recordType == FB_BloodPressureRecording) {
+         RLMBloodPressureModel *bp = [[RLMBloodPressureModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
+         return bp.begin; // 由小到大排序，最新一条数据
      }
      
      // 精神压力
-     if (object.supportMentalStress) {
+     else if (recordType == FB_StressRecording) {
          RLMStressModel *stress = [[RLMStressModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
-         [begin addObject:@(stress.begin)]; // 由小到大排序，最新一条数据
+         return stress.begin; // 由小到大排序，最新一条数据
      }
      
      // 睡眠
-     RLMSleepModel *sleep = [[RLMSleepModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
-     [begin addObject:@(sleep.begin)]; // 由小到大排序，最新一条数据
+     else if (recordType == FB_SleepStatisticsReport ||
+         recordType == FB_SleepStateRecording ||
+         recordType == FB_CurrentSleepStateRecording) {
+         RLMSleepModel *sleep = [[RLMSleepModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
+         return sleep.begin; // 由小到大排序，最新一条数据
+     }
      
      // 运动
-     RLMSportsModel *sports = [[RLMSportsModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
-     [begin addObject:@(sports.begin)]; // 由小到大排序，最新一条数据
+     else if (recordType == FB_SportsPositioningRecord ||
+         recordType == FB_Sports_Statistics_Details_Report) {
+         RLMSportsModel *sports = [[RLMSportsModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
+         return sports.begin; // 由小到大排序，最新一条数据
+     }
      
      // 手动测量
-     RLMManualMeasureModel *manual = [[RLMManualMeasureModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject; // 由小到大排序，最新一条数据
-     [begin addObject:@(manual.begin)];
+     else if (recordType == FB_ManualMeasurementData) {
+         RLMManualMeasureModel *manual = [[RLMManualMeasureModel objectsWhere:SQL] sortedResultsUsingKeyPath:@"begin" ascending:YES].lastObject;
+         return manual.begin; // 由小到大排序，最新一条数据
+     }
      
-     // 取最小时间
-     NSInteger staTime = [[begin valueForKeyPath:@"@min.floatValue"] floatValue];
-     
-     return staTime;
+     else {
+         return 0;
+     }
 }
 
 
