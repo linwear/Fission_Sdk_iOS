@@ -74,8 +74,7 @@
 "参数错误，心率提醒下限值需小于心率提醒上限值" = "Erro de parâmetro. O limite inferior do lembrete de frequência cardíaca deve ser inferior Ao limite superior Da memória de frequência cardíaca";
 "参数错误，心率值连续超标次数不能小于1" = "Erro do parâmetro. O número de excedências consecutivas do valor Da taxa cardíaca não Pode ser inferior a 1";
 
-"参数错误，常用联系人最多不能超过%d个" = "Erro do parâmetro, não mais do que %d contatos comuns";
-"参数错误，紧急联系人最多不能超过%d个" = "Erro de parâmetro, o número máximo de contatos de emergência não pode exceder %d";
+"参数错误，联系人最多不能超过%d个" = "Erro de parâmetro, o número máximo de contactos não pode exceder %d";
 
 "空间不足" = "não há espaço suficiente";
 "执行失败" = "A execução falhou.";

@@ -109,6 +109,15 @@ NS_ASSUME_NONNULL_BEGIN
  8.FB_OTANotification_Music
     Music_L******_xxxxxxxxxx_AAAA_BBBB.mp3（其中******为文件大小，xxxxxxxxxx为时间戳，AAAA为唯一ID，BBBB为显示名称｜Where ****** is the file size, xxxxxxxxxx is the timestamp, AAAA is the unique ID, and BBBB is the display name）
  
+ 9.FB_OTANotification_Ring_Message
+    MessSound_L******_xxxxxxxxxx_AAAA_BBBB.mp3（其中******为文件大小，xxxxxxxxxx为时间戳，AAAA为唯一ID，BBBB为显示名称｜Where ****** is the file size, xxxxxxxxxx is the timestamp, AAAA is the unique ID, and BBBB is the display name）
+ 
+ 10.FB_OTANotification_Ring_Call
+    CallSound_L******_xxxxxxxxxx_AAAA_BBBB.mp3（其中******为文件大小，xxxxxxxxxx为时间戳，AAAA为唯一ID，BBBB为显示名称｜Where ****** is the file size, xxxxxxxxxx is the timestamp, AAAA is the unique ID, and BBBB is the display name）
+ 
+ 11.FB_OTANotification_Ring_Alarm
+    ClockSound_L******_xxxxxxxxxx_AAAA_BBBB.mp3（其中******为文件大小，xxxxxxxxxx为时间戳，AAAA为唯一ID，BBBB为显示名称｜Where ****** is the file size, xxxxxxxxxx is the timestamp, AAAA is the unique ID, and BBBB is the display name）
+ 
  
  更多...待拓展｜More...to be expanded
  */

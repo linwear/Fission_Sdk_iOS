@@ -75,8 +75,7 @@ Parameterfout, de bovenste grens van hartslagherinnering zou groter dan of gelij
 "参数错误，心率提醒下限值需小于心率提醒上限值" = "Parameter fout. De lagere limiet van de hartritme herinnering moet lager zijn dan de bovenste limiet van de hartritme herinnering";
 "参数错误，心率值连续超标次数不能小于1" = "Parameter fout. Het aantal opeenvolgende overschrijdingen van de hartslagwaarde kan niet kleiner zijn dan 1";
 
-"参数错误，常用联系人最多不能超过%d个" = "Parameterfout, niet meer dan %d gemeenschappelijke contacten";
-"参数错误，紧急联系人最多不能超过%d个" = "";
+"参数错误，联系人最多不能超过%d个" = "Parameterfout, het maximale aantal contacten mag %d niet overschrijden";
 
 "空间不足" = "niet genoeg ruimte";
 "执行失败" = "Uitvoering mislukt";

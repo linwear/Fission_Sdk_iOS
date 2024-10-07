@@ -74,8 +74,7 @@
 "参数错误，心率提醒下限值需小于心率提醒上限值" = "Parameterfejl, den nedre grænse for pulspåmindelsen skal være mindre end den øvre grænse for pulspåmindelsen.";
 "参数错误，心率值连续超标次数不能小于1" = "Parameterfejl, antallet af på hinanden følgende pulsoverskridelser må ikke være mindre end 1";
 
-"参数错误，常用联系人最多不能超过%d个" = "Parameterfejl, det maksimale antal hyppigt anvendte kontakter må ikke overstige %d";
-"参数错误，紧急联系人最多不能超过%d个" = "Parameterfejl, det maksimale antal nødkontakter må ikke overstige %d";
+"参数错误，联系人最多不能超过%d个" = "Parameterfejl, det maksimale antal kontakter må ikke overstige %d";
 
 "空间不足" = "ikke nok plads";
 "执行失败" = "Udførelse mislykkedes";

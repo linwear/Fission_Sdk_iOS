@@ -478,34 +478,21 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)fbGPSMotionInterconnectionWithModel:(FBMotionInterconnectionModel * _Nonnull)model withBlock:(FBMotionInterconnectionBlock _Nonnull)fbBlock;
 
 
-#pragma mark - 获取常用联系人信息｜Get frequently used contact information
+#pragma mark - 获取联系人信息｜Get contact information
 /**
- 获取常用联系人信息｜Get frequently used contact information
+ 获取联系人信息｜Get contact information
+ @param type                联系人类型｜Contact type
 */
-- (void)fbGetFavoriteContactListWithBlock:(FBGetFavoriteContactListBlock _Nonnull)fbBlock;
+- (void)fbGetContactListWithType:(FB_CONTACTTYPE)type withBlock:(FBGetContactListBlock _Nonnull)fbBlock;
 
 
-#pragma mark - 设置常用联系人信息｜Set frequently used contact information
+#pragma mark - 设置联系人信息｜Set up contact information
 /**
- 设置常用联系人信息｜Set frequently used contact information
- @param modelList           常用联系人信息｜Frequently used contact information
+ 设置联系人信息｜Set up contact information
+ @param type                联系人类型｜Contact type
+ @param modelList           联系人信息｜Frequently used contact information
 */
-- (void)fbSetFavoriteContactListWithModel:(NSArray <FBFavContactModel *> *)modelList withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
-
-
-#pragma mark - 获取紧急联系人信息｜Get emergency contact information
-/**
- 获取紧急联系人信息｜Get emergency contact information
-*/
-- (void)fbGetEmergencyContactListWithBlock:(FBGetFavoriteContactListBlock _Nonnull)fbBlock;
-
-
-#pragma mark - 设置紧急联系人信息｜Set up emergency contact information
-/**
- 设置紧急联系人信息｜Set up emergency contact information
- @param modelList           紧急联系人信息｜Emergency contact information
-*/
-- (void)fbSetEmergencyContactListWithModel:(NSArray <FBFavContactModel *> *)modelList withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+- (void)fbSetContactListWithType:(FB_CONTACTTYPE)type withList:(NSArray <FBContactModel *> *)modelList withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
 
 #pragma mark - 读取片外 flash 空间数据｜Read off-chip flash space data
@@ -593,77 +580,39 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  获取系统空间使用信息｜Get system space usage information
 */
-- (void)fbGetSystemSpaceUsageInforWithBlock:(FBGetSystemSpaceInforBlock _Nonnull)fbBlock;
+- (void)fbGetSystemSpaceUsageInfoWithBlock:(FBGetSystemSpaceInfoBlock _Nonnull)fbBlock;
 
 
-#pragma mark - 获取表盘列表文件信息｜Get dial list file information
+#pragma mark - 获取列表文件信息｜Get list file information
 /**
- 获取表盘列表文件信息｜Get dial list file information
+ 获取列表文件信息｜Get list file information
+ @param type                        列表文件类型｜List file types
 */
-- (void)fbGetDialListFileInforWithBlock:(FBGetListFileInforBlock _Nonnull)fbBlock;
+- (void)fbGetListFileInfoWithType:(FB_LISTFILEINFORTYPE)type withBlock:(FBGetListFileInfoBlock _Nonnull)fbBlock;
 
 
-#pragma mark - 获取JS应用列表文件信息｜Get JS application list file information
+#pragma mark - 删除列表文件信息｜Delete list file information
 /**
- 获取JS应用列表文件信息｜Get JS application list file information
+ 删除列表文件信息｜Delete list file information
+ @param type                        列表文件类型｜List file types
+ @param modelList                   列表文件信息｜List file information
 */
-- (void)fbGetJsAppListFileInforWithBlock:(FBGetListFileInforBlock _Nonnull)fbBlock;
+- (void)fbDeleteListFileInfoWithType:(FB_LISTFILEINFORTYPE)type withList:(NSArray <FBListFileInfoModel *> * _Nonnull)modelList withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
 
-#pragma mark - 获取音频列表文件信息｜Get audio list file information
+#pragma mark - 获取当前使用的铃声信息｜Get the currently used ringtone information
 /**
- 获取音频列表文件信息｜Get audio list file information
+ 获取当前使用的铃声信息｜Get the currently used ringtone information
 */
-- (void)fbGetAudioListFileInforWithBlock:(FBGetListFileInforBlock _Nonnull)fbBlock;
+- (void)fbGetCurrentRingtoneInfoWithBlock:(FBGetRingtoneInfoBlock _Nonnull)fbBlock;
 
 
-#pragma mark - 获取视频列表文件信息｜Get video list file information
+#pragma mark - 设置当前使用的铃声信息｜Set the currently used ringtone information
 /**
- 获取视频列表文件信息｜Get video list file information
+ 设置当前使用的铃声信息｜Set the currently used ringtone information
+ @param modelList                   铃声信息｜Ringtone information
 */
-- (void)fbGetVideoListFileInforWithBlock:(FBGetListFileInforBlock _Nonnull)fbBlock;
-
-
-#pragma mark - 获取电子书列表文件信息｜Get e-book list file information
-/**
- 获取电子书列表文件信息｜Get e-book list file information
-*/
-- (void)fbGetEBookListFileInforWithBlock:(FBGetListFileInforBlock _Nonnull)fbBlock;
-
-
-#pragma mark - 删除表盘列表文件信息｜Delete dial list file information
-/**
- 删除表盘列表文件信息｜Delete dial list file information
-*/
-- (void)fbDeleteDialListFileInfor:(NSArray <FBListFileInforModel *> * _Nonnull)modelList withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
-
-
-#pragma mark - 删除JS应用列表文件信息｜Delete JS application list file information
-/**
- 删除JS应用列表文件信息｜Delete JS application list file information
-*/
-- (void)fbDeleteJsAppListFileInfor:(NSArray <FBListFileInforModel *> * _Nonnull)modelList withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
-
-
-#pragma mark - 删除音频列表文件信息｜Delete audio list file information
-/**
- 删除音频列表文件信息｜Delete audio list file information
-*/
-- (void)fbDeleteAudioListFileInfor:(NSArray <FBListFileInforModel *> * _Nonnull)modelList withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
-
-
-#pragma mark - 删除视频列表文件信息｜Delete video list file information
-/**
- 删除视频列表文件信息｜Delete video list file information
-*/
-- (void)fbDeleteVideoListFileInfor:(NSArray <FBListFileInforModel *> * _Nonnull)modelList withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
-
-
-#pragma mark - 删除电子书列表文件信息｜Delete e-book list file information
-/**
- 删除电子书列表文件信息｜Delete e-book list file information
-*/
-- (void)fbDeleteEBookListFileInfor:(NSArray <FBListFileInforModel *> * _Nonnull)modelList withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+- (void)fbSetCurrentRingtoneInfoWithList:(NSArray <FBRingtoneInfoModel *> * _Nonnull)modelList withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
 @end
 

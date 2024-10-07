@@ -74,8 +74,7 @@
 "参数错误，心率提醒下限值需小于心率提醒上限值" = "Parameter error. The lower limit of heart rate reminder must be less than the upper limit of heart rate reminder";
 "参数错误，心率值连续超标次数不能小于1" = "Parameter error. The number of consecutive exceedances of heart rate value cannot be less than 1";
 
-"参数错误，常用联系人最多不能超过%d个" = "Parameter error, no more than %d common contacts";
-"参数错误，紧急联系人最多不能超过%d个" = "Parameter error, the number of emergency contacts cannot exceed %d";
+"参数错误，联系人最多不能超过%d个" = "Parameter error, the number of contacts cannot exceed %d";
 
 "空间不足" = "Not enough space";
 "执行失败" = "Execution failed";

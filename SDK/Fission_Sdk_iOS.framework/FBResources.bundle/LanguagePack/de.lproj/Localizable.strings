@@ -74,8 +74,7 @@
 "参数错误，心率提醒下限值需小于心率提醒上限值" = "Die untere Grenze der Erinnerung an die Herzfrequenz muss geringer sein als die obere Grenze der Erinnerung an die Herzfrequenz.";
 "参数错误，心率值连续超标次数不能小于1" = "Parameterfehler. Die Anzahl der aufeinanderfolgenden Überschreitungen des Herzfrequenz-Wertes kann nicht kleiner als 1 sein.";
 
-"参数错误，常用联系人最多不能超过%d个" = "Parameterfehler, nicht mehr als %d gängige Kontakte";
-"参数错误，紧急联系人最多不能超过%d个" = "Parameterfehler, die maximale Anzahl an Notfallkontakten darf %d nicht überschreiten";
+"参数错误，联系人最多不能超过%d个" = "Parameterfehler, die maximale Anzahl an Kontakten darf %d nicht überschreiten";
 
 "空间不足" = "nicht genug Platz";
 "执行失败" = "Ausführung fehlgeschlagen";
