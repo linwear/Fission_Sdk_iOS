@@ -74,8 +74,7 @@
 "参数错误，心率提醒下限值需小于心率提醒上限值" = "Galat parameter. Batas bawah peringatan kadar jantung harus kurang dari batas atas peringatan kadar jantung";
 "参数错误，心率值连续超标次数不能小于1" = "Galat parameter. Jumlah ketinggian berturut-turut nilai frekuensi jantung tidak dapat kurang dari 1";
 
-"参数错误，常用联系人最多不能超过%d个" = "Galat parameter, tidak lebih dari %d kontak umum";
-"参数错误，紧急联系人最多不能超过%d个" = "Kesalahan parameter, jumlah maksimum kontak darurat tidak boleh melebihi %d";
+"参数错误，联系人最多不能超过%d个" = "Kesalahan parameter, jumlah maksimum kontak tidak boleh melebihi %d";
 
 "空间不足" = "tidak cukup ruang";
 "执行失败" = "Eksekusi gagal";

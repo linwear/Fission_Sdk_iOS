@@ -74,8 +74,7 @@
 "参数错误，心率提醒下限值需小于心率提醒上限值" = "Có lẽ là lỗi giới hạn thấp trong việc nhắc nhở nhịp tim phải thấp hơn mức giới hạn trên của việc nhắc nhở nhịp tim";
 "参数错误，心率值连续超标次数不能小于1" = "Lỗi Tham số. Số lần vượt qua nhịp tim liên tiếp không thể ít hơn 1";
 
-"参数错误，常用联系人最多不能超过%d个" = "Lỗi Tham số, số liên lạc chung không thể vượt qua %d";
-"参数错误，紧急联系人最多不能超过%d个" = "Lỗi tham số, số lượng liên hệ khẩn cấp tối đa không thể vượt quá %d";
+"参数错误，联系人最多不能超过%d个" = "Lỗi tham số, số lượng liên hệ tối đa không thể vượt quá %d";
 
 "空间不足" = "không đủ không gian";
 "执行失败" = "Lỗi thực hiện";

@@ -480,6 +480,28 @@ NS_ASSUME_NONNULL_BEGIN
 */
 @property (nonatomic, assign) BOOL supportVideoDial;
 
+/**
+ 🌟是否支持设置铃声｜Whether to support setting ringtones🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportSetRingtone;
+
+/**
+ 🌟支持消息提示铃声推送个数｜Supports the number of push notification ringtones🌟
+ */
+@property (nonatomic, assign) NSInteger messageRingtoneCount;
+
+/**
+ 🌟支持来电铃声推送个数｜Number of ringtones supported🌟
+ */
+@property (nonatomic, assign) NSInteger callRingtoneCount;
+
+/**
+ 🌟支持闹钟铃声推送个数｜Supported number of alarm ringtone pushes🌟
+ */
+@property (nonatomic, assign) NSInteger alarmRingtoneCount;
+
 @end
 
 NS_ASSUME_NONNULL_END

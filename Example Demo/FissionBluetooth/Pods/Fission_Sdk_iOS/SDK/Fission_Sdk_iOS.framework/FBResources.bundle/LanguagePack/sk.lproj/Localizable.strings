@@ -74,8 +74,7 @@
 "参数错误，心率提醒下限值需小于心率提醒上限值" = "Chyba parametra, dolná hranica pripomenutia srdcovej frekvencie musí byť menšia ako horná hranica pripomenutia srdcovej frekvencie.";
 "参数错误，心率值连续超标次数不能小于1" = "Chyba parametra, počet po sebe idúcich prekročení srdcovej frekvencie nemôže byť menší ako 1";
 
-"参数错误，常用联系人最多不能超过%d个" = "Chyba parametra, maximálny počet často používaných kontaktov nemôže presiahnuť %d";
-"参数错误，紧急联系人最多不能超过%d个" = "Chyba parametra, maximálny počet núdzových kontaktov nemôže prekročiť %d";
+"参数错误，联系人最多不能超过%d个" = "Chyba parametra, maximálny počet kontaktov nemôže prekročiť %d";
 
 "空间不足" = "nedostatok miesta";
 "执行失败" = "Vykonanie zlyhalo";

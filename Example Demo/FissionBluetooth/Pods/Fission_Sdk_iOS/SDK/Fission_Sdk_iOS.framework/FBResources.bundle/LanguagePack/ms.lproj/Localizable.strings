@@ -74,8 +74,7 @@
 "参数错误，心率提醒下限值需小于心率提醒上限值" = "Ralat parameter, had bawah peringatan kadar denyutan jantung mestilah kurang daripada had atas peringatan kadar denyutan jantung.";
 "参数错误，心率值连续超标次数不能小于1" = "Ralat parameter, bilangan melebihi kadar denyutan jantung berturut-turut tidak boleh kurang daripada 1";
 
-"参数错误，常用联系人最多不能超过%d个" = "Ralat parameter, bilangan maksimum kenalan yang kerap digunakan tidak boleh melebihi %d";
-"参数错误，紧急联系人最多不能超过%d个" = "Ralat parameter, bilangan maksimum kenalan kecemasan tidak boleh melebihi %d";
+"参数错误，联系人最多不能超过%d个" = "Ralat parameter, bilangan maksimum kenalan tidak boleh melebihi %d";
 
 "空间不足" = "Tidak cukup ruang";
 "执行失败" = "Pelaksanaan gagal";

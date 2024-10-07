@@ -74,8 +74,7 @@
 "参数错误，心率提醒下限值需小于心率提醒上限值" = "Parametre hatası. Kalp hızının aşağı sınırı hatırlatıcısı kalp hızının hatırlatıcısından daha az olmalı.";
 "参数错误，心率值连续超标次数不能小于1" = "Parametre hatası. Kalp hızı değerinin sayısı 1'dan az olamaz.";
 
-"参数错误，常用联系人最多不能超过%d个" = "Parametre hatası, %d ortak bağlantılardan fazla";
-"参数错误，紧急联系人最多不能超过%d个" = "Parametre hatası, maksimum acil durum iletişime geçilecek kişi sayısı %d'yi aşamaz";
+"参数错误，联系人最多不能超过%d个" = "Parametre hatası, maksimum kontak sayısı %d'yi aşamaz";
 
 "空间不足" = "yeterli alan yok";
 "执行失败" = "Execution failed";

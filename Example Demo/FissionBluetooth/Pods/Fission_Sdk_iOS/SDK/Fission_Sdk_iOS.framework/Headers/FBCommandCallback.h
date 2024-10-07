@@ -441,13 +441,13 @@ typedef void (^FBSetOtaUpgradeManagerBlock)(FB_RET_CMD status, FBProgressModel *
 typedef void (^FBMotionInterconnectionBlock)(FB_RET_CMD status, float progress, FBMotionInterconnectionModel * _Nullable responseObject, NSError * _Nullable error);
 
 /**
- *@brief 获取常用联系人信息 调用结果回调｜Get common contact information call result callback
+ *@brief 获取联系人信息 调用结果回调｜Get contact information call result callback
  *@param status                                 状态码｜Status code
  *@param progress                               当前进度0～1｜Current progress 0 ~ 1
  *@param responseObject                         常用联系人信息｜Frequently used contact information
  *@param error                                  错误信息｜Error message
  */
-typedef void (^FBGetFavoriteContactListBlock)(FB_RET_CMD status, float progress, NSArray <FBFavContactModel *> * _Nullable responseObject, NSError * _Nullable error);
+typedef void (^FBGetContactListBlock)(FB_RET_CMD status, float progress, NSArray <FBContactModel *> * _Nullable responseObject, NSError * _Nullable error);
 
 /**
  *@brief 请求获取设备日志信息 调用结果回调｜Request to get device log information Call result callback
@@ -483,7 +483,7 @@ typedef void (^FBGetScheduleInforBlock)(FB_RET_CMD status, float progress, NSArr
  *@param responseObject                         系统空间信息｜System space information
  *@param error                                  错误信息｜Error message
  */
-typedef void (^FBGetSystemSpaceInforBlock)(FB_RET_CMD status, float progress, FBSystemSpaceModel * _Nullable responseObject, NSError * _Nullable error);
+typedef void (^FBGetSystemSpaceInfoBlock)(FB_RET_CMD status, float progress, FBSystemSpaceModel * _Nullable responseObject, NSError * _Nullable error);
 
 /**
  *@brief 获取列表文件信息 调用结果回调｜Get list file information and call the result callback
@@ -492,7 +492,16 @@ typedef void (^FBGetSystemSpaceInforBlock)(FB_RET_CMD status, float progress, FB
  *@param responseObject                         列表文件信息｜List file information
  *@param error                                  错误信息｜Error message
  */
-typedef void (^FBGetListFileInforBlock)(FB_RET_CMD status, float progress, NSArray <FBListFileInforModel *> * _Nullable responseObject, NSError * _Nullable error);
+typedef void (^FBGetListFileInfoBlock)(FB_RET_CMD status, float progress, NSArray <FBListFileInfoModel *> * _Nullable responseObject, NSError * _Nullable error);
+
+/**
+ *@brief 获取当前使用的铃声信息 调用结果回调｜Get the currently used ringtone information and call the result callback
+ *@param status                                 状态码｜Status code
+ *@param progress                               当前进度0～1｜Current progress 0 ~ 1
+ *@param responseObject                         铃声信息｜Ringtone information
+ *@param error                                  错误信息｜Error message
+ */
+typedef void (^FBGetRingtoneInfoBlock)(FB_RET_CMD status, float progress, NSArray <FBRingtoneInfoModel *> * _Nullable responseObject, NSError * _Nullable error);
 
 /**
  block回调类｜Block callback class

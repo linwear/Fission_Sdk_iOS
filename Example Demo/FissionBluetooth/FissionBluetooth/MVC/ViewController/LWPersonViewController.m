@@ -323,63 +323,35 @@
 - (void)getFavContactsList {
     WeakSelf(self);
     [NSObject showLoading:LWLocalizbleString(@"Get Contacts")];
+     
+    FB_CONTACTTYPE type = self.isFav ? FB_CONTACTTYPE_FREQUENTLY : FB_CONTACTTYPE_EMERGENCY;
     
-    if (self.isFav) {
-        [FBBgCommand.sharedInstance fbGetFavoriteContactListWithBlock:^(FB_RET_CMD status, float progress, NSArray<FBFavContactModel *> * _Nullable responseObject, NSError * _Nullable error) {
+    [FBBgCommand.sharedInstance fbGetContactListWithType:type withBlock:^(FB_RET_CMD status, float progress, NSArray<FBContactModel *> * _Nullable responseObject, NSError * _Nullable error) {
+        
+        if (error) {
+            [NSObject showHUDText:[NSString stringWithFormat:@"%@", error.localizedDescription]];
+        }
+        else if (status==FB_INDATATRANSMISSION) {
+            [NSObject showProgress:progress status:[NSString stringWithFormat:@"%.0f%%", progress*100]];
+        }
+        else if (status==FB_DATATRANSMISSIONDONE) {
+            [SVProgressHUD dismiss];
             
-            if (error) {
-                [NSObject showHUDText:[NSString stringWithFormat:@"%@", error.localizedDescription]];
+            [self.dataAry removeAllObjects];
+            
+            NSMutableArray *arr = NSMutableArray.array;
+            for (FBContactModel *contactModel in responseObject) {
+                LWPersonModel *model = LWPersonModel.new;
+                model.name = contactModel.contactName;
+                model.phoneNumber = contactModel.contactNumber;
+                [arr addObject:model];
             }
-            else if (status==FB_INDATATRANSMISSION) {
-                [NSObject showProgress:progress status:[NSString stringWithFormat:@"%.0f%%", progress*100]];
-            }
-            else if (status==FB_DATATRANSMISSIONDONE) {
-                [SVProgressHUD dismiss];
-                
-                [self.dataAry removeAllObjects];
-                
-                NSMutableArray *arr = NSMutableArray.array;
-                for (FBFavContactModel *favContactModel in responseObject) {
-                    LWPersonModel *model = LWPersonModel.new;
-                    model.name = favContactModel.contactName;
-                    model.phoneNumber = favContactModel.contactNumber;
-                    [arr addObject:model];
-                }
-                
-                [self.dataAry addObjectsFromArray:arr];
-                
-                [weakSelf.tableView reloadData];
-            }
-        }];
-    }
-    else {
-        [FBBgCommand.sharedInstance fbGetEmergencyContactListWithBlock:^(FB_RET_CMD status, float progress, NSArray<FBFavContactModel *> * _Nullable responseObject, NSError * _Nullable error) {
-    
-            if (error) {
-                [NSObject showHUDText:[NSString stringWithFormat:@"%@", error.localizedDescription]];
-            }
-            else if (status==FB_INDATATRANSMISSION) {
-                [NSObject showProgress:progress status:[NSString stringWithFormat:@"%.0f%%", progress*100]];
-            }
-            else if (status==FB_DATATRANSMISSIONDONE) {
-                [SVProgressHUD dismiss];
-                
-                [self.dataAry removeAllObjects];
-                
-                NSMutableArray *arr = NSMutableArray.array;
-                for (FBFavContactModel *favContactModel in responseObject) {
-                    LWPersonModel *model = LWPersonModel.new;
-                    model.name = favContactModel.contactName;
-                    model.phoneNumber = favContactModel.contactNumber;
-                    [arr addObject:model];
-                }
-                
-                [self.dataAry addObjectsFromArray:arr];
-                
-                [weakSelf.tableView reloadData];
-            }
-        }];
-    }
+            
+            [self.dataAry addObjectsFromArray:arr];
+            
+            [weakSelf.tableView reloadData];
+        }
+    }];
 }
 
 #pragma mark - 设置手表联系人
@@ -389,50 +361,31 @@
     
     NSMutableArray *arr = NSMutableArray.array;
     for (LWPersonModel *model in array) {
-        FBFavContactModel *favContactModel = FBFavContactModel.new;
-        favContactModel.contactName = model.name;
-        favContactModel.contactNumber = model.phoneNumber;
-        [arr addObject:favContactModel];
+        FBContactModel *contactModel = FBContactModel.new;
+        contactModel.contactName = model.name;
+        contactModel.contactNumber = model.phoneNumber;
+        [arr addObject:contactModel];
     }
     
-    if (self.isFav) {
-        [FBBgCommand.sharedInstance fbSetFavoriteContactListWithModel:arr withBlock:^(NSError * _Nullable error) {
-            if (error) {
-                [NSObject showHUDText:[NSString stringWithFormat:@"%@", error.localizedDescription]];
-            } else {
-                [SVProgressHUD dismiss];
-                
-                [weakSelf.dataAry removeAllObjects];
-                [weakSelf.dataAry addObjectsFromArray:array];
-                [weakSelf.tableView reloadData];
-                
-                if (!weakSelf.isEditing) {
-                    if (!array.count) {
-                        [weakSelf defaultState];
-                    }
+    FB_CONTACTTYPE type = self.isFav ? FB_CONTACTTYPE_FREQUENTLY : FB_CONTACTTYPE_EMERGENCY;
+    
+    [FBBgCommand.sharedInstance fbSetContactListWithType:type withList:arr withBlock:^(NSError * _Nullable error) {
+        if (error) {
+            [NSObject showHUDText:[NSString stringWithFormat:@"%@", error.localizedDescription]];
+        } else {
+            [SVProgressHUD dismiss];
+            
+            [weakSelf.dataAry removeAllObjects];
+            [weakSelf.dataAry addObjectsFromArray:array];
+            [weakSelf.tableView reloadData];
+            
+            if (!weakSelf.isEditing) {
+                if (!array.count) {
+                    [weakSelf defaultState];
                 }
             }
-        }];
-    }
-    else {
-        [FBBgCommand.sharedInstance fbSetEmergencyContactListWithModel:arr withBlock:^(NSError * _Nullable error) {
-            if (error) {
-                [NSObject showHUDText:[NSString stringWithFormat:@"%@", error.localizedDescription]];
-            } else {
-                [SVProgressHUD dismiss];
-                
-                [weakSelf.dataAry removeAllObjects];
-                [weakSelf.dataAry addObjectsFromArray:array];
-                [weakSelf.tableView reloadData];
-                
-                if (!weakSelf.isEditing) {
-                    if (!array.count) {
-                        [weakSelf defaultState];
-                    }
-                }
-            }
-        }];
-    }
+        }
+    }];
 }
 
 - (void)defaultState {

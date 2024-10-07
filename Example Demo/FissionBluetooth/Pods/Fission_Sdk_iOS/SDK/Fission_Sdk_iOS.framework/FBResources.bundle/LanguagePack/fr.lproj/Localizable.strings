@@ -74,8 +74,7 @@
 "参数错误，心率提醒下限值需小于心率提醒上限值" = "Erreur de paramètre, la valeur inférieure de l'alerte de fréquence cardiaque doit être inférieure à la valeur supérieure de l'alerte de fréquence cardiaque";
 "参数错误，心率值连续超标次数不能小于1" = "Erreur de paramètre, le nombre de dépassements consécutifs de la valeur de fréquence cardiaque ne peut être inférieur à 1";
 
-"参数错误，常用联系人最多不能超过%d个" = "Erreur de paramètre, pas plus de %d favoris";
-"参数错误，紧急联系人最多不能超过%d个" = "Erreur de paramètre, le nombre maximum de contacts d'urgence ne peut pas dépasser %d";
+"参数错误，联系人最多不能超过%d个" = "Erreur de paramètre, le nombre maximum de contacts ne peut pas dépasser %d";
 
 "空间不足" = "pas assez d'espace";
 "执行失败" = "Échec de l'exécution";

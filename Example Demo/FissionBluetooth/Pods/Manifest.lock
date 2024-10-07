@@ -47,18 +47,18 @@ PODS:
   - CocoaLumberjack/Core (3.8.5)
   - CWLateralSlide (1.6.5)
   - ffmpeg-kit-ios-full (6.0)
-  - Fission_Sdk_iOS (3.2.3):
-    - Fission_Sdk_iOS/FFmpegKit (= 3.2.3)
-    - Fission_Sdk_iOS/Headers (= 3.2.3)
-    - Fission_Sdk_iOS/RTKLEFoundation (= 3.2.3)
-    - Fission_Sdk_iOS/RTKOTASDK (= 3.2.3)
-    - Fission_Sdk_iOS/SCompressLib (= 3.2.3)
-  - Fission_Sdk_iOS/FFmpegKit (3.2.3):
+  - Fission_Sdk_iOS (3.2.4):
+    - Fission_Sdk_iOS/FFmpegKit (= 3.2.4)
+    - Fission_Sdk_iOS/Headers (= 3.2.4)
+    - Fission_Sdk_iOS/RTKLEFoundation (= 3.2.4)
+    - Fission_Sdk_iOS/RTKOTASDK (= 3.2.4)
+    - Fission_Sdk_iOS/SCompressLib (= 3.2.4)
+  - Fission_Sdk_iOS/FFmpegKit (3.2.4):
     - ffmpeg-kit-ios-full (~> 6.0)
-  - Fission_Sdk_iOS/Headers (3.2.3)
-  - Fission_Sdk_iOS/RTKLEFoundation (3.2.3)
-  - Fission_Sdk_iOS/RTKOTASDK (3.2.3)
-  - Fission_Sdk_iOS/SCompressLib (3.2.3)
+  - Fission_Sdk_iOS/Headers (3.2.4)
+  - Fission_Sdk_iOS/RTKLEFoundation (3.2.4)
+  - Fission_Sdk_iOS/RTKOTASDK (3.2.4)
+  - Fission_Sdk_iOS/SCompressLib (3.2.4)
   - FSCalendar (2.8.4)
   - HJViewStyle (1.2.9)
   - IQKeyboardManager (6.5.19)
@@ -460,7 +460,7 @@ CHECKOUT OPTIONS:
     :commit: c4490ddfe0e3d333196fdd572ff8ecc6e3971242
     :git: https://github.com/AAChartModel/AAChartKit.git
   Fission_Sdk_iOS:
-    :commit: 45b1ebe2c752368c49037d62ed5295a20b268fad
+    :commit: 0e337015c722ecaf601226bf720179fe762a0b21
     :git: https://github.com/linwear/Fission_Sdk_iOS.git
 
 SPEC CHECKSUMS:
@@ -471,7 +471,7 @@ SPEC CHECKSUMS:
   CocoaLumberjack: 6a459bc897d6d80bd1b8c78482ec7ad05dffc3f0
   CWLateralSlide: 8939c8dea91a24e40d0793553118cb57cd67f64b
   ffmpeg-kit-ios-full: 0099a769d22114dde52cdc238397941c32f75d27
-  Fission_Sdk_iOS: ef91d0a9bc8194d0a08c8063fa369d2a2f742f2e
+  Fission_Sdk_iOS: 5ce3de3a9c3be801264c5d437b857514c8566587
   FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
   HJViewStyle: 0fac31e22a1254acd9a097b0919187ad99a8e949
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485

@@ -74,8 +74,7 @@
 "参数错误，心率提醒下限值需小于心率提醒上限值" = "Limita inferioară a memento-ului ritmului cardiac trebuie să fie mai mică decât limita superioară a memento-ului ritmului cardiac";
 "参数错误，心率值连续超标次数不能小于1" = "Eroare de parametru, numărul de depășiri consecutive ale valorii frecvenței cardiace nu poate fi mai mic de 1";
 
-"参数错误，常用联系人最多不能超过%d个" = "Eroare parametrică, nu mai mult de %d contacte comune";
-"参数错误，紧急联系人最多不能超过%d个" = "Eroare de parametru, numărul maxim de contacte de urgență nu poate depăși %d";
+"参数错误，联系人最多不能超过%d个" = "Eroare de parametru, numărul maxim de contacte nu poate depăși %d";
 
 "空间不足" = "spatiu insuficient";
 "执行失败" = "Executare eșuată";

@@ -508,7 +508,10 @@ typedef NS_ENUM (NSInteger, FB_OTANOTIFICATION) {
     
     FB_OTANotification_eBooks                   = 38,   //推送电子书｜Push eBooks
     FB_OTANotification_Video                    = 39,   //推送视频｜Push Video
-    FB_OTANotification_Music                    = 40,   //推送音乐｜Music
+    FB_OTANotification_Music                    = 40,   //推送音乐｜Push Music
+    FB_OTANotification_Ring_Message             = 41,   //推送消息提示音｜Push message notification tone   
+    FB_OTANotification_Ring_Call                = 42,   //推送来电铃声｜Push incoming call ringtone
+    FB_OTANotification_Ring_Alarm               = 43,   //推送闹钟铃声｜Push alarm ringtone
     
     FB_OTANotification_Multi_Dial_Built_in      = 200,  //厂线推送内置表盘压缩数据包｜The factory line pushes the built-in dial compressed data package
     FB_OTANotification_Multi_Sport_Built_in     = 201,  //厂线推送内置多运动类型压缩数据包｜The factory line pushes the built-in multi-sport type compressed data package
@@ -554,48 +557,52 @@ typedef NS_ENUM (NSInteger, FB_MULTIPLERECORDREPORTS) {
  * 功能开关状态同步｜Function switch state synchronization
  */
 typedef NS_ENUM (NSInteger, EM_FUNC_SWITCH) {
-    FS_NULL                    = 0,   //无｜Nothing
-    FS_SENSOR_GATHER           = 1,   //体征数据采集总开关状态，0关1开｜Sign data acquisition master switch status, 0 off and 1 on
-    FS_MOTOR_ENABLE            = 2,   //振动开关状态，0关1开｜Vibration switch status, 0 off, 1 on
-    FS_DONT_DISTURB_WARN       = 3,   //勿扰开关状态，0关1开｜Do not disturb switch status, 0 off and 1 on
-    FS_CLOCK_1_WARN            = 4,   //闹钟 1 的开关状态，0关1开｜Alarm 1 switch status, 0 off and 1 on
-    FS_CLOCK_2_WARN            = 5,   //闹钟 2 的开关状态，0关1开｜Alarm 2 switch status, 0 off and 1 on
-    FS_CLOCK_3_WARN            = 6,   //闹钟 3 的开关状态，0关1开｜Alarm 3 switch status, 0 off and 1 on
-    FS_CLOCK_4_WARN            = 7,   //闹钟 4 的开关状态，0关1开｜Alarm 4 switch status, 0 off and 1 on
-    FS_CLOCK_5_WARN            = 8,   //闹钟 5 的开关状态，0关1开｜Alarm 5 switch status, 0 off and 1 on
-    FS_LOWBATTERY_WARN         = 9,   //低压提醒功能开关状态，0关1开｜Low voltage reminder function switch status, 0 off and 1 on
-    FS_TARGET_DAY_WARN         = 10,  //日目标提醒检测总开关状态，0关1开｜Daily target alert detection master switch status, 0 off and 1 on
-    FS_TARGET_WEEK_WARN        = 11,  //周目标提醒检测总开关状态，0关1开｜Weekly target alert detection master switch status, 0 off and 1 on
-    FS_TARGET_SELF_WARN        = 12,  //自我鼓励目标提醒检测总开关状态，0关1开｜Self encouragement target alert detection master switch status, 0 off and 1 on
-    FS_HEARTRATE_LEVEL_WARN    = 13,  //心率超标提醒开关状态，为0关 非0开｜The heart rate exceeds the limit reminder switch status, which is 0 off and not 0 on
-    FS_WEARING_STATE_WARN      = 14,  //佩戴状态，0未佩戴1佩戴｜Wearing status, 0 not wearing, 1 wearing
-    FS_TAKEPHOTOS_WARN         = 15,  //拍照模式开关状态，0关1开｜Photo mode switch status, 0 off and 1 on
-    FS_STATEOFCHARGE_WARN      = 16,  //设备充电状态更新，0放电状态、1低压状态、2充电状态、3充满状态｜The charging state of the equipment is updated, including 0 discharge state, 1 low voltage state, 2 charging state and 3 full state
-    FS_MUSICINTERFACESTATUS    = 17,  //进入音乐界面状态｜Music interface status
-    FS_BRIGHTSCREENTIMECHANGES = 18,  //亮屏时长改变｜The duration of bright screen changes
-    FS_WRISTLIFT_WARN          = 19,  //抬腕开关状态，0关1开｜Wrist lifting switch status, 0 off and 1 on
-    FS_PERCENTAGE_BATTERY      = 20,  //当前电池电量百分比｜Current battery power percentage
-    FS_WATER_DRINKING_WARN     = 21,  //喝水提醒开关状态，0关1开｜Water drinking reminder switch status, 0 off and 1 on
-    FS_SEDENTARY_WARN          = 22,  //久坐提醒开关状态，0关1开｜Sedentary reminder switch status, 0 off and 1 on
-    FS_OTA_PERCENTAGE          = 23,  //OTA百分比｜OTA percentage
-    FS_MUTE_SWITCH             = 24,  //静音开关同步（安卓专用）｜Mute switch synchronization (Android only)
-    FS_OTA_INTERFACE_STATUS    = 25,  //手表OTA升级界面状态，1进入OTA界面，0退出OTA界面｜Watch OTA upgrade interface status, 1 enters the OTA interface, 0 exits the OTA interface
-    FS_ALARMCLOCK_CHANGENOTICE = 26,  //手表记事提醒/闹钟信息变更通知事件｜Watch reminder / alarm clock information change notification event
+    FS_NULL                     = 0,   //无｜Nothing
+    FS_SENSOR_GATHER            = 1,   //体征数据采集总开关状态，0关1开｜Sign data acquisition master switch status, 0 off and 1 on
+    FS_MOTOR_ENABLE             = 2,   //振动开关状态，0关1开｜Vibration switch status, 0 off, 1 on
+    FS_DONT_DISTURB_WARN        = 3,   //勿扰开关状态，0关1开｜Do not disturb switch status, 0 off and 1 on
+    FS_CLOCK_1_WARN             = 4,   //闹钟 1 的开关状态，0关1开｜Alarm 1 switch status, 0 off and 1 on
+    FS_CLOCK_2_WARN             = 5,   //闹钟 2 的开关状态，0关1开｜Alarm 2 switch status, 0 off and 1 on
+    FS_CLOCK_3_WARN             = 6,   //闹钟 3 的开关状态，0关1开｜Alarm 3 switch status, 0 off and 1 on
+    FS_CLOCK_4_WARN             = 7,   //闹钟 4 的开关状态，0关1开｜Alarm 4 switch status, 0 off and 1 on
+    FS_CLOCK_5_WARN             = 8,   //闹钟 5 的开关状态，0关1开｜Alarm 5 switch status, 0 off and 1 on
+    FS_LOWBATTERY_WARN          = 9,   //低压提醒功能开关状态，0关1开｜Low voltage reminder function switch status, 0 off and 1 on
+    FS_TARGET_DAY_WARN          = 10,  //日目标提醒检测总开关状态，0关1开｜Daily target alert detection master switch status, 0 off and 1 on
+    FS_TARGET_WEEK_WARN         = 11,  //周目标提醒检测总开关状态，0关1开｜Weekly target alert detection master switch status, 0 off and 1 on
+    FS_TARGET_SELF_WARN         = 12,  //自我鼓励目标提醒检测总开关状态，0关1开｜Self encouragement target alert detection master switch status, 0 off and 1 on
+    FS_HEARTRATE_LEVEL_WARN     = 13,  //心率超标提醒开关状态，为0关 非0开｜The heart rate exceeds the limit reminder switch status, which is 0 off and not 0 on
+    FS_WEARING_STATE_WARN       = 14,  //佩戴状态，0未佩戴1佩戴｜Wearing status, 0 not wearing, 1 wearing
+    FS_TAKEPHOTOS_WARN          = 15,  //拍照模式开关状态，0关1开｜Photo mode switch status, 0 off and 1 on
+    FS_STATEOFCHARGE_WARN       = 16,  //设备充电状态更新，0放电状态、1低压状态、2充电状态、3充满状态｜The charging state of the equipment is updated, including 0 discharge state, 1 low voltage state, 2 charging state and 3 full state
+    FS_MUSICINTERFACESTATUS     = 17,  //进入音乐界面状态｜Music interface status
+    FS_BRIGHTSCREENTIMECHANGES  = 18,  //亮屏时长改变｜The duration of bright screen changes
+    FS_WRISTLIFT_WARN           = 19,  //抬腕开关状态，0关1开｜Wrist lifting switch status, 0 off and 1 on
+    FS_PERCENTAGE_BATTERY       = 20,  //当前电池电量百分比｜Current battery power percentage
+    FS_WATER_DRINKING_WARN      = 21,  //喝水提醒开关状态，0关1开｜Water drinking reminder switch status, 0 off and 1 on
+    FS_SEDENTARY_WARN           = 22,  //久坐提醒开关状态，0关1开｜Sedentary reminder switch status, 0 off and 1 on
+    FS_OTA_PERCENTAGE           = 23,  //OTA百分比｜OTA percentage
+    FS_MUTE_SWITCH              = 24,  //静音开关同步（安卓专用）｜Mute switch synchronization (Android only)
+    FS_OTA_INTERFACE_STATUS     = 25,  //手表OTA升级界面状态，1进入OTA界面，0退出OTA界面｜Watch OTA upgrade interface status, 1 enters the OTA interface, 0 exits the OTA interface
+    FS_ALARMCLOCK_CHANGENOTICE  = 26,  //手表记事提醒/闹钟信息变更通知事件｜Watch reminder / alarm clock information change notification event
     
-    FS_TIMING_HR_WARN          = 28, //定时心率检测开关状态，0关1开｜Timing heart rate detection switch status, 0 off 1 on
-    FS_TIMING_SPO2_WARN        = 29, //定时血氧检测开关状态，0关1开｜Timing blood oxygen detection switch status, 0 off 1 on
-    FS_TIMING_STRESS_WARN      = 30, //定时精神压力检测开关状态，0关1开｜Timing mental stress detection switch status, 0 off 1 on
-    FS_CALLAUDIO_WARN          = 31, //通话音频开关状态，0关1开｜Call audio switch status, 0 off 1 on
-    FS_MULTIMEDIAAUDIO_WARN    = 32, //多媒体音频开关状态，0关1开｜Multimedia audio switch status, 0 off 1 on
-    FS_TIMING_BP_WARN          = 33, //定时血压检测开关状态，0关1开｜Timing blood pressure detection switch status, 0 off 1 on
-    FS_DEVICE_EXCEPTION_WARN   = 34, //设备异常信息读取请求｜Device exception information read request
-    FS_AGPS_LOCATION_REQUEST   = 35, //AGPS位置基础信息(经纬度UTC)请求｜AGPS location basic information (longitude and latitude UTC) request
-    FS_AGPS_EPHEMERIS_REQUEST  = 36, //AGPS星历数据请求｜AGPS ephemeris data request
-    FS_SCHEDULE_CHANGENOTICE   = 37, //日程信息变更通知事件｜Schedule information change notification event
-    FS_ALI_RIDE_CODE_NOTIFY    = 38, //阿里乘车码通知事件｜Ali ride code notification event
-    FS_ALIPAY_BINDING_NOTIFY   = 39, //支付宝绑定界面进出提示｜Alipay binding interface entry and exit prompts
+    FS_TIMING_HR_WARN           = 28, //定时心率检测开关状态，0关1开｜Timing heart rate detection switch status, 0 off 1 on
+    FS_TIMING_SPO2_WARN         = 29, //定时血氧检测开关状态，0关1开｜Timing blood oxygen detection switch status, 0 off 1 on
+    FS_TIMING_STRESS_WARN       = 30, //定时精神压力检测开关状态，0关1开｜Timing mental stress detection switch status, 0 off 1 on
+    FS_CALLAUDIO_WARN           = 31, //通话音频开关状态，0关1开｜Call audio switch status, 0 off 1 on
+    FS_MULTIMEDIAAUDIO_WARN     = 32, //多媒体音频开关状态，0关1开｜Multimedia audio switch status, 0 off 1 on
+    FS_TIMING_BP_WARN           = 33, //定时血压检测开关状态，0关1开｜Timing blood pressure detection switch status, 0 off 1 on
+    FS_DEVICE_EXCEPTION_WARN    = 34, //设备异常信息读取请求｜Device exception information read request
+    FS_AGPS_LOCATION_REQUEST    = 35, //AGPS位置基础信息(经纬度UTC)请求｜AGPS location basic information (longitude and latitude UTC) request
+    FS_AGPS_EPHEMERIS_REQUEST   = 36, //AGPS星历数据请求｜AGPS ephemeris data request
+    FS_SCHEDULE_CHANGENOTICE    = 37, //日程信息变更通知事件｜Schedule information change notification event
+    FS_ALI_RIDE_CODE_NOTIFY     = 38, //阿里乘车码通知事件｜Ali ride code notification event
+    FS_ALIPAY_BINDING_NOTIFY    = 39, //支付宝绑定界面进出提示｜Alipay binding interface entry and exit prompts
     
-    FS_OTHER_EXPAND            = 255  //更多功能待拓展｜More functions to be expanded
+    FS_RINGTONE_LIST_NOTICE     = 40, //铃声文件列表更新通知，0消息提示音 1来电铃声 2闹钟铃声｜Ringtone file list update notification, 0 message alert tone 1 incoming call ringtone 2 alarm ringtone
+    FS_RINGTONE_SET_NOTICE      = 41, //铃声设置更新通知，0消息提示音 1来电铃声 2闹钟铃声｜Ringtone settings update notification, 0 message alert tone 1 incoming call ringtone 2 alarm ringtone
+    FS_MULTIMEDIA_LIST_NOTIFY   = 42, //多媒体文件列表更新通知，0电子书 1视频 2音乐｜Multimedia file list update notification, 0 e-books 1 video 2 music
+    
+    FS_OTHER_EXPAND             = 255  //更多功能待拓展｜More functions to be expanded
 };
 
 #pragma mark - 温度单位｜Temperature unit
@@ -709,6 +716,15 @@ typedef NS_ENUM (NSInteger, FB_CUSTOMSETTINGSWITCHTYPE) {
     FB_SWITCH_ALL               = 0xFFFFFFFF,   //所有｜All
 };
 
+#pragma mark - 联系人类型｜Contact Type
+/*
+ * 联系人类型｜Contact Type
+ */
+typedef NS_ENUM (NSInteger, FB_CONTACTTYPE) {
+    FB_CONTACTTYPE_FREQUENTLY   = 0x00,    //常用联系人｜Frequently used contacts
+    FB_CONTACTTYPE_EMERGENCY    = 0xFF,    //紧急联系人｜Emergency Contacts
+};
+
 #pragma mark - 芯片厂商｜Chip manufacturer
 /*
  * 芯片厂商｜Chip manufacturer
@@ -738,6 +754,31 @@ typedef NS_ENUM (NSInteger, FB_VIDEOCONTENTMODE) {
     FB_VIDEOCONTENTMODE_SCALETOFILL,      //类似UIViewContentModeScaleToFill｜Similar to UIViewContentModeScaleToFill
     FB_VIDEOCONTENTMODE_SCALEASPECTFILL,  //类似UIViewContentModeScaleAspectFill｜Similar to UIViewContentModeScaleAspectFill
     FB_VIDEOCONTENTMODE_SCALETORECT,      //指向裁剪矩形范围，如果RECT宽高比不同于设备，则最终会类似SCALETOFILL效果｜Points to the cropping rectangle. If the RECT aspect ratio is different from the device, the final effect will be similar to SCALETOFILL
+};
+
+#pragma mark - 列表文件类型｜List file types
+/*
+ * 列表文件类型｜List file types
+ */
+typedef NS_ENUM (NSInteger, FB_LISTFILEINFORTYPE) {
+    FB_LISTFILEINFORTYPE_DIAL           = 1,    //表盘｜Dial
+    FB_LISTFILEINFORTYPE_JSAPP          = 2,    //JS应用｜JS APP
+    FB_LISTFILEINFORTYPE_MUSIC          = 3,    //音乐｜Music
+    FB_LISTFILEINFORTYPE_VIDEO          = 4,    //视频｜Video
+    FB_LISTFILEINFORTYPE_EBOOK          = 5,    //电子书｜eBook
+    FB_LISTFILEINFORTYPE_RING_MESSAGE   = 6,    //消息提示音｜Message alert tone    
+    FB_LISTFILEINFORTYPE_RING_CALL      = 7,    //来电铃声｜Incoming call ringtone
+    FB_LISTFILEINFORTYPE_RING_ALARM     = 8,    //闹钟铃声｜Alarm ringtone
+};
+
+#pragma mark - 铃声类型｜Ringtone types
+/*
+ * 铃声类型｜Ringtone types
+ */
+typedef NS_ENUM (NSInteger, FB_RINGTONETYPE) {
+    FB_RINGTONETYPE_MESSAGE   = 0,     //消息提示音｜Message alert tone
+    FB_RINGTONETYPE_CALL      = 1,     //来电铃声｜Incoming call ringtone
+    FB_RINGTONETYPE_ALARM     = 10,    //闹钟铃声｜Alarm ringtone
 };
 
 #endif /* FBMacro_h */

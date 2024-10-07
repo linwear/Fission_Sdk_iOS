@@ -74,8 +74,7 @@
 "参数错误，心率提醒下限值需小于心率提醒上限值" = "Błąd parametru. Dolna granica przypomnienia o tętnie musi być mniejsza niż górna granica przypomnienia o tętnie serca";
 "参数错误，心率值连续超标次数不能小于1" = "Parametryczny błąd. Liczba kolejnych przekroczeń wartości tętna nie może być mniejsza niż 1";
 
-"参数错误，常用联系人最多不能超过%d个" = "Błąd parametrów, nie więcej niż %d wspólnych kontaktów";
-"参数错误，紧急联系人最多不能超过%d个" = "Błąd parametru, maksymalna liczba kontaktów alarmowych nie może przekroczyć %d";
+"参数错误，联系人最多不能超过%d个" = "Błąd parametru, maksymalna liczba kontaktów nie może przekroczyć %d";
 
 "空间不足" = "niewystarczająco miejsca";
 "执行失败" = "Błąd wykonania";

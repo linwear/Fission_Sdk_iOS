@@ -61,8 +61,8 @@
 //@property (nonatomic, strong) FBAudioRecorder *audioRecorder;先注释掉
 @property (nonatomic, strong) AVPlayer *player;//播放实例
 
-@property (nonatomic, strong) NSArray <FBListFileInforModel *> *dialListFileInfor;
-@property (nonatomic, strong) NSArray <FBListFileInforModel *> *jsAppListFileInfor;
+@property (nonatomic, strong) NSArray <FBListFileInfoModel *> *dialListFileInfor;
+@property (nonatomic, strong) NSArray <FBListFileInfoModel *> *jsAppListFileInfor;
 
 @end
 
@@ -1915,7 +1915,7 @@
         }
 
         else if ([rowStr containsString:LWLocalizbleString(@"Get system space usage information")]) {
-            [FBBgCommand.sharedInstance fbGetSystemSpaceUsageInforWithBlock:^(FB_RET_CMD status, float progress, FBSystemSpaceModel * _Nullable responseObject, NSError * _Nullable error) {
+            [FBBgCommand.sharedInstance fbGetSystemSpaceUsageInfoWithBlock:^(FB_RET_CMD status, float progress, FBSystemSpaceModel * _Nullable responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
                 }
@@ -1929,7 +1929,7 @@
         }
         
         else if ([rowStr containsString:LWLocalizbleString(@"Get dial list file information")]) {
-            [FBBgCommand.sharedInstance fbGetDialListFileInforWithBlock:^(FB_RET_CMD status, float progress, NSArray<FBListFileInforModel *> * _Nullable responseObject, NSError * _Nullable error) {
+            [FBBgCommand.sharedInstance fbGetListFileInfoWithType:FB_LISTFILEINFORTYPE_DIAL withBlock:^(FB_RET_CMD status, float progress, NSArray<FBListFileInfoModel *> * _Nullable responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
                 }
@@ -1938,7 +1938,7 @@
                 }
                 else if (status==FB_DATATRANSMISSIONDONE) {
                     NSMutableArray *array = NSMutableArray.array;
-                    for (FBListFileInforModel *model in responseObject) {
+                    for (FBListFileInfoModel *model in responseObject) {
                         [array addObject:model.mj_keyValues];
                     }
                     weakSelf.receTextView.text = [NSString stringWithFormat:@"%@", array];
@@ -1948,7 +1948,7 @@
         }
         
         else if ([rowStr containsString:LWLocalizbleString(@"Delete dial list file information")]) {
-            [FBBgCommand.sharedInstance fbDeleteDialListFileInfor:self.dialListFileInfor withBlock:^(NSError * _Nullable error) {
+            [FBBgCommand.sharedInstance fbDeleteListFileInfoWithType:FB_LISTFILEINFORTYPE_DIAL withList:self.dialListFileInfor withBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
                 } else {
@@ -1958,7 +1958,7 @@
         }
         
         else if ([rowStr containsString:LWLocalizbleString(@"Get JS application list file information")]) {
-            [FBBgCommand.sharedInstance fbGetJsAppListFileInforWithBlock:^(FB_RET_CMD status, float progress, NSArray<FBListFileInforModel *> * _Nullable responseObject, NSError * _Nullable error) {
+            [FBBgCommand.sharedInstance fbGetListFileInfoWithType:FB_LISTFILEINFORTYPE_JSAPP withBlock:^(FB_RET_CMD status, float progress, NSArray<FBListFileInfoModel *> * _Nullable responseObject, NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
                 }
@@ -1967,7 +1967,7 @@
                 }
                 else if (status==FB_DATATRANSMISSIONDONE) {
                     NSMutableArray *array = NSMutableArray.array;
-                    for (FBListFileInforModel *model in responseObject) {
+                    for (FBListFileInfoModel *model in responseObject) {
                         [array addObject:model.mj_keyValues];
                     }
                     weakSelf.receTextView.text = [NSString stringWithFormat:@"%@", array];
@@ -1977,7 +1977,7 @@
         }
         
         else if ([rowStr containsString:LWLocalizbleString(@"Delete JS application list file information")]) {
-            [FBBgCommand.sharedInstance fbDeleteJsAppListFileInfor:self.jsAppListFileInfor withBlock:^(NSError * _Nullable error) {
+            [FBBgCommand.sharedInstance fbDeleteListFileInfoWithType:FB_LISTFILEINFORTYPE_JSAPP withList:self.jsAppListFileInfor withBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
                 } else {

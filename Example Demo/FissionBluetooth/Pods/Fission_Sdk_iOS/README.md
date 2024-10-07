@@ -3,7 +3,7 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Release-3.2.3 -Green.svg">
+    <img src="https://img.shields.io/badge/Release-3.2.4 -Green.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/Support-iOS12.1+ -blue.svg">
@@ -151,6 +151,15 @@ Privacy - Microphone Usage Description
 | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
 
+     project    2024-09-30  Version:3.2.4 Build:20240930001
+                            1.新增推送消息提示铃声、来电铃声、闹钟铃声（仅部分手表支持: 支持铃声推送个数）
+                            2.修改"获取列表文件信息"协议（FBBgCommand）fbGetListFileInfoWithType:withBlock:
+                            3.修改"删除列表文件信息"协议（FBBgCommand）fbDeleteListFileInfoWithType:withList:withBlock:
+                            4.新增"获取当前使用的铃声信息"协议（FBBgCommand）fbGetCurrentRingtoneInfoWithBlock:
+                            5.新增"设置当前使用的铃声信息"协议（FBBgCommand）fbSetCurrentRingtoneInfoWithList:withBlock:
+                            6."功能开关状态同步"协议支持的类型更新
+                            7.其他已知问题优化
+     
      project    2024-09-20  Version:3.2.3 Build:20240920001
                             1.新增推送电子书、视频、音频（仅部分手表支持: 支持多媒体空间）
                             2.新增"获取电子书列表文件信息"协议（FBBgCommand）fbGetEBookListFileInforWithBlock:
