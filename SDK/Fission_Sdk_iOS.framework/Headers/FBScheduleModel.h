@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 
-#pragma mark 当 FB_ALARMCATEGORY==FB_Reminders 时，为备忘提醒，以下值，必传｜When FB_ ALARMCATEGORY==FB_Reminders, for reminders, the following values must be passed
+#pragma mark - 当 FB_ALARMCATEGORY==FB_Reminders 时，为备忘提醒，以下值，必传｜When FB_ ALARMCATEGORY==FB_Reminders, for reminders, the following values must be passed
 /**
  备忘提醒年月日小时分钟，时间戳（当闹铃类别为FB_Reminders:备忘提醒，必传；为FB_AlarmClock:定时闹钟可不传）｜Reminder year, month, day, hour, minute, timestamp (when the alarm category is FB_Reminders: reminder reminder, it must be sent; if it is FB_AlarmClock: scheduled alarm clock, it does not need to be sent)
 */
@@ -75,7 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
-#pragma mark 当 FB_ALARMCATEGORY==FB_AlarmClock 时，为定时闹钟，以下值，必传｜When FB_ ALARMCATEGORY==FB_AlarmClock, for alarm clock, the following values must be passed
+#pragma mark - 当 FB_ALARMCATEGORY==FB_AlarmClock 时，为定时闹钟，以下值，必传｜When FB_ ALARMCATEGORY==FB_AlarmClock, for alarm clock, the following values must be passed
 /**
  重复性，YES:周期有效，NO:一次有效｜Repeatability, YES: cycle effective, NO: once effective
 */

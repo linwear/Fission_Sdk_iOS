@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FBAlarmClockModel : NSObject
 
 
-#pragma mark 以下值，通用，必传｜The following values, general, must be passed
+#pragma mark - 以下值，通用，必传｜The following values, general, must be passed
 /**
  序号ID（0，1，2，3 ...）｜Sequence ID (0, 1, 2, 3...)
 */
@@ -42,14 +42,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *clockDescribe;
 
 
-#pragma mark 当 FB_ALARMCATEGORY==FB_Reminders 时，为备忘提醒，以下值，必传｜When FB_ ALARMCATEGORY==FB_Reminders, for reminders, the following values must be passed
+#pragma mark - 当 FB_ALARMCATEGORY==FB_Reminders 时，为备忘提醒，以下值，必传｜When FB_ ALARMCATEGORY==FB_Reminders, for reminders, the following values must be passed
 /**
  年月日小时分钟，格式：YYYY-MM-dd HH:mm（当闹铃类别为FB_Reminders:备忘提醒，必传；为FB_AlarmClock:定时闹钟可不传）｜Month, year, day, hour and minute, format: YYYY-MM-dd HH:mm (When the alarm type is FB_Reminders: reminder, it must be sent; when it is FB_AlarmClock: fixed time alarm, it can not be sent)
 */
 @property (nonatomic, copy) NSString *clockYMDHm;
 
 
-#pragma mark 当 FB_ALARMCATEGORY==FB_AlarmClock 时，为定时闹钟，以下值，必传｜When FB_ ALARMCATEGORY==FB_AlarmClock, for alarm clock, the following values must be passed
+#pragma mark - 当 FB_ALARMCATEGORY==FB_AlarmClock 时，为定时闹钟，以下值，必传｜When FB_ ALARMCATEGORY==FB_AlarmClock, for alarm clock, the following values must be passed
 /**
  重复性，YES:周期有效，NO:一次有效｜Repeatability, YES: cycle effective, NO: once effective
 */

@@ -565,6 +565,15 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)fbResetMACaddressWithBlock:(FBResultCallBackBlock _Nonnull)fbBlock API_DEPRECATED("For internal testing only, please do not use for other purposes", macos(2.0, 2.0), ios(2.0, 2.0), tvos(2.0, 2.0), watchos(2.0, 2.0));
 
 
+#pragma mark - 向设备反馈日志读取进度 (仅供内部使用)｜Feedback log reading progress to the device (Internal use only)
+/**
+ 向设备反馈日志读取进度 (仅供内部使用)｜Feedback log reading progress to the device (Internal use only)
+ @param totalCount      将要读取日志的总个数｜The total number of logs to be read
+ @param currentIndex    当前读取日志的索引，起始1｜The index of the current log to be read, starting from 1
+ */
+- (void)fbReadingWithTotalCount:(int)totalCount withCurrentIndex:(int)currentIndex withBlock:(FBResultCallBackBlock _Nonnull)fbBlock API_DEPRECATED("Internal use only", macos(2.0, 2.0), ios(2.0, 2.0), tvos(2.0, 2.0), watchos(2.0, 2.0));
+
+
 @end
 
 NS_ASSUME_NONNULL_END

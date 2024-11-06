@@ -506,6 +506,9 @@ typedef NS_ENUM (NSInteger, FB_OTANOTIFICATION) {
     
     FB_OTANotification_JS_App                   = 32,   //推送JS应用｜Push JS application
     
+    FB_OTANotification_Read_Logs                = 34,   //读取设备端日志文件｜Read device log files
+    FB_OTANotification_Read_Logs_Finish         = 35,   //设备端日志文件读取完毕｜The device log file has been read.
+    
     FB_OTANotification_eBooks                   = 38,   //推送电子书｜Push eBooks
     FB_OTANotification_Video                    = 39,   //推送视频｜Push Video
     FB_OTANotification_Music                    = 40,   //推送音乐｜Push Music

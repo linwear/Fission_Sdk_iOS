@@ -502,6 +502,20 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) NSInteger alarmRingtoneCount;
 
+/**
+ 🌟是否支持读取系统日志｜Whether to support reading system logs🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportReadingSystemLog;
+
+/**
+ 🌟是否支持星历文件合成包｜Whether to support ephemeris file synthesis package🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportEphemerisSynthesisPackage;
+
 @end
 
 NS_ASSUME_NONNULL_END

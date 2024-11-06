@@ -502,14 +502,22 @@ NS_ASSUME_NONNULL_BEGIN
  
  @note 该方法用于获取设备意外重启信息，供固件分析问题｜This method is used to obtain the unexpected restart information of the device for the firmware to analyze the problem
 */
-- (void)fbReadOffChipFlashWithHardfault:(BOOL)hardfault withBlock:(FBRequestDeviceLogsBlock _Nonnull)fbBlock;
+- (void)fbReadOffChipFlashWithHardfault:(BOOL)hardfault withBlock:(FBRequestDeviceLogsPathBlock _Nonnull)fbBlock;
 
 
 #pragma mark - 请求获取设备日志（埋点数据，读取 OTA 缓存数据，总共 60K）｜Request device logs (Buried point data, read OTA cache data, a total of 60K)
 /**
  请求获取设备日志（埋点数据，读取 OTA 缓存数据，总共 60K）｜Request device logs (Buried point data, read OTA cache data, a total of 60K)
 */
-- (void)fbRequestDeviceLogsWithBlock:(FBRequestDeviceLogsBlock _Nonnull)fbBlock;
+- (void)fbRequestDeviceLogsWithBlock:(FBRequestDeviceLogsPathBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 读取指定路径下的某个文件数据｜Read data from a file in the specified path
+/**
+ 读取指定路径下的某个文件数据｜Read data from a file in the specified path
+ @param paths                指定的文件路径数组｜TArray of specified file paths
+*/
+- (void)fbReadDataFileWithPaths:(NSArray <NSString *> * _Nonnull)paths withBlock:(FBRequestDeviceLogsPathArrayBlock _Nonnull)fbBlock;
 
 
 #pragma mark - 获取系统功能开关信息｜Get system function switch information
