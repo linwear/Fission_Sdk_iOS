@@ -3,7 +3,7 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Release-3.2.4 -Green.svg">
+    <img src="https://img.shields.io/badge/Release-3.2.5 -Green.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/Support-iOS12.1+ -blue.svg">
@@ -150,6 +150,14 @@ Privacy - Microphone Usage Description
 | Public Header Files  |
 | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
+
+     project    2024-11-06  Version:3.2.5 Build:20241106001
+                            1.新增"读取指定路径下的某个文件数据"协议（FBBgCommand）fbReadDataFileWithPaths:withBlock:
+                            2.FBFirmwareVersionObject 新增标志位:
+                                是否支持读取系统日志
+                                是否支持星历文件合成包
+                            3.修复已知的概率crash问题
+                            4.其他已知问题优化
 
      project    2024-09-30  Version:3.2.4 Build:20240930001
                             1.新增推送消息提示铃声、来电铃声、闹钟铃声（仅部分手表支持: 支持铃声推送个数）
