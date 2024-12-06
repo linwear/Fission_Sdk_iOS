@@ -25,11 +25,7 @@ Pod::Spec.new do |spec|
   end
 
   spec.subspec 'AllDependencys' do |allDependency|
-    allDependency.vendored_frameworks     = 'SDK/RTKLEFoundation.xcframework'
-    allDependency.vendored_frameworks     = 'SDK/RTKRealChatConnection.xcframework'
-    allDependency.vendored_frameworks     = 'SDK/RTKAudioStreaming.xcframework'
-    allDependency.vendored_frameworks     = 'SDK/SCompressLib.framework'
-    allDependency.vendored_frameworks     = 'SDK/RTKOTASDK.xcframework'
+    allDependency.vendored_frameworks     = 'SDK/RTKOTASDK.xcframework', 'SDK/RTKLEFoundation.xcframework', 'SDK/RTKRealChatConnection.xcframework', 'SDK/RTKAudioStreaming.xcframework', 'SDK/SCompressLib.framework'
     allDependency.dependency                'ffmpeg-kit-ios-full'
   end
 
