@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
   spec.license                  = 'MIT'
   spec.author                   = { "WSR" => "921903719@qq.com" }
   spec.social_media_url         = 'https://www.linwear.com'
-  spec.platform                 = :ios, '12.1'
+  spec.platform                 = :ios, '13.0'
   spec.source                   = { :git => "https://github.com/linwear/Fission_Sdk_iOS.git", :tag => spec.version.to_s }
   spec.documentation_url        = 'https://github.com/linwear/Fission_Sdk_iOS/blob/main/README.md'
   spec.requires_arc             = true
@@ -24,20 +24,13 @@ Pod::Spec.new do |spec|
     spec.public_header_files    = public_header_files
   end
 
-  spec.subspec 'RTKOTASDK' do |rtkota|
-    rtkota.vendored_frameworks        = 'SDK/RTKOTASDK.framework'
-  end
-
-  spec.subspec 'RTKLEFoundation' do |rtkle|
-    rtkle.vendored_frameworks         = 'SDK/RTKLEFoundation.framework'
-  end
-
-  spec.subspec 'SCompressLib' do |scompress|
-    scompress.vendored_frameworks     = 'SDK/SCompressLib.framework'
-  end
-
-  spec.subspec 'FFmpegKit' do |ffmpeg|
-    ffmpeg.dependency                   'ffmpeg-kit-ios-full', '~> 6.0' #处理视频(最低系统版本要求 12.1)
+  spec.subspec 'Dependents' do |dependent|
+    dependent.vendored_frameworks     = 'SDK/RTKOTASDK.xcframework'
+    dependent.vendored_frameworks     = 'SDK/RTKLEFoundation.xcframework'
+    dependent.vendored_frameworks     = 'SDK/RTKRealChatConnection.xcframework'
+    dependent.vendored_frameworks     = 'SDK/RTKAudioStreaming.xcframework'
+    dependent.vendored_frameworks     = 'SDK/SCompressLib.framework'
+    dependent.dependency                'ffmpeg-kit-ios-full'
   end
 
   spec.pod_target_xcconfig      = { 
