@@ -2,6 +2,16 @@
 
 This is in reverse chronological order, so newer entries are added to the top.
 
+## v1.12.1
+
+### Fixed
+
+- Crash in RTKActionAttempt when an out of order dispatch occurs
+
+### Updated
+
+- Optimize the data sending mechanism
+
 
 ## v1.12.0
 
