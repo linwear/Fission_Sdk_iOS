@@ -1,0 +1,11 @@
+framework module RTKAudioStreaming {
+  umbrella header "RTKAudioStreaming.h"
+  export *
+
+  module * { export * }
+}
+
+module RTKAudioStreaming.Swift {
+  header "RTKAudioStreaming-Swift.h"
+  requires objc
+}
