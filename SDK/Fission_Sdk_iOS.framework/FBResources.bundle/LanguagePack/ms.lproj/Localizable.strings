@@ -20,7 +20,7 @@
 "参数错误，UTC时间设置不能为0" = "Ralat parameter, tetapan masa UTC tidak boleh 0";
 "参数错误，时区设置需大于等于-1440，小于等于+1440" = "Ralat parameter, tetapan zon waktu mestilah lebih besar daripada atau sama dengan -1440, kurang daripada atau sama dengan +1440";
 "数据长度错误" = "Ralat panjang data";
-"设备初始化失败，初始化超时" = "Permulaan peranti gagal, permulaan tamat masa";
+"设备连接超时" = "Tamat masa sambungan peranti";
 "数据写入失败" = "Penulisan data gagal";
 
 "执行失败，低压无法执行" = "Pelaksanaan gagal, tidak dapat dilaksanakan kerana tekanan rendah";

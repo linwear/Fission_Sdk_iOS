@@ -10,6 +10,12 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FBBaiduCloudKit : NSObject
+/// 初始化单例
++ (FBBaiduCloudKit *)sharedInstance;
+/// 兼容固件bug，该值真实反馈是否支持JSI通道
+@property (nonatomic, assign) BOOL allowUsingJSI;
+/// 是否使用新的JSI通道，该值真实反馈是否走JSI通道进行数传
+@property (nonatomic, assign) BOOL usingJSI;
 
 /**
  请求打开JS百度导航应用｜Request to open JS Baidu navigation application
@@ -39,7 +45,15 @@ NS_ASSUME_NONNULL_BEGIN
  @param     answer      回答内容｜Answer content
  @param     callback    结果回调｜Result callback
  */
-+ (void)requestSyncJsERNIE_BoWithAnswer:(NSString * _Nonnull)answer callback:(void(^)(NSError * _Nullable error))callback;
++ (void)requestSyncJsERNIE_BoWithAnswerText:(NSString * _Nonnull)answer callback:(void(^)(NSError * _Nullable error))callback;
+
+
+/**
+ 请求同步AI表盘生成状态｜Request to synchronize AI watch face generation status
+ @param     success     成功YES，失败NO｜Success Yes, Failure No
+ @param     callback    结果回调｜Result callback
+ */
++ (void)requestSyncJsAiDialWithStatus:(BOOL)success callback:(void(^)(NSError * _Nullable error))callback;
 
 
 /**
@@ -58,6 +72,12 @@ NS_ASSUME_NONNULL_BEGIN
  设备录音结束回调｜Device recording ends callback
  */
 + (void)deviceRecordingEndsWithCallback:(void(^)(FB_ENDRECORDINGTYPE endType))callback;
+
+
+/**
+ 设备动作类型回调｜Device action type callback
+ */
++ (void)deviceActionTypeWithCallback:(void(^)(FB_DEVICEACTIONTYPE actionType))callback;
 
 @end
 

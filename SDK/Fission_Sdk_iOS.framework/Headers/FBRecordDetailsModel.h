@@ -82,7 +82,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger heartRate;
 
 /**
- 记录格式定义｜Record Format Definition
+ 记录格式定义
+ 
+ RecordType == FB_SportsRecord -->>
+ 0:实时体力、运动状态值有效，1:公里、英里用时值有效｜Record format definition, 0: real-time physical strength and exercise status values ​​are valid, 1: kilometer and mile time values ​​are valid
+ 
+ RecordType == FB_MotionGpsRecord -->>
+ 0:经纬度是单精度，1:经纬度是双精度｜0: longitude and latitude are single precision, 1: longitude and latitude are double precision
 */
 @property (nonatomic, assign) NSInteger recordDefinition;
 
@@ -108,10 +114,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - 当 FB_RECORDTYPE为FB_MotionGpsRecord 时（运动定位记录），以下值有效｜When FB_RECORDTYPE is FB_MotionGpsRecord (motion positioning record), the following values are valid
 /** 经度 (WGS-84)｜Longitude (WGS-84) */
-@property (nonatomic) float longitude;
+@property (nonatomic) double longitude;
 
 /** 纬度 (WGS-84)｜Latitude (WGS-84) */
-@property (nonatomic) float latitude;
+@property (nonatomic) double latitude;
 
 /** GPS 速度（米/秒）｜GPS speed (M / s) */
 @property (nonatomic, assign) NSInteger speed;

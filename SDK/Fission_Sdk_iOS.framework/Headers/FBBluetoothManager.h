@@ -38,8 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** 断开是否自动重连，默认YES｜Is the disconnection automatically reconnected,Default YES  */
 @property (nonatomic, assign) BOOL isAutoReconnect;
 
-/** 连接设备初始化超时时间（单位秒），至少15，默认15｜The initialization timeout of the connected device (in seconds), at least 15, the default is 15 */
-@property (nonatomic, assign) uint8_t readyTimedOut;
+/** 连接设备、初始化超时时间（单位秒），至少90，默认90｜The timeout for connecting to the device and initializing it (in seconds) is at least 90 seconds, and the default value is 90 seconds. */
+@property (nonatomic, assign) uint8_t connect_readyTimedOut;
 
 /** at指令、bg指令响应超时（单位秒），至少10，默认10｜at command, bg command response timeout (in seconds), at least 10, default 10 */
 @property (nonatomic, assign) uint8_t sendTimerOut;

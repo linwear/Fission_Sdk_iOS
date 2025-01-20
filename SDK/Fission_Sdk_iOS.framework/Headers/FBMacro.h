@@ -605,6 +605,9 @@ typedef NS_ENUM (NSInteger, EM_FUNC_SWITCH) {
     FS_RINGTONE_SET_NOTICE      = 41, //铃声设置更新通知，0消息提示音 1来电铃声 2闹钟铃声｜Ringtone settings update notification, 0 message alert tone 1 incoming call ringtone 2 alarm ringtone
     FS_MULTIMEDIA_LIST_NOTIFY   = 42, //多媒体文件列表更新通知，0电子书 1视频 2音乐｜Multimedia file list update notification, 0 e-books 1 video 2 music
     
+    FS_OFFLINEVOICE_AUTH_NOTIFY = 48, //离线语音授权码请求｜Offline voice authorization code request
+    FS_OFFLINEVOICE_WARN_NOTIFY = 49, //离线语音开关状态更新，0关1开｜Offline voice switch status update, 0 off 1 on
+    
     FS_OTHER_EXPAND             = 255  //更多功能待拓展｜More functions to be expanded
 };
 
@@ -749,6 +752,18 @@ typedef NS_ENUM (NSInteger, FB_ENDRECORDINGTYPE) {
     FB_ENDRECORDINGTYPE_MAP,        //地图｜Map
 };
 
+#pragma mark - 设备动作类型｜Device action type
+/*
+ * 设备动作类型｜Device action type
+ */
+typedef NS_ENUM (NSInteger, FB_DEVICEACTIONTYPE) {
+    FB_DEVICEACTIONTYPE_CHECK,       //状态检查｜Status Check
+    FB_DEVICEACTIONTYPE_CONFIRM,     //确认问题｜Confirm the question
+    FB_DEVICEACTIONTYPE_END,         //结束问答｜End of Q&A
+    FB_DEVICEACTIONTYPE_ENTER,       //进入应用｜Enter the app
+    FB_DEVICEACTIONTYPE_EXIT,        //退出应用｜Exit the app
+};
+
 #pragma mark - 视频内容模式｜Video content mode
 /*
  * 视频内容模式｜Video content mode
@@ -782,6 +797,15 @@ typedef NS_ENUM (NSInteger, FB_RINGTONETYPE) {
     FB_RINGTONETYPE_MESSAGE   = 0,     //消息提示音｜Message alert tone
     FB_RINGTONETYPE_CALL      = 1,     //来电铃声｜Incoming call ringtone
     FB_RINGTONETYPE_ALARM     = 10,    //闹钟铃声｜Alarm ringtone
+};
+
+#pragma mark - 授权码类型｜Authorization code type
+/*
+ * 授权码类型｜Authorization code type
+ */
+typedef NS_ENUM (NSInteger, FB_AUTHCODETYPE) {
+    FB_AUTHCODETYPE_OFFLINEVOICE   = 1,     //离线语音授权码｜Offline voice authorization code
+    // 更多... 待拓展｜More... To be expanded
 };
 
 #endif /* FBMacro_h */

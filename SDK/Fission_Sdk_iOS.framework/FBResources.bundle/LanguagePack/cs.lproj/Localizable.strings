@@ -20,7 +20,7 @@
 "参数错误，UTC时间设置不能为0" = "Chyba parametru, čas UTC nelze nastavit na 0";
 "参数错误，时区设置需大于等于-1440，小于等于+1440" = "Chyba parametru, nastavení časových zón musí být větší nebo stejné než -1440, menší než nebo rovnající se +1440";
 "数据长度错误" = "Chyba délky dat";
-"设备初始化失败，初始化超时" = "Inicializace zařízení selhala, timeout inicializace";
+"设备连接超时" = "Vypršel časový limit připojení zařízení";
 "数据写入失败" = "Zápis dat se nezdařil";
 
 "执行失败，低压无法执行" = "Provedení selhalo, nelze provést";

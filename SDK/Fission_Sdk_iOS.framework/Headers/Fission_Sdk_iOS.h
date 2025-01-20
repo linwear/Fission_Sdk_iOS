@@ -14,6 +14,34 @@
                               Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装。
   GitHub @link https://github.com/linwear/Fission_Sdk_iOS.git
   修改记录｜Modification Record:
+     project    2025-01-17  Version:3.2.6 Build:20250117001
+                            1.⚠️Fission_Sdk_iOS.framework最低系统版本要求 iOS13.0及以上
+                            2.FBFirmwareVersionObject 新增标志位:
+                                是否支持音量增益补偿
+                                是否支持JSI通道
+                                NandFlashID
+                                NorFlashID
+                                是否支持离线语音
+                            3.新增"设置音量增益补偿"协议（FBAtCommand）fbSetVolumeGainData:withBlock:
+                            4.星历文件支持合成包同步
+                            5.支持双精度经纬度
+                            6.支持瑞昱8773 Chat/AI功能
+                            7.修复视频转码失败问题
+                            8.新增"GPS运动参数设定 (兼容运动定位记录数据双精度)"（FBAtCommand）fbSettingsGPSSportsParameterWithBlock:
+                            9.新增兼容固件bug，该值真实反馈是否支持JSI通道（FBBaiduCloudKit.sharedInstance.allowUsingJSI）YES支持
+                            10.新增是否使用新的JSI通道，该值真实反馈是否走JSI通道进行数传（FBBaiduCloudKit.sharedInstance.usingJSI）YES使用JSI通道
+                            11.新增"设置设备授权码"协议（FBBgCommand）fbSetDeviceAuthCodeWithList:withBlock:
+                            12.新增"获取离线语音唤醒开关状态以及授权状态"协议（FBAtCommand）fbGetOfflineVoiceAllStatusWithBlock:
+                            13.新增"设置离线语音唤醒开关状态"协议（FBAtCommand）fbSetOfflineVoiceData:withBlock:
+                            14.新增"设置手电筒开关状态"协议（FBAtCommand）fbSetFlashlightData:withBlock:
+                            15.变更"恢复出厂设置"协议（FBAtCommand）fbUpResetDeviceDataWithShutdown::withBlock:
+                            16.EM_FUNC_SWITCH 新增类型:
+                                FS_OFFLINEVOICE_AUTH_NOTIFY(48)
+                                FS_OFFLINEVOICE_WARN_NOTIFY(49)
+                            17.修复已知自定义表盘问题
+                            18.优化连接超时问题
+                            19.优化数据解析
+ 
      project    2024-11-06  Version:3.2.5 Build:20241106001
                             1.新增"读取指定路径下的某个文件数据"协议（FBBgCommand）fbReadDataFileWithPaths:withBlock:
                             2.FBFirmwareVersionObject 新增标志位:
@@ -367,6 +395,7 @@ FOUNDATION_EXPORT const unsigned char Fission_Sdk_iOSVersionString[];
 #import <Fission_Sdk_iOS/FBRingtoneInfoModel.h>
 #import <Fission_Sdk_iOS/FBBaiduNaviModel.h>
 #import <Fission_Sdk_iOS/FBReqHistoryModel.h>
+#import <Fission_Sdk_iOS/FBDeviceAuthCodeModel.h>
 
 /** 蓝牙管理器｜Bluetooth manager */
 #import <Fission_Sdk_iOS/FBCommandCallback.h>
@@ -379,5 +408,6 @@ FOUNDATION_EXPORT const unsigned char Fission_Sdk_iOSVersionString[];
 #import <Fission_Sdk_iOS/FBBluetoothOTA.h>
 /** 生成自定义bin数据工具类｜Generate custom bin data tool class */
 #import <Fission_Sdk_iOS/FBCustomDataTools.h>
+#import <Fission_Sdk_iOS/NSObject+FBSwiftLogOutput.h>
 /** 百度相关功能工具类｜Baidu related functional tools */
 #import <Fission_Sdk_iOS/FBBaiduCloudKit.h>

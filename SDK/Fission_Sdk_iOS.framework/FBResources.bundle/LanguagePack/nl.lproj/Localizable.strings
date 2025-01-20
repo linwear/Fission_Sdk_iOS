@@ -20,7 +20,7 @@
 "参数错误，UTC时间设置不能为0" = "Parameter fout, UTC tijd kan niet worden ingesteld op 0";
 "参数错误，时区设置需大于等于-1440，小于等于+1440" = "Parameter fout, tijdzone instelling moet groter of gelijk zijn aan -1440 en minder dan of gelijk aan +1440";
 "数据长度错误" = "Fout in gegevenslengte";
-"设备初始化失败，初始化超时" = "Initialisatie van het apparaat mislukt, initialisatie time-out";
+"设备连接超时" = "Time-out van apparaatverbinding";
 "数据写入失败" = "Het schrijven van gegevens is mislukt";
 
 "执行失败，低压无法执行" = "Uitvoering mislukt, kan niet worden uitgevoerd";

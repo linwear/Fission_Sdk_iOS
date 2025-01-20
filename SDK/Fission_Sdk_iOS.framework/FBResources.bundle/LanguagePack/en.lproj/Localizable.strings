@@ -20,7 +20,7 @@
 "参数错误，UTC时间设置不能为0" = "Parameter error, UTC time setting cannot be 0";
 "参数错误，时区设置需大于等于-1440，小于等于+1440" = "Parameter error, time zone setting must be greater than or equal to -1440, less than or equal to +1440";
 "数据长度错误" = "Data length error";
-"设备初始化失败，初始化超时" = "Device initialization failed, initialization timeout";
+"设备连接超时" = "Device connection timeout";
 "数据写入失败" = "Data writing failed";
 
 "执行失败，低压无法执行" = "Execution failed, unable to execute";

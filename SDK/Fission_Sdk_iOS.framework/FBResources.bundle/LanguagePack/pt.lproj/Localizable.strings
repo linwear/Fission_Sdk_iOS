@@ -20,7 +20,7 @@
 "参数错误，UTC时间设置不能为0" = "Erro de parâmetro, tempo UTC não Pode ser configurado para 0";
 "参数错误，时区设置需大于等于-1440，小于等于+1440" = "Erro de parâmetro, configuração de fuso horário deve ser maior ou igual a -1440 e menor ou igual a +1440";
 "数据长度错误" = "Erro de comprimento DOS dados";
-"设备初始化失败，初始化超时" = "Falha na inicialização do dispositivo, tempo de inicialização";
+"设备连接超时" = "Tempo limite de ligação do dispositivo";
 "数据写入失败" = "Falha na gravação de dados";
 
 "执行失败，低压无法执行" = "A execução falhou, não foi possível executar";

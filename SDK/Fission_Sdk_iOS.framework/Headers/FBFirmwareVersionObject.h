@@ -161,6 +161,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) NSInteger systemSize;
 
+/**
+ nandFlashID
+ */
+@property (nonatomic, assign) NSInteger nandFlashID;
+
+/**
+ norFlashID
+ */
+@property (nonatomic, assign) NSInteger norFlashID;
+
 
 /**
  🌟是否需要使用时区补偿时间｜Need to use time zone to compensate time🌟
@@ -514,7 +524,28 @@ NS_ASSUME_NONNULL_BEGIN
  
  @note  NO：不支持、YES：支持｜NO: not support YES: support
 */
-@property (nonatomic, assign) BOOL supportEphemerisSynthesisPackage;
+@property (nonatomic, assign) BOOL supportEphemerisCompPackage;
+
+/**
+ 🌟是否支持音量增益补偿｜Whether to support volume gain compensation🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportVolumeGainCompensation;
+
+/**
+ 🌟是否支持JSI通道｜Whether to support JSI channel🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportJsiChannel;
+
+/**
+ 🌟是否支持离线语音｜Whether to support offline voice🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportOfflineVoice;
 
 @end
 

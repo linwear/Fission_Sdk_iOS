@@ -622,6 +622,14 @@ NS_ASSUME_NONNULL_BEGIN
 */
 - (void)fbSetCurrentRingtoneInfoWithList:(NSArray <FBRingtoneInfoModel *> * _Nonnull)modelList withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
+
+#pragma mark - 设置设备授权码｜Set device authorization code
+/**
+ 设置设备授权码｜Set device authorization code
+ @param modelList                   设备授权码｜Device authorization code
+*/
+- (void)fbSetDeviceAuthCodeWithList:(NSArray <FBDeviceAuthCodeModel *> * _Nonnull)modelList withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END
