@@ -3,10 +3,10 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Release-3.2.5 -Green.svg">
+    <img src="https://img.shields.io/badge/Release-3.2.6 -Green.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Support-iOS12.1+ -blue.svg">
+    <img src="https://img.shields.io/badge/Support-iOS13.0+ -blue.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/Support-CocoaPods -aquamarine.svg">
@@ -47,13 +47,13 @@
 
 ### 兼容性｜Compatibility
 
-1. iOS 12.1 及以上操作系统｜iOS 12.1 and above operating systems
+1. iOS 13.0 及以上操作系统｜iOS 13.0 and above operating systems
 
 2. 支持 arm64 指令集（不再支持模拟器）｜Support arm64 instruction set (simulators is no longer supported)
 
 ### 安装｜Installation
 
-* **方式一: CocoaPods｜Method 1: CocoaPods**
+* **方式一(推荐): CocoaPods｜Method 1 (Recommend): CocoaPods**
 1. 在 `Podfile` 中添加以下内容｜Add the following content in `Podfile`
 ```ruby
 pod 'Fission_Sdk_iOS', git: 'https://github.com/linwear/Fission_Sdk_iOS.git'
@@ -88,9 +88,6 @@ Privacy - Bluetooth Peripheral Usage Description
 ```
 ```objective-c
 Privacy - Bluetooth Always Usage Description
-```
-```objective-c
-Privacy - Microphone Usage Description
 ```
 
 | Privacy  |
@@ -150,6 +147,34 @@ Privacy - Microphone Usage Description
 | Public Header Files  |
 | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
+
+     project    2025-01-17  Version:3.2.6 Build:20250117001
+                            1.⚠️Fission_Sdk_iOS.framework最低系统版本要求 iOS13.0及以上
+                            2.FBFirmwareVersionObject 新增标志位:
+                                是否支持音量增益补偿
+                                是否支持JSI通道
+                                NandFlashID
+                                NorFlashID
+                                是否支持离线语音
+                            3.新增"设置音量增益补偿"协议（FBAtCommand）fbSetVolumeGainData:withBlock:
+                            4.星历文件支持合成包同步
+                            5.支持双精度经纬度
+                            6.支持瑞昱8773 Chat/AI功能
+                            7.修复视频转码失败问题
+                            8.新增"GPS运动参数设定 (兼容运动定位记录数据双精度)"（FBAtCommand）fbSettingsGPSSportsParameterWithBlock:
+                            9.新增兼容固件bug，该值真实反馈是否支持JSI通道（FBBaiduCloudKit.sharedInstance.allowUsingJSI）YES支持
+                            10.新增是否使用新的JSI通道，该值真实反馈是否走JSI通道进行数传（FBBaiduCloudKit.sharedInstance.usingJSI）YES使用JSI通道
+                            11.新增"设置设备授权码"协议（FBBgCommand）fbSetDeviceAuthCodeWithList:withBlock:
+                            12.新增"获取离线语音唤醒开关状态以及授权状态"协议（FBAtCommand）fbGetOfflineVoiceAllStatusWithBlock:
+                            13.新增"设置离线语音唤醒开关状态"协议（FBAtCommand）fbSetOfflineVoiceData:withBlock:
+                            14.新增"设置手电筒开关状态"协议（FBAtCommand）fbSetFlashlightData:withBlock:
+                            15.变更"恢复出厂设置"协议（FBAtCommand）fbUpResetDeviceDataWithShutdown::withBlock:
+                            16.EM_FUNC_SWITCH 新增类型:
+                                FS_OFFLINEVOICE_AUTH_NOTIFY(48)
+                                FS_OFFLINEVOICE_WARN_NOTIFY(49)
+                            17.修复已知自定义表盘问题
+                            18.优化连接超时问题
+                            19.优化数据解析
 
      project    2024-11-06  Version:3.2.5 Build:20241106001
                             1.新增"读取指定路径下的某个文件数据"协议（FBBgCommand）fbReadDataFileWithPaths:withBlock:
