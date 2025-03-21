@@ -97,10 +97,18 @@ NS_ASSUME_NONNULL_BEGIN
 /// Remove an `RTKPacketTransportClient` conformed object from clients list.
 - (void)removeClient:(id <RTKPacketTransportClient>)client;
 
+
 // MARK: -
 
+/// Whether this transport could be used to send data.
+///
+/// @see `-send:withCompletionHandler` to send data.
 @property (readonly) BOOL ableToSend;
 
+
+/// Whether this transport could be used to receive data.
+///
+/// @see `-transport:didReceive:` method declared in `RTKPacketTransportClient` protocol.
 @property (readonly) BOOL ableToReceive;
 
 

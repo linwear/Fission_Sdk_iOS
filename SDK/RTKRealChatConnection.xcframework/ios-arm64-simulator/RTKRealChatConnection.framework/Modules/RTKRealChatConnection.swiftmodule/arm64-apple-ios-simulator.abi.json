@@ -1,0 +1,4661 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "RTKRealChatConnection",
+    "printedName": "RTKRealChatConnection",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RTKBeeCommand",
+        "printedName": "RTKBeeCommand",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "cmdId",
+            "printedName": "cmdId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt8",
+                "printedName": "Swift.UInt8",
+                "usr": "s:s5UInt8V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:21RTKRealChatConnection13RTKBeeCommandC5cmdIds5UInt8Vvp",
+            "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC5cmdIds5UInt8Vvp",
+            "moduleName": "RTKRealChatConnection",
+            "isOpen": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "SetterAccess",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection13RTKBeeCommandC5cmdIds5UInt8Vvg",
+                "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC5cmdIds5UInt8Vvg",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "isOpen": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "key",
+            "printedName": "key",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt8",
+                "printedName": "Swift.UInt8",
+                "usr": "s:s5UInt8V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:21RTKRealChatConnection13RTKBeeCommandC3keys5UInt8Vvp",
+            "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC3keys5UInt8Vvp",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection13RTKBeeCommandC3keys5UInt8Vvg",
+                "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC3keys5UInt8Vvg",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection13RTKBeeCommandC3keys5UInt8Vvs",
+                "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC3keys5UInt8Vvs",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection13RTKBeeCommandC3keys5UInt8VvM",
+                "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC3keys5UInt8VvM",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "value",
+            "printedName": "value",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Data?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Data",
+                    "printedName": "Foundation.Data",
+                    "usr": "s:10Foundation4DataV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:21RTKRealChatConnection13RTKBeeCommandC5value10Foundation4DataVSgvp",
+            "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC5value10Foundation4DataVSgvp",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.Data?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Data",
+                        "printedName": "Foundation.Data",
+                        "usr": "s:10Foundation4DataV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection13RTKBeeCommandC5value10Foundation4DataVSgvg",
+                "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC5value10Foundation4DataVSgvg",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.Data?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Data",
+                        "printedName": "Foundation.Data",
+                        "usr": "s:10Foundation4DataV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection13RTKBeeCommandC5value10Foundation4DataVSgvs",
+                "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC5value10Foundation4DataVSgvs",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection13RTKBeeCommandC5value10Foundation4DataVSgvM",
+                "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC5value10Foundation4DataVSgvM",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "responseWanted",
+            "printedName": "responseWanted",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:21RTKRealChatConnection13RTKBeeCommandC14responseWantedSbvp",
+            "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC14responseWantedSbvp",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection13RTKBeeCommandC14responseWantedSbvg",
+                "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC14responseWantedSbvg",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection13RTKBeeCommandC14responseWantedSbvs",
+                "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC14responseWantedSbvs",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection13RTKBeeCommandC14responseWantedSbvM",
+                "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC14responseWantedSbvM",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "couldBeResponded",
+            "printedName": "couldBeResponded(by:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RTKBeeEvent",
+                "printedName": "RTKRealChatConnection.RTKBeeEvent",
+                "usr": "s:21RTKRealChatConnection11RTKBeeEventC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:21RTKRealChatConnection13RTKBeeCommandC16couldBeResponded2bySbAA0D5EventC_tF",
+            "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC16couldBeResponded2bySbAA0D5EventC_tF",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "concluded",
+            "printedName": "concluded",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:21RTKRealChatConnection13RTKBeeCommandC9concludedSbvp",
+            "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC9concludedSbvp",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection13RTKBeeCommandC9concludedSbvg",
+                "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC9concludedSbvg",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection13RTKBeeCommandC9concludedSbvs",
+                "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC9concludedSbvs",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection13RTKBeeCommandC9concludedSbvM",
+                "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC9concludedSbvM",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "complete",
+            "printedName": "complete(result:error:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "(any Swift.Error)?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Error",
+                    "printedName": "any Swift.Error",
+                    "usr": "s:s5ErrorP"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:21RTKRealChatConnection13RTKBeeCommandC8complete6result5errorySb_s5Error_pSgtF",
+            "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC8complete6result5errorySb_s5Error_pSgtF",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(key:value:completion:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RTKBeeCommand",
+                "printedName": "RTKRealChatConnection.RTKBeeCommand",
+                "usr": "s:21RTKRealChatConnection13RTKBeeCommandC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt8",
+                "printedName": "Swift.UInt8",
+                "usr": "s:s5UInt8V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Data?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Data",
+                    "printedName": "Foundation.Data",
+                    "usr": "s:10Foundation4DataV"
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Swift.Bool, (any Swift.Error)?) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.Bool, (any Swift.Error)?) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Swift.Bool, (any Swift.Error)?)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Bool",
+                            "printedName": "Swift.Bool",
+                            "usr": "s:Sb"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "(any Swift.Error)?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Error",
+                                "printedName": "any Swift.Error",
+                                "usr": "s:s5ErrorP"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:21RTKRealChatConnection13RTKBeeCommandC3key5value10completionACs5UInt8V_10Foundation4DataVSgySb_s5Error_pSgtcSgtcfc",
+            "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC3key5value10completionACs5UInt8V_10Foundation4DataVSgySb_s5Error_pSgtcSgtcfc",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:21RTKRealChatConnection13RTKBeeCommandC",
+        "mangledName": "$s21RTKRealChatConnection13RTKBeeCommandC",
+        "moduleName": "RTKRealChatConnection",
+        "isOpen": true,
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RTKBeeEvent",
+        "printedName": "RTKBeeEvent",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "cmdId",
+            "printedName": "cmdId",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt8",
+                "printedName": "Swift.UInt8",
+                "usr": "s:s5UInt8V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:21RTKRealChatConnection11RTKBeeEventC5cmdIds5UInt8Vvp",
+            "mangledName": "$s21RTKRealChatConnection11RTKBeeEventC5cmdIds5UInt8Vvp",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection11RTKBeeEventC5cmdIds5UInt8Vvg",
+                "mangledName": "$s21RTKRealChatConnection11RTKBeeEventC5cmdIds5UInt8Vvg",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection11RTKBeeEventC5cmdIds5UInt8Vvs",
+                "mangledName": "$s21RTKRealChatConnection11RTKBeeEventC5cmdIds5UInt8Vvs",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection11RTKBeeEventC5cmdIds5UInt8VvM",
+                "mangledName": "$s21RTKRealChatConnection11RTKBeeEventC5cmdIds5UInt8VvM",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "key",
+            "printedName": "key",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "UInt8",
+                "printedName": "Swift.UInt8",
+                "usr": "s:s5UInt8V"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:21RTKRealChatConnection11RTKBeeEventC3keys5UInt8Vvp",
+            "mangledName": "$s21RTKRealChatConnection11RTKBeeEventC3keys5UInt8Vvp",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection11RTKBeeEventC3keys5UInt8Vvg",
+                "mangledName": "$s21RTKRealChatConnection11RTKBeeEventC3keys5UInt8Vvg",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UInt8",
+                    "printedName": "Swift.UInt8",
+                    "usr": "s:s5UInt8V"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection11RTKBeeEventC3keys5UInt8Vvs",
+                "mangledName": "$s21RTKRealChatConnection11RTKBeeEventC3keys5UInt8Vvs",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection11RTKBeeEventC3keys5UInt8VvM",
+                "mangledName": "$s21RTKRealChatConnection11RTKBeeEventC3keys5UInt8VvM",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "value",
+            "printedName": "value",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Data?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Data",
+                    "printedName": "Foundation.Data",
+                    "usr": "s:10Foundation4DataV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:21RTKRealChatConnection11RTKBeeEventC5value10Foundation4DataVSgvp",
+            "mangledName": "$s21RTKRealChatConnection11RTKBeeEventC5value10Foundation4DataVSgvp",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.Data?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Data",
+                        "printedName": "Foundation.Data",
+                        "usr": "s:10Foundation4DataV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection11RTKBeeEventC5value10Foundation4DataVSgvg",
+                "mangledName": "$s21RTKRealChatConnection11RTKBeeEventC5value10Foundation4DataVSgvg",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.Data?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Data",
+                        "printedName": "Foundation.Data",
+                        "usr": "s:10Foundation4DataV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection11RTKBeeEventC5value10Foundation4DataVSgvs",
+                "mangledName": "$s21RTKRealChatConnection11RTKBeeEventC5value10Foundation4DataVSgvs",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection11RTKBeeEventC5value10Foundation4DataVSgvM",
+                "mangledName": "$s21RTKRealChatConnection11RTKBeeEventC5value10Foundation4DataVSgvM",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(value:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RTKBeeEvent",
+                "printedName": "RTKRealChatConnection.RTKBeeEvent",
+                "usr": "s:21RTKRealChatConnection11RTKBeeEventC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Data?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Data",
+                    "printedName": "Foundation.Data",
+                    "usr": "s:10Foundation4DataV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:21RTKRealChatConnection11RTKBeeEventC5valueAC10Foundation4DataVSg_tcfc",
+            "mangledName": "$s21RTKRealChatConnection11RTKBeeEventC5valueAC10Foundation4DataVSg_tcfc",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(cmdId:key:value:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RTKBeeEvent",
+                "printedName": "RTKRealChatConnection.RTKBeeEvent",
+                "usr": "s:21RTKRealChatConnection11RTKBeeEventC"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt8",
+                "printedName": "Swift.UInt8",
+                "usr": "s:s5UInt8V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt8",
+                "printedName": "Swift.UInt8",
+                "usr": "s:s5UInt8V"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.Data?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Data",
+                    "printedName": "Foundation.Data",
+                    "usr": "s:10Foundation4DataV"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:21RTKRealChatConnection11RTKBeeEventC5cmdId3key5valueACs5UInt8V_AH10Foundation4DataVSgtcfc",
+            "mangledName": "$s21RTKRealChatConnection11RTKBeeEventC5cmdId3key5valueACs5UInt8V_AH10Foundation4DataVSgtcfc",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:21RTKRealChatConnection11RTKBeeEventC",
+        "mangledName": "$s21RTKRealChatConnection11RTKBeeEventC",
+        "moduleName": "RTKRealChatConnection",
+        "isOpen": true,
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "RTKLEFoundation",
+        "printedName": "RTKLEFoundation",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection"
+      },
+      {
+        "kind": "Import",
+        "name": "BeeMessageFormat",
+        "printedName": "BeeMessageFormat",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection",
+        "declAttributes": [
+          "ImplementationOnly"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "RTKLEFoundation",
+        "printedName": "RTKLEFoundation",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection"
+      },
+      {
+        "kind": "Import",
+        "name": "BeeMessageFormat",
+        "printedName": "BeeMessageFormat",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection",
+        "declAttributes": [
+          "ImplementationOnly"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AudioToolbox",
+        "printedName": "AudioToolbox",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection"
+      },
+      {
+        "kind": "Import",
+        "name": "MessageMemoryLayout",
+        "printedName": "MessageMemoryLayout",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection",
+        "declAttributes": [
+          "ImplementationOnly"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "RTKAudioStreaming",
+        "printedName": "RTKAudioStreaming",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection"
+      },
+      {
+        "kind": "Import",
+        "name": "RTKLEFoundation",
+        "printedName": "RTKLEFoundation",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RealChatPeripheralConnection",
+        "printedName": "RealChatPeripheralConnection",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "isProcessing",
+            "printedName": "isProcessing",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C12isProcessingSbvp",
+            "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C12isProcessingSbvp",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C12isProcessingSbvg",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C12isProcessingSbvg",
+                "moduleName": "RTKRealChatConnection",
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "ChatMessage",
+            "printedName": "ChatMessage",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "id",
+                "printedName": "id",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC2idSivp",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC2idSivp",
+                "moduleName": "RTKRealChatConnection",
+                "declAttributes": [
+                  "Final",
+                  "HasStorage",
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC2idSivg",
+                    "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC2idSivg",
+                    "moduleName": "RTKRealChatConnection",
+                    "implicit": true,
+                    "declAttributes": [
+                      "Final"
+                    ],
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "time",
+                "printedName": "time",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Date",
+                    "printedName": "Foundation.Date",
+                    "usr": "s:10Foundation4DateV"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC4time10Foundation4DateVvp",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC4time10Foundation4DateVvp",
+                "moduleName": "RTKRealChatConnection",
+                "declAttributes": [
+                  "Final",
+                  "HasStorage",
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Date",
+                        "printedName": "Foundation.Date",
+                        "usr": "s:10Foundation4DateV"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC4time10Foundation4DateVvg",
+                    "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC4time10Foundation4DateVvg",
+                    "moduleName": "RTKRealChatConnection",
+                    "implicit": true,
+                    "declAttributes": [
+                      "Final"
+                    ],
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "text",
+                "printedName": "text",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Swift.String?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC4textSSSgvp",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC4textSSSgvp",
+                "moduleName": "RTKRealChatConnection",
+                "declAttributes": [
+                  "HasInitialValue",
+                  "HasStorage",
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.String?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC4textSSSgvg",
+                    "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC4textSSSgvg",
+                    "moduleName": "RTKRealChatConnection",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Set",
+                    "printedName": "Set()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Swift.String?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC4textSSSgvs",
+                    "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC4textSSSgvs",
+                    "moduleName": "RTKRealChatConnection",
+                    "implicit": true,
+                    "accessorKind": "set"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Modify",
+                    "printedName": "Modify()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC4textSSSgvM",
+                    "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC4textSSSgvM",
+                    "moduleName": "RTKRealChatConnection",
+                    "implicit": true,
+                    "accessorKind": "_modify"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "speechFileURL",
+                "printedName": "speechFileURL",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.URL?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "URL",
+                        "printedName": "Foundation.URL",
+                        "usr": "s:10Foundation3URLV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC13speechFileURL10Foundation0I0VSgvp",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC13speechFileURL10Foundation0I0VSgvp",
+                "moduleName": "RTKRealChatConnection",
+                "declAttributes": [
+                  "HasInitialValue",
+                  "HasStorage",
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Foundation.URL?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "URL",
+                            "printedName": "Foundation.URL",
+                            "usr": "s:10Foundation3URLV"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC13speechFileURL10Foundation0I0VSgvg",
+                    "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC13speechFileURL10Foundation0I0VSgvg",
+                    "moduleName": "RTKRealChatConnection",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Set",
+                    "printedName": "Set()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "Foundation.URL?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "URL",
+                            "printedName": "Foundation.URL",
+                            "usr": "s:10Foundation3URLV"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC13speechFileURL10Foundation0I0VSgvs",
+                    "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC13speechFileURL10Foundation0I0VSgvs",
+                    "moduleName": "RTKRealChatConnection",
+                    "implicit": true,
+                    "accessorKind": "set"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Modify",
+                    "printedName": "Modify()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC13speechFileURL10Foundation0I0VSgvM",
+                    "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC13speechFileURL10Foundation0I0VSgvM",
+                    "moduleName": "RTKRealChatConnection",
+                    "implicit": true,
+                    "accessorKind": "_modify"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Class",
+            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC",
+            "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasMissingDesignatedInitializers": true,
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              }
+            ]
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "Completion",
+            "printedName": "Completion",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "prompt",
+                "printedName": "prompt",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ChatMessage",
+                    "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC6promptAC0B7MessageCvp",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC6promptAC0B7MessageCvp",
+                "moduleName": "RTKRealChatConnection",
+                "declAttributes": [
+                  "Final",
+                  "HasStorage",
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "isLet": true,
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ChatMessage",
+                        "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                        "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC6promptAC0B7MessageCvg",
+                    "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC6promptAC0B7MessageCvg",
+                    "moduleName": "RTKRealChatConnection",
+                    "implicit": true,
+                    "declAttributes": [
+                      "Final"
+                    ],
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "response",
+                "printedName": "response",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ChatMessage",
+                        "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                        "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC8responseAC0B7MessageCSgvp",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC8responseAC0B7MessageCSgvp",
+                "moduleName": "RTKRealChatConnection",
+                "declAttributes": [
+                  "HasInitialValue",
+                  "HasStorage",
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ChatMessage",
+                            "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC8responseAC0B7MessageCSgvg",
+                    "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC8responseAC0B7MessageCSgvg",
+                    "moduleName": "RTKRealChatConnection",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Set",
+                    "printedName": "Set()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Optional",
+                        "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage?",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ChatMessage",
+                            "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                          }
+                        ],
+                        "usr": "s:Sq"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC8responseAC0B7MessageCSgvs",
+                    "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC8responseAC0B7MessageCSgvs",
+                    "moduleName": "RTKRealChatConnection",
+                    "implicit": true,
+                    "accessorKind": "set"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Modify",
+                    "printedName": "Modify()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC8responseAC0B7MessageCSgvM",
+                    "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC8responseAC0B7MessageCSgvM",
+                    "moduleName": "RTKRealChatConnection",
+                    "implicit": true,
+                    "accessorKind": "_modify"
+                  }
+                ]
+              },
+              {
+                "kind": "Var",
+                "name": "isFinished",
+                "printedName": "isFinished",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC10isFinishedSbvp",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC10isFinishedSbvp",
+                "moduleName": "RTKRealChatConnection",
+                "declAttributes": [
+                  "HasStorage",
+                  "AccessControl",
+                  "RawDocComment"
+                ],
+                "hasStorage": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC10isFinishedSbvg",
+                    "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC10isFinishedSbvg",
+                    "moduleName": "RTKRealChatConnection",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Set",
+                    "printedName": "Set()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Bool",
+                        "printedName": "Swift.Bool",
+                        "usr": "s:Sb"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC10isFinishedSbvs",
+                    "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC10isFinishedSbvs",
+                    "moduleName": "RTKRealChatConnection",
+                    "implicit": true,
+                    "accessorKind": "set"
+                  },
+                  {
+                    "kind": "Accessor",
+                    "name": "Modify",
+                    "printedName": "Modify()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC10isFinishedSbvM",
+                    "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC10isFinishedSbvM",
+                    "moduleName": "RTKRealChatConnection",
+                    "implicit": true,
+                    "accessorKind": "_modify"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Class",
+            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC",
+            "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasMissingDesignatedInitializers": true,
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "chat",
+            "printedName": "chat",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[RTKRealChatConnection.RealChatPeripheralConnection.Completion]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Completion",
+                    "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.Completion",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C4chatSayAC10CompletionCGvp",
+            "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C4chatSayAC10CompletionCGvp",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "SetterAccess",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[RTKRealChatConnection.RealChatPeripheralConnection.Completion]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Completion",
+                        "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.Completion",
+                        "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C10CompletionC"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C4chatSayAC10CompletionCGvg",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C4chatSayAC10CompletionCGvg",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "chatServiceInvocation",
+            "printedName": "chatServiceInvocation",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, @escaping (Swift.String) -> (), Swift.Bool, @escaping (Swift.String) -> (), Swift.Bool, @escaping (Foundation.URL) -> ()) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, @escaping (Swift.String) -> (), Swift.Bool, @escaping (Swift.String) -> (), Swift.Bool, @escaping (Foundation.URL) -> ()) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, (Swift.String) -> (), Swift.Bool, (Swift.String) -> (), Swift.Bool, (Foundation.URL) -> ())",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ChatMessage",
+                            "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                          },
+                          {
+                            "kind": "TypeFunc",
+                            "name": "Function",
+                            "printedName": "(Swift.String) -> ()",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Void",
+                                "printedName": "()"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Bool",
+                            "printedName": "Swift.Bool",
+                            "usr": "s:Sb"
+                          },
+                          {
+                            "kind": "TypeFunc",
+                            "name": "Function",
+                            "printedName": "(Swift.String) -> ()",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Void",
+                                "printedName": "()"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "String",
+                                "printedName": "Swift.String",
+                                "usr": "s:SS"
+                              }
+                            ]
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Bool",
+                            "printedName": "Swift.Bool",
+                            "usr": "s:Sb"
+                          },
+                          {
+                            "kind": "TypeFunc",
+                            "name": "Function",
+                            "printedName": "(Foundation.URL) -> ()",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Void",
+                                "printedName": "()"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "URL",
+                                "printedName": "Foundation.URL",
+                                "usr": "s:10Foundation3URLV"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C21chatServiceInvocationyAC0B7MessageC_ySScSbySScSby10Foundation3URLVctcSgvp",
+            "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C21chatServiceInvocationyAC0B7MessageC_ySScSbySScSby10Foundation3URLVctcSgvp",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, @escaping (Swift.String) -> (), Swift.Bool, @escaping (Swift.String) -> (), Swift.Bool, @escaping (Foundation.URL) -> ()) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, @escaping (Swift.String) -> (), Swift.Bool, @escaping (Swift.String) -> (), Swift.Bool, @escaping (Foundation.URL) -> ()) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Tuple",
+                            "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, (Swift.String) -> (), Swift.Bool, (Swift.String) -> (), Swift.Bool, (Foundation.URL) -> ())",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ChatMessage",
+                                "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                              },
+                              {
+                                "kind": "TypeFunc",
+                                "name": "Function",
+                                "printedName": "(Swift.String) -> ()",
+                                "children": [
+                                  {
+                                    "kind": "TypeNominal",
+                                    "name": "Void",
+                                    "printedName": "()"
+                                  },
+                                  {
+                                    "kind": "TypeNominal",
+                                    "name": "String",
+                                    "printedName": "Swift.String",
+                                    "usr": "s:SS"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Bool",
+                                "printedName": "Swift.Bool",
+                                "usr": "s:Sb"
+                              },
+                              {
+                                "kind": "TypeFunc",
+                                "name": "Function",
+                                "printedName": "(Swift.String) -> ()",
+                                "children": [
+                                  {
+                                    "kind": "TypeNominal",
+                                    "name": "Void",
+                                    "printedName": "()"
+                                  },
+                                  {
+                                    "kind": "TypeNominal",
+                                    "name": "String",
+                                    "printedName": "Swift.String",
+                                    "usr": "s:SS"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Bool",
+                                "printedName": "Swift.Bool",
+                                "usr": "s:Sb"
+                              },
+                              {
+                                "kind": "TypeFunc",
+                                "name": "Function",
+                                "printedName": "(Foundation.URL) -> ()",
+                                "children": [
+                                  {
+                                    "kind": "TypeNominal",
+                                    "name": "Void",
+                                    "printedName": "()"
+                                  },
+                                  {
+                                    "kind": "TypeNominal",
+                                    "name": "URL",
+                                    "printedName": "Foundation.URL",
+                                    "usr": "s:10Foundation3URLV"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C21chatServiceInvocationyAC0B7MessageC_ySScSbySScSby10Foundation3URLVctcSgvg",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C21chatServiceInvocationyAC0B7MessageC_ySScSbySScSby10Foundation3URLVctcSgvg",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, @escaping (Swift.String) -> (), Swift.Bool, @escaping (Swift.String) -> (), Swift.Bool, @escaping (Foundation.URL) -> ()) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, @escaping (Swift.String) -> (), Swift.Bool, @escaping (Swift.String) -> (), Swift.Bool, @escaping (Foundation.URL) -> ()) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Tuple",
+                            "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, (Swift.String) -> (), Swift.Bool, (Swift.String) -> (), Swift.Bool, (Foundation.URL) -> ())",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ChatMessage",
+                                "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                              },
+                              {
+                                "kind": "TypeFunc",
+                                "name": "Function",
+                                "printedName": "(Swift.String) -> ()",
+                                "children": [
+                                  {
+                                    "kind": "TypeNominal",
+                                    "name": "Void",
+                                    "printedName": "()"
+                                  },
+                                  {
+                                    "kind": "TypeNominal",
+                                    "name": "String",
+                                    "printedName": "Swift.String",
+                                    "usr": "s:SS"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Bool",
+                                "printedName": "Swift.Bool",
+                                "usr": "s:Sb"
+                              },
+                              {
+                                "kind": "TypeFunc",
+                                "name": "Function",
+                                "printedName": "(Swift.String) -> ()",
+                                "children": [
+                                  {
+                                    "kind": "TypeNominal",
+                                    "name": "Void",
+                                    "printedName": "()"
+                                  },
+                                  {
+                                    "kind": "TypeNominal",
+                                    "name": "String",
+                                    "printedName": "Swift.String",
+                                    "usr": "s:SS"
+                                  }
+                                ]
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Bool",
+                                "printedName": "Swift.Bool",
+                                "usr": "s:Sb"
+                              },
+                              {
+                                "kind": "TypeFunc",
+                                "name": "Function",
+                                "printedName": "(Foundation.URL) -> ()",
+                                "children": [
+                                  {
+                                    "kind": "TypeNominal",
+                                    "name": "Void",
+                                    "printedName": "()"
+                                  },
+                                  {
+                                    "kind": "TypeNominal",
+                                    "name": "URL",
+                                    "printedName": "Foundation.URL",
+                                    "usr": "s:10Foundation3URLV"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C21chatServiceInvocationyAC0B7MessageC_ySScSbySScSby10Foundation3URLVctcSgvs",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C21chatServiceInvocationyAC0B7MessageC_ySScSbySScSby10Foundation3URLVctcSgvs",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C21chatServiceInvocationyAC0B7MessageC_ySScSbySScSby10Foundation3URLVctcSgvM",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C21chatServiceInvocationyAC0B7MessageC_ySScSbySScSby10Foundation3URLVctcSgvM",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "onSendPromptRecognizedTextResultHandler",
+            "printedName": "onSendPromptRecognizedTextResultHandler",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Swift.Bool, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.Bool, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Swift.Bool, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Bool",
+                            "printedName": "Swift.Bool",
+                            "usr": "s:Sb"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ChatMessage",
+                            "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C39onSendPromptRecognizedTextResultHandlerySb_AC0B7MessageCtcSgvp",
+            "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C39onSendPromptRecognizedTextResultHandlerySb_AC0B7MessageCtcSgvp",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((Swift.Bool, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Swift.Bool, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Tuple",
+                            "printedName": "(Swift.Bool, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage)",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Bool",
+                                "printedName": "Swift.Bool",
+                                "usr": "s:Sb"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ChatMessage",
+                                "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C39onSendPromptRecognizedTextResultHandlerySb_AC0B7MessageCtcSgvg",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C39onSendPromptRecognizedTextResultHandlerySb_AC0B7MessageCtcSgvg",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((Swift.Bool, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Swift.Bool, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Tuple",
+                            "printedName": "(Swift.Bool, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage)",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Bool",
+                                "printedName": "Swift.Bool",
+                                "usr": "s:Sb"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ChatMessage",
+                                "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C39onSendPromptRecognizedTextResultHandlerySb_AC0B7MessageCtcSgvs",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C39onSendPromptRecognizedTextResultHandlerySb_AC0B7MessageCtcSgvs",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C39onSendPromptRecognizedTextResultHandlerySb_AC0B7MessageCtcSgvM",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C39onSendPromptRecognizedTextResultHandlerySb_AC0B7MessageCtcSgvM",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "onSendResponseTextResultHandler",
+            "printedName": "onSendResponseTextResultHandler",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Swift.Bool, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.Bool, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Swift.Bool, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Bool",
+                            "printedName": "Swift.Bool",
+                            "usr": "s:Sb"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ChatMessage",
+                            "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C31onSendResponseTextResultHandlerySb_AC0B7MessageCtcSgvp",
+            "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C31onSendResponseTextResultHandlerySb_AC0B7MessageCtcSgvp",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((Swift.Bool, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Swift.Bool, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Tuple",
+                            "printedName": "(Swift.Bool, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage)",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Bool",
+                                "printedName": "Swift.Bool",
+                                "usr": "s:Sb"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ChatMessage",
+                                "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C31onSendResponseTextResultHandlerySb_AC0B7MessageCtcSgvg",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C31onSendResponseTextResultHandlerySb_AC0B7MessageCtcSgvg",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((Swift.Bool, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Swift.Bool, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Tuple",
+                            "printedName": "(Swift.Bool, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage)",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Bool",
+                                "printedName": "Swift.Bool",
+                                "usr": "s:Sb"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ChatMessage",
+                                "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C31onSendResponseTextResultHandlerySb_AC0B7MessageCtcSgvs",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C31onSendResponseTextResultHandlerySb_AC0B7MessageCtcSgvs",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C31onSendResponseTextResultHandlerySb_AC0B7MessageCtcSgvM",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C31onSendResponseTextResultHandlerySb_AC0B7MessageCtcSgvM",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "TypeDecl",
+            "name": "AudioTransmissionState",
+            "printedName": "AudioTransmissionState",
+            "children": [
+              {
+                "kind": "Var",
+                "name": "started",
+                "printedName": "started",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState.Type) -> RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AudioTransmissionState",
+                        "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                        "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AudioTransmissionState",
+                            "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO7startedyA2EmF",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO7startedyA2EmF",
+                "moduleName": "RTKRealChatConnection"
+              },
+              {
+                "kind": "Var",
+                "name": "end",
+                "printedName": "end",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState.Type) -> RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AudioTransmissionState",
+                        "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                        "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AudioTransmissionState",
+                            "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO3endyA2EmF",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO3endyA2EmF",
+                "moduleName": "RTKRealChatConnection"
+              },
+              {
+                "kind": "Var",
+                "name": "cancelled",
+                "printedName": "cancelled",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState.Type) -> RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AudioTransmissionState",
+                        "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                        "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AudioTransmissionState",
+                            "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO9cancelledyA2EmF",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO9cancelledyA2EmF",
+                "moduleName": "RTKRealChatConnection"
+              },
+              {
+                "kind": "Var",
+                "name": "interrupted",
+                "printedName": "interrupted",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState.Type) -> RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "AudioTransmissionState",
+                        "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                        "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Metatype",
+                        "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState.Type",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AudioTransmissionState",
+                            "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "declKind": "EnumElement",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO11interruptedyA2EmF",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO11interruptedyA2EmF",
+                "moduleName": "RTKRealChatConnection"
+              },
+              {
+                "kind": "Function",
+                "name": "==",
+                "printedName": "==(_:_:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AudioTransmissionState",
+                    "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "AudioTransmissionState",
+                    "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO2eeoiySbAE_AEtFZ",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO2eeoiySbAE_AEtFZ",
+                "moduleName": "RTKRealChatConnection",
+                "static": true,
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              },
+              {
+                "kind": "Var",
+                "name": "hashValue",
+                "printedName": "hashValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Var",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO9hashValueSivp",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO9hashValueSivp",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessors": [
+                  {
+                    "kind": "Accessor",
+                    "name": "Get",
+                    "printedName": "Get()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Int",
+                        "printedName": "Swift.Int",
+                        "usr": "s:Si"
+                      }
+                    ],
+                    "declKind": "Accessor",
+                    "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO9hashValueSivg",
+                    "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO9hashValueSivg",
+                    "moduleName": "RTKRealChatConnection",
+                    "implicit": true,
+                    "accessorKind": "get"
+                  }
+                ]
+              },
+              {
+                "kind": "Function",
+                "name": "hash",
+                "printedName": "hash(into:)",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Hasher",
+                    "printedName": "Swift.Hasher",
+                    "paramValueOwnership": "InOut",
+                    "usr": "s:s6HasherV"
+                  }
+                ],
+                "declKind": "Func",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO4hash4intoys6HasherVz_tF",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO4hash4intoys6HasherVz_tF",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "funcSelfKind": "NonMutating"
+              }
+            ],
+            "declKind": "Enum",
+            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO",
+            "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "conformances": [
+              {
+                "kind": "Conformance",
+                "name": "Copyable",
+                "printedName": "Copyable",
+                "usr": "s:s8CopyableP",
+                "mangledName": "$ss8CopyableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Escapable",
+                "printedName": "Escapable",
+                "usr": "s:s9EscapableP",
+                "mangledName": "$ss9EscapableP"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Equatable",
+                "printedName": "Equatable",
+                "usr": "s:SQ",
+                "mangledName": "$sSQ"
+              },
+              {
+                "kind": "Conformance",
+                "name": "Hashable",
+                "printedName": "Hashable",
+                "usr": "s:SH",
+                "mangledName": "$sSH"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "onPromptAudioTransmissionStateUpdateHandler",
+            "printedName": "onPromptAudioTransmissionStateUpdateHandler",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, RTKAudioStreaming.FileSink) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, RTKAudioStreaming.FileSink) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, RTKAudioStreaming.FileSink)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AudioTransmissionState",
+                            "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ChatMessage",
+                            "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "FileSink",
+                            "printedName": "RTKAudioStreaming.FileSink",
+                            "usr": "s:17RTKAudioStreaming8FileSinkC"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C43onPromptAudioTransmissionStateUpdateHandleryAC0hiJ0O_AC0B7MessageC17RTKAudioStreaming8FileSinkCtcSgvp",
+            "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C43onPromptAudioTransmissionStateUpdateHandleryAC0hiJ0O_AC0B7MessageC17RTKAudioStreaming8FileSinkCtcSgvp",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, RTKAudioStreaming.FileSink) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, RTKAudioStreaming.FileSink) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Tuple",
+                            "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, RTKAudioStreaming.FileSink)",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "AudioTransmissionState",
+                                "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ChatMessage",
+                                "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "FileSink",
+                                "printedName": "RTKAudioStreaming.FileSink",
+                                "usr": "s:17RTKAudioStreaming8FileSinkC"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C43onPromptAudioTransmissionStateUpdateHandleryAC0hiJ0O_AC0B7MessageC17RTKAudioStreaming8FileSinkCtcSgvg",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C43onPromptAudioTransmissionStateUpdateHandleryAC0hiJ0O_AC0B7MessageC17RTKAudioStreaming8FileSinkCtcSgvg",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, RTKAudioStreaming.FileSink) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, RTKAudioStreaming.FileSink) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Tuple",
+                            "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, RTKAudioStreaming.FileSink)",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "AudioTransmissionState",
+                                "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ChatMessage",
+                                "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "FileSink",
+                                "printedName": "RTKAudioStreaming.FileSink",
+                                "usr": "s:17RTKAudioStreaming8FileSinkC"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C43onPromptAudioTransmissionStateUpdateHandleryAC0hiJ0O_AC0B7MessageC17RTKAudioStreaming8FileSinkCtcSgvs",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C43onPromptAudioTransmissionStateUpdateHandleryAC0hiJ0O_AC0B7MessageC17RTKAudioStreaming8FileSinkCtcSgvs",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C43onPromptAudioTransmissionStateUpdateHandleryAC0hiJ0O_AC0B7MessageC17RTKAudioStreaming8FileSinkCtcSgvM",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C43onPromptAudioTransmissionStateUpdateHandleryAC0hiJ0O_AC0B7MessageC17RTKAudioStreaming8FileSinkCtcSgvM",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "onResponseAudioTransmissionStateUpdateHandler",
+            "printedName": "onResponseAudioTransmissionStateUpdateHandler",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, RTKAudioStreaming.FileSource) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, RTKAudioStreaming.FileSource) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, RTKAudioStreaming.FileSource)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "AudioTransmissionState",
+                            "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "ChatMessage",
+                            "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "FileSource",
+                            "printedName": "RTKAudioStreaming.FileSource",
+                            "usr": "s:17RTKAudioStreaming10FileSourceC"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C45onResponseAudioTransmissionStateUpdateHandleryAC0hiJ0O_AC0B7MessageC17RTKAudioStreaming10FileSourceCtcSgvp",
+            "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C45onResponseAudioTransmissionStateUpdateHandleryAC0hiJ0O_AC0B7MessageC17RTKAudioStreaming10FileSourceCtcSgvp",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, RTKAudioStreaming.FileSource) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, RTKAudioStreaming.FileSource) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Tuple",
+                            "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, RTKAudioStreaming.FileSource)",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "AudioTransmissionState",
+                                "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ChatMessage",
+                                "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "FileSource",
+                                "printedName": "RTKAudioStreaming.FileSource",
+                                "usr": "s:17RTKAudioStreaming10FileSourceC"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C45onResponseAudioTransmissionStateUpdateHandleryAC0hiJ0O_AC0B7MessageC17RTKAudioStreaming10FileSourceCtcSgvg",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C45onResponseAudioTransmissionStateUpdateHandleryAC0hiJ0O_AC0B7MessageC17RTKAudioStreaming10FileSourceCtcSgvg",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, RTKAudioStreaming.FileSource) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, RTKAudioStreaming.FileSource) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Tuple",
+                            "printedName": "(RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState, RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage, RTKAudioStreaming.FileSource)",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "AudioTransmissionState",
+                                "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.AudioTransmissionState",
+                                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C22AudioTransmissionStateO"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "ChatMessage",
+                                "printedName": "RTKRealChatConnection.RealChatPeripheralConnection.ChatMessage",
+                                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C0B7MessageC"
+                              },
+                              {
+                                "kind": "TypeNominal",
+                                "name": "FileSource",
+                                "printedName": "RTKAudioStreaming.FileSource",
+                                "usr": "s:17RTKAudioStreaming10FileSourceC"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C45onResponseAudioTransmissionStateUpdateHandleryAC0hiJ0O_AC0B7MessageC17RTKAudioStreaming10FileSourceCtcSgvs",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C45onResponseAudioTransmissionStateUpdateHandleryAC0hiJ0O_AC0B7MessageC17RTKAudioStreaming10FileSourceCtcSgvs",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C45onResponseAudioTransmissionStateUpdateHandleryAC0hiJ0O_AC0B7MessageC17RTKAudioStreaming10FileSourceCtcSgvM",
+                "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C45onResponseAudioTransmissionStateUpdateHandleryAC0hiJ0O_AC0B7MessageC17RTKAudioStreaming10FileSourceCtcSgvM",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "onReceive",
+            "printedName": "onReceive(event:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RTKBeeEvent",
+                "printedName": "RTKRealChatConnection.RTKBeeEvent",
+                "usr": "s:21RTKRealChatConnection11RTKBeeEventC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:21RTKRealChatConnection04Realb10PeripheralC0C9onReceive5eventyAA11RTKBeeEventC_tF",
+            "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C9onReceive5eventyAA11RTKBeeEventC_tF",
+            "moduleName": "RTKRealChatConnection",
+            "overriding": true,
+            "declAttributes": [
+              "Override",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(peripheral:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RealChatPeripheralConnection",
+                "printedName": "RTKRealChatConnection.RealChatPeripheralConnection",
+                "usr": "c:@M@RTKRealChatConnection@objc(cs)RealChatPeripheralConnection"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CBPeripheral",
+                "printedName": "CoreBluetooth.CBPeripheral",
+                "usr": "c:objc(cs)CBPeripheral"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@RTKRealChatConnection@objc(cs)RealChatPeripheralConnection(im)initWithPeripheral:",
+            "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C10peripheralACSo12CBPeripheralC_tcfc",
+            "moduleName": "RTKRealChatConnection",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithPeripheral:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RealChatPeripheralConnection",
+                "printedName": "RTKRealChatConnection.RealChatPeripheralConnection",
+                "usr": "c:@M@RTKRealChatConnection@objc(cs)RealChatPeripheralConnection"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@RTKRealChatConnection@objc(cs)RealChatPeripheralConnection(im)init",
+            "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0CACycfc",
+            "moduleName": "RTKRealChatConnection",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@RTKRealChatConnection@objc(cs)RealChatPeripheralConnection",
+        "mangledName": "$s21RTKRealChatConnection04Realb10PeripheralC0C",
+        "moduleName": "RTKRealChatConnection",
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment",
+          "ObjC"
+        ],
+        "superclassUsr": "c:@M@RTKRealChatConnection@objc(cs)RTKBeePeripheralConnection",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "RTKRealChatConnection.RTKBeePeripheralConnection",
+          "RTKLEFoundation.RTKConnectionUponGATT",
+          "RTKLEFoundation.RTKProfileConnection",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "RTKLEFoundation",
+        "printedName": "RTKLEFoundation",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection"
+      },
+      {
+        "kind": "Import",
+        "name": "BeeMessageFormat",
+        "printedName": "BeeMessageFormat",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection",
+        "declAttributes": [
+          "ImplementationOnly"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RTKBeePeripheralConnection",
+        "printedName": "RTKBeePeripheralConnection",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "interestedServiceUUIDs",
+            "printedName": "interestedServiceUUIDs",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[CoreBluetooth.CBUUID]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Array",
+                    "printedName": "[CoreBluetooth.CBUUID]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "CBUUID",
+                        "printedName": "CoreBluetooth.CBUUID",
+                        "usr": "c:objc(cs)CBUUID"
+                      }
+                    ],
+                    "usr": "s:Sa"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RTKRealChatConnection@objc(cs)RTKBeePeripheralConnection(cpy)interestedServiceUUIDs",
+            "mangledName": "$s21RTKRealChatConnection016RTKBeePeripheralC0C22interestedServiceUUIDsSaySo6CBUUIDCGSgvpZ",
+            "moduleName": "RTKRealChatConnection",
+            "static": true,
+            "overriding": true,
+            "objc_name": "interestedServiceUUIDs",
+            "declAttributes": [
+              "ObjC",
+              "Final",
+              "Override",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "[CoreBluetooth.CBUUID]?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Array",
+                        "printedName": "[CoreBluetooth.CBUUID]",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "CBUUID",
+                            "printedName": "CoreBluetooth.CBUUID",
+                            "usr": "c:objc(cs)CBUUID"
+                          }
+                        ],
+                        "usr": "s:Sa"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RTKRealChatConnection@objc(cs)RTKBeePeripheralConnection(cm)interestedServiceUUIDs",
+                "mangledName": "$s21RTKRealChatConnection016RTKBeePeripheralC0C22interestedServiceUUIDsSaySo6CBUUIDCGSgvgZ",
+                "moduleName": "RTKRealChatConnection",
+                "static": true,
+                "overriding": true,
+                "objc_name": "interestedServiceUUIDs",
+                "declAttributes": [
+                  "Final",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "status",
+            "printedName": "status",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RTKProfileConnectionStatus",
+                "printedName": "RTKLEFoundation.RTKProfileConnectionStatus",
+                "usr": "c:@E@RTKProfileConnectionStatus"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@RTKRealChatConnection@objc(cs)RTKBeePeripheralConnection(py)status",
+            "mangledName": "$s21RTKRealChatConnection016RTKBeePeripheralC0C6statusSo010RTKProfileC6StatusVvp",
+            "moduleName": "RTKRealChatConnection",
+            "overriding": true,
+            "objc_name": "status",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RTKProfileConnectionStatus",
+                    "printedName": "RTKLEFoundation.RTKProfileConnectionStatus",
+                    "usr": "c:@E@RTKProfileConnectionStatus"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RTKRealChatConnection@objc(cs)RTKBeePeripheralConnection(im)status",
+                "mangledName": "$s21RTKRealChatConnection016RTKBeePeripheralC0C6statusSo010RTKProfileC6StatusVvg",
+                "moduleName": "RTKRealChatConnection",
+                "overriding": true,
+                "objc_name": "status",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RTKProfileConnectionStatus",
+                    "printedName": "RTKLEFoundation.RTKProfileConnectionStatus",
+                    "usr": "c:@E@RTKProfileConnectionStatus"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@RTKRealChatConnection@objc(cs)RTKBeePeripheralConnection(im)setStatus:",
+                "mangledName": "$s21RTKRealChatConnection016RTKBeePeripheralC0C6statusSo010RTKProfileC6StatusVvs",
+                "moduleName": "RTKRealChatConnection",
+                "declAttributes": [
+                  "Dynamic",
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "msgTransport",
+            "printedName": "msgTransport",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "ImplicitlyUnwrappedOptional",
+                "printedName": "RTKLEFoundation.RTKPacketTransport?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RTKPacketTransport",
+                    "printedName": "RTKLEFoundation.RTKPacketTransport",
+                    "usr": "c:objc(cs)RTKPacketTransport"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:21RTKRealChatConnection016RTKBeePeripheralC0C12msgTransportSo09RTKPacketG0CSgvp",
+            "mangledName": "$s21RTKRealChatConnection016RTKBeePeripheralC0C12msgTransportSo09RTKPacketG0CSgvp",
+            "moduleName": "RTKRealChatConnection",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImplicitlyUnwrappedOptional",
+                    "printedName": "RTKLEFoundation.RTKPacketTransport?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RTKPacketTransport",
+                        "printedName": "RTKLEFoundation.RTKPacketTransport",
+                        "usr": "c:objc(cs)RTKPacketTransport"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection016RTKBeePeripheralC0C12msgTransportSo09RTKPacketG0CSgvg",
+                "mangledName": "$s21RTKRealChatConnection016RTKBeePeripheralC0C12msgTransportSo09RTKPacketG0CSgvg",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ImplicitlyUnwrappedOptional",
+                    "printedName": "RTKLEFoundation.RTKPacketTransport?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "RTKPacketTransport",
+                        "printedName": "RTKLEFoundation.RTKPacketTransport",
+                        "usr": "c:objc(cs)RTKPacketTransport"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection016RTKBeePeripheralC0C12msgTransportSo09RTKPacketG0CSgvs",
+                "mangledName": "$s21RTKRealChatConnection016RTKBeePeripheralC0C12msgTransportSo09RTKPacketG0CSgvs",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection016RTKBeePeripheralC0C12msgTransportSo09RTKPacketG0CSgvM",
+                "mangledName": "$s21RTKRealChatConnection016RTKBeePeripheralC0C12msgTransportSo09RTKPacketG0CSgvM",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "activate",
+            "printedName": "activate(completionHandler:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Swift.Bool, (any Swift.Error)?) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.Bool, (any Swift.Error)?) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Tuple",
+                        "printedName": "(Swift.Bool, (any Swift.Error)?)",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Bool",
+                            "printedName": "Swift.Bool",
+                            "usr": "s:Sb"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Optional",
+                            "printedName": "(any Swift.Error)?",
+                            "children": [
+                              {
+                                "kind": "TypeNominal",
+                                "name": "Error",
+                                "printedName": "any Swift.Error",
+                                "usr": "s:s5ErrorP"
+                              }
+                            ],
+                            "usr": "s:Sq"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "hasDefaultArg": true,
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RTKRealChatConnection@objc(cs)RTKBeePeripheralConnection(im)activateWithCompletionHandler:",
+            "mangledName": "$s21RTKRealChatConnection016RTKBeePeripheralC0C8activate17completionHandleryySb_s5Error_pSgtcSg_tF",
+            "moduleName": "RTKRealChatConnection",
+            "overriding": true,
+            "objc_name": "activateWithCompletionHandler:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "emit",
+            "printedName": "emit(directive:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RTKBeeCommand",
+                "printedName": "RTKRealChatConnection.RTKBeeCommand",
+                "usr": "s:21RTKRealChatConnection13RTKBeeCommandC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:21RTKRealChatConnection016RTKBeePeripheralC0C4emit9directiveyAA0D7CommandC_tF",
+            "mangledName": "$s21RTKRealChatConnection016RTKBeePeripheralC0C4emit9directiveyAA0D7CommandC_tF",
+            "moduleName": "RTKRealChatConnection",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "emit",
+            "printedName": "emit(directives:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Array",
+                "printedName": "[RTKRealChatConnection.RTKBeeCommand]",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "RTKBeeCommand",
+                    "printedName": "RTKRealChatConnection.RTKBeeCommand",
+                    "usr": "s:21RTKRealChatConnection13RTKBeeCommandC"
+                  }
+                ],
+                "usr": "s:Sa"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:21RTKRealChatConnection016RTKBeePeripheralC0C4emit10directivesySayAA0D7CommandCG_tF",
+            "mangledName": "$s21RTKRealChatConnection016RTKBeePeripheralC0C4emit10directivesySayAA0D7CommandCG_tF",
+            "moduleName": "RTKRealChatConnection",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "onReceive",
+            "printedName": "onReceive(event:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RTKBeeEvent",
+                "printedName": "RTKRealChatConnection.RTKBeeEvent",
+                "usr": "s:21RTKRealChatConnection11RTKBeeEventC"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:21RTKRealChatConnection016RTKBeePeripheralC0C9onReceive5eventyAA0D5EventC_tF",
+            "mangledName": "$s21RTKRealChatConnection016RTKBeePeripheralC0C9onReceive5eventyAA0D5EventC_tF",
+            "moduleName": "RTKRealChatConnection",
+            "isOpen": true,
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "transportDidChangeState",
+            "printedName": "transportDidChangeState(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RTKPacketTransport",
+                "printedName": "RTKLEFoundation.RTKPacketTransport",
+                "usr": "c:objc(cs)RTKPacketTransport"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RTKRealChatConnection@objc(cs)RTKBeePeripheralConnection(im)transportDidChangeState:",
+            "mangledName": "$s21RTKRealChatConnection016RTKBeePeripheralC0C23transportDidChangeStateyySo18RTKPacketTransportCF",
+            "moduleName": "RTKRealChatConnection",
+            "objc_name": "transportDidChangeState:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "transport",
+            "printedName": "transport(_:didReceive:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RTKPacketTransport",
+                "printedName": "RTKLEFoundation.RTKPacketTransport",
+                "usr": "c:objc(cs)RTKPacketTransport"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Data",
+                "printedName": "Foundation.Data",
+                "usr": "s:10Foundation4DataV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@RTKRealChatConnection@objc(cs)RTKBeePeripheralConnection(im)transport:didReceive:",
+            "mangledName": "$s21RTKRealChatConnection016RTKBeePeripheralC0C9transport_10didReceiveySo18RTKPacketTransportC_10Foundation4DataVtF",
+            "moduleName": "RTKRealChatConnection",
+            "objc_name": "transport:didReceive:",
+            "declAttributes": [
+              "ObjC",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(peripheral:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RTKBeePeripheralConnection",
+                "printedName": "RTKRealChatConnection.RTKBeePeripheralConnection",
+                "usr": "c:@M@RTKRealChatConnection@objc(cs)RTKBeePeripheralConnection"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CBPeripheral",
+                "printedName": "CoreBluetooth.CBPeripheral",
+                "usr": "c:objc(cs)CBPeripheral"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@RTKRealChatConnection@objc(cs)RTKBeePeripheralConnection(im)initWithPeripheral:",
+            "mangledName": "$s21RTKRealChatConnection016RTKBeePeripheralC0C10peripheralACSo12CBPeripheralC_tcfc",
+            "moduleName": "RTKRealChatConnection",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "initWithPeripheral:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RTKBeePeripheralConnection",
+                "printedName": "RTKRealChatConnection.RTKBeePeripheralConnection",
+                "usr": "c:@M@RTKRealChatConnection@objc(cs)RTKBeePeripheralConnection"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@RTKRealChatConnection@objc(cs)RTKBeePeripheralConnection(im)init",
+            "mangledName": "$s21RTKRealChatConnection016RTKBeePeripheralC0CACycfc",
+            "moduleName": "RTKRealChatConnection",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@RTKRealChatConnection@objc(cs)RTKBeePeripheralConnection",
+        "mangledName": "$s21RTKRealChatConnection016RTKBeePeripheralC0C",
+        "moduleName": "RTKRealChatConnection",
+        "isOpen": true,
+        "declAttributes": [
+          "AccessControl",
+          "RawDocComment",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)RTKConnectionUponGATT",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "RTKLEFoundation.RTKConnectionUponGATT",
+          "RTKLEFoundation.RTKProfileConnection",
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AudioToolbox",
+        "printedName": "AudioToolbox",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection"
+      },
+      {
+        "kind": "Import",
+        "name": "RTKLEFoundation",
+        "printedName": "RTKLEFoundation",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection"
+      },
+      {
+        "kind": "Import",
+        "name": "RTKAudioStreaming",
+        "printedName": "RTKAudioStreaming",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection"
+      },
+      {
+        "kind": "Import",
+        "name": "BeeMessageFormat",
+        "printedName": "BeeMessageFormat",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection",
+        "declAttributes": [
+          "ImplementationOnly"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "MessageMemoryLayout",
+        "printedName": "MessageMemoryLayout",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection",
+        "declAttributes": [
+          "ImplementationOnly"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "BeeError",
+        "printedName": "BeeError",
+        "children": [
+          {
+            "kind": "Var",
+            "name": "domain",
+            "printedName": "domain",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:21RTKRealChatConnection8BeeErrorO6domainSSvpZ",
+            "mangledName": "$s21RTKRealChatConnection8BeeErrorO6domainSSvpZ",
+            "moduleName": "RTKRealChatConnection",
+            "static": true,
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection8BeeErrorO6domainSSvgZ",
+                "mangledName": "$s21RTKRealChatConnection8BeeErrorO6domainSSvgZ",
+                "moduleName": "RTKRealChatConnection",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection8BeeErrorO6domainSSvsZ",
+                "mangledName": "$s21RTKRealChatConnection8BeeErrorO6domainSSvsZ",
+                "moduleName": "RTKRealChatConnection",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection8BeeErrorO6domainSSvMZ",
+                "mangledName": "$s21RTKRealChatConnection8BeeErrorO6domainSSvMZ",
+                "moduleName": "RTKRealChatConnection",
+                "static": true,
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "crc",
+            "printedName": "crc",
+            "children": [
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(RTKRealChatConnection.BeeError.Type) -> RTKRealChatConnection.BeeError",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BeeError",
+                    "printedName": "RTKRealChatConnection.BeeError",
+                    "usr": "s:21RTKRealChatConnection8BeeErrorO"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Metatype",
+                    "printedName": "RTKRealChatConnection.BeeError.Type",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "BeeError",
+                        "printedName": "RTKRealChatConnection.BeeError",
+                        "usr": "s:21RTKRealChatConnection8BeeErrorO"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "declKind": "EnumElement",
+            "usr": "s:21RTKRealChatConnection8BeeErrorO3crcyA2CmF",
+            "mangledName": "$s21RTKRealChatConnection8BeeErrorO3crcyA2CmF",
+            "moduleName": "RTKRealChatConnection"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(rawValue:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RTKRealChatConnection.BeeError?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "BeeError",
+                    "printedName": "RTKRealChatConnection.BeeError",
+                    "usr": "s:21RTKRealChatConnection8BeeErrorO"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:21RTKRealChatConnection8BeeErrorO8rawValueACSgSi_tcfc",
+            "mangledName": "$s21RTKRealChatConnection8BeeErrorO8rawValueACSgSi_tcfc",
+            "moduleName": "RTKRealChatConnection",
+            "implicit": true,
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Var",
+            "name": "rawValue",
+            "printedName": "rawValue",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "s:21RTKRealChatConnection8BeeErrorO8rawValueSivp",
+            "mangledName": "$s21RTKRealChatConnection8BeeErrorO8rawValueSivp",
+            "moduleName": "RTKRealChatConnection",
+            "implicit": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:21RTKRealChatConnection8BeeErrorO8rawValueSivg",
+                "mangledName": "$s21RTKRealChatConnection8BeeErrorO8rawValueSivg",
+                "moduleName": "RTKRealChatConnection",
+                "implicit": true,
+                "accessorKind": "get"
+              }
+            ]
+          }
+        ],
+        "declKind": "Enum",
+        "usr": "s:21RTKRealChatConnection8BeeErrorO",
+        "mangledName": "$s21RTKRealChatConnection8BeeErrorO",
+        "moduleName": "RTKRealChatConnection",
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "enumRawTypeName": "Int",
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "RawRepresentable",
+            "printedName": "RawRepresentable",
+            "children": [
+              {
+                "kind": "TypeWitness",
+                "name": "RawValue",
+                "printedName": "RawValue",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "usr": "s:SY",
+            "mangledName": "$sSY"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "MessageMemoryLayout",
+        "printedName": "MessageMemoryLayout",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection",
+        "declAttributes": [
+          "ImplementationOnly"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "AudioToolbox",
+        "printedName": "AudioToolbox",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection"
+      },
+      {
+        "kind": "Import",
+        "name": "RTKAudioStreaming",
+        "printedName": "RTKAudioStreaming",
+        "declKind": "Import",
+        "moduleName": "RTKRealChatConnection"
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKBeeInteraction\/RTKBeeCommand.swift",
+      "kind": "IntegerLiteral",
+      "offset": 291,
+      "length": 4,
+      "value": "0xFF"
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKBeeInteraction\/RTKBeeCommand.swift",
+      "kind": "IntegerLiteral",
+      "offset": 362,
+      "length": 4,
+      "value": "0xFF"
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKBeeInteraction\/RTKBeeCommand.swift",
+      "kind": "BooleanLiteral",
+      "offset": 537,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKBeeInteraction\/RTKBeeCommand.swift",
+      "kind": "BooleanLiteral",
+      "offset": 917,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKBeeInteraction\/RTKBeeCommand.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1565,
+      "length": 4,
+      "value": "0xFF"
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKBeeInteraction\/RTKBeeCommand.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1633,
+      "length": 4,
+      "value": "0xFF"
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKBeeInteraction\/RTKBeeL1Transport.swift",
+      "kind": "BooleanLiteral",
+      "offset": 551,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKBeeInteraction\/RTKBeeL1Transport.swift",
+      "kind": "IntegerLiteral",
+      "offset": 964,
+      "length": 2,
+      "value": "10"
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKBeeInteraction\/RTKBeeL1Transport.swift",
+      "kind": "Array",
+      "offset": 859,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKBeeInteraction\/RTKBeeL1Transport.swift",
+      "kind": "BooleanLiteral",
+      "offset": 1179,
+      "length": 4,
+      "value": "true"
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKBeeInteraction\/RTKBeeL1Transport.swift",
+      "kind": "Array",
+      "offset": 1234,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKBeeInteraction\/RTKBeeL1Transport.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1295,
+      "length": 4,
+      "value": "0x01"
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKBeeInteraction\/RTKBeeL1Transport.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1308,
+      "length": 6,
+      "value": "0xFFFF"
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKRealChatConnection\/RealChatPeripheralConnection.swift",
+      "kind": "IntegerLiteral",
+      "offset": 1681,
+      "length": 2,
+      "value": "32"
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKRealChatConnection\/RealChatPeripheralConnection.swift",
+      "kind": "BooleanLiteral",
+      "offset": 3376,
+      "length": 5,
+      "value": "false"
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKRealChatConnection\/RealChatPeripheralConnection.swift",
+      "kind": "Array",
+      "offset": 3693,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKBeeInteraction\/RTKBeePeripheralConnection.swift",
+      "kind": "StringLiteral",
+      "offset": 493,
+      "length": 38,
+      "value": "\"000001FF-3C17-D293-8E48-14FE2E4DA212\""
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKBeeInteraction\/RTKBeePeripheralConnection.swift",
+      "kind": "StringLiteral",
+      "offset": 566,
+      "length": 6,
+      "value": "\"FF02\""
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKBeeInteraction\/RTKBeePeripheralConnection.swift",
+      "kind": "StringLiteral",
+      "offset": 607,
+      "length": 6,
+      "value": "\"FF03\""
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKBeeInteraction\/RTKBeePeripheralConnection.swift",
+      "kind": "Array",
+      "offset": 6235,
+      "length": 2,
+      "value": "[]"
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKBeeInteraction\/Error.swift",
+      "kind": "StringLiteral",
+      "offset": 192,
+      "length": 34,
+      "value": "\"com.realtek.beeInteraction.error\""
+    },
+    {
+      "filePath": "\/Users\/jeromegu\/Documents\/Real Projects\/RTKBeeInteraction\/RTKBeeInteraction\/Error.swift",
+      "kind": "IntegerLiteral",
+      "offset": 247,
+      "length": 3,
+      "value": "100"
+    }
+  ]
+}

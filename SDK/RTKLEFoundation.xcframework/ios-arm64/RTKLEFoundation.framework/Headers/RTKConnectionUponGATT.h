@@ -18,13 +18,22 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-/// The controllers on which a GATT connection could be operatable..
-typedef NS_ENUM(NSUInteger, RTKDeviceGATTOverTransport) {
-    RTKDeviceGATTOverTransport_unknown  = 0x00,     /// Which transport a GATT connection could operates on is not determined currently.
-    RTKDeviceGATTOverTransport_LE,                  /// The GATT connection operates using LE.
-    RTKDeviceGATTOverTransport_BREDR,               /// The GATT connection operates using BREDR.
-    RTKDeviceGATTOverTransport_BREDRLE,             /// The GATT connection operates using BREDR or LE. This means the BREDR and LE controllers are all enabled in the device, and GATT could operates on both controller.
-    RTKDeviceGATTOverTransport_LEDeterminedBREDRNot,    /// The GATT connection could operates using LE, but whether using BREDR is not determined.
+/// Constants each indicates the controller type GATT could operate over.
+typedef NS_ENUM(NSUInteger, RTKDeviceGATTTransport) {
+    RTKDeviceGATTTransport_none,        ///< No determined controller
+    RTKDeviceGATTTransport_LE,          ///< LE controller
+    RTKDeviceGATTTransport_BREDR,       ///< BREDR controller
+};
+
+/// Controller collection of a BT device the GATT could operate over.
+///
+/// A device with both LE and BREDR controller equipped may support perform GATT communication on both controllers.
+typedef NS_ENUM(NSUInteger, RTKDeviceSupportedGATTTransport) {
+    RTKDeviceSupportedGATTTransport_unknown  = 0x00,     ///< Which transport a GATT connection could operates on is not determined currently.
+    RTKDeviceSupportedGATTTransport_LE,                  ///< The GATT connection could operate over LE.
+    RTKDeviceSupportedGATTTransport_BREDR,               ///< The GATT connection could operate over BREDR.
+    RTKDeviceSupportedGATTTransport_BREDRLE,             ///< The GATT connection could operate over BREDR and LE. This means the BREDR and LE controllers are all enabled in the device, and GATT could operates on both controller.
+    RTKDeviceSupportedGATTTransport_LEDeterminedBREDRNot,    ///< The GATT connection could operate over LE, but whether could over BREDR is not determined.
 };
 
 @class RTKConnectionUponGATT;
@@ -99,16 +108,27 @@ typedef NS_ENUM(NSUInteger, RTKDeviceGATTOverTransport) {
 /// - Parameter handler: The block to be invoked when the task completes.
 - (void)getBatteryLevelWithCompletionHandler:(nullable void(^)(BOOL success, NSError *error, RTKBatteryLevel level))handler;
 
-/// The controller type this GATT connection could operates on.
-@property (readonly) RTKDeviceGATTOverTransport overTransport;
+
+// MARK: -
+
+/// Which controller used currently for GATT.
+///
+/// @return `nil` indicates that the information is not determined now. A valid value is the number wrapping `RTKDeviceGATTTransport` value.
+@property (readonly, nullable) NSNumber *transport;
+
+/// Get the controller type of this connection.
+- (void)getCurrentTransportWithCompletionHandler:(nullable void(^)(BOOL success, NSError *error, RTKDeviceGATTTransport transport))handler;
+
+/// Controller types the GATT connection could operates over with the remote device. An valid value wraps an `RTKDeviceSupportedGATTTransport` case.
+@property (readonly, nullable) NSNumber *availableTransport;
 
 /// Set the controller type.
 ///
-/// In normal, you use the ``-getDeviceInfoWithCompletionHandler:`` to ask the device for the transport information. But sometimes, when the GATT connection is instantiated and the link may not be established, you can use a previous determined type and assign it to the connection, assumping the Controller of a device never changes. Care should be taken to specify the correct controller information.
-- (void)setTranport:(RTKDeviceGATTOverTransport)transport;
+/// In normal, you use the ``-getTransportInfoWithCompletionHandler:`` to ask the device for the transport information. But sometimes, when the GATT connection is instantiated and the link may not be established, you can use a previous determined type and assign it to the connection, assumping the Controller of a device never changes. Care should be taken to specify the correct controller information.
+- (void)setKnownAvailableTranport:(RTKDeviceSupportedGATTTransport)transport;
 
 /// Communicates with the device to ask for the device information which indicates which Controller could be used for GATT operations.
-- (void)getDeviceInfoWithCompletionHandler:(nullable void(^)(BOOL success, NSError *error, RTKDeviceGATTOverTransport transport))handler;
+- (void)getAvailebleTransportWithCompletionHandler:(nullable void(^)(BOOL success, NSError *error, RTKDeviceSupportedGATTTransport transport))handler;
 
 @end
 
