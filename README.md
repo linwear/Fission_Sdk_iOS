@@ -3,7 +3,7 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Release-3.2.6 -Green.svg">
+    <img src="https://img.shields.io/badge/Release-3.2.7 -Green.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/Support-iOS13.0+ -blue.svg">
@@ -62,11 +62,11 @@ pod 'Fission_Sdk_iOS', git: 'https://github.com/linwear/Fission_Sdk_iOS.git'
 2. 运行 `pod install` 或 `pod update`｜Run `pod install` or `pod update`
 
 * **方式二: 手动导入｜Method 2: Manually**
-1. 将 Fission_Sdk_iOS.framework、RTKOTASDK.framework、RTKLEFoundation.framework、SCompressLib.framework 文件 `Add File` 导入工程｜Import Fission_Sdk_iOS.framework、RTKOTASDK.framework、RTKLEFoundation.framework、SCompressLib.framework files `Add File` into the project
+1. 将 Fission_Sdk_iOS.framework、RTKOTASDK.xcframework、RTKLEFoundation.xcframework、RTKRealChatConnection.xcframework、RTKAudioStreaming.xcframework、SCompressLib.framework、opus.framework 文件 `Add File` 导入工程｜Import Fission_Sdk_iOS.framework、RTKOTASDK.xcframework、RTKLEFoundation.xcframework、RTKRealChatConnection.xcframework、RTKAudioStreaming.xcframework、SCompressLib.framework、opus.framework files `Add File` into the project
 
 2. 集成依赖 FFmpeg｜Integrated dependency FFmpeg (reference https://github.com/arthenica/ffmpeg-kit.git)
 
-3. 在 TARGETS - General 中修改 Fission_Sdk_iOS.framework、RTKOTASDK.framework、 RTKLEFoundation.framework、SCompressLib.framework 的嵌入方式为 `Embed&Sign`｜Modify the embedding mode of Fission_Sdk_iOS.framework、RTKOTASDK.framework、 RTKLEFoundation.framework、SCompressLib.framework in the TARGETS - General to `Embed&Sign`
+3. 在 TARGETS - General 中修改 Fission_Sdk_iOS.framework、RTKOTASDK.framework、 RTKLEFoundation.framework、RTKRealChatConnection.xcframework、RTKAudioStreaming.xcframework、SCompressLib.framework 的嵌入方式为 `Embed&Sign`｜Modify the embedding mode of Fission_Sdk_iOS.framework、RTKOTASDK.framework、 RTKLEFoundation.framework、RTKRealChatConnection.xcframework、RTKAudioStreaming.xcframework、SCompressLib.framework in the TARGETS - General to `Embed&Sign`
 
 4. 在 TARGETS - Build Settings - Other Linker Flags 中添加 `-ObjC`｜Add `-ObjC` in TARGETS - Build Settings - Other Linker Flags
 
@@ -147,6 +147,22 @@ Privacy - Bluetooth Always Usage Description
 | Public Header Files  |
 | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
+
+     project    2025-03-21  Version:3.2.7 Build:20250321001
+                            1.新增支持获取、监听指令队列状态 @see FBBluetoothManager.h
+                            2.增加游泳运动记录更多详细数据 @see FBSportCaculateModel.h 和 FBRecordDetailsModel.h
+                            3.优化.txt文件编解码 @see（FBCustomDataTools）fbHandleEBookUTF8EncodingWithFilePath:callback:
+                            4.EM_FUNC_SWITCH 新增类型:
+                                FS_DATA_SYNC_NOTIFY(51)
+                            5.新增获取离线语音信息 @see（FBBgCommand）fbGetOfflineVoiceInfoWithBlock:
+                            6.新增获取内置表盘开关掩码 @see（FBAtCommand）fbGetDialSwitchMaskWithBlock:
+                            7.新增设置内置表盘开关掩码 @see（FBAtCommand）fbSetDialSwitchMask:withBlock:
+                            8.FB_OTANOTIFICATION 新增类型:
+                                FB_OTANotification_OfflineVoice_Package
+                            9.支持瑞昱RTK语音相关功能SDK
+                            10.支持音频格式opus解码pcm
+                            11.兼容 Swift 6
+                            12.优化已知问题
 
      project    2025-01-17  Version:3.2.6 Build:20250117001
                             1.⚠️Fission_Sdk_iOS.framework最低系统版本要求 iOS13.0及以上
