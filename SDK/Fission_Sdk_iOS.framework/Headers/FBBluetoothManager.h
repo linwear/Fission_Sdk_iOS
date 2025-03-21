@@ -149,6 +149,17 @@ NS_ASSUME_NONNULL_BEGIN
  @return FBFirmwareVersionObject
 */
 
+
+/**
+ 获取指令队列当前是否空闲｜Get whether the command queue is currently idle
+*/
+- (BOOL)commandQueueIdle;
+
+/**
+ 回调指令队列当前处于空闲｜The callback command queue is currently idle
+*/
+- (void)commandQueueIdleWithCallback:(FBCommandQueueIdleBlock)callback;
+
 @end
 
 NS_ASSUME_NONNULL_END

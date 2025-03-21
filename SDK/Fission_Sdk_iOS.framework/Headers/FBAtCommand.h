@@ -590,18 +590,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)fbSettingsGPSSportsParameterWithBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
 
-#pragma mark - 获取离线语音唤醒开关状态以及授权状态｜Get offline voice wake-up switch status and authorization status
-/**
- 获取离线语音唤醒开关状态以及授权状态｜Get offline voice wake-up switch status and authorization status
- 
- @note responseObject           0:关,未授权｜0: Off, unauthorized
-                                1:关,已授权｜1: Off, authorized
-                                2:开,未授权｜2: On, unauthorized
-                                3:开,已授权｜3: On, authorized
- */
-- (void)fbGetOfflineVoiceAllStatusWithBlock:(FBGet_AT_ResultCallBackBlock _Nonnull)fbBlock;
-
-
 #pragma mark - 设置离线语音唤醒开关状态｜Set the offline voice wake-up switch status
 /**
  设置离线语音唤醒开关状态｜Set the offline voice wake-up switch status
@@ -616,6 +604,23 @@ NS_ASSUME_NONNULL_BEGIN
  @param status          开关状态，NO关，YES开｜Switch status, NO off, YES on
  */
 - (void)fbSetFlashlightData:(BOOL)status withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 获取内置表盘开关掩码｜Get the built-in dial switch mask
+/**
+ 获取内置表盘开关掩码｜Get the built-in dial switch mask
+ 
+ @note responseObject          开关掩码，枚举值FB_DIALSWITCHMASKTYPE｜Switch mask, enumeration value FB_DIALSWITCHMASKTYPE
+ */
+- (void)fbGetDialSwitchMaskWithBlock:(FBGet_AT_ResultCallBackBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 设置内置表盘开关掩码｜Set the built-in dial switch mask
+/**
+ 设置内置表盘开关掩码｜Set the built-in dial switch mask
+ @param switchMask          开关掩码，枚举值FB_DIALSWITCHMASKTYPE｜Switch mask, enumeration value FB_DIALSWITCHMASKTYPE
+ */
+- (void)fbSetDialSwitchMask:(FB_DIALSWITCHMASKTYPE)switchMask withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
 @end
 

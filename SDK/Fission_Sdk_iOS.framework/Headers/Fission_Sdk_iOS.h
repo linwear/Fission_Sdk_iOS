@@ -14,6 +14,22 @@
                               Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装。
   GitHub @link https://github.com/linwear/Fission_Sdk_iOS.git
   修改记录｜Modification Record:
+     project    2025-03-21  Version:3.2.7 Build:20250321001
+                            1.新增支持获取、监听指令队列状态 @see FBBluetoothManager.h
+                            2.增加游泳运动记录更多详细数据 @see FBSportCaculateModel.h 和 FBRecordDetailsModel.h
+                            3.优化.txt文件编解码 @see（FBCustomDataTools）fbHandleEBookUTF8EncodingWithFilePath:callback:
+                            4.EM_FUNC_SWITCH 新增类型:
+                                FS_DATA_SYNC_NOTIFY(51)
+                            5.新增获取离线语音信息 @see（FBBgCommand）fbGetOfflineVoiceInfoWithBlock:
+                            6.新增获取内置表盘开关掩码 @see（FBAtCommand）fbGetDialSwitchMaskWithBlock:
+                            7.新增设置内置表盘开关掩码 @see（FBAtCommand）fbSetDialSwitchMask:withBlock:
+                            8.FB_OTANOTIFICATION 新增类型:
+                                FB_OTANotification_OfflineVoice_Package
+                            9.支持瑞昱RTK语音相关功能SDK
+                            10.支持音频格式opus解码pcm
+                            11.兼容 Swift 6
+                            12.优化已知问题
+ 
      project    2025-01-17  Version:3.2.6 Build:20250117001
                             1.⚠️Fission_Sdk_iOS.framework最低系统版本要求 iOS13.0及以上
                             2.FBFirmwareVersionObject 新增标志位:
@@ -31,16 +47,15 @@
                             9.新增兼容固件bug，该值真实反馈是否支持JSI通道（FBBaiduCloudKit.sharedInstance.allowUsingJSI）YES支持
                             10.新增是否使用新的JSI通道，该值真实反馈是否走JSI通道进行数传（FBBaiduCloudKit.sharedInstance.usingJSI）YES使用JSI通道
                             11.新增"设置设备授权码"协议（FBBgCommand）fbSetDeviceAuthCodeWithList:withBlock:
-                            12.新增"获取离线语音唤醒开关状态以及授权状态"协议（FBAtCommand）fbGetOfflineVoiceAllStatusWithBlock:
-                            13.新增"设置离线语音唤醒开关状态"协议（FBAtCommand）fbSetOfflineVoiceData:withBlock:
-                            14.新增"设置手电筒开关状态"协议（FBAtCommand）fbSetFlashlightData:withBlock:
-                            15.变更"恢复出厂设置"协议（FBAtCommand）fbUpResetDeviceDataWithShutdown::withBlock:
-                            16.EM_FUNC_SWITCH 新增类型:
+                            12.新增"设置离线语音唤醒开关状态"协议（FBAtCommand）fbSetOfflineVoiceData:withBlock:
+                            13.新增"设置手电筒开关状态"协议（FBAtCommand）fbSetFlashlightData:withBlock:
+                            14.变更"恢复出厂设置"协议（FBAtCommand）fbUpResetDeviceDataWithShutdown::withBlock:
+                            15.EM_FUNC_SWITCH 新增类型:
                                 FS_OFFLINEVOICE_AUTH_NOTIFY(48)
                                 FS_OFFLINEVOICE_WARN_NOTIFY(49)
-                            17.修复已知自定义表盘问题
-                            18.优化连接超时问题
-                            19.优化数据解析
+                            16.修复已知自定义表盘问题
+                            17.优化连接超时问题
+                            18.优化数据解析
  
      project    2024-11-06  Version:3.2.5 Build:20241106001
                             1.新增"读取指定路径下的某个文件数据"协议（FBBgCommand）fbReadDataFileWithPaths:withBlock:
@@ -396,6 +411,7 @@ FOUNDATION_EXPORT const unsigned char Fission_Sdk_iOSVersionString[];
 #import <Fission_Sdk_iOS/FBBaiduNaviModel.h>
 #import <Fission_Sdk_iOS/FBReqHistoryModel.h>
 #import <Fission_Sdk_iOS/FBDeviceAuthCodeModel.h>
+#import <Fission_Sdk_iOS/FBOfflineVoiceInfoModel.h>
 
 /** 蓝牙管理器｜Bluetooth manager */
 #import <Fission_Sdk_iOS/FBCommandCallback.h>

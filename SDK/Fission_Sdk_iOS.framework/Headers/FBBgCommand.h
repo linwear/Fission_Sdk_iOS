@@ -623,6 +623,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)fbSetCurrentRingtoneInfoWithList:(NSArray <FBRingtoneInfoModel *> * _Nonnull)modelList withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
 
+#pragma mark - 获取离线语音信息｜Get offline voice information
+/**
+ 获取离线语音信息｜Get offline voice information
+*/
+- (void)fbGetOfflineVoiceInfoWithBlock:(FBGetOfflineVoiceInfoBlock _Nonnull)fbBlock;
+
+
 #pragma mark - 设置设备授权码｜Set device authorization code
 /**
  设置设备授权码｜Set device authorization code

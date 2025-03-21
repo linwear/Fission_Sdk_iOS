@@ -82,13 +82,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger heartRate;
 
 /**
- 记录格式定义
+ 记录格式定义｜Record format definition
  
  RecordType == FB_SportsRecord -->>
- 0:实时体力、运动状态值有效，1:公里、英里用时值有效｜Record format definition, 0: real-time physical strength and exercise status values ​​are valid, 1: kilometer and mile time values ​​are valid
+ 0:实时体力、运动状态值有效｜0: real-time physical strength and exercise status values ​​are valid
+ 1:公里、英里用时值有效｜1: kilometer and mile time values ​​are valid
+ 2:游泳相关值有效｜2: Swimming related values ​​are valid
  
  RecordType == FB_MotionGpsRecord -->>
- 0:经纬度是单精度，1:经纬度是双精度｜0: longitude and latitude are single precision, 1: longitude and latitude are double precision
+ 0:经纬度是单精度｜0: longitude and latitude are single precision
+ 1:经纬度是双精度｜1: longitude and latitude are double precision
 */
 @property (nonatomic, assign) NSInteger recordDefinition;
 
@@ -102,13 +105,34 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isSuspend;
 
 
-// - - - - - - - - - - 当 记录格式定义recordDefinition == 1 时，以下值有效｜When recordDefinition == 1, the following values are valid - - - - - - - - - -
+// - - - - - 当 记录格式定义recordDefinition == 1 时，以下值有效｜When recordDefinition == 1, the following values are valid - - - - -
 
 /** 一公里用时（一公里配速，单位秒）｜One kilometer time (one kilometer pace, unit second)*/
 @property (nonatomic, assign) NSInteger KilometerPace;
 
 /** 一英里用时（一英里配速，单位秒）｜Mile time (mile pace, in seconds) */
 @property (nonatomic, assign) NSInteger MilePace;
+
+
+// - - - - - 当 记录格式定义recordDefinition == 2 时，以下值有效｜When recordDefinition == 2, the following values are valid - - - - -
+
+/** 主泳姿 (开放水域:50米、泳池:趟) */
+@property (nonatomic, assign) FB_SWIMMINGSTROKES mainStroke_m;
+
+/** 主泳姿 (开放水域:50码) */
+@property (nonatomic, assign) FB_SWIMMINGSTROKES mainStroke_yd;
+
+/** 时长 (开放水域:50米、泳池:趟) */
+@property (nonatomic, assign) NSInteger strokeDuration_m;
+
+/** 时长 (开放水域:50码) */
+@property (nonatomic, assign) NSInteger strokeDuration_yd;
+
+/** 划水次数 (开放水域:50米、泳池:趟) */
+@property (nonatomic, assign) NSInteger strokeCount_m;
+
+/** 划水次数 (开放水域:50码) */
+@property (nonatomic, assign) NSInteger strokeCount_yd;
 
 
 

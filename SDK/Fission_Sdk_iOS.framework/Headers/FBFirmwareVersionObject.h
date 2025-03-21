@@ -547,6 +547,18 @@ NS_ASSUME_NONNULL_BEGIN
 */
 @property (nonatomic, assign) BOOL supportOfflineVoice;
 
+/**
+ 🌟GOMORE授权码请求socID｜GOMORE authorization code request socID🌟
+*/
+@property (nonatomic, copy) NSString *socID;
+
+/**
+ 🌟是否支持opus格式音频｜Whether to support opus format audio🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportOpus;
+
 @end
 
 NS_ASSUME_NONNULL_END
