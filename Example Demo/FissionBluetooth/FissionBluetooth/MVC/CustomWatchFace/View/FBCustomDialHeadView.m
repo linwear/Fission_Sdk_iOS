@@ -94,7 +94,7 @@
     dialPreviewView.backgroundColor = UIColorClear;
     dialPreviewView.clipsToBounds = YES;
     if (isCircle) {
-        dialPreviewView.circle = YES;
+        dialPreviewView.layer.cornerRadius = dialHigh/2;
     }
     [self addSubview:dialPreviewView];
     dialPreviewView.sd_layout.leftSpaceToView(self, 60).rightSpaceToView(self, 60).topSpaceToView(self, 30).heightIs(dialHigh);
@@ -104,13 +104,14 @@
 #pragma mark - 2⃣️表盘背景图（内含 表盘图片、刻度图片）
     UIView *dialBackgroundView = UIView.new;
     dialBackgroundView.backgroundColor = UIColorClear;
-    if (isCircle) {
-        dialBackgroundView.circle = YES;
-    }
     [dialPreviewView addSubview:dialBackgroundView];
     dialBackgroundView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(0, 0, 0, 0));
     self.dialBackgroundView = dialBackgroundView;
     [self createDialBackgroundView:dialBackgroundView]; // 创建背景、刻度
+    [dialBackgroundView updateLayout];
+    if (isCircle) {
+        dialBackgroundView.layer.cornerRadius = dialBackgroundView.height/2;
+    }
     
     
 #pragma mark - 3⃣️表盘组件集
@@ -121,28 +122,33 @@
     UIView *backgroundView = UIView.new;
     backgroundView.userInteractionEnabled = NO;
     backgroundView.backgroundColor = UIColorClear;
-    backgroundView.borderWidth = 10;
-    backgroundView.borderColor = UIColorWhite;
-    if (isCircle) {
-        backgroundView.circle = YES;
-    } else {
-        backgroundView.cornerRadius = rectRadius+10;
-    }
     [self addSubview:backgroundView];
     backgroundView.sd_layout.leftSpaceToView(self, 40).rightSpaceToView(self, 40).topSpaceToView(self, 10).heightIs(dialHigh+40);
+    
+    [backgroundView updateLayout];
+    backgroundView.layer.borderWidth = 10;
+    backgroundView.layer.borderColor = UIColorWhite.CGColor;
+    if (isCircle) {
+        backgroundView.layer.cornerRadius = backgroundView.height/2;
+    } else {
+        backgroundView.layer.cornerRadius = rectRadius+10;
+    }
+    
     // 银色表框
     UIView *contourBackgroundView = UIView.new;
     contourBackgroundView.userInteractionEnabled = NO;
     contourBackgroundView.backgroundColor = UIColorClear;
-    contourBackgroundView.borderWidth = 10;
-    contourBackgroundView.borderColor = COLOR_HEX(0xDEDEDE, 1);
-    if (isCircle) {
-        contourBackgroundView.circle = YES;
-    } else {
-        contourBackgroundView.cornerRadius = rectRadius;
-    }
     [backgroundView addSubview:contourBackgroundView];
     contourBackgroundView.sd_layout.spaceToSuperView(UIEdgeInsetsMake(10, 10, 10, 10));
+    [contourBackgroundView updateLayout];
+    contourBackgroundView.layer.masksToBounds = YES;
+    contourBackgroundView.layer.borderWidth = 10;
+    contourBackgroundView.layer.borderColor = COLOR_HEX(0xDEDEDE, 1).CGColor;
+    if (isCircle) {
+        contourBackgroundView.layer.cornerRadius = contourBackgroundView.height/2;
+    } else {
+        contourBackgroundView.layer.cornerRadius = rectRadius;
+    }
     
 
 #pragma mark - 6⃣️描述

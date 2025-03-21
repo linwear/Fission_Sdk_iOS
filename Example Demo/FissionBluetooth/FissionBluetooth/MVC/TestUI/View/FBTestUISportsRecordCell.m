@@ -26,9 +26,9 @@
     // Initialization code
     self.contentView.backgroundColor = UIColorWhite;
     
-    self.BG_COLOR.gradientStyle = GradientStyleLeftToRight;
-    self.BG_COLOR.gradientAColor = COLOR_HEX(0xFFFFFF, 0);
-    self.BG_COLOR.gradientBColor = UIColorTestGreen;
+//    self.BG_COLOR.gradientStyle = GradientStyleLeftToRight;
+//    self.BG_COLOR.gradientAColor = COLOR_HEX(0xFFFFFF, 0);
+//    self.BG_COLOR.gradientBColor = UIColorTestGreen;
     
     SDAnimatedImage *animatedImage = [SDAnimatedImage imageNamed:@"icons8-walking-gif.gif"];
     self.animatedImageView.image = animatedImage;

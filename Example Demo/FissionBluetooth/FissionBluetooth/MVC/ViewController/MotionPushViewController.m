@@ -411,7 +411,7 @@
             __block LWMotionPushClassifyModel *model = self.dataAry[indexPath.row];
             
             // 第二组赋值，刷新
-            [dataCell reload:model isFirst:indexPath.row==0 isLast:indexPath.row==self.dataAry.count-1 block:^(LWMotionPushClickType clickType, id  _Nonnull result) {
+            [dataCell reload:model isLast:indexPath.row==self.dataAry.count-1 block:^(LWMotionPushClickType clickType, id  _Nonnull result) {
                 
                 if (clickType == LWHeadTitleClick) { // 头部点击
                     model.isShow = (BOOL)[result intValue]; // 更新数据源

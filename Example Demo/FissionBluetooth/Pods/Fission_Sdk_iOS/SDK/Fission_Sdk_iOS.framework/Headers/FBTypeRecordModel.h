@@ -51,7 +51,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) FB_RECORDTYPE RecordType;
 
 /**
- 记录格式定义｜Record Format Definition
+ 记录格式定义｜Record format definition
+ 
+ RecordType == FB_SportsRecord -->>
+ 0:实时体力、运动状态值有效｜0: real-time physical strength and exercise status values ​​are valid
+ 1:公里、英里用时值有效｜1: kilometer and mile time values ​​are valid
+ 2:游泳相关值有效｜2: Swimming related values ​​are valid
+ 
+ RecordType == FB_MotionGpsRecord -->>
+ 0:经纬度是单精度｜0: longitude and latitude are single precision
+ 1:经纬度是双精度｜1: longitude and latitude are double precision
 */
 @property (nonatomic, assign) NSInteger recordDefinition;
 

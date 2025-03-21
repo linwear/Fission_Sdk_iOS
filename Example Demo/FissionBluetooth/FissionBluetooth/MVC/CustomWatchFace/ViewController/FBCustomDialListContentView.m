@@ -143,7 +143,7 @@ static NSString *FBCustomDialListColorCellID = @"FBCustomDialListColorCell";
     
     FBCustomDialListImageCell *imageCell = [collectionView dequeueReusableCellWithReuseIdentifier:FBCustomDialListImageCellID forIndexPath:indexPath];
     imageCell.edgeInsets = 0;
-    imageCell.cornerRadius = 0;
+    [imageCell cornerRadius:0];
     
     FBCustomDialListTitleCell *titleCell = [collectionView dequeueReusableCellWithReuseIdentifier:FBCustomDialListTitleCellID forIndexPath:indexPath];
     
@@ -169,7 +169,7 @@ static NSString *FBCustomDialListColorCellID = @"FBCustomDialListColorCell";
                     imageCell.edgeInsets = 10 * dialScale;
                 } else if (self.dialList.listType == FBCustomDialListType_Module) {
                     imageCell.edgeInsets = item.itemEvent==FBCustomDialListItemsEvent_StateBatteryImage ? 7 * dialScale : 17 * dialScale;
-                    imageCell.cornerRadius = 10 * dialScale;
+                    [imageCell cornerRadius:10 * dialScale];
                 }
                 
                 return imageCell;
@@ -186,10 +186,10 @@ static NSString *FBCustomDialListColorCellID = @"FBCustomDialListColorCell";
             else if (list.souresType == FBCustomDialListSouresType_Color) {
                 
                 colorCell.colorView.backgroundColor = item.color;
-                colorCell.colorView.cornerRadius = 10 * dialScale;
-                colorCell.cornerRadius = 12 * dialScale;
-                colorCell.borderWidth = 2;
-                colorCell.borderColor = item.isSelect ? COLOR_HEX(0xAAAAAA, 1) : UIColorClear;
+                [colorCell.colorView cornerRadius:10 * dialScale];
+                [colorCell cornerRadius:12 * dialScale];
+                colorCell.layer.borderWidth = 2;
+                colorCell.layer.borderColor = item.isSelect ? COLOR_HEX(0xAAAAAA, 1).CGColor : UIColorClear.CGColor;
                 
                 return colorCell;
             }

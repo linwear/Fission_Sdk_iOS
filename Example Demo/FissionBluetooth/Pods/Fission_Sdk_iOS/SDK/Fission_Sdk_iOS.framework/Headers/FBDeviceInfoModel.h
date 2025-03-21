@@ -146,6 +146,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) NSInteger systemSize;
 
+/**
+ nandFlashID
+ */
+@property (nonatomic, assign) NSInteger nandFlashID;
+
+/**
+ norFlashID
+ */
+@property (nonatomic, assign) NSInteger norFlashID;
+
+/**
+ socID
+ */
+@property (nonatomic, copy) NSString *socID;
+
 @end
 
 NS_ASSUME_NONNULL_END

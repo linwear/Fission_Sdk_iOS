@@ -2,7 +2,7 @@
 source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 
 # Uncomment the next line to define a global platform for your project
-platform :ios, '12.1'
+platform :ios, '13.0'
 
 target 'FissionBluetooth' do
   # Comment the next line if you don't want to use dynamic frameworks
@@ -20,7 +20,9 @@ target 'FissionBluetooth' do
   end
 
   # 💥Fission SDK
-  pod 'Fission_Sdk_iOS', git: 'https://github.com/linwear/Fission_Sdk_iOS.git'
+  # pod update Fission_Sdk_iOS --verbose --no-repo-update
+  pod 'Fission_Sdk_iOS', git: 'https://github.com/linwear/Fission_Sdk_iOS.git' #Release
+  # pod 'Fission_Sdk_iOS_PreRelease', git: 'https://github.com/linwear/Fission_Sdk_iOS_PreRelease.git' #Pre-Release
   
   pod 'QMUIKit'
   pod 'AFNetworking'
@@ -37,12 +39,11 @@ target 'FissionBluetooth' do
   pod 'SGQRCode'
   pod 'CWLateralSlide'
   pod 'JXCategoryView'
-  pod 'HJViewStyle'
   pod 'SSZipArchive'
   pod 'CHIPageControl/Fresno'
   pod 'ZLCollectionViewFlowLayout'
   pod 'AAChartKit', :git => 'https://github.com/AAChartModel/AAChartKit.git'
-  pod 'Realm'
+#  pod 'Realm'
   pod 'FSCalendar'
   pod 'UICountingLabel'
   pod 'JJException'

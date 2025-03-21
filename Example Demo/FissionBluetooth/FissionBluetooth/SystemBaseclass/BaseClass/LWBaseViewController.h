@@ -9,10 +9,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LWBaseViewController : UIViewController <QMUINavigationControllerDelegate>
+@interface LWBaseViewController : QMUICommonViewController <QMUINavigationControllerDelegate>
 
-/// 导航栏透明度
-- (void)navigationBarAlpha:(CGFloat)alpha;
+/// 导航栏背景颜色 不设置的话，默认蓝色
+@property (nonatomic, strong) UIColor *navigationBGColor;
+
+/// 是否隐藏导航栏
+@property (nonatomic, assign) BOOL navigationBarHidden;
 
 /// 拦截系统返回事件，外部可重写此方法
 - (BOOL)shouldPopViewControllerByBackButtonOrPopGesture:(BOOL)byPopGesture;

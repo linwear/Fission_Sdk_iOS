@@ -721,9 +721,10 @@ typedef void(^FBPlayCompleteBlock)(void);
         label.textAlignment = NSTextAlignmentCenter;
         label.backgroundColor = UIColor.blackColor;
         label.frame = CGRectMake(0, 0, 18, 18);
-        label.circle = YES;
-        label.borderWidth = 1;
-        label.borderColor = UIColor.whiteColor;
+        label.layer.cornerRadius = 18/2;
+        label.layer.masksToBounds = YES;
+        label.layer.borderWidth = 1;
+        label.layer.borderColor = UIColorWhite.CGColor;
         self.label = label;
         
         NSMutableArray <UIImage *> *imageIcon = NSMutableArray.array;

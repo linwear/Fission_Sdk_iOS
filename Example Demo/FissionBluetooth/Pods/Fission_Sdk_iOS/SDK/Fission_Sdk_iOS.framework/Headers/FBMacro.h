@@ -506,12 +506,17 @@ typedef NS_ENUM (NSInteger, FB_OTANOTIFICATION) {
     
     FB_OTANotification_JS_App                   = 32,   //推送JS应用｜Push JS application
     
+    FB_OTANotification_Read_Logs                = 34,   //读取设备端日志文件｜Read device log files
+    FB_OTANotification_Read_Logs_Finish         = 35,   //设备端日志文件读取完毕｜The device log file has been read.
+    
     FB_OTANotification_eBooks                   = 38,   //推送电子书｜Push eBooks
     FB_OTANotification_Video                    = 39,   //推送视频｜Push Video
     FB_OTANotification_Music                    = 40,   //推送音乐｜Push Music
     FB_OTANotification_Ring_Message             = 41,   //推送消息提示音｜Push message notification tone   
     FB_OTANotification_Ring_Call                = 42,   //推送来电铃声｜Push incoming call ringtone
     FB_OTANotification_Ring_Alarm               = 43,   //推送闹钟铃声｜Push alarm ringtone
+    
+    FB_OTANotification_OfflineVoice_Package     = 47,   //推送离线语音包｜Push offline voice package
     
     FB_OTANotification_Multi_Dial_Built_in      = 200,  //厂线推送内置表盘压缩数据包｜The factory line pushes the built-in dial compressed data package
     FB_OTANotification_Multi_Sport_Built_in     = 201,  //厂线推送内置多运动类型压缩数据包｜The factory line pushes the built-in multi-sport type compressed data package
@@ -601,6 +606,11 @@ typedef NS_ENUM (NSInteger, EM_FUNC_SWITCH) {
     FS_RINGTONE_LIST_NOTICE     = 40, //铃声文件列表更新通知，0消息提示音 1来电铃声 2闹钟铃声｜Ringtone file list update notification, 0 message alert tone 1 incoming call ringtone 2 alarm ringtone
     FS_RINGTONE_SET_NOTICE      = 41, //铃声设置更新通知，0消息提示音 1来电铃声 2闹钟铃声｜Ringtone settings update notification, 0 message alert tone 1 incoming call ringtone 2 alarm ringtone
     FS_MULTIMEDIA_LIST_NOTIFY   = 42, //多媒体文件列表更新通知，0电子书 1视频 2音乐｜Multimedia file list update notification, 0 e-books 1 video 2 music
+    
+    FS_OFFLINEVOICE_AUTH_NOTIFY = 48, //离线语音授权码请求｜Offline voice authorization code request
+    FS_OFFLINEVOICE_WARN_NOTIFY = 49, //离线语音开关状态更新，0关1开｜Offline voice switch status update, 0 off 1 on
+    
+    FS_DATA_SYNC_NOTIFY         = 51, //数据同步通知，1手动测量数据 2运动数据 3睡眠报告｜Data synchronization notification, 1 manual measurement data 2 exercise data 3 sleep report
     
     FS_OTHER_EXPAND             = 255  //更多功能待拓展｜More functions to be expanded
 };
@@ -736,14 +746,64 @@ typedef NS_ENUM (NSInteger, FB_CHIPMANUFACTURERTYPE) {
     // 更多... 待拓展｜More... To be expanded
 };
 
-#pragma mark - 结束录音类型｜End recording type
+#pragma mark - JS应用类型｜JS application type
 /*
- * 结束录音类型｜End recording type
+ * JS应用类型｜JS application type
  */
-typedef NS_ENUM (NSInteger, FB_ENDRECORDINGTYPE) {
-    FB_ENDRECORDINGTYPE_CHAT,       //文心一言｜ERNIE Bot
-    FB_ENDRECORDINGTYPE_DIAL,       //表盘｜Dial
-    FB_ENDRECORDINGTYPE_MAP,        //地图｜Map
+typedef NS_ENUM (NSInteger, FB_JSAPPLICATIONTYPE) {
+    FB_JSAPPLICATIONTYPE_UNKNOWN    = 0,    //未知｜Unknown
+    FB_JSAPPLICATIONTYPE_CHECK      = 1,    //JS状态检查｜JS Status Check
+    FB_JSAPPLICATIONTYPE_HEARTBEAT  = 2,    //JS心跳｜JS Heartbeat
+    
+    FB_JSAPPLICATIONTYPE_ERNIEBOT   = 31,   //文心一言｜ERNIE Bot
+    FB_JSAPPLICATIONTYPE_CHATGPT    = 32,   //ChatGPT｜ChatGPT
+    FB_JSAPPLICATIONTYPE_AIDIAL     = 33,   //Ai表盘｜Ai Dial
+    
+    FB_JSAPPLICATIONTYPE_MEETING    = 35,   //会议纪要｜Meeting
+};
+
+#pragma mark - 设备动作类型｜Device action type
+/*
+ * 设备动作类型｜Device action type
+ */
+typedef NS_ENUM (NSInteger, FB_DEVICEACTIONTYPE) {
+    FB_DEVICEACTIONTYPE_UNKNOWN               = -3,   //未知｜Unknown
+    FB_DEVICEACTIONTYPE_STARTRECORDING_WATCH  = -2,   //开始录音(手表)｜Start recording (watch)
+    FB_DEVICEACTIONTYPE_ENDRECORDING_WATCH    = -1,   //结束录音(手表)｜End recording(watch)
+    FB_DEVICEACTIONTYPE_CHECK                 = 0,    //JS状态检查｜JS Status Check
+    FB_DEVICEACTIONTYPE_STARTRECORDING_PHONE  = 1,    //开始录音(手机)｜Start recording (mobile phone)
+    FB_DEVICEACTIONTYPE_ENDRECORDING_PHONE    = 2,    //结束录音(手机)｜End recording(mobile phone)
+    FB_DEVICEACTIONTYPE_CONFIRM               = 3,    //确认问题｜Confirm the question
+    FB_DEVICEACTIONTYPE_END                   = 4,    //结束问答｜End of Q&A
+    FB_DEVICEACTIONTYPE_ENTER                 = 5,    //进入应用｜Enter the app
+    FB_DEVICEACTIONTYPE_EXIT                  = 6,    //退出应用｜Exit the app
+    FB_DEVICEACTIONTYPE_STREAM                = 7,    //支持流式传输｜Support streaming
+    FB_DEVICEACTIONTYPE_ALLOWJSI              = 8,    //允许JSI命令传输｜Allow JSI command transmission
+    FB_DEVICEACTIONTYPE_AI_MODEL_SELECTION    = 9,    //AI模型选择｜AI model selection
+                                                      //‒ 0）默认（后台授权渠道）
+                                                      //‒ 1）DeepSeek模型V3
+                                                      //‒ 2）DeepSeek模型R1
+                                                      //‒ 3）通义千问模型2.5-7B
+                                                      //‒ 4）文心一言模型
+    FB_DEVICEACTIONTYPE_AI_MODEL_ONLINE       = 10,   //AI模型是否联网搜索｜Whether the AI ​​model is searched online
+                                                      //‒ 0）不联网
+                                                      //‒ 1）联网
+};
+
+#pragma mark - JS应用结果｜JS application results
+/*
+ * JS应用结果｜JS application results
+ */
+typedef NS_ENUM (NSInteger, FB_JSAPPLICATIONRESULTS) {
+    FB_JSAPPLICATIONRESULTS_QUESTION                = 30,   //发问题｜Ask a question
+    FB_JSAPPLICATIONRESULTS_ANSWERS_OR_DIALSRATUS   = 31,   //发答案 或 Ai表盘生成状态(1成功，2失败)｜Post answer or Ai dial generation status (1 success, 2 failure)
+    FB_JSAPPLICATIONRESULTS_RECORDINGUNAUTHORIZED   = 32,   //未授权录音权限｜Unauthorized recording permission
+    FB_JSAPPLICATIONRESULTS_RECORDINGFAILED         = 33,   //录音失败｜Recording failed
+    FB_JSAPPLICATIONRESULTS_DEVICEUNAUTHORIZED      = 34,   //第三方未授权设备｜Third-party unauthorized device
+    FB_JSAPPLICATIONRESULTS_SENSITIVEWORDSFAILED    = 35,   //敏感词｜Sensitive words
+    FB_JSAPPLICATIONRESULTS_NETWORKERROR            = 36,   //网络异常｜Network Error
+    FB_JSAPPLICATIONRESULTS_OTHERERROR              = 37,   //其他异常｜Other Error
+    FB_JSAPPLICATIONRESULTS_SENDTHINKINGCHAIN       = 38,   //发思维链内容|Post thought chain content
 };
 
 #pragma mark - 视频内容模式｜Video content mode
@@ -779,6 +839,55 @@ typedef NS_ENUM (NSInteger, FB_RINGTONETYPE) {
     FB_RINGTONETYPE_MESSAGE   = 0,     //消息提示音｜Message alert tone
     FB_RINGTONETYPE_CALL      = 1,     //来电铃声｜Incoming call ringtone
     FB_RINGTONETYPE_ALARM     = 10,    //闹钟铃声｜Alarm ringtone
+};
+
+#pragma mark - 授权码类型｜Authorization code type
+/*
+ * 授权码类型｜Authorization code type
+ */
+typedef NS_ENUM (NSInteger, FB_AUTHCODETYPE) {
+    FB_AUTHCODETYPE_OFFLINEVOICE    = 1,     //离线语音授权码｜Offline voice authorization code
+    FB_AUTHCODETYPE_GOMORE          = 2,     //GOMORE授权码｜GOMORE code
+    // 更多... 待拓展｜More... To be expanded
+};
+
+#pragma mark - 游泳泳姿｜Swimming strokes
+/*
+ * 游泳泳姿｜Swimming strokes
+ */
+typedef NS_ENUM (NSInteger, FB_SWIMMINGSTROKES) {
+    FB_SWIMMINGSTROKES_NONE              = 0,    //无｜None
+    FB_SWIMMINGSTROKES_FREESTROKE        = 1,    //自由泳｜Free stroke
+    FB_SWIMMINGSTROKES_BREASTSTROKE      = 2,    //蛙泳｜Breast stroke
+    FB_SWIMMINGSTROKES_BACKSTROKE        = 3,    //仰泳｜Back stroke
+    FB_SWIMMINGSTROKES_BUTTERFLYSTROKE   = 4,    //蝶泳｜Butterfly stroke
+    FB_SWIMMINGSTROKES_MEDLEY            = 5,    //混合泳｜Medley
+    FB_SWIMMINGSTROKES_UNKNOWN           = 0XFF, //未知｜Unknown
+};
+
+#pragma mark - 内置表盘开关掩码类型｜Built-in dial switch mask type
+/*
+ * 内置表盘开关掩码类型｜Built-in dial switch mask type
+ */
+typedef NS_ENUM (NSInteger, FB_DIALSWITCHMASKTYPE) {
+    FB_DIALSWITCHMASK_CLOSE_All     = 0,        //关闭所有｜Close All
+    FB_DIALSWITCHMASK_OPEN_1        = 1<<0,     //打开第1个｜Open the 1th
+    FB_DIALSWITCHMASK_OPEN_2        = 1<<1,     //打开第2个｜Open the 2th
+    FB_DIALSWITCHMASK_OPEN_3        = 1<<2,     //打开第3个｜Open the 3th
+    FB_DIALSWITCHMASK_OPEN_4        = 1<<3,     //打开第4个｜Open the 4th
+    FB_DIALSWITCHMASK_OPEN_5        = 1<<4,     //打开第5个｜Open the 5th
+    FB_DIALSWITCHMASK_OPEN_6        = 1<<5,     //打开第6个｜Open the 6th
+    FB_DIALSWITCHMASK_OPEN_7        = 1<<6,     //打开第7个｜Open the 7th
+    FB_DIALSWITCHMASK_OPEN_8        = 1<<7,     //打开第8个｜Open the 8th
+    FB_DIALSWITCHMASK_OPEN_9        = 1<<8,     //打开第9个｜Open the 9th
+    FB_DIALSWITCHMASK_OPEN_10       = 1<<9,     //打开第10个｜Open the 10th
+    FB_DIALSWITCHMASK_OPEN_11       = 1<<10,    //打开第11个｜Open the 11th
+    FB_DIALSWITCHMASK_OPEN_12       = 1<<11,    //打开第12个｜Open the 12th
+    FB_DIALSWITCHMASK_OPEN_13       = 1<<12,    //打开第13个｜Open the 13th
+    FB_DIALSWITCHMASK_OPEN_14       = 1<<13,    //打开第14个｜Open the 14th
+    FB_DIALSWITCHMASK_OPEN_15       = 1<<14,    //打开第15个｜Open the 15th
+    FB_DIALSWITCHMASK_OPEN_16       = 1<<15,    //打开第16个｜Open the 16th
+    FB_DIALSWITCHMASK_OPEN_ALL      = 0xFFFF,   //打开所有｜Open All
 };
 
 #endif /* FBMacro_h */

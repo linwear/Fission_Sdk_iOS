@@ -20,7 +20,7 @@
 "参数错误，UTC时间设置不能为0" = "Chyba parametra, nastavenie času UTC nemôže byť 0";
 "参数错误，时区设置需大于等于-1440，小于等于+1440" = "Chyba parametra, nastavenie časového pásma musí byť väčšie alebo rovné -1440, menšie alebo rovné +1440";
 "数据长度错误" = "Chyba dĺžky údajov";
-"设备初始化失败，初始化超时" = "Inicializácia zariadenia zlyhala, časový limit inicializácie vypršal";
+"设备连接超时" = "Časový limit pripojenia zariadenia vypršal";
 "数据写入失败" = "Zápis údajov zlyhal";
 
 "执行失败，低压无法执行" = "Vykonanie zlyhalo, nebolo možné vykonať pre nízky tlak";

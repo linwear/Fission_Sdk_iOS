@@ -407,14 +407,7 @@ static NSString *FBTestUISportsPaceRatioCellID = @"FBTestUISportsPaceRatioCell";
 - (void)showSportsTrajectory {
     FBTestUISportsTrajectoryViewController *vc = FBTestUISportsTrajectoryViewController.new;
     vc.sportsModel = self.sportsModel;
-    WeakSelf(self);
-    [self.navigationController wxs_pushViewController:vc makeTransition:^(WXSTransitionProperty *transition) {
-        transition.animationType =  WXSTransitionAnimationTypePointSpreadPresent;
-        transition.animationTime = 0.7;
-        transition.autoShowAndHideNavBar = NO;
-        transition.backGestureEnable = NO;
-        transition.startView = weakSelf.rightItemButton;
-    }];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 /*

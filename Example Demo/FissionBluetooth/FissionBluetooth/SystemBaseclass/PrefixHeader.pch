@@ -116,7 +116,6 @@ static NSString *const FBJSAppFile = @"FBJSAppFile";
 #import <SDAutoLayout/SDAutoLayout.h>
 #import <BRPickerView/BRPickerView-umbrella.h>
 #import <JXCategoryView/JXCategoryView.h>
-#import <HJViewStyle/UIView+HJViewStyle.h>
 #import <SSZipArchive/SSZipArchive.h>
 #import <CHIPageControl/CHIPageControl-Swift.h>
 #import <ZLCollectionViewFlowLayout-umbrella.h>
@@ -124,8 +123,8 @@ static NSString *const FBJSAppFile = @"FBJSAppFile";
 #import <Realm/Realm.h>
 #import <FSCalendar/FSCalendar.h>
 #import <UICountingLabel/UICountingLabel.h>
-#import "UINavigationController+WXSTransition.h"
 #import "FBDropDownMenu.h"
+#import "UIView+Expand.h"
 
 #import <Fission_Sdk_iOS/Fission_Sdk_iOS.h> // 裂变SDK
 

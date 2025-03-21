@@ -178,12 +178,7 @@
             [NSObject showHUDText:error.localizedDescription];
         } else {
             CLPlacemark *placemark = placemarks.firstObject;
-            NSString *country = nil;
-            if (@available(ios 11.0,*)) {
-                country = placemark.ISOcountryCode;
-            } else {
-                country = placemark.addressDictionary[@"CountryCode"];
-            }
+            NSString *country = placemark.ISOcountryCode;
             
             // 是否在中国地区境内
             BOOL chinaRegion = [country isEqualToString:@"CN"];
@@ -345,20 +340,6 @@
     // Pass the selected object to the new view controller.
 }
 */
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    [self navigationBarAlpha:0.0];
-    self.navigationController.navigationBar.tintColor = UIColorBlack;
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-    [self navigationBarAlpha:1.0];
-    self.navigationController.navigationBar.tintColor = UIColorWhite;
-}
 
 - (void)navigationBarHidden:(BOOL)hidden {
     self.hiddenBar = hidden;

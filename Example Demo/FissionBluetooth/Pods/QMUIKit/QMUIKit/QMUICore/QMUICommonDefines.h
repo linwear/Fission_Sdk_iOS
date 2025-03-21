@@ -71,6 +71,16 @@
 #define IOS16_SDK_ALLOWED YES
 #endif
 
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 170000
+/// 当前编译使用的 Base SDK 版本为 iOS 17.0 及以上
+#define IOS17_SDK_ALLOWED YES
+#endif
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 180000
+/// 当前编译使用的 Base SDK 版本为 iOS 18.0 及以上
+#define IOS18_SDK_ALLOWED YES
+#endif
+
 #pragma mark - Clang
 
 #define ArgumentToString(macro) #macro
@@ -92,8 +102,8 @@
 #pragma mark - 忽略 iOS 13 KVC 访问私有属性限制
 
 /// 将 KVC 代码包裹在这个宏中，可忽略系统的  KVC 访问限制
-#define BeginIgnoreUIKVCAccessProhibited if (@available(iOS 13.0, *)) NSThread.currentThread.qmui_shouldIgnoreUIKVCAccessProhibited = YES;
-#define EndIgnoreUIKVCAccessProhibited if (@available(iOS 13.0, *)) NSThread.currentThread.qmui_shouldIgnoreUIKVCAccessProhibited = NO;
+#define BeginIgnoreUIKVCAccessProhibited NSThread.currentThread.qmui_shouldIgnoreUIKVCAccessProhibited = YES;
+#define EndIgnoreUIKVCAccessProhibited NSThread.currentThread.qmui_shouldIgnoreUIKVCAccessProhibited = NO;
 
 #pragma mark - 变量-设备相关
 
@@ -142,6 +152,8 @@
 #define IS_67INCH_SCREEN [QMUIHelper is67InchScreen]
 /// iPhone XS Max
 #define IS_65INCH_SCREEN [QMUIHelper is65InchScreen]
+/// iPhone 14 Pro / 15 Pro
+#define IS_61INCH_SCREEN_AND_IPHONE14PRO [QMUIHelper is61InchScreenAndiPhone14ProLater]
 /// iPhone 12 / 12 Pro
 #define IS_61INCH_SCREEN_AND_IPHONE12 [QMUIHelper is61InchScreenAndiPhone12Later]
 /// iPhone XR
@@ -167,6 +179,9 @@
 /// 是否放大模式（iPhone 6及以上的设备支持放大模式，iPhone X 除外）
 #define IS_ZOOMEDMODE [QMUIHelper isZoomedMode]
 
+/// 当前设备是否拥有灵动岛
+#define IS_DYNAMICISLAND_DEVICE [QMUIHelper isDynamicIslandDevice]
+
 #pragma mark - 变量-布局相关
 
 /// 获取一个像素
@@ -179,10 +194,10 @@
 #define ScreenNativeScale ([[UIScreen mainScreen] nativeScale])
 
 /// toolBar相关frame
-#define ToolBarHeight (IS_IPAD ? (IS_NOTCHED_SCREEN ? 70 : (IOS_VERSION >= 12.0 ? 50 : 44)) : (IS_LANDSCAPE ? PreferredValueForVisualDevice(44, 32) : 44) + SafeAreaInsetsConstantForDeviceWithNotch.bottom)
+#define ToolBarHeight (IS_IPAD ? (IS_NOTCHED_SCREEN ? 70 : 50) : (IS_LANDSCAPE ? PreferredValueForVisualDevice(44, 32) : 44) + SafeAreaInsetsConstantForDeviceWithNotch.bottom)
 
 /// tabBar相关frame
-#define TabBarHeight (IS_IPAD ? (IS_NOTCHED_SCREEN ? 65 : (IOS_VERSION >= 12.0 ? 50 : 49)) : (IS_LANDSCAPE ? PreferredValueForVisualDevice(49, 32) : 49) + SafeAreaInsetsConstantForDeviceWithNotch.bottom)
+#define TabBarHeight (IS_IPAD ? (IS_NOTCHED_SCREEN ? 65 : 50) : (IS_LANDSCAPE ? PreferredValueForVisualDevice(49, 32) : 49) + SafeAreaInsetsConstantForDeviceWithNotch.bottom)
 
 /// 状态栏高度(来电等情况下，状态栏高度会发生变化，所以应该实时计算，iOS 13 起，来电等情况下状态栏高度不会改变)
 #define StatusBarHeight (UIApplication.sharedApplication.statusBarHidden ? 0 : UIApplication.sharedApplication.statusBarFrame.size.height)
@@ -191,14 +206,14 @@
 #define StatusBarHeightConstant [QMUIHelper statusBarHeightConstant]
 
 /// navigationBar 的静态高度
-#define NavigationBarHeight (IS_IPAD ? (IOS_VERSION >= 12.0 ? 50 : 44) : (IS_LANDSCAPE ? PreferredValueForVisualDevice(44, 32) : 44))
+#define NavigationBarHeight (IS_IPAD ? 50 : (IS_LANDSCAPE ? PreferredValueForVisualDevice(44, 32) : 44))
 
 /// 代表(导航栏+状态栏)，这里用于获取其高度
 /// @warn 如果是用于 viewController，请使用 UIViewController(QMUI) qmui_navigationBarMaxYInViewCoordinator 代替
 #define NavigationContentTop (StatusBarHeight + NavigationBarHeight)
 
 /// 同上，这里用于获取它的静态常量值
-#define NavigationContentTopConstant (StatusBarHeightConstant + NavigationBarHeight)
+#define NavigationContentTopConstant (QMUIHelper.navigationBarMaxYConstant)
 
 /// 判断当前是否是处于分屏模式的 iPad 或 iOS 16.1 的台前调度模式
 #define IS_SPLIT_SCREEN_IPAD (IS_IPAD && APPLICATION_WIDTH != SCREEN_WIDTH)
@@ -297,16 +312,13 @@ AddAccessibilityHint(NSObject *obj, NSString *hint) {
 
 #pragma mark - 其他
 
-// 固定黑色的 StatusBarStyle，用于亮色背景，作为 -preferredStatusBarStyle 方法的 return 值使用。
-#define QMUIStatusBarStyleDarkContent [QMUIHelper statusBarStyleDarkContent]
-
 #define StringFromBOOL(_flag) (_flag ? @"YES" : @"NO")
 
 /// 代替 NSAssert 使用，在触发 assert 之前会用 QMUILogWarn 输出日志，当你开启了配置表的 ShouldPrintQMUIWarnLogToConsole 时，会用 QMUIConsole 代替 NSAssert，避免中断当前程序的运行
 /// 与 NSAssert 的差异在于，当你使用 NSAssert 时，整条语句默认不会出现在 Release 包里，但 QMUIAssert 依然会存在。
 /// 用法：QMUIAssert(a != b, @"UIView (QMUI)", @"xxxx")
 /// 用法：QMUIAssert(a != b, @"UIView (QMUI)", @"%@, xxx", @"xxx")
-#define QMUIAssert(_condition, _categoryName, ...) ({if (!(_condition)) {QMUILogWarn(_categoryName, __VA_ARGS__);if (QMUICMIActivated && !ShouldPrintQMUIWarnLogToConsole) {NSAssert(NO, __VA_ARGS__);}}})
+#define QMUIAssert(_condition, _categoryName, ...) ({if (!(_condition)) {QMUILogWarn(_categoryName, __VA_ARGS__);if (!QMUICMIActivated || !ShouldPrintQMUIWarnLogToConsole) {NSAssert(NO, __VA_ARGS__);}}})
 
 #pragma mark - Selector
 
@@ -329,11 +341,12 @@ setterWithGetter(SEL getter) {
 
 /**
  *  某些地方可能会将 CGFLOAT_MIN 作为一个数值参与计算（但其实 CGFLOAT_MIN 更应该被视为一个标志位而不是数值），可能导致一些精度问题，所以提供这个方法快速将 CGFLOAT_MIN 转换为 0
+ *  某些情况可能计算出来是0.0000000x，也靠这个方法抹去尾数。
  *  issue: https://github.com/Tencent/QMUI_iOS/issues/203
  */
 CG_INLINE CGFloat
 removeFloatMin(CGFloat floatValue) {
-    return floatValue == CGFLOAT_MIN ? 0 : floatValue;
+    return fabs(floatValue) <= 0.001 ? 0 : floatValue;
 }
 
 /**
@@ -343,9 +356,19 @@ removeFloatMin(CGFloat floatValue) {
  */
 CG_INLINE CGFloat
 flatSpecificScale(CGFloat floatValue, CGFloat scale) {
+    if (isinf(floatValue) || floatValue == CGFLOAT_MAX) return floatValue;
     floatValue = removeFloatMin(floatValue);
     scale = scale ?: ScreenScale;
-    CGFloat flattedValue = ceil(floatValue * scale) / scale;
+    // 这里因为浮点精度的问题，可能会出现一些偏差，例如 161.66666666666669 算出来可能是162，161.66666666666666 算出来是161.66666666667，为了解决这种场景，这里同时用 ceil 和 round 算一遍再取最接近的那个结果
+    NSInteger pixelValue1 = ceil(floatValue * scale);
+    NSInteger pixelValue2 = round(floatValue * scale);
+    NSInteger pixelValue = 0;
+    if (fabs(pixelValue1 - floatValue) <= fabs(pixelValue2 - floatValue)) {
+        pixelValue = pixelValue1;
+    } else {
+        pixelValue = pixelValue2;
+    }
+    CGFloat flattedValue = pixelValue / scale;
     return flattedValue;
 }
 

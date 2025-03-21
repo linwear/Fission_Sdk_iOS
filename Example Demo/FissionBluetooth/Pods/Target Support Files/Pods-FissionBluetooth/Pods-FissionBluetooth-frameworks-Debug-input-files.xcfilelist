@@ -7,10 +7,7 @@ ${BUILT_PRODUCTS_DIR}/CWLateralSlide/CWLateralSlide.framework
 ${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework
 ${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework
 ${PODS_ROOT}/Fission_Sdk_iOS/SDK/Fission_Sdk_iOS.framework
-${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKLEFoundation.framework
-${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKOTASDK.framework
 ${PODS_ROOT}/Fission_Sdk_iOS/SDK/SCompressLib.framework
-${BUILT_PRODUCTS_DIR}/HJViewStyle/HJViewStyle.framework
 ${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework
 ${BUILT_PRODUCTS_DIR}/JJException/JJException.framework
 ${BUILT_PRODUCTS_DIR}/JXCategoryView/JXCategoryView.framework
@@ -26,6 +23,10 @@ ${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework
 ${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework
 ${BUILT_PRODUCTS_DIR}/UICountingLabel/UICountingLabel.framework
 ${BUILT_PRODUCTS_DIR}/ZLCollectionViewFlowLayout/ZLCollectionViewFlowLayout.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Fission_Sdk_iOS/AllDependencys/RTKOTASDK.framework/RTKOTASDK
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Fission_Sdk_iOS/AllDependencys/RTKLEFoundation.framework/RTKLEFoundation
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Fission_Sdk_iOS/AllDependencys/RTKRealChatConnection.framework/RTKRealChatConnection
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Fission_Sdk_iOS/AllDependencys/RTKAudioStreaming.framework/RTKAudioStreaming
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/ffmpeg-kit-ios-full/ffmpegkit.framework/ffmpegkit
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/ffmpeg-kit-ios-full/libavcodec.framework/libavcodec
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/ffmpeg-kit-ios-full/libavdevice.framework/libavdevice

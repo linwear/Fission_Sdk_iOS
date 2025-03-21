@@ -28,13 +28,13 @@
     // Initialization code
     self.contentView.backgroundColor = UIColorWhite;
     
-    self.BG_COLOR.gradientStyle = GradientStyleTopToBottom;
+//    self.BG_COLOR.gradientStyle = GradientStyleTopToBottom;
 }
 
 - (void)reloadItem:(FBTestUIItemModel *)item historicalModel:(FBLocalHistoricalModel *)historicalModel {
     
-    self.BG_COLOR.gradientAColor = item.gradientAColor;
-    self.BG_COLOR.gradientBColor = item.gradientBColor;
+//    self.BG_COLOR.gradientAColor = item.gradientAColor;
+//    self.BG_COLOR.gradientBColor = item.gradientBColor;
     
     self.titleLab.text = item.title;
     

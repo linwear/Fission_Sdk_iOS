@@ -98,6 +98,8 @@ const UIEdgeInsets kSystemTextViewFixTextInsets = {0, 5, 0, 5};
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleTextChanged:) name:UITextViewTextDidChangeNotification object:nil];
     
     self.postInitializationMethodCalled = YES;
+    
+    [self hookKeyboardDeleteEventIfNeeded];
 }
 
 - (void)dealloc {
@@ -366,6 +368,33 @@ const UIEdgeInsets kSystemTextViewFixTextInsets = {0, 5, 0, 5};
     } else {
         if (self.debug) QMUILog(NSStringFromClass(self.class), @"被屏蔽的 %@, contentOffset.y = %.2f", NSStringFromSelector(_cmd), contentOffset.y);
     }
+}
+
+- (void)hookKeyboardDeleteEventIfNeeded {
+    // - [UITextView keyboardInputShouldDelete:]
+    // - (BOOL) keyboardInputShouldDelete:(id)arg1;
+    SEL selector = NSSelectorFromString([NSString qmui_stringByConcat:@"keyboard", @"Input", @"ShouldDelete", @":", nil]);
+    if (![self respondsToSelector:selector]) {
+        QMUIAssert(NO, @"QMUITextView", @"-[UITextView %@] not found.", NSStringFromSelector(selector));
+        return;
+    }
+    [QMUIHelper executeBlock:^{
+        OverrideImplementation([QMUITextView class], selector, ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {
+            return ^BOOL(QMUITextView *selfObject, id firstArgv) {
+                
+                selfObject.isDeletingDuringTextChange = YES;
+                
+                // call super
+                BOOL (*originSelectorIMP)(id, SEL, id);
+                originSelectorIMP = (BOOL (*)(id, SEL, id))originalIMPProvider();
+                BOOL result = originSelectorIMP(selfObject, originCMD, firstArgv);// 这里会触发 shouldChangeText
+                
+                selfObject.isDeletingDuringTextChange = NO;
+                
+                return result;
+            };
+        });
+    } oncePerIdentifier:@"QMUITextView delete"];
 }
 
 #pragma mark - <UIResponderStandardEditActions>

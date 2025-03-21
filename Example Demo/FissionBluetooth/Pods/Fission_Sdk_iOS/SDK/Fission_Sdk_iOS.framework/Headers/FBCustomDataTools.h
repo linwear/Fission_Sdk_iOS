@@ -45,9 +45,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  TXT电子书UTF8编码｜TXT E-book UTF8 encoding
- @param eBookData                                 将要处理的电子书TXT数据｜E-book TXT data to be processed
+ @param eBookFilePath                             将要处理的电子书TXT文件路径｜The path of the e-book TXT file to be processed
 */
-+ (void)fbHandleEBookUTF8EncodingWithData:(NSData * _Nonnull)eBookData
++ (void)fbHandleEBookUTF8EncodingWithFilePath:(NSString * _Nonnull)eBookFilePath
                                  callback:(void(^)(NSData * _Nullable eBookData, NSError * _Nullable error))callback;
 
 

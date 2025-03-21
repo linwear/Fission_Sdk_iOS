@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AAChartKit-AAChartKitLib.xcscheme</key>
+		<key>AAChartKit-AAChartKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -55,11 +55,6 @@
 			<false/>
 		</dict>
 		<key>Fission_Sdk_iOS.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>HJViewStyle.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -125,6 +120,11 @@
 			<false/>
 		</dict>
 		<key>Pods-FissionBluetoothTests.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>QMUIKit-QMUIKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>

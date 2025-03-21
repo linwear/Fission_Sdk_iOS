@@ -161,6 +161,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) NSInteger systemSize;
 
+/**
+ nandFlashID
+ */
+@property (nonatomic, assign) NSInteger nandFlashID;
+
+/**
+ norFlashID
+ */
+@property (nonatomic, assign) NSInteger norFlashID;
+
 
 /**
  🌟是否需要使用时区补偿时间｜Need to use time zone to compensate time🌟
@@ -501,6 +511,53 @@ NS_ASSUME_NONNULL_BEGIN
  🌟支持闹钟铃声推送个数｜Supported number of alarm ringtone pushes🌟
  */
 @property (nonatomic, assign) NSInteger alarmRingtoneCount;
+
+/**
+ 🌟是否支持读取系统日志｜Whether to support reading system logs🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportReadingSystemLog;
+
+/**
+ 🌟是否支持星历文件合成包｜Whether to support ephemeris file synthesis package🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportEphemerisCompPackage;
+
+/**
+ 🌟是否支持音量增益补偿｜Whether to support volume gain compensation🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportVolumeGainCompensation;
+
+/**
+ 🌟是否支持JSI通道｜Whether to support JSI channel🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportJsiChannel;
+
+/**
+ 🌟是否支持离线语音｜Whether to support offline voice🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportOfflineVoice;
+
+/**
+ 🌟GOMORE授权码请求socID｜GOMORE authorization code request socID🌟
+*/
+@property (nonatomic, copy) NSString *socID;
+
+/**
+ 🌟是否支持opus格式音频｜Whether to support opus format audio🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportOpus;
 
 @end
 

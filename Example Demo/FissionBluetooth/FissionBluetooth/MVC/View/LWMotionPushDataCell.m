@@ -89,28 +89,15 @@
     // Configure the view for the selected state
 }
 
-- (void)reload:(LWMotionPushClassifyModel *)model isFirst:(BOOL)isFirstIndex isLast:(BOOL)isLastIndex block:(nonnull LWMotionPushSelectBlock)block {
+- (void)reload:(LWMotionPushClassifyModel *)model isLast:(BOOL)isLastIndex block:(nonnull LWMotionPushSelectBlock)block {
     
     self.block = block;
-    
-    self.bgView.roundTop = NO;
-    self.bgView.roundBottom = NO;
-    self.bgView.cornerRadius = 0;
-    
-    if (isFirstIndex) {
-        self.bgView.roundTop = YES;
-        self.bgView.cornerRadius = 16;
-    }
-    if (isLastIndex) {
-        self.bgView.roundBottom = YES;
-        self.bgView.cornerRadius = 16;
-    }
     
     self.titleLab.text = model.sportClassifyName;
     self.morebut.selected = model.isShow;
     self.line.hidden = isLastIndex;
 
-    self.collectionView.sportList = model.sportList;
+    self.collectionView.sportList = [NSMutableArray arrayWithArray:model.sportList.count ? model.sportList : @[]];
 }
 
 @end

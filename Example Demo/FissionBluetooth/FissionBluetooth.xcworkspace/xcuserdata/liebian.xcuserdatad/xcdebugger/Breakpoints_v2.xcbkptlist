@@ -64,12 +64,12 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "E6120CC7-4F8E-4565-A44E-366FBC4FD769 - 6bb7a907885d686"
+                  uuid = "E6120CC7-4F8E-4565-A44E-366FBC4FD769 - 21abd62887363503"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "-[FBCustomDialListContentView collectionView:didSelectItemAtIndexPath:]"
-                  moduleName = "FissionBluetooth"
+                  moduleName = "FissionBluetooth.debug.dylib"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liebian/Desktop/Fission_Sdk_iOS/Example%20Demo/FissionBluetooth/FissionBluetooth/MVC/CustomWatchFace/ViewController/FBCustomDialListContentView.m"
                   startingColumnNumber = "9223372036854775807"
@@ -78,12 +78,12 @@
                   endingLineNumber = "276">
                </Location>
                <Location
-                  uuid = "E6120CC7-4F8E-4565-A44E-366FBC4FD769 - d605a5589e2542c4"
+                  uuid = "E6120CC7-4F8E-4565-A44E-366FBC4FD769 - f11509e06196a141"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__71-[FBCustomDialListContentView collectionView:didSelectItemAtIndexPath:]_block_invoke"
-                  moduleName = "FissionBluetooth"
+                  moduleName = "FissionBluetooth.debug.dylib"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/liebian/Desktop/Fission_Sdk_iOS/Example%20Demo/FissionBluetooth/FissionBluetooth/MVC/CustomWatchFace/ViewController/FBCustomDialListContentView.m"
                   startingColumnNumber = "9223372036854775807"

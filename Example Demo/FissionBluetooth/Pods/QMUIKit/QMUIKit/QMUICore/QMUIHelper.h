@@ -19,9 +19,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// TODO: molice 等废弃 qmui_badgeCenterOffset 系列接口后再删除
-extern const CGPoint QMUIBadgeInvalidateOffset;
-
 @interface QMUIHelper : NSObject
 
 + (instancetype)sharedInstance;
@@ -166,6 +163,9 @@ extern const CGPoint QMUIBadgeInvalidateOffset;
 /// @NEW_DEVICE_CHECKER
 @property(class, nonatomic, readonly) BOOL isRegularScreen;
 
+/// iPhone 16 Pro Max
+@property(class, nonatomic, readonly) BOOL is69InchScreen;
+
 /// iPhone 14 Pro Max
 @property(class, nonatomic, readonly) BOOL is67InchScreenAndiPhone14Later;
 
@@ -175,8 +175,14 @@ extern const CGPoint QMUIBadgeInvalidateOffset;
 /// iPhone XS Max / 11 Pro Max
 @property(class, nonatomic, readonly) BOOL is65InchScreen;
 
+/// iPhone 16 Pro
+@property(class, nonatomic, readonly) BOOL is63InchScreen;
+
 /// iPhone 12 / 12 Pro
 @property(class, nonatomic, readonly) BOOL is61InchScreenAndiPhone12Later;
+
+/// iPhone 14 Pro / 15 Pro
+@property(class, nonatomic, readonly) BOOL is61InchScreenAndiPhone14ProLater;
 
 /// iPhone XR / 11
 @property(class, nonatomic, readonly) BOOL is61InchScreen;
@@ -199,9 +205,12 @@ extern const CGPoint QMUIBadgeInvalidateOffset;
 /// iPhone 4
 @property(class, nonatomic, readonly) BOOL is35InchScreen;
 
+@property(class, nonatomic, readonly) CGSize screenSizeFor69Inch;
 @property(class, nonatomic, readonly) CGSize screenSizeFor67InchAndiPhone14Later;
 @property(class, nonatomic, readonly) CGSize screenSizeFor67Inch;
 @property(class, nonatomic, readonly) CGSize screenSizeFor65Inch;
+@property(class, nonatomic, readonly) CGSize screenSizeFor63Inch;
+@property(class, nonatomic, readonly) CGSize screenSizeFor61InchAndiPhone14ProLater;
 @property(class, nonatomic, readonly) CGSize screenSizeFor61InchAndiPhone12Later;
 @property(class, nonatomic, readonly) CGSize screenSizeFor61Inch;
 @property(class, nonatomic, readonly) CGSize screenSizeFor58Inch;
@@ -224,6 +233,10 @@ extern const CGPoint QMUIBadgeInvalidateOffset;
 /// @NEW_DEVICE_CHECKER
 @property(class, nonatomic, readonly) BOOL isZoomedMode;
 
+/// 当前设备是否拥有灵动岛
+/// @NEW_DEVICE_CHECKER
+@property(class, nonatomic, readonly) BOOL isDynamicIslandDevice;
+
 /**
  在 iPad 分屏模式下可获得实际运行区域的窗口大小，如需适配 iPad 分屏，建议用这个方法来代替 [UIScreen mainScreen].bounds.size
  @return 应用运行的窗口大小
@@ -231,9 +244,15 @@ extern const CGPoint QMUIBadgeInvalidateOffset;
 @property(class, nonatomic, readonly) CGSize applicationSize;
 
 /**
- 静态的导航栏高度，在导航栏不可见时也会根据机型返回导航栏的固定高度
+ 静态的状态栏高度，在状态栏不可见时也会根据机型返回状态栏的固定高度
+ @NEW_DEVICE_CHECKER
  */
 @property(class, nonatomic, readonly) CGFloat statusBarHeightConstant;
+
+/**
+ 静态的导航栏高度，在导航栏不可见时也会根据机型返回导航栏的固定高度
+ */
+@property(class, nonatomic, readonly) CGFloat navigationBarMaxYConstant;
 
 @end
 
@@ -248,13 +267,6 @@ extern const CGPoint QMUIBadgeInvalidateOffset;
  * 恢复对App的主要window的置灰操作，与`dimmedApplicationWindow`成对调用
  */
 + (void)resetDimmedApplicationWindow;
-
-/**
- * 黑色的 StatusBarStyle，用于亮色背景
- * @note 在 iOS 13 以前  UIStatusBarStyleDefault 状态栏内容的颜色固定是黑色的，而在 iOS 13 UIStatusBarStyleDefault 会根据 user interface style 来决定状态栏的颜色，如果你需要一直黑色可以用 QMUIStatusBarStyleDarkContent 来代替以前 UIStatusBarStyleDefault 的写法
- * @return 在 iOS 13 以上返回 UIStatusBarStyleDarkContent，在 iOS 12 及以下返回 UIStatusBarStyleDefault
-*/
-@property(class, nonatomic, readonly) UIStatusBarStyle statusBarStyleDarkContent;
 
 /**
  在非 UIApplicationStateActive 的时机去设置 UIAppearance 可能引发第三方输入法 crash，因此提供这个方法判断当前是否可以更新 UIAppearance。
@@ -275,6 +287,17 @@ extern const CGPoint QMUIBadgeInvalidateOffset;
  */
 + (void)executeAnimationBlock:(nonnull __attribute__((noescape)) void (^)(void))animationBlock completionBlock:(nullable __attribute__((noescape)) void (^)(void))completionBlock;
 
+@end
+
+@interface QMUIHelper (Text)
+
+/**
+ 该方法计算一个 baselineOffset，使得指定字体的文本在指定高度里能达到视觉上的垂直居中（系统默认是底对齐）。
+ @param height 单行文本占据的高度，通常可传入文本的 lineHeight 或者 UILabel 的 height。
+ @param font 当前文本的字体。
+ @return 可使文本垂直居中的 baselineOffset 偏移值，正值往上，负值往下。注意如果某段 NSAttributedString 通过 NSParagraphStyle 指定了行高，则负值的 baselineOffset 对其无效。
+ */
++ (CGFloat)baselineOffsetWhenVerticalAlignCenterInHeight:(CGFloat)height withFont:(UIFont *)font;
 @end
 
 NS_ASSUME_NONNULL_END

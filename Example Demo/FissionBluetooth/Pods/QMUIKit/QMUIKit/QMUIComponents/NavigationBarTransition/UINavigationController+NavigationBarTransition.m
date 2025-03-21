@@ -113,7 +113,7 @@ QMUISynthesizeIdStrongProperty(qmui_specifiedTextColor, setQmui_specifiedTextCol
                 switch (action) {
                     case QMUINavigationActionDidPush:
                     case QMUINavigationActionWillPop:
-                    case QMUINavigationActionWillSet: {
+                    case QMUINavigationActionDidSet: {
                         BOOL shouldCustomNavigationBarTransition =
                         [weakNavigationController shouldCustomTransitionAutomaticallyForOperation:UINavigationControllerOperationPush firstViewController:disappearingViewController secondViewController:appearingViewController];
                         if (shouldCustomNavigationBarTransition) {
@@ -134,22 +134,6 @@ QMUISynthesizeIdStrongProperty(qmui_specifiedTextColor, setQmui_specifiedTextCol
                         weakNavigationController.navigationBar.qmuinb_copyStylesToBar = nil;
                     }
                         break;
-                    case QMUINavigationActionDidPop: {
-                        
-                        if (@available(iOS 13.0, *)) {
-                        } else {
-                            // iOS 12 及以下系统，在不使用自定义 titleView 的情况下，在 viewWillAppear 时通过修改 navigationBar.titleTextAttributes 来设置新界面的导航栏标题样式，push 时是生效的，但 pop 时右边界面的样式会覆盖左边界面的样式，所以 pop 时的 titleTextAttributes 改为在 did pop 时处理
-                            // 如果用自定义 titleView 则没这种问题，只是为了代码简单，时机的选择不区分是否自定义 title
-                            [appearingViewController renderNavigationBarTitleAppearanceAnimated:animated];
-                            [weakNavigationController qmui_animateAlongsideTransition:nil completion:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
-                                // 这里要重新获取 topViewController，因为触发 pop 有两种：1. 普通完整的 pop；2.手势返回又取消。后者在 completion 里拿到的 topViewController 已经不是 completion 外面那个 appearingViewController 了，只有重新获取的 topViewController 才能代表最终可视的那个界面
-                                // https://github.com/Tencent/QMUI_iOS/issues/1210
-                                [weakNavigationController.topViewController renderNavigationBarTitleAppearanceAnimated:animated];
-                            }];
-                        }
-                    }
-                        break;
-                        
                     default:
                         break;
                 }
@@ -189,9 +173,7 @@ QMUISynthesizeIdStrongProperty(qmui_specifiedTextColor, setQmui_specifiedTextCol
         
         OverrideImplementation([UIViewController class], @selector(viewWillLayoutSubviews), ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {
             return ^(UIViewController *selfObject) {
-                if (selfObject.transitionNavigationBar) {
-                    [selfObject layoutTransitionNavigationBar];
-                }
+                [selfObject.transitionNavigationBar updateLayout];
                 
                 // call super
                 void (*originSelectorIMP)(id, SEL);
@@ -249,24 +231,26 @@ QMUISynthesizeIdStrongProperty(qmui_specifiedTextColor, setQmui_specifiedTextCol
     }
     
     _QMUITransitionNavigationBar *customBar = [[_QMUITransitionNavigationBar alloc] init];
+    customBar.parentViewController = self;
     self.transitionNavigationBar = customBar;
     
     // iOS 15 里，假 bar 在 add 到界面上时会被强制同步为 UIAppearance 的值，不管你之前是否设置过自己的样式。而且在那个 runloop 内不管你后续怎么更新 standardAppearance，都会呈现出 UIAppearance 里的统一的值的样式。所以这里一方面屏蔽 didMoveToWindow，从而避免在这时候应用 UIAppearance，另一方面要保证先 add 到界面上再同步当前导航栏的样式。
-    // 经测试只有 push 时需要这么处理，pop 没问题
+    // 经测试只有 push 或 push 动画的 set 需要这么处理，pop 及 pop 动画的 set 没问题
     // iOS 14 及以下没这种问题。
-#ifdef IOS15_SDK_ALLOWED
+    // https://github.com/Tencent/QMUI_iOS/issues/1501
     if (@available(iOS 15.0, *)) {
-        if (self.navigationController.qmui_navigationAction == QMUINavigationActionDidPush) {
+        BOOL isPush = self.navigationController.qmui_navigationAction == QMUINavigationActionDidPush;
+        BOOL isSet = self.navigationController.qmui_navigationAction == QMUINavigationActionDidSet;
+        BOOL isPopAnimation = isSet && self.navigationController.qmui_lastOperation == UINavigationControllerOperationPop;
+        if (isPush || (isSet && !isPopAnimation)) {
             customBar.shouldPreventAppearance = YES;
         }
     }
-#endif
     [self.view addSubview:customBar];
     customBar.originalNavigationBar = self.navigationController.navigationBar;// 注意这里内部不会保留真 bar 和假 bar 的 copy 关系
     if (shouldBind) {
         self.navigationController.navigationBar.qmuinb_copyStylesToBar = customBar;
     }
-    [self layoutTransitionNavigationBar];
 }
 
 - (void)removeTransitionNavigationBar {
@@ -277,15 +261,6 @@ QMUISynthesizeIdStrongProperty(qmui_specifiedTextColor, setQmui_specifiedTextCol
         if (self.navigationController.navigationBar.translucent && self.originContainerViewBackgroundColor) {
             [transitionCoordinator containerView].backgroundColor = self.originContainerViewBackgroundColor;
         }
-    }
-}
-
-- (void)layoutTransitionNavigationBar {
-    if (self.isViewLoaded && self.navigationController) {
-        UIView *backgroundView = self.navigationController.navigationBar.qmui_backgroundView;
-        CGRect rect = [backgroundView.superview convertRect:backgroundView.frame toView:self.view];
-        self.transitionNavigationBar.frame = CGRectSetX(rect, 0);// push/pop 过程中系统的导航栏转换过来的 x 可能是 112、-112
-        [self.view bringSubviewToFront:self.transitionNavigationBar];// 避免在后续被其他 subviews 盖住
     }
 }
 
@@ -404,16 +379,7 @@ QMUISynthesizeIdStrongProperty(qmui_specifiedTextColor, setQmui_specifiedTextCol
     // iOS 13 及以上，title 的更新只在 viewWillAppear 这里进行就可以了，但 iOS 12 及以下还要靠 popViewController 那边
     // iOS 12 及以下系统，在不使用自定义 titleView 的情况下，在 viewWillAppear 时通过修改 navigationBar.titleTextAttributes 来设置新界面的导航栏标题样式，push 时是生效的，但 pop 时右边界面的样式会覆盖左边界面的样式，所以 pop 时的 titleTextAttributes 改为在 did pop 时处理
     // 如果用自定义 titleView 则没这种问题，只是为了代码简单，时机的选择不区分是否自定义 title
-    BOOL shouldRenderTitle = YES;
-    if (@available(iOS 13.0, *)) {
-    } else {
-        // push/pop 时如果 animated 为 NO，那么走到这里时 push/pop 已经结束了，action 处于 unknown 状态，所以这里要把 unknown 也包含进去
-        // https://github.com/Tencent/QMUI_iOS/issues/1190
-        shouldRenderTitle = navigationController.qmui_navigationAction >= QMUINavigationActionUnknow && navigationController.qmui_navigationAction <= QMUINavigationActionPushCompleted;
-    }
-    if (shouldRenderTitle) {
-        [vc renderNavigationBarTitleAppearanceAnimated:animated];
-    }
+    [vc renderNavigationBarTitleAppearanceAnimated:animated];
 }
 
 // 仅处理导航栏标题
@@ -435,8 +401,8 @@ QMUISynthesizeIdStrongProperty(qmui_specifiedTextColor, setQmui_specifiedTextCol
     // 导航栏title的颜色
     if ([vc respondsToSelector:@selector(qmui_titleViewTintColor)]) {
         UIColor *tintColor = [vc qmui_titleViewTintColor];
-        if ([vc.navigationItem.titleView isKindOfClass:QMUINavigationTitleView.class]) {
-            ((QMUINavigationTitleView *)vc.navigationItem.titleView).tintColor = tintColor;
+        if (vc.navigationItem.titleView.qmui_useAsNavigationTitleView) {
+            vc.navigationItem.titleView.tintColor = tintColor;
         } else if (!vc.navigationItem.titleView) {
             NSMutableDictionary<NSAttributedStringKey, id> *titleTextAttributes = (navigationController.navigationBar.titleTextAttributes ?: @{}).mutableCopy;
             titleTextAttributes[NSForegroundColorAttributeName] = tintColor;
@@ -446,8 +412,8 @@ QMUISynthesizeIdStrongProperty(qmui_specifiedTextColor, setQmui_specifiedTextCol
         }
     } else if (QMUICMIActivated) {
         UIColor *tintColor = NavBarTitleColor;
-        if ([vc.navigationItem.titleView isKindOfClass:QMUINavigationTitleView.class]) {
-            ((QMUINavigationTitleView *)vc.navigationItem.titleView).tintColor = tintColor;
+        if (vc.navigationItem.titleView.qmui_useAsNavigationTitleView) {
+            vc.navigationItem.titleView.tintColor = tintColor;
         } else if (!vc.navigationItem.titleView) {
             NSMutableDictionary<NSAttributedStringKey, id> *titleTextAttributes = (navigationController.navigationBar.titleTextAttributes ?: @{}).mutableCopy;
             titleTextAttributes[NSForegroundColorAttributeName] = tintColor;
@@ -503,6 +469,7 @@ QMUISynthesizeIdStrongProperty(qmui_specifiedTextColor, setQmui_specifiedTextCol
     return NO;
 }
 
+// 对于有一个界面隐藏了导航栏的情况，我们也要做自定义的动画去干预，因为如果左右两个界面导航栏样式不同，你不去干预的话，push/pop 瞬间导航栏会变成即将显示的那个界面的样式，这不符合预期
 - (BOOL)shouldCustomTransitionAutomaticallyForOperation:(UINavigationControllerOperation)operation firstViewController:(UIViewController *)viewController1 secondViewController:(UIViewController *)viewController2 {
     
     UIViewController<QMUINavigationControllerDelegate> *vc1 = (UIViewController<QMUINavigationControllerDelegate> *)viewController1;

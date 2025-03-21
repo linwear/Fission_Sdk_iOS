@@ -60,6 +60,10 @@ typedef void (^FBResultCallBackBlock)(NSError * _Nullable error);
  */
 typedef void (^FBGet_AT_ResultCallBackBlock)(NSInteger responseObject, NSError * _Nullable error);
 
+/**
+ *@brief 指令队列空闲回调｜Command queue idle callback
+ */
+typedef void (^FBCommandQueueIdleBlock)(void);
 
 #pragma mark - 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟 AT协议指令定义｜At protocol instruction definition 🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟
 /**
@@ -450,13 +454,31 @@ typedef void (^FBMotionInterconnectionBlock)(FB_RET_CMD status, float progress, 
 typedef void (^FBGetContactListBlock)(FB_RET_CMD status, float progress, NSArray <FBContactModel *> * _Nullable responseObject, NSError * _Nullable error);
 
 /**
- *@brief 请求获取设备日志信息 调用结果回调｜Request to get device log information Call result callback
+ *@brief 请求获取设备日志信息 (NSString) 调用结果回调｜Request to get device log information Call result callback
  *@param status                                 状态码｜Status code
  *@param progress                               当前进度0～1｜Current progress 0 ~ 1
- *@param responseObject                         设备日志信息｜Device log information
+ *@param responseObject                         文件路径｜File Path
  *@param error                                  错误信息｜Error message
  */
-typedef void (^FBRequestDeviceLogsBlock)(FB_RET_CMD status, float progress, NSString * _Nullable responseObject, NSError * _Nullable error);
+typedef void (^FBRequestDeviceLogsPathBlock)(FB_RET_CMD status, float progress, NSString * _Nullable responseObject, NSError * _Nullable error);
+
+/**
+ *@brief 请求获取设备日志信息 (NSArray) 调用结果回调｜Request to get device log information Call result callback
+ *@param status                                 状态码｜Status code
+ *@param progress                               当前进度0～1｜Current progress 0 ~ 1
+ *@param responseObject                         文件路径数组｜Array of file paths
+ *@param error                                  错误信息｜Error message
+ */
+typedef void (^FBRequestDeviceLogsPathArrayBlock)(FB_RET_CMD status, float progress, NSArray <NSString *> * _Nullable responseObject, NSError * _Nullable error);
+
+/**
+ *@brief 请求获取设备日志信息 (NSData) 调用结果回调｜Request to get device log information Call result callback
+ *@param status                                 状态码｜Status code
+ *@param progress                               当前进度0～1｜Current progress 0 ~ 1
+ *@param responseObject                         文件路径｜File Path
+ *@param error                                  错误信息｜Error message
+ */
+typedef void (^FBRequestDeviceLogsDataBlock)(FB_RET_CMD status, float progress, NSData * _Nullable responseObject, NSError * _Nullable error);
 
 /**
  *@brief 请求获取系统功能开关信息 调用结果回调｜Request to obtain system function switch information Call result callback
@@ -502,6 +524,15 @@ typedef void (^FBGetListFileInfoBlock)(FB_RET_CMD status, float progress, NSArra
  *@param error                                  错误信息｜Error message
  */
 typedef void (^FBGetRingtoneInfoBlock)(FB_RET_CMD status, float progress, NSArray <FBRingtoneInfoModel *> * _Nullable responseObject, NSError * _Nullable error);
+
+/**
+ *@brief 获取离线语音信息 调用结果回调｜Get offline voice information Call result callback
+ *@param status                                 状态码｜Status code
+ *@param progress                               当前进度0～1｜Current progress 0 ~ 1
+ *@param responseObject                         离线语音信息｜Offline voice information
+ *@param error                                  错误信息｜Error message
+ */
+typedef void (^FBGetOfflineVoiceInfoBlock)(FB_RET_CMD status, float progress, FBOfflineVoiceInfoModel * _Nullable responseObject, NSError * _Nullable error);
 
 /**
  block回调类｜Block callback class

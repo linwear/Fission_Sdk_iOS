@@ -54,7 +54,7 @@
     #pragma mark - QMUILog
     QMUICMI.shouldPrintDefaultLog = YES;                                        // ShouldPrintDefaultLog : 是否允许输出 QMUILogLevelDefault 级别的 log
     QMUICMI.shouldPrintInfoLog = YES;                                           // ShouldPrintInfoLog : 是否允许输出 QMUILogLevelInfo 级别的 log
-    QMUICMI.shouldPrintWarnLog = YES;                                           // ShouldPrintInfoLog : 是否允许输出 QMUILogLevelWarn 级别的 log
+    QMUICMI.shouldPrintWarnLog = YES;                                           // ShouldPrintWarnLog : 是否允许输出 QMUILogLevelWarn 级别的 log
     QMUICMI.shouldPrintQMUIWarnLogToConsole = NO;                              // ShouldPrintQMUIWarnLogToConsole : 是否在出现 QMUILogWarn 时自动把这些 log 以 QMUIConsole 的方式显示到设备屏幕上
     
     #pragma mark - UIControl
@@ -81,7 +81,7 @@
     #pragma mark - NavigationBar
     
     if (@available(iOS 15.0, *)) {
-        QMUICMI.navBarUsesStandardAppearanceOnly = NO;                         // NavBarUsesStandardAppearanceOnly : 对于 iOS 15 的系统，UINavigationBar 的样式分为滚动前和滚动后，虽然系统的注释里说了如果没设置 scrollEdgeAppearance 则会用 standardAppearance 代替，但实际运行效果是 scrollEdgeAppearance 默认并不会保持与 standardAppearance 一致，所以这里提供一个开关，允许你在打开开关时让 QMUI 帮你同步 standardAppearance 的值，以使 App 保持与 iOS 14 相同的效果。如需打开该开关，请保证在其他 NavBar 开关之前设置。
+        QMUICMI.navBarUsesStandardAppearanceOnly = YES;                         // NavBarUsesStandardAppearanceOnly : 对于 iOS 15 的系统，UINavigationBar 的样式分为滚动前和滚动后，虽然系统的注释里说了如果没设置 scrollEdgeAppearance 则会用 standardAppearance 代替，但实际运行效果是 scrollEdgeAppearance 默认并不会保持与 standardAppearance 一致，所以这里提供一个开关，允许你在打开开关时让 QMUI 帮你同步 standardAppearance 的值，以使 App 保持与 iOS 14 相同的效果。如需打开该开关，请保证在其他 NavBar 开关之前设置。
     }
     QMUICMI.navBarContainerClasses = nil;                                       // NavBarContainerClasses : NavigationBar 系列开关被用于 UIAppearance 时的生效范围（默认情况下除了用于 UIAppearance 外，还用于实现了 QMUINavigationControllerAppearanceDelegate 的 UIViewController），默认为 nil。当赋值为 nil 或者空数组时等效于 @[UINavigationController.class]，也即对所有 UINavigationBar 生效，包括系统的通讯录（ContactsUI.framework)、打印等。当值不为空时，获取 UINavigationBar 的 appearance 请使用 UINavigationBar.qmui_appearanceConfigured 方法代替系统的 UINavigationBar.appearance。请保证这个配置项先于其他任意 NavBar 配置项执行。
     QMUICMI.navBarHighlightedAlpha = 0.2f;                                      // NavBarHighlightedAlpha : QMUINavigationButton 在 highlighted 时的 alpha
@@ -96,8 +96,8 @@
     QMUICMI.navBarShadowImageColor = nil;                                       // NavBarShadowImageColor : UINavigationBar.shadowImage 的颜色，如果为 nil，则使用 NavBarShadowImage 的值，如果 NavBarShadowImage 也为 nil，则使用系统默认的分隔线。如果不为 nil，而 NavBarShadowImage 为 nil，则自动创建一张 1px 高的图并将其设置为 NavBarShadowImageColor 的颜色然后设置上去，如果 NavBarShadowImage 不为 nil 且 renderingMode 不为 UIImageRenderingModeAlwaysOriginal，则将 NavBarShadowImage 设置为 NavBarShadowImageColor 的颜色然后设置上去。
     QMUICMI.navBarBarTintColor = nil;                                           // NavBarBarTintColor : UINavigationBar.barTintColor，也即背景色
     QMUICMI.navBarStyle = UIBarStyleDefault;                                    // NavBarStyle : UINavigationBar 的 barStyle
-    QMUICMI.navBarTintColor = nil;                                              // NavBarTintColor : NavBarContainerClasses 里的 UINavigationBar 的 tintColor，也即导航栏上面的按钮颜色
-    QMUICMI.navBarTitleColor = nil;                                             // NavBarTitleColor : UINavigationBar 的标题颜色，以及 QMUINavigationTitleView 的默认文字颜色
+    QMUICMI.navBarTintColor = UIColorWhite;                                              // NavBarTintColor : NavBarContainerClasses 里的 UINavigationBar 的 tintColor，也即导航栏上面的按钮颜色
+    QMUICMI.navBarTitleColor = UIColorWhite;                                             // NavBarTitleColor : UINavigationBar 的标题颜色，以及 QMUINavigationTitleView 的默认文字颜色
     QMUICMI.navBarTitleFont = nil;                                              // NavBarTitleFont : UINavigationBar 的标题字体，以及 QMUINavigationTitleView 的默认字体
     QMUICMI.navBarLargeTitleColor = nil;                                        // NavBarLargeTitleColor : UINavigationBar 在大标题模式下的标题颜色
     QMUICMI.navBarLargeTitleFont = nil;                                         // NavBarLargeTitleFont : UINavigationBar 在大标题模式下的标题字体
@@ -114,7 +114,7 @@
     #pragma mark - TabBar
     
     if (@available(iOS 15.0, *)) {
-        QMUICMI.tabBarUsesStandardAppearanceOnly = NO;                          // TabBarUsesStandardAppearanceOnly : 对于 iOS 15 的系统，UITabBar 的样式分为滚动前和滚动后，虽然系统的注释里说了如果没设置 scrollEdgeAppearance 则会用 standardAppearance 代替，但实际运行效果是 scrollEdgeAppearance 默认并不会保持与 standardAppearance 一致，所以这里提供一个开关，允许你在打开开关时让 QMUI 帮你同步 standardAppearance 的值，以使 App 保持与 iOS 14 相同的效果。如需打开该开关，请保证在其他 NavBar 开关之前设置。
+        QMUICMI.tabBarUsesStandardAppearanceOnly = YES;                          // TabBarUsesStandardAppearanceOnly : 对于 iOS 15 的系统，UITabBar 的样式分为滚动前和滚动后，虽然系统的注释里说了如果没设置 scrollEdgeAppearance 则会用 standardAppearance 代替，但实际运行效果是 scrollEdgeAppearance 默认并不会保持与 standardAppearance 一致，所以这里提供一个开关，允许你在打开开关时让 QMUI 帮你同步 standardAppearance 的值，以使 App 保持与 iOS 14 相同的效果。如需打开该开关，请保证在其他 NavBar 开关之前设置。
     }
     QMUICMI.tabBarContainerClasses = nil;                                       // TabBarContainerClasses : TabBar 系列开关的生效范围，默认为 nil，当赋值为 nil 或者空数组时等效于 @[UITabBarController.class]，也即对所有 UITabBar 生效。当值不为空时，获取 UITabBar 的 appearance 请使用 UITabBar.qmui_appearanceConfigured 方法代替系统的 UITabBar.appearance。请保证这个配置项先于其他任意 TabBar 配置项执行。
     QMUICMI.tabBarBackgroundImage = nil;                                        // TabBarBackgroundImage : UITabBar 的背景图
@@ -257,40 +257,28 @@
     QMUICMI.badgeContentEdgeInsets = UIEdgeInsetsMake(2, 4, 2, 4);              // BadgeContentEdgeInsets : QMUIBadge 上的未读数与圆圈之间的 padding
     QMUICMI.badgeOffset = CGPointMake(-9, 11);                                  // BadgeOffset : QMUIBadge 上的未读数相对于目标 view 右上角的偏移
     QMUICMI.badgeOffsetLandscape = CGPointMake(-9, 6);                          // BadgeOffsetLandscape : QMUIBadge 上的未读数在横屏下相对于目标 view 右上角的偏移
-    BeginIgnoreDeprecatedWarning
-    QMUICMI.badgeCenterOffset = CGPointMake(14, -10);                           // BadgeCenterOffset : QMUIBadge 未读数相对于目标 view 中心的偏移
-    QMUICMI.badgeCenterOffsetLandscape = CGPointMake(16, -7);                   // BadgeCenterOffsetLandscape : QMUIBadge 未读数在横屏下相对于目标 view 中心的偏移
-    EndIgnoreDeprecatedWarning
     
     QMUICMI.updatesIndicatorColor = UIColorRed;                                 // UpdatesIndicatorColor : QMUIBadge 上的未读红点的颜色
     QMUICMI.updatesIndicatorSize = CGSizeMake(7, 7);                            // UpdatesIndicatorSize : QMUIBadge 上的未读红点的大小
     QMUICMI.updatesIndicatorOffset = CGPointMake(4, UpdatesIndicatorSize.height);// UpdatesIndicatorOffset : QMUIBadge 未读红点相对于目标 view 右上角的偏移
     QMUICMI.updatesIndicatorOffsetLandscape = UpdatesIndicatorOffset;           // UpdatesIndicatorOffsetLandscape : QMUIBadge 未读红点在横屏下相对于目标 view 右上角的偏移
-    BeginIgnoreDeprecatedWarning
-    QMUICMI.updatesIndicatorCenterOffset = CGPointMake(14, -10);                // UpdatesIndicatorCenterOffset : QMUIBadge 未读红点相对于目标 view 中心的偏移
-    QMUICMI.updatesIndicatorCenterOffsetLandscape = CGPointMake(14, -10);       // UpdatesIndicatorCenterOffsetLandscape : QMUIBadge 未读红点在横屏下相对于目标 view 中心点的偏移
-    EndIgnoreDeprecatedWarning
     
     #pragma mark - Others
     
     QMUICMI.automaticCustomNavigationBarTransitionStyle = NO;                   // AutomaticCustomNavigationBarTransitionStyle : 界面 push/pop 时是否要自动根据两个界面的 barTintColor/backgroundImage/shadowImage 的样式差异来决定是否使用自定义的导航栏效果
     QMUICMI.supportedOrientationMask = UIInterfaceOrientationMaskAll;           // SupportedOrientationMask : 默认支持的横竖屏方向
     QMUICMI.automaticallyRotateDeviceOrientation = NO;                          // AutomaticallyRotateDeviceOrientation : 是否在界面切换或 viewController.supportedOrientationMask 发生变化时自动旋转屏幕（仅 iOS 15 及以前版本需要，iOS 16 系统会自动处理，该开关无意义。）
-    QMUICMI.defaultStatusBarStyle = UIStatusBarStyleDefault;                    // DefaultStatusBarStyle : 默认的状态栏样式，默认值为 UIStatusBarStyleDefault，也即在 iOS 12 及以前是黑色文字，iOS 13 及以后会自动根据当前 App 是否处于 Dark Mode 切换颜色。如果你希望固定为白色，请设置为 UIStatusBarStyleLightContent，固定黑色则设置为 QMUIStatusBarStyleDarkContent。
+    QMUICMI.defaultStatusBarStyle = UIStatusBarStyleDefault;                    // DefaultStatusBarStyle : 默认的状态栏样式，默认值为 UIStatusBarStyleDefault，也即在 iOS 12 及以前是黑色文字，iOS 13 及以后会自动根据当前 App 是否处于 Dark Mode 切换颜色。如果你希望固定为白色，请设置为 UIStatusBarStyleLightContent，固定黑色则设置为 UIStatusBarStyleDarkContent。
     QMUICMI.needsBackBarButtonItemTitle = YES;                                  // NeedsBackBarButtonItemTitle : 全局是否需要返回按钮的 title，不需要则只显示一个返回image
     QMUICMI.hidesBottomBarWhenPushedInitially = NO;                             // HidesBottomBarWhenPushedInitially : QMUICommonViewController.hidesBottomBarWhenPushed 的初始值，默认为 NO，以保持与系统默认值一致，但通常建议改为 YES，因为一般只有 tabBar 首页那几个界面要求为 NO
     QMUICMI.preventConcurrentNavigationControllerTransitions = YES;             // PreventConcurrentNavigationControllerTransitions : 自动保护 QMUINavigationController 在上一次 push/pop 尚未结束的时候就进行下一次 push/pop 的行为，避免产生 crash
     QMUICMI.navigationBarHiddenInitially = NO;                                  // NavigationBarHiddenInitially : QMUINavigationControllerDelegate preferredNavigationBarHidden 的初始值，默认为NO
-    QMUICMI.shouldFixTabBarTransitionBugInIPhoneX = NO;                         // ShouldFixTabBarTransitionBugInIPhoneX : 是否需要自动修复 iOS 11 下，iPhone X 的设备在 push 界面时，tabBar 会瞬间往上跳的 bug
     QMUICMI.shouldFixTabBarSafeAreaInsetsBug = NO;                              // ShouldFixTabBarSafeAreaInsetsBug : 是否要对 iOS 11 及以后的版本修复当存在 UITabBar 时，UIScrollView 的 inset.bottom 可能错误的 bug（issue #218 #934），默认为 YES
     QMUICMI.shouldFixSearchBarMaskViewLayoutBug = NO;                           // ShouldFixSearchBarMaskViewLayoutBug : 是否自动修复 UISearchController.searchBar 被当作 tableHeaderView 使用时可能出现的布局 bug(issue #950)
     QMUICMI.shouldPrintQMUIWarnLogToConsole = IS_DEBUG;                         // ShouldPrintQMUIWarnLogToConsole : 是否在出现 QMUILogWarn 时自动把这些 log 以 QMUIConsole 的方式显示到设备屏幕上
-    QMUICMI.sendAnalyticsToQMUITeam = YES;                                      // SendAnalyticsToQMUITeam : 是否允许在 DEBUG 模式下上报 Bundle Identifier 和 Display Name 给 QMUI 统计用
     QMUICMI.dynamicPreferredValueForIPad = NO;                                  // DynamicPreferredValueForIPad : 当 iPad 处于 Slide Over 或 Split View 分屏模式下，宏 `PreferredValueForXXX` 是否把 iPad 视为某种屏幕宽度近似的 iPhone 来取值。
-    if (@available(iOS 13.0, *)) {
-        QMUICMI.ignoreKVCAccessProhibited = NO;                                     // IgnoreKVCAccessProhibited : 是否全局忽略 iOS 13 对 KVC 访问 UIKit 私有属性的限制
-        QMUICMI.adjustScrollIndicatorInsetsByContentInsetAdjustment = NO;           // AdjustScrollIndicatorInsetsByContentInsetAdjustment : 当将 UIScrollView.contentInsetAdjustmentBehavior 设为 UIScrollViewContentInsetAdjustmentNever 时，是否自动将 UIScrollView.automaticallyAdjustsScrollIndicatorInsets 设为 NO，以保证原本在 iOS 12 下的代码不用修改就能在 iOS 13 下正常控制滚动条的位置。
-    }
+    QMUICMI.ignoreKVCAccessProhibited = NO;                                     // IgnoreKVCAccessProhibited : 是否全局忽略 iOS 13 对 KVC 访问 UIKit 私有属性的限制
+    QMUICMI.adjustScrollIndicatorInsetsByContentInsetAdjustment = NO;           // AdjustScrollIndicatorInsetsByContentInsetAdjustment : 当将 UIScrollView.contentInsetAdjustmentBehavior 设为 UIScrollViewContentInsetAdjustmentNever 时，是否自动将 UIScrollView.automaticallyAdjustsScrollIndicatorInsets 设为 NO，以保证原本在 iOS 12 下的代码不用修改就能在 iOS 13 下正常控制滚动条的位置。
 }
 
 // QMUI 2.3.0 版本里，配置表新增这个方法，返回 YES 表示在 App 启动时要自动应用这份配置表。仅当你的 App 里存在多份配置表时，才需要把除默认配置表之外的其他配置表的返回值改为 NO。

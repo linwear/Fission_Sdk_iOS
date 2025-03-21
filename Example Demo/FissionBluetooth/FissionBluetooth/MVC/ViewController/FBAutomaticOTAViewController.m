@@ -129,12 +129,7 @@ static NSString *FBAutomaticOTAHeaderViewID = @"FBAutomaticOTAHeaderView";
         
         FBOTAFailureReportViewController *vc = FBOTAFailureReportViewController.new;
         vc.failureSource = weakSelf.failureSource.copy;
-        [weakSelf.navigationController wxs_pushViewController:vc makeTransition:^(WXSTransitionProperty *transition) {
-            transition.animationType =  WXSTransitionAnimationTypePointSpreadPresent;
-            transition.animationTime = 0.7;
-            transition.autoShowAndHideNavBar = NO;
-            transition.startView = weakSelf.automaticOTAOverview;
-        }];
+        [weakSelf.navigationController pushViewController:vc animated:YES];
     }];
     self.tableView.tableFooterView = automaticOTAOverview;
     self.automaticOTAOverview = automaticOTAOverview;
@@ -252,7 +247,7 @@ static NSString *FBAutomaticOTAHeaderViewID = @"FBAutomaticOTAHeaderView";
                 }
                 else if (self.OTAType == FB_OTANotification_ClockDial) {
                     // Dial_online_L******_xxxxxxxxxx_AAAA.bin（其中******为文件大小，xxxxxxxxxx为时间戳，AAAA为唯一ID｜Where ****** is the file size, xxxxxxxxxx is the timestamp, and AAAA is the unique ID）
-                    nameString = [NSString stringWithFormat:@"Dial_online_L%ld_%ld_%ld.bin", otaData.length, (NSInteger)NSDate.date.timeIntervalSince1970, self.currentOtaIndex+1];
+                    nameString = [NSString stringWithFormat:@"Dial_online_L%ld_%ld_%ld.bin", otaData.length, (NSInteger)NSDate.date.timeIntervalSince1970, self.currentOtaIndex+10001];
                 }
                 else if (self.OTAType == FB_OTANotification_CustomClockDial) {
                     // Dial_photo_L******_xxxxxxxxxx.bin（其中******为文件大小，xxxxxxxxxx为时间戳｜Where ****** is the file size, xxxxxxxxxx is the timestamp）
@@ -268,7 +263,7 @@ static NSString *FBAutomaticOTAHeaderViewID = @"FBAutomaticOTAHeaderView";
                             [bundleID appendString:string];
                         }
                     }
-                    nameString = [NSString stringWithFormat:@"JS_%@_V0.0%ld_L%ld_%ld.bin", bundleID, self.currentOtaIndex+1, otaData.length, (NSInteger)NSDate.date.timeIntervalSince1970];
+                    nameString = [NSString stringWithFormat:@"JS_%@_V0.0%ld_L%ld_%ld.bin", bundleID, self.currentOtaIndex+10001, otaData.length, (NSInteger)NSDate.date.timeIntervalSince1970];
                 }
                 otaData = [FBCustomDataTools createFileName:nameString withFileData:otaData withOTAType:self.OTAType];
             }
@@ -407,11 +402,7 @@ static NSString *FBAutomaticOTAHeaderViewID = @"FBAutomaticOTAHeaderView";
         }
         weakSelf.textView.text = string.copy;
     }];
-    [self.navigationController wxs_pushViewController:vc makeTransition:^(WXSTransitionProperty *transition) {
-        transition.animationType =  WXSTransitionAnimationTypeSysCubeFromTop;
-        transition.animationTime = 0.3;
-        transition.autoShowAndHideNavBar = NO;
-    }];
+    [self.navigationController pushViewController:vc animated:YES];
 
     return NO;
 }

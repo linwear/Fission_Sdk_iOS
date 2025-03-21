@@ -22,7 +22,7 @@
         
         UIView *bgView = UIView.new;
         bgView.backgroundColor = UIColor.blackColor;
-        bgView.circle = YES;
+        [bgView cornerRadius:45];
         [self addSubview:bgView];
         [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(30);
@@ -33,7 +33,7 @@
         
         UIView *lView = UIView.new;
         lView.backgroundColor = UIColor.redColor;
-        lView.circle = YES;
+        [lView cornerRadius:25];
         [bgView addSubview:lView];
         [lView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(margin);
@@ -59,7 +59,7 @@
         
         UIView *cView = UIView.new;
         cView.backgroundColor = UIColor.yellowColor;
-        cView.circle = YES;
+        [cView cornerRadius:25];
         [bgView addSubview:cView];
         [cView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(lView.mas_top);
@@ -85,7 +85,7 @@
         
         UIView *rView = UIView.new;
         rView.backgroundColor = UIColor.greenColor;
-        rView.circle = YES;
+        [rView cornerRadius:25];
         [bgView addSubview:rView];
         [rView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.mas_equalTo(cView.mas_top);

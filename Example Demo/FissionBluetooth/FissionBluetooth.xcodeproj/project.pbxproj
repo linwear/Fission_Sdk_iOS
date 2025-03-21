@@ -180,25 +180,9 @@
 		59400A952A08DF6C00C93683 /* FBLoadDataObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 59400A942A08DF6C00C93683 /* FBLoadDataObject.m */; };
 		5941D73E2AE36850004F17A6 /* RLMRestingHRModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D73D2AE36850004F17A6 /* RLMRestingHRModel.m */; };
 		5941D7442AE3AA21004F17A6 /* FBTestUISportsTrajectoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D7432AE3AA21004F17A6 /* FBTestUISportsTrajectoryViewController.m */; };
-		5941D7692AE3B9C7004F17A6 /* WXSTransitionManager+SpreadAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D7472AE3B9C7004F17A6 /* WXSTransitionManager+SpreadAnimation.m */; };
-		5941D76A2AE3B9C7004F17A6 /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D74A2AE3B9C7004F17A6 /* WXSTransitionManager+InsideThenPushAnimation.m */; };
-		5941D76B2AE3B9C7004F17A6 /* WXSTransitionManager+BoomAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D74B2AE3B9C7004F17A6 /* WXSTransitionManager+BoomAnimation.m */; };
-		5941D76C2AE3B9C7004F17A6 /* UIViewController+WXSTransitionProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D74C2AE3B9C7004F17A6 /* UIViewController+WXSTransitionProperty.m */; };
-		5941D76D2AE3B9C7004F17A6 /* WXSTransitionManager+PageAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D74D2AE3B9C7004F17A6 /* WXSTransitionManager+PageAnimation.m */; };
-		5941D76E2AE3B9C7004F17A6 /* WXSTransitionManager+BrickAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D74F2AE3B9C7004F17A6 /* WXSTransitionManager+BrickAnimation.m */; };
-		5941D76F2AE3B9C7004F17A6 /* WXSTransitionManager+FlipAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D7512AE3B9C7004F17A6 /* WXSTransitionManager+FlipAnimation.m */; };
-		5941D7702AE3B9C7004F17A6 /* UINavigationController+WXSTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D7532AE3B9C7004F17A6 /* UINavigationController+WXSTransition.m */; };
-		5941D7712AE3B9C7004F17A6 /* UIViewController+WXSTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D7542AE3B9C7004F17A6 /* UIViewController+WXSTransition.m */; };
-		5941D7722AE3B9C7004F17A6 /* WXSPercentDrivenInteractiveTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D7562AE3B9C7004F17A6 /* WXSPercentDrivenInteractiveTransition.m */; };
-		5941D7732AE3B9C7004F17A6 /* WXSTransitionManager+TypeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D7582AE3B9C7004F17A6 /* WXSTransitionManager+TypeTool.m */; };
-		5941D7742AE3B9C7004F17A6 /* WXSTransitionManager+CoverAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D7592AE3B9C7004F17A6 /* WXSTransitionManager+CoverAnimation.m */; };
-		5941D7752AE3B9C7004F17A6 /* WXSTransitionManager+FragmentAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D75B2AE3B9C7004F17A6 /* WXSTransitionManager+FragmentAnimation.m */; };
-		5941D7762AE3B9C7004F17A6 /* WXSTransitionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D75C2AE3B9C7004F17A6 /* WXSTransitionManager.m */; };
-		5941D7772AE3B9C7004F17A6 /* WXSTransitionManager+SystermAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D7612AE3B9C7004F17A6 /* WXSTransitionManager+SystermAnimation.m */; };
-		5941D7782AE3B9C7004F17A6 /* WXSTransitionManager+ViewMoveAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D7632AE3B9C7004F17A6 /* WXSTransitionManager+ViewMoveAnimation.m */; };
-		5941D7792AE3B9C7004F17A6 /* WXSTransitionProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D7652AE3B9C7004F17A6 /* WXSTransitionProperty.m */; };
 		5941D77D2AE3D760004F17A6 /* FBLocationConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D77C2AE3D760004F17A6 /* FBLocationConverter.m */; };
 		5941D7812AE3D88C004F17A6 /* MASmoothPathTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5941D77F2AE3D88C004F17A6 /* MASmoothPathTool.m */; };
+		594D19C82D3F4CC000B28E61 /* UIView+Expand.m in Sources */ = {isa = PBXBuildFile; fileRef = 594D19C72D3F4CC000B28E61 /* UIView+Expand.m */; };
 		595237F02BFEE32C0091D04B /* JSAppPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 595237EF2BFEE32C0091D04B /* JSAppPushViewController.m */; };
 		595985792A0DD053002AB22F /* RLMDeviceListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 595985782A0DD053002AB22F /* RLMDeviceListModel.m */; };
 		5959857C2A0DE518002AB22F /* RLMBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5959857B2A0DE518002AB22F /* RLMBaseModel.m */; };
@@ -264,6 +248,7 @@
 		59CAAAAB2AE9332500BF061A /* FFDropDownMenuBasedModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CAAAA32AE9332500BF061A /* FFDropDownMenuBasedModel.m */; };
 		59CAAAAC2AE9332500BF061A /* FFDropDownMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CAAAA52AE9332500BF061A /* FFDropDownMenuModel.m */; };
 		59CAAAAD2AE9332500BF061A /* FFDropDownMenuTriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CAAAA62AE9332500BF061A /* FFDropDownMenuTriangleView.m */; };
+		59CB29DE2D8D5E150043BC3B /* TestSwiftFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB29DD2D8D5E150043BC3B /* TestSwiftFile.swift */; };
 		59D905722BEF788100C924C6 /* 16k-0.pcm in Resources */ = {isa = PBXBuildFile; fileRef = 59D905712BEF788100C924C6 /* 16k-0.pcm */; };
 		59E7BE68268C13C400B8001A /* ic_dial_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE50268C13C400B8001A /* ic_dial_button@2x.png */; };
 		59E7BE69268C13C400B8001A /* examples_img_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE51268C13C400B8001A /* examples_img_03.png */; };
@@ -674,45 +659,12 @@
 		5941D73D2AE36850004F17A6 /* RLMRestingHRModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RLMRestingHRModel.m; sourceTree = "<group>"; };
 		5941D7422AE3AA21004F17A6 /* FBTestUISportsTrajectoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBTestUISportsTrajectoryViewController.h; sourceTree = "<group>"; };
 		5941D7432AE3AA21004F17A6 /* FBTestUISportsTrajectoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBTestUISportsTrajectoryViewController.m; sourceTree = "<group>"; };
-		5941D7462AE3B9C7004F17A6 /* WXSTransitionManager+CoverAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WXSTransitionManager+CoverAnimation.h"; sourceTree = "<group>"; };
-		5941D7472AE3B9C7004F17A6 /* WXSTransitionManager+SpreadAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WXSTransitionManager+SpreadAnimation.m"; sourceTree = "<group>"; };
-		5941D7482AE3B9C7004F17A6 /* WXSTransitionManager+TypeTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WXSTransitionManager+TypeTool.h"; sourceTree = "<group>"; };
-		5941D7492AE3B9C7004F17A6 /* WXSTransitionManager+SystermAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WXSTransitionManager+SystermAnimation.h"; sourceTree = "<group>"; };
-		5941D74A2AE3B9C7004F17A6 /* WXSTransitionManager+InsideThenPushAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WXSTransitionManager+InsideThenPushAnimation.m"; sourceTree = "<group>"; };
-		5941D74B2AE3B9C7004F17A6 /* WXSTransitionManager+BoomAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WXSTransitionManager+BoomAnimation.m"; sourceTree = "<group>"; };
-		5941D74C2AE3B9C7004F17A6 /* UIViewController+WXSTransitionProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WXSTransitionProperty.m"; sourceTree = "<group>"; };
-		5941D74D2AE3B9C7004F17A6 /* WXSTransitionManager+PageAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WXSTransitionManager+PageAnimation.m"; sourceTree = "<group>"; };
-		5941D74E2AE3B9C7004F17A6 /* WXSTransitionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXSTransitionManager.h; sourceTree = "<group>"; };
-		5941D74F2AE3B9C7004F17A6 /* WXSTransitionManager+BrickAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WXSTransitionManager+BrickAnimation.m"; sourceTree = "<group>"; };
-		5941D7502AE3B9C7004F17A6 /* WXSTransitionManager+FragmentAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WXSTransitionManager+FragmentAnimation.h"; sourceTree = "<group>"; };
-		5941D7512AE3B9C7004F17A6 /* WXSTransitionManager+FlipAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WXSTransitionManager+FlipAnimation.m"; sourceTree = "<group>"; };
-		5941D7522AE3B9C7004F17A6 /* WXSTransitionManager+ViewMoveAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WXSTransitionManager+ViewMoveAnimation.h"; sourceTree = "<group>"; };
-		5941D7532AE3B9C7004F17A6 /* UINavigationController+WXSTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+WXSTransition.m"; sourceTree = "<group>"; };
-		5941D7542AE3B9C7004F17A6 /* UIViewController+WXSTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+WXSTransition.m"; sourceTree = "<group>"; };
-		5941D7552AE3B9C7004F17A6 /* WXSTransitionProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXSTransitionProperty.h; sourceTree = "<group>"; };
-		5941D7562AE3B9C7004F17A6 /* WXSPercentDrivenInteractiveTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXSPercentDrivenInteractiveTransition.m; sourceTree = "<group>"; };
-		5941D7572AE3B9C7004F17A6 /* WXSTransitionManager+SpreadAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WXSTransitionManager+SpreadAnimation.h"; sourceTree = "<group>"; };
-		5941D7582AE3B9C7004F17A6 /* WXSTransitionManager+TypeTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WXSTransitionManager+TypeTool.m"; sourceTree = "<group>"; };
-		5941D7592AE3B9C7004F17A6 /* WXSTransitionManager+CoverAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WXSTransitionManager+CoverAnimation.m"; sourceTree = "<group>"; };
-		5941D75A2AE3B9C7004F17A6 /* WXSTransitionManager+BrickAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WXSTransitionManager+BrickAnimation.h"; sourceTree = "<group>"; };
-		5941D75B2AE3B9C7004F17A6 /* WXSTransitionManager+FragmentAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WXSTransitionManager+FragmentAnimation.m"; sourceTree = "<group>"; };
-		5941D75C2AE3B9C7004F17A6 /* WXSTransitionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXSTransitionManager.m; sourceTree = "<group>"; };
-		5941D75D2AE3B9C7004F17A6 /* WXSTransitionManager+PageAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WXSTransitionManager+PageAnimation.h"; sourceTree = "<group>"; };
-		5941D75E2AE3B9C7004F17A6 /* UIViewController+WXSTransitionProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WXSTransitionProperty.h"; sourceTree = "<group>"; };
-		5941D75F2AE3B9C7004F17A6 /* WXSTransitionManager+InsideThenPushAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WXSTransitionManager+InsideThenPushAnimation.h"; sourceTree = "<group>"; };
-		5941D7602AE3B9C7004F17A6 /* WXSTransitionManager+BoomAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WXSTransitionManager+BoomAnimation.h"; sourceTree = "<group>"; };
-		5941D7612AE3B9C7004F17A6 /* WXSTransitionManager+SystermAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WXSTransitionManager+SystermAnimation.m"; sourceTree = "<group>"; };
-		5941D7622AE3B9C7004F17A6 /* UINavigationController+WXSTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+WXSTransition.h"; sourceTree = "<group>"; };
-		5941D7632AE3B9C7004F17A6 /* WXSTransitionManager+ViewMoveAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WXSTransitionManager+ViewMoveAnimation.m"; sourceTree = "<group>"; };
-		5941D7642AE3B9C7004F17A6 /* WXSTransitionManager+FlipAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WXSTransitionManager+FlipAnimation.h"; sourceTree = "<group>"; };
-		5941D7652AE3B9C7004F17A6 /* WXSTransitionProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXSTransitionProperty.m; sourceTree = "<group>"; };
-		5941D7662AE3B9C7004F17A6 /* WXSPercentDrivenInteractiveTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXSPercentDrivenInteractiveTransition.h; sourceTree = "<group>"; };
-		5941D7672AE3B9C7004F17A6 /* UIViewController+WXSTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+WXSTransition.h"; sourceTree = "<group>"; };
-		5941D7682AE3B9C7004F17A6 /* WXSTypedefConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXSTypedefConfig.h; sourceTree = "<group>"; };
 		5941D77B2AE3D760004F17A6 /* FBLocationConverter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBLocationConverter.h; sourceTree = "<group>"; };
 		5941D77C2AE3D760004F17A6 /* FBLocationConverter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBLocationConverter.m; sourceTree = "<group>"; };
 		5941D77F2AE3D88C004F17A6 /* MASmoothPathTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MASmoothPathTool.m; sourceTree = "<group>"; };
 		5941D7802AE3D88C004F17A6 /* MASmoothPathTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASmoothPathTool.h; sourceTree = "<group>"; };
+		594D19C62D3F4CC000B28E61 /* UIView+Expand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Expand.h"; sourceTree = "<group>"; };
+		594D19C72D3F4CC000B28E61 /* UIView+Expand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Expand.m"; sourceTree = "<group>"; };
 		595237EE2BFEE32C0091D04B /* JSAppPushViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JSAppPushViewController.h; sourceTree = "<group>"; };
 		595237EF2BFEE32C0091D04B /* JSAppPushViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSAppPushViewController.m; sourceTree = "<group>"; };
 		595985772A0DD053002AB22F /* RLMDeviceListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RLMDeviceListModel.h; sourceTree = "<group>"; };
@@ -812,6 +764,8 @@
 		59CAAAA52AE9332500BF061A /* FFDropDownMenuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFDropDownMenuModel.m; sourceTree = "<group>"; };
 		59CAAAA62AE9332500BF061A /* FFDropDownMenuTriangleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FFDropDownMenuTriangleView.m; sourceTree = "<group>"; };
 		59CAAAA72AE9332500BF061A /* FFDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFDropDownMenu.h; sourceTree = "<group>"; };
+		59CB29DD2D8D5E150043BC3B /* TestSwiftFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSwiftFile.swift; sourceTree = "<group>"; };
+		59CB29DF2D8D5EAC0043BC3B /* FissionBluetooth-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FissionBluetooth-Bridging-Header.h"; sourceTree = "<group>"; };
 		59D905712BEF788100C924C6 /* 16k-0.pcm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "16k-0.pcm"; sourceTree = "<group>"; };
 		59E7BE50268C13C400B8001A /* ic_dial_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_dial_button@2x.png"; sourceTree = "<group>"; };
 		59E7BE51268C13C400B8001A /* examples_img_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = examples_img_03.png; sourceTree = "<group>"; };
@@ -1095,6 +1049,9 @@
 				592196CE2A1B514700A4BE45 /* XYButton.m */,
 				59FA408C2A9D95C40035FD1E /* FBLocationManager.h */,
 				59FA408D2A9D95C40035FD1E /* FBLocationManager.m */,
+				594D19C62D3F4CC000B28E61 /* UIView+Expand.h */,
+				594D19C72D3F4CC000B28E61 /* UIView+Expand.m */,
+				59CB29DD2D8D5E150043BC3B /* TestSwiftFile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1249,6 +1206,7 @@
 				592A9FE425A4173A00CC515E /* AppDelegate.m */,
 				593AA48D29BAC87000B2DD49 /* AppDelegate+FissionSDK.h */,
 				593AA48E29BAC87000B2DD49 /* AppDelegate+FissionSDK.m */,
+				59CB29DF2D8D5EAC0043BC3B /* FissionBluetooth-Bridging-Header.h */,
 				59B66DB525A436FB0068B89A /* SystemBaseclass */,
 				5923580D293EDED300E5379C /* MVC */,
 				592A9FF425A4173B00CC515E /* Info.plist */,
@@ -1313,7 +1271,6 @@
 				59C50A6D2B61044000BF834B /* FBMapView */,
 				59CAAA962AE8C09200BF061A /* FBDropDownMenu */,
 				59831BD42A78DCE3008BB4C8 /* FBHUD */,
-				5941D7452AE3B9C7004F17A6 /* WXSTransition */,
 				59400A852A08CBE100C93683 /* FBTestUITodayDataCell.h */,
 				59400A862A08CBE100C93683 /* FBTestUITodayDataCell.m */,
 				59400A872A08CBE100C93683 /* FBTestUITodayDataCell.xib */,
@@ -1462,48 +1419,6 @@
 				599BF8872A5FA6A400751831 /* FBTextImageView.m */,
 			);
 			path = WMDragView;
-			sourceTree = "<group>";
-		};
-		5941D7452AE3B9C7004F17A6 /* WXSTransition */ = {
-			isa = PBXGroup;
-			children = (
-				5941D7462AE3B9C7004F17A6 /* WXSTransitionManager+CoverAnimation.h */,
-				5941D7472AE3B9C7004F17A6 /* WXSTransitionManager+SpreadAnimation.m */,
-				5941D7482AE3B9C7004F17A6 /* WXSTransitionManager+TypeTool.h */,
-				5941D7492AE3B9C7004F17A6 /* WXSTransitionManager+SystermAnimation.h */,
-				5941D74A2AE3B9C7004F17A6 /* WXSTransitionManager+InsideThenPushAnimation.m */,
-				5941D74B2AE3B9C7004F17A6 /* WXSTransitionManager+BoomAnimation.m */,
-				5941D74C2AE3B9C7004F17A6 /* UIViewController+WXSTransitionProperty.m */,
-				5941D74D2AE3B9C7004F17A6 /* WXSTransitionManager+PageAnimation.m */,
-				5941D74E2AE3B9C7004F17A6 /* WXSTransitionManager.h */,
-				5941D74F2AE3B9C7004F17A6 /* WXSTransitionManager+BrickAnimation.m */,
-				5941D7502AE3B9C7004F17A6 /* WXSTransitionManager+FragmentAnimation.h */,
-				5941D7512AE3B9C7004F17A6 /* WXSTransitionManager+FlipAnimation.m */,
-				5941D7522AE3B9C7004F17A6 /* WXSTransitionManager+ViewMoveAnimation.h */,
-				5941D7532AE3B9C7004F17A6 /* UINavigationController+WXSTransition.m */,
-				5941D7542AE3B9C7004F17A6 /* UIViewController+WXSTransition.m */,
-				5941D7552AE3B9C7004F17A6 /* WXSTransitionProperty.h */,
-				5941D7562AE3B9C7004F17A6 /* WXSPercentDrivenInteractiveTransition.m */,
-				5941D7572AE3B9C7004F17A6 /* WXSTransitionManager+SpreadAnimation.h */,
-				5941D7582AE3B9C7004F17A6 /* WXSTransitionManager+TypeTool.m */,
-				5941D7592AE3B9C7004F17A6 /* WXSTransitionManager+CoverAnimation.m */,
-				5941D75A2AE3B9C7004F17A6 /* WXSTransitionManager+BrickAnimation.h */,
-				5941D75B2AE3B9C7004F17A6 /* WXSTransitionManager+FragmentAnimation.m */,
-				5941D75C2AE3B9C7004F17A6 /* WXSTransitionManager.m */,
-				5941D75D2AE3B9C7004F17A6 /* WXSTransitionManager+PageAnimation.h */,
-				5941D75E2AE3B9C7004F17A6 /* UIViewController+WXSTransitionProperty.h */,
-				5941D75F2AE3B9C7004F17A6 /* WXSTransitionManager+InsideThenPushAnimation.h */,
-				5941D7602AE3B9C7004F17A6 /* WXSTransitionManager+BoomAnimation.h */,
-				5941D7612AE3B9C7004F17A6 /* WXSTransitionManager+SystermAnimation.m */,
-				5941D7622AE3B9C7004F17A6 /* UINavigationController+WXSTransition.h */,
-				5941D7632AE3B9C7004F17A6 /* WXSTransitionManager+ViewMoveAnimation.m */,
-				5941D7642AE3B9C7004F17A6 /* WXSTransitionManager+FlipAnimation.h */,
-				5941D7652AE3B9C7004F17A6 /* WXSTransitionProperty.m */,
-				5941D7662AE3B9C7004F17A6 /* WXSPercentDrivenInteractiveTransition.h */,
-				5941D7672AE3B9C7004F17A6 /* UIViewController+WXSTransition.h */,
-				5941D7682AE3B9C7004F17A6 /* WXSTypedefConfig.h */,
-			);
-			path = WXSTransition;
 			sourceTree = "<group>";
 		};
 		5941D77A2AE3D74C004F17A6 /* FBLocationConverter */ = {
@@ -1805,8 +1720,8 @@
 				592A9FDC25A4173A00CC515E /* Sources */,
 				592A9FDD25A4173A00CC515E /* Frameworks */,
 				592A9FDE25A4173A00CC515E /* Resources */,
-				729F39FE9B9344AFF80A9A7E /* [CP] Embed Pods Frameworks */,
 				59F5EB702AD10A4B00EFFE3C /* Embed Frameworks */,
+				6235FD9EC4CAC95057AAC8D5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1844,7 +1759,7 @@
 				592AA00225A4173C00CC515E /* Sources */,
 				592AA00325A4173C00CC515E /* Frameworks */,
 				592AA00425A4173C00CC515E /* Resources */,
-				CA57C85CC692C62E779E8E91 /* [CP] Embed Pods Frameworks */,
+				72ECFFDEF7486040AB9DEC59 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2104,7 +2019,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		729F39FE9B9344AFF80A9A7E /* [CP] Embed Pods Frameworks */ = {
+		6235FD9EC4CAC95057AAC8D5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2119,6 +2034,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72ECFFDEF7486040AB9DEC59 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		828C1DC392DE11A00427D693 /* [CP] Check Pods Manifest.lock */ = {
@@ -2165,23 +2097,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CA57C85CC692C62E779E8E91 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -2190,6 +2105,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59831BD72A78DD03008BB4C8 /* FBHUD.m in Sources */,
+				594D19C82D3F4CC000B28E61 /* UIView+Expand.m in Sources */,
 				59EE2EB52BF5E925002A8E5B /* LWBaseViewController.m in Sources */,
 				592197482A1B514800A4BE45 /* FBAboutHeadView.m in Sources */,
 				593E41DA2A2D7B2F00B438FE /* FBLocalHistoricalModel.m in Sources */,
@@ -2201,7 +2117,6 @@
 				5921977D2A1B514800A4BE45 /* LWContactViewController.m in Sources */,
 				59CAAAAB2AE9332500BF061A /* FFDropDownMenuBasedModel.m in Sources */,
 				5941D77D2AE3D760004F17A6 /* FBLocationConverter.m in Sources */,
-				5941D7762AE3B9C7004F17A6 /* WXSTransitionManager.m in Sources */,
 				592197882A1B522400A4BE45 /* MainViewController.m in Sources */,
 				59CAAAA92AE9332500BF061A /* FFDropDownMenuView.m in Sources */,
 				592197322A1B514800A4BE45 /* FBBatteryView.m in Sources */,
@@ -2225,7 +2140,6 @@
 				59C444AF2A0CDBBB00F236B0 /* RLMBloodOxygenModel.m in Sources */,
 				5921977E2A1B514800A4BE45 /* WeatherViewController.m in Sources */,
 				592197312A1B514800A4BE45 /* FemaleCell.m in Sources */,
-				5941D7782AE3B9C7004F17A6 /* WXSTransitionManager+ViewMoveAnimation.m in Sources */,
 				592197382A1B514800A4BE45 /* FBLogTableViewCell.m in Sources */,
 				5921972A2A1B514800A4BE45 /* LWCustomDialCell.m in Sources */,
 				592197232A1B514800A4BE45 /* LWDeviceListCell.m in Sources */,
@@ -2236,7 +2150,6 @@
 				59FA408E2A9D95C40035FD1E /* FBLocationManager.m in Sources */,
 				5921974E2A1B514800A4BE45 /* LWMotionPushDownloadObject.m in Sources */,
 				592197642A1B514800A4BE45 /* LWCustomDialViewController.m in Sources */,
-				5941D7742AE3B9C7004F17A6 /* WXSTransitionManager+CoverAnimation.m in Sources */,
 				592197592A1B514800A4BE45 /* ClockDialListViewController.m in Sources */,
 				59C444B22A0CDBCC00F236B0 /* RLMBloodPressureModel.m in Sources */,
 				592197282A1B514800A4BE45 /* LWPersonCell.m in Sources */,
@@ -2247,19 +2160,15 @@
 				5930E5D92AF1FBAA00F694F6 /* FBAutomaticOTACell.m in Sources */,
 				592197782A1B514800A4BE45 /* QRViewController.m in Sources */,
 				59C50A702B61045900BF834B /* FBMapView.m in Sources */,
-				5941D7732AE3B9C7004F17A6 /* WXSTransitionManager+TypeTool.m in Sources */,
 				5921973A2A1B514800A4BE45 /* LWWaveProgress.m in Sources */,
 				59CAAAAA2AE9332500BF061A /* FFDropDownMenuBasedCell.m in Sources */,
-				5941D7702AE3B9C7004F17A6 /* UINavigationController+WXSTransition.m in Sources */,
 				5921975C2A1B514800A4BE45 /* SportTargetViewController.m in Sources */,
 				592197512A1B514800A4BE45 /* UIAlertObject.m in Sources */,
 				593E41CC2A29CD9E00B438FE /* FBTestUISportsDetailsCell.m in Sources */,
-				5941D76B2AE3B9C7004F17A6 /* WXSTransitionManager+BoomAnimation.m in Sources */,
 				592197542A1B514800A4BE45 /* NSObject+HUD.m in Sources */,
 				59C3A4802A24AB9600C95E19 /* FBTestUIBaseSportsCell.m in Sources */,
 				59CAAA992AE8C0B200BF061A /* FBDropDownMenu.m in Sources */,
 				59CAAAA82AE9332500BF061A /* FFDropDownMenuCell.m in Sources */,
-				5941D7722AE3B9C7004F17A6 /* WXSPercentDrivenInteractiveTransition.m in Sources */,
 				592197792A1B514800A4BE45 /* BrightScreenViewController.m in Sources */,
 				592F5F0C2A050130008C06D7 /* FBTestUIItemCell.m in Sources */,
 				5930E5CE2AF1E7A200F694F6 /* FBAutomaticOTAViewController.m in Sources */,
@@ -2273,24 +2182,20 @@
 				5941D73E2AE36850004F17A6 /* RLMRestingHRModel.m in Sources */,
 				5921975E2A1B514800A4BE45 /* ListViewController.m in Sources */,
 				592197632A1B514800A4BE45 /* HeartRateReminderVC.m in Sources */,
-				5941D76F2AE3B9C7004F17A6 /* WXSTransitionManager+FlipAnimation.m in Sources */,
 				5921974D2A1B514800A4BE45 /* LWCustomDialModel.m in Sources */,
 				592197682A1B514800A4BE45 /* LWPersonViewController.m in Sources */,
 				592197582A1B514800A4BE45 /* dispatch_source_timer.m in Sources */,
-				5941D7792AE3B9C7004F17A6 /* WXSTransitionProperty.m in Sources */,
 				590419862A2F241C00BD3A0A /* FBTestUISportsSectionHeader.m in Sources */,
 				5941D7812AE3D88C004F17A6 /* MASmoothPathTool.m in Sources */,
 				5920EAC32A3873C2008D1CB0 /* FBCustomDialListColorCell.m in Sources */,
 				595237F02BFEE32C0091D04B /* JSAppPushViewController.m in Sources */,
 				59CAAAAD2AE9332500BF061A /* FFDropDownMenuTriangleView.m in Sources */,
-				5941D7752AE3B9C7004F17A6 /* WXSTransitionManager+FragmentAnimation.m in Sources */,
 				59A31EFD2AF6528300F6CC7F /* FBOTAFailureReportViewController.m in Sources */,
 				592197202A1B514800A4BE45 /* WeatherCell.m in Sources */,
 				592197452A1B514800A4BE45 /* MotionPushCollectionViewCell.m in Sources */,
 				592197252A1B514800A4BE45 /* ClockListTableViewCell.m in Sources */,
 				592197292A1B514800A4BE45 /* FBRadarView.m in Sources */,
 				59B3DA1D2A78F7FF00218990 /* FBConnectViewController.m in Sources */,
-				5941D7772AE3B9C7004F17A6 /* WXSTransitionManager+SystermAnimation.m in Sources */,
 				596E6D572A557E6600987964 /* FBTestUIPhoneRingView.m in Sources */,
 				593E41A32A28696B00B438FE /* FBCustomDialObject.m in Sources */,
 				5921974B2A1B514800A4BE45 /* Tools.m in Sources */,
@@ -2301,9 +2206,7 @@
 				5921974A2A1B514800A4BE45 /* DialListModel.m in Sources */,
 				592A9FE525A4173A00CC515E /* AppDelegate.m in Sources */,
 				5921975B2A1B514800A4BE45 /* MotionPushViewController.m in Sources */,
-				5941D7712AE3B9C7004F17A6 /* UIViewController+WXSTransition.m in Sources */,
 				593E41652A25DBF000B438FE /* FBCustomDialHeadView.m in Sources */,
-				5941D76E2AE3B9C7004F17A6 /* WXSTransitionManager+BrickAnimation.m in Sources */,
 				592197472A1B514800A4BE45 /* LWStartCountdownView.m in Sources */,
 				592197612A1B514800A4BE45 /* BinFileViewController.m in Sources */,
 				59A31F012AF87DE900F6CC7F /* FBOTAFailureReportCell.m in Sources */,
@@ -2322,7 +2225,6 @@
 				593E41462A25A9CF00B438FE /* FBTestUIBaseListViewController.m in Sources */,
 				593E41542A25AA6F00B438FE /* FBColorSliderView.m in Sources */,
 				592197572A1B514800A4BE45 /* LWLanguageLocalizble.m in Sources */,
-				5941D76A2AE3B9C7004F17A6 /* WXSTransitionManager+InsideThenPushAnimation.m in Sources */,
 				5930E6052AF34D0B00F694F6 /* FBAutomaticOTAOverview.m in Sources */,
 				592197802A1B514800A4BE45 /* FBSportsConnectViewController.m in Sources */,
 				595985792A0DD053002AB22F /* RLMDeviceListModel.m in Sources */,
@@ -2334,8 +2236,6 @@
 				5904198C2A2F417800BD3A0A /* FBTestUIBaseListCell.m in Sources */,
 				592197372A1B514800A4BE45 /* LWMotionPushCollectionView.m in Sources */,
 				592197302A1B514800A4BE45 /* LWMotionPushSelectCell.m in Sources */,
-				5941D76C2AE3B9C7004F17A6 /* UIViewController+WXSTransitionProperty.m in Sources */,
-				5941D7692AE3B9C7004F17A6 /* WXSTransitionManager+SpreadAnimation.m in Sources */,
 				5921973F2A1B514800A4BE45 /* CollCell.m in Sources */,
 				5959857C2A0DE518002AB22F /* RLMBaseModel.m in Sources */,
 				59C444BB2A0CDC2900F236B0 /* RLMSportsModel.m in Sources */,
@@ -2348,7 +2248,6 @@
 				592A9FF625A4173B00CC515E /* main.m in Sources */,
 				590419922A30A86E00BD3A0A /* FBCustomDialListModel.m in Sources */,
 				59400A952A08DF6C00C93683 /* FBLoadDataObject.m in Sources */,
-				5941D76D2AE3B9C7004F17A6 /* WXSTransitionManager+PageAnimation.m in Sources */,
 				59EE2EB32BF5E925002A8E5B /* FBBaseNavigationController.m in Sources */,
 				5921977C2A1B514800A4BE45 /* ClockInforViewController.m in Sources */,
 				592197562A1B514800A4BE45 /* LWMotionPushClassifyModel.m in Sources */,
@@ -2358,6 +2257,7 @@
 				593E41622A25D4B700B438FE /* FBCustomDialListContentView.m in Sources */,
 				59C50A782B625C6300BF834B /* FBRecordScreen.m in Sources */,
 				590419832A2F058600BD3A0A /* FBTestUIOverviewModel.m in Sources */,
+				59CB29DE2D8D5E150043BC3B /* TestSwiftFile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2564,12 +2464,15 @@
 				DEVELOPMENT_TEAM = PL4B74TGHZ;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64=arm64 arm64e armv7 armv7s armv6 armv8EXCLUDED_ARCHS=$(inherited)$(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT))";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FissionBluetooth/SystemBaseclass/PrefixHeader.pch";
 				INFOPLIST_FILE = FissionBluetooth/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2585,7 +2488,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "FissionBluetooth/FissionBluetooth-Bridging-Header.h";
 				SWIFT_OBJC_INTEROP_MODE = objc;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2607,12 +2510,15 @@
 				DEVELOPMENT_TEAM = PL4B74TGHZ;
 				ENABLE_BITCODE = NO;
 				EXCLUDED_ARCHS = "EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_simulator__NATIVE_ARCH_64_BIT_x86_64=arm64 arm64e armv7 armv7s armv6 armv8EXCLUDED_ARCHS=$(inherited)$(EXCLUDED_ARCHS__EFFECTIVE_PLATFORM_SUFFIX_$(EFFECTIVE_PLATFORM_SUFFIX)__NATIVE_ARCH_64_BIT_$(NATIVE_ARCH_64_BIT))";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FissionBluetooth/SystemBaseclass/PrefixHeader.pch";
 				INFOPLIST_FILE = FissionBluetooth/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2627,7 +2533,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "FissionBluetooth/FissionBluetooth-Bridging-Header.h";
 				SWIFT_OBJC_INTEROP_MODE = objc;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

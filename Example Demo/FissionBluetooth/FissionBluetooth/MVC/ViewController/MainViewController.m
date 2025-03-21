@@ -39,7 +39,7 @@
 
 @interface MainViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
-@property (nonatomic, strong) QMUIButton *titleView;
+@property (nonatomic, strong) QMUIButton *mainTitleView;
 @property (nonatomic, strong) FBBatteryView *batteryView;
 
 @property(nonatomic,strong) UITextView *receTextView;
@@ -409,13 +409,13 @@
     NSDictionary *dict5  = @{@"command":LWLocalizbleString(@"ERNIE Bot"),
                              @"status":@(0),
                              @"funcArr":@[
-                                 LWLocalizbleString(@"Speech Recognition"),
-                                 LWLocalizbleString(@"Text Translation"),
-                                 LWLocalizbleString(@"ERNIE Bot"),
-                                 LWLocalizbleString(@"Text To Speech"),
-                                 LWLocalizbleString(@"Start Recording"),
-                                 LWLocalizbleString(@"Stop Recording"),
-                                 LWLocalizbleString(@"Baidu Navigation"),
+//                                 LWLocalizbleString(@"Speech Recognition"),
+//                                 LWLocalizbleString(@"Text Translation"),
+//                                 LWLocalizbleString(@"ERNIE Bot"),
+//                                 LWLocalizbleString(@"Text To Speech"),
+//                                 LWLocalizbleString(@"Start Recording"),
+//                                 LWLocalizbleString(@"Stop Recording"),
+//                                 LWLocalizbleString(@"Baidu Navigation"),
                              ]
     };
     
@@ -728,7 +728,7 @@
         }
         
         else if ([rowStr containsString:LWLocalizbleString(@"Reset")]) {
-            [FBAtCommand.sharedInstance fbUpResetDeviceDataWithBlock:^(NSError * _Nullable error) {
+            [FBAtCommand.sharedInstance fbUpResetDeviceDataWithShutdown:NO withBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
                 } else {
@@ -2209,18 +2209,18 @@
 }
 
 #pragma mark - titleView
-- (QMUIButton *)titleView {
-    if (!_titleView) {
-        _titleView = [QMUIButton buttonWithType:UIButtonTypeCustom];
-        _titleView.titleLabel.font = [NSObject BahnschriftFont:18];
-        _titleView.frame = CGRectMake(0, 0, SCREEN_WIDTH-120, 44);
-        [_titleView setTitleColor:self.navigationController.navigationBar.tintColor forState:UIControlStateNormal];
-        [_titleView setImage:IMAGE_NAME(@"ic_device_disconnect") forState:UIControlStateNormal];
-        [_titleView setImage:IMAGE_NAME(@"ic_device_connect") forState:UIControlStateSelected];
-        _titleView.spacingBetweenImageAndTitle = 5;
-        [_titleView addTarget:self action:@selector(tryLastConnection) forControlEvents:UIControlEventTouchUpInside];
+- (QMUIButton *)mainTitleView {
+    if (!_mainTitleView) {
+        _mainTitleView = [QMUIButton buttonWithType:UIButtonTypeCustom];
+        _mainTitleView.titleLabel.font = [NSObject BahnschriftFont:18];
+        _mainTitleView.frame = CGRectMake(0, 0, SCREEN_WIDTH-120, 44);
+        [_mainTitleView setTitleColor:self.navigationController.navigationBar.tintColor forState:UIControlStateNormal];
+        [_mainTitleView setImage:IMAGE_NAME(@"ic_device_disconnect") forState:UIControlStateNormal];
+        [_mainTitleView setImage:IMAGE_NAME(@"ic_device_connect") forState:UIControlStateSelected];
+        _mainTitleView.spacingBetweenImageAndTitle = 5;
+        [_mainTitleView addTarget:self action:@selector(tryLastConnection) forControlEvents:UIControlEventTouchUpInside];
     }
-    return _titleView;
+    return _mainTitleView;
 }
 
 - (void)tryLastConnection {
@@ -2337,23 +2337,23 @@
 #pragma mark - 连接状态｜Connection Status
 - (void)reloadTitle {
     
-    if (StringIsEmpty(FBAllConfigObject.firmwareConfig.deviceName)) {
-        self.titleView.selected = NO;
-        [self.titleView setTitle:LWLocalizbleString(@"No Connection") forState:UIControlStateNormal];
+    FBFirmwareVersionObject *object = FBAllConfigObject.firmwareConfig;
+    
+    if (StringIsEmpty(object.deviceName)) {
+        self.mainTitleView.selected = NO;
+        [self.mainTitleView setTitle:LWLocalizbleString(@"No Connection") forState:UIControlStateNormal];
         [self.batteryView reloadBattery:-1 state:BATT_NORMAL]; // -1 隐藏电量🔋
         
         self.versionLab.text = @"";
     }
     else {
         
-        FBFirmwareVersionObject *object = FBAllConfigObject.firmwareConfig;
-        
         if (FBBluetoothManager.sharedInstance.IsTheDeviceReady) {
-            self.titleView.selected = YES;
-            [self.titleView setTitle:object.deviceName forState:UIControlStateSelected];
+            self.mainTitleView.selected = YES;
+            [self.mainTitleView setTitle:object.deviceName forState:UIControlStateSelected];
         } else {
-            self.titleView.selected = NO;
-            [self.titleView setTitle:object.deviceName forState:UIControlStateNormal];
+            self.mainTitleView.selected = NO;
+            [self.mainTitleView setTitle:object.deviceName forState:UIControlStateNormal];
             [self.batteryView reloadBattery:-1 state:BATT_NORMAL]; // -1 隐藏电量🔋
         }
         
@@ -2363,7 +2363,7 @@
                                 LWLocalizbleString(@"Mac Address"), object.mac];
     }
     
-    self.navigationItem.titleView = self.titleView;
+    self.navigationItem.titleView = self.mainTitleView;
 }
 
 #pragma mark - 海思GNSS

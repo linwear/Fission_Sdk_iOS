@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LWMotionPushDataCell : UITableViewCell
 
-- (void)reload:(LWMotionPushClassifyModel*)model isFirst:(BOOL)isFirstIndex isLast:(BOOL)isLastIndex block:(LWMotionPushSelectBlock)block;
+- (void)reload:(LWMotionPushClassifyModel*)model isLast:(BOOL)isLastIndex block:(LWMotionPushSelectBlock)block;
 
 @end
 

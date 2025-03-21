@@ -55,7 +55,7 @@
     // Configure the view for the selected state
 }
 
-- (void)reload:(NSArray <LWMotionPushModel *> *)selectList block:(LWMotionPushSelectBlock)block {
+- (void)reload:(NSMutableArray <LWMotionPushModel *> *)selectList block:(LWMotionPushSelectBlock)block {
     
     self.block = block;
     

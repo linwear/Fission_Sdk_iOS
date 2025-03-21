@@ -251,8 +251,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 恢复出厂设置｜Restore factory settings
 /**
  恢复出厂设置｜Restore factory settings
+ @param shutdown          恢复出厂设置后是否关机，NO开机，YES关机｜Whether to shut down after restoring factory settings, NO to turn on, YES to shut down
 */
-- (void)fbUpResetDeviceDataWithBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+- (void)fbUpResetDeviceDataWithShutdown:(BOOL)shutdown withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
 
 #pragma mark - 软关机｜Soft-off
@@ -412,7 +413,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  获取设备当前绑定状态｜Get the current binding status of the device
  
- @note 🔑设备绑定状态，为0: 未绑定，不为0: 已绑定｜🔑Device binding status, 0: unbound, not 0: bound
+ @note responseObject 🔑设备绑定状态，为0: 未绑定，不为0: 已绑定｜🔑Device binding status, 0: unbound, not 0: bound
 */
 - (void)fbGetBindingStatusRequestWithBlock:(FBGet_AT_ResultCallBackBlock _Nonnull)fbBlock;
 
@@ -422,7 +423,7 @@ NS_ASSUME_NONNULL_BEGIN
  绑定设备请求｜Bind device request
  @param macAddress            手表Mac地址，可不传，为nil时SDK内部处理，建议传nil｜The Mac address of the watch can not be passed. If it is nil, it will be processed internally by the SDK. It is recommended to pass nil
  
- @note 🔑设备绑定结果: 0拒绝绑定，1同意绑定，2已被绑定，3确认超时，4递交秘钥错误，5递交秘钥正确，6无需绑定｜🔑 Device binding result: 0 refuses to bind, 1 agrees to bind, 2 has been bound, 3 confirmation timeout, 4 submits the secret key incorrectly, 5 submits the secret key correctly, 6 does not need to bind
+ @note responseObject 🔑设备绑定结果: 0拒绝绑定，1同意绑定，2已被绑定，3确认超时，4递交秘钥错误，5递交秘钥正确，6无需绑定｜🔑 Device binding result: 0 refuses to bind, 1 agrees to bind, 2 has been bound, 3 confirmation timeout, 4 submits the secret key incorrectly, 5 submits the secret key correctly, 6 does not need to bind
 */
 - (void)fbBindDeviceRequest:(NSString * _Nullable)macAddress withBlock:(FBGet_AT_ResultCallBackBlock _Nonnull)fbBlock;
 
@@ -564,6 +565,62 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)fbResetMACaddressWithBlock:(FBResultCallBackBlock _Nonnull)fbBlock API_DEPRECATED("For internal testing only, please do not use for other purposes", macos(2.0, 2.0), ios(2.0, 2.0), tvos(2.0, 2.0), watchos(2.0, 2.0));
 
+
+#pragma mark - 向设备反馈日志读取进度 (仅供内部使用)｜Feedback log reading progress to the device (Internal use only)
+/**
+ 向设备反馈日志读取进度 (仅供内部使用)｜Feedback log reading progress to the device (Internal use only)
+ @param totalCount      将要读取日志的总个数｜The total number of logs to be read
+ @param currentIndex    当前读取日志的索引，起始1｜The index of the current log to be read, starting from 1
+ */
+- (void)fbReadingWithTotalCount:(int)totalCount withCurrentIndex:(int)currentIndex withBlock:(FBResultCallBackBlock _Nonnull)fbBlock API_DEPRECATED("Internal use only", macos(2.0, 2.0), ios(2.0, 2.0), tvos(2.0, 2.0), watchos(2.0, 2.0));
+
+
+#pragma mark - 设置音量增益补偿｜Setting the volume gain
+/**
+ 设置音量增益补偿｜Setting the volume gain
+ @param volumeGain          音量增益补偿，0不补偿｜Volume gain compensation, 0 means no compensation
+ */
+- (void)fbSetVolumeGainData:(NSInteger)volumeGain withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+
+
+#pragma mark - GPS运动参数设定 (兼容运动定位记录数据双精度)｜GPS sports parameter settings (compatible with sports positioning record data double precision)
+/**
+ GPS运动参数设定 (兼容运动定位记录数据双精度)｜GPS sports parameter settings (compatible with sports positioning record data double precision)
+ */
+- (void)fbSettingsGPSSportsParameterWithBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 设置离线语音唤醒开关状态｜Set the offline voice wake-up switch status
+/**
+ 设置离线语音唤醒开关状态｜Set the offline voice wake-up switch status
+ @param status          开关状态，NO关，YES开｜Switch status, NO off, YES on
+ */
+- (void)fbSetOfflineVoiceData:(BOOL)status withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 设置手电筒开关状态｜Set the flashlight on/off state
+/**
+ 设置手电筒开关状态｜Set the flashlight on/off state
+ @param status          开关状态，NO关，YES开｜Switch status, NO off, YES on
+ */
+- (void)fbSetFlashlightData:(BOOL)status withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 获取内置表盘开关掩码｜Get the built-in dial switch mask
+/**
+ 获取内置表盘开关掩码｜Get the built-in dial switch mask
+ 
+ @note responseObject          开关掩码，枚举值FB_DIALSWITCHMASKTYPE｜Switch mask, enumeration value FB_DIALSWITCHMASKTYPE
+ */
+- (void)fbGetDialSwitchMaskWithBlock:(FBGet_AT_ResultCallBackBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 设置内置表盘开关掩码｜Set the built-in dial switch mask
+/**
+ 设置内置表盘开关掩码｜Set the built-in dial switch mask
+ @param switchMask          开关掩码，枚举值FB_DIALSWITCHMASKTYPE｜Switch mask, enumeration value FB_DIALSWITCHMASKTYPE
+ */
+- (void)fbSetDialSwitchMask:(FB_DIALSWITCHMASKTYPE)switchMask withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
 @end
 

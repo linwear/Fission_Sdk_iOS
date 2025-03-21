@@ -28,32 +28,30 @@
         // 随着 iOS 版本的迭代，需要不断检查 UIDynamicColor 对比 UIColor 多出来的方法是哪些，然后在 QMUIThemeColor 里补齐，否则可能出现”unrecognized selector sent to instance“的 crash
         // https://github.com/Tencent/QMUI_iOS/issues/791
 #ifdef DEBUG
-        if (@available(iOS 13.0, *)) {
-            Class dynamicColorClass = NSClassFromString(@"UIDynamicColor");
-            NSMutableSet<NSString *> *unrecognizedSelectors = NSMutableSet.new;
-            NSDictionary<NSString *, NSMutableSet<NSString *> *> *methods = @{
-                NSStringFromClass(UIColor.class): NSMutableSet.new,
-                NSStringFromClass(dynamicColorClass): NSMutableSet.new,
-                NSStringFromClass(self): NSMutableSet.new
-            };
-            [methods enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull classString, NSMutableSet<NSString *> * _Nonnull methods, BOOL * _Nonnull stop) {
-                [NSObject qmui_enumrateInstanceMethodsOfClass:NSClassFromString(classString) includingInherited:NO usingBlock:^(Method  _Nonnull method, SEL  _Nonnull selector) {
-                    [methods addObject:NSStringFromSelector(selector)];
-                }];
+        Class dynamicColorClass = NSClassFromString(@"UIDynamicColor");
+        NSMutableSet<NSString *> *unrecognizedSelectors = NSMutableSet.new;
+        NSDictionary<NSString *, NSMutableSet<NSString *> *> *methods = @{
+            NSStringFromClass(UIColor.class): NSMutableSet.new,
+            NSStringFromClass(dynamicColorClass): NSMutableSet.new,
+            NSStringFromClass(self): NSMutableSet.new
+        };
+        [methods enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull classString, NSMutableSet<NSString *> * _Nonnull methods, BOOL * _Nonnull stop) {
+            [NSObject qmui_enumrateInstanceMethodsOfClass:NSClassFromString(classString) includingInherited:NO usingBlock:^(Method  _Nonnull method, SEL  _Nonnull selector) {
+                [methods addObject:NSStringFromSelector(selector)];
             }];
-            [methods[NSStringFromClass(UIColor.class)] enumerateObjectsUsingBlock:^(NSString * _Nonnull selectorString, BOOL * _Nonnull stop) {
-                if ([methods[NSStringFromClass(dynamicColorClass)] containsObject:selectorString]) {
-                    [methods[NSStringFromClass(dynamicColorClass)] removeObject:selectorString];
-                }
-            }];
-            [methods[NSStringFromClass(dynamicColorClass)] enumerateObjectsUsingBlock:^(NSString * _Nonnull selectorString, BOOL * _Nonnull stop) {
-                if (![methods[NSStringFromClass(self)] containsObject:selectorString]) {
-                    [unrecognizedSelectors addObject:selectorString];
-                }
-            }];
-            if (unrecognizedSelectors.count > 0) {
-                QMUILogWarn(NSStringFromClass(self), @"%@ 还需要实现以下方法：%@", NSStringFromClass(self), unrecognizedSelectors);
+        }];
+        [methods[NSStringFromClass(UIColor.class)] enumerateObjectsUsingBlock:^(NSString * _Nonnull selectorString, BOOL * _Nonnull stop) {
+            if ([methods[NSStringFromClass(dynamicColorClass)] containsObject:selectorString]) {
+                [methods[NSStringFromClass(dynamicColorClass)] removeObject:selectorString];
             }
+        }];
+        [methods[NSStringFromClass(dynamicColorClass)] enumerateObjectsUsingBlock:^(NSString * _Nonnull selectorString, BOOL * _Nonnull stop) {
+            if (![methods[NSStringFromClass(self)] containsObject:selectorString]) {
+                [unrecognizedSelectors addObject:selectorString];
+            }
+        }];
+        if (unrecognizedSelectors.count > 0) {
+            QMUILogWarn(NSStringFromClass(self), @"%@ 还需要实现以下方法：%@", NSStringFromClass(self), unrecognizedSelectors);
         }
 #endif
     });
@@ -102,10 +100,12 @@
     // CGColor 必须通过 CGColorCreate 创建。UIColor.CGColor 返回的是一个多对象复用的 CGColor 值（例如，如果 QMUIThemeA.light 值和 UIColorB 的值刚好相同，那么他们的 CGColor 可能也是同一个对象，所以 UIColorB.CGColor 可能会错误地使用了原本仅属于 QMUIThemeColorA 的 bindObject）
     // 经测试，qmui_red 系列接口适用于不同的 ColorSpace，应该是能放心使用的😜
     // https://github.com/Tencent/QMUI_iOS/issues/1463
-    CGColorRef cgColor = CGColorCreate(CGColorSpaceCreateDeviceRGB(), (CGFloat[]){rawColor.qmui_red, rawColor.qmui_green, rawColor.qmui_blue, rawColor.qmui_alpha});
+    CGColorSpaceRef spaceRef = CGColorSpaceCreateDeviceRGB();
+    CGColorRef cgColor = CGColorCreate(spaceRef, (CGFloat[]){rawColor.qmui_red, rawColor.qmui_green, rawColor.qmui_blue, rawColor.qmui_alpha});
+    CGColorSpaceRelease(spaceRef);
     
     [(__bridge id)(cgColor) qmui_bindObject:self forKey:QMUICGColorOriginalColorBindKey];
-    return cgColor;
+    return (CGColorRef)CFAutorelease(cgColor);
 }
 
 - (NSString *)colorSpaceName {

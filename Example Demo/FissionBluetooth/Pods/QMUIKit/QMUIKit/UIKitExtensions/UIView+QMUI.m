@@ -290,11 +290,7 @@ QMUISynthesizeBOOLProperty(qmui_isControllerRootView, setQmui_isControllerRootVi
         return YES;
     }
     if ([self isKindOfClass:UIWindow.class]) {
-        if (@available(iOS 13.0, *)) {
-            return !!((UIWindow *)self).windowScene;
-        } else {
-            return YES;
-        }
+        return !!((UIWindow *)self).windowScene;
     }
     UIViewController *viewController = self.qmui_viewController;
     return viewController.qmui_visibleState >= QMUIViewControllerWillAppear && viewController.qmui_visibleState < QMUIViewControllerWillDisappear;
@@ -543,6 +539,14 @@ const CGSize QMUIViewFixedSizeNone = {-1, -1};
     self.frame = CGRectSetX(self.frame, right - CGRectGetWidth(self.frame));
 }
 
+- (CGPoint)qmui_origin {
+    return self.frame.origin;
+}
+
+- (void)setQmui_origin:(CGPoint)qmui_origin {
+    self.center = CGPointMake(qmui_origin.x + CGRectGetWidth(self.frame) / 2, qmui_origin.y + CGRectGetHeight(self.frame) / 2);
+}
+
 - (CGFloat)qmui_width {
     return CGRectGetWidth(self.frame);
 }
@@ -579,6 +583,8 @@ static char kAssociatedObjectKey_fixedSize;
             return superResult;
         };
         self.qmui_size = qmui_fixedSize;
+    } else {
+        self.qmui_sizeThatFitsBlock = nil;
     }
 }
 
@@ -686,7 +692,7 @@ static char kAssociatedObjectKey_shouldShowDebugColor;
                     [selfObject renderColorWithSubviews:selfObject.subviews];
                 } else if (objc_getAssociatedObject(selfObject, &kAssociatedObjectKey_shouldShowDebugColor)) {
                     // 设置过 qmui_shouldShowDebugColor，但当前的值为 NO 的情况，则无脑清空所有背景色（可能会把业务自己设置的背景色去掉，由于是调试功能，无所谓）
-                    selfObject.backgroundColor = nil;
+                    selfObject.backgroundColor = UIColor.clearColor;
                     [selfObject renderColorWithSubviews:selfObject.subviews];
                 }
             });
@@ -768,7 +774,7 @@ static char kAssociatedObjectKey_sizeThatFitsBlock;
         if (view.qmui_shouldShowDebugColor) {
             view.backgroundColor = [view debugColor];
         } else {
-            view.backgroundColor = nil;
+            view.backgroundColor = UIColor.clearColor;
         }
     }
 }

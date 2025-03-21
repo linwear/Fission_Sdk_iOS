@@ -25,7 +25,6 @@
 const NSUInteger kFloatValuePrecision = 4;// 统一一个小数点运算精度
 
 @interface UITableView ()
-@property(nonatomic, assign, readwrite) UITableViewStyle qmui_style;
 @property(nonatomic, assign, readonly) CGRect qmui_indexFrame;
 @end
 
@@ -37,15 +36,6 @@ const NSUInteger kFloatValuePrecision = 4;// 统一一个小数点运算精度
         
         OverrideImplementation([UITableView class], @selector(initWithFrame:style:), ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {
             return ^UITableView *(UITableView *selfObject, CGRect firstArgv, UITableViewStyle secondArgv) {
-                
-                if (@available(iOS 13.0, *)) {
-                    // iOS 13 qmui_style 的 getter 直接返回 tableView.style，所以这里不需要给 qmui_style 赋值
-                } else {
-                    selfObject.qmui_style = secondArgv;
-                    if (secondArgv == QMUITableViewStyleInsetGrouped) {
-                        secondArgv = UITableViewStyleGrouped;
-                    }
-                }
                 
                 // call super
                 UITableView *(*originSelectorIMP)(id, SEL, CGRect, UITableViewStyle);
@@ -105,30 +95,27 @@ const NSUInteger kFloatValuePrecision = 4;// 统一一个小数点运算精度
         
         // [UIKit Bug] 将 UISearchBar 作为 tableHeaderView 使用的 UITableView，如果同时设置了 estimatedRowHeight，则 contentSize 会错乱，导致滚动异常
         // https://github.com/Tencent/QMUI_iOS/issues/1161
-        void (^fixBugOfTableViewContentSize)(UITableView *) = ^void(UITableView *tableView) {
-            BOOL estimatesRowHeight = NO;
-            [tableView qmui_performSelector:NSSelectorFromString(@"_estimatesRowHeights") withPrimitiveReturnValue:&estimatesRowHeight];
-            if (estimatesRowHeight && [tableView.tableHeaderView isKindOfClass:UISearchBar.class]) {
-                BeginIgnorePerformSelectorLeaksWarning
-                [tableView performSelector:NSSelectorFromString(@"_updateContentSize")];
-                EndIgnorePerformSelectorLeaksWarning
-            }
-        };
-        
-        /* - (void)_coalesceContentSizeUpdateWithDelta:(double)arg1; */
-        OverrideImplementation([UITableView class], NSSelectorFromString(@"_coalesceContentSizeUpdateWithDelta:"), ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {
-            return ^(UITableView *selfObject, CGFloat firstArgv) {
-                
-                // call super
-                void (*originSelectorIMP)(id, SEL, CGFloat);
-                originSelectorIMP = (void (*)(id, SEL, CGFloat))originalIMPProvider();
-                originSelectorIMP(selfObject, originCMD, firstArgv);
-                
-                if (fixBugOfTableViewContentSize) {
-                    fixBugOfTableViewContentSize(selfObject);
-                }
-            };
-        });
+        if (@available(iOS 15.0, *)) {
+        } else {
+            /* - (void)_coalesceContentSizeUpdateWithDelta:(double)arg1; */
+            OverrideImplementation([UITableView class], NSSelectorFromString(@"_coalesceContentSizeUpdateWithDelta:"), ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {
+                return ^(UITableView *selfObject, CGFloat firstArgv) {
+                    
+                    // call super
+                    void (*originSelectorIMP)(id, SEL, CGFloat);
+                    originSelectorIMP = (void (*)(id, SEL, CGFloat))originalIMPProvider();
+                    originSelectorIMP(selfObject, originCMD, firstArgv);
+                    
+                    BOOL estimatesRowHeight = NO;
+                    [selfObject qmui_performSelector:NSSelectorFromString(@"_estimatesRowHeights") withPrimitiveReturnValue:&estimatesRowHeight];
+                    if (estimatesRowHeight && [selfObject.tableHeaderView isKindOfClass:UISearchBar.class]) {
+                        BeginIgnorePerformSelectorLeaksWarning
+                        [selfObject performSelector:NSSelectorFromString(@"_updateContentSize")];
+                        EndIgnorePerformSelectorLeaksWarning
+                    }
+                };
+            });
+        }
         
         OverrideImplementation([UITableView class], @selector(reloadData), ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {
             return ^(UITableView *selfObject) {
@@ -229,12 +216,12 @@ const NSUInteger kFloatValuePrecision = 4;// 统一一个小数点运算精度
     
     [self _qmui_configEstimatedRowHeight];
     
-    self.backgroundColor = PreferredValueForTableViewStyle(self.qmui_style, TableViewBackgroundColor, TableViewGroupedBackgroundColor, TableViewInsetGroupedBackgroundColor);
-    self.separatorColor = PreferredValueForTableViewStyle(self.qmui_style, TableViewSeparatorColor, TableViewGroupedSeparatorColor, TableViewInsetGroupedSeparatorColor);
+    self.backgroundColor = PreferredValueForTableViewStyle(self.style, TableViewBackgroundColor, TableViewGroupedBackgroundColor, TableViewInsetGroupedBackgroundColor);
+    self.separatorColor = PreferredValueForTableViewStyle(self.style, TableViewSeparatorColor, TableViewGroupedSeparatorColor, TableViewInsetGroupedSeparatorColor);
 
     
     // 去掉空白的cell
-    if (self.qmui_style == UITableViewStylePlain) {
+    if (self.style == UITableViewStylePlain) {
         self.tableFooterView = [[UIView alloc] init];
     }
     
@@ -245,7 +232,7 @@ const NSUInteger kFloatValuePrecision = 4;// 统一一个小数点运算精度
     self.sectionIndexBackgroundColor = TableSectionIndexBackgroundColor;
 #ifdef IOS15_SDK_ALLOWED
     if (@available(iOS 15.0, *)) {
-        self.sectionHeaderTopPadding = PreferredValueForTableViewStyle(self.qmui_style, TableViewSectionHeaderTopPadding, TableViewGroupedSectionHeaderTopPadding, TableViewInsetGroupedSectionHeaderTopPadding);
+        self.sectionHeaderTopPadding = PreferredValueForTableViewStyle(self.style, TableViewSectionHeaderTopPadding, TableViewGroupedSectionHeaderTopPadding, TableViewInsetGroupedSectionHeaderTopPadding);
     }
 #endif
     
@@ -350,7 +337,7 @@ const NSUInteger kFloatValuePrecision = 4;// 统一一个小数点运算精度
 }
 
 - (BOOL)qmui_isHeaderPinnedForSection:(NSInteger)section {
-    if (self.qmui_style != UITableViewStylePlain) return NO;
+    if (self.style != UITableViewStylePlain) return NO;
     if (section >= [self numberOfSections]) return NO;
     
     // 系统这两个接口获取到的 rect 是在 contentSize 里的 rect，而不是实际看到的 rect
@@ -371,7 +358,7 @@ const NSUInteger kFloatValuePrecision = 4;// 统一一个小数点运算精度
     
     // 系统这个接口获取到的 rect 是在 contentSize 里的 rect，而不是实际看到的 rect
     CGRect rectForSection = CGRectZero;
-    if (self.qmui_style == UITableViewStylePlain) {
+    if (self.style == UITableViewStylePlain) {
         rectForSection = [self rectForSection:section];
     } else {
         rectForSection = [self rectForHeaderInSection:section];
@@ -437,8 +424,8 @@ const NSUInteger kFloatValuePrecision = 4;// 统一一个小数点运算精度
 
 - (CGFloat)qmui_validContentWidth {
     CGRect indexFrame = self.qmui_indexFrame;
-    CGFloat rightInset = MAX(self.safeAreaInsets.right + (self.qmui_style == QMUITableViewStyleInsetGrouped ? self.qmui_insetGroupedHorizontalInset : 0), CGRectGetWidth(indexFrame));
-    CGFloat leftInset = self.safeAreaInsets.left + (self.qmui_style == QMUITableViewStyleInsetGrouped ? self.qmui_insetGroupedHorizontalInset : 0);
+    CGFloat rightInset = MAX(self.safeAreaInsets.right + (self.style == UITableViewStyleInsetGrouped ? self.qmui_insetGroupedHorizontalInset : 0), CGRectGetWidth(indexFrame));
+    CGFloat leftInset = self.safeAreaInsets.left + (self.style == UITableViewStyleInsetGrouped ? self.qmui_insetGroupedHorizontalInset : 0);
     CGFloat width = CGRectGetWidth(self.bounds) - leftInset - rightInset;
     return width;
 }
@@ -484,13 +471,14 @@ const NSUInteger kFloatValuePrecision = 4;// 统一一个小数点运算精度
     BOOL usingEstimatedSectionHeaderHeight = [self.delegate respondsToSelector:@selector(tableView:estimatedHeightForHeaderInSection:)] || self.estimatedSectionHeaderHeight > 0;
     BOOL usingEstimatedSectionFooterHeight = [self.delegate respondsToSelector:@selector(tableView:estimatedHeightForFooterInSection:)] || self.estimatedSectionFooterHeight > 0;
     
+    if (!IS_DEBUG) return;
     if (usingEstimatedRowHeight || usingEstimatedSectionHeaderHeight || usingEstimatedSectionFooterHeight) {
         [self QMUISymbolicUsingTableViewEstimatedHeightMakeWarning];
     }
 }
 
 - (void)QMUISymbolicUsingTableViewEstimatedHeightMakeWarning {
-    QMUILog(@"UITableView (QMUI)", @"当开启了 UITableView 的 estimatedRow(SectionHeader / SectionFooter)Height 功能后，不应该手动修改 contentOffset 和 contentSize，也会影响 contentSize、sizeThatFits:、rectForXxx 等方法的计算，请注意确认当前是否存在不合理的业务代码。可添加 '%@' 的 Symbolic Breakpoint 以捕捉此类信息\n%@", NSStringFromSelector(_cmd), [NSThread callStackSymbols]);
+    QMUILog(@"UITableView (QMUI)", @"当开启了 UITableView 的 estimatedRow(SectionHeader / SectionFooter)Height 功能后，不应该手动修改 contentOffset 和 contentSize，也会影响 contentSize、sizeThatFits:、rectForXxx 等方法的计算，请注意确认当前是否存在不合理的业务代码。可添加 'QMUISymbolicUsingTableViewEstimatedHeightMakeWarning' 的 Symbolic Breakpoint 以捕捉此类信息。");
 }
 
 - (void)qmui_performBatchUpdates:(void (NS_NOESCAPE ^ _Nullable)(void))updates completion:(void (^ _Nullable)(BOOL finished))completion {
@@ -509,8 +497,6 @@ const NSUInteger kFloatValuePrecision = 4;// 统一一个小数点运算精度
 
 @property(nonatomic, assign, readwrite) QMUITableViewCellPosition qmui_cellPosition;
 @end
-
-const UITableViewStyle QMUITableViewStyleInsetGrouped = UITableViewStyleGrouped + 1;
 
 @implementation UITableView (QMUI_InsetGrouped)
 
@@ -531,27 +517,10 @@ const UITableViewStyle QMUITableViewStyleInsetGrouped = UITableViewStyleGrouped 
                 QMUITableViewCellPosition position = [selfObject qmui_positionForRowAtIndexPath:indexPath];
                 cell.qmui_cellPosition = position;
                 
-                if (selfObject.qmui_style == QMUITableViewStyleInsetGrouped) {
+                if (selfObject.style == UITableViewStyleInsetGrouped) {
                     CGFloat cornerRadius = selfObject.qmui_insetGroupedCornerRadius;
                     if (position == QMUITableViewCellPositionMiddleInSection || position == QMUITableViewCellPositionNone) {
                         cornerRadius = 0;
-                    }
-                    // InsetGrouped 的圆角，iOS 13 系统有另外的私有方法去设置，所以这里在 qmui_cellPosition 的值更新时设置一次，下方在 _setContentClipCorners:updateCorners: 时再覆盖一次。iOS 12 只需要在这里处理一次即可
-                    if (@available(iOS 13.0, *)) {
-                    } else {
-                        CACornerMask mask = kCALayerMinXMinYCorner|kCALayerMaxXMinYCorner|kCALayerMinXMaxYCorner|kCALayerMaxXMaxYCorner;
-                        switch (position) {
-                            case QMUITableViewCellPositionFirstInSection:
-                                mask = kCALayerMinXMinYCorner|kCALayerMaxXMinYCorner;
-                                break;
-                            case QMUITableViewCellPositionLastInSection:
-                                mask = kCALayerMinXMaxYCorner|kCALayerMaxXMaxYCorner;
-                                break;
-                            default:
-                                break;
-                        }
-                        cell.layer.maskedCorners = mask;
-                        cell.layer.masksToBounds = YES;
                     }
                     cell.layer.cornerRadius = cornerRadius;
                 }
@@ -562,69 +531,51 @@ const UITableViewStyle QMUITableViewStyleInsetGrouped = UITableViewStyleGrouped 
             };
         });
         
-        if (@available(iOS 13.0, *)) {
-            
-            // -[UITableViewCell _setContentClipCorners:updateCorners:]，用来控制系统 InsetGrouped 的圆角（很多情况都会触发系统更新圆角，例如设置 cell.backgroundColor、...，对于 iOS 12 及以下的系统，则靠 -[UITableView _configureCellForDisplay:forIndexPath:] 来处理
-            // - (void) _setContentClipCorners:(unsigned long)arg1 updateCorners:(BOOL)arg2; (0x10db0a5b7)
-            OverrideImplementation([UITableViewCell class], NSSelectorFromString([NSString qmui_stringByConcat:@"_setContentClipCorners", @":", @"updateCorners", @":", nil]), ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {
-                return ^(UITableViewCell *selfObject, CACornerMask firstArgv, BOOL secondArgv) {
-                    
-                    // call super
-                    void (*originSelectorIMP)(id, SEL, CACornerMask, BOOL);
-                    originSelectorIMP = (void (*)(id, SEL, CACornerMask, BOOL))originalIMPProvider();
-                    originSelectorIMP(selfObject, originCMD, firstArgv, secondArgv);
-                    
-                    UITableView *tableView = selfObject.qmui_tableView;
-                    if (tableView && tableView.qmui_style == QMUITableViewStyleInsetGrouped) {
-                        CGFloat cornerRadius = tableView.qmui_insetGroupedCornerRadius;
-                        if (selfObject.qmui_cellPosition == QMUITableViewCellPositionMiddleInSection || selfObject.qmui_cellPosition == QMUITableViewCellPositionNone) {
-                            cornerRadius = 0;
-                        }
-                        selfObject.layer.cornerRadius = cornerRadius;
+        // -[UITableViewCell _setContentClipCorners:updateCorners:]，用来控制系统 InsetGrouped 的圆角（很多情况都会触发系统更新圆角，例如设置 cell.backgroundColor、...，对于 iOS 12 及以下的系统，则靠 -[UITableView _configureCellForDisplay:forIndexPath:] 来处理
+        // - (void) _setContentClipCorners:(unsigned long)arg1 updateCorners:(BOOL)arg2; (0x10db0a5b7)
+        OverrideImplementation([UITableViewCell class], NSSelectorFromString([NSString qmui_stringByConcat:@"_setContentClipCorners", @":", @"updateCorners", @":", nil]), ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {
+            return ^(UITableViewCell *selfObject, CACornerMask firstArgv, BOOL secondArgv) {
+                
+                // call super
+                void (*originSelectorIMP)(id, SEL, CACornerMask, BOOL);
+                originSelectorIMP = (void (*)(id, SEL, CACornerMask, BOOL))originalIMPProvider();
+                originSelectorIMP(selfObject, originCMD, firstArgv, secondArgv);
+                
+                UITableView *tableView = selfObject.qmui_tableView;
+                if (tableView && tableView.style == UITableViewStyleInsetGrouped) {
+                    CGFloat cornerRadius = tableView.qmui_insetGroupedCornerRadius;
+                    if (selfObject.qmui_cellPosition == QMUITableViewCellPositionMiddleInSection || selfObject.qmui_cellPosition == QMUITableViewCellPositionNone) {
+                        cornerRadius = 0;
                     }
-                };
-            });
-            
-            
-            // -[UITableView layoutMargins]，用来控制系统 InsetGrouped 的左右间距
-            OverrideImplementation([UITableView class], @selector(layoutMargins), ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {
-                return ^UIEdgeInsets(UITableView *selfObject) {
-                    // call super
-                    UIEdgeInsets (*originSelectorIMP)(id, SEL);
-                    originSelectorIMP = (UIEdgeInsets (*)(id, SEL))originalIMPProvider();
-                    UIEdgeInsets result = originSelectorIMP(selfObject, originCMD);
-                    
-                    if (selfObject.qmui_style == QMUITableViewStyleInsetGrouped) {
-                        result.left = selfObject.safeAreaInsets.left + selfObject.qmui_insetGroupedHorizontalInset;
-                        result.right = selfObject.safeAreaInsets.right + selfObject.qmui_insetGroupedHorizontalInset;
-                    }
-                    
-                    return result;
-                };
-            });
-        }
+                    selfObject.layer.cornerRadius = cornerRadius;
+                }
+            };
+        });
+        
+        
+        // -[UITableView layoutMargins]，用来控制系统 InsetGrouped 的左右间距
+        OverrideImplementation([UITableView class], @selector(layoutMargins), ^id(__unsafe_unretained Class originClass, SEL originCMD, IMP (^originalIMPProvider)(void)) {
+            return ^UIEdgeInsets(UITableView *selfObject) {
+                // call super
+                UIEdgeInsets (*originSelectorIMP)(id, SEL);
+                originSelectorIMP = (UIEdgeInsets (*)(id, SEL))originalIMPProvider();
+                UIEdgeInsets result = originSelectorIMP(selfObject, originCMD);
+                
+                if (selfObject.style == UITableViewStyleInsetGrouped) {
+                    result.left = selfObject.safeAreaInsets.left + selfObject.qmui_insetGroupedHorizontalInset;
+                    result.right = selfObject.safeAreaInsets.right + selfObject.qmui_insetGroupedHorizontalInset;
+                }
+                
+                return result;
+            };
+        });
     });
-}
-
-static char kAssociatedObjectKey_style;
-- (void)setQmui_style:(UITableViewStyle)qmui_style {
-    if (@available(iOS 13.0, *)) {
-    } else {
-        objc_setAssociatedObject(self, &kAssociatedObjectKey_style, @(qmui_style), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    }
-}
-
-- (UITableViewStyle)qmui_style {
-    if (@available(iOS 13.0, *)) {
-        return self.style;
-    }
-    return [((NSNumber *)objc_getAssociatedObject(self, &kAssociatedObjectKey_style)) integerValue];
 }
 
 static char kAssociatedObjectKey_insetGroupedCornerRadius;
 - (void)setQmui_insetGroupedCornerRadius:(CGFloat)qmui_insetGroupedCornerRadius {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_insetGroupedCornerRadius, @(qmui_insetGroupedCornerRadius), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    if (self.qmui_style == QMUITableViewStyleInsetGrouped && self.indexPathsForVisibleRows.count) {
+    if (self.style == UITableViewStyleInsetGrouped && self.indexPathsForVisibleRows.count) {
         [self reloadData];
     }
 }
@@ -642,7 +593,7 @@ static char kAssociatedObjectKey_insetGroupedCornerRadius;
 static char kAssociatedObjectKey_insetGroupedHorizontalInset;
 - (void)setQmui_insetGroupedHorizontalInset:(CGFloat)qmui_insetGroupedHorizontalInset {
     objc_setAssociatedObject(self, &kAssociatedObjectKey_insetGroupedHorizontalInset, @(qmui_insetGroupedHorizontalInset), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    if (self.qmui_style == QMUITableViewStyleInsetGrouped && self.indexPathsForVisibleRows.count) {
+    if (self.style == UITableViewStyleInsetGrouped && self.indexPathsForVisibleRows.count) {
         [self reloadData];
     }
 }

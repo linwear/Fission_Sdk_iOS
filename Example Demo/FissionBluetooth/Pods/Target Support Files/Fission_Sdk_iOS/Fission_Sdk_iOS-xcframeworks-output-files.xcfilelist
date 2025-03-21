@@ -1,0 +1,4 @@
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Fission_Sdk_iOS/AllDependencys/RTKOTASDK.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Fission_Sdk_iOS/AllDependencys/RTKLEFoundation.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Fission_Sdk_iOS/AllDependencys/RTKRealChatConnection.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Fission_Sdk_iOS/AllDependencys/RTKAudioStreaming.framework

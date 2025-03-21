@@ -20,23 +20,11 @@
 
 @implementation FBAboutViewController
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-
-    [self navigationBarAlpha:0.0];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
-    
-    [self navigationBarAlpha:1.0];
-}
-
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationItem.title = LWLocalizbleString(@"About");
+    self.navigationBGColor = UIColorClear;
     
     UILabel *lab = [[UILabel alloc] qmui_initWithFont:FONT(13) textColor:UIColorGrayLighten];
     lab.textAlignment = NSTextAlignmentCenter;

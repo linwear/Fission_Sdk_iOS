@@ -140,19 +140,6 @@ QMUISynthesizeIdCopyProperty(qmui_themeDidChangeBlock, setQmui_themeDidChangeBlo
         BOOL isValidatedEffect = [value isKindOfClass:QMUIThemeVisualEffect.class] && (!manager || [((QMUIThemeVisualEffect *)value).managerName isEqual:manager.name]);
         BOOL isOtherObject = ![value isKindOfClass:UIColor.class] && ![value isKindOfClass:UIImage.class] && ![value isKindOfClass:UIVisualEffect.class];// 支持所有非 color、image、effect 的其他对象，例如 NSAttributedString
         if (isOtherObject || isValidatedColor || isValidatedImage || isValidatedEffect) {
-            
-            // 修复 iOS 12 及以下版本，QMUIThemeImage 在搭配 resizable 使用的情况下可能无法跟随主题刷新的 bug
-            // https://github.com/Tencent/QMUI_iOS/issues/971
-            if (@available(iOS 13.0, *)) {
-            } else {
-                if (isValidatedImage) {
-                    QMUIThemeImage *image = (QMUIThemeImage *)value;
-                    if (image.qmui_resizable) {
-                        value = image.copy;
-                    }
-                }
-            }
-            
             [self performSelector:setter withObject:value];
         }
         EndIgnorePerformSelectorLeaksWarning
@@ -165,22 +152,22 @@ QMUISynthesizeIdCopyProperty(qmui_themeDidChangeBlock, setQmui_themeDidChangeBlo
     }
     
     if ([self isKindOfClass:UITextView.class]) {
-        UITextView *textView = (UITextView *)self;
+#ifdef IOS16_SDK_ALLOWED
         if (@available(iOS 16.0, *)) {
-            // iOS 16 里无法通过 setNeedsDisplay 去刷新文本颜色了，所以只能重新把 textColor 设置一遍
-            // 测过 textColor 和 typingAttributes[NSForegroundColorAttributeName] 是互通的，所以只操作任意一个即可
-            if (textView.textColor.qmui_isQMUIDynamicColor) {
-                textView.textColor = textView.textColor;
+            // iOS 16 里使用 TextKit 2 的输入框无法通过 setNeedsDisplay 去刷新文本颜色了，所以改为用这种方式去刷新
+            // 以下语句对 iOS 16 里因为访问 UITextView.layoutManager 而回退到 TextKit 1 的输入框无效，但由于 TextKit 1 本来就可以正常刷新，所以没问题。
+            // 注意要考虑输入框内可能存在多种颜色的富文本场景
+            UITextView *textView = (UITextView *)self;
+            NSTextRange *textRange = textView.textLayoutManager.textContentManager.documentRange;
+            if (textRange) {
+                [textView.textLayoutManager invalidateLayoutForRange:textRange];
             }
         } else {
-            if (@available(iOS 12.0, *)) {
-                [self setNeedsDisplay];
-            } else {
-                // 系统 UITextView 在 iOS 12 及以上重写了 -[UIView setNeedsDisplay]，在里面会去刷新文字样式，但 iOS 11 及以下没有重写，所以这里对此作了兼容。实现思路是参考高版本系统的实现。
-                UIView *textContainerView = [self qmui_valueForKey:@"_containerView"];
-                if (textContainerView) [textContainerView setNeedsDisplay];
-            }
+#endif
+            [self setNeedsDisplay];
+#ifdef IOS16_SDK_ALLOWED
         }
+#endif
     }
     
     // 输入框、搜索框的键盘跟随主题变化

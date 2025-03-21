@@ -120,11 +120,6 @@
     }];
     
     self.pcmData = NSMutableData.data;
-    // 设备录音开始回调｜Device recording starts callback
-    [FBBaiduCloudKit deviceRecordingStartsWithCallback:^{
-        FBLog(@"录音🎤: 开始...");
-        [weakSelf.pcmData setLength:0];
-    }];
     
     // 设备录音pcm数据回调｜Device recording pcm data callback
     [FBBaiduCloudKit deviceRecordingPcmDataWithCallback:^(NSData * _Nullable pcmData) {
@@ -133,68 +128,10 @@
         }
     }];
     
-    // 设备录音结束回调｜Device recording ends callback
-    [FBBaiduCloudKit deviceRecordingEndsWithCallback:^(FB_ENDRECORDINGTYPE endType) {
-        FBLog(@"录音🎤: 结束(类型%ld, pcm数据长度%ld)...", endType, weakSelf.pcmData.length);
+    // 设备动作类型回调｜Device action type callback
+    [FBBaiduCloudKit deviceActionTypeWithCallback:^(FB_DEVICEACTIONTYPE actionType, FB_JSAPPLICATIONTYPE appType, NSString * _Nonnull content) {
         
-        if (weakSelf.pcmData.length && endType == FB_ENDRECORDINGTYPE_CHAT)
-        { // 文心一言｜ERNIE Bot
-            
-            // 请求语音识别文字｜Request speech recognition text
-//            [FBBaiduCloudKit requestSpeechRecognitionWithCompleteAudioData:weakSelf.pcmData callback:^(FBBaiduSpeechRecognitionModel * _Nullable model, NSError * _Nullable error) {
-//                
-//                if (error) {
-//                    FBLog(@"录音🎤: 语音识别失败%@", error);
-//                    [weakSelf.pcmData setLength:0];
-//                    
-//                    GCD_MAIN_QUEUE(^{ [NSObject showHUDText:LWLocalizbleString(@"Voice recognition failed, please try again")]; });
-//                    
-//                    [weakSelf requestChat:LWLocalizbleString(@"Voice recognition failed, please try again") successful:NO]; // 请求文心一言
-//                } 
-//                else {
-//                    if (StringIsEmpty(model.results) || model.status != FB_SPEECHRECOGNITIONSTATUS_FIN_TEXT) return;
-//                    
-//                    FBLog(@"录音🎤: 语音识别完成【%@】", model.results);
-//                    [weakSelf.pcmData setLength:0];
-//                    
-//                    [weakSelf requestChat:model.results successful:YES]; // 请求文心一言
-//                }
-//            }];
-        }
     }];
-}
-
-/// 请求文心一言｜Request ERNIE Bot
-- (void)requestChat:(NSString *)results successful:(BOOL)successful {
-    
-    // 回复设备端显示问题｜Reply to device display issue
-    [FBBaiduCloudKit requestSyncJsERNIE_BoWithQuestiont:results callback:^(NSError * _Nullable error) {
-        FBLog(@"文心一言: 问%@", error);
-    }];
-    
-    if (!successful) return;
-    
-    // 请求文心一言｜Request ERNIE Bot
-//    [FBBaiduCloudKit requestERNIE_BotWithNewText:results historyContext:nil callback:^(FBBaiduERNIE_BotModel * _Nullable model, NSError * _Nullable error) {
-//        if (error) {
-//            FBLog(@"文心一言: 失败%@", error);
-//            
-//            // 回复设备端显示｜Reply to device to display
-//            [FBBaiduCloudKit requestSyncJsERNIE_BoWithAnswer:error.localizedDescription callback:^(NSError * _Nullable error) {
-//                FBLog(@"文心一言: 答%@", error);
-//            }];
-//        }
-//        else {
-//            NSString *answerResults = model.results;
-//            if (!model.ended || StringIsEmpty(answerResults)) return;
-//            FBLog(@"文心一言: 完成【%@】", answerResults);
-//            
-//            // 回复设备端显示答案｜Reply to device to display answer
-//            [FBBaiduCloudKit requestSyncJsERNIE_BoWithAnswer:answerResults callback:^(NSError * _Nullable error) {
-//                FBLog(@"文心一言: 答%@", error);
-//            }];
-//        }
-//    }];
 }
 
 #pragma mark - 设备连接结果

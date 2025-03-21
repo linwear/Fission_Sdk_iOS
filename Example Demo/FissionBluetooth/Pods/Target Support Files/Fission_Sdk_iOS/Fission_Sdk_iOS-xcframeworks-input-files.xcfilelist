@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Fission_Sdk_iOS/Fission_Sdk_iOS-xcframeworks.sh
+${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKOTASDK.xcframework
+${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKLEFoundation.xcframework
+${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKRealChatConnection.xcframework
+${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKAudioStreaming.xcframework

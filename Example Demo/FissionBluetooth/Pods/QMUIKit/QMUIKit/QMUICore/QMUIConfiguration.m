@@ -119,29 +119,9 @@ static BOOL QMUI_hasAppliedInitialTemplate;
         }
     }
     
-    if (IS_DEBUG && self.sendAnalyticsToQMUITeam) {
-        [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidFinishLaunchingNotification object:nil queue:[NSOperationQueue new] usingBlock:^(NSNotification * _Nonnull note) {
-            // 这里根据是否能成功获取到 classesref 来统计信息，以供后续确认对 classesref 为 nil 的保护是否真的必要
-            [self sendAnalyticsWithQuery:classes ? @"findByObjc=true" : nil];
-        }];
-    }
-    
     if (classes) free(classes);
     
     QMUI_hasAppliedInitialTemplate = YES;
-}
-
-- (void)sendAnalyticsWithQuery:(NSString *)query {
-    NSString *identifier = [NSBundle mainBundle].bundleIdentifier.qmui_stringByEncodingUserInputQuery;
-    NSString *displayName = ((NSString *)([NSBundle mainBundle].infoDictionary[@"CFBundleDisplayName"] ?: [NSBundle mainBundle].infoDictionary[@"CFBundleName"])).qmui_stringByEncodingUserInputQuery;
-    NSString *QMUIVersion = QMUI_VERSION.qmui_stringByEncodingUserInputQuery;// 如果不以 framework 方式引入 QMUI 的话，是无法通过 CFBundleShortVersionString 获取到 QMUI 所在的 bundle 的版本号的，所以这里改为用脚本生成的变量来获取
-    NSString *queryString = [NSString stringWithFormat:@"appId=%@&appName=%@&version=%@&platform=iOS", identifier, displayName, QMUIVersion];
-    if (query.length > 0) queryString = [NSString stringWithFormat:@"%@&%@", queryString, query];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"https://qmuiteam.com/analytics/usageReport"]];
-    request.HTTPMethod = @"POST";
-    request.HTTPBody = [queryString dataUsingEncoding:NSUTF8StringEncoding];
-    NSURLSession *session = [NSURLSession sharedSession];
-    [[session dataTaskWithRequest:request] resume];
 }
 
 #pragma mark - Initialize default values
@@ -193,12 +173,16 @@ static BOOL QMUI_hasAppliedInitialTemplate;
     self.navBarHighlightedAlpha = 0.2f;
     self.navBarDisabledAlpha = 0.2f;
     self.sizeNavBarBackIndicatorImageAutomatically = YES;
-    self.navBarCloseButtonImage = [UIImage qmui_imageWithShape:QMUIImageShapeNavClose size:CGSizeMake(16, 16) tintColor:self.navBarTintColor];
-    
     self.navBarLoadingMarginRight = 3;
     self.navBarAccessoryViewMarginLeft = 5;
     self.navBarActivityIndicatorViewStyle = UIActivityIndicatorViewStyleGray;
-    self.navBarAccessoryViewTypeDisclosureIndicatorImage = [[UIImage qmui_imageWithShape:QMUIImageShapeTriangle size:CGSizeMake(8, 5) tintColor:self.navBarTitleColor] qmui_imageWithOrientation:UIImageOrientationDown];
+    
+    // XCTest 会在 dispatch_once 里访问 UIScreen 引发死锁，所以屏蔽掉
+    // https://github.com/Tencent/QMUI_iOS/issues/1479
+    if (!IS_XCTEST) {
+        self.navBarCloseButtonImage = [UIImage qmui_imageWithShape:QMUIImageShapeNavClose size:CGSizeMake(16, 16) tintColor:self.navBarTintColor];
+        self.navBarAccessoryViewTypeDisclosureIndicatorImage = [[UIImage qmui_imageWithShape:QMUIImageShapeTriangle size:CGSizeMake(8, 5) tintColor:self.navBarTitleColor] qmui_imageWithOrientation:UIImageOrientationDown];
+    }
     
     
     #pragma mark - Toolbar
@@ -277,13 +261,14 @@ static BOOL QMUI_hasAppliedInitialTemplate;
     self.shouldPrintDefaultLog = YES;
     self.shouldPrintInfoLog = YES;
     self.shouldPrintWarnLog = YES;
-    self.shouldPrintQMUIWarnLogToConsole = IS_DEBUG;
+    self.shouldPrintQMUIWarnLogToConsole = IS_DEBUG && !IS_XCTEST;
     
     #pragma mark - QMUIBadge
-    self.badgeOffset = QMUIBadgeInvalidateOffset;
-    self.badgeOffsetLandscape = QMUIBadgeInvalidateOffset;
-    self.updatesIndicatorOffset = QMUIBadgeInvalidateOffset;
-    self.updatesIndicatorOffsetLandscape = QMUIBadgeInvalidateOffset;
+    self.badgeOffset = CGPointMake(-9, 11);
+    self.badgeOffsetLandscape = CGPointMake(-9, 6);
+    self.updatesIndicatorSize = CGSizeMake(7, 7);
+    self.updatesIndicatorOffset = CGPointMake(4, self.updatesIndicatorSize.height);
+    self.updatesIndicatorOffsetLandscape = self.updatesIndicatorOffset;
     
     #pragma mark - Others
     
@@ -291,7 +276,6 @@ static BOOL QMUI_hasAppliedInitialTemplate;
     self.needsBackBarButtonItemTitle = YES;
     self.preventConcurrentNavigationControllerTransitions = YES;
     self.shouldFixTabBarSafeAreaInsetsBug = YES;
-    self.sendAnalyticsToQMUITeam = YES;
 }
 
 #pragma mark - Switch Setter
@@ -868,247 +852,126 @@ static BOOL QMUI_hasAppliedInitialTemplate;
 }
 
 - (void)updateTabBarAppearance {
-    if (@available(iOS 13.0, *)) {
-        if (QMUIHelper.canUpdateAppearance) {
-            UITabBar.qmui_appearanceConfigured.standardAppearance = self.tabBarAppearance;
+    if (QMUIHelper.canUpdateAppearance) {
+        UITabBar.qmui_appearanceConfigured.standardAppearance = self.tabBarAppearance;
 #ifdef IOS15_SDK_ALLOWED
-            if (@available(iOS 15.0, *)) {
-                if (QMUICMIActivated && TabBarUsesStandardAppearanceOnly) {
-                    UITabBar.qmui_appearanceConfigured.scrollEdgeAppearance = self.tabBarAppearance;
-                }
+        if (@available(iOS 15.0, *)) {
+            if (QMUICMIActivated && TabBarUsesStandardAppearanceOnly) {
+                UITabBar.qmui_appearanceConfigured.scrollEdgeAppearance = self.tabBarAppearance;
             }
-#endif
         }
-        [self.appearanceUpdatingTabBarControllers enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
-            tabBarController.tabBar.standardAppearance = self.tabBarAppearance;
-#ifdef IOS15_SDK_ALLOWED
-            if (@available(iOS 15.0, *)) {
-                if (QMUICMIActivated && TabBarUsesStandardAppearanceOnly) {
-                    tabBarController.tabBar.scrollEdgeAppearance = self.tabBarAppearance;
-                }
-            }
 #endif
-            [tabBarController.tabBar setNeedsLayout];// theme 不跟随系统的情况下切换 Light/Dark，tabBarAppearance.backgroundEffect 虽然值被更新了，但样式被刷新，这里手动触发一下
-        }];
     }
+    [self.appearanceUpdatingTabBarControllers enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
+        tabBarController.tabBar.standardAppearance = self.tabBarAppearance;
+#ifdef IOS15_SDK_ALLOWED
+        if (@available(iOS 15.0, *)) {
+            if (QMUICMIActivated && TabBarUsesStandardAppearanceOnly) {
+                tabBarController.tabBar.scrollEdgeAppearance = self.tabBarAppearance;
+            }
+        }
+#endif
+        [tabBarController.tabBar setNeedsLayout];// theme 不跟随系统的情况下切换 Light/Dark，tabBarAppearance.backgroundEffect 虽然值被更新了，但样式被刷新，这里手动触发一下
+    }];
 }
 
 - (void)setTabBarBarTintColor:(UIColor *)tabBarBarTintColor {
     [QMUIConfiguration performAction:^{
         _tabBarBarTintColor = tabBarBarTintColor;
-        
-        if (@available(iOS 13.0, *)) {
-            self.tabBarAppearance.backgroundColor = tabBarBarTintColor;
-            [self updateTabBarAppearance];
-        } else {
-            if (QMUIHelper.canUpdateAppearance) {
-                UITabBar.qmui_appearanceConfigured.barTintColor = _tabBarBarTintColor;
-            }
-            [self.appearanceUpdatingTabBarControllers enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
-                tabBarController.tabBar.barTintColor = _tabBarBarTintColor;
-            }];
-        }
+        self.tabBarAppearance.backgroundColor = tabBarBarTintColor;
+        [self updateTabBarAppearance];
     } ifValueChanged:_tabBarBarTintColor newValue:tabBarBarTintColor];
 }
 
 - (void)setTabBarStyle:(UIBarStyle)tabBarStyle {
     [QMUIConfiguration performAction:^{
         _tabBarStyle = tabBarStyle;
-        if (@available(iOS 13.0, *)) {
-            self.tabBarAppearance.backgroundEffect = [UIBlurEffect effectWithStyle:tabBarStyle == UIBarStyleDefault ? UIBlurEffectStyleSystemChromeMaterialLight : UIBlurEffectStyleSystemChromeMaterialDark];
-            [self updateTabBarAppearance];
-        } else {
-            if (QMUIHelper.canUpdateAppearance) {
-                UITabBar.qmui_appearanceConfigured.barStyle = tabBarStyle;
-            }
-            [self.appearanceUpdatingTabBarControllers enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
-                tabBarController.tabBar.barStyle = tabBarStyle;
-            }];
-        }
+        self.tabBarAppearance.backgroundEffect = [UIBlurEffect effectWithStyle:tabBarStyle == UIBarStyleDefault ? UIBlurEffectStyleSystemChromeMaterialLight : UIBlurEffectStyleSystemChromeMaterialDark];
+        [self updateTabBarAppearance];
     } ifValueChanged:@(_tabBarStyle) newValue:@(tabBarStyle)];
 }
 
 - (void)setTabBarBackgroundImage:(UIImage *)tabBarBackgroundImage {
     [QMUIConfiguration performAction:^{
         _tabBarBackgroundImage = tabBarBackgroundImage;
-        
-        if (@available(iOS 13.0, *)) {
-            self.tabBarAppearance.backgroundImage = tabBarBackgroundImage;
-            [self updateTabBarAppearance];
-        } else {
-            if (QMUIHelper.canUpdateAppearance) {
-                UITabBar.qmui_appearanceConfigured.backgroundImage = tabBarBackgroundImage;
-            }
-            [self.appearanceUpdatingTabBarControllers enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
-                tabBarController.tabBar.backgroundImage = tabBarBackgroundImage;
-            }];
-        }
+        self.tabBarAppearance.backgroundImage = tabBarBackgroundImage;
+        [self updateTabBarAppearance];
     } ifValueChanged:_tabBarBackgroundImage newValue:tabBarBackgroundImage];
 }
 
 - (void)setTabBarShadowImageColor:(UIColor *)tabBarShadowImageColor {
     [QMUIConfiguration performAction:^{
         _tabBarShadowImageColor = tabBarShadowImageColor;
-        
-        if (@available(iOS 13.0, *)) {
-            self.tabBarAppearance.shadowColor = tabBarShadowImageColor;
-            [self updateTabBarAppearance];
-        } else {
-            UIImage *shadowImage = [UIImage qmui_imageWithColor:_tabBarShadowImageColor size:CGSizeMake(1, PixelOne) cornerRadius:0];
-            if (QMUIHelper.canUpdateAppearance) {
-                [UITabBar.qmui_appearanceConfigured setShadowImage:shadowImage];
-            }
-            [self.appearanceUpdatingTabBarControllers enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
-                tabBarController.tabBar.shadowImage = shadowImage;
-            }];
-        }
+        self.tabBarAppearance.shadowColor = tabBarShadowImageColor;
+        [self updateTabBarAppearance];
     } ifValueChanged:_tabBarShadowImageColor newValue:tabBarShadowImageColor];
 }
 
 - (void)setTabBarItemTitleFont:(UIFont *)tabBarItemTitleFont {
     [QMUIConfiguration performAction:^{
         _tabBarItemTitleFont = tabBarItemTitleFont;
-        
-        if (@available(iOS 13.0, *)) {
-            [self.tabBarAppearance qmui_applyItemAppearanceWithBlock:^(UITabBarItemAppearance * _Nonnull itemAppearance) {
-                NSMutableDictionary<NSAttributedStringKey, id> *attributes = itemAppearance.normal.titleTextAttributes.mutableCopy;
-                attributes[NSFontAttributeName] = tabBarItemTitleFont;
-                itemAppearance.normal.titleTextAttributes = attributes.copy;
-            }];
-            [self updateTabBarAppearance];
-        } else {
-            NSMutableDictionary<NSString *, id> *textAttributes = [[NSMutableDictionary alloc] initWithDictionary:[UITabBarItem.qmui_appearanceConfigured titleTextAttributesForState:UIControlStateNormal]];
-            if (_tabBarItemTitleFont) {
-                textAttributes[NSFontAttributeName] = _tabBarItemTitleFont;
-            }
-            if (QMUIHelper.canUpdateAppearance) {
-                [UITabBarItem.qmui_appearanceConfigured setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
-            }
-            [self.appearanceUpdatingTabBarControllers enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
-                [tabBarController.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                    [obj setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
-                }];
-            }];
-        }
+        [self.tabBarAppearance qmui_applyItemAppearanceWithBlock:^(UITabBarItemAppearance * _Nonnull itemAppearance) {
+            NSMutableDictionary<NSAttributedStringKey, id> *attributes = itemAppearance.normal.titleTextAttributes.mutableCopy;
+            attributes[NSFontAttributeName] = tabBarItemTitleFont;
+            itemAppearance.normal.titleTextAttributes = attributes.copy;
+        }];
+        [self updateTabBarAppearance];
     } ifValueChanged:_tabBarItemTitleFont newValue:tabBarItemTitleFont];
 }
 
 - (void)setTabBarItemTitleFontSelected:(UIFont *)tabBarItemTitleFontSelected {
     [QMUIConfiguration performAction:^{
         _tabBarItemTitleFontSelected = tabBarItemTitleFontSelected;
-        
-        if (@available(iOS 13.0, *)) {
-            [self.tabBarAppearance qmui_applyItemAppearanceWithBlock:^(UITabBarItemAppearance * _Nonnull itemAppearance) {
-                NSMutableDictionary<NSAttributedStringKey, id> *attributes = itemAppearance.selected.titleTextAttributes.mutableCopy;
-                attributes[NSFontAttributeName] = tabBarItemTitleFontSelected;
-                itemAppearance.selected.titleTextAttributes = attributes.copy;
-            }];
-            [self updateTabBarAppearance];
-        } else {
-            NSMutableDictionary<NSString *, id> *textAttributes = [[NSMutableDictionary alloc] initWithDictionary:[UITabBarItem.qmui_appearanceConfigured titleTextAttributesForState:UIControlStateSelected]];
-            if (tabBarItemTitleFontSelected) {
-                textAttributes[NSFontAttributeName] = tabBarItemTitleFontSelected;
-            }
-            if (QMUIHelper.canUpdateAppearance) {
-                [UITabBarItem.qmui_appearanceConfigured setTitleTextAttributes:textAttributes forState:UIControlStateSelected];
-            }
-            [self.appearanceUpdatingTabBarControllers enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
-                [tabBarController.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                    [obj setTitleTextAttributes:textAttributes forState:UIControlStateSelected];
-                }];
-            }];
-        }
+        [self.tabBarAppearance qmui_applyItemAppearanceWithBlock:^(UITabBarItemAppearance * _Nonnull itemAppearance) {
+            NSMutableDictionary<NSAttributedStringKey, id> *attributes = itemAppearance.selected.titleTextAttributes.mutableCopy;
+            attributes[NSFontAttributeName] = tabBarItemTitleFontSelected;
+            itemAppearance.selected.titleTextAttributes = attributes.copy;
+        }];
+        [self updateTabBarAppearance];
     } ifValueChanged:_tabBarItemTitleFontSelected newValue:tabBarItemTitleFontSelected];
 }
 
 - (void)setTabBarItemTitleColor:(UIColor *)tabBarItemTitleColor {
     [QMUIConfiguration performAction:^{
         _tabBarItemTitleColor = tabBarItemTitleColor;
-        
-        if (@available(iOS 13.0, *)) {
-            [self.tabBarAppearance qmui_applyItemAppearanceWithBlock:^(UITabBarItemAppearance * _Nonnull itemAppearance) {
-                NSMutableDictionary<NSAttributedStringKey, id> *attributes = itemAppearance.normal.titleTextAttributes.mutableCopy;
-                attributes[NSForegroundColorAttributeName] = tabBarItemTitleColor;
-                itemAppearance.normal.titleTextAttributes = attributes.copy;
-            }];
-            [self updateTabBarAppearance];
-        } else {
-            NSMutableDictionary<NSString *, id> *textAttributes = [[NSMutableDictionary alloc] initWithDictionary:[UITabBarItem.qmui_appearanceConfigured titleTextAttributesForState:UIControlStateNormal]];
-            textAttributes[NSForegroundColorAttributeName] = _tabBarItemTitleColor;
-            if (QMUIHelper.canUpdateAppearance) {
-                [UITabBarItem.qmui_appearanceConfigured setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
-            }
-            [self.appearanceUpdatingTabBarControllers enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
-                [tabBarController.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                    [obj setTitleTextAttributes:textAttributes forState:UIControlStateNormal];
-                }];
-            }];
-        }
+        [self.tabBarAppearance qmui_applyItemAppearanceWithBlock:^(UITabBarItemAppearance * _Nonnull itemAppearance) {
+            NSMutableDictionary<NSAttributedStringKey, id> *attributes = itemAppearance.normal.titleTextAttributes.mutableCopy;
+            attributes[NSForegroundColorAttributeName] = tabBarItemTitleColor;
+            itemAppearance.normal.titleTextAttributes = attributes.copy;
+        }];
+        [self updateTabBarAppearance];
     } ifValueChanged:_tabBarItemTitleColor newValue:tabBarItemTitleColor];
 }
 
 - (void)setTabBarItemTitleColorSelected:(UIColor *)tabBarItemTitleColorSelected {
     [QMUIConfiguration performAction:^{
         _tabBarItemTitleColorSelected = tabBarItemTitleColorSelected;
-        
-        if (@available(iOS 13.0, *)) {
-            [self.tabBarAppearance qmui_applyItemAppearanceWithBlock:^(UITabBarItemAppearance * _Nonnull itemAppearance) {
-                NSMutableDictionary<NSAttributedStringKey, id> *attributes = itemAppearance.selected.titleTextAttributes.mutableCopy;
-                attributes[NSForegroundColorAttributeName] = tabBarItemTitleColorSelected;
-                itemAppearance.selected.titleTextAttributes = attributes.copy;
-            }];
-            [self updateTabBarAppearance];
-        } else {
-            NSMutableDictionary<NSString *, id> *textAttributes = [[NSMutableDictionary alloc] initWithDictionary:[UITabBarItem.qmui_appearanceConfigured titleTextAttributesForState:UIControlStateSelected]];
-            textAttributes[NSForegroundColorAttributeName] = _tabBarItemTitleColorSelected;
-            if (QMUIHelper.canUpdateAppearance) {
-                [UITabBarItem.qmui_appearanceConfigured setTitleTextAttributes:textAttributes forState:UIControlStateSelected];
-            }
-            [self.appearanceUpdatingTabBarControllers enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
-                [tabBarController.tabBar.items enumerateObjectsUsingBlock:^(UITabBarItem * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                    [obj setTitleTextAttributes:textAttributes forState:UIControlStateSelected];
-                }];
-            }];
-        }
+        [self.tabBarAppearance qmui_applyItemAppearanceWithBlock:^(UITabBarItemAppearance * _Nonnull itemAppearance) {
+            NSMutableDictionary<NSAttributedStringKey, id> *attributes = itemAppearance.selected.titleTextAttributes.mutableCopy;
+            attributes[NSForegroundColorAttributeName] = tabBarItemTitleColorSelected;
+            itemAppearance.selected.titleTextAttributes = attributes.copy;
+        }];
+        [self updateTabBarAppearance];
     } ifValueChanged:_tabBarItemTitleColorSelected newValue:tabBarItemTitleColorSelected];
 }
 
 - (void)setTabBarItemImageColor:(UIColor *)tabBarItemImageColor {
     [QMUIConfiguration performAction:^{
         _tabBarItemImageColor = tabBarItemImageColor;
-        
-        if (@available(iOS 13.0, *)) {
-            [self.tabBarAppearance qmui_applyItemAppearanceWithBlock:^(UITabBarItemAppearance * _Nonnull itemAppearance) {
-                itemAppearance.normal.iconColor = tabBarItemImageColor;
-            }];
-            [self updateTabBarAppearance];
-        } else {
-            if (QMUIHelper.canUpdateAppearance) {
-                UITabBar.qmui_appearanceConfigured.unselectedItemTintColor = tabBarItemImageColor;
-            }
-            [self.appearanceUpdatingTabBarControllers enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
-                tabBarController.tabBar.unselectedItemTintColor = tabBarItemImageColor;
-            }];
-        }
+        [self.tabBarAppearance qmui_applyItemAppearanceWithBlock:^(UITabBarItemAppearance * _Nonnull itemAppearance) {
+            itemAppearance.normal.iconColor = tabBarItemImageColor;
+        }];
+        [self updateTabBarAppearance];
     } ifValueChanged:_tabBarItemImageColor newValue:tabBarItemImageColor];
 }
 
 - (void)setTabBarItemImageColorSelected:(UIColor *)tabBarItemImageColorSelected {
     [QMUIConfiguration performAction:^{
         _tabBarItemImageColorSelected = tabBarItemImageColorSelected;
-        
-        if (@available(iOS 13.0, *)) {
-            [self.tabBarAppearance qmui_applyItemAppearanceWithBlock:^(UITabBarItemAppearance * _Nonnull itemAppearance) {
-                itemAppearance.selected.iconColor = tabBarItemImageColorSelected;
-            }];
-            [self updateTabBarAppearance];
-        } else {
-            // iOS 12 及以下使用 tintColor 实现，但 tintColor 并没有声明 UI_APPEARANCE_SELECTOR，所以暂不使用 appearance 的方式去修改（虽然 appearance 方式实测是生效的）
-            //        UITabBar.qmui_appearanceConfigured.tintColor = tabBarItemImageColorSelected;
-            [self.appearanceUpdatingTabBarControllers enumerateObjectsUsingBlock:^(UITabBarController * _Nonnull tabBarController, NSUInteger idx, BOOL * _Nonnull stop) {
-                tabBarController.tabBar.tintColor = tabBarItemImageColorSelected;
-            }];
-        }
+        [self.tabBarAppearance qmui_applyItemAppearanceWithBlock:^(UITabBarItemAppearance * _Nonnull itemAppearance) {
+            itemAppearance.selected.iconColor = tabBarItemImageColorSelected;
+        }];
+        [self updateTabBarAppearance];
     } ifValueChanged:_tabBarItemImageColorSelected newValue:tabBarItemImageColorSelected];
 }
 

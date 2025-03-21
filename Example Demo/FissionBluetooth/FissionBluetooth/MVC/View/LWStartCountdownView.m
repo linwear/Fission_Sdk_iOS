@@ -100,7 +100,7 @@
     NSArray *imageArray = @[@"pic_gps_go", @"pic_gps_1_b", @"pic_gps_2_b", @"pic_gps_3_b"];
     
     self.imageBGView.frame = CGRectMake((SCREEN_WIDTH-SCREEN_WIDTH*0.5)/2, (SCREEN_HEIGHT-SCREEN_WIDTH*0.5)/2, SCREEN_WIDTH*0.5, SCREEN_WIDTH*0.5);
-    self.imageBGView.cornerRadius = (SCREEN_WIDTH*0.5)/2;
+    [self.imageBGView cornerRadius:(SCREEN_WIDTH*0.5)/2];
 
     self.imageView.image = [Tools maskWithImage:UIImageMake(imageArray[self.timerOut-1]) withColor:BlueColor];;
     self.imageView.frame = CGRectMake((SCREEN_WIDTH-90)/2, (SCREEN_HEIGHT-90)/2, 90, 90);
@@ -108,12 +108,12 @@
     [UIView animateWithDuration:0.3f animations:^{
         self.imageView.frame = CGRectMake((SCREEN_WIDTH-180)/2, (SCREEN_HEIGHT-180)/2, 180, 180);
         self.imageBGView.frame = CGRectMake(0, 0, 270, 270);
-        self.imageBGView.cornerRadius = 270/2;
+        [self.imageBGView cornerRadius:270/2];
         self.imageBGView.center = self.imageView.center;
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:0.7f animations:^{
             self.imageBGView.frame = CGRectMake(0, 0, SCREEN_HEIGHT*1.2, SCREEN_HEIGHT*1.2);
-            self.imageBGView.cornerRadius = (SCREEN_HEIGHT*1.2)/2;
+            [self.imageBGView cornerRadius:(SCREEN_HEIGHT*1.2)/2];
             self.imageBGView.center = self.imageView.center;
         }];
     }];

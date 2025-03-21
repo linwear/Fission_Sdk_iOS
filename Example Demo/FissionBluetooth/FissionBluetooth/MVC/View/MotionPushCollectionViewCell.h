@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MotionPushCollectionViewCell : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *ima;
+@property (weak, nonatomic) IBOutlet SDAnimatedImageView *ima;
 @property (weak, nonatomic) IBOutlet UILabel *tit;
 
 @end

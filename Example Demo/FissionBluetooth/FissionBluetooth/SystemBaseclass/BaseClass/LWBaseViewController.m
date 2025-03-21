@@ -25,9 +25,17 @@
     self.pageSize = 10;
 }
 
-/// 导航栏透明度
-- (void)navigationBarAlpha:(CGFloat)alpha {
-    self.navigationController.navigationBar.qmui_backgroundView.alpha = alpha;
+/// 设置每个界面导航栏的显示/隐藏，为了减少对项目的侵入性，默认不开启这个接口的功能，只有当 shouldCustomizeNavigationBarTransitionIfHideable 返回 YES 时才会开启此功能。如果需要全局开启，那么就在 Controller 基类里面返回 YES；如果是老项目并不想全局使用此功能，那么则可以在单独的界面里面开启。
+- (BOOL)preferredNavigationBarHidden {
+    return self.navigationBarHidden;
+}
+
+/// 设置导航栏的背景图，默认为 NavBarBackgroundImage
+- (UIImage *)qmui_navigationBarBackgroundImage {
+    if (self.navigationBGColor != nil) {
+        return [UIImage qmui_imageWithColor:self.navigationBGColor];
+    }
+    return [UIImage qmui_imageWithColor:BlueColor];
 }
 
 /// 拦截系统返回事件，外部可重写此方法

@@ -40,9 +40,9 @@ RLM_COLLECTION_TYPE(RLMSportsItemModel)
 /// 时间戳
 @property NSInteger begin;
 /// 经度
-@property float longitude;
+@property double longitude;
 /// 纬度
-@property float latitude;
+@property double latitude;
 /// GPS 速度（米/秒）
 @property NSInteger speed;
 /// 状态。NO 正常，YES 暂停
