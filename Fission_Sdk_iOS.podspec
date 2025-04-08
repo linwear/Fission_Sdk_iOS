@@ -25,8 +25,7 @@ Pod::Spec.new do |spec|
   end
 
   spec.subspec 'AllDependencys' do |allDependency|
-    allDependency.vendored_frameworks   = 'SDK/RTKOTASDK.xcframework', 'SDK/RTKLEFoundation.xcframework', 'SDK/SCompressLib.framework', 'SDK/RTKRealChatConnection.xcframework', 'SDK/RTKAudioStreaming.xcframework', 'SDK/opus.framework'
-    allDependency.dependency              'ffmpeg-kit-ios-full'
+    allDependency.vendored_frameworks   = 'SDK/RTKOTASDK.xcframework', 'SDK/RTKLEFoundation.xcframework', 'SDK/SCompressLib.framework', 'SDK/RTKRealChatConnection.xcframework', 'SDK/RTKAudioStreaming.xcframework', 'SDK/opus.framework', 'SDK/FFmpeg/ffmpegkit.xcframework', 'SDK/FFmpeg/libavfilter.xcframework', 'SDK/FFmpeg/libswscale.xcframework', 'SDK/FFmpeg/libswresample.xcframework', 'SDK/FFmpeg/libavcodec.xcframework', 'SDK/FFmpeg/libavutil.xcframework', 'SDK/FFmpeg/libavformat.xcframework', 'SDK/FFmpeg/libavdevice.xcframework'
   end
 
   spec.pod_target_xcconfig      = { 
