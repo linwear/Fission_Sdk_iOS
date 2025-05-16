@@ -517,6 +517,10 @@ typedef NS_ENUM (NSInteger, FB_OTANOTIFICATION) {
     FB_OTANotification_Ring_Alarm               = 43,   //推送闹钟铃声｜Push alarm ringtone
     
     FB_OTANotification_OfflineVoice_Package     = 47,   //推送离线语音包｜Push offline voice package
+    FB_OTANotification_Download_Meeting         = 49,   //下载会议纪要文件｜Download meeting minutes
+    FB_OTANotification_Album_Image              = 51,   //推送相册图片文件｜Push album image files
+    
+    FB_OTANotification_Avatar_Image             = 53,   //推送用户头像文件｜Push user avatar file
     
     FB_OTANotification_Multi_Dial_Built_in      = 200,  //厂线推送内置表盘压缩数据包｜The factory line pushes the built-in dial compressed data package
     FB_OTANotification_Multi_Sport_Built_in     = 201,  //厂线推送内置多运动类型压缩数据包｜The factory line pushes the built-in multi-sport type compressed data package
@@ -611,6 +615,8 @@ typedef NS_ENUM (NSInteger, EM_FUNC_SWITCH) {
     FS_OFFLINEVOICE_WARN_NOTIFY = 49, //离线语音开关状态更新，0关1开｜Offline voice switch status update, 0 off 1 on
     
     FS_DATA_SYNC_NOTIFY         = 51, //数据同步通知，1手动测量数据 2运动数据 3睡眠报告｜Data synchronization notification, 1 manual measurement data 2 exercise data 3 sleep report
+    FS_WEATHER_REQUEST_NOTIFY   = 53, //天气请求通知｜Weather request notification
+    FS_EXIT_GAME_NOTIFY         = 55, //游戏关闭通知｜Game shutdown notification
     
     FS_OTHER_EXPAND             = 255  //更多功能待拓展｜More functions to be expanded
 };
@@ -829,6 +835,7 @@ typedef NS_ENUM (NSInteger, FB_LISTFILEINFORTYPE) {
     FB_LISTFILEINFORTYPE_RING_MESSAGE   = 6,    //消息提示音｜Message alert tone    
     FB_LISTFILEINFORTYPE_RING_CALL      = 7,    //来电铃声｜Incoming call ringtone
     FB_LISTFILEINFORTYPE_RING_ALARM     = 8,    //闹钟铃声｜Alarm ringtone
+    FB_LISTFILEINFORTYPE_MEETING        = 9,    //会议纪要｜Meeting Minutes
 };
 
 #pragma mark - 铃声类型｜Ringtone types
@@ -888,6 +895,32 @@ typedef NS_ENUM (NSInteger, FB_DIALSWITCHMASKTYPE) {
     FB_DIALSWITCHMASK_OPEN_15       = 1<<14,    //打开第15个｜Open the 15th
     FB_DIALSWITCHMASK_OPEN_16       = 1<<15,    //打开第16个｜Open the 16th
     FB_DIALSWITCHMASK_OPEN_ALL      = 0xFFFF,   //打开所有｜Open All
+};
+
+#pragma mark - 文件类型｜File Type
+/*
+ * 文件类型｜File Type
+ */
+typedef NS_ENUM (NSInteger, FB_FILETYPE) {
+    FB_FILETYPE_OPUS,   //Opus
+    FB_FILETYPE_MP3,    //MP3
+};
+
+#pragma mark - 游戏厂家｜Game Manufacturer
+/*
+ * 游戏厂家｜Game Manufacturer
+ */
+typedef NS_ENUM (NSInteger, FB_GAMEMANUFACTURER) {
+    FB_GAMEMANUFACTURER_SMH5,   //十米葫芦｜SMH5
+};
+
+#pragma mark - 传感器类型｜Sensor Type
+/*
+ * 传感器类型｜Sensor Type
+ */
+typedef NS_ENUM (NSInteger, FB_SENSORTYPE) {
+    FB_SENSORTYPE_THREE_AXIS,   //三轴｜Three-axis
+    FB_SENSORTYPE_SIX_AXIS,     //六轴｜Six-axis
 };
 
 #endif /* FBMacro_h */

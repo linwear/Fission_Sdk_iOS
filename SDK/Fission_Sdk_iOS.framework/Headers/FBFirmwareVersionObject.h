@@ -75,6 +75,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *deviceSN;
 
 /**
+ 设备IMEI号
+ */
+@property (nonatomic, copy) NSString *deviceIMEI;
+
+/**
  固件更新日期 | Firmware update date
 */
 @property (nonatomic, copy) NSString *firmwareUpdateTime;
@@ -122,6 +127,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger watchDisplayHigh;
 
 /**
+ 手表显示圆角｜Watch display rounded corners
+ */
+@property (nonatomic, assign) NSInteger watchDisplayRadius;
+
+/**
  表盘缩略图显示分辨率宽｜The display resolution of dial thumbnail is wide
  */
 @property (nonatomic, assign) NSInteger dialThumbnailDisplayWide;
@@ -130,6 +140,11 @@ NS_ASSUME_NONNULL_BEGIN
  表盘缩略图显示分辨率高｜Dial thumbnail display with high resolution
  */
 @property (nonatomic, assign) NSInteger dialThumbnailDisplayHigh;
+
+/**
+ 表盘缩略图显示圆角｜Watch face thumbnails display rounded corners
+ */
+@property (nonatomic, assign) NSInteger dialThumbnailDisplayRadius;
 
 /**
  音频库版本｜Audio library version
@@ -558,6 +573,49 @@ NS_ASSUME_NONNULL_BEGIN
  @note  NO：不支持、YES：支持｜NO: not support YES: support
 */
 @property (nonatomic, assign) BOOL supportOpus;
+
+/**
+ 🌟是否支持会议纪要｜Whether to support meeting minutes🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportMeeting;
+
+/**
+ 🌟是否支持相册｜Whether to support photo album🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportPhotoAlbum;
+
+/**
+ 🌟是否支持电子书｜Whether to support e-books🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportEbooks;
+
+/**
+ 🌟是否支持音乐｜Whether to support music🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportMusic;
+
+/**
+ 🌟是否支持视频｜Whether to support video🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportVideo;
+
+/**
+ 🌟是否支持游戏｜Whether to support games🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportGames;
+
 
 @end
 

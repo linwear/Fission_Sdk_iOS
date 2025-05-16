@@ -13,13 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// 初始化单例
 + (FBBaiduCloudKit *)sharedInstance;
 
-/// 是否支持通过流式方式回复
+/// 是否支持通过流式方式回复，仅外部只读
 @property (nonatomic, assign) BOOL allowStreamReply;
 
-/// 是否支持通过JSI命令回复
+/// 是否支持通过JSI命令回复，仅外部只读
 @property (nonatomic, assign) BOOL allowJSICommand;
 
-/// 是否支持通过opus格式音频
+/// 是否支持通过opus格式音频，仅外部只读
 @property (nonatomic, assign) BOOL allowOpus;
 
 

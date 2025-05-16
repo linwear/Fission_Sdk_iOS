@@ -622,6 +622,22 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)fbSetDialSwitchMask:(FB_DIALSWITCHMASKTYPE)switchMask withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
+
+#pragma mark - 设置 启动/关闭 游戏｜Settings Start/Close Game
+/**
+ 设置 启动/关闭 游戏｜Settings Start/Close Game
+ @param start           YES开启游戏/NO关闭游戏｜YES to start the game / NO to close the game
+ @param gameId          游戏ID｜Game ID
+ */
+- (void)fbSetGameStart:(BOOL)start withGameId:(NSString * _Nonnull)gameId withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 监听设备->手机实时游戏数据流｜Monitoring device->Mobile phone real-time game data stream
+/**
+ 监听设备->手机实时游戏数据流｜Monitoring device->Mobile phone real-time game data stream
+*/
+- (void)fbGameStreamDataHandlerWithBlock:(FBGameStreamDataHandlerBlock _Nonnull)fbBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END

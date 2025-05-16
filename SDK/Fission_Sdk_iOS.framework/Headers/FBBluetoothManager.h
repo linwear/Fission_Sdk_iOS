@@ -51,6 +51,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) BOOL debugging;
 
+/**
+ 是否允许 CBConnectPeripheralOptionNotifyOnNotificationKey，默认YES
+ */
+@property (nonatomic, assign) BOOL allowNotificationKey;
 
 
 /**
