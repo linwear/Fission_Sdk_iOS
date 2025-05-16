@@ -3,7 +3,7 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Release-3.2.7 -Green.svg">
+    <img src="https://img.shields.io/badge/Release-3.2.8 -Green.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/Support-iOS13.0+ -blue.svg">
@@ -148,6 +148,21 @@ Privacy - Bluetooth Always Usage Description
 | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
 
+     project    2025-05-16  Version:3.2.8 Build:20250516001
+                            1.新增获取会议纪要列表 @see（FBBgCommand）fbDeleteListFileInfoWithType:withBlock:
+                            2.新增读取文件，支持断点续传 @see（FBBgCommand）fbReadFileDataName:resumeOffset:withBlock:
+                            3.新增修改指定文件名称 @see（FBAtCommand）fbSetFileDataName:replaceName:withBlock:
+                            4.FB_OTANOTIFICATION 新增类型:
+                                FB_OTANotification_Download_Meeting
+                                FB_OTANotification_Download_Meeting
+                                FB_OTANotification_Album_Image
+                            5.EM_FUNC_SWITCH 新增类型:
+                                FS_WEATHER_REQUEST_NOTIFY(53)
+                                FS_EXIT_GAME_NOTIFY(55)
+                            6.新增游戏(启动/关闭) @see（FBAtCommand）fbSetGameStart:withGameId:withBlock:
+                            7.新增游戏数据流 @see（FBAtCommand）fbGameStreamDataHandlerWithBlock:
+                            8.优化已知问题
+                            
      project    2025-03-21  Version:3.2.7 Build:20250321001
                             1.新增支持获取、监听指令队列状态 @see FBBluetoothManager.h
                             2.增加游泳运动记录更多详细数据 @see FBSportCaculateModel.h 和 FBRecordDetailsModel.h
