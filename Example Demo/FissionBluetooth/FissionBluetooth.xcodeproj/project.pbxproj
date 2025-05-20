@@ -188,6 +188,7 @@
 		5959857C2A0DE518002AB22F /* RLMBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5959857B2A0DE518002AB22F /* RLMBaseModel.m */; };
 		5959858B2A0F1DD8002AB22F /* FBTestUIBaseChartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 595985892A0F1DD8002AB22F /* FBTestUIBaseChartCell.m */; };
 		5959858C2A0F1DD8002AB22F /* FBTestUIBaseChartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5959858A2A0F1DD8002AB22F /* FBTestUIBaseChartCell.xib */; };
+		59626E772DD70C9800F11E28 /* AppDelegate+Ai.m in Sources */ = {isa = PBXBuildFile; fileRef = 59626E762DD70C9800F11E28 /* AppDelegate+Ai.m */; };
 		596E6D542A557E1C00987964 /* icons8-phonelink-ring.gif in Resources */ = {isa = PBXBuildFile; fileRef = 596E6D532A557E1C00987964 /* icons8-phonelink-ring.gif */; };
 		596E6D572A557E6600987964 /* FBTestUIPhoneRingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 596E6D562A557E6600987964 /* FBTestUIPhoneRingView.m */; };
 		596E6D5B2A558A9100987964 /* FBTestUIPhoneRingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596E6D5A2A558A9100987964 /* FBTestUIPhoneRingView.xib */; };
@@ -675,6 +676,8 @@
 		595985892A0F1DD8002AB22F /* FBTestUIBaseChartCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBTestUIBaseChartCell.m; sourceTree = "<group>"; };
 		5959858A2A0F1DD8002AB22F /* FBTestUIBaseChartCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FBTestUIBaseChartCell.xib; sourceTree = "<group>"; };
 		5962591D2AC2BE5C00BF021E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		59626E752DD70C9800F11E28 /* AppDelegate+Ai.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Ai.h"; sourceTree = "<group>"; };
+		59626E762DD70C9800F11E28 /* AppDelegate+Ai.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Ai.m"; sourceTree = "<group>"; };
 		5968A7FA2BF4C11E00D0FB66 /* FissionBluetooth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FissionBluetooth.entitlements; sourceTree = "<group>"; };
 		596E6D532A557E1C00987964 /* icons8-phonelink-ring.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "icons8-phonelink-ring.gif"; sourceTree = "<group>"; };
 		596E6D552A557E6600987964 /* FBTestUIPhoneRingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBTestUIPhoneRingView.h; sourceTree = "<group>"; };
@@ -1206,6 +1209,8 @@
 				592A9FE425A4173A00CC515E /* AppDelegate.m */,
 				593AA48D29BAC87000B2DD49 /* AppDelegate+FissionSDK.h */,
 				593AA48E29BAC87000B2DD49 /* AppDelegate+FissionSDK.m */,
+				59626E752DD70C9800F11E28 /* AppDelegate+Ai.h */,
+				59626E762DD70C9800F11E28 /* AppDelegate+Ai.m */,
 				59CB29DF2D8D5EAC0043BC3B /* FissionBluetooth-Bridging-Header.h */,
 				59B66DB525A436FB0068B89A /* SystemBaseclass */,
 				5923580D293EDED300E5379C /* MVC */,
@@ -2233,6 +2238,7 @@
 				593E41EA2A2DF08D00B438FE /* FBTestUIOverviewCell.m in Sources */,
 				5921974F2A1B514800A4BE45 /* NSDate+Date.m in Sources */,
 				5921976E2A1B514800A4BE45 /* FBCameraViewController.m in Sources */,
+				59626E772DD70C9800F11E28 /* AppDelegate+Ai.m in Sources */,
 				5904198C2A2F417800BD3A0A /* FBTestUIBaseListCell.m in Sources */,
 				592197372A1B514800A4BE45 /* LWMotionPushCollectionView.m in Sources */,
 				592197302A1B514800A4BE45 /* LWMotionPushSelectCell.m in Sources */,

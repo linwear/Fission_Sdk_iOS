@@ -3,3 +3,11 @@ ${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKOTASDK.xcframework
 ${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKLEFoundation.xcframework
 ${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKRealChatConnection.xcframework
 ${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKAudioStreaming.xcframework
+${PODS_ROOT}/Fission_Sdk_iOS/SDK/FFmpeg/ffmpegkit.xcframework
+${PODS_ROOT}/Fission_Sdk_iOS/SDK/FFmpeg/libavfilter.xcframework
+${PODS_ROOT}/Fission_Sdk_iOS/SDK/FFmpeg/libswscale.xcframework
+${PODS_ROOT}/Fission_Sdk_iOS/SDK/FFmpeg/libswresample.xcframework
+${PODS_ROOT}/Fission_Sdk_iOS/SDK/FFmpeg/libavcodec.xcframework
+${PODS_ROOT}/Fission_Sdk_iOS/SDK/FFmpeg/libavutil.xcframework
+${PODS_ROOT}/Fission_Sdk_iOS/SDK/FFmpeg/libavformat.xcframework
+${PODS_ROOT}/Fission_Sdk_iOS/SDK/FFmpeg/libavdevice.xcframework

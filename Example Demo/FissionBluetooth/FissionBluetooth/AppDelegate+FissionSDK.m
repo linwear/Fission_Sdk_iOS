@@ -6,21 +6,9 @@
 //
 
 #import "AppDelegate+FissionSDK.h"
-
-@interface AppDelegate ()
-@property (nonatomic, strong) NSMutableData *pcmData; //手表语音pcm数据流
-@end
+#import "AppDelegate+Ai.h"
 
 @implementation AppDelegate (FissionSDK)
-
-- (NSMutableData *)pcmData {
-    return objc_getAssociatedObject(self, @selector(pcmData));
-}
-- (void)setPcmData:(NSMutableData *)pcmData {
-    objc_setAssociatedObject(self, @selector(pcmData), pcmData, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-}
-
-
 
 - (void)logOutput:(NSNotification *)notification{
     // SDK日志｜SDK log
@@ -109,29 +97,13 @@
     }];
     
     // 设备数据流->手机｜Method of receiving stream data after starting stream instruction
-    [FBAtCommand.sharedInstance fbStreamDataHandlerWithBlock:^(FBStreamDataModel * _Nonnull responseObject, NSError * _Nonnull error) {
+    [FBAtCommand.sharedInstance fbStreamDataHandlerWithBlock:^(FBStreamDataModel * _Nonnull responseObject) {
         
-        if (error) {
-            [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
-        }
-        else {
-            [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_REALTIMEDATASTREAM object:responseObject];
-        }
+        [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_REALTIMEDATASTREAM object:responseObject];
     }];
     
-    self.pcmData = NSMutableData.data;
-    
-    // 设备录音pcm数据回调｜Device recording pcm data callback
-    [FBBaiduCloudKit deviceRecordingPcmDataWithCallback:^(NSData * _Nullable pcmData) {
-        if (pcmData.length) {
-            [weakSelf.pcmData appendData:pcmData];
-        }
-    }];
-    
-    // 设备动作类型回调｜Device action type callback
-    [FBBaiduCloudKit deviceActionTypeWithCallback:^(FB_DEVICEACTIONTYPE actionType, FB_JSAPPLICATIONTYPE appType, NSString * _Nonnull content) {
-        
-    }];
+    // ai相关，注册回调，设备->手机｜ai related, registration callback, device->mobile phone
+    [self ai_registerCallbacks];
 }
 
 #pragma mark - 设备连接结果

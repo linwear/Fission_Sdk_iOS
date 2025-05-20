@@ -41,6 +41,78 @@ variant_for_slice()
   "RTKAudioStreaming.xcframework/ios-arm64-simulator")
     echo "simulator"
     ;;
+  "ffmpegkit.xcframework/ios-arm64")
+    echo ""
+    ;;
+  "ffmpegkit.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "maccatalyst"
+    ;;
+  "ffmpegkit.xcframework/ios-arm64_x86_64-simulator")
+    echo "simulator"
+    ;;
+  "libavfilter.xcframework/ios-arm64")
+    echo ""
+    ;;
+  "libavfilter.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "maccatalyst"
+    ;;
+  "libavfilter.xcframework/ios-arm64_x86_64-simulator")
+    echo "simulator"
+    ;;
+  "libswscale.xcframework/ios-arm64")
+    echo ""
+    ;;
+  "libswscale.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "maccatalyst"
+    ;;
+  "libswscale.xcframework/ios-arm64_x86_64-simulator")
+    echo "simulator"
+    ;;
+  "libswresample.xcframework/ios-arm64")
+    echo ""
+    ;;
+  "libswresample.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "maccatalyst"
+    ;;
+  "libswresample.xcframework/ios-arm64_x86_64-simulator")
+    echo "simulator"
+    ;;
+  "libavcodec.xcframework/ios-arm64")
+    echo ""
+    ;;
+  "libavcodec.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "maccatalyst"
+    ;;
+  "libavcodec.xcframework/ios-arm64_x86_64-simulator")
+    echo "simulator"
+    ;;
+  "libavutil.xcframework/ios-arm64")
+    echo ""
+    ;;
+  "libavutil.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "maccatalyst"
+    ;;
+  "libavutil.xcframework/ios-arm64_x86_64-simulator")
+    echo "simulator"
+    ;;
+  "libavformat.xcframework/ios-arm64")
+    echo ""
+    ;;
+  "libavformat.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "maccatalyst"
+    ;;
+  "libavformat.xcframework/ios-arm64_x86_64-simulator")
+    echo "simulator"
+    ;;
+  "libavdevice.xcframework/ios-arm64")
+    echo ""
+    ;;
+  "libavdevice.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "maccatalyst"
+    ;;
+  "libavdevice.xcframework/ios-arm64_x86_64-simulator")
+    echo "simulator"
+    ;;
   esac
 }
 
@@ -70,6 +142,78 @@ archs_for_slice()
     ;;
   "RTKAudioStreaming.xcframework/ios-arm64-simulator")
     echo "arm64"
+    ;;
+  "ffmpegkit.xcframework/ios-arm64")
+    echo "arm64"
+    ;;
+  "ffmpegkit.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "arm64 x86_64"
+    ;;
+  "ffmpegkit.xcframework/ios-arm64_x86_64-simulator")
+    echo "arm64 x86_64"
+    ;;
+  "libavfilter.xcframework/ios-arm64")
+    echo "arm64"
+    ;;
+  "libavfilter.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "arm64 x86_64"
+    ;;
+  "libavfilter.xcframework/ios-arm64_x86_64-simulator")
+    echo "arm64 x86_64"
+    ;;
+  "libswscale.xcframework/ios-arm64")
+    echo "arm64"
+    ;;
+  "libswscale.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "arm64 x86_64"
+    ;;
+  "libswscale.xcframework/ios-arm64_x86_64-simulator")
+    echo "arm64 x86_64"
+    ;;
+  "libswresample.xcframework/ios-arm64")
+    echo "arm64"
+    ;;
+  "libswresample.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "arm64 x86_64"
+    ;;
+  "libswresample.xcframework/ios-arm64_x86_64-simulator")
+    echo "arm64 x86_64"
+    ;;
+  "libavcodec.xcframework/ios-arm64")
+    echo "arm64"
+    ;;
+  "libavcodec.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "arm64 x86_64"
+    ;;
+  "libavcodec.xcframework/ios-arm64_x86_64-simulator")
+    echo "arm64 x86_64"
+    ;;
+  "libavutil.xcframework/ios-arm64")
+    echo "arm64"
+    ;;
+  "libavutil.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "arm64 x86_64"
+    ;;
+  "libavutil.xcframework/ios-arm64_x86_64-simulator")
+    echo "arm64 x86_64"
+    ;;
+  "libavformat.xcframework/ios-arm64")
+    echo "arm64"
+    ;;
+  "libavformat.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "arm64 x86_64"
+    ;;
+  "libavformat.xcframework/ios-arm64_x86_64-simulator")
+    echo "arm64 x86_64"
+    ;;
+  "libavdevice.xcframework/ios-arm64")
+    echo "arm64"
+    ;;
+  "libavdevice.xcframework/ios-arm64_x86_64-maccatalyst")
+    echo "arm64 x86_64"
+    ;;
+  "libavdevice.xcframework/ios-arm64_x86_64-simulator")
+    echo "arm64 x86_64"
     ;;
   esac
 }
@@ -157,4 +301,12 @@ install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKOTASDK.xcframework" "Fi
 install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKLEFoundation.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64-simulator"
 install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKRealChatConnection.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64-simulator"
 install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKAudioStreaming.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64-simulator"
+install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/FFmpeg/ffmpegkit.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"
+install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/FFmpeg/libavfilter.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"
+install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/FFmpeg/libswscale.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"
+install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/FFmpeg/libswresample.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"
+install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/FFmpeg/libavcodec.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"
+install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/FFmpeg/libavutil.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"
+install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/FFmpeg/libavformat.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"
+install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/FFmpeg/libavdevice.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"
 

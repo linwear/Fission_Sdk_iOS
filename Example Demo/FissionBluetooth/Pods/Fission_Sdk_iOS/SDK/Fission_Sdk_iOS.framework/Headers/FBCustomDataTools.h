@@ -118,11 +118,26 @@ NS_ASSUME_NONNULL_BEGIN
  11.FB_OTANotification_Ring_Alarm
     ClockSound_L******_xxxxxxxxxx_AAAA_BBBB.mp3（其中******为文件大小，xxxxxxxxxx为时间戳，AAAA为唯一ID，BBBB为显示名称｜Where ****** is the file size, xxxxxxxxxx is the timestamp, AAAA is the unique ID, and BBBB is the display name）
  
+ 12.FB_OTANotification_OfflineVoice_Package
+    无需重新命名，即用原始文件的名称｜No need to rename, just use the name of the original file
+ 
+ 13.FB_OTANotification_Album_Image
+    Photo_L******_xxxxxxxxxx.bin（其中******为文件大小，xxxxxxxxxx为时间戳｜Where ****** is the file size, xxxxxxxxxx is the timestamp）
+ 
+ 14.FB_OTANotification_Avatar_Image
+    Avatar_L******_xxxxxxxxxx.bin（其中******为文件大小，xxxxxxxxxx为时间戳｜Where ****** is the file size, xxxxxxxxxx is the timestamp）
+ 
  
  更多...待拓展｜More...to be expanded
  */
 + (NSData *)createFileName:(NSString * _Nonnull)fileName withFileData:(NSData * _Nonnull)fileData withOTAType:(FB_OTANOTIFICATION)OTAType;
 
+
+/**
+ 相册图片处理（按表盘分辨率）| Album picture processing (according to the resolution of the dial)
+ @param image           待处理的图片｜Pending images
+*/
++ (NSData *)albumImage:(UIImage * _Nonnull)image;
 
 @end
 

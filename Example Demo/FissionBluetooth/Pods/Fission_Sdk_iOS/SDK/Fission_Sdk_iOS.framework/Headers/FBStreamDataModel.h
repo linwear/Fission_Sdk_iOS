@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- 流数据｜Stream data
+ 流数据-健康｜Streaming Data - Health
 */
 @interface FBStreamDataModel : NSObject
 

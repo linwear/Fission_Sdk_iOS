@@ -50,6 +50,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) NSInteger userAge;
 
 /**
+ 用户生日（时间戳，单位秒）｜User birthday (timestamp, in seconds)
+ */
+@property (nonatomic, assign) NSInteger userBirthday;
+
+/**
  用户步幅（单位cm）｜User stride (in cm)
  */
 @property (nonatomic, assign) NSInteger userStride;

@@ -46,13 +46,11 @@ PODS:
     - CocoaLumberjack/Core (= 3.8.5)
   - CocoaLumberjack/Core (3.8.5)
   - CWLateralSlide (1.6.5)
-  - ffmpeg-kit-ios-full (6.0)
-  - Fission_Sdk_iOS (3.2.7):
-    - Fission_Sdk_iOS/AllDependencys (= 3.2.7)
-    - Fission_Sdk_iOS/Headers (= 3.2.7)
-  - Fission_Sdk_iOS/AllDependencys (3.2.7):
-    - ffmpeg-kit-ios-full
-  - Fission_Sdk_iOS/Headers (3.2.7)
+  - Fission_Sdk_iOS (3.2.8):
+    - Fission_Sdk_iOS/AllDependencys (= 3.2.8)
+    - Fission_Sdk_iOS/Headers (= 3.2.8)
+  - Fission_Sdk_iOS/AllDependencys (3.2.8)
+  - Fission_Sdk_iOS/Headers (3.2.8)
   - FSCalendar (2.8.4)
   - IQKeyboardManager (6.5.19)
   - JJException (0.2.13):
@@ -442,7 +440,6 @@ SPEC REPOS:
     - CHIPageControl
     - CocoaLumberjack
     - CWLateralSlide
-    - ffmpeg-kit-ios-full
     - FSCalendar
     - IQKeyboardManager
     - JJException
@@ -471,7 +468,7 @@ CHECKOUT OPTIONS:
     :commit: a0e79474d7428e2617e16310a0ad4584f561f081
     :git: https://github.com/AAChartModel/AAChartKit.git
   Fission_Sdk_iOS:
-    :commit: adfb5df843566c3aa3eec28653a59bd14cc4e200
+    :commit: a5c2f9ec2331b18aa1913f4b10c04c899a406569
     :git: https://github.com/linwear/Fission_Sdk_iOS.git
 
 SPEC CHECKSUMS:
@@ -481,8 +478,7 @@ SPEC CHECKSUMS:
   CHIPageControl: a787bf7205c9b7e7fbfc412be36c5e8636b68f86
   CocoaLumberjack: 6a459bc897d6d80bd1b8c78482ec7ad05dffc3f0
   CWLateralSlide: 8939c8dea91a24e40d0793553118cb57cd67f64b
-  ffmpeg-kit-ios-full: 0099a769d22114dde52cdc238397941c32f75d27
-  Fission_Sdk_iOS: b32d6743d3eee172f7a2869409b30d45428055b1
+  Fission_Sdk_iOS: f37c1ab8481249b31a90ee49153f5b83a80b41fc
   FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
   JJException: fce490b5c046078709283d38de73fe2f624bc14c
