@@ -391,6 +391,9 @@ PODS:
     - QMUIKit/QMUILog
   - QMUIKit/QMUIResources (4.8.0)
   - QMUIKit/QMUIWeakObjectContainer (4.8.0)
+  - Realm (20.0.1):
+    - Realm/Headers (= 20.0.1)
+  - Realm/Headers (20.0.1)
   - SDAutoLayout (2.2.1)
   - SDWebImage (5.20.0):
     - SDWebImage/Core (= 5.20.0)
@@ -424,6 +427,7 @@ DEPENDENCIES:
   - MJExtension
   - MJRefresh
   - QMUIKit
+  - Realm
   - SDAutoLayout
   - SDWebImage
   - SGQRCode
@@ -448,6 +452,7 @@ SPEC REPOS:
     - MJExtension
     - MJRefresh
     - QMUIKit
+    - Realm
     - SDAutoLayout
     - SDWebImage
     - SGQRCode
@@ -487,6 +492,7 @@ SPEC CHECKSUMS:
   MJExtension: e97d164cb411aa9795cf576093a1fa208b4a8dd8
   MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
   QMUIKit: 3c622fe3c55c0dccfad750634bd9ee5e7ade9a53
+  Realm: 9572204903ef28caeb3c03bb30c1147f354ee3e7
   SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
   SDWebImage: 73c6079366fea25fa4bb9640d5fb58f0893facd8
   SGQRCode: 6ad664d63f38f2842503bc5087812c5a3136d924
@@ -496,6 +502,6 @@ SPEC CHECKSUMS:
   UICountingLabel: faf890b505d96312e324a86718f031fafffb0ccb
   ZLCollectionViewFlowLayout: c99024652ce9f0c57d33ab53052c9b85e4a936b7
 
-PODFILE CHECKSUM: 5ea94714e1bb885e9a1a6969881590a2d7803b64
+PODFILE CHECKSUM: bc40fa96f189682ae288c6c2098526f74dd1a9fe
 
 COCOAPODS: 1.16.2

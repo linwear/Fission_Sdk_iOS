@@ -139,6 +139,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Realm-realm_objc_privacy.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SDAutoLayout.xcscheme</key>
 		<dict>
 			<key>isShown</key>
