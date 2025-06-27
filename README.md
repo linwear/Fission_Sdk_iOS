@@ -3,7 +3,7 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Release-3.2.8 -Green.svg">
+    <img src="https://img.shields.io/badge/Release-3.2.9 -Green.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/Support-iOS13.0+ -blue.svg">
@@ -148,6 +148,14 @@ Privacy - Bluetooth Always Usage Description
 | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
 
+     project    2025-06-18  Version:3.2.9 Build:20250618001
+                            1.基于Xcode16.4编译以支持Swift6.1
+                            2.RTK8773自定义表盘主背景由ARGB8565变更为RGB565
+                            3.新增唤起手表艾闪渠道Agent付费二维码界面 @see（FBBgCommand）fbBringsPaymentQRCodeWithUserid:withBlock:
+                            4.新增获取鼾宝信息 @see（FBBgCommand）fbGetSnoreWithBlock:
+                            5.新增设置鼾宝信息 @see（FBBgCommand）fbSetSnoreWithModel:withBlock:
+                            6.获取鼾宝震动记录 @see（FBBgCommand）fbGetSnoreRecordWithBlock:
+     
      project    2025-05-16  Version:3.2.8 Build:20250516001
                             1.新增获取会议纪要列表 @see（FBBgCommand）fbDeleteListFileInfoWithType:withBlock:
                             2.新增读取文件，支持断点续传 @see（FBBgCommand）fbReadFileDataName:resumeOffset:withBlock:
