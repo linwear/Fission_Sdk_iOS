@@ -549,6 +549,24 @@ typedef void (^FBGetResumeDownloadFileBlock)(FB_RET_CMD status, float progress, 
 typedef void (^FBGameStreamDataHandlerBlock)(FBGameStreamDataModel * responseObject);
 
 /**
+ *@brief 获取鼾宝信息 调用结果回调｜Get Snore information and call result callback
+ *@param status                                 状态码｜Status code
+ *@param progress                               当前进度0～1｜Current progress 0 ~ 1
+ *@param responseObject                         鼾宝信息｜Snore information
+ *@param error                                  错误信息｜Error message
+ */
+typedef void (^FBGetSnoreBlock)(FB_RET_CMD status, float progress, FBSnoreModel * _Nullable responseObject, NSError * _Nullable error);
+
+/**
+ *@brief 获取鼾宝记录信息 调用结果回调｜Get the Snore record information and call the result callback
+ *@param status                                 状态码｜Status code
+ *@param progress                               当前进度0～1｜Current progress 0 ~ 1
+ *@param responseObject                         鼾宝记录信息｜Snore record information
+ *@param error                                  错误信息｜Error message
+ */
+typedef void (^FBGetSnoreRecordBlock)(FB_RET_CMD status, float progress, NSArray <FBSnoreRecordModel *> * _Nullable responseObject, NSError * _Nullable error);
+
+/**
  block回调类｜Block callback class
  */
 @interface FBCommandCallback : NSObject

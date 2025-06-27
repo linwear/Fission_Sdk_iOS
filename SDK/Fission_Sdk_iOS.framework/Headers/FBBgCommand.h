@@ -655,6 +655,36 @@ NS_ASSUME_NONNULL_BEGIN
 */
 - (void)fbSetDeviceAuthCodeWithList:(NSArray <FBDeviceAuthCodeModel *> * _Nonnull)modelList withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
+
+#pragma mark - APP唤起手表艾闪渠道Agent付费二维码界面｜The APP brings up the payment QR code interface of the watch Aishan channel Agent
+/**
+ APP唤起手表艾闪渠道Agent付费二维码界面｜The APP brings up the payment QR code interface of the watch Aishan channel Agent
+ @param userid                   用户唯一ID｜User unique ID
+*/
+- (void)fbBringsPaymentQRCodeWithUserid:(NSString * _Nonnull)userid withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 获取鼾宝信息｜Get snore information
+/**
+ 获取鼾宝信息｜Get snore information
+*/
+- (void)fbGetSnoreWithBlock:(FBGetSnoreBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 设置鼾宝信息｜Set snore information
+/**
+ 设置鼾宝信息｜Set snore information
+ @param snoreModel          鼾宝信息｜Snore information
+*/
+- (void)fbSetSnoreWithModel:(FBSnoreModel * _Nonnull)snoreModel withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 获取鼾宝震动记录｜Get the vibration record of Snore
+/**
+ 获取鼾宝震动记录｜Get the vibration record of Snore
+*/
+- (void)fbGetSnoreRecordWithBlock:(FBGetSnoreRecordBlock _Nonnull)fbBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END
