@@ -240,6 +240,8 @@
 "Camera" = "Camera";
 "Fail" = "Fail";
 
+"Please allow %@ to access the microphone in \"Settings-Privacy-Microphone\" on your iPhone" = "Please allow %@ to access the microphone in \"Settings-Privacy-Microphone\" on your iPhone";
+
 "Synchronize" = "Synchronize";
 "Watch Movement" = "Watch Movement";
 "Press and hold the module and drag to adjust the display order" = "Press and hold the module and drag to adjust the display order";

@@ -192,6 +192,8 @@
 		596E6D542A557E1C00987964 /* icons8-phonelink-ring.gif in Resources */ = {isa = PBXBuildFile; fileRef = 596E6D532A557E1C00987964 /* icons8-phonelink-ring.gif */; };
 		596E6D572A557E6600987964 /* FBTestUIPhoneRingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 596E6D562A557E6600987964 /* FBTestUIPhoneRingView.m */; };
 		596E6D5B2A558A9100987964 /* FBTestUIPhoneRingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 596E6D5A2A558A9100987964 /* FBTestUIPhoneRingView.xib */; };
+		5982AB5F2E13C87C00B16465 /* NativeLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5982AB5D2E13C87C00B16465 /* NativeLib.framework */; };
+		5982AB622E13DAB200B16465 /* FBAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5982AB612E13DAB200B16465 /* FBAudioRecorder.m */; };
 		59831BD72A78DD03008BB4C8 /* FBHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 59831BD62A78DD03008BB4C8 /* FBHUD.m */; };
 		599BF8882A5FA6A400751831 /* FBTextImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 599BF8872A5FA6A400751831 /* FBTextImageView.m */; };
 		59A31EFA2AF5D89E00F6CC7F /* FBOTAFilePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59A31EF92AF5D89E00F6CC7F /* FBOTAFilePickerViewController.m */; };
@@ -683,6 +685,9 @@
 		596E6D552A557E6600987964 /* FBTestUIPhoneRingView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBTestUIPhoneRingView.h; sourceTree = "<group>"; };
 		596E6D562A557E6600987964 /* FBTestUIPhoneRingView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBTestUIPhoneRingView.m; sourceTree = "<group>"; };
 		596E6D5A2A558A9100987964 /* FBTestUIPhoneRingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FBTestUIPhoneRingView.xib; sourceTree = "<group>"; };
+		5982AB5D2E13C87C00B16465 /* NativeLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = NativeLib.framework; sourceTree = "<group>"; };
+		5982AB602E13DAB200B16465 /* FBAudioRecorder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBAudioRecorder.h; sourceTree = "<group>"; };
+		5982AB612E13DAB200B16465 /* FBAudioRecorder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBAudioRecorder.m; sourceTree = "<group>"; };
 		59831BD52A78DD03008BB4C8 /* FBHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBHUD.h; sourceTree = "<group>"; };
 		59831BD62A78DD03008BB4C8 /* FBHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBHUD.m; sourceTree = "<group>"; };
 		599BF8862A5FA6A400751831 /* FBTextImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBTextImageView.h; sourceTree = "<group>"; };
@@ -865,6 +870,7 @@
 			files = (
 				1E29CF31781E67E402257E0F /* Pods_FissionBluetooth.framework in Frameworks */,
 				59C6CC4B25ADA95F007C2521 /* AudioToolbox.framework in Frameworks */,
+				5982AB5F2E13C87C00B16465 /* NativeLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1444,6 +1450,16 @@
 			path = MASmoothPathTool;
 			sourceTree = "<group>";
 		};
+		5982AB5E2E13C87C00B16465 /* Other SDK */ = {
+			isa = PBXGroup;
+			children = (
+				5982AB602E13DAB200B16465 /* FBAudioRecorder.h */,
+				5982AB612E13DAB200B16465 /* FBAudioRecorder.m */,
+				5982AB5D2E13C87C00B16465 /* NativeLib.framework */,
+			);
+			path = "Other SDK";
+			sourceTree = "<group>";
+		};
 		59831BD42A78DCE3008BB4C8 /* FBHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -1552,6 +1568,7 @@
 			isa = PBXGroup;
 			children = (
 				59D905712BEF788100C924C6 /* 16k-0.pcm */,
+				5982AB5E2E13C87C00B16465 /* Other SDK */,
 				59BA8BCC2BC275CF00DC578D /* AGPS */,
 				59BA8BE62BC275CF00DC578D /* GNSS */,
 				592F5F112A05084E008C06D7 /* UI_TEST */,
@@ -2032,9 +2049,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2049,9 +2070,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2249,6 +2274,7 @@
 				5959858B2A0F1DD8002AB22F /* FBTestUIBaseChartCell.m in Sources */,
 				5921974C2A1B514800A4BE45 /* LWSportsConnectModel.m in Sources */,
 				593E41D62A29EB7C00B438FE /* FBTestUISportsHrRangeCell.m in Sources */,
+				5982AB622E13DAB200B16465 /* FBAudioRecorder.m in Sources */,
 				592197702A1B514800A4BE45 /* LeftViewController.m in Sources */,
 				592197502A1B514800A4BE45 /* LWNetworkingManager.m in Sources */,
 				592A9FF625A4173B00CC515E /* main.m in Sources */,
@@ -2473,6 +2499,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass",
+					"$(PROJECT_DIR)/FissionBluetooth/Resources/Other\\ SDK",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2494,7 +2521,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "FissionBluetooth/FissionBluetooth-Bridging-Header.h";
 				SWIFT_OBJC_INTEROP_MODE = objc;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 6.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2519,6 +2546,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FissionBluetooth/SystemBaseclass",
+					"$(PROJECT_DIR)/FissionBluetooth/Resources/Other\\ SDK",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2539,7 +2567,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "FissionBluetooth/FissionBluetooth-Bridging-Header.h";
 				SWIFT_OBJC_INTEROP_MODE = objc;
-				SWIFT_VERSION = 6.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

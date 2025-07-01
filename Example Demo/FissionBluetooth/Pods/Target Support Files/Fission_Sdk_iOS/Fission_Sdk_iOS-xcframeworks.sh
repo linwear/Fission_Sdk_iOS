@@ -41,6 +41,12 @@ variant_for_slice()
   "RTKAudioStreaming.xcframework/ios-arm64-simulator")
     echo "simulator"
     ;;
+  "libRTKCompression.xcframework/ios-arm64")
+    echo ""
+    ;;
+  "libRTKCompression.xcframework/ios-arm64_x86_64-simulator")
+    echo "simulator"
+    ;;
   "ffmpegkit.xcframework/ios-arm64")
     echo ""
     ;;
@@ -142,6 +148,12 @@ archs_for_slice()
     ;;
   "RTKAudioStreaming.xcframework/ios-arm64-simulator")
     echo "arm64"
+    ;;
+  "libRTKCompression.xcframework/ios-arm64")
+    echo "arm64"
+    ;;
+  "libRTKCompression.xcframework/ios-arm64_x86_64-simulator")
+    echo "arm64 x86_64"
     ;;
   "ffmpegkit.xcframework/ios-arm64")
     echo "arm64"
@@ -301,6 +313,7 @@ install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKOTASDK.xcframework" "Fi
 install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKLEFoundation.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64-simulator"
 install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKRealChatConnection.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64-simulator"
 install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKAudioStreaming.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64-simulator"
+install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/libRTKCompression.xcframework" "Fission_Sdk_iOS/AllDependencys" "library" "ios-arm64" "ios-arm64_x86_64-simulator"
 install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/FFmpeg/ffmpegkit.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"
 install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/FFmpeg/libavfilter.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"
 install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/FFmpeg/libswscale.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64_x86_64-maccatalyst" "ios-arm64_x86_64-simulator"

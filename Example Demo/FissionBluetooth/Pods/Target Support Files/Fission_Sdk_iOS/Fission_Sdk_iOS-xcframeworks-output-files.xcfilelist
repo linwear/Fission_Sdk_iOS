@@ -2,6 +2,7 @@ ${PODS_XCFRAMEWORKS_BUILD_DIR}/Fission_Sdk_iOS/AllDependencys/RTKOTASDK.framewor
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/Fission_Sdk_iOS/AllDependencys/RTKLEFoundation.framework
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/Fission_Sdk_iOS/AllDependencys/RTKRealChatConnection.framework
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/Fission_Sdk_iOS/AllDependencys/RTKAudioStreaming.framework
+${PODS_XCFRAMEWORKS_BUILD_DIR}/Fission_Sdk_iOS/AllDependencys/libRTKCompression.framework
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/Fission_Sdk_iOS/AllDependencys/ffmpegkit.framework
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/Fission_Sdk_iOS/AllDependencys/libavfilter.framework
 ${PODS_XCFRAMEWORKS_BUILD_DIR}/Fission_Sdk_iOS/AllDependencys/libswscale.framework

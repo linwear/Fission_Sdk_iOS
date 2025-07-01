@@ -240,6 +240,8 @@
 "Camera" = "相机";
 "Fail" = "失败";
 
+"Please allow %@ to access the microphone in \"Settings-Privacy-Microphone\" on your iPhone" = "请在 iPhone 的\"设置-隐私-麦克风\"中允许 %@ 访问麦克风";
+
 "Synchronize" = "同步";
 "Watch Movement" = "手表运动";
 "Press and hold the module and drag to adjust the display order" = "按住模块拖动，即可调整显示顺序";

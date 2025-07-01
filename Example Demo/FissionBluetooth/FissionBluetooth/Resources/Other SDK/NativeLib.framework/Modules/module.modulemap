@@ -1,0 +1,11 @@
+framework module NativeLib {
+  umbrella header "NativeLib.h"
+  export *
+
+  module * { export * }
+}
+
+module NativeLib.Swift {
+  header "NativeLib-Swift.h"
+  requires objc
+}

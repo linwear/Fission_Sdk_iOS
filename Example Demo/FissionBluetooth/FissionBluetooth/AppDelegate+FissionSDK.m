@@ -287,6 +287,9 @@
                         // 更多其他设置...｜any more settings...
                         
                         [NSNotificationCenter.defaultCenter postNotificationName:FISSION_SDK_CONNECTBINGSTATE object:@(CONNECTBINGSTATE_COMPLETE)];
+                        
+                        // 初始化AI
+                        [weakSelf ai_initialize:responseObject.mac];
                     }
                 }];
             } else {
