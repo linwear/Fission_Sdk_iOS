@@ -1,0 +1,6 @@
+framework module slm_remote_iOS {
+  umbrella header "slm_remote_iOS.h"
+
+  export *
+  module * { export * }
+}
