@@ -93,6 +93,14 @@ Parameterfout, de bovenste grens van hartslagherinnering zou groter dan of gelij
 "数据长度错误" = "Fout in gegevenslengte";
 "未知的错误" = "Onbekende fout";
 
+"没有卡片" = "Geen kaart";
+"无激活的卡片" = "Geen geactiveerde kaart";
+"已有相同 ID 的卡片" = "Er bestaat al een kaart met dezelfde ID";
+"没有此 ID 的卡片" = "Geen kaart met deze ID";
+"创建卡片失败" = "Kaart aanmaken mislukt";
+"删除卡片失败" = "Kaart verwijderen mislukt";
+"卡片已满" = "Kaart vol";
+
 /**
  FBBluetoothOTA
  */

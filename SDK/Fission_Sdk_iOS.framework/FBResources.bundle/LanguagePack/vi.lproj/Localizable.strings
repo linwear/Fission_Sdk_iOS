@@ -92,6 +92,14 @@
 "数据长度错误" = "Lỗi về chiều dài dữ liệu";
 "未知的错误" = "lỗi chưa biết";
 
+"没有卡片" = "Không có thẻ";
+"无激活的卡片" = "Không có thẻ nào được kích hoạt";
+"已有相同 ID 的卡片" = "Đã tồn tại thẻ có cùng ID";
+"没有此 ID 的卡片" = "Không có thẻ nào có ID này";
+"创建卡片失败" = "Không tạo được thẻ";
+"删除卡片失败" = "Không xóa được thẻ";
+"卡片已满" = "Thẻ đầy";
+
 /**
  FBBluetoothOTA
  */

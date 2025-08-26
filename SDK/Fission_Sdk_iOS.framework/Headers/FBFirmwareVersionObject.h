@@ -616,6 +616,97 @@ NS_ASSUME_NONNULL_BEGIN
 */
 @property (nonatomic, assign) BOOL supportGames;
 
+/**
+ 🌟是否支持艾闪会议纪要二维码付款提示｜Support QR code payment reminder for AiShan meeting minutes🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportQR_AS_MTG;
+
+/**
+ 🌟是否支持区分AI表盘和相册表盘｜Whether to support distinguish between AI watch faces and album watch faces🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportDiffDials;
+
+/**
+ 🌟是否支持消息bit位扩充｜Whether to support message bit expansion🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportMsgBitExpansion;
+
+/**
+ 🌟是否支持NFC｜Support NFC🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportNFC;
+
+/**
+ 🌟是否支持气压｜Whether to support air pressure🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportAirPressure;
+
+/**
+ 🌟是否支持微信｜Whether to support WeChat🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportWeChat;
+
+/**
+ 🌟是否支持血液成分｜Whether to support Blood components🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportBloodComponents;
+
+/**
+ 🌟是否支持血糖｜Whether to support Blood sugar🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportBloodSugar;
+
+/**
+ 🌟是否支持日常血液成分检测开关控制｜Whether to support daily blood component detection switch control🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportBloodComponentControl;
+
+/**
+ 🌟是否支持日常血糖检测开关控制｜Whether to support daily blood sugar detection switch control🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportBloodSugarControl;
+
+/**
+ 🌟是否支持血液成分私人模式｜Whether to support private mode for blood components🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportBloodComponentPrivate;
+
+/**
+ 🌟是否支持血糖私人模式｜Whether to support private mode for blood sugar🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportBloodSugarPrivate;
+
+/**
+ 🌟是否支持血压私人模式｜Whether to support private mode for blood pressure🌟
+ 
+ @note  NO：不支持、YES：支持｜NO: not support YES: support
+*/
+@property (nonatomic, assign) BOOL supportBloodPressurePrivate;
+
 
 @end
 

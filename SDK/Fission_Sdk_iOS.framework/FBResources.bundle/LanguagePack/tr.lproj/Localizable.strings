@@ -92,6 +92,14 @@
 "数据长度错误" = "Veri uzunluğu hatası";
 "未知的错误" = "Bilinmemiş hata";
 
+"没有卡片" = "Kart yok";
+"无激活的卡片" = "Etkinleştirilmiş kart yok";
+"已有相同 ID 的卡片" = "Aynı kimliğe sahip bir kart zaten mevcut";
+"没有此 ID 的卡片" = "Bu kimliğe sahip bir kart yok";
+"创建卡片失败" = "Kart oluşturulamadı";
+"删除卡片失败" = "Kart silinemedi";
+"卡片已满" = "Kart Dolu";
+
 /**
  FBBluetoothOTA
  */

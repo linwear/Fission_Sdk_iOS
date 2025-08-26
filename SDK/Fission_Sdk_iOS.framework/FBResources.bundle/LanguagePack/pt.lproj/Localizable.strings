@@ -92,6 +92,14 @@
 "数据长度错误" = "Erro de comprimento DOS dados";
 "未知的错误" = "Erro Desconhecido";
 
+"没有卡片" = "Nenhum cartão";
+"无激活的卡片" = "Nenhum cartão ativado";
+"已有相同 ID 的卡片" = "Já existe um cartão com o mesmo ID";
+"没有此 ID 的卡片" = "Nenhum cartão com este ID";
+"创建卡片失败" = "Falha ao criar o cartão";
+"删除卡片失败" = "Falha ao eliminar o cartão";
+"卡片已满" = "Cartão Cheio";
+
 /**
  FBBluetoothOTA
  */

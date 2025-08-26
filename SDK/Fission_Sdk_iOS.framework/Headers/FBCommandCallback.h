@@ -308,6 +308,33 @@ typedef void (^FBGetExerciseHFHRRecordsBlock)(FB_RET_CMD status, float progress,
 typedef void (^FBGetManualMeasureDataBlock)(FB_RET_CMD status, float progress, NSArray <FBManualMeasureDataModel *> * _Nullable responseObject, NSError * _Nullable error);
 
 /**
+ *@brief 获取气压记录 调用结果回调｜Get the barometric pressure record and call the result callback
+ *@param status                                 状态码｜Status code
+ *@param progress                               当前进度0～1｜Current progress 0 ~ 1
+ *@param responseObject                         气压记录｜Air pressure record
+ *@param error                                  错误信息｜Error message
+ */
+typedef void (^FBGetAirPressureRecordBlock)(FB_RET_CMD status, float progress, NSArray <FBTypeRecordModel *> * _Nullable responseObject, NSError * _Nullable error);
+
+/**
+ *@brief 获取血液成分记录 调用结果回调｜Get the blood component record and call the result callback
+ *@param status                                 状态码｜Status code
+ *@param progress                               当前进度0～1｜Current progress 0 ~ 1
+ *@param responseObject                         血液成分记录｜Blood component record
+ *@param error                                  错误信息｜Error message
+ */
+typedef void (^FBGetBloodComponentRecordBlock)(FB_RET_CMD status, float progress, NSArray <FBTypeRecordModel *> * _Nullable responseObject, NSError * _Nullable error);
+
+/**
+ *@brief 获取血糖记录 调用结果回调｜Get the blood glucose record and call the result callback
+ *@param status                                 状态码｜Status code
+ *@param progress                               当前进度0～1｜Current progress 0 ~ 1
+ *@param responseObject                         血糖记录｜Blood glucose record
+ *@param error                                  错误信息｜Error message
+ */
+typedef void (^FBGetBloodGlucoseRecordBlock)(FB_RET_CMD status, float progress, NSArray <FBTypeRecordModel *> * _Nullable responseObject, NSError * _Nullable error);
+
+/**
  *@brief 获取指定记录报告数据 调用结果回调｜Get the specified record report data call result callback
  *@param status                                 状态码｜Status code
  *@param recordType                             当前返回的记录报告类型｜Currently returned record report type
@@ -565,6 +592,69 @@ typedef void (^FBGetSnoreBlock)(FB_RET_CMD status, float progress, FBSnoreModel 
  *@param error                                  错误信息｜Error message
  */
 typedef void (^FBGetSnoreRecordBlock)(FB_RET_CMD status, float progress, NSArray <FBSnoreRecordModel *> * _Nullable responseObject, NSError * _Nullable error);
+
+/**
+ *@brief 获取鼾宝记录信息 调用结果回调｜Get the Snore record information and call the result callback
+ *@param status                                 状态码｜Status code
+ *@param progress                               当前进度0～1｜Current progress 0 ~ 1
+ *@param responseObject                         鼾宝记录信息｜Snore record information
+ *@param error                                  错误信息｜Error message
+ */
+typedef void (^FBGetSnoreRecordBlock)(FB_RET_CMD status, float progress, NSArray <FBSnoreRecordModel *> * _Nullable responseObject, NSError * _Nullable error);
+
+/**
+ *@brief 获取 NFC 所有卡片信息 调用结果回调｜Get all NFC card information and call the result callback
+ *@param status                                 状态码｜Status code
+ *@param progress                               当前进度0～1｜Current progress 0 ~ 1
+ *@param responseObject                         所有NFC卡片信息｜All NFC card information
+ *@param error                                  错误信息｜Error message
+ */
+typedef void (^FBGetAllNFCCardsBlock)(FB_RET_CMD status, float progress, NSArray <FBNFCCardModel *> * _Nullable responseObject, NSError * _Nullable error);
+
+/**
+ *@brief 获取 NFC 卡片信息 调用结果回调｜Get NFC card information and call the result callback
+ *@param status                                 状态码｜Status code
+ *@param progress                               当前进度0～1｜Current progress 0 ~ 1
+ *@param responseObject                         NFC卡片信息｜NFC card information
+ *@param error                                  错误信息｜Error message
+ */
+typedef void (^FBGetNFCCardBlock)(FB_RET_CMD status, float progress, FBNFCCardModel * _Nullable responseObject, NSError * _Nullable error);
+
+/**
+ *@brief 读取 NFC 秘钥的基础数据(待远程破解)Data 调用结果回调｜Read the basic data of the NFC key (to be cracked remotely) Data call result callback
+ *@param status                                 状态码｜Status code
+ *@param progress                               当前进度0～1｜Current progress 0 ~ 1
+ *@param responseObject                         NFC秘钥基础数据｜NFC key basic data
+ *@param error                                  错误信息｜Error message
+ */
+typedef void (^FBReadNFCBasicDataBlock)(FB_RET_CMD status, float progress, NSData * _Nullable responseObject, NSError * _Nullable error);
+
+/**
+ *@brief 获取血压私人模式信息 调用结果回调｜Get blood pressure private mode information and call result callback
+ *@param status                                 状态码｜Status code
+ *@param progress                               当前进度0～1｜Current progress 0 ~ 1
+ *@param responseObject                         血压私人模式信息｜Blood pressure private mode information
+ *@param error                                  错误信息｜Error message
+ */
+typedef void (^FBGetBloodPressureBlock)(FB_RET_CMD status, float progress, FBBloodPressureModel * _Nullable responseObject, NSError * _Nullable error);
+
+/**
+ *@brief 获取血液成分私人模式信息 调用结果回调｜Get blood component private mode information and call the result callback
+ *@param status                                 状态码｜Status code
+ *@param progress                               当前进度0～1｜Current progress 0 ~ 1
+ *@param responseObject                         血液成分私人模式信息｜Blood component private mode information
+ *@param error                                  错误信息｜Error message
+ */
+typedef void (^FBGetBloodCompositionBlock)(FB_RET_CMD status, float progress, FBBloodCompositionModel * _Nullable responseObject, NSError * _Nullable error);
+
+/**
+ *@brief 获取血糖私人模式信息 调用结果回调｜Get blood sugar private mode information and call result callback
+ *@param status                                 状态码｜Status code
+ *@param progress                               当前进度0～1｜Current progress 0 ~ 1
+ *@param responseObject                         血糖私人模式信息｜Blood sugar private mode information
+ *@param error                                  错误信息｜Error message
+ */
+typedef void (^FBGetBloodSugarBlock)(FB_RET_CMD status, float progress, FBBloodSugarModel * _Nullable responseObject, NSError * _Nullable error);
 
 /**
  block回调类｜Block callback class

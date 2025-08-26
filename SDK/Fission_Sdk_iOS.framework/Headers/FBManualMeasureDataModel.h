@@ -54,6 +54,36 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) FB_CURRENTSTRESSRANGE StressRange;
 
+/**
+ 血糖值（mmol/L）
+ */
+@property (nonatomic, assign) double bg;
+
+/**
+ 尿酸（μmol/L）｜Uric acid (μmol/L)
+ */
+@property (nonatomic, assign) NSInteger uricAcid;
+
+/**
+ 总胆固醇（μmol/L）｜Total cholesterol (μmol/L)
+ */
+@property (nonatomic, assign) double totalCholesterol;
+
+/**
+ 甘油三酯（μmol/L）｜Triglycerides (μmol/L)
+ */
+@property (nonatomic, assign) double triglycerides;
+
+/**
+ 高密度脂蛋白（μmol/L）｜High-density lipoprotein (μmol/L)
+ */
+@property (nonatomic, assign) double HDL;
+
+/**
+ 低密度脂蛋白（μmol/L）｜Low-density lipoprotein (μmol/L)
+ */
+@property (nonatomic, assign) double LDL;
+
 
 @end
 

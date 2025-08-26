@@ -92,6 +92,14 @@
 "数据长度错误" = "Datalængde fejl";
 "未知的错误" = "Ukendt fejl";
 
+"没有卡片" = "Intet kort";
+"无激活的卡片" = "Intet aktiveret kort";
+"已有相同 ID 的卡片" = "Et kort med samme ID findes allerede";
+"没有此 ID 的卡片" = "Intet kort med dette ID";
+"创建卡片失败" = "Kunne ikke oprette kort";
+"删除卡片失败" = "Kunne ikke slette kort";
+"卡片已满" = "Kort fuldt";
+
 /**
  FBBluetoothOTA
  */
