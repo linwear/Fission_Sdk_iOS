@@ -3,7 +3,7 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Release-3.3.0 -Green.svg">
+    <img src="https://img.shields.io/badge/Release-3.3.1 -Green.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/Support-iOS13.0+ -blue.svg">
@@ -147,6 +147,9 @@ Privacy - Bluetooth Always Usage Description
 | Public Header Files  |
 | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
+
+     project    2025-09-05  Version:3.3.1 Build:20250905001
+                            1.剔除部分依赖库
 
      project    2025-08-14  Version:3.3.0 Build:20250814001
                             1.FB_OTANOTIFICATION 新增类型:
