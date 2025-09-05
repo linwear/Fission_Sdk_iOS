@@ -69,12 +69,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)requestSyncType:(FB_JSAPPLICATIONTYPE)appType result:(FB_JSAPPLICATIONRESULTS)result text:(NSString * _Nullable)text isEnd:(BOOL)isEnd callback:(void(^)(NSError * _Nullable error))callback;
 
 
-/**
- 请求微信鉴权｜Request WeChat authentication
- @param     mac         MAC地址｜MAC address
- */
-+ (void)requestWeChatAuthenticationWithMac:(NSString * _Nonnull)mac;
-
 @end
 
 NS_ASSUME_NONNULL_END
