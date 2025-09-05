@@ -92,6 +92,14 @@
 "数据长度错误" = "Eroare de lungime a datelor";
 "未知的错误" = "eroare necunoscută";
 
+"没有卡片" = "Niciun card";
+"无激活的卡片" = "Niciun card activat";
+"已有相同 ID 的卡片" = "Există deja un card cu același ID";
+"没有此 ID 的卡片" = "Niciun card cu acest ID";
+"创建卡片失败" = "Crearea cardului a eșuat";
+"删除卡片失败" = "Ștergerea cardului a eșuat";
+"卡片已满" = "Card plin";
+
 /**
  FBBluetoothOTA
  */

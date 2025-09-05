@@ -92,7 +92,7 @@ NS_ASSUME_NONNULL_BEGIN
  RecordType == FB_MotionGpsRecord -->>
  0:经纬度是单精度｜0: longitude and latitude are single precision
  1:经纬度是双精度｜1: longitude and latitude are double precision
-*/
+ */
 @property (nonatomic, assign) NSInteger recordDefinition;
 
 
@@ -157,6 +157,39 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** GPS 实时心率（次/分钟）｜GPS Real time heart rate (times / min) */
 @property (nonatomic, assign) NSInteger gpsHeartRate;
+
+
+
+#pragma mark - 当 FB_RECORDTYPE为FB_AirPressureRecord 时（气压记录），以下值有效｜When FB_RECORDTYPE is FB_AirPressureRecord (air pressure record), the following values are valid
+/** 气压值（帕）｜Air pressure value (Pa) */
+@property (nonatomic, assign) NSInteger airPressure;
+
+/** 海拔（米）｜Altitude (m) */
+@property (nonatomic, assign) NSInteger altitude;
+
+
+
+#pragma mark - 当 FB_RECORDTYPE为FB_BloodComponentRecord 时（血液成分记录），以下值有效｜When FB_RECORDTYPE is FB_BloodComponentRecord (blood component record), the following values are valid
+/** 尿酸（μmol/L）｜Uric acid (μmol/L) */
+@property (nonatomic, assign) NSInteger uricAcid;
+
+/** 总胆固醇（μmol/L）｜Total cholesterol (μmol/L) */
+@property (nonatomic, assign) double totalCholesterol;
+
+/** 甘油三酯（μmol/L）｜Triglycerides (μmol/L) */
+@property (nonatomic, assign) double triglycerides;
+
+/** 高密度脂蛋白（μmol/L）｜High-density lipoprotein (μmol/L) */
+@property (nonatomic, assign) double HDL;
+
+/** 低密度脂蛋白（μmol/L）｜Low-density lipoprotein (μmol/L) */
+@property (nonatomic, assign) double LDL;
+
+
+
+#pragma mark - 当 FB_RECORDTYPE为FB_BloodGlucoseRecording 时（血糖记录），以下值有效｜When FB_RECORDTYPE is FB_BloodGlucoseRecording (blood glucose recording), the following values are valid
+/** 血糖（mmol/L）｜Blood glucose (mmol/L) */
+@property (nonatomic, assign) double bloodGlucose;
 
 
 @end

@@ -92,6 +92,14 @@
 "数据长度错误" = "Ralat panjang data";
 "未知的错误" = "Ralat tidak diketahui";
 
+"没有卡片" = "Tiada kad";
+"无激活的卡片" = "Tiada kad yang diaktifkan";
+"已有相同 ID 的卡片" = "Kad dengan ID yang sama sudah wujud";
+"没有此 ID 的卡片" = "Tiada kad dengan ID ini";
+"创建卡片失败" = "Gagal membuat kad";
+"删除卡片失败" = "Gagal memadamkan kad";
+"卡片已满" = "Kad Penuh";
+
 /**
  FBBluetoothOTA
  */

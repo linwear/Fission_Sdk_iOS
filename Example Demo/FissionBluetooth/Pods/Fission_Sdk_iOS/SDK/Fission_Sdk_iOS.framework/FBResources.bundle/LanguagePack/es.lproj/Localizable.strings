@@ -92,6 +92,14 @@
 "数据长度错误" = "Error de longitud de los datos";
 "未知的错误" = "Error desconocido";
 
+"没有卡片" = "No hay tarjeta";
+"无激活的卡片" = "No hay tarjeta activada";
+"已有相同 ID 的卡片" = "Ya existe una tarjeta con el mismo ID";
+"没有此 ID 的卡片" = "No hay tarjeta con este ID";
+"创建卡片失败" = "No se pudo crear la tarjeta";
+"删除卡片失败" = "No se pudo eliminar la tarjeta";
+"卡片已满" = "Tarjeta llena";
+
 /**
  FBBluetoothOTA
  */

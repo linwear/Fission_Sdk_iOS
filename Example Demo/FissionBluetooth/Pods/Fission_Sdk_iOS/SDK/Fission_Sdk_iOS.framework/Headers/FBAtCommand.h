@@ -518,6 +518,22 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)fbTimingStressDetectionSwitchData:(BOOL)switchMode withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
 
+#pragma mark - 定时血糖检测开关设置｜Timed blood glucose detection switch setting
+/**
+ 定时血糖检测开关设置｜Timed blood glucose detection switch setting
+ @param switchMode          NO:关 YES:开 ｜NO: off    YES: on
+ */
+- (void)fbTimingBloodGlucoseDetectionSwitchData:(BOOL)switchMode withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 定时血液成分检测开关设置｜Timed blood component detection switch setting
+/**
+ 定时血液成分检测开关设置｜Timed blood component detection switch setting
+ @param switchMode          NO:关 YES:开 ｜NO: off    YES: on
+ */
+- (void)fbTimingBloodComponentDetectionSwitchData:(BOOL)switchMode withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+
+
 #pragma mark - 获取通话音频开关｜Get call audio switch
 /**
  获取通话音频开关｜Get call audio switch
@@ -637,6 +653,14 @@ NS_ASSUME_NONNULL_BEGIN
  监听设备->手机实时游戏数据流｜Monitoring device->Mobile phone real-time game data stream
 */
 - (void)fbGameStreamDataHandlerWithBlock:(FBGameStreamDataHandlerBlock _Nonnull)fbBlock;
+
+
+#pragma mark - 气压校准｜Barometric pressure calibration
+/**
+ 气压校准｜Barometric pressure calibration
+ @param airPressure          气压值(单位Pa)｜Air pressure value (unit: Pa)
+*/
+- (void)fbAirPressureCalibration:(NSInteger)airPressure withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
 @end
 

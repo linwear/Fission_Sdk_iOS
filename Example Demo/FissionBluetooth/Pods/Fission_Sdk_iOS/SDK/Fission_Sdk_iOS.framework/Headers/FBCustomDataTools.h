@@ -44,6 +44,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ 音频PCM格式转换成MP3格式｜Convert audio PCM format to MP3 format
+ @param pcmData                                  PCM 格式，采样率 16000Hz，单声道，位深 16 位｜PCM format, sampling rate 16000Hz, mono, bit depth 16 bits
+ @param sampleRate                               PCM采样率｜PCM sampling rate
+ @param channels                                 PCM声道数，1表示单声道，2表示立体声｜PCM channel number, 1 means mono, 2 means stereo
+ @param callback                                 回调，duration单位秒｜Callback, duration in seconds
+*/
++ (void)fbHandleAudioPCMToMP3:(NSData *)pcmData
+                   sampleRate:(int)sampleRate
+                     channels:(int)channels
+                     callback:(void(^)(NSData * _Nullable mp3Data, double duration, NSError * _Nullable error))callback;
+
+
+/**
  TXT电子书UTF8编码｜TXT E-book UTF8 encoding
  @param eBookFilePath                             将要处理的电子书TXT文件路径｜The path of the e-book TXT file to be processed
 */
@@ -127,6 +140,11 @@ NS_ASSUME_NONNULL_BEGIN
  14.FB_OTANotification_Avatar_Image
     Avatar_L******_xxxxxxxxxx.bin（其中******为文件大小，xxxxxxxxxx为时间戳｜Where ****** is the file size, xxxxxxxxxx is the timestamp）
  
+ 15.FB_OTANotification_WeChatAvatar_Image
+ Wechat_L******_wechat_avatar.bin（其中******为文件大小｜Where ****** is the file size）
+ 
+ 16.FB_OTANotification_WeChat_Voice
+ WeChatVoice_L******_AAAA_xxxxxxxxxx.mp3（其中******为文件大小，AAAA为消息序列号，xxxxxxxxxx为消息时间戳｜Where ****** is the file size, AAAA is the message sequence number, and xxxxxxxxxx is the message timestamp.）
  
  更多...待拓展｜More...to be expanded
  */
@@ -134,10 +152,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- 相册图片处理（按表盘分辨率）| Album picture processing (according to the resolution of the dial)
+ 处理图片| Processing images
  @param image           待处理的图片｜Pending images
+ @param ratio           处理的比例，1则默认按手表分辨率处理｜The processing ratio, 1 means the default is to process according to the watch resolution processed
 */
-+ (NSData *)albumImage:(UIImage * _Nonnull)image;
++ (NSData *)processingImage:(UIImage * _Nonnull)image ratio:(float)ratio;
+
+
+/**
+ NFC破解｜NFC cracking
+ @param inputData           待破解的数据｜Data to be cracked
+ */
++ (void)nfcCrackingInputData:(NSData *)inputData callback:(void(^)(NSData *outputData))callback;
+
 
 @end
 

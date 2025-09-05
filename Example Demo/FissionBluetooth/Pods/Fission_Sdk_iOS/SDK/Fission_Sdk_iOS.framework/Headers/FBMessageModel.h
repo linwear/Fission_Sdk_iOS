@@ -300,6 +300,46 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL smartworld;
 
 /**
+ postal
+*/
+@property (nonatomic, assign) BOOL postal;
+
+/**
+ Drive
+*/
+@property (nonatomic, assign) BOOL drive;
+
+/**
+ Prime Video
+*/
+@property (nonatomic, assign) BOOL primeVideo;
+
+/**
+ Slack
+*/
+@property (nonatomic, assign) BOOL slack;
+
+/**
+ Spotify
+*/
+@property (nonatomic, assign) BOOL spotify;
+
+/**
+ Uber
+*/
+@property (nonatomic, assign) BOOL uber;
+
+/**
+ Wynk Music
+*/
+@property (nonatomic, assign) BOOL wynkMusic;
+
+/**
+ Yahoo Mail
+*/
+@property (nonatomic, assign) BOOL yahooMail;
+
+/**
  总开关｜Maste rSwitch
 */
 @property (nonatomic, assign) BOOL masterSwitch;
