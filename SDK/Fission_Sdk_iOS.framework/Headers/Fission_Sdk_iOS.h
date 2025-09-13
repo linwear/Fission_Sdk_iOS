@@ -14,6 +14,9 @@
                               Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装。
   GitHub @link https://github.com/linwear/Fission_Sdk_iOS.git
   修改记录｜Modification Record:
+    project    2025-09-13  Version:3.3.2 Build:20250913001
+                            1.鼾宝震动记录增加血氧值
+ 
     project    2025-09-05  Version:3.3.1 Build:20250905001
                             1.剔除部分依赖库
  
