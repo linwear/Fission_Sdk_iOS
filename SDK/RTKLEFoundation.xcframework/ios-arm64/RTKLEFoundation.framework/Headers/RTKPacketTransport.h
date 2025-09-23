@@ -6,6 +6,9 @@
 //  Copyright © 2022 Realtek. All rights reserved.
 //
 
+#ifndef RTKPacketTransport_h
+#define RTKPacketTransport_h
+
 #import <Foundation/Foundation.h>
 
 #ifdef RTK_SDK_IS_STATIC_LIBRARY
@@ -194,3 +197,5 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
+
+#endif /*RTKPacketTransport_h*/
