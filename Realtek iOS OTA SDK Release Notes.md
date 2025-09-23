@@ -2,6 +2,59 @@
 
 This is in reverse chronological order, so newer entries are added to the top.
 
+## v1.17.0
+
+### Added
+
+- Support dashboard upgrade progress report
+
+### Updated
+
+- Remove deprecated interface files
+
+
+## v1.16.0
+
+### Added
+
+- Support compressed OTA
+
+### Fixed
+
+- The lib cannot find the APIs of RTKOTAUpgradeBin+Available
+
+
+## v1.15.0
+
+### Fixed
+
+- Promptly report the error after failing to read the characteristic value
+- Adapt the function for iAP check feature information
+
+
+## v1.14.0
+
+### Fixed
+
+- Adapt to old battery assessment cmd
+
+### Updated
+
+- Remove bitcode related configurations
+
+
+## v1.13.0
+
+### Fixed
+
+- Battery assessment when upgrading one of the RWS devices
+
+### Added
+
+- BB2 should first upgrade the VP image
+- Support nand flash OTA file checking
+
+
 ## v1.12.1
 
 ### Fixed
