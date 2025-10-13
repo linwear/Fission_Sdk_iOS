@@ -46,13 +46,13 @@ PODS:
     - CocoaLumberjack/Core (= 3.8.5)
   - CocoaLumberjack/Core (3.8.5)
   - CWLateralSlide (1.6.5)
-  - Fission_Sdk_iOS (3.3.1):
-    - Fission_Sdk_iOS/AllDependencys (= 3.3.1)
-    - Fission_Sdk_iOS/Headers (= 3.3.1)
+  - Fission_Sdk_iOS (3.3.3):
+    - Fission_Sdk_iOS/AllDependencys (= 3.3.3)
+    - Fission_Sdk_iOS/Headers (= 3.3.3)
     - Protobuf
-  - Fission_Sdk_iOS/AllDependencys (3.3.1):
+  - Fission_Sdk_iOS/AllDependencys (3.3.3):
     - Protobuf
-  - Fission_Sdk_iOS/Headers (3.3.1):
+  - Fission_Sdk_iOS/Headers (3.3.3):
     - Protobuf
   - FSCalendar (2.8.4)
   - IQKeyboardManager (6.5.19)
@@ -78,7 +78,7 @@ PODS:
   - Masonry (1.1.0)
   - MJExtension (3.4.2)
   - MJRefresh (3.7.9)
-  - Protobuf (3.29.4)
+  - Protobuf (3.29.5)
   - QMUIKit (4.8.0):
     - QMUIKit/QMUIComponents (= 4.8.0)
     - QMUIKit/QMUICore (= 4.8.0)
@@ -478,7 +478,7 @@ CHECKOUT OPTIONS:
     :commit: a0e79474d7428e2617e16310a0ad4584f561f081
     :git: https://github.com/AAChartModel/AAChartKit.git
   Fission_Sdk_iOS:
-    :commit: 8903719a82db2a943cec050985e9482ece1867c2
+    :commit: 29db038d62459719f8bccf90bd1b5c10913200ac
     :git: https://github.com/linwear/Fission_Sdk_iOS.git
 
 SPEC CHECKSUMS:
@@ -488,7 +488,7 @@ SPEC CHECKSUMS:
   CHIPageControl: a787bf7205c9b7e7fbfc412be36c5e8636b68f86
   CocoaLumberjack: 6a459bc897d6d80bd1b8c78482ec7ad05dffc3f0
   CWLateralSlide: 8939c8dea91a24e40d0793553118cb57cd67f64b
-  Fission_Sdk_iOS: b1cfa13d4352a63d90a19ec0e5e9633d00eb0725
+  Fission_Sdk_iOS: a00fb92c3996c7f38f8542b6945496aaf17379dc
   FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
   JJException: fce490b5c046078709283d38de73fe2f624bc14c
@@ -496,7 +496,7 @@ SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJExtension: e97d164cb411aa9795cf576093a1fa208b4a8dd8
   MJRefresh: ff9e531227924c84ce459338414550a05d2aea78
-  Protobuf: 2e6de032ba12b9efb390ae550d1a243a5b19ddfc
+  Protobuf: 164aea2ae380c3951abdc3e195220c01d17400e0
   QMUIKit: 3c622fe3c55c0dccfad750634bd9ee5e7ade9a53
   Realm: 9572204903ef28caeb3c03bb30c1147f354ee3e7
   SDAutoLayout: 8bf6b3bbc8b01f775d4defbb4fda2ace805461be
@@ -508,6 +508,6 @@ SPEC CHECKSUMS:
   UICountingLabel: faf890b505d96312e324a86718f031fafffb0ccb
   ZLCollectionViewFlowLayout: c99024652ce9f0c57d33ab53052c9b85e4a936b7
 
-PODFILE CHECKSUM: bc40fa96f189682ae288c6c2098526f74dd1a9fe
+PODFILE CHECKSUM: a95219204c5b427086d1d9630a36a4609545e1e0
 
 COCOAPODS: 1.16.2

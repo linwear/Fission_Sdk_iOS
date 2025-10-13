@@ -662,6 +662,13 @@ NS_ASSUME_NONNULL_BEGIN
 */
 - (void)fbAirPressureCalibration:(NSInteger)airPressure withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
+
+#pragma mark - 设置设备震动一次｜Set the device to vibrate once
+/**
+ 设置设备震动一次｜Set the device to vibrate once
+*/
+- (void)fbSetDeviceVibrateOnceWithBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+
 @end
 
 NS_ASSUME_NONNULL_END

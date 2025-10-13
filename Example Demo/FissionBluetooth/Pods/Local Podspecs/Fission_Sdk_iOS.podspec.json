@@ -1,9 +1,9 @@
 {
   "name": "Fission_Sdk_iOS",
-  "version": "3.3.1",
+  "version": "3.3.3",
   "summary": "Fission智能手表SDK for iOS",
   "description": "Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装｜Framework Function: iOS framework for Fission smart watch, which is responsible for the communication with the watch.",
-  "homepage": "https://github.com/linwear/Fission_Sdk_iOS/tree/3.3.1/Fission_Sdk_iOS",
+  "homepage": "https://github.com/linwear/Fission_Sdk_iOS/tree/3.3.3/Fission_Sdk_iOS",
   "license": "MIT",
   "authors": {
     "WSR": "921903719@qq.com"
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/linwear/Fission_Sdk_iOS.git",
-    "tag": "3.3.1"
+    "tag": "3.3.3"
   },
   "documentation_url": "https://github.com/linwear/Fission_Sdk_iOS/blob/main/README.md",
   "requires_arc": true,

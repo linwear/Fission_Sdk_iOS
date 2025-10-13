@@ -335,6 +335,8 @@
                                  LWLocalizbleString(@"Turn on/off call audio switch"),
                                  LWLocalizbleString(@"Get Multimedia Audio Switch status"),
                                  LWLocalizbleString(@"Turn on/off Multimedia Audio Switch"),
+                                 LWLocalizbleString(@"Set the flashlight on/off state"),
+                                 LWLocalizbleString(@"Set the device to vibrate once"),
                              ]
     };
     
@@ -1136,6 +1138,29 @@
             _switchMode = !_switchMode;
             
             [FBAtCommand.sharedInstance fbSetMultimediaAudioSwitchData:_switchMode withBlock:^(NSError * _Nullable error) {
+                if (error) {
+                    [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+                } else {
+                    weakSelf.receTextView.text = LWLocalizbleString(@"Success");
+                }
+            }];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Set the flashlight on/off state")]) {
+            _switchMode = !_switchMode;
+            
+            [FBAtCommand.sharedInstance fbSetFlashlightData:_switchMode withBlock:^(NSError * _Nullable error) {
+                if (error) {
+                    [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
+                } else {
+                    weakSelf.receTextView.text = LWLocalizbleString(@"Success");
+                }
+            }];
+        }
+        
+        else if ([rowStr containsString:LWLocalizbleString(@"Set the device to vibrate once")]) {
+            
+            [FBAtCommand.sharedInstance fbSetDeviceVibrateOnceWithBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
                 } else {

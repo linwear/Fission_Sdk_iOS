@@ -26,7 +26,7 @@ variant_for_slice()
   "RTKLEFoundation.xcframework/ios-arm64")
     echo ""
     ;;
-  "RTKLEFoundation.xcframework/ios-arm64-simulator")
+  "RTKLEFoundation.xcframework/ios-arm64_x86_64-simulator")
     echo "simulator"
     ;;
   "RTKRealChatConnection.xcframework/ios-arm64")
@@ -134,8 +134,8 @@ archs_for_slice()
   "RTKLEFoundation.xcframework/ios-arm64")
     echo "arm64"
     ;;
-  "RTKLEFoundation.xcframework/ios-arm64-simulator")
-    echo "arm64"
+  "RTKLEFoundation.xcframework/ios-arm64_x86_64-simulator")
+    echo "arm64 x86_64"
     ;;
   "RTKRealChatConnection.xcframework/ios-arm64")
     echo "arm64"
@@ -310,7 +310,7 @@ install_xcframework() {
 }
 
 install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKOTASDK.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64_x86_64-simulator"
-install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKLEFoundation.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64-simulator"
+install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKLEFoundation.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64_x86_64-simulator"
 install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKRealChatConnection.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64-simulator"
 install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/RTKAudioStreaming.xcframework" "Fission_Sdk_iOS/AllDependencys" "framework" "ios-arm64" "ios-arm64-simulator"
 install_xcframework "${PODS_ROOT}/Fission_Sdk_iOS/SDK/libRTKCompression.xcframework" "Fission_Sdk_iOS/AllDependencys" "library" "ios-arm64" "ios-arm64_x86_64-simulator"

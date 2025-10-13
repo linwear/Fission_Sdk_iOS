@@ -125,6 +125,8 @@
 "Turn on/off call audio switch" = "Turn on/off call audio switch";
 "Get Multimedia Audio Switch status" = "Get Multimedia Audio Switch status";
 "Turn on/off Multimedia Audio Switch" = "Turn on/off Multimedia Audio Switch";
+"Set the flashlight on/off state" = "Set the flashlight on/off state";
+"Set the device to vibrate once" = "Set the device to vibrate once";
 
 "Enable(2s)/disable data monitoring flow" = "Enable(2s)/disable data monitoring flow";
 

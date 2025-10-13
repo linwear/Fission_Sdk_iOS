@@ -24,6 +24,11 @@ NS_ASSUME_NONNULL_BEGIN
 */
 @property (nonatomic, assign) NSInteger causes;
 
+/**
+ 血氧值（%）｜Blood oxygen value (%)
+ */
+@property (nonatomic, assign) NSInteger SpO2;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -125,6 +125,8 @@
 "Turn on/off call audio switch" = "打开/关闭通话音频开关";
 "Get Multimedia Audio Switch status" = "获取多媒体音频开关状态";
 "Turn on/off Multimedia Audio Switch" = "打开/关闭多媒体音频开关";
+"Set the flashlight on/off state" = "设置手电筒开启/关闭状态";
+"Set the device to vibrate once" = "设置设备震动一次";
 
 "Enable(2s)/disable data monitoring flow" = "启用（2s）/禁用 数据流监控";
 
