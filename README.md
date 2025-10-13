@@ -3,7 +3,7 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Release-3.3.2 -Green.svg">
+    <img src="https://img.shields.io/badge/Release-3.3.3 -Green.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/Support-iOS13.0+ -blue.svg">
@@ -147,6 +147,9 @@ Privacy - Bluetooth Always Usage Description
 | Public Header Files  |
 | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
+
+     project    2025-10-13  Version:3.3.3 Build:20251013001
+                            1.设置设备震动一次 @see（FBAtCommand）fbSetDeviceVibrateOnceWithBlock:
 
      project    2025-09-13  Version:3.3.2 Build:20250913001
                             1.鼾宝震动记录增加血氧值
