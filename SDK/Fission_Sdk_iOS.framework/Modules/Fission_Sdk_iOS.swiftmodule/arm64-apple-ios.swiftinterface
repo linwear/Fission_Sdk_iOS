@@ -1,0 +1,54 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.1 (swiftlang-6.2.1.4.8 clang-1700.4.4.1)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 6 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -module-name Fission_Sdk_iOS
+// swift-module-flags-ignorable: -no-verify-emitted-module-interface -formal-cxx-interoperability-mode=swift-6 -interface-compiler-version 6.2.1
+@_exported import Fission_Sdk_iOS
+import Foundation
+import RTKAudioStreaming
+import RTKLEFoundation
+import RTKRealChatConnection
+import SCompressLib
+import Swift
+import SwiftUI
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+@_inheritsConvenienceInitializers @objc public class RTKAudioStreamObject : ObjectiveC.NSObject {
+  @objc public func rtkConnected(peripheral: CoreBluetooth.CBPeripheral)
+  @objc public func rtkDisconnect()
+  @objc override dynamic public init()
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc override dynamic public func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+  #endif
+  @objc public func setAudioTransmissionStartHandler(block: @escaping Fission_Sdk_iOS.RTKChatObjectAudioTransmissionStartHandler)
+  @objc public func setAudioTransmissionDataHandler(block: @escaping Fission_Sdk_iOS.RTKChatObjectAudioTransmissionDataHandler)
+  @objc public func setAudioTransmissionEndHandler(block: @escaping Fission_Sdk_iOS.RTKChatObjectAudioTransmissionEndHandler)
+  @objc public var rtkOnRecognizedHandler: Fission_Sdk_iOS.RTKChatObjectOnRecognizedHandler?
+  @objc public var rtkOnReplyTextHandle: Fission_Sdk_iOS.RTKChatObjectOnReplyTextHandler?
+  @objc public var rtkOnReplySpeechHandler: Fission_Sdk_iOS.RTKChatObjectOnReplySpeechHandler?
+  @objc deinit
+}
+extension Fission_Sdk_iOS.RTKAudioStreamObject : RTKLEFoundation.RTKProfileConnectionManagerDelegate {
+  @objc dynamic public func profileManagerDidUpdateGATTAvailability(_ manager: RTKLEFoundation.RTKProfileConnectionManager)
+}
+public typealias RTKChatObjectAudioTransmissionStartHandler = @convention(block) () -> Swift.Void
+public typealias RTKChatObjectAudioTransmissionDataHandler = @convention(block) (Foundation.URL?) -> Swift.Void
+public typealias RTKChatObjectAudioTransmissionEndHandler = (_ result: Swift.Int) -> Swift.Void
+public typealias RTKChatObjectOnRecognizedHandler = (_ result: Swift.String) -> Swift.Void
+public typealias RTKChatObjectOnReplyTextHandler = (_ result: Swift.String) -> Swift.Void
+public typealias RTKChatObjectOnReplySpeechHandler = (_ result: Foundation.URL) -> Swift.Void
+@_inheritsConvenienceInitializers @objc public class FBHaiSiCompress : ObjectiveC.NSObject {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func hsCompress(img image: UIKit.UIImage, imgId: ObjectiveC.NSInteger) -> Foundation.NSData?
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc public func hsDeCompress(path filePath: Swift.String, imgId: Swift.UInt32) -> UIKit.UIImage?
+  #endif
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc extension UIKit.UIImage {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func hsScaleAndCropImage(toSize size: CoreFoundation.CGSize, cornerRadius: CoreFoundation.CGFloat) -> UIKit.UIImage?
+  #endif
+}

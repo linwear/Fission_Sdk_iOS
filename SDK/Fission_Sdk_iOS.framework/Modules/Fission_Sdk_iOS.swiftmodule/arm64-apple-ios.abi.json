@@ -1,9 +1,1389 @@
 {
   "ABIRoot": {
     "kind": "Root",
-    "name": "NO_MODULE",
-    "printedName": "NO_MODULE",
+    "name": "Fission_Sdk_iOS",
+    "printedName": "Fission_Sdk_iOS",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Fission_Sdk_iOS",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "RTKAudioStreaming",
+        "printedName": "RTKAudioStreaming",
+        "declKind": "Import",
+        "moduleName": "Fission_Sdk_iOS"
+      },
+      {
+        "kind": "Import",
+        "name": "RTKLEFoundation",
+        "printedName": "RTKLEFoundation",
+        "declKind": "Import",
+        "moduleName": "Fission_Sdk_iOS"
+      },
+      {
+        "kind": "Import",
+        "name": "RTKRealChatConnection",
+        "printedName": "RTKRealChatConnection",
+        "declKind": "Import",
+        "moduleName": "Fission_Sdk_iOS"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "RTKAudioStreamObject",
+        "printedName": "RTKAudioStreamObject",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "rtkConnected",
+            "printedName": "rtkConnected(peripheral:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CBPeripheral",
+                "printedName": "CoreBluetooth.CBPeripheral",
+                "usr": "c:objc(cs)CBPeripheral"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Fission_Sdk_iOS@objc(cs)RTKAudioStreamObject(im)rtkConnectedWithPeripheral:",
+            "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC12rtkConnected10peripheralySo12CBPeripheralC_tF",
+            "moduleName": "Fission_Sdk_iOS",
+            "objc_name": "rtkConnectedWithPeripheral:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "rtkDisconnect",
+            "printedName": "rtkDisconnect()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Fission_Sdk_iOS@objc(cs)RTKAudioStreamObject(im)rtkDisconnect",
+            "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC13rtkDisconnectyyF",
+            "moduleName": "Fission_Sdk_iOS",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "RTKAudioStreamObject",
+                "printedName": "Fission_Sdk_iOS.RTKAudioStreamObject",
+                "usr": "c:@M@Fission_Sdk_iOS@objc(cs)RTKAudioStreamObject"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Fission_Sdk_iOS@objc(cs)RTKAudioStreamObject(im)init",
+            "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectCACycfc",
+            "moduleName": "Fission_Sdk_iOS",
+            "overriding": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "observeValue",
+            "printedName": "observeValue(forKeyPath:of:change:context:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.String?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "String",
+                    "printedName": "Swift.String",
+                    "usr": "s:SS"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Any?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "ProtocolComposition",
+                    "printedName": "Any"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "[Foundation.NSKeyValueChangeKey : Any]?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Dictionary",
+                    "printedName": "[Foundation.NSKeyValueChangeKey : Any]",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "NSKeyValueChangeKey",
+                        "printedName": "Foundation.NSKeyValueChangeKey",
+                        "usr": "c:@T@NSKeyValueChangeKey"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "ProtocolComposition",
+                        "printedName": "Any"
+                      }
+                    ],
+                    "usr": "s:SD"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Swift.UnsafeMutableRawPointer?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UnsafeMutableRawPointer",
+                    "printedName": "Swift.UnsafeMutableRawPointer",
+                    "usr": "s:Sv"
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Fission_Sdk_iOS@objc(cs)RTKAudioStreamObject(im)observeValueForKeyPath:ofObject:change:context:",
+            "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC12observeValue10forKeyPath2of6change7contextySSSg_ypSgSDySo05NSKeyh6ChangeJ0aypGSgSvSgtF",
+            "moduleName": "Fission_Sdk_iOS",
+            "overriding": true,
+            "objc_name": "observeValueForKeyPath:ofObject:change:context:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setAudioTransmissionStartHandler",
+            "printedName": "setAudioTransmissionStartHandler(block:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "() -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Fission_Sdk_iOS@objc(cs)RTKAudioStreamObject(im)setAudioTransmissionStartHandlerWithBlock:",
+            "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC32setAudioTransmissionStartHandler5blockyyyXL_tF",
+            "moduleName": "Fission_Sdk_iOS",
+            "objc_name": "setAudioTransmissionStartHandlerWithBlock:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setAudioTransmissionDataHandler",
+            "printedName": "setAudioTransmissionDataHandler(block:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Foundation.URL?) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "Foundation.URL?",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "URL",
+                        "printedName": "Foundation.URL",
+                        "usr": "s:10Foundation3URLV"
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Fission_Sdk_iOS@objc(cs)RTKAudioStreamObject(im)setAudioTransmissionDataHandlerWithBlock:",
+            "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC31setAudioTransmissionDataHandler5blockyy10Foundation3URLVSgXL_tF",
+            "moduleName": "Fission_Sdk_iOS",
+            "objc_name": "setAudioTransmissionDataHandlerWithBlock:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "setAudioTransmissionEndHandler",
+            "printedName": "setAudioTransmissionEndHandler(block:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Int) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Int",
+                    "printedName": "Swift.Int",
+                    "usr": "s:Si"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Fission_Sdk_iOS@objc(cs)RTKAudioStreamObject(im)setAudioTransmissionEndHandlerWithBlock:",
+            "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC30setAudioTransmissionEndHandler5blockyySic_tF",
+            "moduleName": "Fission_Sdk_iOS",
+            "objc_name": "setAudioTransmissionEndHandlerWithBlock:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Var",
+            "name": "rtkOnRecognizedHandler",
+            "printedName": "rtkOnRecognizedHandler",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Swift.String) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Fission_Sdk_iOS@objc(cs)RTKAudioStreamObject(py)rtkOnRecognizedHandler",
+            "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC22rtkOnRecognizedHandlerySScSgvp",
+            "moduleName": "Fission_Sdk_iOS",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((Swift.String) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Swift.String) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Fission_Sdk_iOS@objc(cs)RTKAudioStreamObject(im)rtkOnRecognizedHandler",
+                "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC22rtkOnRecognizedHandlerySScSgvg",
+                "moduleName": "Fission_Sdk_iOS",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((Swift.String) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Swift.String) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Fission_Sdk_iOS@objc(cs)RTKAudioStreamObject(im)setRtkOnRecognizedHandler:",
+                "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC22rtkOnRecognizedHandlerySScSgvs",
+                "moduleName": "Fission_Sdk_iOS",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15Fission_Sdk_iOS20RTKAudioStreamObjectC22rtkOnRecognizedHandlerySScSgvM",
+                "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC22rtkOnRecognizedHandlerySScSgvM",
+                "moduleName": "Fission_Sdk_iOS",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "rtkOnReplyTextHandle",
+            "printedName": "rtkOnReplyTextHandle",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Swift.String) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Swift.String) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "String",
+                        "printedName": "Swift.String",
+                        "usr": "s:SS"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Fission_Sdk_iOS@objc(cs)RTKAudioStreamObject(py)rtkOnReplyTextHandle",
+            "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC20rtkOnReplyTextHandleySScSgvp",
+            "moduleName": "Fission_Sdk_iOS",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((Swift.String) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Swift.String) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Fission_Sdk_iOS@objc(cs)RTKAudioStreamObject(im)rtkOnReplyTextHandle",
+                "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC20rtkOnReplyTextHandleySScSgvg",
+                "moduleName": "Fission_Sdk_iOS",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((Swift.String) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Swift.String) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "String",
+                            "printedName": "Swift.String",
+                            "usr": "s:SS"
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Fission_Sdk_iOS@objc(cs)RTKAudioStreamObject(im)setRtkOnReplyTextHandle:",
+                "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC20rtkOnReplyTextHandleySScSgvs",
+                "moduleName": "Fission_Sdk_iOS",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15Fission_Sdk_iOS20RTKAudioStreamObjectC20rtkOnReplyTextHandleySScSgvM",
+                "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC20rtkOnReplyTextHandleySScSgvM",
+                "moduleName": "Fission_Sdk_iOS",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Var",
+            "name": "rtkOnReplySpeechHandler",
+            "printedName": "rtkOnReplySpeechHandler",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "((Foundation.URL) -> ())?",
+                "children": [
+                  {
+                    "kind": "TypeFunc",
+                    "name": "Function",
+                    "printedName": "(Foundation.URL) -> ()",
+                    "children": [
+                      {
+                        "kind": "TypeNominal",
+                        "name": "Void",
+                        "printedName": "()"
+                      },
+                      {
+                        "kind": "TypeNominal",
+                        "name": "URL",
+                        "printedName": "Foundation.URL",
+                        "usr": "s:10Foundation3URLV"
+                      }
+                    ]
+                  }
+                ],
+                "usr": "s:Sq"
+              }
+            ],
+            "declKind": "Var",
+            "usr": "c:@M@Fission_Sdk_iOS@objc(cs)RTKAudioStreamObject(py)rtkOnReplySpeechHandler",
+            "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC23rtkOnReplySpeechHandlery10Foundation3URLVcSgvp",
+            "moduleName": "Fission_Sdk_iOS",
+            "declAttributes": [
+              "HasInitialValue",
+              "HasStorage",
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "hasStorage": true,
+            "accessors": [
+              {
+                "kind": "Accessor",
+                "name": "Get",
+                "printedName": "Get()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((Foundation.URL) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Foundation.URL) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "URL",
+                            "printedName": "Foundation.URL",
+                            "usr": "s:10Foundation3URLV"
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Fission_Sdk_iOS@objc(cs)RTKAudioStreamObject(im)rtkOnReplySpeechHandler",
+                "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC23rtkOnReplySpeechHandlery10Foundation3URLVcSgvg",
+                "moduleName": "Fission_Sdk_iOS",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "get"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Set",
+                "printedName": "Set()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Optional",
+                    "printedName": "((Foundation.URL) -> ())?",
+                    "children": [
+                      {
+                        "kind": "TypeFunc",
+                        "name": "Function",
+                        "printedName": "(Foundation.URL) -> ()",
+                        "children": [
+                          {
+                            "kind": "TypeNominal",
+                            "name": "Void",
+                            "printedName": "()"
+                          },
+                          {
+                            "kind": "TypeNominal",
+                            "name": "URL",
+                            "printedName": "Foundation.URL",
+                            "usr": "s:10Foundation3URLV"
+                          }
+                        ]
+                      }
+                    ],
+                    "usr": "s:Sq"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "c:@M@Fission_Sdk_iOS@objc(cs)RTKAudioStreamObject(im)setRtkOnReplySpeechHandler:",
+                "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC23rtkOnReplySpeechHandlery10Foundation3URLVcSgvs",
+                "moduleName": "Fission_Sdk_iOS",
+                "implicit": true,
+                "declAttributes": [
+                  "ObjC"
+                ],
+                "accessorKind": "set"
+              },
+              {
+                "kind": "Accessor",
+                "name": "Modify",
+                "printedName": "Modify()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  }
+                ],
+                "declKind": "Accessor",
+                "usr": "s:15Fission_Sdk_iOS20RTKAudioStreamObjectC23rtkOnReplySpeechHandlery10Foundation3URLVcSgvM",
+                "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC23rtkOnReplySpeechHandlery10Foundation3URLVcSgvM",
+                "moduleName": "Fission_Sdk_iOS",
+                "implicit": true,
+                "accessorKind": "_modify"
+              }
+            ]
+          },
+          {
+            "kind": "Function",
+            "name": "profileManagerDidUpdateGATTAvailability",
+            "printedName": "profileManagerDidUpdateGATTAvailability(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "RTKProfileConnectionManager",
+                "printedName": "RTKLEFoundation.RTKProfileConnectionManager",
+                "usr": "c:objc(cs)RTKProfileConnectionManager"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Fission_Sdk_iOS@objc(cs)RTKAudioStreamObject(im)profileManagerDidUpdateGATTAvailability:",
+            "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC39profileManagerDidUpdateGATTAvailabilityyySo020RTKProfileConnectionH0CF",
+            "moduleName": "Fission_Sdk_iOS",
+            "objc_name": "profileManagerDidUpdateGATTAvailability:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "AccessControl"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@Fission_Sdk_iOS@objc(cs)RTKAudioStreamObject",
+        "mangledName": "$s15Fission_Sdk_iOS20RTKAudioStreamObjectC",
+        "moduleName": "Fission_Sdk_iOS",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "Fission_Sdk_iOS",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "SwiftUI",
+        "printedName": "SwiftUI",
+        "declKind": "Import",
+        "moduleName": "Fission_Sdk_iOS"
+      },
+      {
+        "kind": "Import",
+        "name": "SCompressLib",
+        "printedName": "SCompressLib",
+        "declKind": "Import",
+        "moduleName": "Fission_Sdk_iOS"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "FBHaiSiCompress",
+        "printedName": "FBHaiSiCompress",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "hsCompress",
+            "printedName": "hsCompress(img:imgId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "Foundation.NSData?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NSData",
+                    "printedName": "Foundation.NSData",
+                    "usr": "c:objc(cs)NSData"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UIImage",
+                "printedName": "UIKit.UIImage",
+                "usr": "c:objc(cs)UIImage"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Int",
+                "printedName": "Swift.Int",
+                "usr": "s:Si"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Fission_Sdk_iOS@objc(cs)FBHaiSiCompress(im)hsCompressWithImg:imgId:",
+            "mangledName": "$s15Fission_Sdk_iOS15FBHaiSiCompressC02hsF03img0H2IdSo6NSDataCSgSo7UIImageC_SitF",
+            "moduleName": "Fission_Sdk_iOS",
+            "objc_name": "hsCompressWithImg:imgId:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "hsDeCompress",
+            "printedName": "hsDeCompress(path:imgId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIImage?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIImage",
+                    "printedName": "UIKit.UIImage",
+                    "usr": "c:objc(cs)UIImage"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "UInt32",
+                "printedName": "Swift.UInt32",
+                "usr": "s:s6UInt32V"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@M@Fission_Sdk_iOS@objc(cs)FBHaiSiCompress(im)hsDeCompressWithPath:imgId:",
+            "mangledName": "$s15Fission_Sdk_iOS15FBHaiSiCompressC04hsDeF04path5imgIdSo7UIImageCSgSS_s6UInt32VtF",
+            "moduleName": "Fission_Sdk_iOS",
+            "objc_name": "hsDeCompressWithPath:imgId:",
+            "declAttributes": [
+              "AccessControl",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "FBHaiSiCompress",
+                "printedName": "Fission_Sdk_iOS.FBHaiSiCompress",
+                "usr": "c:@M@Fission_Sdk_iOS@objc(cs)FBHaiSiCompress"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "c:@M@Fission_Sdk_iOS@objc(cs)FBHaiSiCompress(im)init",
+            "mangledName": "$s15Fission_Sdk_iOS15FBHaiSiCompressCACycfc",
+            "moduleName": "Fission_Sdk_iOS",
+            "overriding": true,
+            "implicit": true,
+            "objc_name": "init",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "Override"
+            ],
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:@M@Fission_Sdk_iOS@objc(cs)FBHaiSiCompress",
+        "mangledName": "$s15Fission_Sdk_iOS15FBHaiSiCompressC",
+        "moduleName": "Fission_Sdk_iOS",
+        "declAttributes": [
+          "AccessControl",
+          "ObjC"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          }
+        ]
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "UIImage",
+        "printedName": "UIImage",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "hsScaleAndCropImage",
+            "printedName": "hsScaleAndCropImage(toSize:cornerRadius:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "UIKit.UIImage?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "UIImage",
+                    "printedName": "UIKit.UIImage",
+                    "usr": "c:objc(cs)UIImage"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGSize",
+                "printedName": "CoreFoundation.CGSize",
+                "usr": "c:@S@CGSize"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "CGFloat",
+                "printedName": "CoreGraphics.CGFloat",
+                "usr": "s:14CoreFoundation7CGFloatV"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "c:@CM@Fission_Sdk_iOS@@objc(cs)UIImage(im)hsScaleAndCropImageToSize:cornerRadius:",
+            "mangledName": "$sSo7UIImageC15Fission_Sdk_iOSE19hsScaleAndCropImage6toSize12cornerRadiusABSgSo6CGSizeV_12CoreGraphics7CGFloatVtF",
+            "moduleName": "Fission_Sdk_iOS",
+            "objc_name": "hsScaleAndCropImageToSize:cornerRadius:",
+            "declAttributes": [
+              "Dynamic",
+              "ObjC",
+              "RawDocComment"
+            ],
+            "isFromExtension": true,
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "c:objc(cs)UIImage",
+        "moduleName": "UIKit",
+        "isOpen": true,
+        "intro_iOS": "2.0",
+        "objc_name": "UIImage",
+        "declAttributes": [
+          "Available",
+          "ObjC",
+          "SynthesizedProtocol",
+          "NonSendable",
+          "Sendable",
+          "Dynamic"
+        ],
+        "superclassUsr": "c:objc(cs)NSObject",
+        "isExternal": true,
+        "inheritsConvenienceInitializers": true,
+        "superclassNames": [
+          "ObjectiveC.NSObject"
+        ],
+        "conformances": [
+          {
+            "kind": "Conformance",
+            "name": "Sendable",
+            "printedName": "Sendable",
+            "usr": "s:s8SendableP",
+            "mangledName": "$ss8SendableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Copyable",
+            "printedName": "Copyable",
+            "usr": "s:s8CopyableP",
+            "mangledName": "$ss8CopyableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Escapable",
+            "printedName": "Escapable",
+            "usr": "s:s9EscapableP",
+            "mangledName": "$ss9EscapableP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Equatable",
+            "printedName": "Equatable",
+            "usr": "s:SQ",
+            "mangledName": "$sSQ"
+          },
+          {
+            "kind": "Conformance",
+            "name": "Hashable",
+            "printedName": "Hashable",
+            "usr": "s:SH",
+            "mangledName": "$sSH"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CVarArg",
+            "printedName": "CVarArg",
+            "usr": "s:s7CVarArgP",
+            "mangledName": "$ss7CVarArgP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObservingPublishing",
+            "printedName": "_KeyValueCodingAndObservingPublishing",
+            "usr": "s:10Foundation37_KeyValueCodingAndObservingPublishingP",
+            "mangledName": "$s10Foundation37_KeyValueCodingAndObservingPublishingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_KeyValueCodingAndObserving",
+            "printedName": "_KeyValueCodingAndObserving",
+            "usr": "s:10Foundation27_KeyValueCodingAndObservingP",
+            "mangledName": "$s10Foundation27_KeyValueCodingAndObservingP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomStringConvertible",
+            "printedName": "CustomStringConvertible",
+            "usr": "s:s23CustomStringConvertibleP",
+            "mangledName": "$ss23CustomStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "CustomDebugStringConvertible",
+            "printedName": "CustomDebugStringConvertible",
+            "usr": "s:s28CustomDebugStringConvertibleP",
+            "mangledName": "$ss28CustomDebugStringConvertibleP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "SendableMetatype",
+            "printedName": "SendableMetatype",
+            "usr": "s:s16SendableMetatypeP",
+            "mangledName": "$ss16SendableMetatypeP"
+          },
+          {
+            "kind": "Conformance",
+            "name": "_ExpressibleByImageLiteral",
+            "printedName": "_ExpressibleByImageLiteral",
+            "usr": "s:s26_ExpressibleByImageLiteralP",
+            "mangledName": "$ss26_ExpressibleByImageLiteralP"
+          }
+        ]
+      }
+    ],
     "json_format_version": 8
   },
-  "ConstValues": []
+  "ConstValues": [
+    {
+      "filePath": "\/Users\/liebian\/Desktop\/iOS-Fission\/Fission_Sdk_iOS\/FBBuletoothManger\/FBBasic\/RTKAudioStreamObject.swift",
+      "kind": "StringLiteral",
+      "offset": 1166,
+      "length": 59,
+      "value": "\"瑞昱RTK音频流服务 初始化管理器 \""
+    },
+    {
+      "filePath": "\/Users\/liebian\/Desktop\/iOS-Fission\/Fission_Sdk_iOS\/FBBuletoothManger\/FBBasic\/RTKAudioStreamObject.swift",
+      "kind": "StringLiteral",
+      "offset": 1224,
+      "length": 2,
+      "value": "\"\""
+    },
+    {
+      "filePath": "\/Users\/liebian\/Desktop\/iOS-Fission\/Fission_Sdk_iOS\/FBBuletoothManger\/FBBasic\/RTKAudioStreamObject.swift",
+      "kind": "StringLiteral",
+      "offset": 1477,
+      "length": 8,
+      "value": "\"status\""
+    },
+    {
+      "filePath": "\/Users\/liebian\/Desktop\/iOS-Fission\/Fission_Sdk_iOS\/FBBuletoothManger\/FBBasic\/RTKAudioStreamObject.swift",
+      "kind": "StringLiteral",
+      "offset": 1623,
+      "length": 8,
+      "value": "\"status\""
+    },
+    {
+      "filePath": "\/Users\/liebian\/Desktop\/iOS-Fission\/Fission_Sdk_iOS\/FBBuletoothManger\/FBBasic\/RTKAudioStreamObject.swift",
+      "kind": "StringLiteral",
+      "offset": 2876,
+      "length": 60,
+      "value": "\"瑞昱RTK音频流服务 支持回复问题文字到手表\""
+    },
+    {
+      "filePath": "\/Users\/liebian\/Desktop\/iOS-Fission\/Fission_Sdk_iOS\/FBBuletoothManger\/FBBasic\/RTKAudioStreamObject.swift",
+      "kind": "StringLiteral",
+      "offset": 3224,
+      "length": 60,
+      "value": "\"瑞昱RTK音频流服务 支持回复答案文字到手表\""
+    },
+    {
+      "filePath": "\/Users\/liebian\/Desktop\/iOS-Fission\/Fission_Sdk_iOS\/FBBuletoothManger\/FBBasic\/RTKAudioStreamObject.swift",
+      "kind": "StringLiteral",
+      "offset": 3586,
+      "length": 66,
+      "value": "\"瑞昱RTK音频流服务 支持回复答案语音文件到手表\""
+    },
+    {
+      "filePath": "\/Users\/liebian\/Desktop\/iOS-Fission\/Fission_Sdk_iOS\/FBBuletoothManger\/FBBasic\/RTKAudioStreamObject.swift",
+      "kind": "StringLiteral",
+      "offset": 5736,
+      "length": 39,
+      "value": "\"瑞昱RTK音频流服务 录音开始\""
+    },
+    {
+      "filePath": "\/Users\/liebian\/Desktop\/iOS-Fission\/Fission_Sdk_iOS\/FBBuletoothManger\/FBBasic\/RTKAudioStreamObject.swift",
+      "kind": "StringLiteral",
+      "offset": 5993,
+      "length": 39,
+      "value": "\"瑞昱RTK音频流服务 录音结束\""
+    },
+    {
+      "filePath": "\/Users\/liebian\/Desktop\/iOS-Fission\/Fission_Sdk_iOS\/FBBuletoothManger\/FBBasic\/RTKAudioStreamObject.swift",
+      "kind": "IntegerLiteral",
+      "offset": 6225,
+      "length": 1,
+      "value": "1"
+    },
+    {
+      "filePath": "\/Users\/liebian\/Desktop\/iOS-Fission\/Fission_Sdk_iOS\/FBBuletoothManger\/FBBasic\/RTKAudioStreamObject.swift",
+      "kind": "StringLiteral",
+      "offset": 6384,
+      "length": 39,
+      "value": "\"瑞昱RTK音频流服务 录音取消\""
+    },
+    {
+      "filePath": "\/Users\/liebian\/Desktop\/iOS-Fission\/Fission_Sdk_iOS\/FBBuletoothManger\/FBBasic\/RTKAudioStreamObject.swift",
+      "kind": "StringLiteral",
+      "offset": 6583,
+      "length": 39,
+      "value": "\"瑞昱RTK音频流服务 录音中断\""
+    },
+    {
+      "filePath": "\/Users\/liebian\/Desktop\/iOS-Fission\/Fission_Sdk_iOS\/FBBuletoothManger\/FBBasic\/RTKAudioStreamObject.swift",
+      "kind": "StringLiteral",
+      "offset": 6727,
+      "length": 64,
+      "value": "\"瑞昱RTK音频流服务 其他未知AudioTransmissionState...\""
+    }
+  ]
 }
