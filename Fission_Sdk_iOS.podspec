@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name                     = "Fission_Sdk_iOS"
-  spec.version                  = "3.3.3"
+  spec.version                  = "3.3.4"
   spec.summary                  = "Fission智能手表SDK for iOS"
   spec.description              = <<-DESC
                                   Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装｜Framework Function: iOS framework for Fission smart watch, which is responsible for the communication with the watch.
