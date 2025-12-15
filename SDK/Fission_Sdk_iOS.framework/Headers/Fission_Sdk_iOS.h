@@ -18,6 +18,7 @@
     project    2025-12-10  Version:3.3.4 Build:20251210001
                             1.设置设备震动一次（增加震动等级） @see（FBAtCommand）fbSetDeviceVibrateOnceWithLevel:withBlock:
                             2.鼾宝震动记录（增加佩戴状态，震动等级） @see（FBSnoreRecordModel）
+                            3.过滤鼾宝无效记录
  
     project    2025-10-13  Version:3.3.3 Build:20251013001
                             1.设置设备震动一次 @see（FBAtCommand）fbSetDeviceVibrateOnceWithBlock:
