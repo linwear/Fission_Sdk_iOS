@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  生成自定义表盘bin文件数据｜Generate custom dial bin file data
  @param dialModel                                 自定义表盘参数模型｜Custom dial parameter model
 */
-- (NSData *)fbGenerateCustomDialBinFileDataWithDialModel:(FBCustomDialModel * _Nonnull)dialModel;
+- (FBCustomDialResult *)fbGenerateCustomDialBinFileDataWithDialModel:(FBCustomDialModel * _Nonnull)dialModel;
 
 
 /**

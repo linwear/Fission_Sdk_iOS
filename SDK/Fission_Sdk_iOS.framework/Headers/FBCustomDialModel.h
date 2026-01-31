@@ -8,17 +8,12 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
+@class FBCustomDialResult;
 
 /**
  自定义表盘参数｜Custom dial parameters
 */
 @interface FBCustomDialModel : NSObject
-
-/** 表盘分辨率大小｜Dial resolution size */
-@property (nonatomic, assign) CGSize dialSize __attribute__((deprecated("No settings required, SDK handles it internally")));
-
-/** 缩略图分辨率大小｜Thumbnail resolution size */
-@property (nonatomic, assign) CGSize thumbnailSize __attribute__((deprecated("No settings required, SDK handles it internally")));
 
 /** 表盘背景图片｜Background picture of dial */
 @property (nonatomic, retain) UIImage *dialBackgroundImage;
@@ -34,6 +29,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 表盘字体颜色｜Dial font color */
 @property (nonatomic, retain) UIColor *dialFontColor;
+
+@end
+
+
+/**
+ 自定义表盘｜Custom Dial
+ */
+@interface FBCustomDialResult : NSObject
+
+/** 原始大小（字节）｜Original size (bytes) */
+@property (nonatomic, assign) NSUInteger originalSize;
+
+/** 表盘bin文件 */
+@property (nonatomic, strong) NSData *dialData;
 
 @end
 
