@@ -3,7 +3,7 @@
 <p align="center">
 
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
-    <img src="https://img.shields.io/badge/Release-3.3.3 -Green.svg">
+    <img src="https://img.shields.io/badge/Release-3.3.5 -Green.svg">
 </a>
 <a href="https://github.com/linwear/Fission_Sdk_iOS.git">
     <img src="https://img.shields.io/badge/Support-iOS13.0+ -blue.svg">
@@ -147,6 +147,13 @@ Privacy - Bluetooth Always Usage Description
 | Public Header Files  |
 | :----:  |
 | ![image1](https://github.com/linwear/Fission_Sdk_iOS/blob/main/Resources/011.png) |
+
+     project    2026-01-31  Version:3.3.5 Build:20260131001
+                            1.生成自定义表盘返回参数由NSData改为FBCustomDialResult
+
+     project    2025-12-10  Version:3.3.4 Build:20251210001
+                            1.设置设备震动一次（增加震动等级） @see（FBAtCommand）fbSetDeviceVibrateOnceWithLevel:withBlock:
+                            2.鼾宝震动记录（增加佩戴状态，震动等级） @see（FBSnoreRecordModel）
 
      project    2025-10-13  Version:3.3.3 Build:20251013001
                             1.设置设备震动一次 @see（FBAtCommand）fbSetDeviceVibrateOnceWithBlock:

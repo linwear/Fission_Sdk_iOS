@@ -1160,7 +1160,7 @@
         
         else if ([rowStr containsString:LWLocalizbleString(@"Set the device to vibrate once")]) {
             
-            [FBAtCommand.sharedInstance fbSetDeviceVibrateOnceWithBlock:^(NSError * _Nullable error) {
+            [FBAtCommand.sharedInstance fbSetDeviceVibrateOnceWithLevel:FB_DEVICEVIBRATELEVEL_5 withBlock:^(NSError * _Nullable error) {
                 if (error) {
                     [NSObject showHUDText:[NSString stringWithFormat:@"%@", error]];
                 } else {

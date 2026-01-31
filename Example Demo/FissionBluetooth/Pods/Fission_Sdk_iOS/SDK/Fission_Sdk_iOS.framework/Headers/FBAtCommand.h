@@ -666,8 +666,9 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 设置设备震动一次｜Set the device to vibrate once
 /**
  设置设备震动一次｜Set the device to vibrate once
+ @param level               震动等级｜Vibration level
 */
-- (void)fbSetDeviceVibrateOnceWithBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
+- (void)fbSetDeviceVibrateOnceWithLevel:(FB_DEVICEVIBRATELEVEL)level withBlock:(FBResultCallBackBlock _Nonnull)fbBlock;
 
 @end
 

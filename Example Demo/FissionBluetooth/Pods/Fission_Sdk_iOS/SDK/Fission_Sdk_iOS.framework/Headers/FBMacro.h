@@ -1012,4 +1012,19 @@ typedef NS_ENUM (NSInteger, FB_NFCTYPE) {
 } NS_SWIFT_NAME(FB_NFCTYPE);
 
 
+#pragma mark - 设备震动等级｜Device vibration level
+/*
+ * 设备震动等级｜Device vibration level
+ */
+typedef NS_ENUM (NSInteger, FB_DEVICEVIBRATELEVEL) {
+    FB_DEVICEVIBRATELEVEL_NONE, //不震动｜No vibration
+    FB_DEVICEVIBRATELEVEL_1,    //震动等级1｜Vibration level 1
+    FB_DEVICEVIBRATELEVEL_2,    //震动等级2｜Vibration level 2
+    FB_DEVICEVIBRATELEVEL_3,    //震动等级3｜Vibration level 3
+    FB_DEVICEVIBRATELEVEL_4,    //震动等级4｜Vibration level 4
+    FB_DEVICEVIBRATELEVEL_5,    //震动等级5｜Vibration level 5
+    FB_DEVICEVIBRATELEVEL_6,    //震动等级6｜Vibration level 6
+} NS_SWIFT_NAME(FB_DEVICEVIBRATELEVEL);
+
+
 #endif /* FBMacro_h */

@@ -15,9 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface FBSnoreModel : NSObject
 
 /**
- 震动等级（0-6）｜Vibration level (0-6)
+ 震动等级｜Vibration level
 */
-@property (nonatomic, assign) NSInteger vibrationLevel;
+@property (nonatomic, assign) FB_DEVICEVIBRATELEVEL vibrationLevel;
 
 /**
  白天开关状态，YES开 NO关｜Daytime switch status, YES on, NO off

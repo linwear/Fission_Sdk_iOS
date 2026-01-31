@@ -23,7 +23,7 @@ target 'FissionBluetooth' do
   # pod update Fission_Sdk_iOS --verbose --no-repo-update
   pod 'Fission_Sdk_iOS', git: 'https://github.com/linwear/Fission_Sdk_iOS.git' #Release
   
-  pod 'QMUIKit'
+  pod 'QMUIKit', :git => 'https://github.com/wsr1949/QMUI_iOS.git'
   pod 'AFNetworking'
   pod 'MJExtension'
   pod 'MJRefresh'

@@ -81,7 +81,7 @@
     #pragma mark - NavigationBar
     
     if (@available(iOS 15.0, *)) {
-        QMUICMI.navBarUsesStandardAppearanceOnly = YES;                         // NavBarUsesStandardAppearanceOnly : 对于 iOS 15 的系统，UINavigationBar 的样式分为滚动前和滚动后，虽然系统的注释里说了如果没设置 scrollEdgeAppearance 则会用 standardAppearance 代替，但实际运行效果是 scrollEdgeAppearance 默认并不会保持与 standardAppearance 一致，所以这里提供一个开关，允许你在打开开关时让 QMUI 帮你同步 standardAppearance 的值，以使 App 保持与 iOS 14 相同的效果。如需打开该开关，请保证在其他 NavBar 开关之前设置。
+        QMUICMI.navBarUsesStandardAppearanceOnly = NO;                         // NavBarUsesStandardAppearanceOnly : 对于 iOS 15 的系统，UINavigationBar 的样式分为滚动前和滚动后，虽然系统的注释里说了如果没设置 scrollEdgeAppearance 则会用 standardAppearance 代替，但实际运行效果是 scrollEdgeAppearance 默认并不会保持与 standardAppearance 一致，所以这里提供一个开关，允许你在打开开关时让 QMUI 帮你同步 standardAppearance 的值，以使 App 保持与 iOS 14 相同的效果。如需打开该开关，请保证在其他 NavBar 开关之前设置。
     }
     QMUICMI.navBarContainerClasses = nil;                                       // NavBarContainerClasses : NavigationBar 系列开关被用于 UIAppearance 时的生效范围（默认情况下除了用于 UIAppearance 外，还用于实现了 QMUINavigationControllerAppearanceDelegate 的 UIViewController），默认为 nil。当赋值为 nil 或者空数组时等效于 @[UINavigationController.class]，也即对所有 UINavigationBar 生效，包括系统的通讯录（ContactsUI.framework)、打印等。当值不为空时，获取 UINavigationBar 的 appearance 请使用 UINavigationBar.qmui_appearanceConfigured 方法代替系统的 UINavigationBar.appearance。请保证这个配置项先于其他任意 NavBar 配置项执行。
     QMUICMI.navBarHighlightedAlpha = 0.2f;                                      // NavBarHighlightedAlpha : QMUINavigationButton 在 highlighted 时的 alpha
@@ -96,8 +96,8 @@
     QMUICMI.navBarShadowImageColor = nil;                                       // NavBarShadowImageColor : UINavigationBar.shadowImage 的颜色，如果为 nil，则使用 NavBarShadowImage 的值，如果 NavBarShadowImage 也为 nil，则使用系统默认的分隔线。如果不为 nil，而 NavBarShadowImage 为 nil，则自动创建一张 1px 高的图并将其设置为 NavBarShadowImageColor 的颜色然后设置上去，如果 NavBarShadowImage 不为 nil 且 renderingMode 不为 UIImageRenderingModeAlwaysOriginal，则将 NavBarShadowImage 设置为 NavBarShadowImageColor 的颜色然后设置上去。
     QMUICMI.navBarBarTintColor = nil;                                           // NavBarBarTintColor : UINavigationBar.barTintColor，也即背景色
     QMUICMI.navBarStyle = UIBarStyleDefault;                                    // NavBarStyle : UINavigationBar 的 barStyle
-    QMUICMI.navBarTintColor = UIColorWhite;                                              // NavBarTintColor : NavBarContainerClasses 里的 UINavigationBar 的 tintColor，也即导航栏上面的按钮颜色
-    QMUICMI.navBarTitleColor = UIColorWhite;                                             // NavBarTitleColor : UINavigationBar 的标题颜色，以及 QMUINavigationTitleView 的默认文字颜色
+    QMUICMI.navBarTintColor = nil;                                              // NavBarTintColor : NavBarContainerClasses 里的 UINavigationBar 的 tintColor，也即导航栏上面的按钮颜色
+    QMUICMI.navBarTitleColor = nil;                                             // NavBarTitleColor : UINavigationBar 的标题颜色，以及 QMUINavigationTitleView 的默认文字颜色
     QMUICMI.navBarTitleFont = nil;                                              // NavBarTitleFont : UINavigationBar 的标题字体，以及 QMUINavigationTitleView 的默认字体
     QMUICMI.navBarLargeTitleColor = nil;                                        // NavBarLargeTitleColor : UINavigationBar 在大标题模式下的标题颜色
     QMUICMI.navBarLargeTitleFont = nil;                                         // NavBarLargeTitleFont : UINavigationBar 在大标题模式下的标题字体
@@ -114,7 +114,7 @@
     #pragma mark - TabBar
     
     if (@available(iOS 15.0, *)) {
-        QMUICMI.tabBarUsesStandardAppearanceOnly = YES;                          // TabBarUsesStandardAppearanceOnly : 对于 iOS 15 的系统，UITabBar 的样式分为滚动前和滚动后，虽然系统的注释里说了如果没设置 scrollEdgeAppearance 则会用 standardAppearance 代替，但实际运行效果是 scrollEdgeAppearance 默认并不会保持与 standardAppearance 一致，所以这里提供一个开关，允许你在打开开关时让 QMUI 帮你同步 standardAppearance 的值，以使 App 保持与 iOS 14 相同的效果。如需打开该开关，请保证在其他 NavBar 开关之前设置。
+        QMUICMI.tabBarUsesStandardAppearanceOnly = NO;                          // TabBarUsesStandardAppearanceOnly : 对于 iOS 15 的系统，UITabBar 的样式分为滚动前和滚动后，虽然系统的注释里说了如果没设置 scrollEdgeAppearance 则会用 standardAppearance 代替，但实际运行效果是 scrollEdgeAppearance 默认并不会保持与 standardAppearance 一致，所以这里提供一个开关，允许你在打开开关时让 QMUI 帮你同步 standardAppearance 的值，以使 App 保持与 iOS 14 相同的效果。如需打开该开关，请保证在其他 NavBar 开关之前设置。
     }
     QMUICMI.tabBarContainerClasses = nil;                                       // TabBarContainerClasses : TabBar 系列开关的生效范围，默认为 nil，当赋值为 nil 或者空数组时等效于 @[UITabBarController.class]，也即对所有 UITabBar 生效。当值不为空时，获取 UITabBar 的 appearance 请使用 UITabBar.qmui_appearanceConfigured 方法代替系统的 UITabBar.appearance。请保证这个配置项先于其他任意 TabBar 配置项执行。
     QMUICMI.tabBarBackgroundImage = nil;                                        // TabBarBackgroundImage : UITabBar 的背景图

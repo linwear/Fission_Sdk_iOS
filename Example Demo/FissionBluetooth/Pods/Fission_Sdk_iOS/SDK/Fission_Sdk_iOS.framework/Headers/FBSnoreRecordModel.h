@@ -29,6 +29,16 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign) NSInteger SpO2;
 
+/**
+ 佩戴状态｜Wearing Status
+ */
+@property (nonatomic, assign) BOOL wearingStatus;
+
+/**
+ 震动等级｜Vibration Level
+ */
+@property (nonatomic, assign) FB_DEVICEVIBRATELEVEL level;
+
 @end
 
 NS_ASSUME_NONNULL_END

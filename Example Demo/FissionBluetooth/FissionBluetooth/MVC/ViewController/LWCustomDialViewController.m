@@ -198,7 +198,8 @@ const CGFloat CustomDiaButtonMargin = 24.0;
         model.dialDisplayPosition = (FB_CUSTOMDIALTIMEPOSITION)self.dialmodel.selectPosition;
         
         // 生成表盘
-        binFile = [[FBCustomDataTools sharedInstance] fbGenerateCustomDialBinFileDataWithDialModel:model];
+        FBCustomDialResult *dialResult = [[FBCustomDataTools sharedInstance] fbGenerateCustomDialBinFileDataWithDialModel:model];
+        binFile = dialResult.dialData;
         
         // 缓存起来，调试用
         NSString *FileName=[FBDocumentDirectory(FBCustomDialFile) stringByAppendingPathComponent:[NSString stringWithFormat:@"FBCustomDial_Ordinary_%ld.bin", (NSInteger)NSDate.date.timeIntervalSince1970]];
