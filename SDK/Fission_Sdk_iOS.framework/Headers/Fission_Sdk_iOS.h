@@ -15,8 +15,12 @@
   GitHub @link https://github.com/linwear/Fission_Sdk_iOS.git
   修改记录｜Modification Record:
  
-    project    2026-01-31  Version:3.3.5 Build:20260131001
+    project    2026-04-03  Version:3.3.6 Build:20260403001
+                            1.兼容 RTK OTA 升级
+ 
+    project    2026-02-05  Version:3.3.5 Build:20260205001
                             1.生成自定义表盘返回参数由NSData改为FBCustomDialResult
+                            2.Swift5
  
     project    2025-12-10  Version:3.3.4 Build:20251210001
                             1.设置设备震动一次（增加震动等级） @see（FBAtCommand）fbSetDeviceVibrateOnceWithLevel:withBlock:
