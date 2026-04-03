@@ -2,6 +2,34 @@
 
 This is in reverse chronological order, so newer entries are added to the top.
 
+
+## v1.18.3
+
+### Updated
+
+- Refactor the code for parsing the file version number
+
+
+## v1.18.0
+
+### Added
+
+- Support RTL87x3G
+
+### Fixed
+
+- Memory leak
+- The error in reading 8752H active image version
+- Waiting too long when discovering characteristics for ota service
+
+
+## v1.17.3
+
+### Fixed
+
+- Specify scan UUIDs when running in the background
+
+
 ## v1.17.0
 
 ### Added
@@ -51,7 +79,7 @@ This is in reverse chronological order, so newer entries are added to the top.
 
 ### Added
 
-- BB2 should first upgrade the VP image
+- RTL87x3E should first upgrade the VP image
 - Support nand flash OTA file checking
 
 
@@ -70,9 +98,9 @@ This is in reverse chronological order, so newer entries are added to the top.
 
 ### Added
 
-- Support Bee4 merge bank image OTA
-- Support Bee4 user data OTA
-- Support Bee3Plus APP Config File OTA
+- Support RTL87x2G merge bank image OTA
+- Support RTL87x2G user data OTA
+- Support RTL8752H APP Config File OTA
 - Use dedicated dispatch queue for asynchronous callback invocation
 
 ### Fixed
@@ -159,7 +187,7 @@ Known issues fixed;
 ### Updated
 
 - Use DocC package to provide documentation;
-- Image version for Bee3Pro supported;
+- Image version for ic 14 supported;
 
 ### Fixed
 
