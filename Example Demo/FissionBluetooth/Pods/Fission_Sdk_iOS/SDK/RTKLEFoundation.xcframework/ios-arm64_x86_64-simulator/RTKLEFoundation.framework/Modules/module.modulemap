@@ -4,3 +4,8 @@ framework module RTKLEFoundation {
   export *
   module * { export * }
 }
+
+module RTKLEFoundation.Swift {
+  header "RTKLEFoundation-Swift.h"
+  requires objc
+}

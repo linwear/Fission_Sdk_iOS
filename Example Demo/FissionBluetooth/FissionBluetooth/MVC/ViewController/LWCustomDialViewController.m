@@ -179,26 +179,16 @@ const CGFloat CustomDiaButtonMargin = 24.0;
         
         FBFirmwareVersionObject *object = FBAllConfigObject.firmwareConfig;
         
-//        NSInteger watchDisplayWide = object.watchDisplayWide;
-//        NSInteger watchDisplayHigh = object.watchDisplayHigh;
-//        CGSize dialSize = CGSizeMake(watchDisplayWide, watchDisplayHigh);
-//        
-//        NSInteger dialThumbnailDisplayWide = object.dialThumbnailDisplayWide;
-//        NSInteger dialThumbnailDisplayHigh = object.dialThumbnailDisplayHigh;
-//        CGSize thumbnailSize = CGSizeMake(dialThumbnailDisplayWide, dialThumbnailDisplayHigh);
         
-        
-        FBCustomDialModel *model = [FBCustomDialModel new];
-//        model.dialSize = dialSize;
-//        model.thumbnailSize = thumbnailSize;
-        model.dialFontColor = self.dialmodel.selectColor;
-        model.dialBackgroundImage = self.dialmodel.selectImage;
-        model.dialPreviewImage = self.dialmodel.resolvePreviewImage;
-        if (object.supportVideoDial) model.dialVideoPath = self.dialVideoModel.finalVideoPath;
-        model.dialDisplayPosition = (FB_CUSTOMDIALTIMEPOSITION)self.dialmodel.selectPosition;
+        FBCustomDialModel *dialModel = [FBCustomDialModel new];
+        dialModel.dialFontColor = self.dialmodel.selectColor;
+        dialModel.dialBackgroundImage = self.dialmodel.selectImage;
+        dialModel.dialPreviewImage = self.dialmodel.resolvePreviewImage;
+        if (object.supportVideoDial) dialModel.dialVideoPath = self.dialVideoModel.finalVideoPath;
+        dialModel.dialDisplayPosition = (FB_CUSTOMDIALTIMEPOSITION)self.dialmodel.selectPosition;
         
         // 生成表盘
-        FBCustomDialResult *dialResult = [[FBCustomDataTools sharedInstance] fbGenerateCustomDialBinFileDataWithDialModel:model];
+        FBCustomDialResult *dialResult = [[FBCustomDataTools sharedInstance] fbGenerateCustomDialBinFileDataWithDialModel:dialModel];
         binFile = dialResult.dialData;
         
         // 缓存起来，调试用

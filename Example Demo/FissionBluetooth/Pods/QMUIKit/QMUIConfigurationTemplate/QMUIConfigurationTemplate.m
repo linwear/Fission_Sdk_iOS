@@ -81,7 +81,7 @@
     #pragma mark - NavigationBar
     
     if (@available(iOS 15.0, *)) {
-        QMUICMI.navBarUsesStandardAppearanceOnly = NO;                         // NavBarUsesStandardAppearanceOnly : 对于 iOS 15 的系统，UINavigationBar 的样式分为滚动前和滚动后，虽然系统的注释里说了如果没设置 scrollEdgeAppearance 则会用 standardAppearance 代替，但实际运行效果是 scrollEdgeAppearance 默认并不会保持与 standardAppearance 一致，所以这里提供一个开关，允许你在打开开关时让 QMUI 帮你同步 standardAppearance 的值，以使 App 保持与 iOS 14 相同的效果。如需打开该开关，请保证在其他 NavBar 开关之前设置。
+        QMUICMI.navBarUsesStandardAppearanceOnly = YES;                         // NavBarUsesStandardAppearanceOnly : 对于 iOS 15 的系统，UINavigationBar 的样式分为滚动前和滚动后，虽然系统的注释里说了如果没设置 scrollEdgeAppearance 则会用 standardAppearance 代替，但实际运行效果是 scrollEdgeAppearance 默认并不会保持与 standardAppearance 一致，所以这里提供一个开关，允许你在打开开关时让 QMUI 帮你同步 standardAppearance 的值，以使 App 保持与 iOS 14 相同的效果。如需打开该开关，请保证在其他 NavBar 开关之前设置。
     }
     QMUICMI.navBarContainerClasses = nil;                                       // NavBarContainerClasses : NavigationBar 系列开关被用于 UIAppearance 时的生效范围（默认情况下除了用于 UIAppearance 外，还用于实现了 QMUINavigationControllerAppearanceDelegate 的 UIViewController），默认为 nil。当赋值为 nil 或者空数组时等效于 @[UINavigationController.class]，也即对所有 UINavigationBar 生效，包括系统的通讯录（ContactsUI.framework)、打印等。当值不为空时，获取 UINavigationBar 的 appearance 请使用 UINavigationBar.qmui_appearanceConfigured 方法代替系统的 UINavigationBar.appearance。请保证这个配置项先于其他任意 NavBar 配置项执行。
     QMUICMI.navBarHighlightedAlpha = 0.2f;                                      // NavBarHighlightedAlpha : QMUINavigationButton 在 highlighted 时的 alpha
@@ -90,7 +90,7 @@
     QMUICMI.navBarButtonFontBold = nil;                                         // NavBarButtonFontBold : iOS 15 及以后用于设置 UINavigationBar 里 Done 类型的 UIBarButtonItem 以及 QMUINavigationButtonTypeBold 的字体，iOS 14 及以前只对后者生效
     QMUICMI.navBarBackgroundImage = nil;                                        // NavBarBackgroundImage : UINavigationBar 的背景图
     if (@available(iOS 15.0, *)) {
-        QMUICMI.navBarRemoveBackgroundEffectAutomatically = NO;                 // NavBarRemoveBackgroundEffectAutomatically : iOS 15 及以后，QMUI 里的 UINavigationBar 使用的是 UINavigationBarAppearance 来设置样式，新方式默认是 backgroundImage 和 backgroundEffect 共存的，而 iOS 14 及以前的旧方式，一旦设置了 backgroundImage 则 backgroundEffect 自动会被移除，因此提供该开关允许业务将行为回退到 iOS 14 及以前的效果。默认为 NO。
+        QMUICMI.navBarRemoveBackgroundEffectAutomatically = YES;                 // NavBarRemoveBackgroundEffectAutomatically : iOS 15 及以后，QMUI 里的 UINavigationBar 使用的是 UINavigationBarAppearance 来设置样式，新方式默认是 backgroundImage 和 backgroundEffect 共存的，而 iOS 14 及以前的旧方式，一旦设置了 backgroundImage 则 backgroundEffect 自动会被移除，因此提供该开关允许业务将行为回退到 iOS 14 及以前的效果。默认为 NO。
     }
     QMUICMI.navBarShadowImage = nil;                                            // NavBarShadowImage : UINavigationBar.shadowImage，也即导航栏底部那条分隔线，配合 NavBarShadowImageColor 使用。
     QMUICMI.navBarShadowImageColor = nil;                                       // NavBarShadowImageColor : UINavigationBar.shadowImage 的颜色，如果为 nil，则使用 NavBarShadowImage 的值，如果 NavBarShadowImage 也为 nil，则使用系统默认的分隔线。如果不为 nil，而 NavBarShadowImage 为 nil，则自动创建一张 1px 高的图并将其设置为 NavBarShadowImageColor 的颜色然后设置上去，如果 NavBarShadowImage 不为 nil 且 renderingMode 不为 UIImageRenderingModeAlwaysOriginal，则将 NavBarShadowImage 设置为 NavBarShadowImageColor 的颜色然后设置上去。

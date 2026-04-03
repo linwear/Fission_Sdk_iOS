@@ -3,7 +3,9 @@
 //  RTKLEFoundation
 //
 //  Created by jerome_gu on 2019/1/30.
-//  Copyright © 2022 Realtek. All rights reserved.
+//  Copyright (c) 2019, Realtek Semiconductor Corporation. All rights reserved.
+//
+//  SPDX-License-Identifier: LicenseRef-Realtek-5-Clause
 //
 
 #ifndef RTKOTAError_h
@@ -69,6 +71,7 @@ typedef NS_ENUM(NSInteger, RTKOTAErrorCode) {
     RTKOTAErrorDFUEnableBufferCheck,                        ///< Enable buffer check failed.
     RTKOTAErrorDFURequestReceiveFailure,                    ///< Request peripheral to receive image failed.
     RTKOTAErrorDFUImageSendFail,                            ///< Send image data failed.
+    RTKOTAErrorDFUImageEncryptionFail,                      ///< Encrypt image data failed.
     RTKOTAErrorDFUBufferCheckFail,                          ///< Buffer check failed.
     RTKOTAErrorDFUValidate,                                 ///< Image validate failed.
     RTKOTAErrorDFUActive,                                   ///< Image active failed.

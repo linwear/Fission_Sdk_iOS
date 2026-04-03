@@ -6,11 +6,11 @@
 	<dict>
 		<key>Headers/NSData+CRC16.h</key>
 		<data>
-		D4Ge8B+iK8eEk6DpJshRDc88eNY=
+		v7KWP9xo/FoflFL4kuJbnHG+qMI=
 		</data>
 		<key>Headers/NSData+Generation.h</key>
 		<data>
-		ZPecBofaPF/apE9D8weIz0vnpCk=
+		FIMtFcr48NmyGAMMzW9g2IOKaeI=
 		</data>
 		<key>Headers/NSData+KKAES.h</key>
 		<data>
@@ -18,95 +18,139 @@
 		</data>
 		<key>Headers/NSData+String.h</key>
 		<data>
-		qHAKB16YvZGizfYcQHvhiWC/RcY=
+		TEBsUmG4wqEQg9PdzDh+pTnVBvk=
 		</data>
 		<key>Headers/RTKAccessorySessionTransport.h</key>
 		<data>
-		u6I0e3uUmkzzHKrMxtKz0pK4ttw=
+		0UtJPGzxovofymeBVfe2p2wdQhU=
 		</data>
 		<key>Headers/RTKActionAttempt.h</key>
 		<data>
-		UdoMtLa4QqkP2+vNg0U+U2rHGhI=
+		rSIq7QWK3Mjq6NsXAfifWOwEbO8=
 		</data>
 		<key>Headers/RTKAsynchronousInvocation.h</key>
 		<data>
-		yjczSLDc4tf5+lXsWWLb5NBnLgo=
+		bA3Y5Z4TYAQSTYRMcv9hKZckLS8=
 		</data>
 		<key>Headers/RTKBTGeneralDefines.h</key>
 		<data>
-		FIqLZtlpJIOSsPCS58NVv0iMoJU=
+		LSeHJkvp55B2HHBxLFRPhqQUu5k=
 		</data>
 		<key>Headers/RTKBTLogMacros.h</key>
 		<data>
-		RMIudNoSb9JIP1osz4KsTdnWJ7k=
+		YRWgbRbxcs/akP/K9Z8YpJtG3so=
 		</data>
 		<key>Headers/RTKBatchDataSendReception.h</key>
 		<data>
-		/wNSPHXq/JqVVMDh+vPYeqZY654=
+		wPkrksVJj9sgf1zMdMj7HPUqp18=
 		</data>
 		<key>Headers/RTKCharacteristicOperate.h</key>
 		<data>
-		P4NRTMZq/J3moCpr8vxFP0zahHo=
+		YVfkfjSS7jlQh5etj+eJTNCCzh4=
 		</data>
 		<key>Headers/RTKCharacteristicTRXTransport.h</key>
 		<data>
-		Jy4fqHTJPGklEc7DnRuX+eqfJIU=
+		duQHuxNKbIRwm1WQkQ2SApJiZVY=
 		</data>
 		<key>Headers/RTKConnectionUponGATT.h</key>
 		<data>
-		FI5p8sXU0yvHcLsNzuIXbGpqlHM=
+		4E7QpJfStcc5bsKOK3H2GOFsjuo=
 		</data>
 		<key>Headers/RTKConnectionUponiAP.h</key>
 		<data>
-		blF2lGMruFMo6jiU7Jv1YGLZkqI=
+		HLqONjmF7enGflpKB4SIUsRQzn4=
 		</data>
 		<key>Headers/RTKError.h</key>
 		<data>
-		i65ynk8rqcp/i/hTAIIC3+4VnpA=
+		kW7+xIML9piU8md6s0+0AGYw5oY=
+		</data>
+		<key>Headers/RTKLEFoundation-Swift.h</key>
+		<data>
+		fSiLyTIPJsnVQN/+ODVIJ+iKG7U=
 		</data>
 		<key>Headers/RTKLEFoundation.h</key>
 		<data>
-		oSMx3MyD5yUmON0BucxnSP1KEaQ=
+		Bd97AvNMT/plYCCO4EF+Ac6vZxg=
 		</data>
 		<key>Headers/RTKLog.h</key>
 		<data>
-		zThXdwvEYRrwxZPk59Txx6YpXwY=
+		VV6T0OCWtPkt9d25CUrY9pYFDAs=
 		</data>
 		<key>Headers/RTKOperationWaitor.h</key>
 		<data>
-		0GfpZT7UZO4U+Fcn5YJWqSlXQ1Y=
+		IgJ4S8HDJSxBOzp7vIc1iDrBsGM=
 		</data>
 		<key>Headers/RTKPackageIDGenerator.h</key>
 		<data>
-		uAIrJ0hLw/hJfTItuqD7J5lAFCU=
+		4OKvO9zGjchk2WNK18lHhh7kBvQ=
 		</data>
 		<key>Headers/RTKPacket.h</key>
 		<data>
-		NcvOoXeiqEslyCKP7A67O6ypcjo=
+		ZOkflZquCtWSoANNDCugBAuHqJ0=
 		</data>
 		<key>Headers/RTKPacketTransport.h</key>
 		<data>
-		j3gRWhBxujRGfRwHvak9bI9SBJk=
+		fh8kphixYLpatY7ZvsJt6neU0rs=
 		</data>
 		<key>Headers/RTKProfileConnection.h</key>
 		<data>
-		GGln+sOG/ZARsBJbFXUUbjj+Zsg=
+		QtXGZULSJ1RQEvGSKYKKoAGR9pI=
 		</data>
 		<key>Headers/RTKProfileConnectionManager.h</key>
 		<data>
-		/74q0eoY0VCkjcmxOCibdERVcXE=
+		5fICiKpKR93UprPZdyP+p1EETn8=
 		</data>
 		<key>Headers/RTKProvisioningProfileExpirationCheck.h</key>
 		<data>
-		KJ97JZNdQXU5H3ibtciXNepPA2o=
+		FaXWrE0KvmuiND5xRh659Mu7hjQ=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		2mGSQn8/tV4nTuGchUcuJ/sTiHo=
+		tzwP9q1FYUlXQJZBEYZfIpjmpjo=
+		</data>
+		<key>Modules/RTKLEFoundation.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
+		<data>
+		iHYwoPdpDIl2wO5UJGFeRnQzKyM=
+		</data>
+		<key>Modules/RTKLEFoundation.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
+		<data>
+		8yCK9070bDzyJ+MLkaNIwt14G40=
+		</data>
+		<key>Modules/RTKLEFoundation.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
+		<data>
+		lmjFAfYMP3OOF2Aex/yxy8p4/bM=
+		</data>
+		<key>Modules/RTKLEFoundation.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
+		<data>
+		8yCK9070bDzyJ+MLkaNIwt14G40=
+		</data>
+		<key>Modules/RTKLEFoundation.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
+		<data>
+		3xyycK6Gyrypc3QqkIgOWQClOLM=
+		</data>
+		<key>Modules/RTKLEFoundation.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
+		<data>
+		iHYwoPdpDIl2wO5UJGFeRnQzKyM=
+		</data>
+		<key>Modules/RTKLEFoundation.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
+		<data>
+		f8qXoKmSKRTvCpQlHbw5DIaT8SA=
+		</data>
+		<key>Modules/RTKLEFoundation.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
+		<data>
+		pDTSJBrBoDhsRkl0GoV5Wm6qGwA=
+		</data>
+		<key>Modules/RTKLEFoundation.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
+		<data>
+		f8qXoKmSKRTvCpQlHbw5DIaT8SA=
+		</data>
+		<key>Modules/RTKLEFoundation.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
+		<data>
+		ZJNiI3114KWg4YBpeJZ1KKwfamk=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		Kj9g+Zj95wrI8lEtrGJF7dZG5oY=
+		uSzRX+W8RiBng7dWolu9lQweEHo=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -115,22 +159,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			D4Ge8B+iK8eEk6DpJshRDc88eNY=
+			v7KWP9xo/FoflFL4kuJbnHG+qMI=
 			</data>
 			<key>hash2</key>
 			<data>
-			B8y/XrLqL1Q8R5d1rSFK3YWLUFOZTRmwW6xQqljoT4I=
+			kIro9QPT9VHhaniK+9wX2JOSk7U1bsrurfsQdQW510Q=
 			</data>
 		</dict>
 		<key>Headers/NSData+Generation.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ZPecBofaPF/apE9D8weIz0vnpCk=
+			FIMtFcr48NmyGAMMzW9g2IOKaeI=
 			</data>
 			<key>hash2</key>
 			<data>
-			lNEjZL5JNJWdl/lWdf960KfJXVgL5C6k/RqNchjbkG0=
+			5BALiZlluhy+wYMPThgmVZMxDyqe8ekzjP8ITlZ351w=
 			</data>
 		</dict>
 		<key>Headers/NSData+KKAES.h</key>
@@ -148,242 +192,363 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			qHAKB16YvZGizfYcQHvhiWC/RcY=
+			TEBsUmG4wqEQg9PdzDh+pTnVBvk=
 			</data>
 			<key>hash2</key>
 			<data>
-			dNbUtMRuhlLF/Nd66c2nqBloqvKd6Z6xm56rSiojTOM=
+			n5uubX0NyKyNKXh4Sj7c+CxsBRJnSrod40ZyZYafXuU=
 			</data>
 		</dict>
 		<key>Headers/RTKAccessorySessionTransport.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			u6I0e3uUmkzzHKrMxtKz0pK4ttw=
+			0UtJPGzxovofymeBVfe2p2wdQhU=
 			</data>
 			<key>hash2</key>
 			<data>
-			dlcaT6ILR5mMscXsBlNhWMT9xywVTn1weKBRNqbODqg=
+			pPghGvg7+iJA5DTDai9NHdDRU+GwTS6DlaLz2LglMvE=
 			</data>
 		</dict>
 		<key>Headers/RTKActionAttempt.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			UdoMtLa4QqkP2+vNg0U+U2rHGhI=
+			rSIq7QWK3Mjq6NsXAfifWOwEbO8=
 			</data>
 			<key>hash2</key>
 			<data>
-			VlLuPIelYtg/VetbgcKLg6YQ7FlTd8+4aqT0wLRVXqk=
+			Br791zbD0V7pxwq4/wKADlj+T15KTGfZy1odg5aM/dA=
 			</data>
 		</dict>
 		<key>Headers/RTKAsynchronousInvocation.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			yjczSLDc4tf5+lXsWWLb5NBnLgo=
+			bA3Y5Z4TYAQSTYRMcv9hKZckLS8=
 			</data>
 			<key>hash2</key>
 			<data>
-			iktAKCK7SwPvOkxzBpGT/LcgbaWfCZsl9rMVGNJUvzA=
+			qZsnNvRkWnYIqAXU0imZVw3tVuqeIwv2ezJb5KUodk4=
 			</data>
 		</dict>
 		<key>Headers/RTKBTGeneralDefines.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			FIqLZtlpJIOSsPCS58NVv0iMoJU=
+			LSeHJkvp55B2HHBxLFRPhqQUu5k=
 			</data>
 			<key>hash2</key>
 			<data>
-			FSFZGAGAGPEdt+MrYi9qt43Rl6TOzO2vFSn71K22iD4=
+			iZzIu8frJ187i+Zk5YZc4drIe6/LTNc/hRhl+5DdTYY=
 			</data>
 		</dict>
 		<key>Headers/RTKBTLogMacros.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			RMIudNoSb9JIP1osz4KsTdnWJ7k=
+			YRWgbRbxcs/akP/K9Z8YpJtG3so=
 			</data>
 			<key>hash2</key>
 			<data>
-			A16YtRZSZ7gi5rypFvC8/sm4Uey2m4rC7AlDG2jhBA0=
+			53Qk+KF4iA8fDd61XYyFg/lvMwPaUuRY4cuHX7/KP5I=
 			</data>
 		</dict>
 		<key>Headers/RTKBatchDataSendReception.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/wNSPHXq/JqVVMDh+vPYeqZY654=
+			wPkrksVJj9sgf1zMdMj7HPUqp18=
 			</data>
 			<key>hash2</key>
 			<data>
-			h8I2OfSpa2m1jbQBI9tVa0ZhujNHivC8+llw46jGcug=
+			YiaGmVbyQ08gA8Ba7JoTUAbzVOPDyA08K3vxP5nsWBo=
 			</data>
 		</dict>
 		<key>Headers/RTKCharacteristicOperate.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			P4NRTMZq/J3moCpr8vxFP0zahHo=
+			YVfkfjSS7jlQh5etj+eJTNCCzh4=
 			</data>
 			<key>hash2</key>
 			<data>
-			ReHq/UKHgITcK2yxBtPRVTkr+8VuTXsf0DS7iEapFRU=
+			VLY4M+u0NvxI3qzIoevjon9kq3X1djzG3cgUaaNW2hQ=
 			</data>
 		</dict>
 		<key>Headers/RTKCharacteristicTRXTransport.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Jy4fqHTJPGklEc7DnRuX+eqfJIU=
+			duQHuxNKbIRwm1WQkQ2SApJiZVY=
 			</data>
 			<key>hash2</key>
 			<data>
-			gTXGaNvDq3kWNeBaxeXU0szJ0M3aOFuXD1CntDMjCxk=
+			Cdz1iMEek/OUyAs/jk0hunTM7QJ6I0Q/O3rguDrVR+Q=
 			</data>
 		</dict>
 		<key>Headers/RTKConnectionUponGATT.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			FI5p8sXU0yvHcLsNzuIXbGpqlHM=
+			4E7QpJfStcc5bsKOK3H2GOFsjuo=
 			</data>
 			<key>hash2</key>
 			<data>
-			xhgnFNyGGC5aIHkIJviCOFvAnK/rLrWCBSn/Bs1w+Nw=
+			yPKwg9B6zXjrL9W2FYLdQGl+iszkBwNqR33oWKGW0ds=
 			</data>
 		</dict>
 		<key>Headers/RTKConnectionUponiAP.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			blF2lGMruFMo6jiU7Jv1YGLZkqI=
+			HLqONjmF7enGflpKB4SIUsRQzn4=
 			</data>
 			<key>hash2</key>
 			<data>
-			MVPzB5GYHKTJ9Tg8SPHB/TOry8PJvMnV8czZUT6a4gM=
+			abm1v+oJo0J6RQPk+4uOaUNB/cJQZFSAFqeoZsKHFBs=
 			</data>
 		</dict>
 		<key>Headers/RTKError.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			i65ynk8rqcp/i/hTAIIC3+4VnpA=
+			kW7+xIML9piU8md6s0+0AGYw5oY=
 			</data>
 			<key>hash2</key>
 			<data>
-			HDdsZCeaI5eRizWM51eH0j9v30SYqStPkytkiA2cspk=
+			jKxstgQsOZrtJLwOM0YFO25nnanBhxVFRBvxqmCOBlQ=
+			</data>
+		</dict>
+		<key>Headers/RTKLEFoundation-Swift.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			fSiLyTIPJsnVQN/+ODVIJ+iKG7U=
+			</data>
+			<key>hash2</key>
+			<data>
+			IbFX0ih2WlgyztjYt4hQNB1Nbw4DHPw5mxtEhK1g8DE=
 			</data>
 		</dict>
 		<key>Headers/RTKLEFoundation.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			oSMx3MyD5yUmON0BucxnSP1KEaQ=
+			Bd97AvNMT/plYCCO4EF+Ac6vZxg=
 			</data>
 			<key>hash2</key>
 			<data>
-			vndddFpqukX1EceNCdv5zGykQun4fXUz8NCcZ1oRHM4=
+			4Nc5/rzkI3c5ZcXsGiyKyUQ+COBw7Lj/kfScXgoZNrk=
 			</data>
 		</dict>
 		<key>Headers/RTKLog.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			zThXdwvEYRrwxZPk59Txx6YpXwY=
+			VV6T0OCWtPkt9d25CUrY9pYFDAs=
 			</data>
 			<key>hash2</key>
 			<data>
-			l3KqenZXCC03HnJEa0xFk89s2qwbCSFjyK/6fm9gh/M=
+			n4woe1yQ3szf5Bygm/5udTkNHcINhw2FlFu6+zEuTfY=
 			</data>
 		</dict>
 		<key>Headers/RTKOperationWaitor.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			0GfpZT7UZO4U+Fcn5YJWqSlXQ1Y=
+			IgJ4S8HDJSxBOzp7vIc1iDrBsGM=
 			</data>
 			<key>hash2</key>
 			<data>
-			Hj4k6bNDfFCIWlQV/lhIadLjYYuxUm0mMdR5GL0j0eY=
+			MDgBpj+tn6L+i0yZ46eig5o4w4lHO+PVqUZO5fCob+k=
 			</data>
 		</dict>
 		<key>Headers/RTKPackageIDGenerator.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			uAIrJ0hLw/hJfTItuqD7J5lAFCU=
+			4OKvO9zGjchk2WNK18lHhh7kBvQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			HynBMN2yN4VCR7uALMU/asQC7p+r7aXi45M5j56Jo9U=
+			F2CQCB1KAoYwfN0R0XJiT7uxARoLi3y1HxpS5vl1ipc=
 			</data>
 		</dict>
 		<key>Headers/RTKPacket.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			NcvOoXeiqEslyCKP7A67O6ypcjo=
+			ZOkflZquCtWSoANNDCugBAuHqJ0=
 			</data>
 			<key>hash2</key>
 			<data>
-			fyK35FKDFHKDsOGNsLrm1BPQeU0qD4X7slsm9JtcQQE=
+			xmZbCphwR4YRwrj+Gdf+1MPcHMVRNdjYRZ2TMnmU6b8=
 			</data>
 		</dict>
 		<key>Headers/RTKPacketTransport.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			j3gRWhBxujRGfRwHvak9bI9SBJk=
+			fh8kphixYLpatY7ZvsJt6neU0rs=
 			</data>
 			<key>hash2</key>
 			<data>
-			3w1ULYzuVKEhBTEUE30zdDCHpe0cu8Mn5Wh9tPKOWSY=
+			y7eE4LZATFsogOXe3aeKh0znFvciduyAsduK7HCQRTU=
 			</data>
 		</dict>
 		<key>Headers/RTKProfileConnection.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			GGln+sOG/ZARsBJbFXUUbjj+Zsg=
+			QtXGZULSJ1RQEvGSKYKKoAGR9pI=
 			</data>
 			<key>hash2</key>
 			<data>
-			QcwspCrV/NhFj8GS72iCDP81HXjany2f0jLE5ik1LQM=
+			Si7qxuMgLnOhnBWS3RtqnjgDDom0PC5ydhzlnKvLqwg=
 			</data>
 		</dict>
 		<key>Headers/RTKProfileConnectionManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			/74q0eoY0VCkjcmxOCibdERVcXE=
+			5fICiKpKR93UprPZdyP+p1EETn8=
 			</data>
 			<key>hash2</key>
 			<data>
-			EuiAXJUMwzscFqiCvbglnZRTioiQyYIcsbRhC+V+SSE=
+			sFC9v3dIEdDg1llsZvXtQsmvNNHT2BqTmAuMdoJSI38=
 			</data>
 		</dict>
 		<key>Headers/RTKProvisioningProfileExpirationCheck.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			KJ97JZNdQXU5H3ibtciXNepPA2o=
+			FaXWrE0KvmuiND5xRh659Mu7hjQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			H7lIaB2wKh9jtL+5YeHftnlCVM2mbHpWkUiuw+dY3s0=
+			aZ+nxUFpBUj4HCOtgdAz/G6d8wdqSN9Mo/QOo/MhKf8=
+			</data>
+		</dict>
+		<key>Modules/RTKLEFoundation.swiftmodule/arm64-apple-ios-simulator.abi.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			iHYwoPdpDIl2wO5UJGFeRnQzKyM=
+			</data>
+			<key>hash2</key>
+			<data>
+			PH4rewyk7owZLpDv7MYzP5UGIgAyKh6eYALnbSBniZk=
+			</data>
+		</dict>
+		<key>Modules/RTKLEFoundation.swiftmodule/arm64-apple-ios-simulator.private.swiftinterface</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8yCK9070bDzyJ+MLkaNIwt14G40=
+			</data>
+			<key>hash2</key>
+			<data>
+			oMhOBAQdYsNG1H4jaD1nRNLXnLHnuMzC+j7WJq2m+9E=
+			</data>
+		</dict>
+		<key>Modules/RTKLEFoundation.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			lmjFAfYMP3OOF2Aex/yxy8p4/bM=
+			</data>
+			<key>hash2</key>
+			<data>
+			np13oP41gPX4aSBEzBAuVRNSTbV6TvWeyYwpEXTfKdE=
+			</data>
+		</dict>
+		<key>Modules/RTKLEFoundation.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			8yCK9070bDzyJ+MLkaNIwt14G40=
+			</data>
+			<key>hash2</key>
+			<data>
+			oMhOBAQdYsNG1H4jaD1nRNLXnLHnuMzC+j7WJq2m+9E=
+			</data>
+		</dict>
+		<key>Modules/RTKLEFoundation.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			3xyycK6Gyrypc3QqkIgOWQClOLM=
+			</data>
+			<key>hash2</key>
+			<data>
+			0q/RWt9aTFsVftc8egHPfB1UzrWLYzwopGNn7NYafzA=
+			</data>
+		</dict>
+		<key>Modules/RTKLEFoundation.swiftmodule/x86_64-apple-ios-simulator.abi.json</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			iHYwoPdpDIl2wO5UJGFeRnQzKyM=
+			</data>
+			<key>hash2</key>
+			<data>
+			PH4rewyk7owZLpDv7MYzP5UGIgAyKh6eYALnbSBniZk=
+			</data>
+		</dict>
+		<key>Modules/RTKLEFoundation.swiftmodule/x86_64-apple-ios-simulator.private.swiftinterface</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			f8qXoKmSKRTvCpQlHbw5DIaT8SA=
+			</data>
+			<key>hash2</key>
+			<data>
+			OqDBJ5MODFhXL3puZIV3rqzpuRtemZVP4n2IcqS8fmc=
+			</data>
+		</dict>
+		<key>Modules/RTKLEFoundation.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			pDTSJBrBoDhsRkl0GoV5Wm6qGwA=
+			</data>
+			<key>hash2</key>
+			<data>
+			Ak6t2Kv/6/LqbE7iYKQJPLuWYuvZDDCQPRNF5GIuYZ8=
+			</data>
+		</dict>
+		<key>Modules/RTKLEFoundation.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			f8qXoKmSKRTvCpQlHbw5DIaT8SA=
+			</data>
+			<key>hash2</key>
+			<data>
+			OqDBJ5MODFhXL3puZIV3rqzpuRtemZVP4n2IcqS8fmc=
+			</data>
+		</dict>
+		<key>Modules/RTKLEFoundation.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			ZJNiI3114KWg4YBpeJZ1KKwfamk=
+			</data>
+			<key>hash2</key>
+			<data>
+			Ir1a+3RBoD9SJrAJRGr0KO36lLnIrmOYd88YrWhomxk=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Kj9g+Zj95wrI8lEtrGJF7dZG5oY=
+			uSzRX+W8RiBng7dWolu9lQweEHo=
 			</data>
 			<key>hash2</key>
 			<data>
-			To3tVzgP/DHJT800WEtwRIF5wTe0Fo/Y6VPCryvlTDI=
+			XTWl+Duusuo1C0YoyT09n2xWiRfUH9zk5hD5l/F0IUI=
 			</data>
 		</dict>
 	</dict>

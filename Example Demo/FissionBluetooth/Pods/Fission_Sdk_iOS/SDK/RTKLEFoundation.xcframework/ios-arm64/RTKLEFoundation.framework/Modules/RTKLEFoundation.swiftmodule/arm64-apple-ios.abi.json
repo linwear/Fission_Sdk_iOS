@@ -1,0 +1,146 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "Foundation",
+        "printedName": "Foundation",
+        "declKind": "Import",
+        "moduleName": "RTKLEFoundation",
+        "declAttributes": [
+          "RawDocComment"
+        ]
+      },
+      {
+        "kind": "Import",
+        "name": "SystemConfiguration",
+        "printedName": "SystemConfiguration",
+        "declKind": "Import",
+        "moduleName": "RTKLEFoundation"
+      },
+      {
+        "kind": "Import",
+        "name": "OSLog",
+        "printedName": "OSLog",
+        "declKind": "Import",
+        "moduleName": "RTKLEFoundation"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "NetworkReachabilityMonitor",
+        "printedName": "NetworkReachabilityMonitor",
+        "children": [
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init(ipv4:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Optional",
+                "printedName": "RTKLEFoundation.NetworkReachabilityMonitor?",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "NetworkReachabilityMonitor",
+                    "printedName": "RTKLEFoundation.NetworkReachabilityMonitor",
+                    "usr": "s:15RTKLEFoundation26NetworkReachabilityMonitorC"
+                  }
+                ],
+                "usr": "s:Sq"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:15RTKLEFoundation26NetworkReachabilityMonitorC4ipv4ACSgSS_tcfc",
+            "mangledName": "$s15RTKLEFoundation26NetworkReachabilityMonitorC4ipv4ACSgSS_tcfc",
+            "moduleName": "RTKLEFoundation",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "init_kind": "Designated"
+          },
+          {
+            "kind": "Function",
+            "name": "startMonitoring",
+            "printedName": "startMonitoring(_:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Bool",
+                "printedName": "Swift.Bool",
+                "usr": "s:Sb"
+              },
+              {
+                "kind": "TypeFunc",
+                "name": "Function",
+                "printedName": "(Swift.Bool) -> ()",
+                "children": [
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Void",
+                    "printedName": "()"
+                  },
+                  {
+                    "kind": "TypeNominal",
+                    "name": "Bool",
+                    "printedName": "Swift.Bool",
+                    "usr": "s:Sb"
+                  }
+                ]
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15RTKLEFoundation26NetworkReachabilityMonitorC15startMonitoringySbySbcF",
+            "mangledName": "$s15RTKLEFoundation26NetworkReachabilityMonitorC15startMonitoringySbySbcF",
+            "moduleName": "RTKLEFoundation",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Function",
+            "name": "stopMonitoring",
+            "printedName": "stopMonitoring()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:15RTKLEFoundation26NetworkReachabilityMonitorC14stopMonitoringyyF",
+            "mangledName": "$s15RTKLEFoundation26NetworkReachabilityMonitorC14stopMonitoringyyF",
+            "moduleName": "RTKLEFoundation",
+            "declAttributes": [
+              "AccessControl",
+              "RawDocComment"
+            ],
+            "funcSelfKind": "NonMutating"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:15RTKLEFoundation26NetworkReachabilityMonitorC",
+        "mangledName": "$s15RTKLEFoundation26NetworkReachabilityMonitorC",
+        "moduleName": "RTKLEFoundation",
+        "declAttributes": [
+          "AccessControl"
+        ]
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": []
+}

@@ -3,7 +3,9 @@
 //  RTKBTFoundation
 //
 //  Created by jerome_gu on 2021/11/2.
-//  Copyright © 2022 Realtek. All rights reserved.
+//  Copyright (c) 2021, Realtek Semiconductor Corporation. All rights reserved.
+//
+//  SPDX-License-Identifier: LicenseRef-Realtek-5-Clause
 //
 
 #ifdef RTK_SDK_IS_STATIC_LIBRARY
