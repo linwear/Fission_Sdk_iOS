@@ -3,7 +3,9 @@
 //  RTKOTASDK
 //
 //  Created by jerome_gu on 2020/3/9.
-//  Copyright © 2022 Realtek. All rights reserved.
+//  Copyright (c) 2020, Realtek Semiconductor Corporation. All rights reserved.
+//
+//  SPDX-License-Identifier: LicenseRef-Realtek-5-Clause
 //
 
 #import <Foundation/Foundation.h>
@@ -202,6 +204,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Indicates whether the device is nand flash.
 @property (readonly) BOOL isNandFlashOTA;
+
+/// Indicates whether the version numbers of the images use the 8-byte format.
+@property (readonly) BOOL supportLongImageVersion;
 
 /* RWS Upgrade related properties */
 

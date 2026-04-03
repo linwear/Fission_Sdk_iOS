@@ -6,51 +6,51 @@
 	<dict>
 		<key>Headers/RTKDFUConnectionUponGATT.h</key>
 		<data>
-		e7las7LPssfTMPNAEnkT3btT6As=
+		AkeZ8zFtr868CeYUqpEWFZJ37gk=
 		</data>
 		<key>Headers/RTKDFUConnectionUponiAP.h</key>
 		<data>
-		kIvDyHkCy6hCdotOG3pvQMSEneU=
+		84IZvYH7VptCeUxrbdkzv7Qe4rw=
 		</data>
 		<key>Headers/RTKDFUManager.h</key>
 		<data>
-		l1baJiNBn4mZ678vTKZ2kMxvb5Y=
+		2aPHzB1Ie36fr+PhYr/8d8PnXHQ=
 		</data>
 		<key>Headers/RTKDFURoutine.h</key>
 		<data>
-		jXf8k/7tPc7vmgF+Uci5RmlmG/U=
+		yYtXa+EeHON5TI8UOheBsez46Ks=
 		</data>
 		<key>Headers/RTKDFUUpgrade.h</key>
 		<data>
-		hiSrjUWXGaUdivZ2XphfgElEpEM=
+		lJgDmuRHFV5KI+KoV7ov1hCJ0YY=
 		</data>
 		<key>Headers/RTKOTABin.h</key>
 		<data>
-		p9v8lMxjJ3co98HSgV3JjNFGqP8=
+		ZSAFwkWMg30PZewdWtBsMRabtTk=
 		</data>
 		<key>Headers/RTKOTADeviceInfo.h</key>
 		<data>
-		6hPcbLTTv9xD6ktyeC0KptgYVFs=
+		xBGjpThO3g/2Gh7mA+5ZSzFdcnc=
 		</data>
 		<key>Headers/RTKOTAError.h</key>
 		<data>
-		tFAJEFFM6LSNutuSCDn8+v6TNoo=
+		DznKFiveWfSdA6Jyzb9SdAP4f4Y=
 		</data>
 		<key>Headers/RTKOTAInstalledBin.h</key>
 		<data>
-		BD1K4HuBfEUIRJBVmCEO9N9Tnso=
+		oMgd4yPy9ebOfJGbaBsFe+xmPeI=
 		</data>
 		<key>Headers/RTKOTASDK.h</key>
 		<data>
-		u8ubWOPNaPFuJOFPQlzB38SEiHs=
+		DoEhhinoYK3tO+S2qa878yZBEXk=
 		</data>
 		<key>Headers/RTKOTAUpgradeBin.h</key>
 		<data>
-		BBJ5D4cojdzLIq7/EJnH/UIUP/M=
+		DFiPWYixpRsUtkgQvZndAsaGBiw=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		gOz3t2qUoK0NxdT48PYIdhmTWks=
+		URoUHtkqxgKB81b1iioOAL3OIhY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -67,121 +67,121 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			e7las7LPssfTMPNAEnkT3btT6As=
+			AkeZ8zFtr868CeYUqpEWFZJ37gk=
 			</data>
 			<key>hash2</key>
 			<data>
-			ivUGjMMqgt4j5vlcMfPm+5DLEjy29clr4tITMBdK9fc=
+			m8fw9HVN5DJ8q9xwRcVoUcYAKf3d1FP76HhMkoSi7M8=
 			</data>
 		</dict>
 		<key>Headers/RTKDFUConnectionUponiAP.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			kIvDyHkCy6hCdotOG3pvQMSEneU=
+			84IZvYH7VptCeUxrbdkzv7Qe4rw=
 			</data>
 			<key>hash2</key>
 			<data>
-			bEIs8iQsl9DaiR6EmckXqX7I+UfQ2nyx3ky3fos/MMo=
+			0HEM+BTgj9wlY7knFTwxqIRSjKkNrKaQAkSrD7mvdEI=
 			</data>
 		</dict>
 		<key>Headers/RTKDFUManager.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			l1baJiNBn4mZ678vTKZ2kMxvb5Y=
+			2aPHzB1Ie36fr+PhYr/8d8PnXHQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			QspaZg5LwhdI2cdNcKsFYF1lNzAXViI75JhjK4sBR0s=
+			Hxx/bIdVSJ7q2fUy4wDNS8W61mrmq0c9ffqr/6o9CTc=
 			</data>
 		</dict>
 		<key>Headers/RTKDFURoutine.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			jXf8k/7tPc7vmgF+Uci5RmlmG/U=
+			yYtXa+EeHON5TI8UOheBsez46Ks=
 			</data>
 			<key>hash2</key>
 			<data>
-			gnBBoKSTzg2URO/5mOtZErB8YWHahzlI3unuGcyHbkU=
+			YyZMZate9ghUeNwnQ0FH/woA3RyT1u80IKFpWLaT8iY=
 			</data>
 		</dict>
 		<key>Headers/RTKDFUUpgrade.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			hiSrjUWXGaUdivZ2XphfgElEpEM=
+			lJgDmuRHFV5KI+KoV7ov1hCJ0YY=
 			</data>
 			<key>hash2</key>
 			<data>
-			pfTtqN8U+VE6K7yJqEooRCD+/F1edFVBdd4P0ZWmZzg=
+			HelhJ3p/uX/bEohil6WklVv4sFjKw8xIAyLxz+ggULM=
 			</data>
 		</dict>
 		<key>Headers/RTKOTABin.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			p9v8lMxjJ3co98HSgV3JjNFGqP8=
+			ZSAFwkWMg30PZewdWtBsMRabtTk=
 			</data>
 			<key>hash2</key>
 			<data>
-			1GzF9VBKfZ9gehKCq6TyiR07ko+ft8INkcD7nBk8Abo=
+			UI5tK8TkMum19LeJL4Zf2YaRfTLUrBjGQIMbdKHExoI=
 			</data>
 		</dict>
 		<key>Headers/RTKOTADeviceInfo.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6hPcbLTTv9xD6ktyeC0KptgYVFs=
+			xBGjpThO3g/2Gh7mA+5ZSzFdcnc=
 			</data>
 			<key>hash2</key>
 			<data>
-			SifI74WTnFNLgLjuqoMRxesqXLYPvm1r8XcpXHi9g/E=
+			JSDqhw+sxTLXt10TlO0RJZGahdWRFBaXq8f/FyyfT0E=
 			</data>
 		</dict>
 		<key>Headers/RTKOTAError.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			tFAJEFFM6LSNutuSCDn8+v6TNoo=
+			DznKFiveWfSdA6Jyzb9SdAP4f4Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			NE1LBILeHQS8y48CS931M7DYNDA2MnZjl4q4Hj31J5U=
+			Jw1+Wl6Ry7l/xYG4/kChKeijuM/cVvzRUxMb44TWNZA=
 			</data>
 		</dict>
 		<key>Headers/RTKOTAInstalledBin.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			BD1K4HuBfEUIRJBVmCEO9N9Tnso=
+			oMgd4yPy9ebOfJGbaBsFe+xmPeI=
 			</data>
 			<key>hash2</key>
 			<data>
-			PFcxzRW23colJ7ngJdZ+5yyPAQz2TQFKmDAeCiUzcro=
+			QV2wnDO6QIT7z+x1kZ2g7YeyxrQkYubKTJp0EFLAr5o=
 			</data>
 		</dict>
 		<key>Headers/RTKOTASDK.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			u8ubWOPNaPFuJOFPQlzB38SEiHs=
+			DoEhhinoYK3tO+S2qa878yZBEXk=
 			</data>
 			<key>hash2</key>
 			<data>
-			VhBSPKWkvlpaiGjmjczewmKuOMH1AhLjPltFVVh/LWw=
+			yZcDgZtXkBnjca+s1jBf30Aqfhv7C1giEAFp/8N/dsw=
 			</data>
 		</dict>
 		<key>Headers/RTKOTAUpgradeBin.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			BBJ5D4cojdzLIq7/EJnH/UIUP/M=
+			DFiPWYixpRsUtkgQvZndAsaGBiw=
 			</data>
 			<key>hash2</key>
 			<data>
-			5QIGI3qaatkr5uu7ok+TfP0maa9N//F5OpqCNDeB+l8=
+			tIHht0z8TK8sehjO4aaoZH+sWU9pBb7wfm/Pyk7/1X8=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
