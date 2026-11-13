@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1E29CF31781E67E402257E0F /* Pods_FissionBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18EE9E81A4ED5C0501FB81F3 /* Pods_FissionBluetooth.framework */; };
-		1EF3A85EB70AB3172F3AF72A /* Pods_FissionBluetooth_FissionBluetoothUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CC02F02B45C16A32981171D /* Pods_FissionBluetooth_FissionBluetoothUITests.framework */; };
 		590419832A2F058600BD3A0A /* FBTestUIOverviewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 590419822A2F058600BD3A0A /* FBTestUIOverviewModel.m */; };
 		590419862A2F241C00BD3A0A /* FBTestUISportsSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 590419852A2F241C00BD3A0A /* FBTestUISportsSectionHeader.m */; };
 		590419882A2F243300BD3A0A /* FBTestUISportsSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 590419872A2F243300BD3A0A /* FBTestUISportsSectionHeader.xib */; };
@@ -252,6 +251,8 @@
 		59CAAAAC2AE9332500BF061A /* FFDropDownMenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CAAAA52AE9332500BF061A /* FFDropDownMenuModel.m */; };
 		59CAAAAD2AE9332500BF061A /* FFDropDownMenuTriangleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 59CAAAA62AE9332500BF061A /* FFDropDownMenuTriangleView.m */; };
 		59CB29DE2D8D5E150043BC3B /* TestSwiftFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59CB29DD2D8D5E150043BC3B /* TestSwiftFile.swift */; };
+		59CF6EBA30A46BAE007B70D7 /* Fission_Sdk_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CF6EB930A46BAE007B70D7 /* Fission_Sdk_iOS.framework */; };
+		59CF6EBB30A46BAE007B70D7 /* Fission_Sdk_iOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 59CF6EB930A46BAE007B70D7 /* Fission_Sdk_iOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		59D905722BEF788100C924C6 /* 16k-0.pcm in Resources */ = {isa = PBXBuildFile; fileRef = 59D905712BEF788100C924C6 /* 16k-0.pcm */; };
 		59E7BE68268C13C400B8001A /* ic_dial_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE50268C13C400B8001A /* ic_dial_button@2x.png */; };
 		59E7BE69268C13C400B8001A /* examples_img_03.png in Resources */ = {isa = PBXBuildFile; fileRef = 59E7BE51268C13C400B8001A /* examples_img_03.png */; };
@@ -312,6 +313,7 @@
 		59EE2EB32BF5E925002A8E5B /* FBBaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EE2EAD2BF5E925002A8E5B /* FBBaseNavigationController.m */; };
 		59EE2EB42BF5E925002A8E5B /* FBWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EE2EAF2BF5E925002A8E5B /* FBWebViewController.m */; };
 		59EE2EB52BF5E925002A8E5B /* LWBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 59EE2EB12BF5E925002A8E5B /* LWBaseViewController.m */; };
+		59F1C3DE2E10000300CC515E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 59F1C3DE2E10000200CC515E /* SceneDelegate.m */; };
 		59F84BA2269D3CF1001E4D65 /* 时分1.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B94269D3CF1001E4D65 /* 时分1.bmp */; };
 		59F84BA3269D3CF1001E4D65 /* 时分6.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B95269D3CF1001E4D65 /* 时分6.bmp */; };
 		59F84BA4269D3CF1001E4D65 /* 时分9.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84B96269D3CF1001E4D65 /* 时分9.bmp */; };
@@ -327,7 +329,6 @@
 		59F84BAE269D3CF1001E4D65 /* 时分7.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84BA0269D3CF1001E4D65 /* 时分7.bmp */; };
 		59F84BAF269D3CF1001E4D65 /* 时分5.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 59F84BA1269D3CF1001E4D65 /* 时分5.bmp */; };
 		59FA408E2A9D95C40035FD1E /* FBLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 59FA408D2A9D95C40035FD1E /* FBLocationManager.m */; };
-		D97F5ABDB9669A8AA9FF900E /* Pods_FissionBluetoothTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F904E21A1EB542FFEDA725CF /* Pods_FissionBluetoothTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -354,6 +355,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				59CF6EBB30A46BAE007B70D7 /* Fission_Sdk_iOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,7 +365,7 @@
 /* Begin PBXFileReference section */
 		0CB60DEA510E787BA165D8D0 /* Pods-FissionBluetooth-FissionBluetoothUITests.internal.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetooth-FissionBluetoothUITests.internal.xcconfig"; path = "Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests.internal.xcconfig"; sourceTree = "<group>"; };
 		18EE9E81A4ED5C0501FB81F3 /* Pods_FissionBluetooth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FissionBluetooth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4BBC12414EEA40B97F25BA54 /* Pods-FissionBluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetooth.release.xcconfig"; path = "Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth.release.xcconfig"; sourceTree = "<group>"; };
+		4BBC12414EEA40B97F25BA54 /* Pods-FissionBluetooth.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetooth.release.xcconfig"; path = "../../../../../Pods/Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth.release.xcconfig"; sourceTree = "<group>"; };
 		590419812A2F058600BD3A0A /* FBTestUIOverviewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBTestUIOverviewModel.h; sourceTree = "<group>"; };
 		590419822A2F058600BD3A0A /* FBTestUIOverviewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBTestUIOverviewModel.m; sourceTree = "<group>"; };
 		590419842A2F241C00BD3A0A /* FBTestUISportsSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBTestUISportsSectionHeader.h; sourceTree = "<group>"; };
@@ -600,7 +602,6 @@
 		5930E5D82AF1FBAA00F694F6 /* FBAutomaticOTACell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FBAutomaticOTACell.xib; sourceTree = "<group>"; };
 		5930E6032AF34D0B00F694F6 /* FBAutomaticOTAOverview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBAutomaticOTAOverview.h; sourceTree = "<group>"; };
 		5930E6042AF34D0B00F694F6 /* FBAutomaticOTAOverview.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBAutomaticOTAOverview.m; sourceTree = "<group>"; };
-		593399584BF981F494D22BCE /* Pods-FissionBluetoothTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetoothTests.debug.xcconfig"; path = "Target Support Files/Pods-FissionBluetoothTests/Pods-FissionBluetoothTests.debug.xcconfig"; sourceTree = "<group>"; };
 		593AA48D29BAC87000B2DD49 /* AppDelegate+FissionSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+FissionSDK.h"; sourceTree = "<group>"; };
 		593AA48E29BAC87000B2DD49 /* AppDelegate+FissionSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+FissionSDK.m"; sourceTree = "<group>"; };
 		593E413C2A25A9CF00B438FE /* FBTestUIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBTestUIViewController.h; sourceTree = "<group>"; };
@@ -774,6 +775,7 @@
 		59CAAAA72AE9332500BF061A /* FFDropDownMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FFDropDownMenu.h; sourceTree = "<group>"; };
 		59CB29DD2D8D5E150043BC3B /* TestSwiftFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestSwiftFile.swift; sourceTree = "<group>"; };
 		59CB29DF2D8D5EAC0043BC3B /* FissionBluetooth-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FissionBluetooth-Bridging-Header.h"; sourceTree = "<group>"; };
+		59CF6EB930A46BAE007B70D7 /* Fission_Sdk_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Fission_Sdk_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		59D905712BEF788100C924C6 /* 16k-0.pcm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "16k-0.pcm"; sourceTree = "<group>"; };
 		59E7BE50268C13C400B8001A /* ic_dial_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_dial_button@2x.png"; sourceTree = "<group>"; };
 		59E7BE51268C13C400B8001A /* examples_img_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = examples_img_03.png; sourceTree = "<group>"; };
@@ -837,6 +839,8 @@
 		59EE2EAF2BF5E925002A8E5B /* FBWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBWebViewController.m; sourceTree = "<group>"; };
 		59EE2EB02BF5E925002A8E5B /* LWBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LWBaseViewController.h; sourceTree = "<group>"; };
 		59EE2EB12BF5E925002A8E5B /* LWBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWBaseViewController.m; sourceTree = "<group>"; };
+		59F1C3DE2E10000100CC515E /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		59F1C3DE2E10000200CC515E /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		59F84B94269D3CF1001E4D65 /* 时分1.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分1.bmp"; sourceTree = "<group>"; };
 		59F84B95269D3CF1001E4D65 /* 时分6.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分6.bmp"; sourceTree = "<group>"; };
 		59F84B96269D3CF1001E4D65 /* 时分9.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分9.bmp"; sourceTree = "<group>"; };
@@ -853,14 +857,9 @@
 		59F84BA1269D3CF1001E4D65 /* 时分5.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = "时分5.bmp"; sourceTree = "<group>"; };
 		59FA408C2A9D95C40035FD1E /* FBLocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBLocationManager.h; sourceTree = "<group>"; };
 		59FA408D2A9D95C40035FD1E /* FBLocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FBLocationManager.m; sourceTree = "<group>"; };
-		73C300FB567263FC20125FEE /* Pods-FissionBluetoothTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetoothTests.release.xcconfig"; path = "Target Support Files/Pods-FissionBluetoothTests/Pods-FissionBluetoothTests.release.xcconfig"; sourceTree = "<group>"; };
-		7CC02F02B45C16A32981171D /* Pods_FissionBluetooth_FissionBluetoothUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FissionBluetooth_FissionBluetoothUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		84A0D48047ACB40815F24D2A /* Pods-FissionBluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetooth.debug.xcconfig"; path = "Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth.debug.xcconfig"; sourceTree = "<group>"; };
+		84A0D48047ACB40815F24D2A /* Pods-FissionBluetooth.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetooth.debug.xcconfig"; path = "../../../../../Pods/Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth.debug.xcconfig"; sourceTree = "<group>"; };
 		8634D9D26DE91154EE874117 /* Pods-FissionBluetooth.internal.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetooth.internal.xcconfig"; path = "Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth.internal.xcconfig"; sourceTree = "<group>"; };
-		8A63387D526BF805F11A16F9 /* Pods-FissionBluetooth-FissionBluetoothUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetooth-FissionBluetoothUITests.release.xcconfig"; path = "Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests.release.xcconfig"; sourceTree = "<group>"; };
 		9ABFD8D868523719455BBE12 /* Pods-FissionBluetoothTests.internal.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetoothTests.internal.xcconfig"; path = "Target Support Files/Pods-FissionBluetoothTests/Pods-FissionBluetoothTests.internal.xcconfig"; sourceTree = "<group>"; };
-		F904E21A1EB542FFEDA725CF /* Pods_FissionBluetoothTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FissionBluetoothTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FE0F92F69642F6E6D10CB7AB /* Pods-FissionBluetooth-FissionBluetoothUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FissionBluetooth-FissionBluetoothUITests.debug.xcconfig"; path = "Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -871,6 +870,7 @@
 				1E29CF31781E67E402257E0F /* Pods_FissionBluetooth.framework in Frameworks */,
 				59C6CC4B25ADA95F007C2521 /* AudioToolbox.framework in Frameworks */,
 				5982AB5F2E13C87C00B16465 /* NativeLib.framework in Frameworks */,
+				59CF6EBA30A46BAE007B70D7 /* Fission_Sdk_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -878,7 +878,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D97F5ABDB9669A8AA9FF900E /* Pods_FissionBluetoothTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -886,7 +885,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1EF3A85EB70AB3172F3AF72A /* Pods_FissionBluetooth_FissionBluetoothUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -896,11 +894,10 @@
 		2F7260CFD7131112B53695AC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				59CF6EB930A46BAE007B70D7 /* Fission_Sdk_iOS.framework */,
 				59CA6D8F25B7C4BD00093622 /* CoreTelephony.framework */,
 				59C6CC4A25ADA95F007C2521 /* AudioToolbox.framework */,
 				18EE9E81A4ED5C0501FB81F3 /* Pods_FissionBluetooth.framework */,
-				7CC02F02B45C16A32981171D /* Pods_FissionBluetooth_FissionBluetoothUITests.framework */,
-				F904E21A1EB542FFEDA725CF /* Pods_FissionBluetoothTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1213,6 +1210,8 @@
 				5968A7FA2BF4C11E00D0FB66 /* FissionBluetooth.entitlements */,
 				592A9FE325A4173A00CC515E /* AppDelegate.h */,
 				592A9FE425A4173A00CC515E /* AppDelegate.m */,
+				59F1C3DE2E10000100CC515E /* SceneDelegate.h */,
+				59F1C3DE2E10000200CC515E /* SceneDelegate.m */,
 				593AA48D29BAC87000B2DD49 /* AppDelegate+FissionSDK.h */,
 				593AA48E29BAC87000B2DD49 /* AppDelegate+FissionSDK.m */,
 				59626E752DD70C9800F11E28 /* AppDelegate+Ai.h */,
@@ -1718,10 +1717,6 @@
 		749A57D9A5AE00850B0B5BD3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				FE0F92F69642F6E6D10CB7AB /* Pods-FissionBluetooth-FissionBluetoothUITests.debug.xcconfig */,
-				8A63387D526BF805F11A16F9 /* Pods-FissionBluetooth-FissionBluetoothUITests.release.xcconfig */,
-				593399584BF981F494D22BCE /* Pods-FissionBluetoothTests.debug.xcconfig */,
-				73C300FB567263FC20125FEE /* Pods-FissionBluetoothTests.release.xcconfig */,
 				84A0D48047ACB40815F24D2A /* Pods-FissionBluetooth.debug.xcconfig */,
 				4BBC12414EEA40B97F25BA54 /* Pods-FissionBluetooth.release.xcconfig */,
 				8634D9D26DE91154EE874117 /* Pods-FissionBluetooth.internal.xcconfig */,
@@ -1758,7 +1753,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 592AA01225A4173C00CC515E /* Build configuration list for PBXNativeTarget "FissionBluetoothTests" */;
 			buildPhases = (
-				89A6B39CCED87B1878EABAE9 /* [CP] Check Pods Manifest.lock */,
 				592A9FF725A4173C00CC515E /* Sources */,
 				592A9FF825A4173C00CC515E /* Frameworks */,
 				592A9FF925A4173C00CC515E /* Resources */,
@@ -1777,11 +1771,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 592AA01525A4173C00CC515E /* Build configuration list for PBXNativeTarget "FissionBluetoothUITests" */;
 			buildPhases = (
-				828C1DC392DE11A00427D693 /* [CP] Check Pods Manifest.lock */,
 				592AA00225A4173C00CC515E /* Sources */,
 				592AA00325A4173C00CC515E /* Frameworks */,
 				592AA00425A4173C00CC515E /* Resources */,
-				72ECFFDEF7486040AB9DEC59 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2049,74 +2041,17 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
+			outputPaths = (
+			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth/Pods-FissionBluetooth-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		72ECFFDEF7486040AB9DEC59 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FissionBluetooth-FissionBluetoothUITests/Pods-FissionBluetooth-FissionBluetoothUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		828C1DC392DE11A00427D693 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FissionBluetooth-FissionBluetoothUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		89A6B39CCED87B1878EABAE9 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FissionBluetoothTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2227,6 +2162,7 @@
 				592197442A1B514800A4BE45 /* LWContactSearchBarHeaderView.m in Sources */,
 				5921974A2A1B514800A4BE45 /* DialListModel.m in Sources */,
 				592A9FE525A4173A00CC515E /* AppDelegate.m in Sources */,
+				59F1C3DE2E10000300CC515E /* SceneDelegate.m in Sources */,
 				5921975B2A1B514800A4BE45 /* MotionPushViewController.m in Sources */,
 				593E41652A25DBF000B438FE /* FBCustomDialHeadView.m in Sources */,
 				592197472A1B514800A4BE45 /* LWStartCountdownView.m in Sources */,
@@ -2497,7 +2433,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FissionBluetooth/SystemBaseclass/PrefixHeader.pch";
 				INFOPLIST_FILE = FissionBluetooth/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2544,7 +2480,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FissionBluetooth/SystemBaseclass/PrefixHeader.pch";
 				INFOPLIST_FILE = FissionBluetooth/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -2566,7 +2502,6 @@
 		};
 		592AA01325A4173C00CC515E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 593399584BF981F494D22BCE /* Pods-FissionBluetoothTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -2587,7 +2522,6 @@
 		};
 		592AA01425A4173C00CC515E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73C300FB567263FC20125FEE /* Pods-FissionBluetoothTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -2608,7 +2542,6 @@
 		};
 		592AA01625A4173C00CC515E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FE0F92F69642F6E6D10CB7AB /* Pods-FissionBluetooth-FissionBluetoothUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PL4B74TGHZ;
@@ -2627,7 +2560,6 @@
 		};
 		592AA01725A4173C00CC515E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8A63387D526BF805F11A16F9 /* Pods-FissionBluetooth-FissionBluetoothUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PL4B74TGHZ;

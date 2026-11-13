@@ -334,15 +334,15 @@ static NSString *FBTestUISportsRecordCellID = @"FBTestUISportsRecordCell";
     
     if (itemModel.dataType == FBTestUIDataType_Distance) { // 选择公英制单位
         
-        BRStringPickerView *pickerView = [[BRStringPickerView alloc] initWithPickerMode:BRStringPickerComponentSingle];
+        BRTextPickerView *pickerView = [[BRTextPickerView alloc] initWithPickerMode:BRTextPickerComponentSingle];
         pickerView.title = LWLocalizbleString(@"Distance Unit Setting");
         pickerView.dataSourceArr = @[LWLocalizbleString(@"Metric"), LWLocalizbleString(@"Imperial")];
         pickerView.selectIndex = Tools.isMetric ? 0 : 1;
         [pickerView show];
         WeakSelf(self);
-        pickerView.resultModelBlock = ^(BRResultModel * _Nullable resultModel) {
+        pickerView.singleResultBlock = ^(BRTextModel * _Nullable model, NSInteger index) {
             
-            FB_DISTANCEUNIT unit = resultModel.index==0 ? FB_MetricUnit : FB_EnglishUnits;
+            FB_DISTANCEUNIT unit = index==0 ? FB_MetricUnit : FB_EnglishUnits;
             // 设置距离单位（公英制）｜Set distance units (metric British system)
             [FBAtCommand.sharedInstance fbUpDistanceUnitData:unit withBlock:^(NSError * _Nullable error) {
                 if (error) {

@@ -9,8 +9,6 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow * window;
-
 /// 重新绑定弹窗是否正在显示
 @property (nonatomic, assign) BOOL rebindShowing;
 

@@ -6,7 +6,6 @@
 //
 
 #import "AppDelegate.h"
-#import "MainViewController.h"
 #import "AppDelegate+FissionSDK.h"
 
 @interface AppDelegate () <JJExceptionHandle>
@@ -47,14 +46,6 @@
     // 打开文件将会自动执行迁移
     [RLMRealm defaultRealm];
     
-    // 初始化窗口
-    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.backgroundColor = UIColorWhite;
-    FBBaseNavigationController *naviBar = [[FBBaseNavigationController alloc] initWithRootViewController:MainViewController.new];
-    self.window.rootViewController = naviBar;
-    [self.window makeKeyAndVisible];
-    self.window.clipsToBounds = YES;
-    
     // 键盘管理
     IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
     manager.enable = YES;
@@ -87,6 +78,12 @@
     }];
     
     return YES;
+}
+
+#pragma mark - UIScene lifecycle
+
+- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options {
+    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
 }
 
 #pragma mark - JJExceptionHandle 监听闪退

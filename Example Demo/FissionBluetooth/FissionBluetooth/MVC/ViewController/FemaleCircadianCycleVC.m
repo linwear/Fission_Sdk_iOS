@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic, retain) BRDatePickerView *datePickerView;
-@property (nonatomic, retain) BRStringPickerView *stringPickerView;
+@property (nonatomic, retain) BRTextPickerView *textPickerView;
 
 @property (nonatomic, retain) FBFemalePhysiologyModel *model;
 
@@ -34,7 +34,7 @@
     
     // 1.创建日期选择器
     self.datePickerView = [[BRDatePickerView alloc] init];
-    self.stringPickerView = [[BRStringPickerView alloc] init];
+    self.textPickerView = [[BRTextPickerView alloc] initWithPickerMode:BRTextPickerComponentSingle];
     
     self.model = [FBFemalePhysiologyModel new];
 }
@@ -55,54 +55,54 @@
 - (void)femaleCellBlockClick:(NSInteger)type{
     WeakSelf(self);
     if (type==1) {
-        self.stringPickerView.title = @"Health mode";
-        self.stringPickerView.pickerMode = BRStringPickerComponentSingle;
-        self.stringPickerView.dataSourceArr = @[@"Closure", @"Menstrual Period", @"Pregnancy Period", @"Pregnancy"];
-        self.stringPickerView.selectIndex = self.model.HealthModel;
-        self.stringPickerView.resultModelBlock = ^(BRResultModel * _Nullable resultModel) {
-            weakSelf.model.HealthModel = (int)resultModel.index;
+        self.textPickerView.title = @"Health mode";
+        self.textPickerView.pickerMode = BRTextPickerComponentSingle;
+        self.textPickerView.dataSourceArr = @[@"Closure", @"Menstrual Period", @"Pregnancy Period", @"Pregnancy"];
+        self.textPickerView.selectIndex = self.model.HealthModel;
+        self.textPickerView.singleResultBlock = ^(BRTextModel * _Nullable model, NSInteger index) {
+            weakSelf.model.HealthModel = (int)index;
             [weakSelf.tableView reloadData];
         };
-        [self.stringPickerView show];
+        [self.textPickerView show];
     } else if (type==2){
         NSMutableArray *ary = @[].mutableCopy;
         for (int i = 1; i < 4; i++) {
             [ary addObject: @(i).stringValue];
         }
-        self.stringPickerView.title = @"Reminder days in advance";
-        self.stringPickerView.pickerMode = BRStringPickerComponentSingle;
-        self.stringPickerView.dataSourceArr = ary;
-        self.stringPickerView.resultModelBlock = ^(BRResultModel * _Nullable resultModel) {
-            weakSelf.model.daysInAdvance = resultModel.value.integerValue;
+        self.textPickerView.title = @"Reminder days in advance";
+        self.textPickerView.pickerMode = BRTextPickerComponentSingle;
+        self.textPickerView.dataSourceArr = ary;
+        self.textPickerView.singleResultBlock = ^(BRTextModel * _Nullable model, NSInteger index) {
+            weakSelf.model.daysInAdvance = model.text.integerValue;
             [weakSelf.tableView reloadData];
         };
-        [self.stringPickerView show];
+        [self.textPickerView show];
     } else if (type==3){
         NSMutableArray *ary = @[].mutableCopy;
         for (int i = 3; i < 16; i++) {
             [ary addObject: @(i).stringValue];
         }
-        self.stringPickerView.title = @"Days of menstrual period";
-        self.stringPickerView.pickerMode = BRStringPickerComponentSingle;
-        self.stringPickerView.dataSourceArr = ary;
-        self.stringPickerView.resultModelBlock = ^(BRResultModel * _Nullable resultModel) {
-            weakSelf.model.daysMenstruation = resultModel.value.integerValue;
+        self.textPickerView.title = @"Days of menstrual period";
+        self.textPickerView.pickerMode = BRTextPickerComponentSingle;
+        self.textPickerView.dataSourceArr = ary;
+        self.textPickerView.singleResultBlock = ^(BRTextModel * _Nullable model, NSInteger index) {
+            weakSelf.model.daysMenstruation = model.text.integerValue;
             [weakSelf.tableView reloadData];
         };
-        [self.stringPickerView show];
+        [self.textPickerView show];
     } else if (type==4){
         NSMutableArray *ary = @[].mutableCopy;
         for (int i = 17; i < 61; i++) {
             [ary addObject: @(i).stringValue];
         }
-        self.stringPickerView.title = @"Menstrual Cycle";
-        self.stringPickerView.pickerMode = BRStringPickerComponentSingle;
-        self.stringPickerView.dataSourceArr = ary;
-        self.stringPickerView.resultModelBlock = ^(BRResultModel * _Nullable resultModel) {
-            weakSelf.model.cycleLength = resultModel.value.integerValue;
+        self.textPickerView.title = @"Menstrual Cycle";
+        self.textPickerView.pickerMode = BRTextPickerComponentSingle;
+        self.textPickerView.dataSourceArr = ary;
+        self.textPickerView.singleResultBlock = ^(BRTextModel * _Nullable model, NSInteger index) {
+            weakSelf.model.cycleLength = model.text.integerValue;
             [weakSelf.tableView reloadData];
         };
-        [self.stringPickerView show];
+        [self.textPickerView show];
     } else if (type==5){
         self.datePickerView.pickerMode = BRDatePickerModeYMD;
         self.datePickerView.minDate = [NSDate br_setYear:2020 month:1 day:1];
@@ -117,14 +117,14 @@
         };
         [self.datePickerView show];
     } else if (type==6){
-        self.stringPickerView.title = @"Pregnancy Reminder";
-        self.stringPickerView.pickerMode = BRStringPickerComponentSingle;
-        self.stringPickerView.dataSourceArr = @[@"Days Pregnant",@"Days to due date"];
-        self.stringPickerView.resultModelBlock = ^(BRResultModel * _Nullable resultModel) {
-            weakSelf.model.isPreProduction = resultModel.index==1?YES:NO;
+        self.textPickerView.title = @"Pregnancy Reminder";
+        self.textPickerView.pickerMode = BRTextPickerComponentSingle;
+        self.textPickerView.dataSourceArr = @[@"Days Pregnant",@"Days to due date"];
+        self.textPickerView.singleResultBlock = ^(BRTextModel * _Nullable model, NSInteger index) {
+            weakSelf.model.isPreProduction = index==1?YES:NO;
             [weakSelf.tableView reloadData];
         };
-        [self.stringPickerView show];
+        [self.textPickerView show];
     } else if (type==7){
         self.datePickerView.pickerMode = BRDatePickerModeHM;
         self.datePickerView.title = @"Reminder Time";

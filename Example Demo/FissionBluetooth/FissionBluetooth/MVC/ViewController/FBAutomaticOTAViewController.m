@@ -175,13 +175,17 @@ static NSString *FBAutomaticOTAHeaderViewID = @"FBAutomaticOTAHeaderView";
         [array addObject:[NSString stringWithFormat:@"%d", i*5]];
     }
     
-    BRStringPickerView *stringPickerView = [[BRStringPickerView alloc]init];
-    stringPickerView.pickerMode = BRStringPickerComponentSingle;
+    BRTextPickerView *stringPickerView = [[BRTextPickerView alloc] initWithPickerMode:BRTextPickerComponentSingle];
     stringPickerView.title = LWLocalizbleString(@"Select Time");
     stringPickerView.dataSourceArr = array.copy;
-    stringPickerView.selectValue = [NSString stringWithFormat:@"%d", self.interval];
-    stringPickerView.resultModelBlock = ^(BRResultModel *resultModel) {
-        weakSelf.interval = resultModel.value.intValue;
+    NSString *intervalText = [NSString stringWithFormat:@"%d", self.interval];
+    NSInteger selectIndex = [array indexOfObject:intervalText];
+    if (selectIndex == NSNotFound) {
+        selectIndex = 0;
+    }
+    stringPickerView.selectIndex = selectIndex;
+    stringPickerView.singleResultBlock = ^(BRTextModel * _Nullable model, NSInteger index) {
+        weakSelf.interval = model.text.intValue;
         [weakSelf.otaButton setTitle:[NSString stringWithFormat:@"OTA【%d s】", weakSelf.interval] forState:UIControlStateNormal];
         [weakSelf.otaButton setTitle:[NSString stringWithFormat:@"STOP【%d s】", weakSelf.interval] forState:UIControlStateSelected];
         

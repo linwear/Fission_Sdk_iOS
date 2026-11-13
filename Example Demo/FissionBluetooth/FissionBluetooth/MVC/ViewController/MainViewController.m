@@ -811,14 +811,13 @@
             
             static NSInteger interfaceCodeIndex = 1;
             
-            BRStringPickerView *stringPickerView = BRStringPickerView.new;
-            stringPickerView.pickerMode = BRStringPickerComponentMulti;
+            BRTextPickerView *stringPickerView = [[BRTextPickerView alloc] initWithPickerMode:BRTextPickerComponentMulti];
             stringPickerView.title = LWLocalizbleString(@"Select interface code");
             stringPickerView.dataSourceArr = @[@[LWLocalizbleString(@"Interface Jump Code")], arr];
             stringPickerView.selectIndexs = @[@(0), @(interfaceCodeIndex)];
-            [stringPickerView setResultModelArrayBlock:^(NSArray<BRResultModel *> * _Nullable resultModelArr) {
+            stringPickerView.multiResultBlock = ^(NSArray<BRTextModel *> * _Nullable models, NSArray<NSNumber *> * _Nullable indexs) {
                 
-                BRResultModel *model = resultModelArr.lastObject;
+                BRTextModel *model = models.lastObject;
                 NSInteger interfaceCode = model.index;
                 interfaceCodeIndex = interfaceCode;
                 
@@ -829,7 +828,7 @@
                         weakSelf.receTextView.text = LWLocalizbleString(@"Success");
                     }
                 }];
-            }];
+            };
             [stringPickerView show];
         }
         
@@ -1044,15 +1043,15 @@
         
         else if ([rowStr containsString:LWLocalizbleString(@"Low Speed Connection/High Speed Connection")]) {
             
-            BRStringPickerView *pickerView = [[BRStringPickerView alloc] initWithPickerMode:BRStringPickerComponentSingle];
+            BRTextPickerView *pickerView = [[BRTextPickerView alloc] initWithPickerMode:BRTextPickerComponentSingle];
             pickerView.title = LWLocalizbleString(@"Toggle connection speed");
             pickerView.dataSourceArr = @[LWLocalizbleString(@"Low Speed Connection"), LWLocalizbleString(@"High Speed Connection")];
             [pickerView show];
             WeakSelf(self);
-            pickerView.resultModelBlock = ^(BRResultModel * _Nullable resultModel) {
+            pickerView.singleResultBlock = ^(BRTextModel * _Nullable model, NSInteger index) {
                 
-                NSString *string = resultModel.index==0 ? LWLocalizbleString(@"Low Speed Connection") : LWLocalizbleString(@"High Speed Connection");
-                BOOL isHigh = resultModel.index==1 ? YES : NO;
+                NSString *string = index==0 ? LWLocalizbleString(@"Low Speed Connection") : LWLocalizbleString(@"High Speed Connection");
+                BOOL isHigh = index==1 ? YES : NO;
                 
                 [FBAtCommand.sharedInstance fbUpHighAndLowSpeedConnectionWithSwitchMode:isHigh withBlock:^(NSInteger responseObject, NSError * _Nullable error) {
                     if (error) {

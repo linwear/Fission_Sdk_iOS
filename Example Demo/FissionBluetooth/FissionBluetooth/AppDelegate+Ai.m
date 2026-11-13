@@ -110,7 +110,7 @@
     self.audioRecorder = [[FBAudioRecorder alloc] initWithCallback:^(NSData * _Nullable audioData, NSError * _Nullable error)
                           {
         if (error) {
-            NSLog(@"手机麦克风初始化失败 %@", error);
+            FBLog(@"手机麦克风初始化失败 %@", error);
         }
         else {
             if (audioData.length) {
@@ -144,10 +144,10 @@
             // 启动麦克风录音
             [weakSelf.audioRecorder startRecording:^(BOOL autorisieren, BOOL success) {
                 if (!autorisieren) {
-                    NSLog(@"麦克风权限未授权");
+                    FBLog(@"麦克风权限未授权");
                 }
                 else if (!success) { // 录音失败
-                    NSLog(@"麦克风录音失败");
+                    FBLog(@"麦克风录音失败");
                 }
             } allowFirst:YES];
         }
@@ -180,11 +180,11 @@
     [[AFlash shared] initializeWithWatchInfos:@[watchInfo]
                                     onSuccess:^(NSArray<WatchInfo *> * _Nonnull watchInfos) {
         
-        NSLog(@"AI初始化成功 %@", watchInfos);
+        FBLog(@"AI初始化成功 %@", watchInfos);
         
     } onFailure:^(ErrorCode * _Nonnull error) {
         
-        NSLog(@"AI初始化失败 %@", error);
+        FBLog(@"AI初始化失败 %@", error);
     }];
 }
 
@@ -203,7 +203,7 @@
                                       language:self.language
                                      onSuccess:^(NSString * _Nonnull requestId, NSString * _Nonnull text)
      {
-        NSLog(@"语音转文字成功 %@", text);
+        FBLog(@"语音转文字成功 %@", text);
         
         // ChatGPT
         if (appType == FB_JSAPPLICATIONTYPE_CHATGPT)
@@ -217,11 +217,11 @@
              {
                 if (error)
                 {
-                    NSLog(@"问题文字发送失败 %@", error);
+                    FBLog(@"问题文字发送失败 %@", error);
                 }
                 else
                 {
-                    NSLog(@"问题文字发送成功");
+                    FBLog(@"问题文字发送成功");
                     // 请求回答
                     [weakSelf ai_chatText:appType ask:text];
                 }
@@ -236,7 +236,7 @@
         
     } onFailure:^(NSString * _Nonnull requestId, ErrorCode * _Nonnull error)
      {
-        NSLog(@"语音转文字失败 %@", error);
+        FBLog(@"语音转文字失败 %@", error);
     }];
 }
 
@@ -252,7 +252,7 @@
                                   language:[self language]
                                  onSuccess:^(NSString * _Nonnull requestId, NSString * _Nonnull sendTextContent, NSString * _Nonnull answerTextContent, NSString * _Nonnull contentId, SubscriptionInfo * _Nullable subscriptionInfo)
      {
-        NSLog(@"文字聊天成功 %@", answerTextContent);
+        FBLog(@"文字聊天成功 %@", answerTextContent);
         
         // 4.将获得的答案文本发送手表 (FBBaiduCloudKit)requestSyncType:result:text:isEnd:callback:
         [FBBaiduCloudKit requestSyncType:appType
@@ -261,12 +261,22 @@
                                    isEnd:YES
                                 callback:^(NSError * _Nullable error)
          {
-            //something...
+            FBLog(@"回复发送%@", error ? @"失败" : @"成功");
         }];
         
     } onFailure:^(NSString * _Nonnull requestId, ErrorCode * _Nonnull error)
      {
-        NSLog(@"文字聊天失败 %@", error);
+        FBLog(@"文字聊天失败 %@", error);
+        if ([error.code isEqualToString:@"12"]) { // 敏感词
+            [FBBaiduCloudKit requestSyncType:appType
+                                      result:FB_JSAPPLICATIONRESULTS_SENSITIVEWORDSFAILED
+                                        text:error.message
+                                       isEnd:YES
+                                    callback:^(NSError * _Nullable error)
+             {
+                FBLog(@"回复发送%@", error ? @"失败" : @"成功");
+            }];
+        }
     }];
 }
 
@@ -284,7 +294,7 @@
                                           onSuccess:^(NSString * _Nonnull requestId, NSString * _Nonnull sendTextContent, NSData * _Nonnull imgData, NSData * _Nullable thuImgData, SubscriptionInfo * _Nullable subscriptionInfo)
      {
         UIImage *img = [UIImage imageWithData:imgData];
-        NSLog(@"文字画图成功 %@", img);
+        FBLog(@"文字画图成功 %@", img);
         
         // text内容，Ai表盘生成状态(1成功，2失败)
         [FBBaiduCloudKit requestSyncType:appType result:FB_JSAPPLICATIONRESULTS_ANSWERS_OR_DIALSRATUS text:@"1" isEnd:YES callback:^(NSError * _Nullable error) {
@@ -298,7 +308,7 @@
         
     } onFailure:^(NSString * _Nonnull requestId, ErrorCode * _Nonnull error)
      {
-        NSLog(@"文字画图失败 %@", error);
+        FBLog(@"文字画图失败 %@", error);
     }];
 }
 
