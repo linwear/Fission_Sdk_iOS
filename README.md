@@ -55,8 +55,15 @@
 
 * **方式一(推荐): CocoaPods｜Method 1 (Recommend): CocoaPods**
 1. 在 `Podfile` 中添加以下内容｜Add the following content in `Podfile`
+
 ```ruby
+# 全量 Core + RTK + HS
 pod 'Fission_Sdk_iOS', git: 'https://github.com/linwear/Fission_Sdk_iOS.git'
+
+# 分块：自行组合子规格｜Modular — pick subspecs explicitly:
+# pod 'Fission_Sdk_iOS/Core', git: '...'
+# pod 'Fission_Sdk_iOS/RTK', git: '...'
+# pod 'Fission_Sdk_iOS/HS', git: '...'
 ```
 
 2. 运行 `pod install` 或 `pod update`｜Run `pod install` or `pod update`

@@ -1,37 +1,42 @@
 Pod::Spec.new do |spec|
+  spec.name         = 'Fission_Sdk_iOS'
+  spec.version      = '3.3.6'
+  spec.summary      = 'Fission智能手表SDK for iOS'
+  spec.description  = 'Fission 智能手表 iOS 框架，负责与手表设备通信等功能的封装｜iOS framework for Fission smart watch communication.'
+  spec.homepage     = "https://github.com/linwear/Fission_Sdk_iOS/tree/#{spec.version}"
+  spec.license      = 'MIT'
+  spec.author       = { 'wsr1949' => '921903719@qq.com' }
+  spec.platform     = :ios, '15.0'
+  spec.source       = { :git => 'https://github.com/linwear/Fission_Sdk_iOS.git', :tag => spec.version.to_s }
 
-  spec.name                     = "Fission_Sdk_iOS"
-  spec.version                  = "3.3.6"
-  spec.summary                  = "Fission智能手表SDK for iOS"
-  spec.description              = <<-DESC
-                                  Fission 智能手表的 iOS 框架，负责与智能手表设备通信等功能的封装｜Framework Function: iOS framework for Fission smart watch, which is responsible for the communication with the watch.
-                                  DESC
-  spec.homepage                 = "https://github.com/linwear/Fission_Sdk_iOS/tree/#{spec.version}/Fission_Sdk_iOS"
-  spec.license                  = 'MIT'
-  spec.author                   = { "WSR" => "921903719@qq.com" }
-  spec.social_media_url         = 'https://www.linwear.com'
-  spec.platform                 = :ios, '13.0'
-  spec.source                   = { :git => "https://github.com/linwear/Fission_Sdk_iOS.git", :tag => spec.version.to_s }
-  spec.documentation_url        = 'https://github.com/linwear/Fission_Sdk_iOS/blob/main/README.md'
-  spec.requires_arc             = true
-  spec.frameworks               = 'Foundation', 'CoreBluetooth'
-  spec.vendored_frameworks      = 'SDK/Fission_Sdk_iOS.framework'
+  spec.default_subspecs = 'Core', 'RTK', 'HS'
+  spec.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
 
-  public_header_files           = 'SDK/Fission_Sdk_iOS.framework/Headers/*.{h,m}'
-
-  spec.dependency 'Protobuf'
-
-  spec.subspec 'Headers' do |spec|
-    spec.source_files           = public_header_files
-    spec.public_header_files    = public_header_files
+  spec.subspec 'Core' do |s|
+    s.frameworks           = 'Foundation', 'CoreBluetooth'
+    s.vendored_frameworks  = 'SDK/core/Fission_Sdk_iOS.framework'
+    s.dependency             'Protobuf'
   end
 
-  spec.subspec 'AllDependencys' do |allDependency|
-    allDependency.vendored_frameworks   = 'SDK/RTKOTASDK.xcframework', 'SDK/RTKLEFoundation.xcframework', 'SDK/SCompressLib.framework', 'SDK/RTKRealChatConnection.xcframework', 'SDK/RTKAudioStreaming.xcframework', 'SDK/libRTKCompression.xcframework', 'SDK/opus.framework', 'SDK/FFmpeg/ffmpegkit.xcframework', 'SDK/FFmpeg/libavfilter.xcframework', 'SDK/FFmpeg/libswscale.xcframework', 'SDK/FFmpeg/libswresample.xcframework', 'SDK/FFmpeg/libavcodec.xcframework', 'SDK/FFmpeg/libavutil.xcframework', 'SDK/FFmpeg/libavformat.xcframework', 'SDK/FFmpeg/libavdevice.xcframework', 'SDK/slm_remote_iOS.framework'
+  spec.subspec 'RTK' do |s|
+    s.vendored_frameworks  = 'SDK/rtk/RTKOTASDK.xcframework',
+                             'SDK/rtk/RTKLEFoundation.xcframework',
+                             'SDK/rtk/RTKRealChatConnection.xcframework',
+                             'SDK/rtk/RTKAudioStreaming.xcframework',
+                             'SDK/rtk/libRTKCompression.xcframework'
   end
 
-  spec.pod_target_xcconfig      = { 
-                                    'OTHER_LDFLAGS' => '-lObjC',
-                                  }
-  
+  spec.subspec 'HS' do |s|
+    s.vendored_frameworks  = 'SDK/hs/SCompressLib.framework',
+                             'SDK/hs/opus.framework',
+                             'SDK/hs/FFmpeg/ffmpegkit.xcframework',
+                             'SDK/hs/FFmpeg/libavfilter.xcframework',
+                             'SDK/hs/FFmpeg/libswscale.xcframework',
+                             'SDK/hs/FFmpeg/libswresample.xcframework',
+                             'SDK/hs/FFmpeg/libavcodec.xcframework',
+                             'SDK/hs/FFmpeg/libavutil.xcframework',
+                             'SDK/hs/FFmpeg/libavformat.xcframework',
+                             'SDK/hs/FFmpeg/libavdevice.xcframework',
+                             'SDK/hs/slm_remote_iOS.framework'
+  end
 end
